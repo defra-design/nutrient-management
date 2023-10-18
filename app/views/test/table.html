@@ -1,0 +1,172 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl">Examples</h1>
+
+<h2 class="govuk-heading-l">Table example</h2>
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Fields</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Field name</th>
+      <th scope="col" class="govuk-table__header">Field area (hectares)</th>
+      <th scope="col" class="govuk-table__header"> </th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Oak field</th>
+          <td class="govuk-table__cell">10</td>
+          <td class="govuk-table__cell"> <a href="field-table.html">View details</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Long Field</th>
+          <td class="govuk-table__cell">7</td>
+          <td class="govuk-table__cell"> <a href="field-table.html">View details</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Top Field</th>
+          <td class="govuk-table__cell">15</td>
+          <td class="govuk-table__cell"> <a href="field-table.html">View details</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Bottom Field</th>
+          <td class="govuk-table__cell">12</td>
+          <td class="govuk-table__cell"> <a href="field-table.html">View details</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Grass Field</th>
+          <td class="govuk-table__cell">7</td>
+          <td class="govuk-table__cell"> <a href="field-table.html">View details</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Cow Field</th>
+          <td class="govuk-table__cell">4</td>
+          <td class="govuk-table__cell"> <a href="field-table.html">View details</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">The Field with the really long name</th>
+          <td class="govuk-table__cell">3</td>
+          <td class="govuk-table__cell"> <a href="field-table.html">View details</a></td>
+        </tr>
+  </tbody>
+</table>
+
+<div>
+  <form action="add-field" method="post" novalidate="">
+    <button class="govuk-button" data-module="govuk-button">Add a field</button>
+  </form>
+</div>
+
+<div>
+  <br>
+  <br>
+  <hr>
+  <br>
+</div>
+
+<h2 class="govuk-heading-l">Table example 2</h2>
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Fields</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Field name</th>
+      <th scope="col" class="govuk-table__header">National Grid number</th>
+      <th scope="col" class="govuk-table__header">Other reference</th>
+      <th scope="col" class="govuk-table__header">Field area</th>
+      <th scope="col" class="govuk-table__header">Cropped area</th>
+      <th scope="col" class="govuk-table__header">Manure non-spreading area</th>
+      <th scope="col" class="govuk-table__header">Soil type</th>
+      <th scope="col" class="govuk-table__header">K releasing clay</th>
+      <th scope="col" class="govuk-table__header">NVZ action programme</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Oak field</th>
+          <td class="govuk-table__cell">NZ101508</td>
+          <td class="govuk-table__cell"> </td>
+          <td class="govuk-table__cell">10</td>
+          <td class="govuk-table__cell">10</td>
+          <td class="govuk-table__cell"> </td>
+          <td class="govuk-table__cell">Medium</td>
+          <td class="govuk-table__cell">No</td>
+          <td class="govuk-table__cell">No</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Long Field</th>
+          <td class="govuk-table__cell">NZ101508</td>
+          <td class="govuk-table__cell"> </td>
+          <td class="govuk-table__cell">10</td>
+          <td class="govuk-table__cell">10</td>
+          <td class="govuk-table__cell"> </td>
+          <td class="govuk-table__cell">Medium</td>
+          <td class="govuk-table__cell">No</td>
+          <td class="govuk-table__cell">No</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Top Field</th>
+          <td class="govuk-table__cell">NZ101508</td>
+          <td class="govuk-table__cell"> </td>
+          <td class="govuk-table__cell">10</td>
+          <td class="govuk-table__cell">10</td>
+          <td class="govuk-table__cell"> </td>
+          <td class="govuk-table__cell">Medium</td>
+          <td class="govuk-table__cell">No</td>          
+          <td class="govuk-table__cell">No</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Bottom Field</th>
+          <td class="govuk-table__cell">NZ101508</td>
+          <td class="govuk-table__cell"> </td>
+          <td class="govuk-table__cell">10</td>
+          <td class="govuk-table__cell">10</td>
+          <td class="govuk-table__cell"> </td>
+          <td class="govuk-table__cell">Medium</td>
+          <td class="govuk-table__cell">No</td>          
+          <td class="govuk-table__cell">No</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Grass Field</th>
+          <td class="govuk-table__cell">NZ101508</td>
+          <td class="govuk-table__cell"> </td>
+          <td class="govuk-table__cell">10</td>
+          <td class="govuk-table__cell">10</td>
+          <td class="govuk-table__cell"> </td>
+          <td class="govuk-table__cell">Medium</td>
+          <td class="govuk-table__cell">No</td>          
+          <td class="govuk-table__cell">No</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Cow Field</th>
+          <td class="govuk-table__cell">NZ101508</td>
+          <td class="govuk-table__cell"> </td>
+          <td class="govuk-table__cell">10</td>
+          <td class="govuk-table__cell">10</td>
+          <td class="govuk-table__cell"> </td>
+          <td class="govuk-table__cell">Medium</td>
+          <td class="govuk-table__cell">No</td>          
+          <td class="govuk-table__cell">No</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">The Field with the really long name</th>
+          <td class="govuk-table__cell">NZ101508</td>
+          <td class="govuk-table__cell"> </td>
+          <td class="govuk-table__cell">10</td>
+          <td class="govuk-table__cell">10</td>
+          <td class="govuk-table__cell"> </td>
+          <td class="govuk-table__cell">Medium</td>
+          <td class="govuk-table__cell">No</td>          
+          <td class="govuk-table__cell">No</td>
+        </tr>
+  </tbody>
+</table>
+
+{% endblock %}

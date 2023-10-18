@@ -1,0 +1,36 @@
+//
+// For guidance on how to add CSS and SCSS see:
+// https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
+// 
+
+// Add extra styles here
+
+
+.bold-form {
+    label {
+        font-weight: bold;
+    }
+    .govuk-radios__item {
+        label {
+        font-weight: normal;
+        }
+    }
+}
+
+#feild-detail {
+    .govuk-summary-list__key {
+        width: auto;
+    }
+    .govuk-summary-list__row:not(.govuk-summary-list__row--no-actions) > :last-child {
+        width: 35%;
+    }
+}
+
+.check-answers {
+    .govuk-summary-list__key {
+        width: auto;
+    }
+    .govuk-summary-list__value {
+        width: 25%
+    }
+}

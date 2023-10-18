@@ -34,3 +34,25 @@
         width: 25%
     }
 }
+
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.recomendation-table .govuk-table__header {
+    padding-right: 10px;
+}
+
+.secondary-button {
+    .govuk-button {
+        background-color: #b1b4b6;
+        color: black;
+    }
+}
+
+.inline-amounts {
+    float: inline-end;
+    width: 63%;
+    padding-top: 5px;
+}

@@ -1,0 +1,115 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+{% set nutrient = "Nitrogen (N)" %}
+
+<h1 class="govuk-heading-l">{{nutrient}} application plan</h1>
+<h2 class="govuk-heading-m">Small Field</h2>
+<p class="govuk-body">Wheat, Winter</p>
+<hr>
+<br>
+
+<table class="govuk-table recomendation-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">{{nutrient}} recomendations for Small Field</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Nutrient</th>
+      <th scope="col" class="govuk-table__header">Index / <br> pH</th>
+      <th scope="col" class="govuk-table__header">Crop <br>need</th>
+      <th scope="col" class="govuk-table__header">Manure</th>
+      <th scope="col" class="govuk-table__header">Fertiliser<br> or Lime</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Nitrogen (N)</td>
+      <td class="govuk-table__cell">2</td>
+      <td class="govuk-table__cell">1900</td>
+      <td class="govuk-table__cell">307</td>
+      <td class="govuk-table__cell">1530</td>
+    </tr>      
+  </tbody>
+</table>
+
+<br>
+<h2 class="govuk-heading-m">How many kilograms of {{nutrient}} do you plan to apply<br> per hectare in each month range?</h1>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="add-phosphate" method="post" novalidate="" class="bold-form">
+        <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">How many kilograms of Nitrogen do you plan to apply per hectare in each month range?</h1>
+        </legend> -->
+        
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-2">August to September</label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+          <p class="inline-amounts">kilograms per hectare</p>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-2">October to December </label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+          <p class="inline-amounts">kilograms per hectare</p>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-2">January to February</label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+          <p class="inline-amounts">kilograms per hectare</p>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-2">February to March</label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+          <p class="inline-amounts">kilograms per hectare</p>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-2">March to April</label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+          <p class="inline-amounts">kilograms per hectare</p>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-2">April to May </label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+          <p class="inline-amounts">kilograms per hectare</p>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-2">May to June </label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+          <p class="inline-amounts">kilograms per hectare</p>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-2">June to July </label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+          <p class="inline-amounts">kilograms per hectare</p>
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <br>
+            <button class="govuk-button" data-module="govuk-button">Next</button>
+          </fieldset>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+{% endblock %}

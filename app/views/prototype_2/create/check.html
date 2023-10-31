@@ -1,0 +1,418 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">
+        Check crop and manure details for Small Field
+      </h1>
+
+      <div class="check-answers">
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "How will Small Field be used?"
+            },
+            value: {
+              text: "Arable"
+            },
+            actions: {
+              items: [
+                {
+                  href: "",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Which crop group do you plan to use?"
+            },
+            value: {
+              text: "Arable, other"
+            },
+            actions: {
+              items: [
+                {
+                  href: "",
+                  text: "Change",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Which crop type will you be planting?"
+            },
+            value: {
+              text: "Oilseed rape winter"
+            },
+            actions: {
+              items: [
+                {
+                  href: "",
+                  text: "Change",
+                  visuallyHiddenText: ""
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Do you plan to spread Manure?"
+            },
+            value: {
+              text: "Yes"
+            },
+            actions: {
+              items: [
+                {
+                  href: "",
+                  text: "Change",
+                  visuallyHiddenText: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "When will you first spread Manure?"
+            },
+            value: {
+              text: "March 21"
+            },
+            actions: {
+              items: [
+                {
+                  href: "",
+                  text: "Change",
+                  visuallyHiddenText: ""
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Do you plan to spread more Manure?"
+            },
+            value: {
+              text: "No"
+            },
+            actions: {
+              items: [
+                {
+                  href: "",
+                  text: "Change",
+                  visuallyHiddenText: ""
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+      </div>
+
+      <br>
+
+      <h2 class="govuk-heading-m">
+        These values are based on your crop choice and manure applications
+      </h2>
+
+      <div class="check-answers">
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Application method"
+              },
+              value: {
+                text: "Band spreader - trailing hose"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "",
+                    text: "Change",
+                    visuallyHiddenText: "Question 2"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Application rate"
+              },
+              value: {
+                text: "40 t/ha"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "",
+                    text: "Change",
+                    visuallyHiddenText: "Question 1"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Method of incorporation"
+              },
+              value: {
+                text: "Not incorporated"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "",
+                    text: "Change",
+                    visuallyHiddenText: ""
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Delay to incorporation"
+              },
+              value: {
+                text: "None"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "",
+                    text: "Change",
+                    visuallyHiddenText: ""
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "End of drainage"
+              },
+              value: {
+                text: "23 March 2023"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "",
+                    text: "Change",
+                    visuallyHiddenText: ""
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Rainfall"
+              },
+              value: {
+                text: "40 mm"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "",
+                    text: "Change",
+                    visuallyHiddenText: ""
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "DM"
+              },
+              value: {
+                text: "6%"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "",
+                    text: "Change",
+                    visuallyHiddenText: ""
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Total Nitrogen (N)"
+              },
+              value: {
+                text: "2.6"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "",
+                    text: "Change",
+                    visuallyHiddenText: ""
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "NH4-N"
+              },
+              value: {
+                text: "1.2"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "",
+                    text: "Change",
+                    visuallyHiddenText: ""
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Ulric Acid N"
+              },
+              value: {
+                text: "0"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "",
+                    text: "Change",
+                    visuallyHiddenText: ""
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "N03-N"
+              },
+              value: {
+                text: "0"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "",
+                    text: "Change",
+                    visuallyHiddenText: ""
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "P205"
+              },
+              value: {
+                text: "1.2"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "",
+                    text: "Change",
+                    visuallyHiddenText: ""
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "K20"
+              },
+              value: {
+                text: "3.2"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "",
+                    text: "Change",
+                    visuallyHiddenText: ""
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Mg0"
+              },
+              value: {
+                text: "0"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "",
+                    text: "Change",
+                    visuallyHiddenText: ""
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "S03"
+              },
+              value: {
+                text: "0.9"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "",
+                    text: "Change",
+                    visuallyHiddenText: ""
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+        </div>
+  
+
+      <form action="q1_use" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Add to application plan and move to next field"
+        }) }}
+
+      </form>
+      <p class="govuk-body">
+        <a href="fields.html">Cancel</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

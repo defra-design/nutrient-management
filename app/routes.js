@@ -9,5 +9,10 @@ const router = govukPrototypeKit.requests.setupRouter()
 // Add your routes here
 
 //Data
-var farmDetails = require('./data/farm_details.json');
-console.log("Welcome to " + `${farmDetails.name}`);
+var farm_details = require('./data/farm_details.json');
+
+router.get('/', function (req, res) { 
+    req.session.data.farm_details = farm_details
+    // console.log( `Welcome to ${req.session.data.farm_details.name}` );
+    res.render('index')
+})

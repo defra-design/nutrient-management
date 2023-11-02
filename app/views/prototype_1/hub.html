@@ -1,12 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{{data.farm_details.name}} – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
 
-<h1 class="govuk-heading-xl">Oaktree Lane Farm</h1>
+<h1 class="govuk-heading-xl">{{data.farm_details.name}}</h1>
 
 <div class="status-header">
   <p class="govuk-table__body">Current year planning status</p>

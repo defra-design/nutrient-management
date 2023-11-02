@@ -16,3 +16,12 @@ router.get('/', function (req, res) {
     // console.log( `Welcome to ${req.session.data.farm_details.name}` );
     res.render('index')
 })
+
+router.get(/manure_again_handler/, function (req, res) { 
+        console.log( `manure_again ${req.session.data.manure_again}` );
+    if (req.session.data.manure_again == "yes") {
+        res.redirect('q5_manure_when')
+    } else {
+        res.redirect('check')
+    }
+})

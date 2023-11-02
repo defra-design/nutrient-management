@@ -1,0 +1,5 @@
+[
+{"reference":"small", "name":"Small Field", "planStatus":false},
+{"reference":"big", "name":"Big Field", "planStatus":false},
+{"reference":"long", "name":"Long Field", "planStatus":false}
+]

@@ -10,9 +10,15 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 //Data
 var farm_details = require('./data/farm_details.json');
+var field_details = require('./data/field_details.json');
 
 router.get('/', function (req, res) { 
     req.session.data.farm_details = farm_details
+    req.session.data.field_details = field_details
+    req.session.data.chosenfield = null
+    // for (var x in field_details) {
+    //     console.log ( field_details[x].name )
+    // }
     // console.log( `Welcome to ${req.session.data.farm_details.name}` );
     res.render('index')
 })
@@ -24,4 +30,16 @@ router.get(/manure_again_handler/, function (req, res) {
     } else {
         res.redirect('check')
     }
+})
+
+router.get(/create_plan_handler/, function (req, res) { 
+    // req.session.data.chosenfield = req.query.chosenfield
+    // var x = req.session.data.field_details[req.query.chosenfield]
+    // for ( var x in req.session.data.field_details ) {
+    //     if(req.session.data.field_details[x].reference == req.query.chosenfield) {
+    //         console.log(req.session.data.field_details[x].name)
+    //     }
+    // }
+    req.session.data.chosenfield = req.query.chosenfield
+    res.redirect('q1_use')
 })

@@ -41,15 +41,20 @@
               </tr>
             </thead>
             <tbody class="govuk-table__body">
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="q1_use">Small Field</a></td>
-                <td class="govuk-table__cell">
-                  <strong class="govuk-tag govuk-prototype-kit-manage-prototype-govuk-tag govuk-prototype-kit-manage-prototype-task-list__tag">
-                  To do
-                </strong>
-              </td>
-              </tr>
-              <tr class="govuk-table__row">
+              {% for field in data.field_details %}
+                <tr class="govuk-table__row">
+                  <!-- <td class="govuk-table__cell"><a href="start_plan">{{field.name}}</a></td> -->
+                  <td class="govuk-table__cell"><a href="create_plan_handler?chosenfield={{field.name}}">{{field.name}}</a></td>
+                  <!-- "contact-change-handler/?contactType=daytimeTelephone" -->
+                  <td class="govuk-table__cell">
+                    <strong class="govuk-tag govuk-prototype-kit-manage-prototype-govuk-tag govuk-prototype-kit-manage-prototype-task-list__tag">
+                    To do
+                  </strong>
+                </td>
+                </tr>
+              {% endfor %}   
+
+              <!-- <tr class="govuk-table__row">
                 <td class="govuk-table__cell"><a href="">Big Field</a></td>
                 <td class="govuk-table__cell">
                   <strong class="govuk-tag govuk-prototype-kit-manage-prototype-govuk-tag govuk-prototype-kit-manage-prototype-task-list__tag">
@@ -64,34 +69,6 @@
                   To do
                 </strong>
               </td>
-              </tr>
-              <!-- <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="">Field 4</a></td>
-                <td class="govuk-table__cell">No plan</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="">Field 5</a></td>
-                <td class="govuk-table__cell">No plan</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="">Field 6</a></td>
-                <td class="govuk-table__cell">No plan</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="">Field 7</a></td>
-                <td class="govuk-table__cell">No plan</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="">Field 8</a></td>
-                <td class="govuk-table__cell">No plan</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="">Field 9</a></td>
-                <td class="govuk-table__cell">No plan</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="">Field 10</a></td>
-                <td class="govuk-table__cell">No plan</td>
               </tr> -->
             </tbody>
           </table>        

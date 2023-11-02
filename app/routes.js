@@ -33,14 +33,12 @@ router.get(/manure_again_handler/, function (req, res) {
 })
 
 router.get(/create_plan_handler/, function (req, res) { 
-    // req.session.data.chosenfield = req.query.chosenfield
-    // var x = req.session.data.field_details[req.query.chosenfield]
-    // for ( var x in req.session.data.field_details ) {
-    //     if(req.session.data.field_details[x].reference == req.query.chosenfield) {
-    //         console.log(req.session.data.field_details[x].name)
-    //     }
-    // }
-    req.session.data.chosenfield = req.query.chosenfield
+    for ( var y in req.session.data.field_details ) {
+        if(req.session.data.field_details[y].reference === req.query.chosenfield) {
+            req.session.data.chosenfield = req.session.data.field_details[y]
+        }
+    }
+    console.log(req.session.data.chosenfield.name)
     res.redirect('q1_use')
 })
 

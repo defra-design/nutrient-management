@@ -43,3 +43,12 @@ router.get(/create_plan_handler/, function (req, res) {
     req.session.data.chosenfield = req.query.chosenfield
     res.redirect('q1_use')
 })
+
+router.get(/manure_if_handler/, function (req, res) { 
+if (req.session.data.manure_if == "yes") {
+    res.redirect('q5_manure_when')
+} else {
+    res.redirect('check')
+}
+})
+

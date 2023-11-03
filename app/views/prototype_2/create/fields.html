@@ -21,6 +21,8 @@
 {% endblock %}
 
 {% block content %}
+{{ plan_status }}
+
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -42,13 +44,19 @@
             </thead>
             <tbody class="govuk-table__body">
               {% for field in data.field_details %}
+                {% if field.planStatus == false %}
+                  {% set plan_status = "Plan not created" %}
+                {% else %}
+                  {% set plan_status = "Organic plan created" %}
+                {% endif %}
+
                 <tr class="govuk-table__row">
                   <!-- <td class="govuk-table__cell"><a href="start_plan">{{field.name}}</a></td> -->
                   <td class="govuk-table__cell"><a href="create_plan_handler?chosenfield={{field.reference}}">{{field.name}}</a></td>
                   <!-- "contact-change-handler/?contactType=daytimeTelephone" -->
                   <td class="govuk-table__cell">
                     <strong class="govuk-tag govuk-prototype-kit-manage-prototype-govuk-tag govuk-prototype-kit-manage-prototype-task-list__tag">
-                      {{field.planStatus}}
+                      {{plan_status}}
                   </strong>
                 </td>
                 </tr>

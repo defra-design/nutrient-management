@@ -28,7 +28,7 @@ router.get(/manure_again_handler/, function (req, res) {
     if (req.session.data.manure_again == "yes") {
         res.redirect('q5_manure_when')
     } else {
-        res.redirect('check')
+        res.redirect('ending_handler')
     }
 })
 
@@ -43,10 +43,27 @@ router.get(/create_plan_handler/, function (req, res) {
 })
 
 router.get(/manure_if_handler/, function (req, res) { 
-if (req.session.data.manure_if == "yes") {
-    res.redirect('q5_manure_when')
-} else {
-    res.redirect('check')
-}
+    if (req.session.data.manure_if == "yes") {
+        res.redirect('q5_manure_when')
+    } else {
+        res.redirect('ending_handler')
+    }
 })
 
+router.get(/ending_handler/, function (req, res) { 
+    if (req.session.data.chosenfield.reference == "small") {
+        //move to next field
+        res.redirect('check_one')
+    } else if (req.session.data.chosenfield.reference == "big") {
+        //view recomends
+        res.redirect('check_two')
+    } else {
+        for ( var y in req.session.data.field_details ) {
+            if(req.session.data.field_details[y].reference === req.session.data.chosenfield.reference) {
+                req.session.data.field_details[y].planStatus = 'Organic plan complete'
+            }
+        }
+        //back to all fields
+        res.redirect('check_three')
+    }
+})

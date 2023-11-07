@@ -17,10 +17,10 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Which crop group do you plan to use in {{data.chosenfield.name}} in 2023?
+        Which crop type will you be planting in {{data.chosenfield.name}} in 2023?
       </h1>
 
-      <form class="form" action="q3_crop_type" method="post">
+      <form class="form" action="q4_manure_if" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset">
@@ -33,55 +33,60 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
                 <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-                  Arable crops
+                  Beans, spring
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
                 <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
-                  Arable, forage crops
+                  Beans, winter
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
                 <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
-                  Arable, other
+                  Grass for protein
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
                 <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
-                  Arable, potatoes
+                  Linseed
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
                 <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
-                  Biomass crops
+                  Ollseed rape spring
+                </label>
+              </div>              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
+                <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
+                  Oilseed rape winter
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
                 <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
-                  Fruit vines and hops
+                  Peas
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
                 <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
-                  Other crops
+                  Ryegrass for seed
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
                 <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
-                  Vegetables leafy
+                  Sugar beet
                 </label>
-              </div>
-              <div class="govuk-radios__item">
+              </div><div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
                 <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
-                  Vegetables root
+                  Un-cropped/fallow
                 </label>
               </div>
             </div>
@@ -94,10 +99,21 @@
       </form>
 
     </div>
+    
   </div>
-  
+
   <p class="govuk-body">
     <a href="fields.html">Cancel</a>
   </p>
 
 {% endblock %}
+
+
+
+
+
+
+
+
+
+

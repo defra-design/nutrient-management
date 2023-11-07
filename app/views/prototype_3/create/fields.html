@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Create a 2023 nutrient application plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/prototype_2/hub"
+      },
+      {
+        text: "Create a 2023 nutrient application plan"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+{{ plan_status }}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Create a 2023 nutrient application plan
+      </h1>
+
+      <form class="form" action="hub" method="post">
+
+        <div class="govuk-form-group">
+          <table class="govuk-table">
+            <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Field name</th>
+                <th scope="col" class="govuk-table__header">Planning status</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              {% for field in data.field_details %}
+                {% if field.planStatus == false %}
+                  {% set plan_status = "Plan not created" %}
+                {% else %}
+                  {% set plan_status = "Organic plan created" %}
+                {% endif %}
+
+                <tr class="govuk-table__row">
+                  <!-- <td class="govuk-table__cell"><a href="start_plan">{{field.name}}</a></td> -->
+                  <td class="govuk-table__cell"><a href="create_plan_handler?chosenfield={{field.reference}}">{{field.name}}</a></td>
+                  <!-- "contact-change-handler/?contactType=daytimeTelephone" -->
+                  <td class="govuk-table__cell">
+                    <strong class="govuk-tag govuk-prototype-kit-manage-prototype-govuk-tag govuk-prototype-kit-manage-prototype-task-list__tag">
+                      {{plan_status}}
+                  </strong>
+                </td>
+                </tr>
+              {% endfor %}   
+
+              <!-- <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="">Big Field</a></td>
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-prototype-kit-manage-prototype-govuk-tag govuk-prototype-kit-manage-prototype-task-list__tag">
+                  To do
+                </strong>
+              </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="">Long Field</a></td>
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-prototype-kit-manage-prototype-govuk-tag govuk-prototype-kit-manage-prototype-task-list__tag">
+                  To do
+                </strong>
+              </td>
+              </tr> -->
+            </tbody>
+          </table>        
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+

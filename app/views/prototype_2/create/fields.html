@@ -40,6 +40,7 @@
               <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header">Field name</th>
                 <th scope="col" class="govuk-table__header">Planning status</th>
+                <th scope="col" class="govuk-table__header">Action</th>
               </tr>
             </thead>
             <tbody class="govuk-table__body">
@@ -47,37 +48,27 @@
                 {% if field.planStatus == false %}
                   {% set plan_status = "Plan not created" %}
                 {% else %}
-                  {% set plan_status = "Organic plan created" %}
+                  {% set plan_status = "Plan created" %}
                 {% endif %}
 
                 <tr class="govuk-table__row">
                   <!-- <td class="govuk-table__cell"><a href="start_plan">{{field.name}}</a></td> -->
-                  <td class="govuk-table__cell"><a href="create_plan_handler?chosenfield={{field.reference}}">{{field.name}}</a></td>
+                  <td class="govuk-table__cell">{{field.name}}</td>
                   <!-- "contact-change-handler/?contactType=daytimeTelephone" -->
                   <td class="govuk-table__cell">
                     <strong class="govuk-tag govuk-prototype-kit-manage-prototype-govuk-tag govuk-prototype-kit-manage-prototype-task-list__tag">
                       {{plan_status}}
                   </strong>
                 </td>
-                </tr>
-              {% endfor %}   
-
-              <!-- <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="">Big Field</a></td>
                 <td class="govuk-table__cell">
-                  <strong class="govuk-tag govuk-prototype-kit-manage-prototype-govuk-tag govuk-prototype-kit-manage-prototype-task-list__tag">
-                  To do
-                </strong>
-              </td>
+                  {% if field.planStatus == false %}
+                  <a href="create_plan_handler?chosenfield={{field.reference}}">Create plan</a>
+                  {% else %}
+                  <a href="plan">View or update plan</a>
+                {% endif %}
+                </td>
               </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="">Long Field</a></td>
-                <td class="govuk-table__cell">
-                  <strong class="govuk-tag govuk-prototype-kit-manage-prototype-govuk-tag govuk-prototype-kit-manage-prototype-task-list__tag">
-                  To do
-                </strong>
-              </td>
-              </tr> -->
+              {% endfor %}   
             </tbody>
           </table>        
         </div>

@@ -17,9 +17,9 @@
 
     {% include "./check_content.html" ignore missing %}
 
-    <form action="create_plan_handler?chosenfield=big" method="post" novalidate>
+    <form action="recs" method="post" novalidate>
       {{ govukButton({
-        text: "Add to application plan and move to next field"
+        text: "Add to application plan and view recomendations"
       }) }}
     </form>
     <p class="govuk-body">

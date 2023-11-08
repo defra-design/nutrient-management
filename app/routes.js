@@ -12,6 +12,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 var farm_details = require('./data/farm_details.json');
 var field_details = require('./data/field_details.json');
 
+//set data on index load
 router.get('/', function (req, res) { 
     req.session.data.farm_details = farm_details
     req.session.data.field_details = field_details
@@ -23,19 +24,7 @@ router.get('/', function (req, res) {
     res.render('index')
 })
 
-router.get(/manure_again_handler/, function (req, res) { 
-        console.log( `manure_again ${req.session.data.manure_again}` );
-    if (req.session.data.manure_again == "yes") {
-        res.redirect('q5_manure_when')
-    } else {
-        if (req.session.data.plan_type == "new") {
-            res.redirect('check_one')
-        } else {
-            res.redirect('ending_handler')
-        }
-    }
-})
-
+//which filed do you want to create a plan for?
 router.get(/create_plan_handler/, function (req, res) { 
     for ( var y in req.session.data.field_details ) {
         if(req.session.data.field_details[y].reference === req.query.chosenfield) {
@@ -46,25 +35,7 @@ router.get(/create_plan_handler/, function (req, res) {
     res.redirect('q1_create')
 })
 
-router.get(/manure_if_handler/, function (req, res) { 
-    if (req.session.data.manure_if == "yes") {
-        res.redirect('q5_manure_when')
-    } else {
-        res.redirect('ending_handler')
-    }
-})
-
-router.get(/ending_handler/, function (req, res) { 
-    for ( var y in req.session.data.field_details ) {
-        if(req.session.data.field_details[y].reference === req.session.data.chosenfield.reference) {
-            req.session.data.field_details[y].planStatus = 'Plan complete'
-        }
-    }
-    //back to all fields
-    res.redirect('fields')
-})
-
-//new
+//how do you want to create your plan? 
 router.get(/plan-type-handler/, function (req, res) { 
     if (req.session.data.plan_type == "previous") {
         res.redirect('check_last_year')
@@ -74,4 +45,38 @@ router.get(/plan-type-handler/, function (req, res) {
         //new
     res.redirect('q1_use')
     }
+})
+
+//do you plan to spread manure?
+router.get(/manure_if_handler/, function (req, res) { 
+    if (req.session.data.manure_if == "yes") {
+        res.redirect('q5_manure_when')
+    } else {
+        res.redirect('ending_handler')
+    }
+})
+
+//do you plan to spread manure multiple times
+router.get(/manure_again_handler/, function (req, res) { 
+    console.log( `manure_again ${req.session.data.manure_again}` );
+if (req.session.data.manure_again == "yes") {
+    res.redirect('q5_manure_when')
+} else {
+    if (req.session.data.plan_type == "new") {
+        res.redirect('check_one')
+    } else {
+        res.redirect('ending_handler')
+    }
+}
+})
+
+//set the status
+router.get(/ending_handler/, function (req, res) { 
+    for ( var y in req.session.data.field_details ) {
+        if(req.session.data.field_details[y].reference === req.session.data.chosenfield.reference) {
+            req.session.data.field_details[y].planStatus = 'Plan complete'
+        }
+    }
+    //back to all fields
+    res.redirect('fields')
 })

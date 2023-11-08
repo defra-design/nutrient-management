@@ -46,7 +46,7 @@
             <tbody class="govuk-table__body">
               {% for field in data.field_details %}
                 {% if field.planStatus == false %}
-                  {% set plan_status = "Plan not created" %}
+                  {% set plan_status = "No plan" %}
                 {% else %}
                   {% set plan_status = "Plan created" %}
                 {% endif %}

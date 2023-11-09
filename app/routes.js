@@ -51,7 +51,7 @@ router.get(/plan-type-handler/, function (req, res) {
     if (req.session.data.plan_type == "previous") {
         res.redirect('check_last_year')
     } else if (req.session.data.plan_type == "other") {
-        res.redirect('check_last_year')
+        res.redirect('q2_other_plan')
     } else {
         //new
     res.redirect('q1_use')

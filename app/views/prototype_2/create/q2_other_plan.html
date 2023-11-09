@@ -20,17 +20,17 @@
         Which crop group do you plan to use in {{data.chosenfield.name}} in {{data.harvest_year}}?
       </h1> -->
 
-      <form class="form" action="q1_use" method="post">
+      <form class="form" action="q1_create" method="post">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <p class="govuk-body">
-                Grass journey not complete, go back and choose arable
+                This journey is not complete, go back and chosse 'Start with last year's plan' or 'Enter crop and nutrient data manually'
               </p>
             </legend>
         {{ govukButton({
-          text: "Back to arable"
+          text: "Back to plan type"
         }) }}
 
       </form>

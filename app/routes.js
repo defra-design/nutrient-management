@@ -147,7 +147,7 @@ router.get(/fertiliser_again_handler/, function (req, res) {
 //manure application loops
 router.get(/fertiliser_counter_updater/, function (req, res) { 
     req.session.data.fertiliser_spreads++
-    res.redirect('q9_fertiliser_again')
+    res.redirect('q8_fertiliser_types')
 })
     
 

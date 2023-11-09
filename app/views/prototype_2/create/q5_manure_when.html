@@ -13,6 +13,12 @@
 
 {% block content %}
 
+  {% if data.manure_spreads == 0 %}
+    {% set manure_count = "first" %}
+  {% else %}
+    {% set manure_count = "next" %}
+  {% endif %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
@@ -21,10 +27,10 @@
       </span>
 
       <h1 class="govuk-heading-l">
-        When will you first spread {{data.organic_term | lower}} on {{data.chosenfield.name}}?
+        When will you {{manure_count}} spread {{data.organic_term | lower}} on {{data.chosenfield.name}}?
       </h1>
 
-      <form class="form" action="q6_manure_again" method="post">
+      <form class="form" action="manure_counter_updater" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">

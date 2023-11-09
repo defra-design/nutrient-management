@@ -22,6 +22,10 @@ router.get('/', function (req, res) {
     req.session.data.organic_term = "Organic material"
     req.session.data.non_organic_term = "Inorganic fertiliser"
     req.session.data.harvest_year = "2023 to 2024"
+
+    // route vars
+    req.session.data.manure_spreads = 0
+    req.session.data.fertiliser_spreads = 0
     
     // for (var x in field_details) {
     //     console.log ( field_details[x].name )
@@ -70,6 +74,12 @@ router.get(/manure_if_handler/, function (req, res) {
     } else {
         res.redirect('check_one')
     }
+})
+
+//manure application loops
+router.get(/manure_counter_updater/, function (req, res) { 
+    req.session.data.manure_spreads++
+    res.redirect('q6_manure_again')
 })
 
 //do you plan to spread manure multiple times
@@ -121,4 +131,11 @@ router.get(/fertiliser_again_handler/, function (req, res) {
         }
     }
 })
+
+//manure application loops
+router.get(/fertiliser_counter_updater/, function (req, res) { 
+    req.session.data.fertiliser_spreads++
+    res.redirect('q9_fertiliser_again')
+})
     
+

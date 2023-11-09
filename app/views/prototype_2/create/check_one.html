@@ -14,12 +14,16 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
-
+    
+    <h1 class="govuk-heading-l">
+      Check crop and {{data.organic_term | lower }} details for {{data.chosenfield.name}}
+    </h1>
+    
     {% include "./check_content.html" ignore missing %}
 
     <form action="recs" method="post" novalidate>
       {{ govukButton({
-        text: "Add to application plan and view recomendations"
+        text: "Add to application plan and view recommendations"
       }) }}
     </form>
     <p class="govuk-body">

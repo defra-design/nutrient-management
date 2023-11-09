@@ -1,6 +1,3 @@
-<h1 class="govuk-heading-l">
-  Check crop and manure details for {{data.chosenfield.name}}
-</h1>
 
 <div class="check-answers">
 {{ govukSummaryList({
@@ -118,7 +115,7 @@ rows: [
 <br>
 
 <h2 class="govuk-heading-m">
-These values are based on your crop choice and manure applications
+These values are based on your crop choice and {{data.organic_term | lower }} applications
 </h2>
 
 <div class="check-answers">

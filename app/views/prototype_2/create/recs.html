@@ -16,11 +16,10 @@
   <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-l">
-      Inorganic recomendations
+      {{data.non_organic_term }} recommendations<br> for {{data.chosenfield.name}}
     </h1>
-
-  <h2 class="govuk-heading-m">{{data.chosenfield.name}}</h2>
-<p class="govuk-body">Wheat, Winter</p>
+    
+    <p class="govuk-body">Wheat, Winter</p>
 
 <table class="govuk-table recomendation-table">
   <!-- <caption class="govuk-table__caption govuk-table__caption--m">Big Field</caption> -->
@@ -129,7 +128,7 @@
 <form action="q7_fertiliser_if" method="post" novalidate>
   <div class="button">
     {{ govukButton({
-      text: "Add inorganic spreading dates and amounts"
+      text: "Add " + data.non_organic_term | lower + " details"
     }) }}
   </div>
 

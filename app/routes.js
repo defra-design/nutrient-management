@@ -14,7 +14,8 @@ var field_details = require('./data/field_details.json');
 
 //set data on index load
 router.get('/', function (req, res) { 
-    req.session.data.farm_details = farm_details
+    req.session.data.organic_term = "Organic material"
+    req.session.data.non_organic_term = "Inorganic fertiliser"
     req.session.data.field_details = field_details
     req.session.data.chosenfield = null
     // for (var x in field_details) {

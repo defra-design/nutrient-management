@@ -15,6 +15,10 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
     
+    <span class="govuk-caption-l">
+      Nutrient application plan 2023 to 2024
+    </span>
+
     <h1 class="govuk-heading-l">
       Check crop and {{data.organic_term | lower }} details for {{data.chosenfield.name}}
     </h1>
@@ -23,7 +27,7 @@
 
     <form action="recs" method="post" novalidate>
       {{ govukButton({
-        text: "Add to application plan and view recommendations"
+        text: "Add to application plan"
       }) }}
     </form>
     <p class="govuk-body">

@@ -16,7 +16,7 @@
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
     <h1 class="govuk-heading-l">
-      Check your 2024 plan for {{data.chosenfield.name}}
+      Check your {{data.harvest_year}} plan for {{data.chosenfield.name}}
     </h1>
 
     <h2 class="govuk-heading-m">
@@ -608,7 +608,7 @@
     </div>
 
 
-    <form action="ending_handler" method="post" novalidate>
+    <form action="set_status" method="post" novalidate>
       {{ govukButton({
         text: "Add to application plan"
       }) }}

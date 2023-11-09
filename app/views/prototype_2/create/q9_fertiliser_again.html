@@ -16,8 +16,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <span class="govuk-caption-l">
+        Nutrient application plan 2023 to 2024
+      </span>
+
       <h1 class="govuk-heading-l">
-        Do you plan to spread more {{data.non_organic_term | lower }} on {{data.chosenfield.name}} in 2023?
+        Will you spread more {{data.non_organic_term | lower }} on {{data.chosenfield.name}}?
       </h1>
 
       <form class="form" action="fertiliser_again_handler" method="post">
@@ -25,14 +29,14 @@
         <div class="govuk-form-group">
           <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="manure_again" name="manure_again" type="radio" value="yes">
-              <label class="govuk-label govuk-radios__label" for="manure_again">
+              <input class="govuk-radios__input" id="yes" name="fertiliser_again" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="yes">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="manure_again_2" name="manure_again" type="radio" value="no">
-              <label class="govuk-label govuk-radios__label" for="manure_again_2">
+              <input class="govuk-radios__input" id="no" name="fertiliser_again" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="no">
                 No
               </label>
             </div>

@@ -1,0 +1,83 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Which nurients will you include in this application for {{data.chosenfield.name}}?
+      </h1>
+
+      <form class="form" action="q9_fertiliser_again" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Which types of waste do you transport?
+              </h1>
+            </legend> -->
+            <div id="waste-hint" class="govuk-hint">
+              Select all that apply.
+            </div>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="nitrogen" name="nutrients" type="checkbox" value="nitrogen">
+                <label class="govuk-label govuk-checkboxes__label" for="nitrogen">
+                  Nitrogen (N)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="phosphate" name="nutrients" type="checkbox" value="phosphate">
+                <label class="govuk-label govuk-checkboxes__label" for="phosphate">
+                  Phosphate (P205)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="potash" name="nutrients" type="checkbox" value="potash">
+                <label class="govuk-label govuk-checkboxes__label" for="potash">
+                  Potash (K20)
+                </label>
+              </div> 
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="sulphur" name="nutrients" type="checkbox" value="sulphur">
+                <label class="govuk-label govuk-checkboxes__label" for="sulphur">
+                  Sulphur (SO3)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="lime" name="nutrients" type="checkbox" value="lime">
+                <label class="govuk-label govuk-checkboxes__label" for="lime">
+                  Lime
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Next"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

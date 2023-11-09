@@ -80,3 +80,16 @@ router.get(/ending_handler/, function (req, res) {
     //back to all fields
     res.redirect('fields')
 })
+
+//do you plan to spread manure multiple times
+router.get(/fertiliser_again_handler/, function (req, res) { 
+if (req.session.data.fertiliser_again == "yes") {
+    res.redirect('q8_fertiliser_when')
+} else {
+    if (req.session.data.plan_type == "new") {
+        res.redirect('check_two')
+    } else {
+        res.redirect('ending_handler')
+    }
+}
+})

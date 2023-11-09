@@ -103,9 +103,21 @@ router.get(/set_status/, function (req, res) {
             req.session.data.field_details[y].planStatus = 'Plan complete'
         }
     }
-    //back to all fields
     res.redirect('fields')
 })
+
+// update the status of the plan foir chosenfield to nul, recs, full
+
+//set the status to recomendations
+router.get(/recs_status_handler/, function (req, res) { 
+    for ( var y in req.session.data.field_details ) {
+        if(req.session.data.field_details[y].reference === req.session.data.chosenfield.reference) {
+            req.session.data.field_details[y].planStatus = 'recommendations'
+        }
+    }
+    res.redirect('recs')
+})
+
 
 //FERTILISER
 ////////////

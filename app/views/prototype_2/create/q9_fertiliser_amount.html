@@ -21,51 +21,54 @@
       </span>
 
       <h1 class="govuk-heading-l">
-        How much of each nutrient will you include in this application for {{data.chosenfield.name}}?
+        How many kilograms per hectare of each nutrient will you include in this application for {{data.chosenfield.name}}?
       </h1>
 
       <form class="form" action="q9_fertiliser_again" method="post">
 
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-            <label class="govuk-label" for="event-name">
-              Nitrogen (N)
-            </label>
-            <input class="govuk-input govuk-input--width-10" id="event-name" name="eventName" type="text">
-          </fieldset>
+          <label class="govuk-label" for="weight">
+            Nitrogen (N)
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">kg/h</div>
+          </div>
         </div>
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-            <label class="govuk-label" for="event-name">
-              Phosphate (P205)
-            </label>
-            <input class="govuk-input govuk-input--width-10" id="event-name" name="eventName" type="text">
-          </fieldset>
-        </div>
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-            <label class="govuk-label" for="event-name">
-              Potash (K20)
-            </label>
-            <input class="govuk-input govuk-input--width-10" id="event-name" name="eventName" type="text">
-          </fieldset>
-        </div>
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-            <label class="govuk-label" for="event-name">
-              Sulphur (SO3)
-            </label>
-            <input class="govuk-input govuk-input--width-10" id="event-name" name="eventName" type="text">
-          </fieldset>
-        </div>
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-            <label class="govuk-label" for="event-name">
-              Lime
-            </label>
-            <input class="govuk-input govuk-input--width-10" id="event-name" name="eventName" type="text">
-          </fieldset>
 
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="weight">
+            Phosphate (P205)
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">kg/h</div>
+          </div>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="weight">
+            Potash (K20)
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">kg/h</div>
+          </div>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="weight">
+            Potash (K20)
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">kg/h</div>
+          </div>
+        </div>
+      
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="weight">
+            Lime
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">kg/h</div>
+          </div>
         </div>
 
         {{ govukButton({

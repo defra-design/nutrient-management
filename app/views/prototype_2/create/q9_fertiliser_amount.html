@@ -1,0 +1,84 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <span class="govuk-caption-l">
+        Nutrient application plan 2023 to 2024
+      </span>
+
+      <h1 class="govuk-heading-l">
+        How much of each nutrient will you include in this application for {{data.chosenfield.name}}?
+      </h1>
+
+      <form class="form" action="q9_fertiliser_again" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <label class="govuk-label" for="event-name">
+              Nitrogen (N)
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="event-name" name="eventName" type="text">
+          </fieldset>
+        </div>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <label class="govuk-label" for="event-name">
+              Phosphate (P205)
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="event-name" name="eventName" type="text">
+          </fieldset>
+        </div>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <label class="govuk-label" for="event-name">
+              Potash (K20)
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="event-name" name="eventName" type="text">
+          </fieldset>
+        </div>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <label class="govuk-label" for="event-name">
+              Sulphur (SO3)
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="event-name" name="eventName" type="text">
+          </fieldset>
+        </div>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <label class="govuk-label" for="event-name">
+              Lime
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="event-name" name="eventName" type="text">
+          </fieldset>
+
+        </div>
+
+        {{ govukButton({
+          text: "Next"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

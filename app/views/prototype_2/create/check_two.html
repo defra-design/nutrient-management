@@ -22,8 +22,14 @@
     <h1 class="govuk-heading-l">
       Check {{data.non_organic_term | lower }} details for {{data.chosenfield.name}}
     </h1>
-    
-    {% include "./check_content_two.html" ignore missing %}
+
+    <h2 class="govuk-heading-m">
+      {{data.non_organic_term}} plan 
+    </h2>
+
+    <div class="check-answers">
+      {% include "./check_two_content.html" ignore missing %}
+    </div>
 
     <form action="set_status" method="post" novalidate>
       {{ govukButton({

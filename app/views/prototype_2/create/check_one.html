@@ -23,7 +23,28 @@
       Check crop and {{data.organic_term | lower }} details for {{data.chosenfield.name}}
     </h1>
     
-    {% include "./check_content.html" ignore missing %}
+    <h2 class="govuk-heading-m">
+      Crop plan for {{data.chosenfield.name}}
+    </h2>    
+    <div class="check-answers">
+      {% include "./check_one_crops.html" %}
+    </div>
+
+    <br>
+    <h2 class="govuk-heading-m">
+      {{data.organic_term}} plan for {{data.chosenfield.name}}
+    </h2>
+    <div class="check-answers">
+      {% include "./check_one_organic.html" ignore missing %}
+    </div>
+
+    <br>
+    <h2 class="govuk-heading-m">
+    These values are based on your crop choice and {{data.organic_term | lower }} applications
+    </h2>
+    <div class="check-answers">
+      {% include "./check_one_values.html" ignore missing %}
+    </div>
 
     <form action="recs_status_handler" method="post" novalidate>
       {{ govukButton({

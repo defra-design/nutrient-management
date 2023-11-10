@@ -16,6 +16,7 @@ var field_details = require('./data/field_details.json');
 router.get('/', function (req, res) { 
     //data
     req.session.data.field_details = field_details
+    req.session.data.farm_details = farm_details
     req.session.data.chosenfield = null
 
     // content vars
@@ -103,6 +104,7 @@ router.get(/set_status/, function (req, res) {
             req.session.data.field_details[y].planStatus = 'Plan complete'
         }
     }
+    req.session.data.farm_details.plan_status = "recomendations"
     res.redirect('fields')
 })
 
@@ -115,6 +117,7 @@ router.get(/recs_status_handler/, function (req, res) {
             req.session.data.field_details[y].planStatus = 'recommendations'
         }
     }
+    req.session.data.farm_details.plan_status = "recomendations"
     res.redirect('recs')
 })
 

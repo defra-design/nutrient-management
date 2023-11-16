@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <span class="govuk-caption-l">
+        Nutrient application plan 2023 to 2024
+      </span>
+
+      <h1 class="govuk-heading-l">
+        What is the expected yield?  (Optional)
+      </h1>
+
+      <form class="form" action="q1_straw" method="post">
+
+        <div class="govuk-form-group">
+          <!-- <label class="govuk-label" for="weight">
+            Yield
+          </label> -->
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">tons per hectare</div>
+          </div>
+        </div>
+
+        {{ govukButton({
+          text: "Next"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

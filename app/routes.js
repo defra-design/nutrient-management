@@ -55,7 +55,7 @@ router.get(/plan-type-handler/, function (req, res) {
         res.redirect('q2_other_plan')
     } else {
         //new
-    res.redirect('q1_use')
+    res.redirect('q1_soil')
     }
 })
 

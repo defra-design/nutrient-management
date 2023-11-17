@@ -13,24 +13,17 @@
 
 {% block content %}
 
-  {% if data.manure_spreads == 0 %}
-    {% set manure_count = "first" %}
-  {% else %}
-    {% set manure_count = "next" %}
-  {% endif %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      
+
       <span class="govuk-caption-l">
         Nutrient application plan 2023 to 2024
       </span>
-
       <h1 class="govuk-heading-l">
-        How will you use the crop?
+        How will you use the straw (optional)?
       </h1>
 
-      <form class="form" action="q4_manure_if" method="post">
+      <form class="form" action="manure_if" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset">
@@ -41,21 +34,20 @@
             </legend> -->
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
-                <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-                  Malting
+                <input class="govuk-radios__input" id="arable" name="straw" type="radio" value="arable">
+                <label class="govuk-label govuk-radios__label" for="arable">
+                  Bailed
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
-                <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-                  Feed 
+                <input class="govuk-radios__input" id="grass" name="straw" type="radio" value="grass">
+                <label class="govuk-label govuk-radios__label" for="grass">
+                  Incorporated
                 </label>
               </div>
+            </div>
           </fieldset>
         </div>
-      </div>
-
         {{ govukButton({
           text: "Next"
         }) }}

@@ -44,7 +44,7 @@ router.get(/create_plan_handler/, function (req, res) {
         }
     }
     console.log(req.session.data.chosenfield.name)
-    res.redirect('q1_create')
+    res.redirect('create')
 })
 
 //how do you want to create your plan? 
@@ -52,26 +52,26 @@ router.get(/plan-type-handler/, function (req, res) {
     if (req.session.data.plan_type == "previous") {
         res.redirect('check_last_year')
     } else if (req.session.data.plan_type == "other") {
-        res.redirect('q2_other_plan')
+        res.redirect('other_plan')
     } else {
         //new
-    res.redirect('q1_soil')
+    res.redirect('soil')
     }
 })
 
 //grass or arable?
 router.get(/crop_type_handler/, function (req, res) { 
     if (req.session.data.field_use == "arable") {
-        res.redirect('q2_crop_group')
+        res.redirect('crop_group')
     } else {
-        res.redirect('q2_grass')
+        res.redirect('grass')
     }
 })
 
 //do you plan to spraed manure?
 router.get(/manure_if_handler/, function (req, res) { 
     if (req.session.data.manure_if == "yes") {
-        res.redirect('q5_manure_when')
+        res.redirect('manure_when')
     } else {
         res.redirect('check_one')
     }
@@ -80,14 +80,14 @@ router.get(/manure_if_handler/, function (req, res) {
 //manure application loops
 router.get(/manure_counter_updater/, function (req, res) { 
     req.session.data.manure_spreads++
-    res.redirect('q6_manure_type')
+    res.redirect('manure_type')
 })
 
 //do you plan to spread manure multiple times
 router.get(/manure_again_handler/, function (req, res) { 
     console.log( `manure_again ${req.session.data.manure_again}` );
 if (req.session.data.manure_again == "yes") {
-    res.redirect('q5_manure_when')
+    res.redirect('manure_when')
 } else {
     if (req.session.data.plan_type == "new") {
         res.redirect('check_one')
@@ -128,7 +128,7 @@ router.get(/recs_status_handler/, function (req, res) {
 //do you plan to spraed fertiliser?
 router.get(/fertiliser_if_handler/, function (req, res) { 
     if (req.session.data.fertiliser_if == "yes") {
-        res.redirect('q8_fertiliser_when')
+        res.redirect('fertiliser_when')
     } else {
         res.redirect('check_two')
     }
@@ -137,7 +137,7 @@ router.get(/fertiliser_if_handler/, function (req, res) {
 //do you plan to spread more firtiliser
 router.get(/fertiliser_again_handler/, function (req, res) { 
     if (req.session.data.fertiliser_again == "yes") {
-        res.redirect('q8_fertiliser_when')
+        res.redirect('fertiliser_when')
     } else {
         if (req.session.data.plan_type == "new") {
             res.redirect('check_two')
@@ -150,7 +150,7 @@ router.get(/fertiliser_again_handler/, function (req, res) {
 //manure application loops
 router.get(/fertiliser_counter_updater/, function (req, res) { 
     req.session.data.fertiliser_spreads++
-    res.redirect('q9_fertiliser_amount')
+    res.redirect('fertiliser_amount')
 })
     
 

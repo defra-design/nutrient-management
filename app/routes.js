@@ -19,6 +19,14 @@ router.get('/', function (req, res) {
     req.session.data.farm_details = farm_details
     req.session.data.chosenfield = null
 
+    //control vars
+    req.session.data.chosen_nutrients = []
+    req.session.data.chosen_nitrogen = false
+    req.session.data.chosen_phosphate = false
+    req.session.data.chosen_potash = false
+    req.session.data.chosen_sulphur = false
+    req.session.data.chosen_lime = false
+
     // content vars
     req.session.data.organic_term = "Organic material"
     req.session.data.non_organic_term = "Inorganic fertiliser"
@@ -104,20 +112,20 @@ router.get(/set_status/, function (req, res) {
             req.session.data.field_details[y].planStatus = 'Plan complete'
         }
     }
-    req.session.data.farm_details.plan_status = "recomendations"
+    req.session.data.farm_details.plan_status = "recommendations"
     res.redirect('fields')
 })
 
 // update the status of the plan foir chosenfield to nul, recs, full
 
-//set the status to recomendations
+//set the status to recommendations
 router.get(/recs_status_handler/, function (req, res) { 
     for ( var y in req.session.data.field_details ) {
         if(req.session.data.field_details[y].reference === req.session.data.chosenfield.reference) {
             req.session.data.field_details[y].planStatus = 'recommendations'
         }
     }
-    req.session.data.farm_details.plan_status = "recomendations"
+    req.session.data.farm_details.plan_status = "recommendations"
     res.redirect('recs')
 })
 
@@ -150,7 +158,29 @@ router.get(/fertiliser_again_handler/, function (req, res) {
 //manure application loops
 router.get(/fertiliser_counter_updater/, function (req, res) { 
     req.session.data.fertiliser_spreads++
-    res.redirect('fertiliser_amount')
+    res.redirect('fertiliser_type')
 })
     
-
+//manure application loops
+router.get(/fertiliser_types_handler/, function (req, res) { 
+    var chosen_nutrients = req.session.data.chosen_nutrients
+    req.session.data.chosen_nitrogen = false
+    req.session.data.chosen_phosphate = false
+    req.session.data.chosen_potash = false
+    req.session.data.chosen_sulphur = false
+    req.session.data.chosen_lime = false
+    for (var x in chosen_nutrients) {
+        if (chosen_nutrients[x] == "nitrogen") {
+            req.session.data.chosen_nitrogen = true;
+        } else if (chosen_nutrients[x] == "phosphate") {
+            req.session.data.chosen_phosphate = true;
+        } else if (chosen_nutrients[x] == "potash") {
+            req.session.data.chosen_potash = true;
+        } else if (chosen_nutrients[x] == "sulphur") {
+            req.session.data.chosen_sulphur = true;
+        } else if (chosen_nutrients[x] == "lime") {
+            req.session.data.chosen_lime = true;
+        }
+    }
+    res.redirect('fertiliser_amount')
+})

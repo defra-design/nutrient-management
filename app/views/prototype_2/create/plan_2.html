@@ -22,7 +22,7 @@
 
 {% block content %}
 
-<h1 class="govuk-heading-l">{{data.harvest_year}} Nutrient Application Plan <br>for {{data.chosenfield.name}}</h1>
+<h1 class="govuk-heading-l">{{data.harvest_year | capitalize }} Nutrient Application Plan <br>for {{data.chosenfield.name}}</h1>
 
 <!-- <h2 class="govuk-heading-m">Plan created</h2> -->
 
@@ -90,14 +90,14 @@
       <td class="govuk-table__cell">112</td>
     </tr>      
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell govuk-table__header">Phosphate (P205)</td>
+      <td class="govuk-table__cell govuk-table__header">Phosphate (P2O5)</td>
       <td class="govuk-table__cell">2</td>
       <td class="govuk-table__cell">65</td>
       <td class="govuk-table__cell">48</td>
       <td class="govuk-table__cell">0</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell govuk-table__header">Potash (K20)</td>
+      <td class="govuk-table__cell govuk-table__header">Potash (K2O)</td>
       <td class="govuk-table__cell">2-</td>
       <td class="govuk-table__cell">85</td>
       <td class="govuk-table__cell">128</td>
@@ -150,7 +150,7 @@
       <td class="govuk-table__cell govuk-table__header">115</td>
     </tr>      
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell govuk-table__header">Phosphate (P205)</td>
+      <td class="govuk-table__cell govuk-table__header">Phosphate (P2O5)</td>
       <td class="govuk-table__cell">0</td>
       <td class="govuk-table__cell">0</td>
       <td class="govuk-table__cell">0</td>
@@ -162,7 +162,7 @@
       <td class="govuk-table__cell govuk-table__header">0</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell govuk-table__header">Potash (K20)</td>
+      <td class="govuk-table__cell govuk-table__header">Potash (K2O)</td>
       <td class="govuk-table__cell">0</td>
       <td class="govuk-table__cell">0</td>
       <td class="govuk-table__cell">0</td>

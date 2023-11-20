@@ -20,10 +20,10 @@
         Nutrient application plan 2023 to 2024
       </span>
       <h1 class="govuk-heading-l">
-        Which crop group will you use in {{data.chosenfield.name}}?
+        Which crop type will you plant in {{data.chosenfield.name}}?
       </h1>
 
-      <form class="form" action="crop_variation_handler" method="post">
+      <form class="form" action="crop_when" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset">
@@ -32,7 +32,21 @@
                 Where do you live?
               </h1>
             </legend> -->
-            {% include "./crop_group_content" %}
+
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              {% for crop in data.crop_types %}
+                {% if crop.type == "fruit" %}
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id={{crop.name}} name="crop_type" type="radio" value={{crop.name}}>
+                    <label class="govuk-label govuk-radios__label" for={{crop.name}}>
+                      {{crop.name}}
+                    </label>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            
+            </div>
           </fieldset>
         </div>
         {{ govukButton({
@@ -42,10 +56,21 @@
       </form>
 
     </div>
+    
   </div>
-  
+
   <p class="govuk-body">
     <a href="fields.html">Cancel</a>
   </p>
 
 {% endblock %}
+
+
+
+
+
+
+
+
+
+

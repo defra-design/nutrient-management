@@ -1,4 +1,4 @@
-{"crops": [
+[
     {"name" : "Barley, spring", "type": "cereals"},
     {"name" : "Barley, winter", "type": "cereals"},
     {"name" : "Oats. spring", "type": "cereals"},
@@ -77,4 +77,4 @@
     {"name" : "Parsnips", "type": "root-veg"},
     {"name" : "Swedes", "type": "root-veg"},
     {"name" : "Tumips", "type": "root-veg"}
-]}
+]

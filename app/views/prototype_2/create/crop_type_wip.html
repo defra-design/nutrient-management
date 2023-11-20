@@ -35,13 +35,12 @@
 
             <div class="govuk-radios" data-module="govuk-radios">
 
-              {% for name, crop in data.crop_types %}
-              {{crop[0].name}}
-                {% if crop[0].type}} == "cereals" %}
+              {% for crop in data.crop_types %}
+                {% if crop.type == "fruit" %}
                   <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id={{crop.name}} name="crop_type" type="radio" value={{crop.name}}>
                     <label class="govuk-label govuk-radios__label" for={{crop.name}}>
-                      {{crop[0].name}}
+                      {{crop.name}}
                     </label>
                   </div>
                 {% endif %}

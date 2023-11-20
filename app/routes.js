@@ -11,11 +11,13 @@ const router = govukPrototypeKit.requests.setupRouter()
 //Import data
 var farm_details = require('./data/farm_details.json');
 var field_details = require('./data/field_details.json');
+var crop_types = require('./data/crops.json');
 
 //Index route loads data in application
 router.get('/', function (req, res) { 
     //data
     req.session.data.field_details = field_details
+    req.session.data.crop_types = crop_types
     req.session.data.farm_details = farm_details
     req.session.data.chosenfield = null
 
@@ -183,4 +185,13 @@ router.get(/fertiliser_types_handler/, function (req, res) {
         }
     }
     res.redirect('fertiliser_amount')
+})
+
+//crops
+router.get(/crop_variation_handler/, function (req, res) { 
+    if (req.session.data.crop_group == "arable") {
+        res.redirect('crop_type_cereals')
+    } else {
+        res.redirect('crop_type_forage')
+    }
 })

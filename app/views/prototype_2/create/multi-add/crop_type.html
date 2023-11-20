@@ -20,7 +20,7 @@
         Nutrient application plan 2023 to 2024
       </span>
       <h1 class="govuk-heading-l">
-        Which crop type will you plant in {{data.chosenfield.name}}?
+        Which crop type will you plant in these fields?
       </h1>
 
       <form class="form" action="crop_when" method="post">
@@ -32,7 +32,7 @@
                 Where do you live?
               </h1>
             </legend> -->
-            {% include "./crop_type_content" %}
+            {% include "../crop_type_content" %}
           </fieldset>
         </div>
         {{ govukButton({

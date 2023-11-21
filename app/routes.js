@@ -21,6 +21,14 @@ router.get('/', function (req, res) {
     req.session.data.farm_details = farm_details
     req.session.data.chosenfield = null
 
+    //create sanitised references for the crop list
+    for(var x in req.session.data.crop_types) {
+        var y = req.session.data.crop_types[x].name
+        const regex = / /g
+        y = y.replace(regex, "-").replace(",", "").toLowerCase()
+        req.session.data.crop_types[x].reference = y
+    }
+
     //control vars
     req.session.data.chosen_nutrients = []
     req.session.data.chosen_nitrogen = false

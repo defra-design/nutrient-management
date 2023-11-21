@@ -36,8 +36,8 @@
               {% for crop in data.crop_types %}
                 {% if crop.type == "fruit" %}
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id={{crop.name}} name="crop_type" type="radio" value={{crop.name}}>
-                    <label class="govuk-label govuk-radios__label" for={{crop.name}}>
+                    <input class="govuk-radios__input" id={{crop.reference}} name="crop_type" type="radio" value={{crop.reference}}>
+                    <label class="govuk-label govuk-radios__label" for={{crop.reference}}>
                       {{crop.name}}
                     </label>
                   </div>

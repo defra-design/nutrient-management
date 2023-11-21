@@ -32,7 +32,7 @@ router.get('/', function (req, res) {
     // content vars
     req.session.data.organic_term = "Organic material"
     req.session.data.non_organic_term = "Inorganic fertiliser"
-    req.session.data.harvest_year = "2023 to 2024"
+    req.session.data.harvest_year = "harvest year 2024"
 
     // route vars
     req.session.data.manure_spreads = 0

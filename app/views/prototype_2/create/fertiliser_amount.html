@@ -16,9 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <span class="govuk-caption-l">
-        Nutrient application plan 2023 to 2024
-      </span>
+      {% include "./title_span.html" %}
 
       <h1 class="govuk-heading-l">
         How much of each nutrient will you include in this application for {{data.chosenfield.name}}?
@@ -43,7 +41,7 @@
       {% if data.chosen_phosphate == true %}
         <div class="govuk-form-group">
           <label class="govuk-label" for="weight">
-            <strong>Phosphate (P205)</strong><br>
+            <strong>Phosphate (P2O5)</strong><br>
             Total inorganic recommendation: 95kg per hectare<br>
             Planned for year: 0kg per hectare<br>
             Remaining need: 95kg per hectare<br>
@@ -57,7 +55,7 @@
         {% if data.chosen_potash == true %}
         <div class="govuk-form-group">
           <label class="govuk-label" for="weight">
-            <strong>Potash (K20)</strong><br>
+            <strong>Potash (K2O)</strong><br>
             Total inorganic recommendation: 55kg per hectare<br>
             Planned for year: 0kg per hectare<br>
             Remaining need: 55kg per hectare<br>

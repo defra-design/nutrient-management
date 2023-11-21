@@ -16,9 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <span class="govuk-caption-l">
-        Nutrient application plan 2023 to 2024
-      </span>
+      {% include "./title_span.html" %}
 
       <h1 class="govuk-heading-l">
         How many kilograms per hectare of each nutrient will you include in this application for {{data.chosenfield.name}}?
@@ -48,7 +46,7 @@
             <td class="govuk-table__cell">0</td>
           </tr>      
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell govuk-table__header">Phosphate (P205)</td>
+            <td class="govuk-table__cell govuk-table__header">Phosphate (P2O5)</td>
             <td class="govuk-table__cell">1</td>
             <td class="govuk-table__cell">95</td>
             <td class="govuk-table__cell">0</td>
@@ -56,7 +54,7 @@
             <td class="govuk-table__cell">0</td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell govuk-table__header">Potash (K20)</td>
+            <td class="govuk-table__cell govuk-table__header">Potash (K2O)</td>
             <td class="govuk-table__cell">2+</td>
             <td class="govuk-table__cell">55</td>
             <td class="govuk-table__cell">0</td>
@@ -99,7 +97,7 @@
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="weight">
-            <strong>Phosphate (P205)</strong>
+            <strong>Phosphate (P2O5)</strong>
           </label>
           <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
             <div class="govuk-input__suffix" aria-hidden="true">kg/h</div>
@@ -108,7 +106,7 @@
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="weight">
-            <strong>Potash (K20)</strong>
+            <strong>Potash (K2O)</strong>
           </label>
           <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
             <div class="govuk-input__suffix" aria-hidden="true">kg/h</div>
@@ -117,7 +115,7 @@
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="weight">
-            <strong>Potash (K20)</strong>
+            <strong>Potash (K2O)</strong>
           </label>
           <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
             <div class="govuk-input__suffix" aria-hidden="true">kg/h</div>

@@ -198,5 +198,9 @@ router.get(/fertiliser_types_handler/, function (req, res) {
 
 //crops
 router.get(/crop_group_handler/, function (req, res) { 
-        res.redirect('crop_type_wip')
+        if (req.session.data.crop_group == "other") {
+            res.redirect('crop_when')
+        } else {
+            res.redirect('crop_type_all')
+        }
 })

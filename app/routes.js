@@ -20,6 +20,7 @@ router.get('/', function (req, res) {
     req.session.data.crop_types = crop_types
     req.session.data.farm_details = farm_details
     req.session.data.chosenfield = null
+    req.session.data.crop_group = null
 
     //create sanitised references for the crop list
     for(var x in req.session.data.crop_types) {
@@ -196,10 +197,6 @@ router.get(/fertiliser_types_handler/, function (req, res) {
 })
 
 //crops
-router.get(/crop_variation_handler/, function (req, res) { 
-    if (req.session.data.crop_group == "arable") {
-        res.redirect('crop_type_cereals')
-    } else {
-        res.redirect('crop_type_forage')
-    }
+router.get(/crop_group_handler/, function (req, res) { 
+        res.redirect('crop_type_wip')
 })

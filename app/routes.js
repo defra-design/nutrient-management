@@ -204,3 +204,23 @@ router.get(/crop_group_handler/, function (req, res) {
             res.redirect('crop_type_all')
         }
 })
+
+//multi-add select crops
+router.get(/multi_crop_select_handler/, function (req, res) { 
+    // if (req.session.data.crop_group == "other") {
+    //     res.redirect('crop_when')
+    // } else {
+    //     res.redirect('crop_type_all')
+    // }
+    res.redirect('./check_three')
+
+})
+
+//multi-add status handler
+router.get(/multi_add_handler/, function (req, res) { 
+    // loop through selected fields
+    // update status == crops_added
+    // continue planning and use an if to make decisions (if status == 'crops_added')
+    res.redirect('../fields')
+})
+

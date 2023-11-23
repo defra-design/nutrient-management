@@ -20,13 +20,13 @@
         Nutrient application plan 2023 to 2024
       </span>
       <h1 class="govuk-heading-l">
-        Select the crop you will you plant in these fields?
+        What will you use these fields for this harvest year?
       </h1>
 
-      <form class="form" action="crop_when" method="post">
+      <form class="form" action="multi_crop_select_handler" method="post">
 
         <div class="govuk-form-group">
-          <h2 class="govuk-heading-m">Select from favourites</h2>
+          <h3 class="govuk-heading-s">Select from your favourites</h3>
           <fieldset class="govuk-fieldset">
             <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
@@ -35,8 +35,14 @@
             </legend> -->
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="oilseed_spring" name="crop_type" type="radio" value="oilseed_spring">
-                <label class="govuk-label govuk-radios__label" for="oilseed_spring">
+                <input class="govuk-radios__input" id="grass" name="crop_type" type="radio" value="grass">
+                <label class="govuk-label govuk-radios__label" for="grass">
+                  Grass
+                </label>
+              </div>  
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="wheat_winter" name="crop_type" type="radio" value="wheat_winter">
+                <label class="govuk-label govuk-radios__label" for="wheat_winter">
                   Wheat, winter
                 </label>
               </div>              
@@ -55,11 +61,11 @@
             </div>          
           </fieldset>
           <br>
-          <h2 class="govuk-heading-m">Or</h2>
+          <h3 class="govuk-heading-s">Or</h3>
           <fieldset class="govuk-fieldset">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="peas" name="crop_type" type="radio" value="peas">
-              <label class="govuk-label govuk-radios__label" for="peas">
+              <input class="govuk-radios__input" id="other" name="crop_type" type="radio" value="other">
+              <label class="govuk-label govuk-radios__label" for="other">
                 Select another crop
               </label>
             </div>

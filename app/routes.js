@@ -63,7 +63,11 @@ router.get(/create_plan_handler/, function (req, res) {
         }
     }
     console.log(req.session.data.chosenfield.name)
-    res.redirect('create')
+    if (req.session.data.chosenfield.planStatus == "crop_added") {
+    res.redirect('crop_when')
+    } else {
+        res.redirect('create')
+    }
 })
 
 //how do you want to create your plan? 
@@ -203,4 +207,18 @@ router.get(/crop_group_handler/, function (req, res) {
         } else {
             res.redirect('crop_type_all')
         }
+})
+
+//multi-add status handler
+router.get(/multi_add_handler/, function (req, res) { 
+    for (var x in req.session.data.chosen_fields) {
+        for (var y in req.session.data.field_details) {
+            if (req.session.data.field_details[y].reference == req.session.data.chosen_fields[x] ) {
+                req.session.data.field_details[y].planStatus = "crop_added"
+                console.log(req.session.data.field_details[y].name + " planStatus = " + req.session.data.field_details[y].planStatus )
+            }
+        }
+    }
+    // continue planning and use an if to make decisions (if status == 'crops_added')
+    res.redirect('../fields')
 })

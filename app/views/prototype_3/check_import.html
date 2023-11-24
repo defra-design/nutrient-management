@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers 1 – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    
+    <h1 class="govuk-heading-l">
+      Check farm and farmer data
+    </h1>
+
+    <div class="check-answers">
+      {% include "./check_import_values.html" ignore missing %}
+    </div>
+
+    <form action="/prototype_2/hub" method="post" novalidate>
+      {{ govukButton({
+        text: "Import this farm's data"
+      }) }}
+    </form>
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

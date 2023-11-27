@@ -79,7 +79,7 @@ router.get(/plan-type-handler/, function (req, res) {
         res.redirect('other_plan')
     } else {
         //new
-    res.redirect('soil')
+    res.redirect('use')
     }
 })
 

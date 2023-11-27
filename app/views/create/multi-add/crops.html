@@ -1,0 +1,98 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">
+        Nutrient application plan 2023 to 2024
+      </span>
+      <h1 class="govuk-heading-l">
+        What will you use these fields for this harvest year?
+      </h1>
+
+      <form class="form" action="check_three" method="post">
+
+        <div class="govuk-form-group">
+          <h3 class="govuk-heading-s">Select from your favourites</h3>
+          <fieldset class="govuk-fieldset">
+            <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Where do you live?
+              </h1>
+            </legend> -->
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="grass" name="crop_type" type="radio" value="grass">
+                <label class="govuk-label govuk-radios__label" for="grass">
+                  Grass
+                </label>
+              </div>  
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="wheat_winter" name="crop_type" type="radio" value="wheat_winter">
+                <label class="govuk-label govuk-radios__label" for="wheat_winter">
+                  Wheat, winter
+                </label>
+              </div>              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="oilseed_winter" name="crop_type" type="radio" value="oilseed_winter">
+                <label class="govuk-label govuk-radios__label" for="oilseed_winter">
+                  Oilseed rape, winter
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="peas" name="crop_type" type="radio" value="peas">
+                <label class="govuk-label govuk-radios__label" for="peas">
+                  Peas
+                </label>
+              </div>
+            </div>          
+          </fieldset>
+          <br>
+          <h3 class="govuk-heading-s">or</h3>
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="other" name="crop_type" type="radio" value="other">
+              <label class="govuk-label govuk-radios__label" for="other">
+                Select another crop
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        {{ govukButton({
+          text: "Next"
+        }) }}
+
+      </form>
+
+    </div>
+    
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

@@ -20,6 +20,16 @@ router.get('/', function (req, res) {
     req.session.data.crop_types = crop_types
     req.session.data.farm_details = farm_details
     req.session.data.chosenfield = null
+    req.session.data.crop_group = null
+    req.session.data.farms_added = false
+
+    //create sanitised references for the crop list
+    for(var x in req.session.data.crop_types) {
+        var y = req.session.data.crop_types[x].name
+        const regex = / /g
+        y = y.replace(regex, "-").replace(",", "").toLowerCase()
+        req.session.data.crop_types[x].reference = y
+    }
 
     //control vars
     req.session.data.chosen_nutrients = []
@@ -54,7 +64,11 @@ router.get(/create_plan_handler/, function (req, res) {
         }
     }
     console.log(req.session.data.chosenfield.name)
-    res.redirect('create')
+    if (req.session.data.chosenfield.planStatus == "crop_added") {
+    res.redirect('crop_when')
+    } else {
+        res.redirect('create')
+    }
 })
 
 //how do you want to create your plan? 
@@ -65,7 +79,7 @@ router.get(/plan-type-handler/, function (req, res) {
         res.redirect('other_plan')
     } else {
         //new
-    res.redirect('soil')
+    res.redirect('use')
     }
 })
 
@@ -74,7 +88,7 @@ router.get(/crop_type_handler/, function (req, res) {
     if (req.session.data.field_use == "arable") {
         res.redirect('crop_group')
     } else {
-        res.redirect('grass')
+        res.redirect('grass/established_date')
     }
 })
 
@@ -188,10 +202,40 @@ router.get(/fertiliser_types_handler/, function (req, res) {
 })
 
 //crops
-router.get(/crop_variation_handler/, function (req, res) { 
-    if (req.session.data.crop_group == "arable") {
-        res.redirect('crop_type_cereals')
-    } else {
-        res.redirect('crop_type_forage')
+router.get(/crop_group_handler/, function (req, res) { 
+        if (req.session.data.crop_group == "other") {
+            res.redirect('crop_when')
+        } else {
+            res.redirect('crop_type_all')
+        }
+})
+
+//multi-add status handler
+router.get(/multi_add_handler/, function (req, res) { 
+    for (var x in req.session.data.chosen_fields) {
+        for (var y in req.session.data.field_details) {
+            if (req.session.data.field_details[y].reference == req.session.data.chosen_fields[x] ) {
+                req.session.data.field_details[y].planStatus = "crop_added"
+                console.log(req.session.data.field_details[y].name + " planStatus = " + req.session.data.field_details[y].planStatus )
+            }
+        }
     }
+    // continue planning and use an if to make decisions (if status == 'crops_added')
+    res.redirect('../fields')
+})
+
+//add farms
+router.get(/add_farms_handler/, function (req, res) { 
+    req.session.data.farms_added = true
+    res.redirect('/prototype_3/farms')
+})
+
+//grass
+router.get(/grass_use_handler/, function (req, res) { 
+    res.redirect('livestock')
+})
+
+//livestock system
+router.get(/livestock_system_choice_handler/, function (req, res) { 
+    res.redirect('grazing')
 })

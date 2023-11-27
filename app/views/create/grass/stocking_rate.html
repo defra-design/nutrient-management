@@ -15,24 +15,24 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
+      
       {% include "templates/title_span.html" %}
+
       <h1 class="govuk-heading-l">
-        Which crop group will you use in {{data.chosenfield.name}}?
+        What is the stocking rate for {{data.chosenfield.name}}?
       </h1>
 
-      <form class="form" action="crop_group_handler" method="post">
+      <form class="form" action="./management" method="post">
 
         <div class="govuk-form-group">
-          <!-- <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                Where do you live?
-              </h1>
-            </legend> -->
-            {% include "./crop_group_content" %}
-          </fieldset>
+          <!-- <label class="govuk-label" for="weight">
+            Yield
+          </label> -->
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">livestock unit per hectare</div>
+          </div>
         </div>
+
         {{ govukButton({
           text: "Next"
         }) }}
@@ -41,7 +41,7 @@
 
     </div>
   </div>
-  
+
   <p class="govuk-body">
     <a href="fields.html">Cancel</a>
   </p>

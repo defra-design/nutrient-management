@@ -88,7 +88,7 @@ router.get(/crop_type_handler/, function (req, res) {
     if (req.session.data.field_use == "arable") {
         res.redirect('crop_group')
     } else {
-        res.redirect('grass')
+        res.redirect('grass/established_date')
     }
 })
 
@@ -225,8 +225,17 @@ router.get(/multi_add_handler/, function (req, res) {
 })
 
 //add farms
-
 router.get(/add_farms_handler/, function (req, res) { 
     req.session.data.farms_added = true
     res.redirect('/prototype_3/farms')
+})
+
+//grass
+router.get(/grass_use_handler/, function (req, res) { 
+    res.redirect('livestock')
+})
+
+//livestock system
+router.get(/livestock_system_choice_handler/, function (req, res) { 
+    res.redirect('grazing')
 })

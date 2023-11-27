@@ -18,10 +18,10 @@
 
       {% include "templates/title_span.html" %}
       <h1 class="govuk-heading-l">
-        How would you like to create a plan for {{data.chosenfield.name}}?
+        How was {{data.chosenfield.name}} used last year?
       </h1>
 
-      <form class="form" action="plan-type-handler" method="post">
+      <form class="form" action="grass_use_handler" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset">
@@ -32,21 +32,15 @@
             </legend> -->
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="previous" name="plan_type" type="radio" value="previous">
-                <label class="govuk-label govuk-radios__label" for="previous">
-                  Start with last year's plan
+                <input class="govuk-radios__input" id="arable" name="field_use" type="radio" value="arable">
+                <label class="govuk-label govuk-radios__label" for="arable">
+                  Arable crops
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="other" name="plan_type" type="radio" value="other">
-                <label class="govuk-label govuk-radios__label" for="other">
-                  Use a plan from another field
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="new" name="plan_type" type="radio" value="new">
-                <label class="govuk-label govuk-radios__label" for="new">
-                  Enter crop and nutrient data manually
+                <input class="govuk-radios__input" id="grass" name="field_use" type="radio" value="grass">
+                <label class="govuk-label govuk-radios__label" for="grass">
+                  Grass
                 </label>
               </div>
             </div>

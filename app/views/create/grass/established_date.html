@@ -13,11 +13,12 @@
 
 {% block content %}
 
-  {% if data.manure_spreads == 0 %}
-    {% set manure_count = "first" %}
-  {% else %}
-    {% set manure_count = "next" %}
-  {% endif %}
+{% if data.fertiliser_spreads == 0 %}
+  {% set fertiliser_count = "first" %}
+{% else %}
+  {% set fertiliser_count = "next" %}
+{% endif %}
+
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -25,10 +26,10 @@
       {% include "templates/title_span.html" %}
 
       <h1 class="govuk-heading-l">
-        When will you sow Winter Wheat in {{data.chosenfield.name}}?
+        What is the established date?
       </h1>
 
-      <form class="form" action="yield" method="post">
+      <form class="form" action="current_sward" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">

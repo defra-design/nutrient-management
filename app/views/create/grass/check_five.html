@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Check your answers 2 – {{ serviceName }} – GOV.UK Prototype Kit
+  Check your answers 1 – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -17,14 +17,17 @@
     
     {% include "templates/title_span.html" %}
     <h1 class="govuk-heading-l">
-      Check {{data.non_organic_term | lower }} details for {{data.chosenfield.name}}
+      Check crop and {{data.organic_term | lower }} details for {{data.chosenfield.name}}
     </h1>
-
+    
+    <h2 class="govuk-heading-m">
+      Crop plan for {{data.chosenfield.name}}
+    </h2>    
     <div class="check-answers">
-      {% include "./check_two_content.html" ignore missing %}
+      {% include "./check_five_crops" %}
     </div>
 
-    <form action="set_status" method="post" novalidate>
+    <form action="recs_status_handler" method="post" novalidate>
       {{ govukButton({
         text: "Add to application plan"
       }) }}

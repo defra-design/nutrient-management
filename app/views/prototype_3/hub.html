@@ -9,7 +9,7 @@
   {{ govukBreadcrumbs({
     items: [
       {
-        text: "Home",
+        text: "Current farms",
         href: "/prototype_3/farms"
       },
       {
@@ -30,12 +30,12 @@
   {% if data.farm_details.plan_status == "none" %}
   <h2 class="govuk-heading-m">No nutrient application plan for {{data.harvest_year}}</h2>
   <p class="govuk-body">
-    <a href="./create/fields.html" class="govuk-link">Create a nutrient application plan</a>
+    <a href="/prototype_2/create/fields.html" class="govuk-link">Create a nutrient application plan</a>
   </p>
 {% else %}
   <h2 class="govuk-heading-m">Plan started for {{data.harvest_year}}</h2>
   <p class="govuk-body">
-    <a href="./create/fields.html" class="govuk-link">View or edit nutrient application plan</a>
+    <a href="/prototype_2/create/fields.html" class="govuk-link">View or edit nutrient application plan</a>
   </p>
 {% endif %}
 </div>  

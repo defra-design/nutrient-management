@@ -21,6 +21,7 @@ router.get('/', function (req, res) {
     req.session.data.farm_details = farm_details
     req.session.data.chosenfield = null
     req.session.data.crop_group = null
+    req.session.data.farms_added = false
 
     //create sanitised references for the crop list
     for(var x in req.session.data.crop_types) {
@@ -221,4 +222,11 @@ router.get(/multi_add_handler/, function (req, res) {
     }
     // continue planning and use an if to make decisions (if status == 'crops_added')
     res.redirect('../fields')
+})
+
+//add farms
+
+router.get(/add_farms_handler/, function (req, res) { 
+    req.session.data.farms_added = true
+    res.redirect('/prototype_3/farms')
 })

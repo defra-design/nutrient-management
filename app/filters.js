@@ -16,3 +16,8 @@ const addFilter = govukPrototypeKit.views.addFilter
 addFilter('smartify', function (content) {
     return content.replace(',', ',  ').replace('-', ', ');
 })
+
+addFilter('splitlines', function (content) {
+    return content.replace('.', '\n');
+})
+

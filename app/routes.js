@@ -88,7 +88,7 @@ router.get(/crop_type_handler/, function (req, res) {
     if (req.session.data.field_use == "arable") {
         res.redirect('crop_group')
     } else {
-        res.redirect('crop_group')
+        res.redirect('grass/established_date')
     }
 })
 

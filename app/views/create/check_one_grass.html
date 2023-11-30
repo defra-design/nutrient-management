@@ -2,7 +2,7 @@
 rows: [
 {
   key: {
-    text: "Do you have new soil sample results to add for Small Field?"
+    text: "What is the established date?"
   },
   value: {
     text: "No"
@@ -19,7 +19,7 @@ rows: [
 }
 , {
     key: {
-      text: "Will you grow arable crops or grass?"
+      text: "What is the current sward?"
     },
     value: {
       text: "Arable"
@@ -37,7 +37,7 @@ rows: [
   ,
   {
     key: {
-      text: "Which crop type will you plant?"
+      text: "How was the field used last year?"
     },
     value: {
       text: "Arable cereals"
@@ -55,7 +55,7 @@ rows: [
   ,
   {
     key: {
-      text: "Which crop type will you plant?"
+      text: "Which livestock system will you use?"
     },
     value: {
       text: "Wheat, Winter"
@@ -91,7 +91,7 @@ rows: [
   ,
   {
     key: {
-      text: "What is the expected yield?"
+      text: "What is the expected milk yield?"
     },
     value: {
       text: "-"
@@ -109,7 +109,7 @@ rows: [
   ,
   {
     key: {
-      text: "How will the crop be used?"
+      text: "What is the concentrate use?"
     },
     value: {
       text: "Milling"
@@ -126,7 +126,93 @@ rows: [
   },
   {
     key: {
-      text: "How will you use the straw?"
+      text: "What is the stocking rate?"
+    },
+    value: {
+      text: "-"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  },
+  {
+    key: {
+      text: "How will you manage the grass in " + data.chosenfield.name
+    },
+    value: {
+      text: "-"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  },
+  {
+    key: {
+      text: "How many defoliations will you have in " + data.chosenfield.name
+    },
+    value: {
+      text: "-"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  }
+  ,
+  {
+    key: {
+      text: "Defoliations for " + data.chosenfield.name
+    },
+    value: {
+      text: "-"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  },
+  {
+    key: {
+      text: "Has the grass be ploughed or will the grass be ploughed in " + data.chosenfield.name + " this harvest year"
+    },
+    value: {
+      text: "-"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  },
+  {
+    key: {
+      text: "When was grass the grass ploughed or when will it be ploughed?"
     },
     value: {
       text: "-"

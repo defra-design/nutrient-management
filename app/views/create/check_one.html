@@ -19,12 +19,17 @@
     <h1 class="govuk-heading-l">
       Check crop and {{data.organic_term | lower }} details for {{data.chosenfield.name}}
     </h1>
+
     
     <h2 class="govuk-heading-m">
       Crop plan for {{data.chosenfield.name}}
-    </h2>    
+    </h2>   
     <div class="check-answers">
-      {% include "./check_one_crops.html" %}
+      {% if data.field_use == "arable" %}
+          {% include "./check_one_crops.html" %}
+      {% else %}
+        {% include "./check_one_grass.html" %}
+      {% endif %}
     </div>
 
     <br>

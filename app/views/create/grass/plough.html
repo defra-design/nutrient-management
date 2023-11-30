@@ -19,10 +19,14 @@
       {% include "templates/title_span.html" %}
 
       <h1 class="govuk-heading-l">
-        Has the grass been ploughed in {{data.chosenfield.name | lower }}?
+        Has the grass be ploughed or will the grass be ploughed in {{data.chosenfield.name}} this harvest year?
       </h1>
 
-      <form class="form" action="./ploughed_date" method="post">
+      <!-- <div id="signIn-hint" class="govuk-hint">
+        Select yes if you've already ploughed the field this harvest year
+      </div> -->
+
+      <form class="form" action="ploughed_date" method="post">
 
         <div class="govuk-form-group">
           <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">

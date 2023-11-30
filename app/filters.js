@@ -8,3 +8,11 @@ const addFilter = govukPrototypeKit.views.addFilter
 
 // Add your filters here
 
+
+// addFilter('uppercase', function (content) {
+//   return content.toUpperCase()
+// })
+
+addFilter('smartify', function (content) {
+    return content.replace(',', ',  ').replace('-', ', ');
+})

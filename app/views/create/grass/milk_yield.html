@@ -19,17 +19,17 @@
       {% include "templates/title_span.html" %}
 
       <h1 class="govuk-heading-l">
-        What is the concentrate use for {{data.chosenfield.name}}?
+        What is the expected milk yield for {{data.chosenfield.name}}?
       </h1>
 
-      <form class="form" action="./stocking_rate" method="post">
+      <form class="form" action="concentrate" method="post">
 
         <div class="govuk-form-group">
           <!-- <label class="govuk-label" for="weight">
             Yield
           </label> -->
           <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
-            <div class="govuk-input__suffix" aria-hidden="true">t DM / animal per year</div>
+            <div class="govuk-input__suffix" aria-hidden="true">litres per cow per year</div>
           </div>
         </div>
 

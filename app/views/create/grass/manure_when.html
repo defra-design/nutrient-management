@@ -13,12 +13,11 @@
 
 {% block content %}
 
-{% if data.fertiliser_spreads == 0 %}
-  {% set fertiliser_count = "first" %}
-{% else %}
-  {% set fertiliser_count = "next" %}
-{% endif %}
-
+  {% if data.manure_spreads == 0 %}
+    {% set manure_count = "first" %}
+  {% else %}
+    {% set manure_count = "next" %}
+  {% endif %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -26,10 +25,10 @@
       {% include "templates/title_span.html" %}
 
       <h1 class="govuk-heading-l">
-        When was grass the grass ploughed or when will it be ploughed?
+        When will you spread {{data.organic_term | lower}} on {{data.chosenfield.name}} after the first defoliation?
       </h1>
 
-      <form class="form" action="/create/manure_if" method="post">
+      <form class="form" action="manure_counter_updater" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">

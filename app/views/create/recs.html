@@ -20,7 +20,11 @@
       {{data.non_organic_term }} recommendations<br> for {{data.chosenfield.name}}
     </h1>
     
-    <p class="govuk-body">Wheat, Winter</p>
+    {% if data.field_use == 'arable' %}
+      <p class="govuk-body">Crop type: Wheat, Winter</p>
+    {% else %}
+      <p class="govuk-body">Crop type: Grass</p>
+    {% endif %}
 
 <table class="govuk-table recomendation-table data-table">
   <!-- <caption class="govuk-table__caption govuk-table__caption--m">Big Field</caption> -->

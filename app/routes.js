@@ -142,7 +142,7 @@ router.get(/recs_status_handler/, function (req, res) {
         }
     }
     req.session.data.farm_details.plan_status = "recommendations"
-    res.redirect('recs')
+    res.redirect('/create/recs')
 })
 
 
@@ -237,5 +237,5 @@ router.get(/grass_use_handler/, function (req, res) {
 
 //livestock system
 router.get(/livestock_system_choice_handler/, function (req, res) { 
-    res.redirect('grazing')
+    res.redirect('milk_yield')
 })

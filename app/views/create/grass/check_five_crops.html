@@ -1,0 +1,128 @@
+{{ govukSummaryList({
+rows: [
+ {
+    key: {
+      text: "Will you grow arable crops or grass?"
+    },
+    value: {
+      text: "Arable"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: "Question 1"
+        }
+      ]
+    }
+  }
+  ,
+  {
+    key: {
+      text: "Which crop type will you plant?"
+    },
+    value: {
+      text: data.crop_group | capitalize
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: "Question 2"
+        }
+      ]
+    }
+  }
+  ,
+  {
+    key: {
+      text: "Which crop type will you plant?"
+    },
+    value: {
+      text: data.crop_type | capitalize | smartify
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  }
+  ,
+  {
+    key: {
+      text: "When will you sow?"
+    },
+    value: {
+      text: "1 October 2024"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  }
+  ,
+  {
+    key: {
+      text: "What is the expected yield?"
+    },
+    value: {
+      text: "-"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  }
+  ,
+  {
+    key: {
+      text: "How will the crop be used?"
+    },
+    value: {
+      text: "Milling"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  },
+  {
+    key: {
+      text: "How will you use the straw?"
+    },
+    value: {
+      text: "-"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  }
+]
+}) }}

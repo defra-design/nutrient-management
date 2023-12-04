@@ -1,28 +1,11 @@
 {{ govukSummaryList({
 rows: [
 {
-  key: {
-    text: "What is the established date?"
-  },
-  value: {
-    text: "1 May 2023"
-  },
-  actions: {
-    items: [
-      {
-        href: "",
-        text: "Change",
-        visuallyHiddenText: "Question 1"
-      }
-    ]
-  }
-}
-, {
     key: {
-      text: "What is the current sward?"
+      text: "Will you use Small Field  for arable crops or grass?"
     },
     value: {
-      text: "Spring sown"
+      text: "Grass"
     },
     actions: {
       items: [
@@ -37,10 +20,10 @@ rows: [
   ,
   {
     key: {
-      text: "How was the field used last year?"
+      text: "What is the current sward in Small Field?"
     },
     value: {
-      text: "Arable crops"
+      text: "Autumn sown"
     },
     actions: {
       items: [
@@ -55,10 +38,10 @@ rows: [
   ,
   {
     key: {
-      text: "Which livestock system will you use?"
+      text: "How was Small Field used last year?"
     },
     value: {
-      text: "Dairy"
+      text: "Arable crops"
     },
     actions: {
       items: [
@@ -73,10 +56,10 @@ rows: [
   ,
   {
     key: {
-      text: "What is the expected milk yield?"
+      text: "How long has Small Field been used for arable crops?"
     },
     value: {
-      text: " litres per cow per year"
+      text: "More than one year"
     },
     actions: {
       items: [
@@ -91,93 +74,7 @@ rows: [
   ,
   {
     key: {
-      text: "What is the concentrate use?"
-    },
-    value: {
-      text: "t DM / animal per year"
-    },
-    actions: {
-      items: [
-        {
-          href: "",
-          text: "Change",
-          visuallyHiddenText: ""
-        }
-      ]
-    }
-  },
-  {
-    key: {
-      text: "What is the stocking rate?"
-    },
-    value: {
-      text: "1"
-    },
-    actions: {
-      items: [
-        {
-          href: "",
-          text: "Change",
-          visuallyHiddenText: ""
-        }
-      ]
-    }
-  },
-  {
-    key: {
-      text: "How will you manage the grass in " + data.chosenfield.name
-    },
-    value: {
-      text: "Silage and grazing"
-    },
-    actions: {
-      items: [
-        {
-          href: "",
-          text: "Change",
-          visuallyHiddenText: ""
-        }
-      ]
-    }
-  },
-  {
-    key: {
-      text: "How many defoliations will you have in " + data.chosenfield.name
-    },
-    value: {
-      text: "Six"
-    },
-    actions: {
-      items: [
-        {
-          href: "",
-          text: "Change",
-          visuallyHiddenText: ""
-        }
-      ]
-    }
-  }
-  ,
-  {
-    key: {
-      text: "Defoliations for " + data.chosenfield.name
-    },
-    value: {
-      text: "Grazing. Silage. Grazing. Grazing. Grazing. Grazing."
-    },
-    actions: {
-      items: [
-        {
-          href: "",
-          text: "Change",
-          visuallyHiddenText: ""
-        }
-      ]
-    }
-  },
-  {
-    key: {
-      text: "Has the grass be ploughed or will the grass be ploughed in " + data.chosenfield.name + " this harvest year"
+      text: "Was the previous crop Cereal, Sugar Beet or Linseed?"
     },
     value: {
       text: "Yes"
@@ -194,10 +91,44 @@ rows: [
   },
   {
     key: {
-      text: "When was grass the grass ploughed or when will it be ploughed?"
+      text: "Silage and grazing"
     },
     value: {
-      text: "5 April 2023"
+      text: "1"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  },
+  {
+    key: {
+      text: "How many defoliations will you have in Small Field?"
+    },
+    value: {
+      text: "2"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  },
+  {
+    key: {
+      text: "Defoliations for " + data.chosenfield.name
+    },
+    value: {
+      text: "First defoliation: Yes. Second defoliation: No"
     },
     actions: {
       items: [

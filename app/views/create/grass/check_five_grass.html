@@ -128,9 +128,8 @@ rows: [
       text: "Defoliations for " + data.chosenfield.name
     },
     value: {
-      text: "First defoliation:	 Grazing.
-      Second defoliation:	 Silage.
-      "
+      text: "First defoliation:	 Grazing
+      \nSecond defoliation:	 Silage." | striptags(true) | escape | nl2br
     },
     actions: {
       items: [

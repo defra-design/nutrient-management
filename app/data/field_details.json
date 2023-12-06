@@ -1,5 +1,5 @@
 [
-{"reference":"small", "name":"Small Field", "planStatus":false},
-{"reference":"big", "name":"Big Field", "planStatus":false},
-{"reference":"long", "name":"Long Field", "planStatus":false}
+{"reference":"small", "name":"Small Field", "planStatus":false, "crop":"none"},
+{"reference":"big", "name":"Big Field", "planStatus":false, "crop":"none"},
+{"reference":"long", "name":"Long Field", "planStatus":false, "crop":"none"}
 ]

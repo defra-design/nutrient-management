@@ -25,7 +25,7 @@
       {% include "templates/title_span.html" %}
 
       <h1 class="govuk-heading-l">
-        When will you sow Winter Wheat in {{data.chosenfield.name}}?
+        When will you sow {{data.chosen_crop | nameconverter }} in {{data.chosenfield.name}}?
       </h1>
 
       <form class="form" action="yield" method="post">

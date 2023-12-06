@@ -21,3 +21,10 @@ addFilter('splitlines', function (content) {
     return content.replace('.', '\n');
 })
 
+addFilter('nameconverter', function (content) {
+    if (content == "rye-winter") {
+        content = "Winter Rye"
+    }
+    return content;
+})
+

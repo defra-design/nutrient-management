@@ -38,6 +38,8 @@ router.get('/', function (req, res) {
     req.session.data.chosen_potash = false
     req.session.data.chosen_sulphur = false
     req.session.data.chosen_lime = false
+    req.session.data.chosen_crop = null
+
 
     // content vars
     req.session.data.organic_term = "Organic material"
@@ -139,6 +141,7 @@ router.get(/recs_status_handler/, function (req, res) {
     for ( var y in req.session.data.field_details ) {
         if(req.session.data.field_details[y].reference === req.session.data.chosenfield.reference) {
             req.session.data.field_details[y].planStatus = 'recommendations'
+            req.session.data.field_details[y].crop = req.session.data.chosen_crop
         }
     }
     req.session.data.farm_details.plan_status = "recommendations"
@@ -236,7 +239,9 @@ router.get(/grass_use_handler/, function (req, res) {
     res.redirect('arable_length')
 })
 
-//livestock system
-router.get(/livestock_system_choice_handler/, function (req, res) { 
-    res.redirect('milk_yield')
+//grass plan
+router.get(/grass_plan_handler/, function (req, res) { 
+    res.redirect('grass_recs')
 })
+
+

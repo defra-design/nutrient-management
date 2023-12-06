@@ -213,6 +213,7 @@ router.get(/crop_group_handler/, function (req, res) {
 //multi-add status handler
 router.get(/multi_add_handler/, function (req, res) { 
     for (var x in req.session.data.chosen_fields) {
+        console.log('here' + req.session.data.chosen_fields[x]);
         for (var y in req.session.data.field_details) {
             if (req.session.data.field_details[y].reference == req.session.data.chosen_fields[x] ) {
                 req.session.data.field_details[y].planStatus = "crop_added"

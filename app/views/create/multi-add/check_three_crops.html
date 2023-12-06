@@ -1,39 +1,40 @@
-{{ govukSummaryList({
-rows: [
-{
-  key: {
-    text: "Which fields would you like to add crops to?"
-  },
-  value: {
-    text: "Small Field, Big Field, Long Field"
-  },
-  actions: {
-    items: [
-      {
-        href: "",
-        text: "Change",
-        visuallyHiddenText: "Question 1"
-      }
-    ]
-  }
-}
-, {
-    key: {
-      text: "What will you use these fields for this harvest year?"
-    },
-    value: {
-      text: data.chosen_crop | capitalize | smartify
-    },
-    actions: {
-      items: [
-        {
-          href: "",
-          text: "Change",
-          visuallyHiddenText: "Question 1"
-        }
-      ]
-    }
-  }
- 
-]
-}) }}
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Which crop type will you plant in these fields?
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{data.chosen_crop}}
+    </dd>
+      <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="">
+          Change<span class="govuk-visually-hidden"> Question 1</span>
+          </a>
+      </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Which fields would you like to add {{data.chosen_crop}} to?
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+      {% for x in data.chosen_fields %}
+        {% if x == 'small' %}
+          Small Field <br>
+        {% elif x == 'big' %}
+          Big Field  <br>
+        {% elif x == 'long' %}
+          Long Field
+      {% endif %}
+
+      {% endfor %}
+
+    </dd>
+      <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="">
+          Change<span class="govuk-visually-hidden"> Question 1</span>
+          </a>
+      </dd>
+  </div>
+</dl>

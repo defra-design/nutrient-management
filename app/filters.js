@@ -8,6 +8,7 @@ const addFilter = govukPrototypeKit.views.addFilter
 
 // Add your filters here
 
+const crop_types = require('./data/crops.json');
 
 // addFilter('uppercase', function (content) {
 //   return content.toUpperCase()
@@ -22,9 +23,13 @@ addFilter('splitlines', function (content) {
 })
 
 addFilter('nameconverter', function (content) {
-    if (content == "rye-winter") {
-        content = "Winter Rye"
-    }
+    // // if (content == "rye-winter") {
+    // //     content = "Winter Rye"
+    // // }
+    // for (var x in crop_types) {
+    //     if (content == crop_types[x].name)
+    //     content = crop_types[x].type
+    // }
     return content;
 })
 

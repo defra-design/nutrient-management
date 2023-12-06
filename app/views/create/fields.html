@@ -32,7 +32,7 @@
       </h1>
 
       <p class="govuk-body">
-        <a href="multi-add/fields.html">Add crops to multiple fields</a>
+        <a href="multi-add/crops.html">Create a plan for multiple fields</a>
       </p>
 
       <!-- <p class="govuk-body">
@@ -58,7 +58,7 @@
                 {% if field.planStatus == false %}
                   {% set plan_status = "No plan" %}
                 {% elif field.planStatus == "recommendations" %}
-                  {% set plan_status = "recommendations created" %}
+                  {% set plan_status = "Recommendations created" %}
                   {% elif field.planStatus == "crop_added" %}
                   {% set plan_status = "Crop added" %}
                 {% else %}
@@ -78,11 +78,11 @@
                 </td>
                 <td class="govuk-table__cell">
                   {% if field.planStatus == false %}
-                    <a href="create_plan_handler?chosenfield={{field.reference}}">Create plan</a>
+                    <a href="create_plan_handler?chosenfield={{field.reference}}">Create plan for this field</a>
                   {% elif field.planStatus == "recommendations" %}
                     <a href="recs">View recommendations</a>
                   {% elif field.planStatus == "crop_added" %}
-                    <a href="create_plan_handler?chosenfield={{field.reference}}">Continue planning</a>
+                    <a href="create_plan_handler?chosenfield={{field.reference}}">Continue planning this field</a>
                   {% else %}
                     <a href="plan">View or update plan</a>
                 {% endif %}

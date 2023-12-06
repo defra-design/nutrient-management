@@ -9,9 +9,9 @@ const router = govukPrototypeKit.requests.setupRouter()
 // Add your routes here
 
 //Import data
-var farm_details = require('./data/farm_details.json');
-var field_details = require('./data/field_details.json');
-var crop_types = require('./data/crops.json');
+const farm_details = require('./data/farm_details.json');
+const field_details = require('./data/field_details.json');
+const crop_types = require('./data/crops.json');
 
 //Index route loads data in application
 router.get('/', function (req, res) { 

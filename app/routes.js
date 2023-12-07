@@ -89,7 +89,7 @@ router.get(/crop_type_handler/, function (req, res) {
     }
 })
 
-//do you plan to spraed manure?
+//do you plan to spread manure?
 router.get(/manure_if_handler/, function (req, res) { 
     if (req.session.data.manure_if == "yes") {
         res.redirect('manure_when')
@@ -117,7 +117,7 @@ if (req.session.data.manure_again == "yes") {
 }
 })
 
-//set the status
+//set the plan status
 router.get(/set_status/, function (req, res) { 
     for ( var y in req.session.data.field_details ) {
         if(req.session.data.field_details[y].reference === req.session.data.chosenfield.reference) {
@@ -128,7 +128,7 @@ router.get(/set_status/, function (req, res) {
     res.redirect('fields')
 })
 
-// update the status of the plan foir chosenfield to nul, recs, full
+// update the status of the plan for chosenfield to nul, recs, full
 
 //set the status to recommendations
 router.get(/recs_status_handler/, function (req, res) { 
@@ -142,11 +142,10 @@ router.get(/recs_status_handler/, function (req, res) {
     res.redirect('/create/recs')
 })
 
-
 //FERTILISER
 ////////////
 
-//do you plan to spraed fertiliser?
+//do you plan to spread fertiliser?
 router.get(/fertiliser_if_handler/, function (req, res) { 
     if (req.session.data.fertiliser_if == "yes") {
         res.redirect('fertiliser_when')
@@ -155,7 +154,7 @@ router.get(/fertiliser_if_handler/, function (req, res) {
     }
 })
 
-//do you plan to spread more firtiliser
+//do you plan to spread more fertiliser
 router.get(/fertiliser_again_handler/, function (req, res) { 
     if (req.session.data.fertiliser_again == "yes") {
         res.redirect('fertiliser_when')
@@ -174,7 +173,7 @@ router.get(/fertiliser_counter_updater/, function (req, res) {
     res.redirect('fertiliser_type')
 })
     
-//manure application loops
+//fertiliser application types loop
 router.get(/fertiliser_types_handler/, function (req, res) { 
     var chosen_nutrients = req.session.data.chosen_nutrients
     req.session.data.chosen_nitrogen = false
@@ -198,13 +197,13 @@ router.get(/fertiliser_types_handler/, function (req, res) {
     res.redirect('fertiliser_amount')
 })
 
-//crops
+//crop 
 router.get(/crop_group_handler/, function (req, res) { 
-        if (req.session.data.crop_group == "other") {
-            res.redirect('crop_when')
-        } else {
-            res.redirect('crop_type_all')
-        }
+    if (req.session.data.crop_group == "other") {
+        res.redirect('crop_when')
+    } else {
+        res.redirect('crop_type_all')
+    }
 })
 
 //add farms
@@ -222,7 +221,6 @@ router.get(/grass_use_handler/, function (req, res) {
 router.get(/grass_plan_handler/, function (req, res) { 
     res.redirect('grass_recs')
 })
-
 
 //Set the chosen_crop OBJECT
 router.get(/chosen_crop_handler/, function (req, res) { 

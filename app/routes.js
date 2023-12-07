@@ -24,12 +24,12 @@ router.get('/', function (req, res) {
     req.session.data.farms_added = false
 
     //create sanitised references for the crop list
-    for(var x in req.session.data.crop_types) {
-        var y = req.session.data.crop_types[x].name
-        const regex = / /g
-        y = y.replace(regex, "-").replace(",", "").toLowerCase()
-        req.session.data.crop_types[x].reference = y
-    }
+    // for(var x in req.session.data.crop_types) {
+    //     var y = req.session.data.crop_types[x].name
+    //     const regex = / /g
+    //     y = y.replace(regex, "-").replace(",", "").toLowerCase()
+    //     req.session.data.crop_types[x].reference = y
+    // }
 
     //control vars
     req.session.data.chosen_nutrients = []
@@ -50,24 +50,19 @@ router.get('/', function (req, res) {
     req.session.data.manure_spreads = 0
     req.session.data.fertiliser_spreads = 0
     
-    // for (var x in field_details) {
-    //     console.log ( field_details[x].name )
-    // }
-    // console.log( `Welcome to ${req.session.data.farm_details.name}` );
-
     res.render('index')
 })
 
-//which field do you want to create a plan for?
+//Set the chosenfield OBJECT
 router.get(/create_plan_handler/, function (req, res) { 
     for ( var y in req.session.data.field_details ) {
         if(req.session.data.field_details[y].reference === req.query.chosenfield) {
             req.session.data.chosenfield = req.session.data.field_details[y]
         }
     }
-    console.log(req.session.data.chosenfield.name)
     if (req.session.data.chosenfield.planStatus == "crop_added") {
-    res.redirect('crop_when')
+        req.session.data.chosen_crop = req.session.data.chosenfield.crop
+        res.redirect('crop_when')
     } else {
         res.redirect('create')
     }
@@ -111,7 +106,6 @@ router.get(/manure_counter_updater/, function (req, res) {
 
 //do you plan to spread manure multiple times
 router.get(/manure_again_handler/, function (req, res) { 
-    console.log( `manure_again ${req.session.data.manure_again}` );
 if (req.session.data.manure_again == "yes") {
     res.redirect('manure_when')
 } else {
@@ -213,21 +207,6 @@ router.get(/crop_group_handler/, function (req, res) {
         }
 })
 
-//multi-add status handler
-router.get(/multi_add_handler/, function (req, res) { 
-    for (var x in req.session.data.chosen_fields) {
-        console.log('here' + req.session.data.chosen_fields[x]);
-        for (var y in req.session.data.field_details) {
-            if (req.session.data.field_details[y].reference == req.session.data.chosen_fields[x] ) {
-                req.session.data.field_details[y].planStatus = "crop_added"
-                console.log(req.session.data.field_details[y].name + " planStatus = " + req.session.data.field_details[y].planStatus )
-            }
-        }
-    }
-    // continue planning and use an if to make decisions (if status == 'crops_added')
-    res.redirect('../fields')
-})
-
 //add farms
 router.get(/add_farms_handler/, function (req, res) { 
     req.session.data.farms_added = true
@@ -245,3 +224,25 @@ router.get(/grass_plan_handler/, function (req, res) {
 })
 
 
+//Set the chosen_crop OBJECT
+router.get(/chosen_crop_handler/, function (req, res) { 
+    // for ( var y in req.session.data.crop_types ) {
+    //     if(req.session.data.field_details[y].reference === req.query.chosenfield) {
+    //         req.session.data.chosenfield = req.session.data.field_details[y]
+    //     }
+    // }
+    res.redirect('crop_when')
+})
+
+//multi-add status handler
+router.get(/add_multi_handler/, function (req, res) { 
+    for (var x in req.session.data.chosen_fields) {
+        for (var y in req.session.data.field_details) {
+            if (req.session.data.field_details[y].reference == req.session.data.chosen_fields[x] ) {
+                req.session.data.field_details[y].planStatus = "crop_added"
+                req.session.data.field_details[y].crop = req.session.data.chosen_crop
+            }
+        }
+    }
+    res.redirect('../fields')
+})

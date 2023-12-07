@@ -18,10 +18,10 @@
 
       {% include "templates/title_span.html" %}
       <h1 class="govuk-heading-l">
-        Which crop type will you plant in {{data.chosenfield.name}}?
+        Which type of crop will you plant in {{data.chosenfield.name}}?
       </h1>
 
-      <form class="form" action="crop_when" method="post">
+      <form class="form" action="chosen_crop_handler" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset">
@@ -36,7 +36,7 @@
               {% for crop in data.crop_types %}
                 {% if crop.type == data.crop_group %}
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id={{crop.reference}} name="chosen_crop" type="radio" value={{crop.name}}>
+                    <input class="govuk-radios__input" id={{crop.reference}} name="chosen_crop" type="radio" value={{crop.reference}}>
                     <label class="govuk-label govuk-radios__label" for={{crop.reference}}>
                       {{crop.name}}
                     </label>

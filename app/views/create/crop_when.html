@@ -25,7 +25,14 @@
       {% include "templates/title_span.html" %}
 
       <h1 class="govuk-heading-l">
-        When will you sow {{data.chosen_crop | nameconverter }} in {{data.chosenfield.name}}?
+        {% set crop_name = "nul" %}
+        {% for crop in data.crop_types %}
+          {% if crop.reference == data.chosen_crop %}
+            {% set crop_name = crop.prettyname %}
+          {% endif %}
+        {% endfor %}
+        When do you plan to sow {{ crop_name }} in {{data.chosenfield.name}}?
+
       </h1>
 
       <form class="form" action="yield" method="post">

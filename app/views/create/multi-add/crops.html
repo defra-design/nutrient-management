@@ -20,7 +20,7 @@
         Nutrient application plan 2023 to 2024
       </span>
       <h1 class="govuk-heading-l">
-        Which crop do you want to use?
+        Which crop do you plan to use?
       </h1>
 
       <form class="form" action="fields" method="post">
@@ -28,38 +28,19 @@
         <div class="govuk-form-group">
           <h3 class="govuk-heading-s">Select from your most used crops</h3>
           <fieldset class="govuk-fieldset">
-            <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                Where do you live?
-              </h1>
-            </legend> -->
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="grass" name="chosen_crop" type="radio" value="Grass">
-                <label class="govuk-label govuk-radios__label" for="grass">
-                  Grass
-                </label>
-              </div>  
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="wheat_winter" name="chosen_crop" type="radio" value="Wheat, winter">
-                <label class="govuk-label govuk-radios__label" for="wheat_winter">
-                  Wheat, winter
-                </label>
-              </div>              
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="oilseed_winter" name="chosen_crop" type="radio" value="Oilseed rape, winter">
-                <label class="govuk-label govuk-radios__label" for="oilseed_winter">
-                  Oilseed rape, winter
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="peas" name="chosen_crop" type="radio" value="Peas">
-                <label class="govuk-label govuk-radios__label" for="peas">
-                  Peas
-                </label>
-              </div>
-            </div>          
-          </fieldset>
+
+              {% for crop in data.crop_types %}
+              {% if crop.fave == true %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{crop.reference}} name="chosen_crop" type="radio" value={{crop.reference}}>
+                  <label class="govuk-label govuk-radios__label" for={{crop.reference}}>
+                    {{crop.name}}
+                  </label>
+                </div>
+              {% endif %}
+            {% endfor %}
+
+          </fieldset> 
           <br>
           <h3 class="govuk-heading-s">or</h3>
           <fieldset class="govuk-fieldset">

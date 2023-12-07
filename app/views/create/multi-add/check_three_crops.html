@@ -1,10 +1,18 @@
+
+{% set crop_name = "nul" %}
+{% for crop in data.crop_types %}
+  {% if crop.reference == data.chosen_crop %}
+    {% set crop_name = crop.prettyname %}
+  {% endif %}
+{% endfor %}
+
 <dl class="govuk-summary-list">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Which crop type will you plant in these fields?
+      Which crop do you plan to use?
     </dt>
     <dd class="govuk-summary-list__value">
-      {{data.chosen_crop}}
+      {{crop_name}}
     </dd>
       <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="">
@@ -15,7 +23,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Which fields would you like to add {{data.chosen_crop}} to?
+      Which fields do you plan to grow {{crop_name}} in?
     </dt>
     <dd class="govuk-summary-list__value">
 

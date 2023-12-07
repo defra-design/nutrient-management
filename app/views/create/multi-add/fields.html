@@ -21,7 +21,13 @@
       </span>
 
       <h1 class="govuk-heading-l">
-        Which fields would you like to add {{data.chosen_crop}} to?
+        {% set crop_name = "nul" %}
+        {% for crop in data.crop_types %}
+          {% if crop.reference == data.chosen_crop %}
+            {% set crop_name = crop.prettyname %}
+          {% endif %}
+        {% endfor %}
+        Which fields do you plan to grow {{ crop_name }} in?
       </h1>
 
       <form class="form" action="check_three" method="post">

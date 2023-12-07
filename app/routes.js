@@ -39,6 +39,7 @@ router.get('/', function (req, res) {
     req.session.data.chosen_sulphur = false
     req.session.data.chosen_lime = false
     req.session.data.chosen_crop = null
+    req.session.data.chosen_fields = []
 
 
     // content vars
@@ -62,7 +63,11 @@ router.get(/create_plan_handler/, function (req, res) {
     }
     if (req.session.data.chosenfield.planStatus == "crop_added") {
         req.session.data.chosen_crop = req.session.data.chosenfield.crop
-        res.redirect('crop_when')
+        if (req.session.data.chosenfield.crop == "grass") {
+            res.redirect('grass/current_sward')
+        } else {
+            res.redirect('crop_when')
+        }
     } else {
         res.redirect('create')
     }
@@ -71,6 +76,7 @@ router.get(/create_plan_handler/, function (req, res) {
 //how do you want to create your plan? 
 router.get(/plan-type-handler/, function (req, res) { 
     if (req.session.data.plan_type == "previous") {
+        req.session.data.chosen_crop = "winter-Wheat"
         res.redirect('check_last_year')
     } else if (req.session.data.plan_type == "other") {
         res.redirect('other_plan')
@@ -122,6 +128,7 @@ router.get(/set_status/, function (req, res) {
     for ( var y in req.session.data.field_details ) {
         if(req.session.data.field_details[y].reference === req.session.data.chosenfield.reference) {
             req.session.data.field_details[y].planStatus = 'Plan complete'
+            req.session.data.field_details[y].crop = "Winter Wheat"
         }
     }
     req.session.data.farm_details.plan_status = "recommendations"
@@ -242,5 +249,7 @@ router.get(/add_multi_handler/, function (req, res) {
             }
         }
     }
+    console.log("chosen crop" + req.session.data.chosen_crop)
+    req.session.data.chosen_fields = []
     res.redirect('../fields')
 })

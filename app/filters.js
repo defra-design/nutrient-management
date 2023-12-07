@@ -6,6 +6,9 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const addFilter = govukPrototypeKit.views.addFilter
 
+const field_details = require('./data/field_details.json');
+
+
 // Add your filters here
 
 const crop_types = require('./data/crops.json');
@@ -22,14 +25,11 @@ addFilter('splitlines', function (content) {
     return content.replace('.', '\n');
 })
 
-addFilter('nameconverter', function (content) {
-    // // if (content == "rye-winter") {
-    // //     content = "Winter Rye"
-    // // }
-    // for (var x in crop_types) {
-    //     if (content == crop_types[x].name)
-    //     content = crop_types[x].type
-    // }
-    return content;
+addFilter('nameconverter', function (crop_name) {
+    for (var x in crop_types) {
+        if (crop_name == crop_types[x].reference) {
+            crop_name = crop_types[x].prettyname;
+        }
+    }
+    return crop_name
 })
-

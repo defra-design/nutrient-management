@@ -43,7 +43,7 @@
       {% include "./check_five_values.html" ignore missing %}
     </div>
 
-    <form action="/create/recs" method="post" novalidate>
+    <form action="recs_status_handler" method="post" novalidate>
       {{ govukButton({
         text: "Add to application plan"
       }) }}

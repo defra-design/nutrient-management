@@ -224,11 +224,6 @@ router.get(/grass_use_handler/, function (req, res) {
     res.redirect('arable_length')
 })
 
-//grass plan
-router.get(/grass_plan_handler/, function (req, res) { 
-    res.redirect('grass_recs')
-})
-
 //Set the chosen_crop OBJECT
 router.get(/chosen_crop_handler/, function (req, res) { 
     // for ( var y in req.session.data.crop_types ) {

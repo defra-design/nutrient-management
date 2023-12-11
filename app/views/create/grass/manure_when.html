@@ -25,10 +25,10 @@
       {% include "templates/title_span.html" %}
 
       <h1 class="govuk-heading-l">
-        When will you spread {{data.organic_term | lower}} on {{data.chosenfield.name}}?
+        When do you plan to spread {{data.organic_term | lower}} on {{data.chosenfield.name}}?
       </h1>
 
-      <form class="form" action="manure_type" method="post">
+      <form class="form" action="manure_type_favourites" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">

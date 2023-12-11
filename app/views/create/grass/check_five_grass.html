@@ -2,7 +2,7 @@
 rows: [
 {
     key: {
-      text: "Will you use Small Field  for arable crops or grass?"
+      text: "Do you plan to use " + data.chosenfield.name + " for arable crops or grass?"
     },
     value: {
       text: "Grass"
@@ -20,7 +20,7 @@ rows: [
   ,
   {
     key: {
-      text: "What is the current sward in Small Field?"
+      text: "What type of sward is used?"
     },
     value: {
       text: "Autumn sown"
@@ -38,10 +38,10 @@ rows: [
   ,
   {
     key: {
-      text: "How was Small Field used last year?"
+      text: "What is the target dry matter yield?"
     },
     value: {
-      text: "Arable crops"
+      text: "Medium (between xx and xx metric tons per hectare)"
     },
     actions: {
       items: [
@@ -56,42 +56,7 @@ rows: [
   ,
   {
     key: {
-      text: "How long has Small Field been used for arable crops?"
-    },
-    value: {
-      text: "More than one year"
-    },
-    actions: {
-      items: [
-        {
-          href: "",
-          text: "Change",
-          visuallyHiddenText: ""
-        }
-      ]
-    }
-  }
-  ,
-  {
-    key: {
-      text: "Was the previous crop Cereal, Sugar Beet or Linseed?"
-    },
-    value: {
-      text: "Yes"
-    },
-    actions: {
-      items: [
-        {
-          href: "",
-          text: "Change",
-          visuallyHiddenText: ""
-        }
-      ]
-    }
-  },
-  {
-    key: {
-      text: "How will you manage the grass in Small Field?"
+      text: "How do you plan to you manage the grass?"
     },
     value: {
       text: "Silage and grazing"
@@ -105,13 +70,14 @@ rows: [
         }
       ]
     }
-  },
+  }
+  ,
   {
     key: {
-      text: "How many defoliations will you have in Small Field?"
+      text: "How many total grazes and silage cuts are you planning?"
     },
     value: {
-      text: "2"
+      text: "Two"
     },
     actions: {
       items: [
@@ -125,11 +91,27 @@ rows: [
   },
   {
     key: {
-      text: "Defoliations for " + data.chosenfield.name
+      text: "First graze or silage cut"
     },
     value: {
-      text: "First defoliation:	 Grazing
-      \nSecond defoliation:	 Silage." | striptags(true) | escape | nl2br
+      text: "Grazing"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  },
+  {
+    key: {
+      text: "Second graze or silage cut"
+    },
+    value: {
+      text: "Silage cut"
     },
     actions: {
       items: [

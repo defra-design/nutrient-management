@@ -40,7 +40,7 @@ router.get('/', function (req, res) {
     req.session.data.chosen_lime = false
     req.session.data.chosen_crop = null
     req.session.data.chosen_fields = []
-
+    req.session.data.plan_type = 'new'
 
     // content vars
     req.session.data.organic_term = "Organic material"
@@ -85,7 +85,8 @@ router.get(/view_plan_handler/, function (req, res) {
 //how do you want to create your plan? 
 router.get(/plan-type-handler/, function (req, res) { 
     if (req.session.data.plan_type == "previous") {
-        req.session.data.chosen_crop = "winter-Wheat"
+        req.session.data.crop_group = "Arable cereals"
+        req.session.data.chosen_crop = "Wheat-Winter"
         res.redirect('check_last_year')
     } else if (req.session.data.plan_type == "other") {
         res.redirect('other_plan')
@@ -137,11 +138,15 @@ if (req.session.data.manure_again == "yes") {
 router.get(/set_status/, function (req, res) { 
     for ( var y in req.session.data.field_details ) {
         if (req.session.data.field_details[y].reference === req.session.data.chosenfield.reference) {
-            req.session.data.field_details[y].planStatus = 'Plan complete'
+            if (req.session.data.plan_type == "previous") {
+                req.session.data.field_details[y].planStatus = 'recommendations'
+            } else {
+                req.session.data.field_details[y].planStatus = 'Plan complete'
+            }
             req.session.data.field_details[y].crop = req.session.data.chosen_crop
         }
     }
-    // req.session.data.farm_details.plan_status = "recommendations"
+    req.session.data.farm_details.plan_status = 'new';
     res.redirect('fields')
 })
 

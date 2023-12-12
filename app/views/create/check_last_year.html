@@ -36,18 +36,23 @@
     </h2>
     <div class="check-answers">
       {% include "./check_one_organic.html" ignore missing %}
+    </div>
+
+    <br>
+    <h2 class="govuk-heading-m">
+      These values are based on your crop choice and {{data.organic_term | lower }} applications
+    </h2>
+    <div class="check-answers">
       {% include "./check_one_values.html" ignore missing %}
     </div>
 
     </div>
-    <div class="govuk-grid-column-full">
-    <br>
-    <h2 class="govuk-heading-m">
+      <!-- <div class="govuk-grid-column-full">
+  <h2 class="govuk-heading-m">
       {{data.harvest_year | capitalize}} {{data.non_organic_term}} recommendations for {{data.chosenfield.name}}
-    </h2>
+    </h2> 
 
-    <table class="govuk-table recomendation-table">
-      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Inorganic nutrient recommendations</caption> -->
+    table class="govuk-table recomendation-table">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Nutrient</th>
@@ -95,16 +100,16 @@
         </tr>
       </tbody>
     </table>
-    </div>
+    </div> -->
 
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+    <!-- <div class="govuk-grid-column-two-thirds-from-desktop">
     <br>
     <h2 class="govuk-heading-m">
       {{data.non_organic_term}} plan 
     </h2>
     <div class="check-answers">
-      {% include "./check_two_content.html" ignore missing %}
-    </div>
+      {% include "./check_two_content.html" ignore missing %}-->
+    </div> 
 
     <form action="set_status" method="post" novalidate>
       {{ govukButton({

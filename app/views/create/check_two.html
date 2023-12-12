@@ -21,7 +21,11 @@
     </h1>
 
     <div class="check-answers">
-      {% include "./check_two_content.html" ignore missing %}
+      {% if data.fertiliser_if == 'yes' %}
+        {% include "./check_two_content.html" ignore missing %}
+      {% else %}
+        {% include "./check_two_no_content.html" ignore missing %}
+      {% endif%}
     </div>
 
     <form action="set_status" method="post" novalidate>

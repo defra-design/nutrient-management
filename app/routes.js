@@ -181,11 +181,7 @@ router.get(/fertiliser_again_handler/, function (req, res) {
     if (req.session.data.fertiliser_again == "yes") {
         res.redirect('fertiliser_when')
     } else {
-        if (req.session.data.plan_type == "new") {
-            res.redirect('check_two')
-        } else {
-            res.redirect('set_status')
-        }
+        res.redirect('check_two')
     }
 })
 

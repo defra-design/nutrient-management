@@ -18,19 +18,16 @@
 
       {% include "templates/title_span.html" %}
       <h1 class="govuk-heading-l">
-        Organic manure applications for {{data.chosenfield.name}}
+        When do you plan to apply {{data.organic_term | lower}} in {{data.chosenfield.name}}?
       </h1>
 
       <form class="form" action="manure_when" method="post">
 
-        <div class="govuk-form-group">
+        <!-- <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">
             <legend class="govuk-fieldset__legend">
               Will you apply organic manure after the graze?
             </legend>
-            <!-- <div id="defoliation_order-hint" class="govuk-hint">
-              This includes changing your last name or spelling your name differently.
-            </div> -->
             <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="defoliation_order_one-1" name="defoliation_order_one" type="radio" value="yes">
@@ -46,9 +43,38 @@
               </div>
             </div>
           </fieldset>
-        </div>
+        </div> -->
+
 
         <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <div id="waste-hint" class="govuk-hint">
+              Select all that apply.
+            </div>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  After the graze
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                  After the silage cut
+                </label>
+              </div>
+              <!-- <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                  Farm or agricultural waste
+                </label>
+              </div>
+            </div> -->
+          </fieldset>
+        </div>
+
+        <!-- <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">
             <legend class="govuk-fieldset__legend">
               Will you apply organic manure after the silage cut?
@@ -68,7 +94,7 @@
               </div>
             </div>
           </fieldset>
-        </div>
+        </div> -->
 
         <!-- <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">

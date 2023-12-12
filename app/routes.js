@@ -216,7 +216,7 @@ router.get(/fertiliser_types_handler/, function (req, res) {
             req.session.data.chosen_lime = true;
         }
     }
-    res.redirect('fertiliser_amount')
+    res.redirect('fertiliser_amount_table')
 })
 
 //crop 

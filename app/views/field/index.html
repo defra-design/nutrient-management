@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Create a 2023 nutrient application plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/prototype_2/hub"
+      },
+      {
+        text: "Create a " + data.harvest_year + " nutrient application plan"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+{{ plan_status }}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Manage Oaktree Lane Farm fields
+      </h1>
+
+      </div>
+      <div class="govuk-grid-column-full">
+
+      <table class="govuk-table">
+        <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Field name</th>
+            <th scope="col" class="govuk-table__header">Action</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+          {% for field in data.field_details %}
+            
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">{{field.name}}</td>
+            <td class="govuk-table__cell">
+                <a href="#">Manage field</a>
+            </td>
+          </tr>
+          {% endfor %}   
+
+        </tbody>
+      </table>       
+      
+      <p class="govuk-body">
+        <a href="add">Add a new field</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+

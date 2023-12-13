@@ -259,3 +259,29 @@ router.get(/add_multi_handler/, function (req, res) {
     req.session.data.chosen_fields = []
     res.redirect('../fields')
 })
+
+
+//add field - grass history - handler
+router.get(/add-grass-handler/, function (req, res) { 
+    if (req.session.data.previous_grass == 'yes') {
+        res.redirect('plough')
+    } else {
+        res.redirect('add-field-check')
+    }
+
+})
+
+router.get(/field-cuts-handler/, function (req, res) { 
+    if (req.session.data.previous_management == 'grazing') {
+        res.redirect('previous-nitrogen')
+    } else {
+        res.redirect('previous-cuts')
+    }
+})
+
+
+
+
+
+
+

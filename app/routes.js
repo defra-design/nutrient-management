@@ -41,6 +41,7 @@ router.get('/', function (req, res) {
     req.session.data.chosen_crop = null
     req.session.data.chosen_fields = []
     req.session.data.plan_type = 'new'
+    req.session.data.show_new_field = false
 
     // content vars
     req.session.data.organic_term = "Organic material"
@@ -268,7 +269,6 @@ router.get(/add-grass-handler/, function (req, res) {
     } else {
         res.redirect('add-field-check')
     }
-
 })
 
 router.get(/field-cuts-handler/, function (req, res) { 
@@ -279,6 +279,10 @@ router.get(/field-cuts-handler/, function (req, res) {
     }
 })
 
+router.get(/show-field-handler/, function (req, res) { 
+    req.session.data.show_new_field = true;
+    res.redirect('index')
+})
 
 
 

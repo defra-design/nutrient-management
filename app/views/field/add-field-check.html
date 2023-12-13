@@ -18,156 +18,27 @@
       <h1 class="govuk-heading-xl">
         Check your answers
       </h1>
+
+      <h2 class="govuk-heading-m">
+        Field Details
+      </h2>
       <div class="check-answers">
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Field name"
-            },
-            value: {
-              text: "New Field"
-            },
-            actions: {
-              items: [
-                {
-                  href: "add-field",
-                  text: "Change",
-                  visuallyHiddenText: "Question 1"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "National Grid number"
-            },
-            value: {
-              text: "NZ101508"
-            },
-            actions: {
-              items: [
-                {
-                  href: "add-field",
-                  text: "Change",
-                  visuallyHiddenText: "Question 2"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Field area (hectares)"
-            },
-            value: {
-              text: "10"
-            },
-            actions: {
-              items: [
-                {
-                  href: "add-field",
-                  text: "Change",
-                  visuallyHiddenText: "Question 3"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Cropped area (hectares)"
-            },
-            value: {
-              text: "10"
-            },
-            actions: {
-              items: [
-                {
-                  href: "add-field",
-                  text: "Change",
-                  visuallyHiddenText: "Question 3"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Manure non-spreading area (hectares)"
-            },
-            value: {
-              text: "10"
-            },
-            actions: {
-              items: [
-                {
-                  href: "add-field",
-                  text: "Change",
-                  visuallyHiddenText: "Question 3"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "What is the soil type?"
-            },
-            value: {
-              text: "Sandy"
-            },
-            actions: {
-              items: [
-                {
-                  href: "add-field",
-                  text: "Change",
-                  visuallyHiddenText: "Question 3"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Does this field contain Potassium releasing clay?"
-            },
-            value: {
-              text: "No"
-            },
-            actions: {
-              items: [
-                {
-                  href: "add-field",
-                  text: "Change",
-                  visuallyHiddenText: "Question 3"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Is this field within a Nitrate Vulnerable Zone?"
-            },
-            value: {
-              text: "No"
-            },
-            actions: {
-              items: [
-                {
-                  href: "add-field",
-                  text: "Change",
-                  visuallyHiddenText: "Question 3"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
+        {% include "./check-details.html" ignore missing %}
+      </div>
+      <br>
+
+      <h2 class="govuk-heading-m">
+        Field history
+      </h2>
+      <div class="check-answers">
+        {% if data.previous_grass == 'no' %}
+        {% include "./check-history-no.html" ignore missing %}
+        {% else %}
+          {% include "./check-history-yes.html" ignore missing %}
+        {% endif %}
       </div>
 
-      <form action="table" method="post" novalidate>
+      <form action="show-field-handler" method="post" novalidate>
 
         {{ govukButton({
           text: "Add this field"

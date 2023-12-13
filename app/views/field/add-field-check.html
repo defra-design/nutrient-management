@@ -1,0 +1,198 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers
+      </h1>
+      <div class="check-answers">
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Field name"
+            },
+            value: {
+              text: "New Field"
+            },
+            actions: {
+              items: [
+                {
+                  href: "add-field",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "National Grid number"
+            },
+            value: {
+              text: "NZ101508"
+            },
+            actions: {
+              items: [
+                {
+                  href: "add-field",
+                  text: "Change",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Other reference"
+            },
+            value: {
+              text: ""
+            },
+            actions: {
+              items: [
+                {
+                  href: "add-field",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Field area (hectares)"
+            },
+            value: {
+              text: "10"
+            },
+            actions: {
+              items: [
+                {
+                  href: "add-field",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Cropped area (hectares)"
+            },
+            value: {
+              text: "8"
+            },
+            actions: {
+              items: [
+                {
+                  href: "add-field",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Manure non-spreading area (hectares)"
+            },
+            value: {
+              text: "5"
+            },
+            actions: {
+              items: [
+                {
+                  href: "add-field",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "What is the soil type?"
+            },
+            value: {
+              text: "Sandy"
+            },
+            actions: {
+              items: [
+                {
+                  href: "add-field",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Does this field contain Potassium releasing clay?"
+            },
+            value: {
+              text: "No"
+            },
+            actions: {
+              items: [
+                {
+                  href: "add-field",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Is this field within a Nitrate Vulnerable Zone?"
+            },
+            value: {
+              text: "No"
+            },
+            actions: {
+              items: [
+                {
+                  href: "add-field",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+      </div>
+
+      <form action="table" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Add this field"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

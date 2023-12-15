@@ -170,8 +170,14 @@ router.get(/recs_status_handler/, function (req, res) {
 
 //do you plan to spread fertiliser?
 router.get(/fertiliser_if_handler/, function (req, res) { 
+
     if (req.session.data.fertiliser_if == "yes") {
-        res.redirect('fertiliser_when')
+        if( req.session.data.chosen_crop == 'grass') {
+            res.redirect('./grass/inorganic_defoliation')
+
+        } else {
+            res.redirect('fertiliser_when')
+        }
     } else {
         res.redirect('check_two')
     }

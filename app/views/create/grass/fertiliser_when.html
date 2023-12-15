@@ -13,11 +13,12 @@
 
 {% block content %}
 
-  {% if data.manure_spreads == 0 %}
-    {% set manure_count = "first" %}
-  {% else %}
-    {% set manure_count = "next" %}
-  {% endif %}
+{% if data.fertiliser_spreads == 0 %}
+  {% set fertiliser_count = "first" %}
+{% else %}
+  {% set fertiliser_count = "next" %}
+{% endif %}
+
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -25,10 +26,10 @@
       {% include "templates/title_span.html" %}
 
       <h1 class="govuk-heading-l">
-        When before the first graze do you plan to spread {{data.organic_term | lower}} on {{data.chosenfield.name}}?
+        When before the first graze do you plan to spread {{data.non_organic_term | lower }} on {{data.chosenfield.name}}?
       </h1>
 
-      <form class="form" action="manure_type_favourites" method="post">
+      <form class="form" action="fertiliser_type" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">

@@ -18,10 +18,10 @@
 
       {% include "templates/title_span.html" %}
       <h1 class="govuk-heading-l">
-        When do you plan to apply {{data.organic_term | lower}} in {{data.chosenfield.name}}?
+        When do you plan to spread {{data.non_organic_term | lower}} on {{data.chosenfield.name}}?
       </h1>
 
-      <form class="form" action="manure_when" method="post">
+      <form class="form" action="fertiliser_when" method="post">
 
         <!-- <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">

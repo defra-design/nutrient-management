@@ -18,10 +18,10 @@
 
       {% include "templates/title_span.html" %}
       <h1 class="govuk-heading-l">
-        What type of sward is used in {{data.chosenfield.name}}?
+        How do you want to enter your target yield?
       </h1>
 
-      <form class="form" action="grass_matter_type" method="post">
+      <form class="form" action="grass_yield" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
@@ -36,19 +36,13 @@
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="autumn" name="current_sward" type="radio" value="autumn">
                   <label class="govuk-label govuk-radios__label" for="autumn">
-                    Autumn sown
+                    Fresh cut weight
                   </label>
                 </div>
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="spring" name="current_sward" type="radio" value="spring">
                   <label class="govuk-label govuk-radios__label" for="spring">
-                    Spring sown
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="undersown" name="current_sward" type="radio" value="undersown">
-                  <label class="govuk-label govuk-radios__label" for="undersown">
-                    Undersown
+                    Dry matter weight
                   </label>
                 </div>
               </div>

@@ -1,0 +1,102 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
+    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %} -->
+  
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      {{ serviceName }}
+    </h1>
+
+    <h2 class="govuk-heading-m">Latest prototype</h2>
+    <p class="govuk-body-s">Last updated: Mid December 2023</p>
+
+    <p class="govuk-body">
+      <a href="prototype_2/hub" class="govuk-link">View the latest prototype</a>
+    </p>
+
+    <p class="govuk-body">
+        Whats included
+    </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>latest Grass planning (v3)</li>
+        <li>latest Arable planning (v3)</li>
+        <li>adding a crop from 'favourites' to multiple fields</li>
+        <li>using a manure from 'favourites' (grass planning)</li>
+        <li>add a field</li>
+      </ul>	
+
+    <hr class="big_seperator"> 
+
+    <h2 class="govuk-heading-m">Previous prototypes</h2>
+    
+    <p class="govuk-body"><span class="strong">Data upload - </span> Last updated: Early December 2023</p>
+  
+    <p class="govuk-body">
+      <a href="prototype_3/farms" class="govuk-link">Data upload prototype (v1)</a>
+    </p>
+
+    <hr> 
+      
+    <p class="govuk-body"><span class="strong">Create a plan - </span> Created Mid November 2023</p>
+  
+    <p class="govuk-body">
+      <a href="prototype_2/hub.html" class="govuk-link">Create a plan (v3)</a> 
+    </p>	
+
+    <hr >
+
+  <p class="govuk-body"><span class="strong">View a plan - </span> Created end October 2023</p>
+
+	<p class="govuk-body">
+		<a href="prototype_1/hub.html" class="govuk-link">View plan (v1a)</a>
+	</p>	
+
+  <p class="govuk-body">
+		<a href="prototype_1/plan_2.html" class="govuk-link">View plan (v1b)</a>
+	</p>	
+
+  <!-- <div id="move-text">
+    <p class="govuk-body-s">
+      <a href="prototype_2/hub.html" class="govuk-link">Manage this Prototype</a>
+    </p>	
+  </div> -->
+
+
+
+
+<!-- 
+  <h2 class="govuk-heading-m">Tests</h2>
+  <p class="govuk-body">October 2023</p>
+
+  <p class="govuk-body">
+		<a href="tests" class="govuk-link">Tests</a>
+	</p>	 -->
+
+
+    <!-- <h2 class="govuk-heading-m">Displaying and editing basic data</h2>
+
+    <ul class="govuk-list">
+      <li><a href="/field/table">Table examples</a></li>
+      <li><a href="/field/add-field">Add a field example</a></li>
+    </ul>
+
+    <h2 class="govuk-heading-m">Generating recommendations</h2>
+
+    <ul class="govuk-list">
+      <li><a href="/plan/table">Nutrient recommendation table examples</a></li>
+      <li><a href="/plan/add-nitrogen">Update plan data example</a></li>
+    </ul>
+ -->
+  </div>
+
+</div>
+
+{% endblock %}

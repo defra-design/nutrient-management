@@ -1,0 +1,128 @@
+{{ govukSummaryList({
+rows: [
+ {
+    key: {
+      text: "Do you plan to use this field for arable crops or grass?"
+    },
+    value: {
+      text: "Arable"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: "Question 1"
+        }
+      ]
+    }
+  }
+  ,
+  {
+    key: {
+      text: "Which crop group do you plan to use?"
+    },
+    value: {
+      text: data.crop_group | capitalize
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: "Question 2"
+        }
+      ]
+    }
+  }
+  ,
+  {
+    key: {
+      text: "Which crop type do you plan to use?"
+    },
+    value: {
+      text: data.chosen_crop | nameconverter
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  }
+  ,
+  {
+    key: {
+      text: "When do you plan to sow?"
+    },
+    value: {
+      text: "1 October 2023"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  }
+  ,
+  {
+    key: {
+      text: "What is the expected yield?"
+    },
+    value: {
+      text: "-"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  }
+  ,
+  {
+    key: {
+      text: "How will the crop be used?"
+    },
+    value: {
+      text: "Milling"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  },
+  {
+    key: {
+      text: "How will you use the straw?"
+    },
+    value: {
+      text: "-"
+    },
+    actions: {
+      items: [
+        {
+          href: "",
+          text: "Change",
+          visuallyHiddenText: ""
+        }
+      ]
+    }
+  }
+]
+}) }}

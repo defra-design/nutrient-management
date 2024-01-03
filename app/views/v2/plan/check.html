@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers 1 – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    
+    <!-- {% include "templates/title_span.html" %} -->
+    <h1 class="govuk-heading-l">
+      Check your answers
+    </h1>
+
+    <div class="check-answers">
+        {% include "./check_wheat.html" %}
+    </div>
+
+    <form action="/v2/crop_plan_start" method="post" novalidate>
+      {{ govukButton({
+        text: "Create plan"
+      }) }}
+    </form>
+    <p class="govuk-body">
+      <a href="field_plan">Cancel</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

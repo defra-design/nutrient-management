@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- {% include "templates/title_span.html" %} -->
+      <h1 class="govuk-heading-l">
+        How would you like to change your plan for Harvest Year 2024?
+      </h1>
+
+      <form class="form" action="crops" method="post">
+
+        <div class="govuk-form-group">
+          <!-- <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Where do you live?
+              </h1>
+            </legend> -->
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="previous" name="plan_type" type="radio" value="previous">
+                <label class="govuk-label govuk-radios__label" for="previous">
+                  Plan another crop
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="previous" name="plan_type" type="radio" value="previous">
+                <label class="govuk-label govuk-radios__label" for="previous">
+                  Plan an organic material application for multiple fields
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="previous" name="plan_type" type="radio" value="previous">
+                <label class="govuk-label govuk-radios__label" for="previous">
+                  Plan an an inorganic material application for multiple fields
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="new" name="plan_type" type="radio" value="new">
+                <label class="govuk-label govuk-radios__label" for="new">
+                  Create a record from this plan
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="previous" name="plan_type" type="radio" value="previous">
+                <label class="govuk-label govuk-radios__label" for="previous">
+                  Make a copy of this plan
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="previous" name="plan_type" type="radio" value="previous">
+                <label class="govuk-label govuk-radios__label" for="previous">
+                  Print or share this plan
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="previous" name="plan_type" type="radio" value="previous">
+                <label class="govuk-label govuk-radios__label" for="previous">
+                  Delete this plan
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        {{ govukButton({
+          text: "Next"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="#">Cancel</a>
+  </p>
+
+{% endblock %}

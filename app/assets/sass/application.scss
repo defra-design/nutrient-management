@@ -74,7 +74,7 @@ hr.medium_seperator {
 }
 
 .menu-list li {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .data-table {
@@ -87,6 +87,9 @@ hr.medium_seperator {
 }
 
 .status-header {
+    h1 {
+        margin-bottom: 15px;
+    }
     p:first-child {
         margin-bottom: 0;
     }
@@ -129,6 +132,34 @@ hr.medium_seperator {
 .strong {
     font-weight: bold;
 }
+
+//////// New for v2
+
+#all-plans-table {
+    margin-top: 10px;
+    p:last-child {
+        margin-bottom: 0px;
+    }
+}
+
+.plan_title {
+    margin-bottom: 15px !important;
+}
+
+.application-plan-table {
+    margin-top: 20px;
+}
+
+.crop_plan_title {
+    p {
+        margin-bottom: 15px !important;
+    }
+    h1 {
+        margin-bottom: 15px !important;
+    }
+    margin-bottom: 20px;
+}
+
 
 
 // #left_fertiliser {

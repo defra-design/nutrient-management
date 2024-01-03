@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="status-header">
+  <h1 class="govuk-heading-l">{{data.farm_details.name}}</h1>
+  <p class="govuk-table__body">10 fields</p>
+</div>  
+
+<hr class="medium_seperator">
+
+<div>
+  <h2 class="govuk-heading-m">Planning and recording</h2>
+    <ul class="menu-list govuk-list">
+      <li>
+        <a class="govuk-link" href="plans_records">View or create a plan or record</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="#">Manage favourite crops and manures</a>
+      </li>
+  </uli>
+</div>
+
+<hr class="medium_seperator">
+
+<div>
+  <h2 class="govuk-heading-m">Manage farm data</h2>
+    <ul class="menu-list govuk-list">
+      <li>
+        <a class="govuk-link" href="#">Update farm details</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/field/index">Manage field details</a>
+      <li>
+        <a class="govuk-link" href="#">Add soil analysis</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="#">Update livestock details</a>
+      </a>
+      <li>
+        <a class="govuk-link" href="#">Manage manure and manure storage</a>
+      </li>
+      <!-- <li>
+        <a class="govuk-link" href="#">Manage commonly used crops, manures and fertilisers</a>
+      </li> -->
+  </uli>
+</div>
+
+{% endblock %}

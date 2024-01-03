@@ -15,29 +15,22 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
     
-    {% include "templates/title_span.html" %}
+    <!-- {% include "templates/title_span.html" %} -->
     <h1 class="govuk-heading-l">
-      Check crop and {{data.organic_term | lower }} details for {{data.chosenfield.name}}
+      Check your answers
     </h1>
 
-    <h2 class="govuk-heading-m">
-      Crop details for {{data.chosenfield.name}}
-    </h2>   
     <div class="check-answers">
-      {% if data.field_use == "arable" %}
-          {% include "./check_one_crops.html" %}
-      {% else %}
-        {% include "./check_one_grass.html" %}
-      {% endif %}
+        {% include "./check_wheat.html" %}
     </div>
 
-    <form action="recs_status_handler" method="post" novalidate>
+    <form action="/v2/crop_plan_start" method="post" novalidate>
       {{ govukButton({
-        text: "Add to application plan"
+        text: "Create plan"
       }) }}
     </form>
     <p class="govuk-body">
-      <a href="fields.html">Cancel</a>
+      <a href="field_plan">Cancel</a>
     </p>
   </div>
 </div>

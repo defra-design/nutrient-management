@@ -172,3 +172,12 @@ hr.medium_seperator {
 //     background-color: #f3f2f1;
 //     padding: 15px 25px;
 // }
+
+.crop_table {
+    tr td:first-child {
+        width: 20%;
+    }
+    tr td:last-child {
+        text-align: right;
+    }
+}

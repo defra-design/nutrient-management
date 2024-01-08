@@ -23,6 +23,9 @@ router.get('/', function (req, res) {
     req.session.data.crop_group = null
     req.session.data.farms_added = false
 
+    //plan functionality
+    
+
     //create sanitised references for the crop list
     // for(var x in req.session.data.crop_types) {
     //     var y = req.session.data.crop_types[x].name
@@ -51,7 +54,6 @@ router.get('/', function (req, res) {
     // route vars
     req.session.data.manure_spreads = 0
     req.session.data.fertiliser_spreads = 0
-    
     res.render('index')
 })
 

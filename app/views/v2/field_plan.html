@@ -18,7 +18,7 @@
     },
     {
       text: "Harvest year 2024",
-      href: "crop_plan.html"
+      href: "crop_plan_2024.html"
     },
     {
       text: "Field 1"
@@ -31,7 +31,7 @@
 {% block content %}
 
 <div class="status-header">
-  <h1 class="govuk-heading-l">Field 1 plan and recommendations</h1>
+  <h1 class="govuk-heading-l">{{data.chosenfield | fieldconverter}} plan and recommendations</h1>
   <p class="govuk-body">Harvest year: 2024</p>
 </div>  
 
@@ -43,7 +43,7 @@
     <h2 class="govuk-heading-m plan_title">Crop details</h2>
 
     <table class="govuk-table recomendation-table data-table data-table">
-      <caption class="govuk-table__caption govuk-table__caption--s">Grass</caption>
+      <caption class="govuk-table__caption govuk-table__caption--s">{{data.chosen_crop | nameconverter}}</caption>
       <!-- <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__cell">Estimated application date</th>
@@ -72,7 +72,8 @@
   </div> 
 </div> 
 
-<p class="govuk-body"><a href="check_crops">View or change crop details</a></p>
+<!-- <p class="govuk-body"><a href="check_crops">View or change crop details</a></p> -->
+<p class="govuk-body"><a href="#">View or change crop details</a></p>
 
 <hr class="big_seperator">
 

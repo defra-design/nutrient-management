@@ -17,23 +17,24 @@
     <div class="govuk-grid-column-two-thirds">
 
       <!-- {% include "templates/title_span.html" %} -->
+
       <h1 class="govuk-heading-l">
-        Do you plan to use any other crops in this harvest year?
+        Do you plan to spread more {{data.organic_term | lower}} on the Winter Wheat fields?
       </h1>
 
-      <form class="form" action="v2_another_crop_handler" method="post">
+      <form class="form" action="check" method="post">
 
         <div class="govuk-form-group">
           <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="another_crop_1" name="another_crop" type="radio" value="yes">
-              <label class="govuk-label govuk-radios__label" for="another_crop_1">
+              <input class="govuk-radios__input" id="manure_again" name="manure_again" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="manure_again">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="another_crop_2" name="another_crop" type="radio" value="no">
-              <label class="govuk-label govuk-radios__label" for="another_crop_2">
+              <input class="govuk-radios__input" id="manure_again_2" name="manure_again" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="manure_again_2">
                 No
               </label>
             </div>

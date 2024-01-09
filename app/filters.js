@@ -33,3 +33,11 @@ addFilter('nameconverter', function (crop_name) {
     }
     return crop_name
 })
+
+addFilter('fieldconverter', function (field_name) {
+    var newName = field_name.substr(0, 5) + "     " + field_name.substr(5)
+    return newName
+})
+
+
+

@@ -39,5 +39,11 @@ addFilter('fieldconverter', function (field_name) {
     return newName
 })
 
-
-
+addFilter('statusconverter', function (status_text) {
+    if (status_text == 'complete') {
+        status_text = 'Crop, organic material and inorganic fertiliser added'        
+    } else if (status_text == 'crop added') {
+        status_text = 'Crop added' 
+    }
+    return status_text
+})

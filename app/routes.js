@@ -13,6 +13,18 @@ const farm_details = require('./data/farm_details.json');
 const field_details = require('./data/field_details.json');
 const crop_types = require('./data/crops.json');
 
+const plan2025 = {
+    harvest_date: "2025",
+    plan_status: null,
+    updated: '9 January 2024' 
+};
+
+const plan2024 = {
+    harvest_date: "2024",
+    plan_status: 'complete',
+    updated: '10 November 2023' 
+};
+
 //Index route loads data in application
 router.get('/', function (req, res) { 
     //data
@@ -24,6 +36,8 @@ router.get('/', function (req, res) {
     req.session.data.farms_added = false
 
     //plan functionality
+    req.session.data.plan2024 = plan2024
+    req.session.data.plan2025 = plan2025
     
     //create sanitised references for the crop list
     // for(var x in req.session.data.crop_types) {
@@ -45,8 +59,7 @@ router.get('/', function (req, res) {
     req.session.data.plan_type = 'new'
     req.session.data.show_new_field = false
     req.session.data.another_crop = 'no'
-    req.session.data.show_new_plan = false
-    req.session.data.harvest_date = null //v2
+    req.session.data.chosen_plan = null //v2
 
 
     // content vars
@@ -310,18 +323,19 @@ router.get(/v2_another_crop_handler/, function (req, res) {
 })
 
 router.get(/v2_check_handler/, function (req, res) { 
-    req.session.data.show_new_plan = true;
-    res.redirect('/v2/crop_plan_2025')
+    req.session.data.plan2025.plan_status = 'crop added';
+    req.session.data.chosen_plan = req.session.data.plan2025
+    res.redirect('/v2/crop_plan')
 })
 
 //set the plan by year
 router.get(/crop_plan_year_handler/, function (req, res) { 
-    req.session.data.harvest_date = req.query.harvestdate
-    if (req.session.data.harvest_date == '2024') {
-        res.redirect('/v2/crop_plan_2024')
+    if (req.query.harvestdate == '2024') {
+        req.session.data.chosen_plan = req.session.data.plan2024
     } else {
-        res.redirect('/v2/crop_plan_2025')
+        req.session.data.chosen_plan = req.session.data.plan2025
     }
+    res.redirect('/v2/crop_plan')
 })
 
 router.get(/field_level_plan_handler/, function (req, res) { 

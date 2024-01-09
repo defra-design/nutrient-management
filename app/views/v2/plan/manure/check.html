@@ -21,12 +21,12 @@
     </h1>
 
     <div class="check-answers">
-        {% include "./check_crops.html" %}
+        {% include "./check_manure.html" %}
     </div>
 
-    <form action="/v2_check_handler/" method="post" novalidate>
+    <form action="/v2_check_handler" method="post" novalidate>
       {{ govukButton({
-        text: "Create plan"
+        text: "Add to plan"
       }) }}
     </form>
     <p class="govuk-body">

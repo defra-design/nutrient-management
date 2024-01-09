@@ -25,12 +25,12 @@
       <!-- {% include "templates/title_span.html" %} -->
 
       <h1 class="govuk-heading-l">
-        What is the estimated sowing date?
+        When do you first plan to spread {{data.organic_term | lower}} on the Winter Wheat Fields?
       </h1>
 
-      <p>Enter the date you plan to sow most of the Winter Wheat fields, you can change the sowing date for individual fields later.</p>
+      <!-- <p>Enter the estimated date you firdst plan to apply {{data.organic_term | lower}} to the Winter Wheat fields, you can change the date for individual fields later.</p> -->
 
-      <form class="form" action="yield" method="post">
+      <form class="form" action="manure_counter_updater" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
@@ -40,7 +40,7 @@
               </h1>
             </legend> -->
             <div id="passport-issued-hint" class="govuk-hint">
-              For example, 27 3 2023
+              Enter an estimated date, for example, 27 3 2023, you can change the date for individual fields later.
             </div>
             <div class="govuk-date-input" id="passport-issued">
               <div class="govuk-date-input__item">

@@ -25,7 +25,6 @@ router.get('/', function (req, res) {
 
     //plan functionality
     
-
     //create sanitised references for the crop list
     // for(var x in req.session.data.crop_types) {
     //     var y = req.session.data.crop_types[x].name
@@ -45,11 +44,16 @@ router.get('/', function (req, res) {
     req.session.data.chosen_fields = []
     req.session.data.plan_type = 'new'
     req.session.data.show_new_field = false
+    req.session.data.another_crop = 'no'
+    req.session.data.show_new_plan = false
+    req.session.data.harvest_date = null //v2
+
 
     // content vars
     req.session.data.organic_term = "Organic material"
     req.session.data.non_organic_term = "Inorganic fertiliser"
     req.session.data.harvest_year = "harvest year 2024"
+    req.session.data.todays_date = "8 January 2024"
 
     // route vars
     req.session.data.manure_spreads = 0
@@ -293,7 +297,36 @@ router.get(/show-field-handler/, function (req, res) {
 })
 
 
+///////////V2
 
+//add another crop
+router.get(/v2_another_crop_handler/, function (req, res) { 
+    if (req.session.data.another_crop == "yes") {
+        res.redirect('crops_grass')
+    } else {
+        req.session.data.another_crop = 'no';
+        res.redirect('check')
+    }
+})
 
+router.get(/v2_check_handler/, function (req, res) { 
+    req.session.data.show_new_plan = true;
+    res.redirect('/v2/crop_plan_2025')
+})
 
+//set the plan by year
+router.get(/crop_plan_year_handler/, function (req, res) { 
+    req.session.data.harvest_date = req.query.harvestdate
+    if (req.session.data.harvest_date == '2024') {
+        res.redirect('/v2/crop_plan_2024')
+    } else {
+        res.redirect('/v2/crop_plan_2025')
+    }
+})
 
+router.get(/field_level_plan_handler/, function (req, res) { 
+    console.log(req.query.chosenfield)
+    req.session.data.chosenfield = req.query.chosenfield
+    req.session.data.chosen_crop = req.query.chosencrop
+    res.redirect('/v2/field_plan')
+})

@@ -13,13 +13,13 @@ const farm_details = require('./data/farm_details.json');
 const field_details = require('./data/field_details.json');
 const crop_types = require('./data/crops.json');
 
-const plan2025 = {
+let plan2025 = {
     harvest_date: "2025",
     plan_status: null,
     updated: '9 January 2024' 
 };
 
-const plan2024 = {
+let plan2024 = {
     harvest_date: "2024",
     plan_status: 'complete',
     updated: '10 November 2023' 
@@ -325,6 +325,16 @@ router.get(/v2_another_crop_handler/, function (req, res) {
 router.get(/v2_check_handler/, function (req, res) { 
     req.session.data.plan2025.plan_status = 'crop added';
     req.session.data.chosen_plan = req.session.data.plan2025
+    res.redirect('/v2/crop_plan')
+})
+
+router.get(/v2_manure_check_handler/, function (req, res) { 
+    // req.session.data.chosen_plan.plan_status = 'manure added';
+    if (req.session.data.chosen_plan.harvest_date == '2025') {
+        req.session.data.plan2025.plan_status = 'manure added'
+    }
+    req.session.data.chosen_plan = req.session.data.plan2025
+    console.log(req.session.data.chosen_plan.plan_status)
     res.redirect('/v2/crop_plan')
 })
 

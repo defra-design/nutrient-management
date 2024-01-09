@@ -42,20 +42,12 @@
       </thead>
       <tbody class="govuk-table__body">
 
+        {% if data.plan2025.plan_status == 'crop added' %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">2025</td>
           <!-- <td class="govuk-table__cell">Status</td> -->
           <td class="govuk-table__cell">{{data.todays_date}}</td>
           <td class="govuk-table__cell"><a href="crop_plan_year_handler?harvestdate=2025">View or edit</a></td>
-        </tr>
-
-        {% if data.show_new_plan == true %}
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">2025</td>
-          <!-- <td class="govuk-table__cell">Status</td> -->
-          <td class="govuk-table__cell">{{data.todays_date}}</td>
-          <td class="govuk-table__cell"><a href="crop_plan_year_handler?harvestdate=2025">View or edit</a></td>
-
         </tr>
       {% endif %}
 

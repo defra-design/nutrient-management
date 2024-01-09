@@ -18,7 +18,7 @@
 
       <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        How would you like to change your plan for Harvest Year 2025?
+        How would you like to change your plan for Harvest Year {{data.chosen_plan.harvest_date}}?
       </h1>
 
       <form class="form" action="plan/manure/manure_date" method="post">

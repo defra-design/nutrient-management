@@ -26,17 +26,16 @@
 
 {% block content %}
 
+<div class="crop_plan_title">
   <h1 class="govuk-heading-l">Harvest year {{data.chosen_plan.harvest_date}}</h1>
+  <p class="govuk-body">There are 6 fields in this plan.</p>
+  <p class="govuk-body">Last updated: {{data.chosen_plan.updated}}</p>
+</div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <div class="crop_plan_title">
-      <p class="govuk-body">There are 6 fields in this plan.</p>
-      <p class="govuk-body">Last updated: {{data.chosen_plan.updated}}.</p>
-    </div>
-    
-    <!-- <p class="govuk-body"><a href="change_plan">Change this plan</a></p> -->
+    <p class="govuk-body"><a href="change_plan">Change this plan</a></p>
 
     <!-- <ul class="govuk-list menu-list">
       <li>
@@ -62,39 +61,6 @@
     {% elif data.chosen_plan.harvest_date == '2025' %}
       {% include "./2025plan.html" ignore missing %}
     {% endif %}
-
-    </div>
-    <div class="govuk-grid-column-one-third">
-
-      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
-        <h2 class="govuk-heading-s" id="subsection-title">
-          Update this plan
-        </h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list font-size-17">
-            <li>
-              <a href="change_fields">
-                Manage crops and fields
-              </a>
-            </li>
-            <li>
-              <a href="change_manures">
-                Manage manures and fertilisers
-              </a>
-            </li>
-            <li>
-              <a href="change_overall_plan">
-                Manage this plan
-              </a>
-            </li>
-            <!-- <li>
-              <a href="#" class="govuk-!-font-weight-bold">
-                More <span class="govuk-visually-hidden">in Subsection</span>
-              </a>
-            </li> -->
-          </ul>
-        </nav>
-      </aside>
 
     </div>
 </div>

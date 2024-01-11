@@ -23,6 +23,15 @@
     <div class="check-answers">
         {% include "./check_crops.html" %}
     </div>
+    {% if data.plan_type == 'previous' %}
+    <br>
+    <h2 class="govuk-heading-m">
+      {{data.organic_term | capitalize }}
+    </h2>
+    <div class="check-answers">
+      {% include "./manure/check_manure.html" %}
+    </div>
+    {% endif %}
 
     <form action="/v2_check_handler/" method="post" novalidate>
       {{ govukButton({

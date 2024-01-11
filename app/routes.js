@@ -322,19 +322,35 @@ router.get(/v2_another_crop_handler/, function (req, res) {
     }
 })
 
+router.get(/v2_plan_handler/, function (req, res) { 
+    if (req.session.data.v2_plan_type == 'new') {
+        req.session.data.plan_type = 'new'
+        res.redirect('/v2/plan/crops')
+    } else {
+        req.session.data.plan_type = 'previous'
+        res.redirect('/v2/plan/check')
+    }
+})
+
+//add crop
 router.get(/v2_check_handler/, function (req, res) { 
-    req.session.data.plan2025.plan_status = 'crop added';
+    if (req.session.data.plan_type == 'previous') {
+        req.session.data.plan2025.plan_status = 'manure added'
+    } else {
+        req.session.data.plan2025.plan_status = 'crop added';
+    }
     req.session.data.chosen_plan = req.session.data.plan2025
+    console.log(req.session.data.chosen_plan.plan_status)
     res.redirect('/v2/crop_plan')
 })
 
+//add manure
 router.get(/v2_manure_check_handler/, function (req, res) { 
     // req.session.data.chosen_plan.plan_status = 'manure added';
     if (req.session.data.chosen_plan.harvest_date == '2025') {
         req.session.data.plan2025.plan_status = 'manure added'
     }
     req.session.data.chosen_plan = req.session.data.plan2025
-    console.log(req.session.data.chosen_plan.plan_status)
     res.redirect('/v2/crop_plan')
 })
 
@@ -353,4 +369,14 @@ router.get(/field_level_plan_handler/, function (req, res) {
     req.session.data.chosenfield = req.query.chosenfield
     req.session.data.chosen_crop = req.query.chosencrop
     res.redirect('/v2/field_plan')
+})
+
+//change crop plan
+router.get(/crop_change_handler/, function (req, res) { 
+    if (req.session.data.change_crop == 'plan_fertiliser') {
+        res.redirect('./plan/fertiliser/fertiliser_date')
+    } else {
+        res.redirect('./plan/manure/manure_date')
+
+    }
 })

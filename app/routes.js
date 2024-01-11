@@ -374,9 +374,38 @@ router.get(/field_level_plan_handler/, function (req, res) {
 //change crop plan
 router.get(/crop_change_handler/, function (req, res) { 
     if (req.session.data.change_crop == 'plan_fertiliser') {
-        res.redirect('./plan/fertiliser/fertiliser_date')
+        res.redirect('./plan/fertiliser/fertiliser_when')
     } else {
         res.redirect('./plan/manure/manure_date')
 
     }
+})
+
+router.get(/fertiliser_type_handler_v2/, function (req, res) { 
+    var chosen_nutrients = req.session.data.chosen_nutrients
+    req.session.data.chosen_nitrogen = false
+    req.session.data.chosen_phosphate = false
+    req.session.data.chosen_potash = false
+    req.session.data.chosen_sulphur = false
+    req.session.data.chosen_lime = false
+    for (var x in chosen_nutrients) {
+        if (chosen_nutrients[x] == "nitrogen") {
+            req.session.data.chosen_nitrogen = true;
+        } else if (chosen_nutrients[x] == "phosphate") {
+            req.session.data.chosen_phosphate = true;
+        } else if (chosen_nutrients[x] == "potash") {
+            req.session.data.chosen_potash = true;
+        } else if (chosen_nutrients[x] == "sulphur") {
+            req.session.data.chosen_sulphur = true;
+        } else if (chosen_nutrients[x] == "lime") {
+            req.session.data.chosen_lime = true;
+        }
+    }
+    res.redirect('fertiliser_amount')
+})
+
+router.get(/v2_check_fertiliser_handler/, function (req, res) { 
+    req.session.data.plan2025.plan_status = 'fertiliser added'
+    req.session.data.chosen_plan = req.session.data.plan2025
+    res.redirect('/v2/crop_plan')
 })

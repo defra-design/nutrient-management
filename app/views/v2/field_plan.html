@@ -74,7 +74,7 @@
 </div> 
 
 <!-- <p class="govuk-body"><a href="check_crops">View or change crop details</a></p> -->
-<p class="govuk-body"><a href="#">View or change crop details</a></p>
+<p class="govuk-body"><a href="/v2/check_wheat">View or change crop details</a></p>
 
 <hr class="big_seperator">
 <h2 class="govuk-heading-m">Nutrient recommendations</h2>
@@ -93,7 +93,7 @@
 {% else %}
   <p>You have not planned any organic material applications.</p>
   <p class="govuk-body">
-    <a class="govuk-link" href="#">Add an {{data.organic_term | lower}} plan</a>
+    <a class="govuk-link" href="#">Add {{data.organic_term | lower}} applications</a>
   </p>
 {% endif %}
 
@@ -104,7 +104,7 @@
 {% else %}
   <p>You have not planned any inorganic fertiliser applications.</p>
   <p class="govuk-body">
-      <a class="govuk-link" href="#">Add an {{data.non_organic_term | lower}} plan</a>
+      <a class="govuk-link" href="#">Add {{data.non_organic_term | lower}} applications</a>
   </p>
 {% endif %}
 

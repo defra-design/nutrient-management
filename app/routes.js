@@ -380,8 +380,7 @@ router.get(/crop_change_handler/, function (req, res) {
     if (req.session.data.change_crop == 'plan_fertiliser') {
         res.redirect('./plan/fertiliser/fertiliser_when')
     } else {
-        res.redirect('./plan/manure/manure_date')
-
+        res.redirect('./plan/manure/manure_fields')
     }
 })
 

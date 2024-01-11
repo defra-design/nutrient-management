@@ -310,7 +310,10 @@ router.get(/show-field-handler/, function (req, res) {
 })
 
 
-///////////V2
+///////////
+///////  V2
+///////////
+
 
 //add another crop
 router.get(/v2_another_crop_handler/, function (req, res) { 
@@ -322,6 +325,7 @@ router.get(/v2_another_crop_handler/, function (req, res) {
     }
 })
 
+// select plan type
 router.get(/v2_plan_handler/, function (req, res) { 
     if (req.session.data.v2_plan_type == 'new') {
         req.session.data.plan_type = 'new'
@@ -340,7 +344,6 @@ router.get(/v2_check_handler/, function (req, res) {
         req.session.data.plan2025.plan_status = 'crop added';
     }
     req.session.data.chosen_plan = req.session.data.plan2025
-    console.log(req.session.data.chosen_plan.plan_status)
     res.redirect('/v2/crop_plan')
 })
 
@@ -364,6 +367,7 @@ router.get(/crop_plan_year_handler/, function (req, res) {
     res.redirect('/v2/crop_plan')
 })
 
+//view the selected plan
 router.get(/field_level_plan_handler/, function (req, res) { 
     console.log(req.query.chosenfield)
     req.session.data.chosenfield = req.query.chosenfield
@@ -381,6 +385,7 @@ router.get(/crop_change_handler/, function (req, res) {
     }
 })
 
+//show the right fertilisers
 router.get(/fertiliser_type_handler_v2/, function (req, res) { 
     var chosen_nutrients = req.session.data.chosen_nutrients
     req.session.data.chosen_nitrogen = false
@@ -404,6 +409,7 @@ router.get(/fertiliser_type_handler_v2/, function (req, res) {
     res.redirect('fertiliser_amount')
 })
 
+//set status from fertiliser CYA
 router.get(/v2_check_fertiliser_handler/, function (req, res) { 
     req.session.data.plan2025.plan_status = 'fertiliser added'
     req.session.data.chosen_plan = req.session.data.plan2025

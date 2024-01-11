@@ -1,22 +1,5 @@
   {{ govukSummaryList({
-  rows: [
-    {
-      key: {
-        text: "Do you plan to spread " + data.non_organic_term | lower + "?"
-      },
-      value: {
-        text: "Yes"
-      },
-      actions: {
-        items: [
-          {
-            href: "",
-            text: "Change",
-            visuallyHiddenText: ""
-          }
-        ]
-      }
-    },
+  rows: [ 
     {
       key: {
         text: "When do you first plan to spread " + data.non_organic_term | lower + "?"
@@ -33,10 +16,25 @@
           }
         ]
       }
-    },
-    {
+    }, {
       key: {
-        text: "How much of each nutrient do you plan to include?"
+        text: "Which nutrients do you plan to include in this application?"
+      },
+      value: {
+        text: "Nitrogen(N)" 
+      },
+      actions: {
+        items: [
+          {
+            href: "",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    }, {
+      key: {
+        text: "How much of each nutrient do you plan to include in this application?"
       },
       value: {
         text: "40 kg Nitrogen(N)" 
@@ -85,9 +83,23 @@
           }
         ]
       }
-    }
-    ,
-    {
+    }, {
+      key: {
+        text: "Which nutrients do you plan to include in this application?"
+      },
+      value: {
+        text: "Nitrogen(N)" 
+      },
+      actions: {
+        items: [
+          {
+            href: "",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    }, {
       key: {
         text: "How much of each nutrient do you plan to include?"
       },
@@ -103,9 +115,7 @@
           }
         ]
       }
-    }
-    ,
-    {
+    }, {
       key: {
         text: "Do you plan to spread more " + data.non_organic_term | lower + "?"
       },

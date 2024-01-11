@@ -24,6 +24,14 @@
         {% include "./check_manure.html" %}
     </div>
 
+    <br>
+    <h2 class="govuk-heading-m">
+      These values are based on your {{data.organic_term | lower }} choices
+    </h2>
+    <div class="check-answers">
+      {% include "./check_manure_values.html" ignore missing %}
+    </div>
+
     <form action="/v2_manure_check_handler/" method="post" novalidate>
       {{ govukButton({
         text: "Add to plan"

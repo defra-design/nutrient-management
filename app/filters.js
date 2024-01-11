@@ -46,6 +46,9 @@ addFilter('statusconverter', function (status_text) {
         status_text = 'Crop added' 
     } else if (status_text == 'manure added') {
         status_text = 'Manure added' 
+    } else if (status_text == 'fertiliser added') {
+        status_text = 'Crops, manure and fertiliser added' 
     }
     return status_text
 })
+

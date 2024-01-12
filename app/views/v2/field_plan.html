@@ -78,12 +78,13 @@
 
 <hr class="big_seperator">
 <h2 class="govuk-heading-m">Nutrient recommendations</h2>
-  {% if data.chosen_plan.plan_status == 'crop added' %}
-    {% include "./nutrients_blank.html" ignore missing %}
-  {% elif data.chosen_plan.plan_status == 'manure added' %}
-    {% include "./nutrients_manure.html" ignore missing %}
-  {% elif data.chosen_plan.plan_status == 'complete' %}
+
+  {% if data.chosen_plan.manure_added == true and data.chosen_plan.manure_added == true %}
     {% include "./nutrients_completed.html" ignore missing %}
+  {% elif data.chosen_plan.manure_added == true and data.chosen_plan.feriliser_added == false %}
+    {% include "./nutrients_manure.html" ignore missing %}
+  {% else %}
+    {% include "./nutrients_blank.html" ignore missing %}
   {% endif %}
 
 <hr class="big_seperator">

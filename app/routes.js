@@ -16,12 +16,18 @@ const crop_types = require('./data/crops.json');
 let plan2025 = {
     harvest_date: "2025",
     plan_status: null,
+    crop_added: false,
+    manure_added: false,
+    fertiliser_added: false,
     updated: '9 January 2024' 
 };
 
 let plan2024 = {
     harvest_date: "2024",
     plan_status: 'complete',
+    crop_added: false,
+    manure_added: false,
+    fertiliser_added: false,
     updated: '10 November 2023' 
 };
 

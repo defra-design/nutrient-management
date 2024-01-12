@@ -15,19 +15,19 @@ const crop_types = require('./data/crops.json');
 
 let plan2025 = {
     harvest_date: "2025",
-    plan_status: null,
     crop_added: false,
     manure_added: false,
     fertiliser_added: false,
+    plan_update: 'crop_added',
     updated: '9 January 2024' 
 };
 
 let plan2024 = {
     harvest_date: "2024",
-    plan_status: 'complete',
     crop_added: true,
     manure_added: true,
     fertiliser_added: true,
+    plan_update: null,
     updated: '10 November 2023' 
 };
 
@@ -48,10 +48,10 @@ router.get('/', function (req, res) {
     
     //create sanitised references for the crop list
     // for(var x in req.session.data.crop_types) {
-    //     var y = req.session.data.crop_types[x].name
-    //     const regex = / /g
-    //     y = y.replace(regex, "-").replace(",", "").toLowerCase()
-    //     req.session.data.crop_types[x].reference = y
+    //   var y = req.session.data.crop_types[x].name
+    //   const regex = / /g
+    //   y = y.replace(regex, "-").replace(",", "").toLowerCase()
+    //   req.session.data.crop_types[x].reference = y
     // }
 
     //control vars
@@ -346,17 +346,15 @@ router.get(/v2_plan_handler/, function (req, res) {
 //add crop
 router.get(/v2_check_handler/, function (req, res) { 
     if (req.session.data.plan_type == 'previous') {
-        req.session.data.plan2025.plan_status = 'manure added'
+        req.session.data.plan2025.plan_update = 'previous_created'
         req.session.data.plan2025.crop_added = true
         req.session.data.plan2025.manure_added = true
         req.session.data.plan2025.fertiliser_added = true
     } else {
-        req.session.data.plan2025.plan_status = 'crop added';
+        req.session.data.plan2025.plan_status = 'crop_added';
         req.session.data.plan2025.crop_added = true
     }
     req.session.data.chosen_plan = req.session.data.plan2025
-    console.log('chosen plan' + req.session.data.chosen_plan.crop_added);
-    console.log('2025 plan' + req.session.data.plan2025.crop_added);
     res.redirect('/v2/crop_plan')
 })
 
@@ -365,6 +363,7 @@ router.get(/crop_plan_year_handler/, function (req, res) {
     if (req.query.harvestdate == '2024') {
         req.session.data.chosen_plan = req.session.data.plan2024
     } else {
+        req.session.data.plan2025.plan_update = null
         req.session.data.chosen_plan = req.session.data.plan2025
     }
     res.redirect('/v2/crop_plan')
@@ -372,9 +371,10 @@ router.get(/crop_plan_year_handler/, function (req, res) {
 
 //view the selected plan
 router.get(/field_level_plan_handler/, function (req, res) { 
-    console.log(req.query.chosenfield)
     req.session.data.chosenfield = req.query.chosenfield
     req.session.data.chosen_crop = req.query.chosencrop
+    req.session.data.plan2025.plan_update = null
+    req.session.data.chosen_plan = req.session.data.plan2025
     res.redirect('/v2/field_plan')
 })
 
@@ -382,8 +382,8 @@ router.get(/field_level_plan_handler/, function (req, res) {
 router.get(/v2_manure_check_handler/, function (req, res) { 
     // req.session.data.chosen_plan.plan_status = 'manure added';
     if (req.session.data.chosen_plan.harvest_date == '2025') {
-        req.session.data.plan2025.plan_status = 'manure added'
         req.session.data.plan2025.manure_added = true
+        req.session.data.plan2025.plan_update = 'manure_added'
     }
     req.session.data.chosen_plan = req.session.data.plan2025
     res.redirect('/v2/crop_plan')
@@ -391,8 +391,8 @@ router.get(/v2_manure_check_handler/, function (req, res) {
 
 //add fertiliser
 router.get(/v2_check_fertiliser_handler/, function (req, res) { 
-    req.session.data.plan2025.plan_status = 'fertiliser added'
     req.session.data.plan2025.fertiliser_added = true
+    req.session.data.plan2025.plan_update = 'fertiliser_added'
     req.session.data.chosen_plan = req.session.data.plan2025
     res.redirect('/v2/crop_plan')
 })

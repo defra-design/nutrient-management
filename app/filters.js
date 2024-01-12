@@ -40,14 +40,14 @@ addFilter('fieldconverter', function (field_name) {
 })
 
 addFilter('statusconverter', function (status_text) {
-    if (status_text == 'complete') {
-        status_text = 'Crop, organic material and inorganic fertiliser added'        
-    } else if (status_text == 'crop added') {
-        status_text = 'Crop added' 
-    } else if (status_text == 'manure added') {
-        status_text = 'Manure added' 
-    } else if (status_text == 'fertiliser added') {
-        status_text = 'Crops, manure and fertiliser added' 
+    if (status_text == 'manure_added') {
+        status_text = 'Manure applications added to plan.'        
+    } else if (status_text == 'crop_added') {
+        status_text = 'Crops added to plan' 
+    } else if (status_text == 'previous_created') {
+        status_text = 'New plan created.' 
+    } else if (status_text == 'fertiliser_added') {
+        status_text = 'Fertiliser applications added to plan.' 
     }
     return status_text
 })

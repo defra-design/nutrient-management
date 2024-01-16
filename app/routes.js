@@ -19,7 +19,7 @@ let plan2025 = {
     manure_added: false,
     fertiliser_added: false,
     plan_update: 'crop_added',
-    updated: '9 January 2024' 
+    updated: '16 January 2024' 
 };
 
 let plan2024 = {

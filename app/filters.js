@@ -41,13 +41,13 @@ addFilter('fieldconverter', function (field_name) {
 
 addFilter('statusconverter', function (status_text) {
     if (status_text == 'manure_added') {
-        status_text = 'Manure applications added to plan.'        
+        status_text = 'Manure applications added.'        
     } else if (status_text == 'crop_added') {
-        status_text = 'Crops added to plan' 
+        status_text = 'Crops and fields added.' 
     } else if (status_text == 'previous_created') {
         status_text = 'New plan created.' 
     } else if (status_text == 'fertiliser_added') {
-        status_text = 'Fertiliser applications added to plan.' 
+        status_text = 'Fertiliser applications added.' 
     }
     return status_text
 })

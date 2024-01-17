@@ -1,0 +1,117 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="add-soil-check" method="post" novalidate="">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">Add soil analysis for Big Field</h1>
+        </legend>
+        
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-1">Date</label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+        </div>
+                        
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-county">ph</label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+        </div>
+        
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-postcode">Phosphorus (P) per litre of soil</label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <label class="govuk-label" for="nitrate">Phosphorus (P) analysis type</label>
+            
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nitrate" name="nitrate" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="nitrate">Yes</label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nitrate-2" name="nitrate" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="nitrate-2">No</label>
+              </div>
+            </div>
+          </fieldset>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-postcode">Phosphorus (P) index</label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-postcode">Potassium (K) per litre of soil</label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+        </div>
+
+        <div class="govuk-form-group">
+        <label class="govuk-label" for="address-postcode">Magnesium (Mg) per litre of soil</label>
+        <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-postcode">Magnesium (Mg) index</label>
+        <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-postcode">Soil Nitrogen Supply Kg N/hectare</label>
+        <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-postcode">SNS index</label>
+        <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <label class="govuk-label" for="nitrate">Is the soil Sulfur (S) deficient?</label>
+          
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="nitrate" name="nitrate" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="nitrate">Yes</label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="nitrate-2" name="nitrate" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="nitrate-2">No</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <br>
+            <button class="govuk-button" data-module="govuk-button">Next</button>
+          </fieldset>
+        </div>
+
+
+          </div>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}

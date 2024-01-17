@@ -23,13 +23,8 @@
 {% block content %}
 {{ plan_status }}
 
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-l">
-        Manage Oaktree Lane Farm fields
-      </h1>
 
       {% if data.show_new_field == true %}
         <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
@@ -47,6 +42,10 @@
         </div>
       {% endif %}
 
+      <h1 class="govuk-heading-l">
+        Manage Oaktree Lane Farm fields
+      </h1>
+
       </div>
       <div class="govuk-grid-column-full">
 
@@ -55,7 +54,7 @@
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Field name</th>
-            <th scope="col" class="govuk-table__header">Action</th>
+            <th scope="col" class="govuk-table__header"> </th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
@@ -88,5 +87,3 @@
   </div>
 
 {% endblock %}
-
-

@@ -17,16 +17,52 @@
 
     <div class="govuk-grid-column-two-thirds">
 
+      <h1 class="govuk-heading-l">Add soil analysis for Big Field</h1>
+
       <form action="add-soil-check" method="post" novalidate="">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">Add soil analysis for Big Field</h1>
-        </legend>
+        </legend> -->
         
         <div class="govuk-form-group">
-          <label class="govuk-label" for="address-line-1">Date</label>
-          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <label class="govuk-label" for="event-name">
+                Date?
+              </label>
+            </legend>
+            <div id="passport-issued-hint" class="govuk-hint">
+              For example, 27 3 2007
+            </div>
+            <div class="govuk-date-input" id="passport-issued">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
         </div>
-                        
+
         <div class="govuk-form-group">
           <label class="govuk-label" for="address-county">ph</label>
           <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
@@ -39,20 +75,21 @@
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
-            <label class="govuk-label" for="nitrate">Phosphorus (P) analysis type</label>
+            <label class="govuk-label" for="nitrate">What was the Phosphorus (P) analysis type?</label>
             
-            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="nitrate" name="nitrate" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="nitrate">Yes</label>
+                <label class="govuk-label govuk-radios__label" for="nitrate">Olsen's</label>
               </div>
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="nitrate-2" name="nitrate" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="nitrate-2">No</label>
+                <label class="govuk-label govuk-radios__label" for="nitrate-2">Resin</label>
               </div>
             </div>
           </fieldset>
+          </div>
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="address-postcode">Phosphorus (P) index</label>
@@ -88,7 +125,7 @@
         <fieldset class="govuk-fieldset">
           <label class="govuk-label" for="nitrate">Is the soil Sulfur (S) deficient?</label>
           
-          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="nitrate" name="nitrate" type="radio" value="yes">
               <label class="govuk-label govuk-radios__label" for="nitrate">Yes</label>
@@ -100,6 +137,7 @@
             </div>
           </div>
         </fieldset>
+        </div>
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">

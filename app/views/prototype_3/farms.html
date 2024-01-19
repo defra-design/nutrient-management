@@ -6,26 +6,6 @@
 
 {% block content %}
 
-<h1 class="govuk-heading-xl">Current farms</h1>
-<!-- <h1 class="govuk-heading-xl">{{data.farm_details.plan_status}}</h1> -->
-
-<!-- <div class="status-header">
-  <p class="govuk-table__body">Planning status</p>
-  {% if data.farm_details.plan_status == "none" %}
-  <h2 class="govuk-heading-m">No nutrient application plan for {{data.harvest_year}}</h2>
-  <p class="govuk-body">
-    <a href="./create/fields.html" class="govuk-link">Create a nutrient application plan</a>
-  </p>
-{% else %}
-  <h2 class="govuk-heading-m">Plan started for {{data.harvest_year}}</h2>
-  <p class="govuk-body">
-    <a href="./create/fields.html" class="govuk-link">View or edit nutrient application plan</a>
-  </p>
-{% endif %}
-</div>  
-
-<hr class="medium_seperator"> -->
-
 {% if data.farms_added == false %}
   <p class="govuk-body">
     You have not set up any farms.
@@ -70,9 +50,36 @@
   </li>
 </uli> -->
 
-<hr class="medium_seperator">
+{% endif %}
+
+<h1 class="govuk-heading-xl">Current farms</h1>
+<!-- <h1 class="govuk-heading-xl">{{data.farm_details.plan_status}}</h1> -->
+
+<!-- <div class="status-header">
+  <p class="govuk-table__body">Planning status</p>
+  {% if data.farm_details.plan_status == "none" %}
+  <h2 class="govuk-heading-m">No nutrient application plan for {{data.harvest_year}}</h2>
+  <p class="govuk-body">
+    <a href="./create/fields.html" class="govuk-link">Create a nutrient application plan</a>
+  </p>
+{% else %}
+  <h2 class="govuk-heading-m">Plan started for {{data.harvest_year}}</h2>
+  <p class="govuk-body">
+    <a href="./create/fields.html" class="govuk-link">View or edit nutrient application plan</a>
+  </p>
+{% endif %}
+</div>  -->
+
+{% if data.farms_added == true %}
+
+<div>
+    <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub">View Oaktree Lane Farm</a> </p>
+</div>
+
 
 {% endif %}
+
+<hr class="medium_seperator">
 
 <div>
   <h2 class="govuk-heading-m">Add a new farm</h2>

@@ -10,11 +10,11 @@
     items: [
       {
         text: "Oaktree Lane Farm",
-        href: "hub.html"
+        href: "../hub"
       },
       {
         text: "Plans and records",
-        href: "plans_records.html"
+        href: "../plans_records"
       },
       {
         text: "Harvest year " + data.chosen_plan.harvest_date
@@ -74,9 +74,9 @@
     <hr class="big_seperator">
 
     {% if data.chosen_plan.harvest_date == '2024' %}
-      {% include "./2024plan.html" ignore missing %}
+      {% include "./templates/2024plan.html" ignore missing %}
     {% elif data.chosen_plan.harvest_date == '2025' %}
-      {% include "./2025plan.html" %}
+      {% include "./templates/2025plan.html" %}
     {% endif %}
 
     </div>
@@ -89,17 +89,17 @@
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list font-size-17">
             <li>
-              <a href="change_fields">
+              <a href="../update/change_fields">
                 Manage crops and fields
               </a>
             </li>
             <li>
-              <a href="change_manures">
+              <a href="../update/change_manures">
                 Manage manures and fertilisers
               </a>
             </li>
             <li>
-              <a href="change_overall_plan">
+              <a href="../update/change_overall_plan">
                 Manage this plan
               </a>
             </li>

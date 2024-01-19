@@ -10,15 +10,15 @@
   items: [
     {
       text: "Oaktree Lane Farm",
-      href: "hub.html"
+      href: "../hub"
     },
     {
       text: "Plans and records",
-      href: "plans_records.html"
+      href: "../plans_records"
     },
     {
       text: "Harvest year " + data.chosen_plan.harvest_date,
-      href: "crop_plan.html"
+      href: "../crop_plan/index"
     },
     {
       text: data.chosenfield
@@ -74,23 +74,23 @@
 </div> 
 
 <!-- <p class="govuk-body"><a href="check_crops">View or change crop details</a></p> -->
-<p class="govuk-body"><a href="/v2/check_wheat">View or change crop details</a></p>
+<p class="govuk-body"><a href="">View or change crop details</a></p>
 
 <hr class="big_seperator">
 <h2 class="govuk-heading-m">Nutrient recommendations</h2>
 
 {% if data.chosen_plan.manure_added == true and data.chosen_plan.fertiliser_added == true %}
-  {% include "./nutrients_completed.html" ignore missing %}
+  {% include "./templates/nutrients_completed.html" ignore missing %}
 {% elif data.chosen_plan.manure_added == true and data.chosen_plan.feriliser_added == false %}
-  {% include "./nutrients_manure.html" ignore missing %}
+  {% include "./templates/nutrients_manure.html" ignore missing %}
 {% else %}
-  {% include "./nutrients_blank.html" ignore missing %}
+  {% include "./templates/nutrients_blank.html" ignore missing %}
 {% endif %}
 
 <hr class="big_seperator">
 <h2 class="govuk-heading-m">Organic material plan</h2>
 {% if data.chosen_plan.manure_added == true %}
-  {% include "./organic_material_plan.html" ignore missing %}
+  {% include "./templates/organic_material_plan.html" ignore missing %}
 {% else %}
   <p>You have not planned any organic material applications.</p>
   <p class="govuk-body">
@@ -101,7 +101,7 @@
 <hr class="big_seperator">
 <h2 class="govuk-heading-m">{{data.non_organic_term }} plan</h2>
 {% if data.chosen_plan.fertiliser_added == true %}
-  {% include "./non_organic_material_plan.html" ignore missing %}
+  {% include "./templates/non_organic_material_plan.html" ignore missing %}
 {% else %}
 <p>You have not planned any inorganic fertiliser applications.</p>
 <p class="govuk-body">

@@ -85,6 +85,15 @@ hr.medium_seperator {
 .record-table {
     font-size: 17px;
 }
+
+.field-table {
+    font-size: 17px;
+    margin-top: 10px;   
+    th {
+        margin-top: 0;
+        padding-top: 0;
+    }
+}
     
 
 .application-table {

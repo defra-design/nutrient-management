@@ -38,6 +38,14 @@
         {% endif %}
       </div>
 
+      <h2 class="govuk-heading-m">
+        Soil analysis
+      </h2>
+
+      <div class="check-answers">
+        {% include "./templates/check-soil.html" ignore missing %}
+      </div>
+
       <form action="manage-fields" method="post" novalidate>
 
         {{ govukButton({

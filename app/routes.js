@@ -437,3 +437,8 @@ router.get(/field-select-handler/, function (req, res) {
     req.session.data.chosenfield = req.query.chosenfield
     res.redirect('check-field')
 })
+
+//update soil
+router.get(/add_soil_handler/, function (req, res) { 
+    res.redirect('/v2/field/manage-fields')
+})

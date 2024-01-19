@@ -36,18 +36,30 @@
         </div> -->
         
         <div class="govuk-form-group">
-          <label class="govuk-label" for="address-county">Field area (hectares)</label>
-          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
-        </div>
-        
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="address-postcode">Cropped area (hectares)</label>
-          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+          <label class="govuk-label" for="weight">
+            Field area
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">Hectares</div>
+          </div>
         </div>
 
         <div class="govuk-form-group">
-          <label class="govuk-label" for="address-postcode">Manure non-spreading area (hectares)</label>
-          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+          <label class="govuk-label" for="weight">
+            Cropped area
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">Hectares</div>
+          </div>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="weight">
+            Manure non-spreading area
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">Hectares</div>
+          </div>
         </div>
 
         <div class="govuk-form-group">
@@ -89,7 +101,7 @@
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
-            <label class="govuk-label" for="potassium">Does this field contain Potassium(K) releasing clay?</label>
+            <label class="govuk-label" for="potassium">Does this field contain Potassium (K) releasing clay?</label>
             <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="potassium" name="potassium" type="radio" value="yes">
@@ -106,7 +118,7 @@
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
-            <label class="govuk-label" for="nitrate">Is this field within a Nitrate Vulnerable Zone?</label>
+            <label class="govuk-label" for="nitrate">Is this field within a Nitrate Vulnerable Zone (NVZ)?</label>
             
             <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">

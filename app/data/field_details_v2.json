@@ -1,0 +1,12 @@
+[
+{"reference":"1", "name":"Field 1", "planStatus":false, "crop":"None"},
+{"reference":"2", "name":"Field 2", "planStatus":false, "crop":"None"},
+{"reference":"3", "name":"Field 3", "planStatus":false, "crop":"None"},
+{"reference":"4", "name":"Field 4", "planStatus":false, "crop":"None"},
+{"reference":"5", "name":"Field 5", "planStatus":false, "crop":"None"},
+{"reference":"6", "name":"Field 6", "planStatus":false, "crop":"None"},
+{"reference":"7", "name":"Field 7", "planStatus":false, "crop":"None"},
+{"reference":"8", "name":"Field 8", "planStatus":false, "crop":"None"},
+{"reference":"9", "name":"Field 9", "planStatus":false, "crop":"None"},
+{"reference":"10", "name":"Field 10", "planStatus":false, "crop":"None"}
+]

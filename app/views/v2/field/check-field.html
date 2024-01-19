@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">
+        <h1 class="govuk-heading-l">{{data.chosenfield | fieldconverter}} details</h1>
+      </h1>
+
+      <!-- <h2 class="govuk-heading-m">
+        Field Details
+      </h2> -->
+      <div class="check-answers">
+        {% include "./templates/check-details.html" ignore missing %}
+      </div>
+      <br>
+
+      <h2 class="govuk-heading-m">
+        Field history
+      </h2>
+      <div class="check-answers">
+        {% if data.previous_grass == 'no' %}
+        {% include "./templates/check-history-no.html" ignore missing %}
+        {% else %}
+          {% include "./templates/check-history-yes.html" ignore missing %}
+        {% endif %}
+      </div>
+
+      <form action="manage-fields" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Update"
+        }) }}
+
+      </form>
+
+      <p class="govuk-body">
+        <a class="govuk-link" href="manage-fields">Cancel</a>
+      </p>
+  
+
+    </div>
+  </div>
+{% endblock %}

@@ -10,7 +10,7 @@
     items: [
       {
         text: "Home",
-        href: "/prototype_2/hub"
+        href: "../hub"
       },
       {
         text: "Create a " + data.harvest_year + " nutrient application plan"
@@ -62,16 +62,16 @@
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">New Field</td>
               <td class="govuk-table__cell">
-                <a href="#">Manage details</a>
+                <a href="field-select-handler?chosenfield=newfield">Manage details</a>
               </td>
             </tr>
           {% endif %}
 
-          {% for field in data.field_details %}
+          {% for field in data.field_details_v2 %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">{{field.name}}</td>
             <td class="govuk-table__cell">
-                <a href="#">Manage details</a>
+              <a href="field-select-handler?chosenfield={{field.name}}">Manage details</a>
             </td>
           </tr>
           {% endfor %}   
@@ -80,7 +80,7 @@
       </table>       
       
       <p class="govuk-body">
-        <a href="">Add a new field</a>
+        <a href="/field/add">Add a new field</a>
       </p>
 
     </div>

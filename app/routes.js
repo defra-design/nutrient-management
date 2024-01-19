@@ -11,6 +11,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 //Import data
 const farm_details = require('./data/farm_details.json');
 const field_details = require('./data/field_details.json');
+const field_details_v2 = require('./data/field_details_v2.json');
 const crop_types = require('./data/crops.json');
 
 let plan2025 = {
@@ -35,6 +36,7 @@ let plan2024 = {
 router.get('/', function (req, res) { 
     //data
     req.session.data.field_details = field_details
+    req.session.data.field_details_v2 = field_details_v2
     req.session.data.crop_types = crop_types
     req.session.data.farm_details = farm_details
     req.session.data.chosenfield = null
@@ -313,7 +315,7 @@ router.get(/field-cuts-handler/, function (req, res) {
 
 router.get(/show-field-handler/, function (req, res) { 
     req.session.data.show_new_field = true;
-    res.redirect('index')
+    res.redirect('/v2/field/manage-fields')
 })
 
 
@@ -428,4 +430,10 @@ router.get(/fertiliser_type_handler_v2/, function (req, res) {
         }
     }
     res.redirect('fertiliser_amount')
+})
+
+//select a field
+router.get(/field-select-handler/, function (req, res) { 
+    req.session.data.chosenfield = req.query.chosenfield
+    res.redirect('check-field')
 })

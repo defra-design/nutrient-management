@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div id="all-plans-table" class="govuk-grid-column-two-thirds">
+
+
+<div class="status-header">
+  <h1 class="govuk-heading-l">{{data.farm_details.name}}</h1>
+  <p class="govuk-table__body">10 fields</p>
+</div>  
+
+<hr class="medium_seperator">
+
+<div>
+  <h2 class="govuk-heading-m">Planning and recording</h2>
+  {% if data.plan2025.crop_added == false %}
+        <p>
+          You have not created a nutrient management plans.
+        </p>
+        <p>
+          <a class="govuk-link" href="plan/year">Create a nutrient management plan</a>
+        </p>
+      {% else %}
+      <ul class="menu-list govuk-list">
+        <li>
+          <a class="govuk-link" href="plans_records">View or create a nutrient management plan</a>
+        </li>
+      </ul>
+  {% endif %}
+</div>
+
+<hr class="medium_seperator">
+
+<div>
+  <h2 class="govuk-heading-m">Manage farm data</h2>
+    <ul class="menu-list govuk-list">
+      <li>
+        <a class="govuk-link" href="#">Update farm details</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="field/manage-fields">Manage field details and soil analysis</a>
+      </li>
+       <!-- <a class="govuk-link" href="#">Update livestock details</a>
+      </li> -->
+      <!-- <li>
+        <a class="govuk-link" href="#">Manage manure and manure storage</a>
+      </li> -->
+      <!-- <li>
+        <a class="govuk-link" href="#">Manage commonly used crops, manures and fertilisers</a>
+      </li> -->
+  </uli>
+</div>
+
+</div>
+</div>
+
+{% endblock %}

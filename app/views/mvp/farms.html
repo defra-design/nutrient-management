@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div id="all-plans-table" class="govuk-grid-column-two-thirds">
+
+{% if data.farms_added == true %}
+
+  <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+    aria-labelledby="govuk-notification-banner-title"
+    data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Success
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <h3 class="govuk-notification-banner__heading">
+        You have added Oaktree Lane Farm.
+      </h3>
+      <p class="govuk-body"><a class="govuk-notification-banner__link" href="field/manage-fields">Set up fields to Oaktree Lane Farm</a> </p>
+    </div>
+  </div>
+
+{% endif %}
+
+<h1 class="govuk-heading-l">Current farms</h1>
+
+{% if data.farms_added == false %}
+  <p class="govuk-body">
+    You have not set up any farms.
+  </p>
+{% else %}
+
+  <div>
+      <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub">Oaktree Lane Farm</a> </p>
+  </div>
+
+{% endif %}
+
+  <hr class="medium_seperator">
+
+  <div>
+    <h2 class="govuk-heading-m">Add a new farm</h2>
+    <p class="govuk-body">
+      <a class="govuk-link" href="farm/add-farm">Create a new farm manually</a>
+    </p>
+    <!-- <p class="govuk-body">
+      <a class="govuk-link" href="./choose_file">Import data from the Planet desktop software</a>
+    </p> -->
+  </div>
+</div>
+</div>
+
+
+{% endblock %}

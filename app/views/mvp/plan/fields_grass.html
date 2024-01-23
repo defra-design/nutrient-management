@@ -1,0 +1,129 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <!-- <span class="govuk-caption-l">
+        Nutrient application plan 2023 to 2024
+      </span> -->
+
+      <h1 class="govuk-heading-l">
+        Which fields do you plan to grow Grass in?
+      </h1>
+
+      <form class="form" action="another_crop" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Which types of waste do you transport?
+              </h1>
+            </legend> -->
+
+            <div id="waste-hint" class="govuk-hint">
+              Select all that apply.
+            </div>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id={{field.reference}} name="chosen_fields" type="checkbox" value={{field.reference}}>
+              <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                Field 1 (Winter Wheat)
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id={{field.reference}} name="chosen_fields" type="checkbox" value={{field.reference}}>
+              <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                Field 2  (Winter Wheat)
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id={{field.reference}} name="chosen_fields" type="checkbox" value={{field.reference}}>
+              <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                Field 3  (Winter Wheat)
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id={{field.reference}} name="chosen_fields" type="checkbox" value={{field.reference}}>
+              <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                Field 4
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id={{field.reference}} name="chosen_fields" type="checkbox" value={{field.reference}}>
+              <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                Field 5
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id={{field.reference}} name="chosen_fields" type="checkbox" value={{field.reference}}>
+              <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                Field 6
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id={{field.reference}} name="chosen_fields" type="checkbox" value={{field.reference}}>
+              <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                Field 7
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id={{field.reference}} name="chosen_fields" type="checkbox" value={{field.reference}}>
+              <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                Field 8
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id={{field.reference}} name="chosen_fields" type="checkbox" value={{field.reference}}>
+              <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                Field 9
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id={{field.reference}} name="chosen_fields" type="checkbox" value={{field.reference}}>
+              <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                Field 10
+              </label>
+            </div>
+
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Next"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

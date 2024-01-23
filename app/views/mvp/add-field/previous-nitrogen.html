@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% include "templates/title_span.html" %}
+      <h1 class="govuk-heading-l">
+       How much nitrogen has been applied in the last (x) years?
+      </h1>
+
+      <form class="form" action="add-field-check" method="post">
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="grazing" name="grass_management" type="radio" value="grazing">
+                    <label class="govuk-label govuk-radios__label" for="grazing">
+                      Up to 250kg per hectare
+                    </label>
+                  </div>    
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="high_clover" name="grass_management" type="radio" value="high_clover">
+                    <label class="govuk-label govuk-radios__label" for="high_clover">
+                      More than 250kg per hectare
+                    </label>
+                  </div>              
+                </div>
+              </fieldset>
+                      
+        </div>
+        {{ govukButton({
+          text: "Next"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

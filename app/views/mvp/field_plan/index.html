@@ -1,0 +1,112 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Oaktree Lane Farm",
+      href: "../hub"
+    },
+    {
+      text: "Plans and records",
+      href: "../plans_records"
+    },
+    {
+      text: "Harvest year " + data.chosen_plan.harvest_date,
+      href: "../crop_plan/index"
+    },
+    {
+      text: data.chosenfield
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="status-header">
+  <h1 class="govuk-heading-l">{{data.chosenfield | fieldconverter}} plan and recommendations</h1>
+  <p class="govuk-body">Harvest year: {{data.chosen_plan.harvest_date}}</p>
+  <p class="govuk-body">Status: {{data.chosen_plan.plan_status | statusconverter}}</p>
+</div>  
+
+<hr class="big_seperator">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-m plan_title">Crop details</h2>
+
+    <table class="govuk-table recomendation-table data-table data-table">
+      <caption class="govuk-table__caption govuk-table__caption--s">{{data.chosen_crop | nameconverter}}</caption>
+      <!-- <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__cell">Estimated application date</th>
+          <th scope="col" class="govuk-table__header">Amount per hectare</th>
+        </tr>
+      </thead> -->
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Estimated sowing date</td>
+          <td class="govuk-table__cell">1 October 2023</td>
+        </tr>      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Estimated yield per hecare</td>
+          <td class="govuk-table__cell">XX metric tons</td>
+        </tr>
+        <!-- <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Crop use</td>
+          <td class="govuk-table__cell">Milling</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Straw use</td>
+          <td class="govuk-table__cell">-</td>
+        </tr> -->
+      </tbody>
+    </table>   
+  </div> 
+</div> 
+
+<!-- <p class="govuk-body"><a href="check_crops">View or change crop details</a></p> -->
+<p class="govuk-body"><a href="">View or change crop details</a></p>
+
+<hr class="big_seperator">
+<h2 class="govuk-heading-m">Nutrient recommendations</h2>
+
+{% if data.chosen_plan.manure_added == true and data.chosen_plan.fertiliser_added == true %}
+  {% include "./templates/nutrients_completed.html" ignore missing %}
+{% elif data.chosen_plan.manure_added == true and data.chosen_plan.feriliser_added == false %}
+  {% include "./templates/nutrients_manure.html" ignore missing %}
+{% else %}
+  {% include "./templates/nutrients_blank.html" ignore missing %}
+{% endif %}
+
+<hr class="big_seperator">
+<h2 class="govuk-heading-m">Organic material plan</h2>
+{% if data.chosen_plan.manure_added == true %}
+  {% include "./templates/organic_material_plan.html" ignore missing %}
+{% else %}
+  <p>You have not planned any organic material applications.</p>
+  <p class="govuk-body">
+    <a class="govuk-link" href="#">Add {{data.organic_term | lower}} applications</a>
+  </p>
+{% endif %}
+
+<hr class="big_seperator">
+<h2 class="govuk-heading-m">{{data.non_organic_term }} plan</h2>
+{% if data.chosen_plan.fertiliser_added == true %}
+  {% include "./templates/non_organic_material_plan.html" ignore missing %}
+{% else %}
+<p>You have not planned any inorganic fertiliser applications.</p>
+<p class="govuk-body">
+  <a class="govuk-link" href="#">Add {{data.non_organic_term | lower}} applications</a>
+</p>
+{% endif %}
+
+{% endblock %}

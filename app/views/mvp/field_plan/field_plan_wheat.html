@@ -1,0 +1,216 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Oaktree Lane Farm",
+      href: "hub.html"
+    },
+    {
+      text: "Plans and records",
+      href: "plans_records.html"
+    },
+    {
+      text: "Harvest year 2024",
+      href: "crop_plan.html"
+    },
+    {
+      text: "Field 1"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="status-header">
+  <h1 class="govuk-heading-l">Field 1 plan and recommendations</h1>
+  <p class="govuk-body">Harvest year: 2024</p>
+</div>  
+
+<hr class="big_seperator">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-m plan_title">Crop details</h2>
+
+    <table class="govuk-table recomendation-table data-table data-table">
+      <caption class="govuk-table__caption govuk-table__caption--s">Winter Wheat</caption>
+      <!-- <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__cell">Estimated application date</th>
+          <th scope="col" class="govuk-table__header">Amount per hectare</th>
+        </tr>
+      </thead> -->
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Estimated sowing date</td>
+          <td class="govuk-table__cell">1 October 2023</td>
+        </tr>      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Estimated yield per hecare</td>
+          <td class="govuk-table__cell">XX metric tons</td>
+        </tr>
+        <!-- <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Crop use</td>
+          <td class="govuk-table__cell">Milling</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Straw use</td>
+          <td class="govuk-table__cell">-</td>
+        </tr> -->
+      </tbody>
+    </table>   
+  </div> 
+</div> 
+
+<p class="govuk-body"><a href="check_crops">View or change crop details</a></p>
+
+<hr class="big_seperator">
+
+<h2 class="govuk-heading-m">Nutrient recommendations</h2>
+
+<table class="govuk-table recomendation-table data-table">
+  <!-- <caption class="govuk-table__caption govuk-table__caption--m">Nutrient recommendations</caption> -->
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Nutrient</th>
+      <th scope="col" class="govuk-table__header">Index / pH</th>
+      <th scope="col" class="govuk-table__header">Crop need<br><span class="hint">per hectare</span></th>
+      <th scope="col" class="govuk-table__header">{{data.organic_term}}<br><span class="hint">per hectare</span></th>
+      <th scope="col" class="govuk-table__header">{{data.non_organic_term}} or lime<br><span class="hint">per hectare</span></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Nitrogen (N)</td>
+      <td class="govuk-table__cell">2</td>
+      <td class="govuk-table__cell">150 kg</td>
+      <td class="govuk-table__cell">40 kg</td>
+      <td class="govuk-table__cell">80 kg</td>
+    </tr>      
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Phosphate (P2O5)</td>
+      <td class="govuk-table__cell">2</td>
+      <td class="govuk-table__cell">65 kg</td>
+      <td class="govuk-table__cell">48 kg</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Potash (K2O)</td>
+      <td class="govuk-table__cell">2-</td>
+      <td class="govuk-table__cell">85 kg</td>
+      <td class="govuk-table__cell">128 kg</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Sulphur (SO3)</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">40 kg</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">40 kg</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Lime</td>
+      <td class="govuk-table__cell">6.5</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="big_seperator">
+
+    <h2 class="govuk-heading-m">Organic material plan</h2>
+
+    <table class="govuk-table recomendation-table data-table data-table">
+      <caption class="govuk-table__caption govuk-table__caption--s">Pig Slury</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Estimated application date</th>
+          <th scope="col" class="govuk-table__header">Amount per hectare</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">3 March 2024</td>
+          <td class="govuk-table__cell">40 kg</td>
+        </tr>      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">2 April 2024</td>
+          <td class="govuk-table__cell">40 kg</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__header">Total</td>
+          <td class="govuk-table__header">80 kg</td>
+        </tr>
+      </tbody>
+    </table>    
+
+    <p class="govuk-body">
+      <a class="govuk-link" href="#">View or change {{data.organic_term | lower}} plan</a>
+    </p>
+
+    <hr class="big_seperator">
+
+  <h2 class="govuk-heading-m">{{data.non_organic_term }} plan</h2>
+
+  <table class="govuk-table recomendation-table data-table data-table">
+    <caption class="govuk-table__caption govuk-table__caption--s">Nitrogen (N)</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Estimated application date</th>
+        <th scope="col" class="govuk-table__header">Amount per hectare</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">29 April 2024</td>
+        <td class="govuk-table__cell">40 kg</td>
+      </tr>      
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">15 May 2024</td>
+        <td class="govuk-table__cell">40 kg</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__header">Total</td>
+        <td class="govuk-table__header">80 kg</td>
+      </tr>
+    </tbody>
+  </table>    
+
+  <table class="govuk-table recomendation-table data-table application-table data-table">
+    <caption class="govuk-table__caption govuk-table__caption--s">Sulphur (SO3)</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Estimated application date</th>
+        <th scope="col" class="govuk-table__header">Amount per hectare</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">15 May 2024</td>
+        <td class="govuk-table__cell">40 kg</td>
+      </tr>      
+      <tr class="govuk-table__row">
+        <td class="govuk-table__header">Total</td>
+        <td class="govuk-table__header">40 kg</td>
+      </tr>
+    </tbody>
+  </table>    
+
+<p class="govuk-body">
+    <a class="govuk-link" href="#">View or change {{data.non_organic_term | lower}} plan</a>
+</p>
+
+
+{% endblock %}

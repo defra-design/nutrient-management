@@ -262,7 +262,7 @@ router.get(/crop_group_handler/, function (req, res) {
 //add farms
 router.get(/add_farms_handler/, function (req, res) { 
     req.session.data.farms_added = true
-    res.redirect('/prototype_3/farms')
+    res.redirect('/mvp/farms')
 })
 
 //grass
@@ -315,7 +315,7 @@ router.get(/field-cuts-handler/, function (req, res) {
 
 router.get(/show-field-handler/, function (req, res) { 
     req.session.data.show_new_field = true;
-    res.redirect('/v2/field/manage-fields')
+    res.redirect('../field/manage-fields')
 })
 
 
@@ -368,7 +368,7 @@ router.get(/crop_plan_year_handler/, function (req, res) {
         req.session.data.plan2025.plan_update = null
         req.session.data.chosen_plan = req.session.data.plan2025
     }
-    res.redirect('/v2/crop_plan/index')
+    res.redirect('./crop_plan/index')
 })
 
 //view the selected plan
@@ -377,7 +377,7 @@ router.get(/field_level_plan_handler/, function (req, res) {
     req.session.data.chosen_crop = req.query.chosencrop
     req.session.data.plan2025.plan_update = null
     req.session.data.chosen_plan = req.session.data.plan2025
-    res.redirect('/v2/field_plan/index')
+    res.redirect('../field_plan/index')
 })
 
 //add manure
@@ -440,5 +440,15 @@ router.get(/field-select-handler/, function (req, res) {
 
 //update soil
 router.get(/add_soil_handler/, function (req, res) { 
-    res.redirect('/v2/field/manage-fields')
+    res.redirect('../field/manage-fields')
+})
+
+//////MVP
+
+//add crop
+router.get(/mvp_check_handler/, function (req, res) { 
+    req.session.data.plan2025.plan_status = 'crop_added';
+    req.session.data.plan2025.crop_added = true
+    req.session.data.chosen_plan = req.session.data.plan2025
+    res.redirect('/mvp/crop_plan/index')
 })

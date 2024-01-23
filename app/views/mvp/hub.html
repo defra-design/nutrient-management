@@ -4,15 +4,51 @@
   GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "All farms",
+        href: "farms" 
+      },
+      {
+        text: "Oaktree Lane Farm"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+
 {% block content %}
 
 <div class="govuk-grid-row">
   <div id="all-plans-table" class="govuk-grid-column-two-thirds">
 
+{% if data.farms_added == true %}
+
+  <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+    aria-labelledby="govuk-notification-banner-title"
+    data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Success
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <h3 class="govuk-notification-banner__heading">
+        You have added Oaktree Lane Farm.
+      </h3>
+      <p class="govuk-body"><a class="govuk-notification-banner__link" href="field/manage-fields">Set up fields for Oaktree Lane Farm</a> </p>
+    </div>
+  </div>
+
+{% endif %}
 
 <div class="status-header">
   <h1 class="govuk-heading-l">{{data.farm_details.name}}</h1>
-  <p class="govuk-table__body">10 fields</p>
+  <p class="govuk-table__body">0 fields added.</p>
 </div>  
 
 <hr class="medium_seperator">

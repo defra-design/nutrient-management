@@ -7,35 +7,45 @@
 {% block content %}
 
 <div class="govuk-grid-row">
+
   <div id="all-plans-table" class="govuk-grid-column-two-thirds">
 
-<h1 class="govuk-heading-l">Current farms</h1>
+    <h1 class="govuk-heading-l">Current farms</h1>
 
-{% if data.farms_added == false %}
-  <p class="govuk-body">
-    You have not set up any farms.
-  </p>
-{% else %}
+      {% if data.farms_added == false %}
 
-  <div>
-      <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub">Oaktree Lane Farm</a> </p>
+        <p class="govuk-body">
+          You have not set up any farms.
+        </p>
+
+        <form class="form" action="farm/add-farm" method="post">
+          {{ govukButton({
+            text: "Add a farm"
+          }) }}
+        </form>
+
+      {% else %}
+
+        <div>
+            <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub">Oaktree Lane Farm</a> </p>
+        </div>
+
+        <hr class="medium_seperator">
+
+        <div>
+          <h2 class="govuk-heading-m">Add a new farm</h2>
+          <p class="govuk-body">
+            <a class="govuk-link" href="farm/add-farm">Add a farm</a>
+          </p>
+          <!-- <p class="govuk-body">
+            <a class="govuk-link" href="./choose_file">Import data from the Planet desktop software</a>
+          </p> -->
+        </div>
+
+      {% endif %}
+
   </div>
 
-{% endif %}
-
-  <hr class="medium_seperator">
-
-  <div>
-    <h2 class="govuk-heading-m">Add a new farm</h2>
-    <p class="govuk-body">
-      <a class="govuk-link" href="farm/add-farm">Create a new farm manually</a>
-    </p>
-    <!-- <p class="govuk-body">
-      <a class="govuk-link" href="./choose_file">Import data from the Planet desktop software</a>
-    </p> -->
-  </div>
 </div>
-</div>
-
 
 {% endblock %}

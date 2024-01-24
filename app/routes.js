@@ -69,6 +69,7 @@ router.get('/', function (req, res) {
     req.session.data.show_new_field = false
     req.session.data.another_crop = 'no'
     req.session.data.chosen_plan = null //v2
+    req.session.data.show_success_message = false
 
 
     // content vars
@@ -262,7 +263,7 @@ router.get(/crop_group_handler/, function (req, res) {
 //add farms
 router.get(/add_farms_handler/, function (req, res) { 
     req.session.data.farms_added = true
-    res.redirect('/mvp/farms')
+    res.redirect('../hub')
 })
 
 //grass
@@ -451,4 +452,10 @@ router.get(/mvp_check_handler/, function (req, res) {
     req.session.data.plan2025.crop_added = true
     req.session.data.chosen_plan = req.session.data.plan2025
     res.redirect('/mvp/crop_plan/index')
+})
+
+//hub reset messages
+router.get(/hub_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message == false
+    res.redirect('/hub')
 })

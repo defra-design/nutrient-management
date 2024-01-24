@@ -24,6 +24,7 @@
 {% block content %}
 
 <div class="govuk-grid-row">
+
   <div id="all-plans-table" class="govuk-grid-column-two-thirds">
 
 {% if data.farms_added == true %}
@@ -40,20 +41,21 @@
       <h3 class="govuk-notification-banner__heading">
         You have added Oaktree Lane Farm.
       </h3>
-      <p class="govuk-body"><a class="govuk-notification-banner__link" href="field/manage-fields">Set up fields for Oaktree Lane Farm</a> </p>
+      <p class="govuk-body"><a class="govuk-notification-banner__link" href="field/manage-fields">Add fields for Oaktree Lane Farm</a> </p>
     </div>
   </div>
 
 {% endif %}
 
-<div class="status-header">
   <h1 class="govuk-heading-l">{{data.farm_details.name}}</h1>
-  <p class="govuk-table__body">0 fields added.</p>
-</div>  
+  <!-- <p class="govuk-table__body">0 fields added.</p> -->
 
-<hr class="medium_seperator">
+<!-- <hr class="medium_seperator"> -->
 
-<div>
+<h2 class="govuk-heading-m">Planning and recording</h2>
+<p><a href="field/manage-fields">Add fields</a> before creating a plan.</p>
+
+<!-- <div>
   <h2 class="govuk-heading-m">Planning and recording</h2>
   {% if data.plan2025.crop_added == false %}
         <p>
@@ -69,7 +71,7 @@
         </li>
       </ul>
   {% endif %}
-</div>
+</div> -->
 
 <hr class="medium_seperator">
 
@@ -77,11 +79,11 @@
   <h2 class="govuk-heading-m">Manage farm data</h2>
     <ul class="menu-list govuk-list">
       <li>
-        <a class="govuk-link" href="#">Update farm details</a>
+        <a class="govuk-link" href="./farm/farm-details">Update farm details</a>
       </li>
-      <li>
+      <!-- <li>
         <a class="govuk-link" href="field/manage-fields">Manage field details and soil analysis</a>
-      </li>
+      </li> -->
        <!-- <a class="govuk-link" href="#">Update livestock details</a>
       </li> -->
       <!-- <li>

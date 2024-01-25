@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- <h1 class="govuk-heading-l">Add a farm</h1>
+      <h2 class="govuk-heading-m">Select an address</h2> -->
+      <h1 class="govuk-heading-l">Select Oaktree Lane Farm's address</h1>
+
+      <div class="text-group">
+        <h3 class="govuk-heading-s">Postcode</h3>
+        <p class="govuk-body">NE46 7LQ</p>
+        <p class="govuk-body"><a href="name">Change</a></p>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="sort">
+          Select the farm address
+        </label>
+        <select class="govuk-select" id="sort" name="sort">
+          <option value="published" selected>4 addressess found</option>
+          <option value="published">18 South Road, Hexham, Northumberland</option>
+          <option value="updated">24 South Road, Hexham, Northumberland</option>
+          <option value="views"> 29 South Road, Hexham, Northumberland</option>
+          <option value="comments">33 South Road, Hexham, Northumberland</option>
+        </select>
+      </div>
+
+      <p class="govuk-body"><a href="manual-address">The address is not listed</a></p>
+      
+      <form action="rainfall" method="post" novalidate="">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <br>
+            <button class="govuk-button" data-module="govuk-button">Next</button>
+          </fieldset>
+        </div>
+
+        <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
+
+          </div>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}

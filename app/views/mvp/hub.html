@@ -6,6 +6,8 @@
 
 {% block beforeContent %}
 
+{% include "/templates/signed-in.html" ignore missing %}
+
   {{ govukBreadcrumbs({
     items: [
       {

@@ -1,14 +1,18 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+Add a farm - farm name – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  <!-- {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
-}) }}
+}) }} -->
+
 {% endblock %}
 
 {% block content %}
@@ -16,14 +20,23 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Add a farm</h1>
-      <!-- <h2 class="govuk-heading-m">About the farm</h2> -->
+      {% if data.oaktree_farm.setup == 'tand' %}
+        <h1 class="govuk-heading-xl">You do not have any farms set up</h1>
+        <h2 class="govuk-heading-l">Add a farm</h2>
+      {% else %}
+        <h1 class="govuk-heading-l">Add a farm</h1>
+      {% endif %}
       
-      <form action="add-farm-check" method="post" novalidate="">      
+      <form action="address" method="post" novalidate="">      
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="address-line-1">What is the farm name?</label>
           <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-1">What is the farm postcode?</label>
+          <input class="govuk-input govuk-input--width-5" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
         </div>
 
         <!-- <div class="govuk-form-group">
@@ -44,7 +57,7 @@
           </fieldset>
         </div>    -->
 
-        <fieldset class="govuk-fieldset">
+        <!-- <fieldset class="govuk-fieldset"> -->
           <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
               What is your address?
@@ -138,6 +151,8 @@
             <button class="govuk-button" data-module="govuk-button">Next</button>
           </fieldset>
         </div>
+
+        <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
 
           </div>
       </div>

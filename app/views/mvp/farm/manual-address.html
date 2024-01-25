@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">What is Oaktree Lane Farm's address?</h1>
+      
+      <form action="rainfall" method="post" novalidate="">      
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-1">Building and street</label>
+          <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+        </div>
+
+        <div class="govuk-form-group">
+          <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-1">Town or city</label>
+          <input class="govuk-input govuk-input--width-20" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-1">County</label>
+          <input class="govuk-input govuk-input--width-20" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <br>
+            <button class="govuk-button" data-module="govuk-button">Next</button>
+          </fieldset>
+        </div>
+
+          </div>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}

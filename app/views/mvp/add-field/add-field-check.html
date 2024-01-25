@@ -30,13 +30,24 @@
       <h2 class="govuk-heading-m">
         Field history
       </h2>
-      <div class="check-answers">
+      <!-- <div class="check-answers">
         {% if data.previous_grass == 'no' %}
         {% include "./check-history-no.html" ignore missing %}
         {% else %}
           {% include "./check-history-yes.html" ignore missing %}
         {% endif %}
+      </div> -->
+      <div class="check-answers">
+        {% include "./check-history-no.html" ignore missing %}
       </div>
+
+      <h2 class="govuk-heading-m">
+        Soil analysis
+      </h2>
+      <div class="check-answers">
+        {% include "./soil-no.html" ignore missing %}
+      </div>
+
 
       <form action="show-field-handler" method="post" novalidate>
 

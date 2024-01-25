@@ -27,24 +27,26 @@
 
   <div id="all-plans-table" class="govuk-grid-column-two-thirds">
 
-{% if data.farms_added == true %}
+{% if data.show_success_message == true %}
+  {% if data.oaktree_farm.setup == true %}
 
-  <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
-    aria-labelledby="govuk-notification-banner-title"
-    data-module="govuk-notification-banner">
-    <div class="govuk-notification-banner__header">
-      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-        Success
-      </h2>
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+          You have added Oaktree Lane Farm.
+        </h3>
+        <p class="govuk-body"><a class="govuk-notification-banner__link" href="add-field/add">Add fields for Oaktree Lane Farm</a> </p>
+      </div>
     </div>
-    <div class="govuk-notification-banner__content">
-      <h3 class="govuk-notification-banner__heading">
-        You have added Oaktree Lane Farm.
-      </h3>
-      <p class="govuk-body"><a class="govuk-notification-banner__link" href="field/manage-fields">Add fields for Oaktree Lane Farm</a> </p>
-    </div>
-  </div>
 
+  {% endif %}
 {% endif %}
 
   <h1 class="govuk-heading-l">{{data.farm_details.name}}</h1>
@@ -53,25 +55,22 @@
 <!-- <hr class="medium_seperator"> -->
 
 <h2 class="govuk-heading-m">Planning and recording</h2>
-<p><a href="field/manage-fields">Add fields</a> before creating a plan.</p>
 
-<!-- <div>
-  <h2 class="govuk-heading-m">Planning and recording</h2>
-  {% if data.plan2025.crop_added == false %}
-        <p>
-          You have not created a nutrient management plans.
-        </p>
-        <p>
-          <a class="govuk-link" href="plan/year">Create a nutrient management plan</a>
-        </p>
-      {% else %}
-      <ul class="menu-list govuk-list">
-        <li>
-          <a class="govuk-link" href="plans_records">View or create a nutrient management plan</a>
-        </li>
-      </ul>
+  {% if data.oaktree_farm.fields_added == true and data.oaktree_farm.plans_added == false %}
+    <ul class="menu-list govuk-list">
+      <li>
+        <a class="govuk-link" href="plan/year">Create a nutrient management plan</a>
+      </li>
+    </ul>
+  {% elif data.oaktree_farm.fields_added == true and data.oaktree_farm.plans_added == true %}
+  <ul class="menu-list govuk-list">
+    <li>
+      <a class="govuk-link" href="plans_records">View or create a nutrient management plan</a>
+    </li>
+  </ul>
+  {% else %}
+    <p><a href="add-field/add">Add fields</a> before creating a plan.</p>
   {% endif %}
-</div> -->
 
 <hr class="medium_seperator">
 
@@ -81,9 +80,11 @@
       <li>
         <a class="govuk-link" href="./farm/farm-details">Update farm details</a>
       </li>
-      <!-- <li>
-        <a class="govuk-link" href="field/manage-fields">Manage field details and soil analysis</a>
-      </li> -->
+      {% if data.oaktree_farm.fields_added == true %}
+        <li>
+          <a class="govuk-link" href="field_reset_handler">Manage field details and soil analysis</a>
+        </li>
+      {% endif %}
        <!-- <a class="govuk-link" href="#">Update livestock details</a>
       </li> -->
       <!-- <li>

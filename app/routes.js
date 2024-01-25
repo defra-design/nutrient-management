@@ -14,6 +14,14 @@ const field_details = require('./data/field_details.json');
 const field_details_v2 = require('./data/field_details_v2.json');
 const crop_types = require('./data/crops.json');
 
+let oaktree_farm = {
+    name: "Oaktree Lane Farm",
+    setup: false,
+    fields_added: false,
+    plans_added: false,
+    ref: 'oaktree'
+};
+
 let plan2025 = {
     harvest_date: "2025",
     crop_added: false,
@@ -41,12 +49,12 @@ router.get('/', function (req, res) {
     req.session.data.farm_details = farm_details
     req.session.data.chosenfield = null
     req.session.data.crop_group = null
-    req.session.data.farms_added = false
 
     //plan functionality
     req.session.data.plan2024 = plan2024
     req.session.data.plan2025 = plan2025
     req.session.data.chosen_plan = plan2024
+    req.session.data.oaktree_farm = oaktree_farm
     
     //create sanitised references for the crop list
     // for(var x in req.session.data.crop_types) {
@@ -66,7 +74,6 @@ router.get('/', function (req, res) {
     req.session.data.chosen_crop = null
     req.session.data.chosen_fields = []
     req.session.data.plan_type = 'new'
-    req.session.data.show_new_field = false
     req.session.data.another_crop = 'no'
     req.session.data.chosen_plan = null //v2
     req.session.data.show_success_message = false
@@ -262,7 +269,8 @@ router.get(/crop_group_handler/, function (req, res) {
 
 //add farms
 router.get(/add_farms_handler/, function (req, res) { 
-    req.session.data.farms_added = true
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.show_success_message = true
     res.redirect('../hub')
 })
 
@@ -296,7 +304,6 @@ router.get(/add_multi_handler/, function (req, res) {
     res.redirect('../fields')
 })
 
-
 //add field - grass history - handler
 router.get(/add-grass-handler/, function (req, res) { 
     if (req.session.data.previous_grass == 'yes') {
@@ -315,15 +322,13 @@ router.get(/field-cuts-handler/, function (req, res) {
 })
 
 router.get(/show-field-handler/, function (req, res) { 
-    req.session.data.show_new_field = true;
+    req.session.data.oaktree_farm.fields_added = true;
     res.redirect('../field/manage-fields')
 })
-
 
 ///////////
 ///////  V2
 ///////////
-
 
 //add another crop
 router.get(/v2_another_crop_handler/, function (req, res) { 
@@ -451,11 +456,18 @@ router.get(/mvp_check_handler/, function (req, res) {
     req.session.data.plan2025.plan_status = 'crop_added';
     req.session.data.plan2025.crop_added = true
     req.session.data.chosen_plan = req.session.data.plan2025
+    req.session.data.oaktree_farm.plans_added == true
     res.redirect('/mvp/crop_plan/index')
 })
 
-//hub reset messages
+//farm view reset messages
 router.get(/hub_reset_handler/, function (req, res) { 
-    req.session.data.show_success_message == false
-    res.redirect('/hub')
+    req.session.data.show_success_message = false
+    res.redirect('../hub')
+})
+
+//fields view reset messages
+router.get(/field_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('./field/manage-fields')
 })

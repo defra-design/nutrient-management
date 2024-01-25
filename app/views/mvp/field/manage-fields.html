@@ -14,7 +14,7 @@
       },
       {
         text: "Oaktree Lane Farm",
-        href: "../hub"
+        href: "hub_reset_handler"
       },
       {
         text: "Manage field details and soil analysis"
@@ -30,8 +30,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% if data.show_new_field == true %}
-        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      {% if data.oaktree_farm.fields_added == true and req.session.data.show_success_message == true %}
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
           <div class="govuk-notification-banner__header">
             <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
               Success
@@ -53,17 +53,18 @@
       </div>
       <div class="govuk-grid-column-two-thirds">
 
-      <table class="govuk-table field-table">
-        <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Field name</th>
-            <th scope="col" class="govuk-table__header">Soil analysis added</th>
-            <th scope="col" class="govuk-table__header"> </th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          {% if data.show_new_field == true %}
+          {% if data.oaktree_farm.fields_added == true %}
+          <table class="govuk-table field-table">
+            <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Field name</th>
+                <th scope="col" class="govuk-table__header">Soil analysis added</th>
+                <th scope="col" class="govuk-table__header"> </th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+    
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">New Field</td>
               <td class="govuk-table__cell">22 January 2024</td>
@@ -71,9 +72,19 @@
                 <a href="field-select-handler?chosenfield=newfield">Change field details</a>
               </td>
             </tr>
+          {% else %}
+
+          <p class="govuk-body">
+            You have not added any fields.
+          </p>
+
+          <p class="govuk-body">
+            Add a field
+          </p>
+
           {% endif %}
 
-          {% for field in data.field_details_v2 %}
+          <!-- {% for field in data.field_details_v2 %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">{{field.name}}</td>
               <td class="govuk-table__cell">14 January 2024</td>
@@ -81,7 +92,7 @@
                 <a href="field-select-handler?chosenfield={{field.name}}">Change field details</a>
               </td>
             </tr>
-          {% endfor %}   
+          {% endfor %}    -->
 
         </tbody>
       </table>    
@@ -94,6 +105,7 @@
         <h2 class="govuk-heading-s" id="subsection-title">
           Update fields and soil analysis
         </h2>
+        {% if data.oaktree_farm.fields_added == true %}
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list font-size-17">
             <li>
@@ -112,6 +124,17 @@
             </li> -->
           </ul>
         </nav>
+        {% else %}
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list font-size-17">
+            <li>
+              You have not added any fields.<br>
+              <a href="../add-field/add">Add a new field</a>.
+            </li>
+          </ul>
+        </nav>
+
+        {% endif %}
       </aside>
 
     </div>

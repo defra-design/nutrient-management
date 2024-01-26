@@ -22,16 +22,13 @@
 
 {% endblock %}
 
-
 {% block content %}
 
 <div class="govuk-grid-row">
 
-  <div id="all-plans-table" class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
-{% if data.show_success_message == true %}
-  {% if data.oaktree_farm.setup == true %}
-
+    {% if data.show_success_message == true %}
     <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
       aria-labelledby="govuk-notification-banner-title"
       data-module="govuk-notification-banner">
@@ -41,15 +38,18 @@
         </h2>
       </div>
       <div class="govuk-notification-banner__content">
-        <h3 class="govuk-notification-banner__heading">
-          You have added Oaktree Lane Farm.
-        </h3>
-        <p class="govuk-body"><a class="govuk-notification-banner__link" href="add-field/add">Add fields for Oaktree Lane Farm</a> </p>
+        {% if data.oaktree_farm.latest_update == 'setup' %}
+          <h3 class="govuk-notification-banner__heading">
+            You have added Oaktree Lane Farm.
+          </h3>
+          <p class="govuk-body"><a class="govuk-notification-banner__link" href="add-field/add">Add fields for Oaktree Lane Farm</a> </p>
+        {% elif data.oaktree_farm.setup == true %}
+
+        {% endif %}
       </div>
     </div>
 
-  {% endif %}
-{% endif %}
+    {% endif %}
 
   <h1 class="govuk-heading-l">{{data.farm_details.name}}</h1>
   <!-- <p class="govuk-table__body">0 fields added.</p> -->

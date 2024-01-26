@@ -16,9 +16,10 @@ const crop_types = require('./data/crops.json');
 
 let oaktree_farm = {
     name: "Oaktree Lane Farm",
-    setup: false,
-    fields_added: false,
+    latest_update: null,
     plans_added: false,
+    fields_added: false,
+    setup: false,
     ref: 'oaktree'
 };
 
@@ -463,7 +464,7 @@ router.get(/mvp_check_handler/, function (req, res) {
 //farm view reset messages
 router.get(/hub_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    res.redirect('../hub')
+    res.redirect('/mvp/hub')
 })
 
 //fields view reset messages

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+Add a farm - farm name – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,6 +12,7 @@
   text: "Back",
   href: "javascript:window.history.back()"
 }) }}
+
 {% endblock %}
 
 {% block content %}
@@ -19,17 +20,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <!-- <h1 class="govuk-heading-l">Add a farm</h1>
-      <h2 class="govuk-heading-m">Select an address</h2> -->
-      <h1 class="govuk-heading-l">Rainfall</h1>
-
-      <div class="text-group">
-        <h3 class="govuk-heading-s">Rainfall</h3>
-        <p class="govuk-body">60 mm</p>
-        <p class="govuk-body"><a href="rainfall-manual">Change</a></p>
-      </div>
+        <h1 class="govuk-heading-l">Rainfall</h1>
       
-      <form action="elivation" method="post" novalidate="">
+      <form action="elivation" method="post" novalidate="">      
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-1">Rainfall</label>
+          <input class="govuk-input govuk-input--width-5" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+        </div>
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">

@@ -271,7 +271,9 @@ router.get(/crop_group_handler/, function (req, res) {
 //add farms
 router.get(/add_farms_handler/, function (req, res) { 
     req.session.data.oaktree_farm.setup = true
+    req.session.data.oaktree_farm.latest_update = 'added'
     req.session.data.show_success_message = true
+    console.log('here' + req.session.data.oaktree_farm.latest_update)
     res.redirect('../hub')
 })
 

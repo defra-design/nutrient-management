@@ -38,12 +38,12 @@
         </h2>
       </div>
       <div class="govuk-notification-banner__content">
-        {% if data.oaktree_farm.latest_update == 'setup' %}
+        {% if data.oaktree_farm.latest_update == 'added' %}
           <h3 class="govuk-notification-banner__heading">
             You have added Oaktree Lane Farm.
           </h3>
           <p class="govuk-body"><a class="govuk-notification-banner__link" href="add-field/add">Add fields for Oaktree Lane Farm</a> </p>
-        {% elif data.oaktree_farm.setup == true %}
+        {% elif data.oaktree_farm.latest_update == 'updated' %}
 
         {% endif %}
       </div>

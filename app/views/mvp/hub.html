@@ -42,13 +42,12 @@
           <h3 class="govuk-notification-banner__heading">
             You have added Oaktree Lane Farm.
           </h3>
-          <p class="govuk-body"><a class="govuk-notification-banner__link" href="add-field/add">Add fields for Oaktree Lane Farm</a> </p>
+          <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_add_reset_handler">Add fields for Oaktree Lane Farm</a> </p>
         {% elif data.oaktree_farm.latest_update == 'updated' %}
 
         {% endif %}
       </div>
     </div>
-
     {% endif %}
 
   <h1 class="govuk-heading-l">{{data.farm_details.name}}</h1>
@@ -71,7 +70,7 @@
     </li>
   </ul>
   {% else %}
-    <p><a href="add-field/add">Add fields</a> before creating a plan.</p>
+    <p><a href="field_add_reset_handler">Add fields</a> before creating a plan.</p>
   {% endif %}
 
 <hr class="medium_seperator">

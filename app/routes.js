@@ -463,14 +463,28 @@ router.get(/mvp_check_handler/, function (req, res) {
     res.redirect('/mvp/crop_plan/index')
 })
 
+////MVP add a field
+router.get(/add-field-handler/, function (req, res) { 
+    req.session.data.oaktree_farm.latest_update = 'field_added';
+    req.session.data.oaktree_farm.fields_added = true;
+    req.session.data.show_success_message = true
+    res.redirect('../field/manage-fields')
+})
+
 //farm view reset messages
 router.get(/hub_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     res.redirect('/mvp/hub')
 })
 
-//fields view reset messages
+//manage fields view reset messages
 router.get(/field_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     res.redirect('./field/manage-fields')
+})
+
+//add a field view reset messages
+router.get(/field_add_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('./add-field/add')
 })

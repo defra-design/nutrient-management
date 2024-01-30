@@ -488,3 +488,17 @@ router.get(/field_add_reset_handler/, function (req, res) {
     req.session.data.show_success_message = false
     res.redirect('/mvp/add-field/name')
 })
+
+//PROTOTYYPE SETUP
+router.get(/farm_setup_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    req.session.data.oaktree_farm.setup = true
+    res.redirect('/mvp/start')
+})
+
+router.get(/field_setup_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.oaktree_farm.fields_added = true
+    res.redirect('/mvp/start')
+})

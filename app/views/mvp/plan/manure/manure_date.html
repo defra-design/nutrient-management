@@ -16,7 +16,7 @@
   {% if data.manure_spreads == 0 %}
     {% set manure_count = "first" %}
   {% else %}
-    {% set manure_count = "next" %}
+    {% set manure_count = "Continue" %}
   {% endif %}
 
   <div class="govuk-grid-row">
@@ -72,7 +72,7 @@
         </div>
 
         {{ govukButton({
-          text: "Next"
+          text: "Continue"
         }) }}
 
       </form>

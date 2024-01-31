@@ -19,7 +19,7 @@ Milling{% extends "layouts/main.html" %}
   {% if data.manure_spreads == 0 %}
     {% set manure_count = "first" %}
   {% else %}
-    {% set manure_count = "next" %}
+    {% set manure_count = "Continue" %}
   {% endif %}
 
   <div class="govuk-grid-row">
@@ -58,7 +58,7 @@ Milling{% extends "layouts/main.html" %}
       </div>
 
         {{ govukButton({
-          text: "Next"
+          text: "Continue"
         }) }}
 
       </form>

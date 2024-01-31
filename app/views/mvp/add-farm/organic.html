@@ -17,25 +17,14 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
 
-      <!-- <h1 class="govuk-heading-l">Add a farm</h1>
-      <h2 class="govuk-heading-m">Are you a registered organic producer?</h2>-->
+    <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">Are you a registered organic producer?</h1>
 
       <form action="check" method="post" novalidate="">
-
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
-            <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                Have you changed your name?
-              </h1>
-            </legend> -->
-            <!-- <div id="changedName-hint" class="govuk-hint">
-              This includes changing your last name or spelling your name differently.
-            </div> -->
             <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
@@ -53,18 +42,15 @@
           </fieldset>
         </div>        
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <br>
-            <button class="govuk-button" data-module="govuk-button">Next</button>
-          </fieldset>
-        </div>
+        <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Next
+        </button>
 
-        <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
+      </form>
 
-          </div>
-      </div>
-    </form>
+      <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
+
+    </div>
   </div>
 
 {% endblock %}

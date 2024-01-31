@@ -38,11 +38,9 @@
       </div> -->
 
       <form action="add_farms_handler" method="post" novalidate>
-
-        {{ govukButton({
-          text: "Add this farm"
-        }) }}
-
+        <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Add this farm
+        </button>
       </form>
 
       <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>

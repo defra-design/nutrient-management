@@ -17,40 +17,29 @@
 {% block content %}
 
   <div class="govuk-grid-row">
+
     <div class="govuk-grid-column-two-thirds">
 
-      <!-- <h1 class="govuk-heading-l">Add a farm</h1>
-      <h2 class="govuk-heading-m">Select an address</h2> -->
       <h1 class="govuk-heading-l">Average annual rainfall for NE46 7LQ</h1>
 
       <p class="govuk-body">This is your estimated average annual rainfall. If you think this is wrong, you can change it now or later.</p>
 
-      <!-- <div class="text-group">
-        <h3 class="govuk-heading-s">Rainfall</h3>
-        <p class="govuk-body">60 mm</p>
-        <p class="govuk-body"><a href="rainfall-manual">Change</a></p>
-      </div> -->
-
-      <div class="text-group">
+      <div class="text-group margin-bottom-forty">
         <h3 class="govuk-heading-s">Average annual rainfall</h3>
         <p class="govuk-body">60mm</p>
         <p class="govuk-body"><a href="rainfall-manual">Change</a></p>
       </div>
       
       <form action="nvz" method="post" novalidate="">
+        <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Next
+        </button>
+      </form>
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <br>
-            <button class="govuk-button" data-module="govuk-button">Next</button>
-          </fieldset>
-        </div>
+      <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
 
-        <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
-
-          </div>
-      </div>
-    </form>
   </div>
+
+</div>
 
 {% endblock %}

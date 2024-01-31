@@ -35,11 +35,17 @@
 
       <p>&nbsp;</p>
 
+      {% if data.oaktree_farm.setup == true %}
+      <form class="form" action="farms" method="post">
+        {% else %}
+        <form class="form" action="farm/name" method="post">
+      {% endif %}
+
       {{ govukButton({
-        text: "Start now",
-        href: "sign-in",
-        isStartButton: true
+        text: "Next"
       }) }}
+
+    </form>
 
       <!-- <h2 class="govuk-heading-m">
         Before you start

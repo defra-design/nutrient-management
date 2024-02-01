@@ -5,7 +5,7 @@
         text: "Farm name"
       },
       value: {
-        text: "Oaktree Lane Farm"
+        text: data.farm_name
       },
       actions: {
         items: [
@@ -22,7 +22,7 @@
         text: "Farm address"
       },
       value: {
-        text: "South Road, Hexham, Northumberland NE46 7LQ"
+        text: "South Road, Hexham, Northumberland " + data.farm_postcode
       },
       actions: {
         items: [
@@ -56,7 +56,7 @@
         text: "How many fields at Oaktree Lane Farm are in a Nitrate Vulnerable Zone (NVZ)?"
       },
       value: {
-        text: "All of the fields are in a Nitrate Vulnerable Zone"
+        text: data.farm_nvz
       },
       actions: {
         items: [
@@ -73,12 +73,12 @@
         text: "How many fields at Oaktree Lane Farm are above 300 metres?"
       },
       value: {
-        text: "None of the fields are above 300m"
+        text: data.farm_elevation
       },
       actions: {
         items: [
           {
-            href: "elivation",
+            href: "elevation",
             text: "Change",
             visuallyHiddenText: ""
           }
@@ -90,7 +90,7 @@
         text: "Are you a registered organic producer?"
       },
       value: {
-        text: "No"
+        text: data.organic_producer | capitalize
       },
       actions: {
         items: [

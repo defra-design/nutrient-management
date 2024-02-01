@@ -20,7 +20,15 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">How many fields at Oaktree Lane Farm are above 300 metres?</h1>
+      <h1 class="govuk-heading-l">
+        How many fields at 
+        {%if data.farm_name != ""%}
+          {{data.farm_name}}
+        {% else %}
+          Oaktree Lane Farm
+        {% endif %}
+        are above 300 metres?
+      </h1>
 
       <form action="organic" method="post" novalidate="">
 
@@ -28,20 +36,20 @@
           <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
             <div class="govuk-radios govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="all">
-                <label class="govuk-label govuk-radios__label" for="changedName">
+                <input class="govuk-radios__input" id="all" name="farm_elevation" type="radio" value="all">
+                <label class="govuk-label govuk-radios__label" for="all">
                   All of the fields are above 300m
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="some">
-                <label class="govuk-label govuk-radios__label" for="changedName-2">
+                <input class="govuk-radios__input" id="some" name="farm_elevation" type="radio" value="some">
+                <label class="govuk-label govuk-radios__label" for="some">
                   Some of the fields are above 300m
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="changedName-3" name="changedName" type="radio" value="none">
-                <label class="govuk-label govuk-radios__label" for="changedName-3">
+                <input class="govuk-radios__input" id="none" name="farm_elevation" type="radio" value="none">
+                <label class="govuk-label govuk-radios__label" for="none">
                   None of the fields are above 300m
                 </label>
               </div>

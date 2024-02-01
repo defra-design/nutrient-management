@@ -19,7 +19,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Enter the address for Oaktree Lane Farm</h1>
+      <h1 class="govuk-heading-l">
+        Enter the address for 
+        {%if data.farm_name != ""%}
+          {{data.farm_name}}
+        {% else %}
+          Oaktree Lane Farm
+        {% endif %}
+      </h1>
       
       <form action="rainfall" method="post" novalidate="">      
 

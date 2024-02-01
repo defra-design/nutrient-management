@@ -20,12 +20,7 @@ Add a farm - farm name – {{ serviceName }}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% if data.oaktree_farm.setup == 'tand' %}
-        <h1 class="govuk-heading-xl">You do not have any farms set up</h1>
-        <h2 class="govuk-heading-l">Add your farm</h2>
-      {% else %}
-        <h1 class="govuk-heading-l">Add your farm</h1>
-      {% endif %}
+      <h1 class="govuk-heading-l">Add your farm</h1>
       
       <form action="address" method="post" novalidate="">      
 
@@ -35,8 +30,8 @@ Add a farm - farm name – {{ serviceName }}
         </div>
 
         <div class="govuk-form-group margin-bottom-forty">
-          <label class="govuk-label" for="farm-postcode">What is the farm postcode?</label>
-          <input class="govuk-input govuk-input--width-5" id="farm-postcode" name="farm-postcode" type="text" autocomplete="">
+          <label class="govuk-label" for="farm_postcode">What is the farm postcode?</label>
+          <input class="govuk-input govuk-input--width-5" id="farm_postcode" name="farm_postcode" type="text" autocomplete="">
         </div>
 
         <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">

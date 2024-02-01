@@ -20,7 +20,14 @@ Add a farm - farm name – {{ serviceName }}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l">Enter the average annual rainfall in millimetres for NE46 7LQ</h1>
+        <h1 class="govuk-heading-l">
+          Enter the average annual rainfall in millimetres for 
+          {% if data.farm_postcode != ""%}
+            {{data.farm_postcode}}
+          {% else %}
+            NE46 7LQ
+          {% endif %}
+        </h1>
       
       <form action="elivation" method="post" novalidate="">      
 

@@ -505,3 +505,35 @@ router.get(/fields_setup_handler/, function (req, res) {
     req.session.data.oaktree_farm.fields_added = true
     res.redirect('/mvp/start')
 })
+
+router.get(/organic_handler/, function (req, res) { 
+    //name
+    if (req.session.data.farm_name == "") {
+        req.session.data.farm_name == "Oaktree Lane Farm"
+    }
+    //postcode
+    if (req.session.data.farm_postcode == "") {
+        req.session.data.farm_name == "NE46 7LQ"
+    }
+    //NVZ
+    if (req.session.data.farm_nvz == "all") {
+        req.session.data.farm_nvz = "All of the fields are in a Nitrate Vulnerable Zone"
+    } else if (req.session.data.farm_nvz == 'some') {
+        req.session.data.farm_nvz = "Some of the fields are in a Nitrate Vulnerable Zone"
+    } else {
+        req.session.data.farm_nvz = "None of the fields are in a Nitrate Vulnerable Zone"
+    }
+    //elevation
+    if (req.session.data.farm_elevation == "all") {
+        req.session.data.farm_elevation = "All of the fields are above 300m"
+    } else if (req.session.data.farm_elevation == 'some') {
+        req.session.data.farm_elevation = "Some of the fields are above 300m"
+    } else {
+        req.session.data.farm_elevation = "None of the fields are above 300m"
+    }
+    //organic
+    if (req.session.data.organic_producer == "") {
+        req.session.data.organic_producer == "No"
+    }    
+    res.redirect('/mvp/add-farm/check')
+})

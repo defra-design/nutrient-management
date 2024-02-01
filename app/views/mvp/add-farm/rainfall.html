@@ -20,7 +20,14 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Average annual rainfall for NE46 7LQ</h1>
+      <h1 class="govuk-heading-l">
+        Average annual rainfall for 
+        {%if data.farm_postcode != ""%}
+          {{data.farm_postcode}}
+        {% else %}
+          NE46 7LQ
+        {% endif %}
+      </h1>
 
       <p class="govuk-body">This is your estimated average annual rainfall. If you think this is wrong, you can change it now or later.</p>
 

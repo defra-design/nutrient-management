@@ -12,6 +12,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 const farm_details = require('./data/farm_details.json');
 const field_details = require('./data/field_details.json');
 const field_details_v2 = require('./data/field_details_v2.json');
+const field_details_mvp = require('./data/field_details_mvp.json');
 const crop_types = require('./data/crops.json');
 
 let oaktree_farm = {
@@ -19,6 +20,7 @@ let oaktree_farm = {
     latest_update: null,
     plans_added: false,
     fields_added: false,
+    use_mvp_fields: false,
     setup: false,
     ref: 'oaktree'
 };
@@ -46,6 +48,7 @@ router.get('/', function (req, res) {
     //data
     req.session.data.field_details = field_details
     req.session.data.field_details_v2 = field_details_v2
+    req.session.data.field_details_mvp = field_details_mvp
     req.session.data.crop_types = crop_types
     req.session.data.farm_details = farm_details
     req.session.data.chosenfield = null
@@ -496,7 +499,7 @@ router.get(/farm_setup_handler/, function (req, res) {
     res.redirect('/mvp/start')
 })
 
-router.get(/field_setup_handler/, function (req, res) { 
+router.get(/fields_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true

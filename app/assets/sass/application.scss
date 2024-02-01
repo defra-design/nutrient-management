@@ -225,3 +225,10 @@ hr.medium_seperator {
 .margin-bottom-forty {
     margin-bottom: 40px;
 }
+
+
+tr.right-last {
+    td:last-child {
+        text-align: right;
+    }
+}

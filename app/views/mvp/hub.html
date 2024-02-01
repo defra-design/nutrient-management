@@ -78,14 +78,16 @@
 <div>
   <h2 class="govuk-heading-m">Manage your farm</h2>
     <ul class="menu-list govuk-list">
-      <li>
-        <a class="govuk-link" href="./farm/farm-details">Update farm details</a>
-      </li>
+      
       {% if data.oaktree_farm.fields_added == true %}
-        <li>
-          <a class="govuk-link" href="field_reset_handler">Manage field details and soil analysis</a>
-        </li>
-      {% endif %}
+      <li>
+        <a class="govuk-link" href="field_reset_handler">Manage field details and soil analysis</a>
+      </li>
+    {% endif %}
+
+      <li>
+        <a class="govuk-link" href="farm-details">Update farm details</a>
+      </li>
        <!-- <a class="govuk-link" href="#">Update livestock details</a>
       </li> -->
       <!-- <li>

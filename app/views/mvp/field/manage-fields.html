@@ -44,7 +44,7 @@
         <div class="govuk-notification-banner__content">
           {% if data.oaktree_farm.latest_update == 'field_added' %}
             <h3 class="govuk-notification-banner__heading">
-              You have added 'New Field'.
+              You have added Long Field.
             </h3>
             <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_add_reset_handler">Add fields for Oaktree Lane Farm</a> </p>   -->
           {% endif %}
@@ -65,17 +65,21 @@
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header">Field name</th>
-                <th scope="col" class="govuk-table__header">Soil analysis added</th>
+                <th scope="col" class="govuk-table__header">Latest soil analysis</th>
+                <th scope="col" class="govuk-table__header"> </th>
                 <th scope="col" class="govuk-table__header"> </th>
               </tr>
             </thead>
             <tbody class="govuk-table__body">
     
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">New Field</td>
-              <td class="govuk-table__cell">22 January 2024</td>
+              <td class="govuk-table__cell">Long Field</td>
+              <td class="govuk-table__cell">None</td>
               <td class="govuk-table__cell">
                 <a href="field-select-handler?chosenfield=newfield">Change field details</a>
+              </td>
+              <td class="govuk-table__cell">
+                <a href="field-select-handler?chosenfield=newfield">Update soil details</a>
               </td>
             </tr>
           {% else %}
@@ -109,14 +113,14 @@
 
       <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
         <h2 class="govuk-heading-s" id="subsection-title">
-          Update fields and soil analysis
+          Update fields
         </h2>
         {% if data.oaktree_farm.fields_added == true %}
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list font-size-17">
-            <li>
+            <!-- <li>
               <a href="../soil/fields">Add new soil analysis for a single field</a>
-            </li>
+            </li> -->
             <!-- <li>
               <a href="">Add new soil analysis for multiple fields</a>
             </li> -->

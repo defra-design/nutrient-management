@@ -30,11 +30,13 @@
 
       <form action="add-field-handler" method="post" novalidate>
 
-        {{ govukButton({
-          text: "Add this field"
-        }) }}
-
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Add this field
+        </button>
+  
       </form>
+
+      <p class="govuk-body cancel-link"><a href="/mvp/hub">Cancel</a></p>
 
     </div>
   </div>

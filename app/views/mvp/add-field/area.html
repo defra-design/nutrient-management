@@ -17,8 +17,11 @@
 {% block content %}
 
   <div class="govuk-grid-row">
+
     <div class="govuk-grid-column-two-thirds">
+      
       <form action="soil" method="post" novalidate="">
+
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">Field measurements for Long Field</h1>
         </legend>
@@ -41,7 +44,7 @@
           </div>
         </div>
 
-        <div class="govuk-form-group">
+        <div class="govuk-form-group margin-bottom-forty">
           <label class="govuk-label" for="weight">
             Manure non-spreading area (optional)
           </label>
@@ -50,16 +53,16 @@
           </div>
         </div>
 
-        <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <br>
-              <button class="govuk-button" data-module="govuk-button">Continue</button>
-            </fieldset>
-          </div>
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
 
-          </div>
-      </div>
-    </form>
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/mvp/hub">Cancel</a></p>
+
+    </div>
+
   </div>
 
 {% endblock %}

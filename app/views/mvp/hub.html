@@ -40,9 +40,9 @@
       <div class="govuk-notification-banner__content">
         {% if data.oaktree_farm.latest_update == 'added' %}
           <h3 class="govuk-notification-banner__heading">
-            You have added Oaktree Lane Farm.
+            You have added {{data.oaktree_farm.name}}.
           </h3>
-          <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_add_reset_handler">Add fields for Oaktree Lane Farm</a> </p>
+          <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_add_reset_handler">Add fields for {{data.oaktree_farm.name}}</a> </p>
         {% elif data.oaktree_farm.latest_update == 'updated' %}
 
         {% endif %}
@@ -50,7 +50,7 @@
     </div>
     {% endif %}
 
-  <h1 class="govuk-heading-l">{{data.farm_details.name}}</h1>
+  <h1 class="govuk-heading-l">{{data.oaktree_farm.name}}</h1>
   <!-- <p class="govuk-table__body">0 fields added.</p> -->
 
 <!-- <hr class="medium_seperator"> -->

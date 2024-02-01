@@ -56,7 +56,7 @@
         text: "How many fields at Oaktree Lane Farm are in a Nitrate Vulnerable Zone (NVZ)?"
       },
       value: {
-        text: data.farm_nvz
+        text: data.farm_nvz | convert_all_some_none + " of the fields are in an NVZ"
       },
       actions: {
         items: [
@@ -73,7 +73,7 @@
         text: "How many fields at Oaktree Lane Farm are above 300 metres?"
       },
       value: {
-        text: data.farm_elevation
+        text: data.farm_elevation | convert_all_some_none + " of the fields are above 300m"
       },
       actions: {
         items: [
@@ -90,7 +90,7 @@
         text: "Are you a registered organic producer?"
       },
       value: {
-        text: data.organic_producer | capitalize
+        text: data.organic_producer | convert_true_false
       },
       actions: {
         items: [

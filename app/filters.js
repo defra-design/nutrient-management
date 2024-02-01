@@ -57,3 +57,22 @@ addFilter('statusconverter', function (status_text) {
     return status_text
 })
 
+addFilter('convert_true_false', function (status) {
+    if (status == false) {
+        status = 'No'      
+    } else  {
+        status = 'Yes'
+    }
+    return status
+})
+
+addFilter('convert_all_some_none', function (status) {
+    if (status == 'all') {
+        status = 'All'      
+    } else if (status == 'some')  {
+        status = 'Some'
+    } else {
+        status = "None"
+    }
+    return status
+})

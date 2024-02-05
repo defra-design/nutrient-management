@@ -59,9 +59,8 @@
       </div>
       <div class="govuk-grid-column-two-thirds">
 
-          {% if data.oaktree_farm.fields_added == true %}
+          {% if data.oaktree_farm.use_mvp_fields == true %}
           <table class="govuk-table field-table">
-            <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header">Field name</th>
@@ -70,36 +69,50 @@
                 <th scope="col" class="govuk-table__header"> </th>
               </tr>
             </thead>
-            <tbody class="govuk-table__body">
-    
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Long Field</td>
-              <td class="govuk-table__cell">None</td>
-              <td class="govuk-table__cell">
-                <a href="index">Field and soil details</a>
-              </td>
-            </tr>
+            {% for field in data.field_details_mvp %}
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">{{field.name}}</td>
+                  <td class="govuk-table__cell">None</td>
+                  <td class="govuk-table__cell">
+                    <a href="field-select-handler?chosenfield={{field.name}}">Change field details</a>
+                  </td>
+                </tr>
+              </tbody>
+            {% endfor %} 
+
           {% else %}
+            {% if data.oaktree_farm.fields_added == true %}
+            <table class="govuk-table field-table">
+              <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Field name</th>
+                  <th scope="col" class="govuk-table__header">Last soil analysis</th>
+                  <th scope="col" class="govuk-table__header"> </th>
+                  <th scope="col" class="govuk-table__header"> </th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Long Field</td>
+                <td class="govuk-table__cell">None</td>
+                <td class="govuk-table__cell">
+                  <a href="index">Field and soil details</a>
+                </td>
+              </tr>
+            {% else %}
 
-          <p class="govuk-body">
-            You have not added any fields.
-          </p>
+            <p class="govuk-body">
+              You have not added any fields.
+            </p>
 
-          <p class="govuk-body">
-            Add a field
-          </p>
+            <p class="govuk-body">
+              Add a field
+            </p>
 
+            {% endif %}
           {% endif %}
-
-          <!-- {% for field in data.field_details_v2 %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">{{field.name}}</td>
-              <td class="govuk-table__cell">14 January 2024</td>
-              <td class="govuk-table__cell">
-                <a href="field-select-handler?chosenfield={{field.name}}">Change field details</a>
-              </td>
-            </tr>
-          {% endfor %}    -->
 
         </tbody>
       </table>    

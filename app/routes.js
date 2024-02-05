@@ -28,6 +28,19 @@ let oaktree_farm = {
     setup: false
 };
 
+let new_field = {
+    name: "Long Field",
+    nvz: false,
+    elevation: false,
+    area: 0,
+    manure: 0,
+    cropped: 0,
+    type: null,
+    potash: false
+};
+
+let current_fields = [];
+
 let plan2025 = {
     harvest_date: "2025",
     crop_added: false,
@@ -534,6 +547,15 @@ router.get(/fields_setup_handler/, function (req, res) {
     req.session.data.show_success_message = false
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
+    res.redirect('/mvp/start')
+})
+
+router.get(/fields_mvp_setup_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.oaktree_farm.fields_added = true
+    req.session.data.oaktree_farm.fields_added = true
+    req.session.data.oaktree_farm.use_mvp_fields = true
     res.redirect('/mvp/start')
 })
 

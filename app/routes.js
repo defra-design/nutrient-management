@@ -491,7 +491,7 @@ router.get(/fertiliser_type_handler_v2/, function (req, res) {
 //select a field
 router.get(/field-select-handler/, function (req, res) { 
     req.session.data.chosenfield = req.query.chosenfield
-    res.redirect('check-field')
+    res.redirect('field-details')
 })
 
 //update soil

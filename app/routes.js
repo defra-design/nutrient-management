@@ -490,12 +490,15 @@ router.get(/fertiliser_type_handler_v2/, function (req, res) {
 
 //select a field
 router.get(/field-select-handler/, function (req, res) { 
+    req.session.data.show_success_message = false
     req.session.data.chosenfield = req.query.chosenfield
     res.redirect('field-details')
 })
 
 //update soil
 router.get(/add_soil_handler/, function (req, res) { 
+    req.session.data.show_success_message = true
+    req.session.data.oaktree_farm.latest_update = 'soil-added'
     res.redirect('../field/manage-fields')
 })
 

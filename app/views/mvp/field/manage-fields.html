@@ -33,20 +33,24 @@
     <div class="govuk-grid-column-two-thirds">
 
       {% if data.show_success_message == true %}
-      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
-        aria-labelledby="govuk-notification-banner-title"
-        data-module="govuk-notification-banner">
-        <div class="govuk-notification-banner__header">
-          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-            Success
-          </h2>
-        </div>
-        <div class="govuk-notification-banner__content">
-          {% if data.oaktree_farm.latest_update == 'field_added' %}
-            <h3 class="govuk-notification-banner__heading">
-              You have added Long Field.
-            </h3>
-            <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_add_reset_handler">Add fields for Oaktree Lane Farm</a> </p>   -->
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+          aria-labelledby="govuk-notification-banner-title"
+          data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            {% if data.oaktree_farm.latest_update == 'field_added' %}
+              <h3 class="govuk-notification-banner__heading">
+                You have added Long Field.
+              </h3>
+              <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_add_reset_handler">Add fields for Oaktree Lane Farm</a> </p>   -->
+            {% elif data.oaktree_farm.latest_update == 'soil-added' %}
+              <h3 class="govuk-notification-banner__heading">
+                You have added new soil analysis for {{data.chosenfield}}.
+              </h3>
           {% endif %}
         </div>
       </div>

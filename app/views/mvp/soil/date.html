@@ -20,9 +20,6 @@
       <h1 class="govuk-heading-l">Add soil analysis for {{data.chosenfield}}</h1>
 
       <form action="values" method="post" novalidate="">
-        <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h1 class="govuk-fieldset__heading">Add soil analysis for Long Field</h1>
-        </legend> -->
         
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
@@ -68,34 +65,30 @@
           <input class="govuk-input govuk-input--width-5" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
         </div>
   
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-          <label class="govuk-label" for="nitrate">Is the soil Sulfur (S) deficient?</label>
-          
-          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="nitrate" name="nitrate" type="radio" value="yes">
-              <label class="govuk-label govuk-radios__label" for="nitrate">Yes</label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="nitrate-2" name="nitrate" type="radio" value="no">
-              <label class="govuk-label govuk-radios__label" for="nitrate-2">No</label>
-            </div>
-          </div>
-        </fieldset>
-        </div>
-
-        <div class="govuk-form-group">
+        <div class="govuk-form-group margin-bottom-forty">
           <fieldset class="govuk-fieldset">
-            <br>
-            <button class="govuk-button" data-module="govuk-button">Continue</button>
+            <label class="govuk-label" for="nitrate">Is the soil Sulfur (S) deficient?</label>
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nitrate" name="nitrate" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="nitrate">Yes</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nitrate-2" name="nitrate" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="nitrate-2">No</label>
+              </div>
+            </div>
           </fieldset>
         </div>
-        
-          </div>
-      </div>
-    </form>
+
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/mvp/field/field-details">Cancel</a></p>
+
+    </div>
   </div>
 
 {% endblock %}

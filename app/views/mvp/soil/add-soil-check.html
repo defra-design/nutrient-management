@@ -19,18 +19,19 @@
         Check your answers
       </h1>
 
-      <div class="check-answers">
+      <div class="check-answers margin-bottom-forty">
         {% include "./check-soil.html" ignore missing %}
       </div>
-      <br>
 
-      <form action="add_soil_handler" method="post" novalidate>
+      <form class="" action="add_soil_handler" method="post" novalidate>
 
-        {{ govukButton({
-          text: "Add soil analysis"
-        }) }}
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
 
       </form>
+
+      <p class="govuk-body cancel-link"><a href="/mvp/field/field-details">Cancel</a></p>
 
     </div>
   </div>

@@ -25,7 +25,8 @@ let oaktree_farm = {
     plans_added: false,
     fields_added: false,
     use_mvp_fields: false,
-    setup: false
+    setup: false,
+    soil_added: false
 };
 
 let new_field = {
@@ -103,7 +104,7 @@ router.get('/', function (req, res) {
     req.session.data.organic_term = "Organic material"
     req.session.data.non_organic_term = "Inorganic fertiliser"
     req.session.data.harvest_year = "harvest year 2024"
-    req.session.data.todays_date = "8 January 2024"
+    req.session.data.todays_date = "7 February 2024"
 
     // route vars
     req.session.data.manure_spreads = 0
@@ -462,6 +463,7 @@ router.get(/field-select-handler/, function (req, res) {
 router.get(/add_soil_handler/, function (req, res) { 
     req.session.data.show_success_message = true
     req.session.data.oaktree_farm.latest_update = 'soil-added'
+    req.session.data.oaktree_farm.soil_added = true
     res.redirect('../field/field-details')
 })
 
@@ -501,6 +503,13 @@ router.get(/field_add_reset_handler/, function (req, res) {
     req.session.data.show_success_message = false
     res.redirect('/mvp/add-field/name')
 })
+
+//add a field view reset messages
+router.get(/field_details_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('/mvp/field/field-details')
+})
+
 
 //PROTOTYYPE SETUP
 router.get(/farm_setup_handler/, function (req, res) { 

@@ -18,13 +18,17 @@
       text: "Oaktree Lane Farm",
       href: "/mvp/hub.html"
     },
-      {
+    {
         text: "Fields",
         href: "field_reset_handler"
-      },
-      {
-        text: data.chosenfield
-      }
+    },
+    {
+        text: data.chosenfield,
+        href: "field_details_reset_handler"
+    },
+    {
+        text: 'Soil analysis'
+    }
     ]
   }) }}
 
@@ -35,7 +39,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     
-    {% if data.show_success_message == true %}
+    <!-- {% if data.show_success_message == true %}
     <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
       aria-labelledby="govuk-notification-banner-title"
       data-module="govuk-notification-banner">
@@ -52,51 +56,63 @@
       {% endif %}
     </div>
   </div>
-  {% endif %}
+  {% endif %} -->
 
-    <h1 class="govuk-heading-l">{{data.chosenfield}}</h1>
+    <h1 class="govuk-heading-l">Soil analysis for {{data.chosenfield}}</h1>
   </div>
 </div>
 
 <div class="govuk-grid-row">
 
   <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-m plan_title">Field details</h2>
+    <h2 class="govuk-heading-m plan_title"></h2>
 
     <table class="govuk-table recomendation-table data-table data-table">
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Field area</td>
-          <td class="govuk-table__cell">10 hectares</td>
+          <td class="govuk-table__cell">Date sample taken</td>
+          <td class="govuk-table__cell">2 February 2024</td>
         </tr>      
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Cropped area</td>
-          <td class="govuk-table__cell">10 hectares</td>
+          <td class="govuk-table__cell">pH level</td>
+          <td class="govuk-table__cell">6.0</td>
         </tr>      
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Manure non spreading area</td>
-          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">Is the soil Sulfur (S) deficient?</td>
+          <td class="govuk-table__cell">Yes</td>
         </tr>      
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Soil type</td>
-          <td class="govuk-table__cell">Sandy</td>
+          <td class="govuk-table__cell">Potassium (K) per litre of soil</td>
+          <td class="govuk-table__cell">95mg</td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Soil contains potash releasing clay</td>
-          <td class="govuk-table__cell">No</td>
+          <td class="govuk-table__cell">Potassium (K) index</td>
+          <td class="govuk-table__cell">1</td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Is field within an NVZ</td>
-          <td class="govuk-table__cell">No</td>
+          <td class="govuk-table__cell">Magnesium (Mg) per litre of soil</td>
+          <td class="govuk-table__cell">65mg</td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Is field above 300 meters</td>
-          <td class="govuk-table__cell">No</td>
+            <td class="govuk-table__cell">Magnesium (Mg) index</td>
+            <td class="govuk-table__cell">2</td>
         </tr>
-      </tbody>
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Phosphorus (P) per litre of soil</td>
+            <td class="govuk-table__cell">2</td>
+        </tr>
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Phosphorus (P) index</td>
+            <td class="govuk-table__cell">2</td>
+        </tr>
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Phosphorus (P) analysis type</td>
+            <td class="govuk-table__cell">Olsen's</td>
+        </tr>
+    </tbody>
     </table>   
 
-<hr class="big_seperator">
+<!-- <hr class="big_seperator">
 
 <h2 class="govuk-heading-m">Soil analysis</h2>
 
@@ -113,9 +129,9 @@
     <tr class="govuk-table__row right-last">
       <td class="govuk-table__cell">{{data. todays_date}}</td>
       <td class="govuk-table__cell">
-        <a href="soil-details">View soil analysis</a>
+        <a href="">View soil analysis</a>
       </td>
-    </tr>
+    </tr> -->
 
   </tbody>
   </table>    
@@ -130,16 +146,16 @@
 
   <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
     <h2 class="govuk-heading-s" id="subsection-title">
-      Update field
+      Edit soil analysis
     </h2>
     <nav role="navigation" aria-labelledby="subsection-title">
       <ul class="govuk-list font-size-17">
         <li>
-          <a href="">Change field details</a>
+          <a href="">Change this soil analysis</a>
         </li>
-        <li>
+        <!-- <li>
           <a href="/mvp/soil/date">Add new soil analysis</a>
-        </li>
+        </li> -->
 
   </aside>
 

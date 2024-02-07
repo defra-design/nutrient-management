@@ -585,3 +585,13 @@ router.get(/organic_handler/, function (req, res) {
     }    
     res.redirect('/mvp/add-farm/check')
 })
+
+router.get(/soil_type_handler/, function (req, res) { 
+    if (req.session.data.oaktree_farm.nvz == 'some' ) {
+        res.redirect('nvz')
+    } else if (req.session.data.oaktree_farm.elevation == 'some') {
+        res.redirect('elevation')
+    } else {
+        res.redirect('add_field_check')
+    }
+})

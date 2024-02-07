@@ -287,43 +287,6 @@ router.get(/crop_group_handler/, function (req, res) {
     }
 })
 
-//add farms
-router.get(/add_farms_handler/, function (req, res) { 
-    //name
-    if (req.session.data.farm_name != "") {
-        req.session.data.oaktree_farm.name = req.session.data.farm_name
-    }
-    //postcode
-    if (req.session.data.farm_postcode == "") {
-        req.session.data.farm_name = "NE46 7LQ"
-    }
-    //NVZ
-    if (req.session.data.farm_nvz == "all") {
-        req.session.data.farm_nvz = "All of the fields are in a Nitrate Vulnerable Zone"
-    } else if (req.session.data.farm_nvz == 'some') {
-        req.session.data.farm_nvz = "Some of the fields are in a Nitrate Vulnerable Zone"
-    } else {
-        req.session.data.farm_nvz = "None of the fields are in a Nitrate Vulnerable Zone"
-    }
-    //elevation
-    if (req.session.data.farm_elevation == "all") {
-        req.session.data.farm_elevation = "All of the fields are above 300m"
-    } else if (req.session.data.farm_elevation == 'some') {
-        req.session.data.farm_elevation = "Some of the fields are above 300m"
-    } else {
-        req.session.data.farm_elevation = "None of the fields are above 300m"
-    }
-    //organic
-    if (req.session.data.organic_producer == "") {
-        req.session.data.organic_producer == "No"
-    }    
-    req.session.data.oaktree_farm.setup = true
-    req.session.data.oaktree_farm.latest_update = 'added'
-    req.session.data.show_success_message = true
-    console.log('Update ' + req.session.data.oaktree_farm.latest_update)
-    res.redirect('../hub')
-})
-
 //grass
 router.get(/grass_use_handler/, function (req, res) { 
     res.redirect('arable_length')
@@ -572,17 +535,20 @@ router.get(/organic_handler/, function (req, res) {
         req.session.data.farm_postcode = req.session.data.oaktree_farm.postcode
     }
     //NVZ
-    if (req.session.data.farm_nvz == "") {
+    if (req.session.data.farm_nvz == "none") {
         req.session.data.farm_nvz = req.session.data.oaktree_farm.nvz
     }
     //elevation
-    if (req.session.data.farm_elevation == "") {
+    if (req.session.data.farm_elevation == "none") {
         req.session.data.farm_elevation = req.session.data.oaktree_farm.elevation
     }
     //organic
     if (req.session.data.organic_producer == "") {
         req.session.data.organic_producer = req.session.data.oaktree_farm.organic_producer
     }    
+    // console.log('nvz = ' + req.session.data.farm_nvz )
+    // console.log('elevation = ' + req.session.data.farm_elevation )
+    // console.log(req.session.data.oaktree_farm)
     res.redirect('/mvp/add-farm/check')
 })
 
@@ -592,6 +558,23 @@ router.get(/soil_type_handler/, function (req, res) {
     } else if (req.session.data.oaktree_farm.elevation == 'some') {
         res.redirect('elevation')
     } else {
-        res.redirect('add_field_check')
+        res.redirect('add-field-check')
     }
+})
+
+//add farms
+router.get(/add_farms_handler/, function (req, res) { 
+    //name
+    req.session.data.oaktree_farm.name = req.session.data.farm_name
+    //postcode
+    req.session.data.oaktree_farm.postcode = req.session.data.farm_postcode
+    //NVZ
+    req.session.data.oaktree_farm.nvz = req.session.data.farm_nvz
+    req.session.data.oaktree_farm.elevation = req.session.data.farm_elevation
+    req.session.data.oaktree_farm.organic_producer = req.session.data.organic_producer 
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.oaktree_farm.latest_update = 'added'
+    req.session.data.show_success_message = true
+    // console.log(req.session.data.oaktree_farm)
+    res.redirect('../hub')
 })

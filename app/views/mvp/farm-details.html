@@ -36,11 +36,11 @@
         </tr>      
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">How many fields at Oaktree Lane Farm are in a Nitrate Vulnerable Zone (NVZ)?</td>
-          <td class="govuk-table__cell">None</td>
+          <td class="govuk-table__cell">{{data.oaktree_farm.nvz | convert_all_some_none}}</td>
         </tr>      
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">How many fields at Oaktree Lane Farm are above 300 metres?</td>
-          <td class="govuk-table__cell">None</td>
+          <td class="govuk-table__cell">{{data.oaktree_farm.elevation | convert_all_some_none}}</td>
         </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Are you a registered organic producer?</td>

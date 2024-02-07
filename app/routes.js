@@ -545,8 +545,13 @@ router.get(/organic_handler/, function (req, res) {
     //organic
     if (req.session.data.organic_producer == "") {
         req.session.data.organic_producer = req.session.data.oaktree_farm.organic_producer
-    }    
+    } else if (req.session.data.organic_producer == 'yes')  {
+        req.session.data.organic_producer = true
+    }  else if (req.session.data.organic_producer == 'no')  {
+        req.session.data.organic_producer = false
+    }  
     // console.log('nvz = ' + req.session.data.farm_nvz )
+    // console.log('organic = ' + req.session.data.organic_producer )
     // console.log('elevation = ' + req.session.data.farm_elevation )
     // console.log(req.session.data.oaktree_farm)
     res.redirect('/mvp/add-farm/check')

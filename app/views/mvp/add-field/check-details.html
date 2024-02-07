@@ -1,141 +1,96 @@
-{{ govukSummaryList({
-  rows: [
-    {
-      key: {
-        text: "Field name"
-      },
-      value: {
-        text: "Long Field"
-      },
-      actions: {
-        items: [
-          {
-            href: "add-field",
-            text: "Change",
-            visuallyHiddenText: "Question 1"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Field area (hectares)"
-      },
-      value: {
-        text: "10"
-      },
-      actions: {
-        items: [
-          {
-            href: "add-field",
-            text: "Change",
-            visuallyHiddenText: "Question 3"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Cropped area (hectares)"
-      },
-      value: {
-        text: ""
-      },
-      actions: {
-        items: [
-          {
-            href: "add-field",
-            text: "Change",
-            visuallyHiddenText: "Question 3"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Manure non-spreading area (hectares)"
-      },
-      value: {
-        text: ""
-      },
-      actions: {
-        items: [
-          {
-            href: "add-field",
-            text: "Change",
-            visuallyHiddenText: "Question 3"
-          }
-        ]
-      }
-    }
-    ,
-    {
-      key: {
-        text: "Soil type"
-      },
-      value: {
-        text: "Sandy"
-      },
-      actions: {
-        items: [
-          {
-            href: "add-field",
-            text: "Change",
-            visuallyHiddenText: "Question 3"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Does this field contain potash releasing clay?"
-      },
-      value: {
-        text: "No"
-      },
-      actions: {
-        items: [
-          {
-            href: "add-field",
-            text: "Change",
-            visuallyHiddenText: "Question 3"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Is this field within an NVZ?"
-      },
-      value: {
-        text: "Yes"
-      },
-      actions: {
-        items: [
-          {
-            href: "add-field",
-            text: "Change",
-            visuallyHiddenText: "Question 3"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Is this field above 300 meters?"
-      },
-      value: {
-        text: "No"
-      },
-      actions: {
-        items: [
-          {
-            href: "add-field",
-            text: "Change",
-            visuallyHiddenText: "Question 3"
-          }
-        ]
-      }
-    }
-  ]
-}) }}
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Field name
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Long Field
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Field area
+    </dt>
+    <dd class="govuk-summary-list__value">
+      10 hectares
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Cropped area
+    </dt>
+    <dd class="govuk-summary-list__value">
+      10 hectares
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Manure non-spreading area
+    </dt>
+    <dd class="govuk-summary-list__value">
+      0
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Soil type
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Sandy
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Does this field contain potash releasing clay?
+    </dt>
+    <dd class="govuk-summary-list__value">
+      No
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+    </dd>
+  </div>
+
+  {% if data.oaktree_farm.nvz == "some" %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Is this field within an NVZ?
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Yes
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+      </dd>
+    </div>
+  {% endif %}
+
+  {% if data.oaktree_farm.elevation == "some" %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Is this field above 300 meters?
+      </dt>
+      <dd class="govuk-summary-list__value">
+        No
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+      </dd>
+    </div>
+  {% endif %}
+</dl>

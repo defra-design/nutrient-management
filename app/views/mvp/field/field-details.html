@@ -20,7 +20,7 @@
     },
       {
         text: "Fields",
-        href: "./manage-fields.html"
+        href: "field_reset_handler"
       },
       {
         text: "Field name"
@@ -36,6 +36,25 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+
+    {% if data.show_success_message == true %}
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+          aria-labelledby="govuk-notification-banner-title"
+          data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            {% if data.oaktree_farm.latest_update == 'soil-added' %}
+              <h3 class="govuk-notification-banner__heading">
+                You have added new soil analysis for {{data.chosenfield}}.
+              </h3>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
 
     <h2 class="govuk-heading-m plan_title">Field details</h2>
 
@@ -109,7 +128,7 @@
           <a href="">Change field details</a>
         </li>
         <li>
-          <a href="/mvp/soil/add-soil">Add new soil analysis</a>
+          <a href="/mvp/soil/date">Add new soil analysis</a>
         </li>
 
   </aside>

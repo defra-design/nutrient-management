@@ -19,7 +19,7 @@
 
       <h1 class="govuk-heading-l">Add soil analysis for {{data.chosenfield}}</h1>
 
-      <form action="phosphorus" method="post" novalidate="">
+      <form action="values" method="post" novalidate="">
         <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">Add soil analysis for Long Field</h1>
         </legend> -->
@@ -28,7 +28,7 @@
           <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <label class="govuk-label" for="event-name">
-                Date date sample taken?
+                Date  sample taken
               </label>
             </legend>
             <div id="passport-issued-hint" class="govuk-hint">
@@ -67,8 +67,24 @@
           <label class="govuk-label" for="address-county">Soil pH level</label>
           <input class="govuk-input govuk-input--width-5" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
         </div>
-      </div>
-    </div>
+  
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <label class="govuk-label" for="nitrate">Is the soil Sulfur (S) deficient?</label>
+          
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="nitrate" name="nitrate" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="nitrate">Yes</label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="nitrate-2" name="nitrate" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="nitrate-2">No</label>
+            </div>
+          </div>
+        </fieldset>
+        </div>
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">

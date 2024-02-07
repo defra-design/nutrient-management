@@ -499,7 +499,7 @@ router.get(/field-select-handler/, function (req, res) {
 router.get(/add_soil_handler/, function (req, res) { 
     req.session.data.show_success_message = true
     req.session.data.oaktree_farm.latest_update = 'soil-added'
-    res.redirect('../field/manage-fields')
+    res.redirect('../field/field-details')
 })
 
 //////MVP
@@ -530,7 +530,7 @@ router.get(/hub_reset_handler/, function (req, res) {
 //manage fields view reset messages
 router.get(/field_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    res.redirect('./field/manage-fields')
+    res.redirect('/mvp/field/manage-fields')
 })
 
 //add a field view reset messages

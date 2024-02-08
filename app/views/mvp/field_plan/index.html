@@ -33,7 +33,7 @@
 <div class="status-header">
   <h1 class="govuk-heading-l">{{data.chosenfield | fieldconverter}} plan and recommendations</h1>
   <p class="govuk-body">Harvest year: {{data.chosen_plan.harvest_date}}</p>
-  <p class="govuk-body">Status: {{data.chosen_plan.plan_status | statusconverter}}</p>
+  <!-- <p class="govuk-body">Status: {{data.chosen_plan.plan_status | statusconverter}}</p> -->
 </div>  
 
 <hr class="big_seperator">
@@ -73,40 +73,12 @@
   </div> 
 </div> 
 
-<!-- <p class="govuk-body"><a href="check_crops">View or change crop details</a></p> -->
 <p class="govuk-body"><a href="">View or change crop details</a></p>
 
 <hr class="big_seperator">
+
 <h2 class="govuk-heading-m">Nutrient recommendations</h2>
 
-{% if data.chosen_plan.manure_added == true and data.chosen_plan.fertiliser_added == true %}
-  {% include "./templates/nutrients_completed.html" ignore missing %}
-{% elif data.chosen_plan.manure_added == true and data.chosen_plan.feriliser_added == false %}
-  {% include "./templates/nutrients_manure.html" ignore missing %}
-{% else %}
-  {% include "./templates/nutrients_blank.html" ignore missing %}
-{% endif %}
-
-<hr class="big_seperator">
-<h2 class="govuk-heading-m">Organic material plan</h2>
-{% if data.chosen_plan.manure_added == true %}
-  {% include "./templates/organic_material_plan.html" ignore missing %}
-{% else %}
-  <p>You have not planned any organic material applications.</p>
-  <p class="govuk-body">
-    <a class="govuk-link" href="#">Add {{data.organic_term | lower}} applications</a>
-  </p>
-{% endif %}
-
-<hr class="big_seperator">
-<h2 class="govuk-heading-m">{{data.non_organic_term }} plan</h2>
-{% if data.chosen_plan.fertiliser_added == true %}
-  {% include "./templates/non_organic_material_plan.html" ignore missing %}
-{% else %}
-<p>You have not planned any inorganic fertiliser applications.</p>
-<p class="govuk-body">
-  <a class="govuk-link" href="#">Add {{data.non_organic_term | lower}} applications</a>
-</p>
-{% endif %}
+{% include "./templates/nutrients_mvp.html" ignore missing %}
 
 {% endblock %}

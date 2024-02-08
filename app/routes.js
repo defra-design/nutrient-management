@@ -596,7 +596,7 @@ router.get(/add_farms_handler/, function (req, res) {
 /////// MVP Crops
 //Set the chosen_crop
 router.get(/mvp_crop_handler/, function (req, res) { 
-    res.redirect('date')
+    res.redirect('fields')
 })
 
 //add another crop

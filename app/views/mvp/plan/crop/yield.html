@@ -22,7 +22,7 @@
       <!-- {% include "templates/title_span.html" %} -->
 
       <h1 class="govuk-heading-l">
-        What is the expected yield for Winter Wheat per hectare?
+        What is the expected yield for {{data.chosen_crop | nameconverter}} per hectare?
       </h1>
 
       <form class="form" action="crop_use" method="post">

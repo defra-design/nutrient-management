@@ -17,22 +17,24 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      
-      <!-- {% include "templates/title_span.html" %} -->
 
+      <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        Which harvest year would you like to plan for?
+        Select your first crop group for the year
       </h1>
 
-      <form class="form" action="crop/crop_group" method="post">
+      <form class="form" action="crop_group_handler" method="post">
 
         <div class="govuk-form-group">
-          <div id="event-name-hint" class="govuk-hint">
-            For example 2024
-          </div>
-          <input class="govuk-input govuk-input--width-5" id="event-name" name="eventName" type="text" aria-describedby="event-name-hint">
+          <!-- <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Where do you live?
+              </h1>
+            </legend> -->
+            {% include "./crop_group_content" %}
+          </fieldset>
         </div>
-
         {{ govukButton({
           text: "Next"
         }) }}
@@ -41,9 +43,9 @@
 
     </div>
   </div>
-
+  
   <p class="govuk-body">
-    <a href="#">Cancel</a>
+    <a href="fields.html">Cancel</a>
   </p>
 
 {% endblock %}

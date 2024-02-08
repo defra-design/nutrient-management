@@ -344,7 +344,7 @@ router.get(/show-field-handler/, function (req, res) {
 ///////  V2
 ///////////
 
-//add another crop
+//add another
 router.get(/v2_another_crop_handler/, function (req, res) { 
     if (req.session.data.another_crop == "yes") {
         res.redirect('crops_grass')
@@ -591,4 +591,21 @@ router.get(/add_farms_handler/, function (req, res) {
     req.session.data.show_success_message = true
     // console.log(req.session.data.oaktree_farm)
     res.redirect('../hub')
+})
+
+/////// MVP Crops
+//Set the chosen_crop
+router.get(/mvp_crop_handler/, function (req, res) { 
+    res.redirect('date')
+})
+
+//add another crop
+router.get(/mvp_another_crop_handler/, function (req, res) { 
+    // if (req.session.data.another_crop == "yes") {
+    //     res.redirect('crops_grass')
+    // } else {
+    //     req.session.data.another_crop = 'no';
+    //     res.redirect('check')
+    // }
+    res.redirect('./check')
 })

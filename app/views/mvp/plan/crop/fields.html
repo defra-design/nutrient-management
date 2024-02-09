@@ -42,14 +42,24 @@
             </div>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
 
-            {% for field in data.field_details_mvp %}
+            {% if data.oaktree_farm.use_mvp_fields == true %}
+              {% for field in data.field_details_mvp %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id={{field.reference}} name="chosen_fields" type="checkbox" value={{field.reference}}>
+                <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                  {{field.name}}
+                </label>
+              </div>
+              {% endfor %}
+            {% else %}
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id={{field.reference}} name="chosen_fields" type="checkbox" value={{field.reference}}>
-              <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
-                {{field.name}}
+              <input class="govuk-checkboxes__input" id=longfield name="chosen_fields" type="checkbox" value=longfield>
+              <label class="govuk-label govuk-checkboxes__label" for=longfield>
+                Long Field
               </label>
             </div>
-            {% endfor %}
+            {% endif %}
+
 
             </div>
           </fieldset>

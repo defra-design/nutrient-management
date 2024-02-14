@@ -483,6 +483,7 @@ router.get(/add-field-handler/, function (req, res) {
     req.session.data.oaktree_farm.latest_update = 'field_added';
     req.session.data.oaktree_farm.fields_added = true;
     req.session.data.show_success_message = true
+    req.session.data.oaktree_farm.soil_added = true
     res.redirect('../field/manage-fields')
 })
 

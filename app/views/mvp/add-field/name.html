@@ -18,14 +18,24 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="references" method="post" novalidate="">
+      <form action="area" method="post" novalidate="">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h1 class="govuk-fieldset__heading">What is the field name?</h1>
+          <h1 class="govuk-fieldset__heading">Add a field</h1>
         </legend>
         
         <div class="govuk-form-group margin-bottom-forty">
-          <!-- <label class="govuk-label" for="address-line-1">Field name</label> -->
+          <label class="govuk-label" for="address-line-1">Field name</label>
           <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-1">National Grid Reference (optional)</label>
+          <input class="govuk-input govuk-input--width-10" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+        </div>
+
+        <div class="govuk-form-group margin-bottom-forty">
+          <label class="govuk-label" for="address-line-1">Land Parcel ID (optional)</label>
+          <input class="govuk-input govuk-input--width-10" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
         </div>
       
         <button class="govuk-button margin-bottom-forty " data-module="govuk-button">

@@ -618,3 +618,11 @@ router.get(/field_name_handler/, function (req, res) {
     }
     res.redirect('./area')
 })
+
+// router.get(/add_values_handler /, function (req, res) { 
+//     if (req.session.data.add_values == "index") {
+//         res.redirect('./values_two')
+//     } else {
+//         res.redirect('./values_three')
+//     }
+// })

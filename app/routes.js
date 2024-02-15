@@ -573,7 +573,7 @@ router.get(/soil_type_handler/, function (req, res) {
     } else if (req.session.data.oaktree_farm.elevation == 'some') {
         res.redirect('elevation')
     } else {
-        res.redirect('add-field-check')
+        res.redirect('soil')
     }
 })
 

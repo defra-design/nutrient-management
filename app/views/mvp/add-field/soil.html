@@ -28,7 +28,7 @@
                 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
-            <label class="govuk-label" for="address-postcode">What is the soil type in Long Field? (Choose one)</label>
+            <label class="govuk-label" for="address-postcode">What is the soil type in {{data.temp_field_name}}? (Choose one)</label>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
@@ -64,7 +64,7 @@
 
         <div class="govuk-form-group margin-bottom-forty">
           <fieldset class="govuk-fieldset">
-            <label class="govuk-label" for="potassium">Does this field contain potash-releasing clay?</label>
+            <label class="govuk-label" for="potassium">Does {{data.temp_field_name}} contain potash-releasing clay?</label>
             <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="potassium" name="potassium" type="radio" value="yes">

@@ -610,3 +610,11 @@ router.get(/mvp_another_crop_handler/, function (req, res) {
     // }
     res.redirect('./check')
 })
+
+//add another crop
+router.get(/field_name_handler/, function (req, res) { 
+    if (req.session.data.temp_field_name == "") {
+        req.session.data.temp_field_name = 'New Field'
+    }
+    res.redirect('./area')
+})

@@ -5,21 +5,18 @@
 {% endblock %}
 
 {% block beforeContent %}
-
 {% include "/templates/signed-in.html" ignore missing %}
-
   {{ govukBreadcrumbs({
     items: [
       {
         text: "Oaktree Lane Farm",
-        href: "hub.html"
+        href: "hub_reset_handler"
       },
       {
         text: "Plans and records"
       }
     ]
   }) }}
-
 {% endblock %}
 
 {% block content %}
@@ -39,7 +36,7 @@
 
 
       {% if data.plan2025.crop_added != false %}
-        <table class="govuk-table data-table">
+        <table class="govuk-table">
           <caption class="govuk-table__caption govuk-table__caption--m">Plans</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">

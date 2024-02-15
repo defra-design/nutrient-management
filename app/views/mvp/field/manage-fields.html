@@ -7,7 +7,6 @@
 {% block beforeContent %}
 
 {% include "/templates/signed-in.html" ignore missing %}
-
   {{ govukBreadcrumbs({
     items: [
       {
@@ -23,7 +22,6 @@
       }
     ]
   }) }}
-
 {% endblock %}
 
 {% block content %}
@@ -46,7 +44,8 @@
               <h3 class="govuk-notification-banner__heading">
                 You have added {{data.temp_field_name}}
               </h3>
-              <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_add_reset_handler">Add fields for Oaktree Lane Farm</a> </p>   -->
+              <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_add_reset_handler">Add a new field</a>, or</p>  
+              <p class="govuk-body"><a class="govuk-notification-banner__link" href="/mvp/plan/year">Create a nutrient management plan</a></p>  
           {% endif %}
         </div>
       </div>
@@ -61,34 +60,35 @@
         fields
       </h1>
 
-      </div>
-      <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body"><a href="field_add_reset_handler">Add a new field</a></p>
 
-          {% if data.oaktree_farm.use_mvp_fields == true %}
-          <table class="govuk-table field-table">
-            <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <th id="field_name" scope="col" class="govuk-table__header">Field name</th>
-                <!-- <th scope="col" class="govuk-table__header">Last soil analysis</th> -->
-                <th scope="col" class="govuk-table__header"> </th>
-                <th scope="col" class="govuk-table__header"> </th>
-              </tr>
-            </thead>
+      <h2 class="govuk-heading-m">Current fields</h2>
+
+        {% if data.oaktree_farm.use_mvp_fields == true %}
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th id="field_name" scope="col" class="govuk-table__header">Field name</th>
+              <!-- <th scope="col" class="govuk-table__header">Last soil analysis</th> -->
+              <th scope="col" class="govuk-table__header"> </th>
+              <th scope="col" class="govuk-table__header"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
             {% for field in data.field_details_mvp %}
-              <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell">{{field.name}}</td>
-                  <!-- <td class="govuk-table__cell">None</td> -->
-                  <td class="govuk-table__cell">
-                    <a href="field-select-handler?chosenfield={{field.name}}">Field and soil details</a>
-                  </td>
-                </tr>
-              </tbody>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">{{field.name}}</td>
+                <!-- <td class="govuk-table__cell">None</td> -->
+                <td class="govuk-table__cell">
+                  <a href="field-select-handler?chosenfield={{field.name}}">Field and soil details</a>
+                </td>
+              </tr>
             {% endfor %} 
-
+          </tbody>
+        </table>
           {% else %}
             {% if data.oaktree_farm.fields_added == true %}
-            <table class="govuk-table field-table">
+            <table class="govuk-table">
               <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
               <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
@@ -106,26 +106,21 @@
                   <a href="field-select-handler?chosenfield={{data.temp_field_name}}">Field and soil details</a>
                 </td>
               </tr>
+            </tbody>
+          </table>
             {% else %}
-
-            <p class="govuk-body">
-              You have not added any fields.
-            </p>
-
-            <p class="govuk-body">
-              Add a field
-            </p>
-
+              <p class="govuk-body">
+                You have not added any fields.
+              </p>
+              <p class="govuk-body">
+                Add a field
+              </p>
             {% endif %}
           {% endif %}
-
-        </tbody>
-      </table>    
       
     </div>
 
-    <div class="govuk-grid-column-one-third">
-
+    <!-- <div class="govuk-grid-column-one-third">
       <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
         <h2 class="govuk-heading-s" id="subsection-title">
           Update fields
@@ -133,20 +128,9 @@
         {% if data.oaktree_farm.fields_added == true %}
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list font-size-17">
-            <!-- <li>
-              <a href="../soil/fields">Add new soil analysis for a single field</a>
-            </li> -->
-            <!-- <li>
-              <a href="">Add new soil analysis for multiple fields</a>
-            </li> -->
             <li>
               <a href="field_add_reset_handler">Add a new field</a>
             </li>
-            <!-- <li>
-              <a href="#" class="govuk-!-font-weight-bold">
-                More <span class="govuk-visually-hidden">in Subsection</span>
-              </a>
-            </li> -->
           </ul>
         </nav>
         {% else %}
@@ -158,11 +142,9 @@
             </li>
           </ul>
         </nav>
-
         {% endif %}
       </aside>
-
-    </div>
+    </div> -->
 
 
 

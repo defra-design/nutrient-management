@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-
+{% include "/templates/signed-in.html" ignore missing %}
 {{ govukBreadcrumbs({
   items: [
     {
@@ -30,45 +30,21 @@
 
 {% block content %}
 
-<!-- {% if data.oaktree_farm.soil_added == false %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-        <div class="govuk-notification-banner__header">
-          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-            Important
-          </h2>
-        </div>
-        <div class="govuk-notification-banner__content">
-          <p class="govuk-notification-banner__heading">These recommendations are based on default soil values.</p>
-          <p class="govuk-body"><a href="../field/manage-fields">Update soil analysis to get more accurate recommendations</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  {% endif %} -->
-
-<div class="status-header">
-  <h1 class="govuk-heading-l">{{data.chosenfield | fieldconverter}} plan and recommendations</h1>
-  <p class="govuk-body">Harvest year: {{data.chosen_plan.harvest_date}}</p>
-  <!-- <p class="govuk-body">Status: {{data.chosen_plan.plan_status | statusconverter}}</p> -->
-</div>  
-
-<hr class="big_seperator">
-
 <div class="govuk-grid-row">
+
   <div class="govuk-grid-column-two-thirds">
 
-    <h2 class="govuk-heading-m plan_title">Crop details</h2>
+    <div class="status-header">
+      <h1 class="govuk-heading-l">{{data.chosenfield | fieldconverter}} plan and recommendations</h1>
+      <p class="govuk-body">Harvest year: {{data.chosen_plan.harvest_date}}</p>
+    </div>  
+
+    <hr class="seperator_five">
+
+    <h2 class="govuk-heading-m">Crop details</h2>
 
     <table class="govuk-table recomendation-table data-table data-table">
       <caption class="govuk-table__caption govuk-table__caption--s">{{data.chosen_crop | nameconverter}}</caption>
-      <!-- <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__cell">Estimated application date</th>
-          <th scope="col" class="govuk-table__header">Amount per hectare</th>
-        </tr>
-      </thead> -->
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Estimated sowing date</td>
@@ -78,25 +54,27 @@
           <td class="govuk-table__cell">Estimated yield per hecare</td>
           <td class="govuk-table__cell">XX metric tons</td>
         </tr>
-        <!-- <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Crop use</td>
-          <td class="govuk-table__cell">Milling</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Straw use</td>
-          <td class="govuk-table__cell">-</td>
-        </tr> -->
       </tbody>
     </table>   
-  </div> 
-</div> 
 
-<p class="govuk-body"><a href="">View or change crop details</a></p>
+    <p class="govuk-body"><a href="">View or change crop details</a></p>
 
-<hr class="big_seperator">
+    <hr class="seperator_five">
 
-<h2 class="govuk-heading-m">Nutrient recommendations</h2>
+    <h2 class="govuk-heading-m">Soil Nitrogen (N) supply</h2> 
 
-{% include "./templates/nutrients_mvp.html" ignore missing %}
+    <p class="govuk-body">10kg per hectare</p>
+
+    <p class="govuk-body"><a href="">Add an SNS measurement</a></p>
+
+    <hr class="seperator_five">
+
+    <h2 class="govuk-heading-m">Nutrient recommendations</h2>
+
+    {% include "./templates/nutrients_mvp.html" ignore missing %}
+    
+  </div>
+
+</div>
 
 {% endblock %}

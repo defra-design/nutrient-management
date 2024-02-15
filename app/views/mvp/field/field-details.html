@@ -5,9 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-
 {% include "/templates/signed-in.html" ignore missing %}
-
   {{ govukBreadcrumbs({
     items: [
     {
@@ -27,40 +25,35 @@
       }
     ]
   }) }}
-
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
+
   <div class="govuk-grid-column-two-thirds">
     
     {% if data.show_success_message == true %}
-    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
-      aria-labelledby="govuk-notification-banner-title"
-      data-module="govuk-notification-banner">
-      <div class="govuk-notification-banner__header">
-        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-          Success
-        </h2>
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+        aria-labelledby="govuk-notification-banner-title"
+        data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          {% if data.oaktree_farm.latest_update == 'soil-added' %}
+            <h3 class="govuk-notification-banner__heading">
+              You have added new soil analysis for {{data.chosenfield}}.
+            </h3>
+          {% endif %}
+        </div>
       </div>
-      <div class="govuk-notification-banner__content">
-        {% if data.oaktree_farm.latest_update == 'soil-added' %}
-          <h3 class="govuk-notification-banner__heading">
-            You have added new soil analysis for {{data.chosenfield}}.
-          </h3>
-      {% endif %}
-    </div>
-  </div>
-  {% endif %}
+    {% endif %}
 
     <h1 class="govuk-heading-l">{{data.chosenfield}}</h1>
-  </div>
-</div>
 
-<div class="govuk-grid-row">
-
-  <div class="govuk-grid-column-two-thirds">
     <h2 class="govuk-heading-m plan_title">Field details</h2>
 
     <table class="govuk-table recomendation-table data-table data-table">
@@ -96,55 +89,58 @@
       </tbody>
     </table>   
 
-<hr class="big_seperator">
+    <p class="govuk-body"><a href="">Change field details</a></p>
 
-<h2 class="govuk-heading-m">Soil analysis</h2>
+    <hr class="big_seperator">
 
-{% if data.oaktree_farm.soil_added == true %}
-  <table class="govuk-table field-table">
-    <thead class="govuk-table__head">
-      <tr class="govuk-table__row">
-        <th scope="col" class="govuk-table__header">Date sample taken</th>
-        <th scope="col" class="govuk-table__header"> </th>
-      </tr>
-    </thead>
-    <tbody class="govuk-table__body">
+    <h2 class="govuk-heading-m">Soil analysis</h2>
 
-    <tr class="govuk-table__row right-last">
-      <td class="govuk-table__cell">11 February 2023</td>
-      <td class="govuk-table__cell">
-        <a href="soil-details">View soil analysis</a>
-      </td>
-    </tr>
+    <p class="govuk-body margin margin-bottom-forty"><a href="/mvp/soil/date">Add new soil analysis</a></p>
 
-  </tbody>
-  </table>    
-{% else %}
-  <p class="govuk-body">You have not added any soil analysis.</p>
-  <p class="govuk-body"><a href="/mvp/soil/date">Add new soil analysis</a></p>
-{% endif %}
+    {% if data.oaktree_farm.soil_added == true %}
+      <table class="govuk-table field-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date sample taken</th>
+            <th scope="col" class="govuk-table__header"> </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row right-last">
+          <td class="govuk-table__cell">11 February 2023</td>
+          <td class="govuk-table__cell">
+            <a href="soil-details">View soil analysis</a>
+          </td>
+        </tr>
+
+      </tbody>
+      </table>    
+    {% else %}
+      <p class="govuk-body">You have not added any soil analysis.</p>
+      <p class="govuk-body"><a href="/mvp/soil/date">Add new soil analysis</a></p>
+    {% endif %}
+
+    <!-- <div class="govuk-grid-column-one-third">
+
+    <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+      <h2 class="govuk-heading-s" id="subsection-title">
+        Update field
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list font-size-17">
+          <li>
+            <a href="">Change field details</a>
+          </li>
+          <li>
+            <a href="/mvp/soil/date">Add new soil analysis</a>
+          </li>
+        </ul>
+      </aside>
+    </div> -->
+
+  </div> 
 
 </div> 
-
-<div class="govuk-grid-column-one-third">
-
-  <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
-    <h2 class="govuk-heading-s" id="subsection-title">
-      Update field
-    </h2>
-    <nav role="navigation" aria-labelledby="subsection-title">
-      <ul class="govuk-list font-size-17">
-        <li>
-          <a href="">Change field details</a>
-        </li>
-        <li>
-          <a href="/mvp/soil/date">Add new soil analysis</a>
-        </li>
-
-  </aside>
-
-</div>
-</div> 
-
 
 {% endblock %}

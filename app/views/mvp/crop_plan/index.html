@@ -5,9 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-
 {% include "/templates/signed-in.html" ignore missing %}
-
   {{ govukBreadcrumbs({
     items: [
       {
@@ -23,49 +21,43 @@
       }
     ]
   }) }}
-
 {% endblock %}
 
 {% block content %}
 
-{% if data.chosen_plan.plan_update != null %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-  <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-    <div class="govuk-notification-banner__header">
-      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-        Success
-      </h2>
-    </div>
-    <div class="govuk-notification-banner__content">
-      <h3 class="govuk-notification-banner__heading">
-        {{data.chosen_plan.plan_update | statusconverter}}
-      </h3>
-      <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub">View Oaktree Lane Farm</a> </p> -->
-    </div>
-  </div>
-  </div>
-  </div>
-{% endif %}
-
-<h1 class="govuk-heading-l">Harvest year {{data.chosen_plan.harvest_date}}</h1>
-
 <div class="govuk-grid-row">
+
   <div class="govuk-grid-column-two-thirds">
 
-    <div class="crop_plan_title">
-      <p class="govuk-body">There are 3 fields in this plan.</p>
-      <p class="govuk-body">Last updated: {{data.chosen_plan.updated}}.</p>
+  {% if data.chosen_plan.plan_update != null %}
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+          {{data.chosen_plan.plan_update | statusconverter}}
+        </h3>
+        <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub">View Oaktree Lane Farm</a> </p> -->
+      </div>
     </div>
+  {% endif %}
 
-    <hr class="big_seperator">
+  <h1 class="govuk-heading-l">Crop plan for harvest year {{data.chosen_plan.harvest_date}}</h1>
+  
+  <div class="crop_plan_title">
+    <p class="govuk-body">There are 3 fields in this plan.</p>
+    <p class="govuk-body">Last updated: {{data.chosen_plan.updated}}.</p>
+    <p class="govuk-body"><a href="../update/change_fields">Manage the crops and fields in this plan</a></p>
+  </div>
 
-    {% include "./templates/2025plan.html" %}
+  <hr class="seperator_five">
 
-    </div>
-    <div class="govuk-grid-column-one-third">
+  {% include "./templates/2025plan.html" %}
 
+    <!-- <div class="govuk-grid-column-one-third">
       <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
         <h2 class="govuk-heading-s" id="subsection-title">
           Update this plan
@@ -77,31 +69,18 @@
                 Manage crops and fields in this plan
               </a>
             </li>
-            <!-- <li>
-              <a href="../update/change_manures">
-                Manage manures and fertilisers
-              </a>
-            </li> -->
-            <!-- <li>
-              <a href="../update/change_overall_plan">
-                Manage this plan
-              </a>
-            </li> -->
             <li>
               <a href="">
                 Delete this plan
               </a>
             </li>
-            <!-- <li>
-              <a href="#" class="govuk-!-font-weight-bold">
-                More <span class="govuk-visually-hidden">in Subsection</span>
-              </a>
-            </li> -->
           </ul>
         </nav>
       </aside>
+    </div> -->
 
-    </div>
+  </div>
+
 </div>
 
 {% endblock %}

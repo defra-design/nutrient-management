@@ -474,7 +474,7 @@ router.get(/mvp_check_handler/, function (req, res) {
     req.session.data.plan2025.plan_status = 'crop_added';
     req.session.data.plan2025.crop_added = true
     req.session.data.chosen_plan = req.session.data.plan2025
-    req.session.data.oaktree_farm.plans_added == true
+    req.session.data.oaktree_farm.plans_added = true
     res.redirect('/mvp/crop_plan/index')
 })
 

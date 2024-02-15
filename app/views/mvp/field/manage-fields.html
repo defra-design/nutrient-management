@@ -44,7 +44,7 @@
           <div class="govuk-notification-banner__content">
             {% if data.oaktree_farm.latest_update == 'field_added' %}
               <h3 class="govuk-notification-banner__heading">
-                You have added Long Field
+                You have added {{data.temp_field_name}}
               </h3>
               <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_add_reset_handler">Add fields for Oaktree Lane Farm</a> </p>   -->
           {% endif %}
@@ -100,10 +100,10 @@
               </thead>
               <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Long Field</td>
+                <td class="govuk-table__cell">{{data.temp_field_name}}</td>
                 <!-- <td class="govuk-table__cell">None</td> -->
                 <td class="govuk-table__cell">
-                  <a href="field-select-handler?chosenfield=Long Field">Field and soil details</a>
+                  <a href="field-select-handler?chosenfield={{data.temp_field_name}}">Field and soil details</a>
                 </td>
               </tr>
             {% else %}

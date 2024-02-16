@@ -18,23 +18,23 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">How would you like to enter your values?</h1>
+      <h1 class="govuk-heading-l">How would you like to enter your nutrient values?</h1>
 
-      <form action="values_two" method="post" novalidate="">
+      <form action="add_values_handler" method="post" novalidate="">
 
         <!-- <label class="govuk-label" for="nitrate">How would you like to enter your values?</label> -->
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="add_values_index" name="add_values" type="radio" value="add_values_index"">
+                <input class="govuk-radios__input" id="add_values_index" name="add_values" type="radio" value="add_values_index">
                 <label class="govuk-label govuk-radios__label" for="add_values_index">
                   As an index
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="add_values_milligrams" name="add_values" type="radio" value="add_values_milligrams">
-                <label class="govuk-label govuk-radios__label" for="milligrams">
+                <label class="govuk-label govuk-radios__label" for="add_values_milligrams">
                   In milligrams per hectare
                 </label>
               </div>

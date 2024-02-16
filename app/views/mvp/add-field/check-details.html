@@ -96,11 +96,6 @@
     </dd>
   </div>
   
-  </dl>
-
-  <h2 class="govuk-heading-m">Soil analysis</h2>
-
-  <dl class="govuk-summary-list">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
       Date sample taken
@@ -123,46 +118,93 @@
       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
     </dd>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      How would you like to enter your values?
-    </dt>
-    <dd class="govuk-summary-list__value">
-      Index values
-    </dd>
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Phosphorus (P) index
-    </dt>
-    <dd class="govuk-summary-list__value">
-      2
-    </dd>
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Potassium (K) index
-    </dt>
-    <dd class="govuk-summary-list__value">
-      2
-    </dd>
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Magnesium (Mg) index
-    </dt>
-    <dd class="govuk-summary-list__value">
-      1
-    </dd>
+
+    {% if data.add_values == "add_values_index" %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How would you like to enter your values?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Index values
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Phosphorus (P) index
+        </dt>
+        <dd class="govuk-summary-list__value">
+          2
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Potassium (K) index
+        </dt>
+        <dd class="govuk-summary-list__value">
+          2
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Magnesium (Mg) index
+        </dt>
+        <dd class="govuk-summary-list__value">
+          1
+        </dd>
+
+    {% else %}
+    
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        How would you like to enter your values?
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Index values
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Phosphorus (P) per litre
+      </dt>
+      <dd class="govuk-summary-list__value">
+        2
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Potassium (K) per litre
+      </dt>
+      <dd class="govuk-summary-list__value">
+        2
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Magnesium (Mg) per litre
+      </dt>
+      <dd class="govuk-summary-list__value">
+        1
+      </dd>
+    {% endif %}
+
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
     </dd>

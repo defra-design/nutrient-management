@@ -52,11 +52,7 @@
       {% endif %}
   
       <h1 class="govuk-heading-l">
-        {%if data.farm_name != ""%}
-          {{data.farm_name}}
-        {% else %}
-          Oaktree Lane Farm
-        {% endif %} 
+        {{ data.oaktree_farm.name }} 
         fields
       </h1>
 

@@ -18,8 +18,8 @@ const crop_types = require('./data/crops.json');
 let oaktree_farm = {
     name: "Oaktree Lane Farm",
     postcode: "NE46 7LQ",
-    nvz: "all",
-    elevation: "none",
+    nvz: "some",
+    elevation: "some",
     organic_producer: false,
     latest_update: null,
     plans_added: false,
@@ -530,7 +530,6 @@ router.get(/fields_mvp_setup_handler/, function (req, res) {
     req.session.data.show_success_message = false
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
-    req.session.data.oaktree_farm.fields_added = true
     req.session.data.oaktree_farm.use_mvp_fields = true
     res.redirect('/mvp/start')
 })
@@ -619,10 +618,10 @@ router.get(/field_name_handler/, function (req, res) {
     res.redirect('./area')
 })
 
-// router.get(/add_values_handler /, function (req, res) { 
-//     if (req.session.data.add_values == "index") {
-//         res.redirect('./values_two')
-//     } else {
-//         res.redirect('./values_three')
-//     }
-// })
+router.get(/add_values_handler/, function (req, res) { 
+    if (req.session.data.add_values == "add_values_index") {
+        res.redirect('./values_two')
+    } else {
+        res.redirect('./values_three')
+    }
+})

@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Add soil analysis for {{data.temp_field_name}}</h1>
+
+      <form action="add-field-check" method="post" novalidate="">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="weight">
+            Phosphorus (P) per litre of soil
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">Milligrams</div>
+          </div>
+        </div>
+        
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+      <p class="govuk-body cancel-link"><a href="/mvp/field/field-details">Cancel</a></p>
+
+    </div>
+    
+  </div>
+
+{% endblock %}

@@ -18,7 +18,7 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">What is the soil organic matter?</h1>
+      <h1 class="govuk-heading-l">What is the percentage of organic matter in the soil?</h1>
 
       <form action="organicadjustment_handler" method="post" novalidate="">
 
@@ -32,7 +32,9 @@
         </div> -->
 
         <div class="govuk-form-group">
-          <input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">%</div>
+          </div>
         </div>
         
         <button class="govuk-button margin-bottom-forty" data-module="govuk-button">

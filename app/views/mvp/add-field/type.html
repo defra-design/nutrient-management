@@ -20,7 +20,7 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="fields" method="post" novalidate="">
+      <form action="fieldtype_handler" method="post" novalidate="">
 
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">How would you like to create the field?</h1>
@@ -31,12 +31,12 @@
             <!-- <label class="govuk-label" for="nitrate">Is this field within a Nitrate Vulnerable Zone (NVZ)?</label> -->
             <div class="govuk-radios govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="nitrate-2" name="nitrate" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="nitrate-2">Create the field from scratch</label>
+                <input class="govuk-radios__input" id="new" name="fieldtype" type="radio" value="new">
+                <label class="govuk-label govuk-radios__label" for="new">Create the field from scratch</label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="nitrate" name="nitrate" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="nitrate">Copy another field</label>
+                <input class="govuk-radios__input" id="copy" name="fieldtype" type="radio" value="copy">
+                <label class="govuk-label govuk-radios__label" for="copy">Copy another field</label>
               </div>
             </div>
           </fieldset>

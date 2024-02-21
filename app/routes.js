@@ -484,7 +484,7 @@ router.get(/add-field-handler/, function (req, res) {
     req.session.data.oaktree_farm.fields_added = true;
     req.session.data.show_success_message = true
     req.session.data.oaktree_farm.soil_added = true
-    res.redirect('../field/manage-fields')
+    res.redirect('/mvp/field/manage-fields')
 })
 
 //farm view reset messages
@@ -502,7 +502,11 @@ router.get(/field_reset_handler/, function (req, res) {
 //add a field view reset messages
 router.get(/field_add_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    res.redirect('/mvp/add-field/name')
+    if (req.session.data.oaktree_farm.fields_added == true) {
+        res.redirect('/mvp/add-field/type')
+    } else {
+        res.redirect('/mvp/add-field/name')
+    }
 })
 
 //add a field view reset messages
@@ -676,6 +680,14 @@ router.get(/gaiheight_handler/, function (req, res) {
         res.redirect('gai')
     } else {
         res.redirect('height')
+    }
+})
+
+router.get(/fieldtype_handler/, function (req, res) { 
+    if (req.session.data.fieldtype == "copy") {
+        res.redirect('./copy/fields')
+    } else {
+        res.redirect('name')
     }
 })
 

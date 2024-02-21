@@ -531,6 +531,7 @@ router.get(/fields_mvp_setup_handler/, function (req, res) {
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.oaktree_farm.use_mvp_fields = true
+    req.session.data.oaktree_farm.soil_added = true
     res.redirect('/mvp/start')
 })
 
@@ -625,3 +626,52 @@ router.get(/add_values_handler/, function (req, res) {
         res.redirect('./values_three')
     }
 })
+
+router.get(/sns_handler/, function (req, res) { 
+    if (req.session.data.sns_method == "index") {
+        res.redirect('sns_index')
+    } else {
+        res.redirect('sns/crop_group')
+    }
+})
+
+router.get(/mineralisation_handler/, function (req, res) { 
+    if (req.session.data.mineralisation == "organic") {
+        res.redirect('organic')
+    } else {
+        res.redirect('adjustment')
+    }
+})
+
+router.get(/organicadjustment_handler/, function (req, res) { 
+    if (req.session.data.crop_group == "cereals") {
+        res.redirect('shoots')
+    } else if (req.session.data.chosen_crop == "Oilseed-Spring" || req.session.data.chosen_crop == "Oilseed-Winter" ) {
+        res.redirect('gai_height')
+    } else {
+        res.redirect('/mvp/add-field/add-field-check')
+    }
+})
+
+router.get(/previous_group_handler/, function (req, res) { 
+    console.log(req.session.data.crop_group)
+    res.redirect('crop_type_all')
+})
+
+router.get(/log_croptype_handler/, function (req, res) { 
+    console.log(req.session.data.chosen_crop)
+    if (req.session.data.crop_group == 'leafy') {
+        res.redirect('sample_depth')
+    } else {
+        res.redirect('values')
+    }
+})
+
+router.get(/gaiheight_handler/, function (req, res) { 
+    if (req.session.data.gaiheight == "gai") {
+        res.redirect('gai')
+    } else {
+        res.redirect('height')
+    }
+})
+

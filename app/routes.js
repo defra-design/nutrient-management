@@ -643,6 +643,24 @@ router.get(/mineralisation_handler/, function (req, res) {
     }
 })
 
+router.get(/previous_group_handler/, function (req, res) { 
+    console.log(req.session.data.crop_group)
+    res.redirect('crop_type_all')
+})
+
+router.get(/log_croptype_handler/, function (req, res) {
+    console.log(req.session.data.chosen_crop)
+    //veg
+    if (req.session.data.crop_group == 'leafy' || req.session.data.crop_group == 'root') {
+        res.redirect('sample_depth')
+    //arable    
+    } else if (req.session.data.crop_group == 'cereals' || req.session.data.crop_group == 'arable-other') {
+        res.redirect('values')
+    } else {
+        res.redirect('gai_height')
+    }
+})
+
 router.get(/organicadjustment_handler/, function (req, res) { 
     if (req.session.data.crop_group == "cereals") {
         res.redirect('shoots')
@@ -650,20 +668,6 @@ router.get(/organicadjustment_handler/, function (req, res) {
         res.redirect('gai_height')
     } else {
         res.redirect('/mvp/add-field/add-field-check')
-    }
-})
-
-router.get(/previous_group_handler/, function (req, res) { 
-    console.log(req.session.data.crop_group)
-    res.redirect('crop_type_all')
-})
-
-router.get(/log_croptype_handler/, function (req, res) { 
-    console.log(req.session.data.chosen_crop)
-    if (req.session.data.crop_group == 'leafy') {
-        res.redirect('sample_depth')
-    } else {
-        res.redirect('values')
     }
 })
 

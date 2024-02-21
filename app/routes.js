@@ -666,7 +666,7 @@ router.get(/log_croptype_handler/, function (req, res) {
 })
 
 router.get(/organicadjustment_handler/, function (req, res) { 
-    if (req.session.data.crop_group == "cereals") {
+    if (req.session.data.crop_group == "cereals" || req.session.data.crop_group == 'arable-other' ) {
         res.redirect('shoots')
     } else if (req.session.data.chosen_crop == "Oilseed-Spring" || req.session.data.chosen_crop == "Oilseed-Winter" ) {
         res.redirect('gai_height')

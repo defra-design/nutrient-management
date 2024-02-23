@@ -713,3 +713,20 @@ router.get(/copy_name_handler/, function (req, res) {
     }
     res.redirect('./copy-field-check')
 })
+
+
+router.get(/crop_nitrogen_handler/, function (req, res) { 
+    if (req.session.data.crop_nitrogen == "yes") {
+        res.redirect('shoots')
+    } else {
+        res.redirect('nitrogen_mineralisation')
+    }
+})
+
+router.get(/mineral_handler/, function (req, res) { 
+    if (req.session.data.nitrogen_mineralisation == "no") {
+        res.redirect('sns_index')
+    } else {
+        res.redirect('organic_adjustment')
+    }
+})

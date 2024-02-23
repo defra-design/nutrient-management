@@ -20,7 +20,11 @@
 
       <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        What was the previous crop group?
+        {% if data.sns_method == "no" %}
+          What was the previous crop group?
+        {% else %}
+          What is the current crop group?
+        {% endif %}
       </h1>
 
       <form class="form" action="previous_group_handler" method="post">

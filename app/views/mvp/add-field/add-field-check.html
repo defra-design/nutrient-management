@@ -24,7 +24,10 @@
       </h1>
 
       <div class="check-answers">
-        {% include "./check-details.html" ignore missing %}
+        <!-- <h2 class="govuk-heading-m">Field details</h2> -->
+        <dl class="govuk-summary-list">
+          {% include "./check-details.html" ignore missing %}
+        </dl>
       </div>
       <br>
 

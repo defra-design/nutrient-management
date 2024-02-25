@@ -640,11 +640,7 @@ router.get(/add_values_handler/, function (req, res) {
 // })
 
 router.get(/sns_handler/, function (req, res) { 
-    if (req.session.data.sns_method == "yes") {
-        res.redirect('sns/crop_group')
-    } else {
-        res.redirect('sns/crop_group')
-    }
+    res.redirect('sns/crop_group')
 })
 
 router.get(/mineralisation_handler/, function (req, res) { 

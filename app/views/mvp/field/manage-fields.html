@@ -95,14 +95,16 @@
                 </tr>
               </thead>
               <tbody class="govuk-table__body">
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">{{data.temp_field_name}}</td>
-                <!-- <td class="govuk-table__cell">None</td> -->
-                <td class="govuk-table__cell">
-                  <a href="field-select-handler?chosenfield={{data.temp_field_name}}">Field and soil details</a>
-                </td>
-              </tr>
-            </tbody>
+                {% for field in data.current_fields %}
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">{{field.name}}</td>
+                  <!-- <td class="govuk-table__cell">None</td> -->
+                  <td class="govuk-table__cell">
+                    <a href="field-select-handler?chosenfield={{field.name}}">Field and soil details</a>
+                  </td>
+                </tr>
+              {% endfor %} 
+              </tbody>
           </table>
             {% else %}
               <p class="govuk-body">

@@ -29,15 +29,14 @@ let oaktree_farm = {
     soil_added: false
 };
 
-let new_field = {
-    name: "Long Field",
+var tempField = {
+    name: "Short Field",
     nvz: false,
     elevation: false,
     area: 0,
     manure: 0,
     cropped: 0,
-    type: null,
-    potash: false
+    type: null
 };
 
 let current_fields = [];
@@ -70,13 +69,21 @@ router.get('/', function (req, res) {
     req.session.data.farm_details = farm_details
     req.session.data.chosenfield = null
     req.session.data.crop_group = null
+    req.session.data.oaktree_farm = oaktree_farm
+    req.session.data.current_fields = current_fields
+    req.session.data.tempField = tempField
+
+    // add a field to the list of current fields
+    // current_fields.push(tempField);
+    // for (var x in current_fields) {
+    //     console.log(current_fields[x])
+    // }
 
     //plan functionality
     req.session.data.plan2024 = plan2024
     req.session.data.plan2025 = plan2025
     req.session.data.chosen_plan = plan2024
-    req.session.data.oaktree_farm = oaktree_farm
-    
+
     //create sanitised references for the crop list
     // for(var x in req.session.data.crop_types) {
     //   var y = req.session.data.crop_types[x].name
@@ -98,7 +105,6 @@ router.get('/', function (req, res) {
     req.session.data.another_crop = 'no'
     req.session.data.chosen_plan = null //v2
     req.session.data.show_success_message = false
-
 
     // content vars
     req.session.data.organic_term = "Organic material"
@@ -484,6 +490,7 @@ router.get(/add-field-handler/, function (req, res) {
     req.session.data.oaktree_farm.fields_added = true;
     req.session.data.show_success_message = true
     req.session.data.oaktree_farm.soil_added = true
+    req.session.data.current_fields.push(req.session.data.tempField)
     res.redirect('/mvp/field/manage-fields')
 })
 
@@ -620,6 +627,7 @@ router.get(/field_name_handler/, function (req, res) {
     if (req.session.data.temp_field_name == "") {
         req.session.data.temp_field_name = 'New Field'
     }
+    req.session.data.tempField.name = req.session.data.temp_field_name
     res.redirect('./area')
 })
 

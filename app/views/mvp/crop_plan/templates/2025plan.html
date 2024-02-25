@@ -19,6 +19,25 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
+
+      {% if data.oaktree_farm.use_mvp_fields == true %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Long Field</td>
+          <td class="govuk-table__cell">Crop added</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Long Field">View field plan and recommendations</a></td>
+        </tr>      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Barn Field</td>
+          <td class="govuk-table__cell">Crop added</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Barn Field">View field plan and recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Narrow field</td>
+          <td class="govuk-table__cell">Crop added</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Narrow field">View field plan and recommendations</a></td>
+        </tr>
+        {% else %}
+
         {% for field in data.current_fields %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">{{field.name}}</td>
@@ -26,6 +45,9 @@
             <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield={{field.name}}">View field plan and recommendations</a></td>
           </tr>
         {% endfor %}
+
+        {% endif %}
+
       </tbody>
     </table>
     <!-- <p class="govuk-body"><a href="change_wheat">Change Winter Wheat plan</a></p> -->

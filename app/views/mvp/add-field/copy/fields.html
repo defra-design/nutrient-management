@@ -34,7 +34,7 @@
 
               <div class="govuk-checkboxes" data-module="govuk-checkboxes">
 
-              {% for field in data.field_details_mvp %}
+              {% for field in data.current_fields %}
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="{{field.reference}}" name="chosen_field" type="radio" value="{{field.reference}}">
                   <label class="govuk-label govuk-radios__label" for="{{field.reference}}">

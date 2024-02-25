@@ -715,6 +715,7 @@ router.get(/copy_name_handler/, function (req, res) {
     if (req.session.data.temp_field_name == "") {
         req.session.data.temp_field_name = 'New Field'
     }
+    req.session.data.tempField.name = req.session.data.temp_field_name
     res.redirect('./copy-field-check')
 })
 

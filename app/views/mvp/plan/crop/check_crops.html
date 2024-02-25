@@ -20,7 +20,11 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Which fields do you plan to grow Winter Wheat in?</dt>
-    <dd class="govuk-summary-list__value">Field 1, <br> Field 2, <br> Field 3</dd>
+    <dd class="govuk-summary-list__value">
+      {% for field in data.current_fields %}
+      {{field.name}}, <br>
+      {% endfor %}
+    </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 

@@ -52,12 +52,15 @@
               </div>
               {% endfor %}
             {% else %}
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id=longfield name="chosen_fields" type="checkbox" value=longfield>
-              <label class="govuk-label govuk-checkboxes__label" for=longfield>
-                Long Field
-              </label>
-            </div>
+              {% for field in data.current_fields %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id={{field.name}} name="chosen_fields" type="checkbox" value={{field.name}}>
+                <label class="govuk-label govuk-checkboxes__label" for={{field.name}}>
+                  {{field.name}}
+                </label>
+              </div>
+            {% endfor %} 
+
             {% endif %}
 
 

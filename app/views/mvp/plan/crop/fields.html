@@ -54,8 +54,8 @@
             {% else %}
               {% for field in data.current_fields %}
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id={{field.name}} name="chosen_fields" type="checkbox" value={{field.name}}>
-                <label class="govuk-label govuk-checkboxes__label" for={{field.name}}>
+                <input class="govuk-checkboxes__input" id={{field.reference}} name="chosen_fields" type="checkbox" value={{field.reference}}>
+                <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
                   {{field.name}}
                 </label>
               </div>

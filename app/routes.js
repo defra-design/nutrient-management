@@ -31,6 +31,7 @@ let oaktree_farm = {
 
 var tempField = {
     name: "Short Field",
+    reference: "shortfield",
     nvz: false,
     elevation: false,
     area: 0,
@@ -490,7 +491,14 @@ router.get(/add-field-handler/, function (req, res) {
     req.session.data.oaktree_farm.fields_added = true;
     req.session.data.show_success_message = true
     req.session.data.oaktree_farm.soil_added = true
+    var tempString = req.session.data.tempField.name
+    tempString = tempString.toLowerCase()
+    tempString = tempString.replace(/\s/g,'')
+    req.session.data.tempField.reference = tempString
+    console.log('name = ' + req.session.data.tempField.name)
+    console.log('reference = ' + req.session.data.tempField.reference)
     req.session.data.current_fields.push(req.session.data.tempField)
+    console.log(req.session.data.tempField)
     res.redirect('/mvp/field/manage-fields')
 })
 
@@ -627,6 +635,7 @@ router.get(/field_name_handler/, function (req, res) {
     if (req.session.data.temp_field_name == "") {
         req.session.data.temp_field_name = 'New Field'
     }
+    console.log('temp_field_name ' + req.session.data.temp_field_name)
     req.session.data.tempField.name = req.session.data.temp_field_name
     res.redirect('./area')
 })

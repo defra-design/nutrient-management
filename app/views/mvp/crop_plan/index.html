@@ -48,7 +48,21 @@
   <h1 class="govuk-heading-l">Crop plan for harvest year {{data.chosen_plan.harvest_date}}</h1>
   
   <div class="crop_plan_title">
-    <p class="govuk-body">There are 3 fields in this plan.</p>
+
+    {% if data.oaktree_farm.use_mvp_fields == false %}
+      {% set fieldCount = 0  %}
+        {% for item in data.current_fields  %}
+          {% set fieldCount = fieldCount + 1  %}
+        {% endfor  %}
+        {% if fieldCount == 1 %}
+          <p class="govuk-body">There is 1 field in this plan.</p>
+        {% else %}
+          <p class="govuk-body">There are {{fieldCount}} fields in this plan.</p>
+        {% endif %}
+      {% else %}
+      <p class="govuk-body">There are 3 fields in this plan.</p>
+    {% endif  %}
+
     <p class="govuk-body">Last updated: {{data.chosen_plan.updated}}.</p>
     <p class="govuk-body"><a href="../update/change_fields">Manage the crops and fields in this plan</a></p>
   </div>

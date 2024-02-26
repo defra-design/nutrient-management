@@ -20,7 +20,11 @@
 
       <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        What was the previous crop type?
+        {% if data.sns_method == "no" %}
+          What was the previous crop type?
+        {% else %}
+          What is the current crop type?
+        {% endif %}
       </h1>
 
       <form class="form" action="log_croptype_handler" method="post">

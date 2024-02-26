@@ -18,7 +18,7 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">How would you like to calculate soil mineral nitrogen?</h1>
+      <h1 class="govuk-heading-l">How would you like to calculate the soil mineral nitrogen for {{data.temp_field_name}}?</h1>
 
       <form action="sns_handler" method="post" novalidate="">
 
@@ -29,7 +29,7 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="no" name="sns_method" type="radio" value="no">
                 <label class="govuk-label govuk-radios__label" for="no">
-                  Based on the previous cropping
+                  Based on the previous crop
                 </label>
               </div>
               <div class="govuk-radios__item">

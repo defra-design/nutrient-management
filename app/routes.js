@@ -597,6 +597,14 @@ router.get(/soil_type_handler/, function (req, res) {
     }
 })
 
+router.get(/nvz_handler/, function (req, res) { 
+    if (req.session.data.oaktree_farm.elevation == 'some') {
+        res.redirect('elevation')
+    } else {
+        res.redirect('soil')
+    }
+})
+
 //add farms
 router.get(/add_farms_handler/, function (req, res) { 
     //name

@@ -598,11 +598,8 @@ router.get(/soil_type_handler/, function (req, res) {
 })
 
 router.get(/nvz_handler/, function (req, res) { 
-    if (req.session.data.oaktree_farm.elevation == 'some') {
-        res.redirect('elevation')
-    } else {
-        res.redirect('soil')
-    }
+    let next = (req.session.data.oaktree_farm.elevation == 'some') ? 'elevation' : 'soil'
+    res.redirect(next)
 })
 
 //add farms
@@ -644,37 +641,22 @@ router.get(/field_name_handler/, function (req, res) {
     if (req.session.data.temp_field_name == "") {
         req.session.data.temp_field_name = 'New Field'
     }
-    console.log('temp_field_name ' + req.session.data.temp_field_name)
     req.session.data.tempField.name = req.session.data.temp_field_name
     res.redirect('./area')
 })
 
 router.get(/add_values_handler/, function (req, res) { 
-    if (req.session.data.add_values == "add_values_index") {
-        res.redirect('./values_two')
-    } else {
-        res.redirect('./values_three')
-    }
+    let next = (req.session.data.add_values == "add_values_index") ? './values_two' : './values_three'
+    res.redirect(next)
 })
-
-// router.get(/sns_handler/, function (req, res) { 
-//     if (req.session.data.sns_method == "index") {
-//         res.redirect('sns_index')
-//     } else {
-//         res.redirect('sns/crop_group')
-//     }
-// })
 
 router.get(/sns_handler/, function (req, res) { 
     res.redirect('sns/crop_group')
 })
 
 router.get(/mineralisation_handler/, function (req, res) { 
-    if (req.session.data.mineralisation == "organic") {
-        res.redirect('organic')
-    } else {
-        res.redirect('adjustment')
-    }
+    let next = (req.session.data.mineralisation == "organic") ? 'organic' : 'adjustment'
+    res.redirect(next)
 })
 
 router.get(/previous_group_handler/, function (req, res) { 
@@ -714,42 +696,28 @@ router.get(/organicadjustment_handler/, function (req, res) {
 })
 
 router.get(/gaiheight_handler/, function (req, res) { 
-    if (req.session.data.gaiheight == "gai") {
-        res.redirect('gai')
-    } else {
-        res.redirect('height')
-    }
+    let next = (req.session.data.gaiheight == "gai") ? 'gai' : 'height'
+    res.redirect(next)
 })
 
 router.get(/fieldtype_handler/, function (req, res) { 
-    if (req.session.data.fieldtype == "copy") {
-        res.redirect('./copy/fields')
-    } else {
-        res.redirect('name')
-    }
+    let next = (req.session.data.fieldtype == "copy") ? './copy/fields' : 'name'
+    res.redirect(next)
 })
 
 router.get(/copy_name_handler/, function (req, res) { 
-    if (req.session.data.temp_field_name == "") {
-        req.session.data.temp_field_name = 'New Field'
-    }
-    req.session.data.tempField.name = req.session.data.temp_field_name
+    req.session.data.tempField.name = (req.session.data.temp_field_name == '') ? 'New Field' : req.session.data.temp_field_name
     res.redirect('./copy-field-check')
 })
 
-
 router.get(/crop_nitrogen_handler/, function (req, res) { 
-    if (req.session.data.crop_nitrogen == "yes") {
-        res.redirect('shoots')
-    } else {
-        res.redirect('nitrogen_mineralisation')
-    }
+    let next = (req.session.data.crop_nitrogen == "yes") ? 'shoots' : 'nitrogen_mineralisation'
+    res.redirect(next)
 })
 
 router.get(/mineral_handler/, function (req, res) { 
-    if (req.session.data.nitrogen_mineralisation == "no") {
-        res.redirect('sns_index')
-    } else {
-        res.redirect('organic_adjustment')
-    }
+    let next = (req.session.data.nitrogen_mineralisation == "no") ? 'sns_index' : 'organic_adjustment'
+    res.redirect(next)
 })
+
+//755

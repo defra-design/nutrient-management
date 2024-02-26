@@ -21,9 +21,14 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Which fields do you plan to grow Winter Wheat in?</dt>
     <dd class="govuk-summary-list__value">
-      {% for field in data.current_fields %}
-      {{field.name}}, <br>
-      {% endfor %}
+      {% if data.oaktree_farm.use_mvp_fields == false %}
+        {% for field in data.current_fields %}
+          {{field.name}}, <br>
+        {% endfor %}
+      {% else %}
+      Long Field, <br> Barn Field, <br> Narrow field
+      {% endif %}
+      
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
@@ -36,7 +41,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">What is the expected yield for Winter Wheat?</dt>
-    <dd class="govuk-summary-list__value">XX tonne per hectare</dd>
+    <dd class="govuk-summary-list__value">7 tonne per hectare</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
@@ -54,11 +59,11 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Do you want to add another crop to this plan?</dt>
-    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__value">No</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
-  <div class="govuk-summary-list__row">
+  <!-- <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Second crop for the harvest year</dt>
     <dd class="govuk-summary-list__value">Grass</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
@@ -68,18 +73,12 @@
     <dt class="govuk-summary-list__key">Which fields do you plan to grow Grass in?</dt>
     <dd class="govuk-summary-list__value">Long Field, <br> Barn Field, <br> Narrow field</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
+  </div> -->
 
   <!-- <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">What is the estimated sowing date?</dt>
     <dd class="govuk-summary-list__value">01 April 2025</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div> -->
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Do you want to add another crop to this plan?</dt>
-    <dd class="govuk-summary-list__value">No</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
 
 </dl>

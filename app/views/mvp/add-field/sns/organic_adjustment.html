@@ -23,7 +23,7 @@
       <form action="mineralisation_handler" method="post" novalidate="">
 
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h1 class="govuk-fieldset__heading">Would you like to enter your own value of mineralisation or would you like to estimate it using soil organic matter?</h1>
+          <h1 class="govuk-fieldset__heading">How would you like to calculate the soil nitrogen mineralisation for {{data.temp_field_name}}?</h1>
         </legend>
 
         <div class="govuk-form-group margin-bottom-forty">
@@ -32,7 +32,7 @@
             <div class="govuk-radios govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="organic" name="mineralisation" type="radio" value="organic">
-                <label class="govuk-label govuk-radios__label" for="organic">Organic matter</label>
+                <label class="govuk-label govuk-radios__label" for="organic">Estimate based on organic matter</label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="adjustment" name="mineralisation" type="radio" value="adjustment">

@@ -173,11 +173,8 @@ router.get(/crop_type_handler/, function (req, res) {
 
 //do you plan to spread manure?
 router.get(/manure_if_handler/, function (req, res) { 
-    if (req.session.data.manure_if == "yes") {
-        res.redirect('manure_when')
-    } else {
-        res.redirect('check_one')
-    }
+    let next = (req.session.data.manure_if == "yes") ? 'manure_when' : 'check_one'
+    res.redirect(next)
 })
 
 //manure application loops
@@ -249,11 +246,8 @@ router.get(/fertiliser_if_handler/, function (req, res) {
 
 //do you plan to spread more fertiliser
 router.get(/fertiliser_again_handler/, function (req, res) { 
-    if (req.session.data.fertiliser_again == "yes") {
-        res.redirect('fertiliser_when')
-    } else {
-        res.redirect('check_two')
-    }
+    let next = (req.session.data.fertiliser_again == "yes") ? 'fertiliser_when' : 'check_two'
+    res.redirect(next)
 })
 
 //manure application loops
@@ -288,11 +282,8 @@ router.get(/fertiliser_types_handler/, function (req, res) {
 
 //crop 
 router.get(/crop_group_handler/, function (req, res) { 
-    if (req.session.data.crop_group == "other") {
-        res.redirect('crop_when')
-    } else {
-        res.redirect('crop_type_all')
-    }
+    let next = (req.session.data.crop_group == "other") ? 'crop_when' : 'crop_type_all'
+    res.redirect(next)
 })
 
 //grass
@@ -327,19 +318,13 @@ router.get(/add_multi_handler/, function (req, res) {
 
 //add field - grass history - handler
 router.get(/add-grass-handler/, function (req, res) { 
-    if (req.session.data.previous_grass == 'yes') {
-        res.redirect('plough')
-    } else {
-        res.redirect('add-field-check')
-    }
+    let next = (req.session.data.previous_grass == 'yes') ? 'plough' : 'add-field-check'
+    res.redirect(next)
 })
 
 router.get(/field-cuts-handler/, function (req, res) { 
-    if (req.session.data.previous_management == 'grazing') {
-        res.redirect('previous-nitrogen')
-    } else {
-        res.redirect('previous-cuts')
-    }
+    let next = (req.session.data.previous_management == 'grazing') ? 'previous-nitrogen' : 'previous-cuts'
+    res.redirect(next)
 })
 
 router.get(/show-field-handler/, function (req, res) { 
@@ -428,11 +413,8 @@ router.get(/v2_check_fertiliser_handler/, function (req, res) {
 
 //change crop plan
 router.get(/crop_change_handler/, function (req, res) { 
-    if (req.session.data.change_crop == 'plan_fertiliser') {
-        res.redirect('../plan/fertiliser/fertiliser_when')
-    } else {
-        res.redirect('../plan/manure/manure_fields')
-    }
+    let next = (req.session.data.change_crop == 'plan_fertiliser') ? '../plan/fertiliser/fertiliser_when' : '../plan/manure/manure_fields'
+    res.redirect(next)
 })
 
 //show the right fertilisers

@@ -73,7 +73,7 @@
     {"name" : "Onions, salad", "type": "leafy", "reference": "Onions-salad" , "prettyname": "Salad Onions", "fave": false },
     {"name" : "Peas, market pick", "type": "leafy", "reference": "Peas-market" , "prettyname": "Peas (market pick)", "fave": false },
     {"name" : "Radish", "type": "leafy", "reference": "Radish" , "prettyname": "Radish", "fave": false },
-    {"name" : "Sweetcom", "reference": "Sweetcom" , "prettyname": "Sweetcom", "fave": false },
+    {"name" : "Sweetcorn", "type": "leafy", "reference": "Sweetcorn" , "prettyname": "Sweetcorn", "fave": false },
     {"name" : "Beetroot", "type": "root", "reference": "Beetroot" , "prettyname": "Beetroot", "fave": false },
     {"name" : "Carrots", "type": "root", "reference": "Carrots" , "prettyname": "Carrots", "fave": false },
     {"name" : "Parsnips", "type": "root", "reference": "Parsnips" , "prettyname": "Parsnips", "fave": false },

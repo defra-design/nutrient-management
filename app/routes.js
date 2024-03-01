@@ -282,8 +282,22 @@ router.get(/fertiliser_types_handler/, function (req, res) {
 
 //crop 
 router.get(/crop_group_handler/, function (req, res) { 
-    let next = (req.session.data.crop_group == "other") ? 'crop_when' : 'crop_type_all'
-    res.redirect(next)
+    if (req.session.data.crop_group == "other") {
+        res.redirect('crop_when')
+    } else {
+        res.redirect('crop_type_all')
+    }
+})
+
+router.get(/cropmvp_handler/, function (req, res) { 
+    if (req.session.data.crop_group == "other") {
+        res.redirect('fields')
+    } else if (req.session.data.crop_group == null) { 
+        req.session.data.crop_group = 'cereals'
+        res.redirect('crop_type_all')
+    } else {
+        res.redirect('crop_type_all')
+    }
 })
 
 //grass
@@ -609,6 +623,9 @@ router.get(/add_farms_handler/, function (req, res) {
 /////// MVP Crops
 //Set the chosen_crop
 router.get(/mvp_crop_handler/, function (req, res) { 
+    if (req.session.data.chosen_crop == null) { 
+        req.session.data.chosen_crop = 'Wheat-Winter'
+    }
     res.redirect('fields')
 })
 

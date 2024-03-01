@@ -705,5 +705,3 @@ router.get(/mineral_handler/, function (req, res) {
     let next = (req.session.data.nitrogen_mineralisation == "no") ? 'sns_index' : 'organic_adjustment'
     res.redirect(next)
 })
-
-//755

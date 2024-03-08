@@ -25,6 +25,8 @@
         What is the expected yield for {{data.chosen_crop | nameconverter}} per hectare?
       </h1>
 
+      <p>Enter the expected yield for most of the {{data.chosen_crop | nameconverter}} fields. You can change the expected yield for individual fields later.</p>
+
       <form class="form" action="crop_use" method="post">
 
         <div class="govuk-form-group">
@@ -37,7 +39,7 @@
         </div>
 
         {{ govukButton({
-          text: "Next"
+          text: "Continue"
         }) }}
 
       </form>

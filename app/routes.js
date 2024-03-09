@@ -85,6 +85,11 @@ router.get('/', function (req, res) {
     req.session.data.plan2025 = plan2025
     req.session.data.chosen_plan = plan2024
 
+    req.session.data.selected_fields = [{"reference":"1", "name":"Long Field", "planStatus":false, "crop": null, "soil": null},
+    {"reference":"2", "name":"Barn Field", "planStatus":false, "crop": null, "soil": null},
+    {"reference":"3", "name":"Orchard", "planStatus":false, "crop": null, "soil": null}]
+    console.log(req.session.data.selected_fields)
+
     //create sanitised references for the crop list
     // for(var x in req.session.data.crop_types) {
     //   var y = req.session.data.crop_types[x].name
@@ -106,6 +111,7 @@ router.get('/', function (req, res) {
     req.session.data.another_crop = 'no'
     req.session.data.chosen_plan = null //v2
     req.session.data.show_success_message = false
+    req.session.data.crop_count = 0
 
     // content vars
     req.session.data.organic_term = "Organic material"
@@ -117,6 +123,7 @@ router.get('/', function (req, res) {
     req.session.data.manure_spreads = 0
     req.session.data.fertiliser_spreads = 0
     res.render('index')
+    
 })
 
 //Set the chosenfield OBJECT
@@ -292,6 +299,10 @@ router.get(/crop_group_handler/, function (req, res) {
 router.get(/cropmvp_handler/, function (req, res) { 
     if (req.session.data.crop_group == "other") {
         res.redirect('fields')
+    } else if (req.session.data.crop_group == 'grass') { 
+        req.session.data.chosen_crop = 'grass'
+        req.session.data.crop_group = null
+        res.redirect('crop_group')
     } else if (req.session.data.crop_group == null) { 
         req.session.data.crop_group = 'cereals'
         res.redirect('crop_type_all')
@@ -631,13 +642,13 @@ router.get(/mvp_crop_handler/, function (req, res) {
 
 //add another crop
 router.get(/mvp_another_crop_handler/, function (req, res) { 
-    // if (req.session.data.another_crop == "yes") {
-    //     res.redirect('crops_grass')
-    // } else {
-    //     req.session.data.another_crop = 'no';
-    //     res.redirect('check')
-    // }
-    res.redirect('./check')
+    if (req.session.data.crop_count == 0 && req.session.data.another_crop == "yes") {
+        req.session.data.crop_count = 1
+        res.redirect('crop_type_second')
+    } else {
+        req.session.data.another_crop = 'no';
+        res.redirect('check')
+    }
 })
 
 router.get(/field_name_handler/, function (req, res) { 
@@ -720,5 +731,16 @@ router.get(/crop_nitrogen_handler/, function (req, res) {
 
 router.get(/mineral_handler/, function (req, res) { 
     let next = (req.session.data.nitrogen_mineralisation == "no") ? 'sns_index' : 'organic_adjustment'
+    res.redirect(next)
+})
+
+router.get(/secondcrop_handler/, function (req, res) { 
+    let next = ('fields_two')
+    console.log(req.session.data.chosen_crop)
+    res.redirect(next)
+})
+
+router.get(/yield_handler/, function (req, res) { 
+    let next = (req.session.data.chosen_crop == "turnips") ? 'another_crop' : 'crop_use'
     res.redirect(next)
 })

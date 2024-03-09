@@ -524,16 +524,7 @@ router.get(/field_reset_handler/, function (req, res) {
 //add a field view reset messages
 router.get(/field_add_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    if (req.session.data.oaktree_farm.fields_added == true) {
-        res.redirect('/mvp/add-field/type')
-    } else {
-        res.redirect('/mvp/add-field/name')
-    }
-
-    // req.session.data.show_success_message = false
-    // let next = (req.session.data.oaktree_farm.fields_added == true) ? '/mvp/add-field/type' : 'mvp/add-field/name'
-    // res.redirect(next)
-
+    res.redirect('/mvp/add-field/name')
 })
 
 //add a field view reset messages

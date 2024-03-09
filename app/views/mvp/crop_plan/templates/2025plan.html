@@ -88,22 +88,22 @@
       {% if data.oaktree_farm.use_mvp_fields == true %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Long Field</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Stubble-Turnips&chosenfield=Long Field">View field plan and recommendations</a></td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Long Field">View field plan and recommendations</a></td>
         </tr>      
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Barn Field</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Stubble-Turnips&chosenfield=Barn Field">View field plan and recommendations</a></td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Barn Field">View field plan and recommendations</a></td>
         </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Narrow field</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Stubble-Turnips&chosenfield=Narrow field">View field plan and recommendations</a></td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Narrow field">View field plan and recommendations</a></td>
         </tr>
         {% else %}
 
         {% for field in data.current_fields %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">{{field.name}}</td>
-            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Stubble-Turnips&chosenfield={{field.name}}">View field plan and recommendations</a></td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield={{field.name}}">View field plan and recommendations</a></td>
           </tr>
         {% endfor %}
 

@@ -28,8 +28,11 @@
       <!-- {% include "templates/title_span.html" %} -->
 
       <h1 class="govuk-heading-l">
-        What is the estimated sowing date for {{data.chosen_crop | nameconverter}} in Long Field?
+        What is the estimated sowing date?
       </h1>
+
+      <p>Enter the date you plan to sow most of the {{data.chosen_crop | nameconverter}} fields, you can change the sowing date for individual fields later.</p>
+
       <form class="form" action="yield" method="post">
 
         <div class="govuk-form-group">
@@ -69,15 +72,6 @@
               </div>
             </div>
           </fieldset>
-        </div>
-
-        <div class="govuk-form-group">
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-              Use this date for the other fields in this plan
-            </label>
-          </div>
         </div>
 
         {{ govukButton({

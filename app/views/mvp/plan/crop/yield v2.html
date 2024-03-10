@@ -22,7 +22,7 @@
       <!-- {% include "templates/title_span.html" %} -->
 
       <h1 class="govuk-heading-l">
-        What is the expected yield for {{data.chosen_crop | nameconverter}} per hectare?
+        What is the expected yield for {{data.chosen_crop | nameconverter}} per hectare in Long Field?
       </h1>
 
       <form class="form" action="yield_handler" method="post">
@@ -35,6 +35,16 @@
             <div class="govuk-input__suffix" aria-hidden="true">tonne</div>
           </div>
         </div>
+
+        <div class="govuk-form-group">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+              Use this yeild for the other fields in this plan
+            </label>
+          </div>
+        </div>
+
 
         {{ govukButton({
           text: "Next"

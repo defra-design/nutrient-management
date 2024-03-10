@@ -28,7 +28,7 @@ Milling{% extends "layouts/main.html" %}
       <!-- {% include "templates/title_span.html" %} -->
 
       <h1 class="govuk-heading-l">
-        How do you plan to use the crop from Long Field?
+        How do you plan to use the crop?
       </h1>
 
       <form class="form" action="straw" method="post">
@@ -56,16 +56,6 @@ Milling{% extends "layouts/main.html" %}
           </fieldset>
         </div>
       </div>
-
-      <div class="govuk-form-group">
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-            Apply this crop use to the other fields in this plan
-          </label>
-        </div>
-      </div>
-
 
         {{ govukButton({
           text: "Next"

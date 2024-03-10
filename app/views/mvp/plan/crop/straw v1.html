@@ -5,8 +5,9 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "/templates/signed-in.html" ignore missing %}
-  
+
+{% include "/templates/signed-in.html" ignore missing %}
+
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
@@ -20,10 +21,10 @@
 
       <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        Select your second crop type for the year
+        How do you plan to use the straw?
       </h1>
 
-      <form class="form" action="secondcrop_handler" method="post">
+      <form class="form" action="another_crop" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset">
@@ -32,23 +33,19 @@
                 Where do you live?
               </h1>
             </legend> -->
-
             <div class="govuk-radios" data-module="govuk-radios">
-
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="turnips" name="chosen_crop" type="radio" value="Turnips-stubble">
-                <label class="govuk-label govuk-radios__label" for="turnips">
-                  Stubble Turnips
+                <input class="govuk-radios__input" id="arable" name="straw" type="radio" value="arable">
+                <label class="govuk-label govuk-radios__label" for="arable">
+                  Baled
                 </label>
               </div>
-
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="forage_rape" name="chosen_crop" type="radio" value="forage_rape">
-                <label class="govuk-label govuk-radios__label" for="forage_rape">
-                  Forage Rape
+                <input class="govuk-radios__input" id="grass" name="straw" type="radio" value="grass">
+                <label class="govuk-label govuk-radios__label" for="grass">
+                  Incorporated
                 </label>
               </div>
-
             </div>
           </fieldset>
         </div>
@@ -59,7 +56,6 @@
       </form>
 
     </div>
-    
   </div>
 
   <p class="govuk-body">
@@ -67,13 +63,3 @@
   </p>
 
 {% endblock %}
-
-
-
-
-
-
-
-
-
-

@@ -28,10 +28,8 @@
       <!-- {% include "templates/title_span.html" %} -->
 
       <h1 class="govuk-heading-l">
-        What is the estimated sowing month?
+        When will you sow Winter Wheat in Long Field?
       </h1>
-
-      <p>Enter the date you plan to sow most of the {{data.chosen_crop | nameconverter}} fields, you can change the sowing date for individual fields later.</p>
 
       <form class="form" action="yield" method="post">
 
@@ -119,6 +117,16 @@
           </fieldset>
         </div>
 
+        <div class="govuk-form-group">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+              Use this date for all the fields in this plan
+            </label>
+          </div>
+        </div>
+
+
         <!-- <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
             <div id="passport-issued-hint" class="govuk-hint">
@@ -154,7 +162,7 @@
         </div>
  -->
         {{ govukButton({
-          text: "Next"
+          text: "Continue"
         }) }}
 
       </form>

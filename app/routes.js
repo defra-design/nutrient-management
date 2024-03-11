@@ -628,7 +628,7 @@ router.get(/mvp_crop_handler/, function (req, res) {
     if (req.session.data.chosen_crop == null) { 
         req.session.data.chosen_crop = 'Wheat-Winter'
     }
-    res.redirect('fields')
+    res.redirect('variety')
 })
 
 //add another crop

@@ -556,6 +556,17 @@ router.get(/fields_mvp_setup_handler/, function (req, res) {
     res.redirect('/mvp/start')
 })
 
+router.get(/plans_mvp_setup_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.oaktree_farm.fields_added = true
+    req.session.data.oaktree_farm.use_mvp_fields = true
+    req.session.data.current_fields = req.session.data.field_details_mvp
+    req.session.data.oaktree_farm.soil_added = true
+    res.redirect('/mvp/start')
+})
+
+
 router.get(/organic_handler/, function (req, res) { 
     //name
     if (req.session.data.farm_name == "") {

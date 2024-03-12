@@ -14,6 +14,8 @@ const field_details = require('./data/field_details.json');
 const field_details_v2 = require('./data/field_details_v2.json');
 const field_details_mvp = require('./data/field_details_mvp.json');
 const crop_types = require('./data/crops.json');
+const content = require('./content.js').content;
+
 
 let oaktree_farm = {
     name: "Oaktree Lane Farm",
@@ -62,6 +64,10 @@ let plan2024 = {
 
 //Index route loads data in application
 router.get('/', function (req, res) { 
+    // content vars
+    req.session.data.content = content
+    console.log(content.organic_term);
+
     //data
     req.session.data.field_details = field_details
     req.session.data.field_details_v2 = field_details_v2
@@ -112,12 +118,6 @@ router.get('/', function (req, res) {
     req.session.data.chosen_plan = null //v2
     req.session.data.show_success_message = false
     req.session.data.crop_count = 0
-
-    // content vars
-    req.session.data.organic_term = "Organic material"
-    req.session.data.non_organic_term = "Inorganic fertiliser"
-    req.session.data.harvest_year = "harvest year 2024"
-    req.session.data.todays_date = "7 February 2024"
 
     // route vars
     req.session.data.manure_spreads = 0

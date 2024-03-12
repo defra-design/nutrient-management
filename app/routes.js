@@ -6,8 +6,6 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-// Add your routes here
-
 //Import data
 const farm_details = require('./data/farm_details.json');
 const field_details = require('./data/field_details.json');
@@ -117,7 +115,7 @@ router.get('/', function (req, res) {
     req.session.data.organic_term = "Organic material"
     req.session.data.non_organic_term = "Inorganic fertiliser"
     req.session.data.harvest_year = "harvest year 2024"
-    req.session.data.todays_date = "7 February 2024"
+    req.session.data.todays_date = "13 March 2024"
 
     // route vars
     req.session.data.manure_spreads = 0

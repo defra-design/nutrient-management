@@ -40,8 +40,8 @@
         <h3 class="govuk-notification-banner__heading">
           {{data.chosen_plan.plan_update | statusconverter}}
         </h3>
-        <!-- <p class="govuk-body"><a href="">Manage the crops and fields in this plan</a></p> -->
-        <p class="govuk-body"><a href="../update/change_fields">Manage the crops and fields in this plan</a></p>
+        <p class="govuk-body"><a href="/mvp/plan/crop/crop_group">Add another crop to this plan</a></p>
+        <!-- <p class="govuk-body"><a href="../update/change_fields">Manage the crops and fields in this plan</a></p> -->
         <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="/mvp/plan/year">Create a nutrient management plan</a></p>     -->
         <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub">View Oaktree Lane Farm</a> </p> -->
       </div>
@@ -67,7 +67,7 @@
     {% endif  %}
 
     <p class="govuk-body">Last updated: {{data.chosen_plan.updated}}.</p>
-    <p class="govuk-body"><a href="">Manage the crops and fields in this plan</a></p>
+    <p class="govuk-body"><a href="/mvp/plan/crop/crop_group">Add another crop to this plan</a></p>
     <!-- <p class="govuk-body"><a href="../update/change_fields">Manage the crops and fields in this plan</a></p> -->
 </div>
 

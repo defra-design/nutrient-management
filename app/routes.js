@@ -726,7 +726,7 @@ router.get(/mineral_handler/, function (req, res) {
 })
 
 router.get(/secondcrop_handler/, function (req, res) { 
-    let next = ('fields_two')
+    let next = ('variety_two')
     console.log(req.session.data.chosen_crop)
     res.redirect(next)
 })

@@ -561,11 +561,12 @@ router.get(/plans_mvp_setup_handler/, function (req, res) {
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.oaktree_farm.use_mvp_fields = true
+    req.session.data.chosen_plan = req.session.data.plan2025
+    req.session.data.oaktree_farm.plans_added = true
     req.session.data.current_fields = req.session.data.field_details_mvp
     req.session.data.oaktree_farm.soil_added = true
     res.redirect('/mvp/start')
 })
-
 
 router.get(/organic_handler/, function (req, res) { 
     //name

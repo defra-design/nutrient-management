@@ -732,6 +732,6 @@ router.get(/secondcrop_handler/, function (req, res) {
 })
 
 router.get(/yield_handler/, function (req, res) { 
-    let next = (req.session.data.chosen_crop == "Turnips-stubble") ? 'another_crop' : 'crop_use'
+    let next = (req.session.data.chosen_crop == "Turnips-stubble") ? 'check' : 'crop_use'
     res.redirect(next)
 })

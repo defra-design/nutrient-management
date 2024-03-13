@@ -643,13 +643,8 @@ router.get(/mvp_crop_handler/, function (req, res) {
 
 //add another crop
 router.get(/mvp_another_crop_handler/, function (req, res) { 
-    if (req.session.data.crop_count == 0 && req.session.data.another_crop == "yes") {
-        req.session.data.crop_count = 1
-        res.redirect('crop_type_second')
-    } else {
-        req.session.data.another_crop = 'no';
-        res.redirect('check')
-    }
+    let next = (req.session.data.another_crop == "yes") ? 'crop_type_second' : 'check'
+    res.redirect(next)
 })
 
 router.get(/field_name_handler/, function (req, res) { 

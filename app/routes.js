@@ -22,11 +22,19 @@ let oaktree_farm = {
     elevation: "some",
     organic_producer: false,
     latest_update: null,
-    plans_added: false,
+    planFour : false,
+    planFive : false,
     fields_added: false,
     use_mvp_fields: false,
     setup: false,
-    soil_added: false
+    soil_added: false,
+    plans_added : function() {
+        if(planFour == false || planFive == false) {
+            return false
+        } else {
+            return true
+        }
+    }
 };
 
 var tempField = {

@@ -24,11 +24,14 @@
 <div class="status-header">
   <h1 class="govuk-heading-l">Plans and records</h1>
 
-  {% if data.plan2025.crop_added == false %}
+  {% if data.oaktree_farm.plans_added == false %}
     <p class="govuk-body">You have no nutrient management plans.</p>
+    <p class="govuk-body"><a href="plan/year">Create a new plan</a></p>
+  {% else %}
+    <p class="govuk-body"><a href="/mvp/plan/crop/crop_group">Create a new plan</a></p>
   {% endif %}
 
-  <p class="govuk-body"><a href="plan/year">Create a new plan</a></p>
+
 </div>  
 
 <div class="govuk-grid-row">
@@ -54,7 +57,27 @@
               <td class="govuk-table__cell"><a href="crop_plan_year_handler?harvestdate=2025">View or edit</a></td>
             </tr>
           </tbody>
-        </table>        
+        </table>     
+      {% elif data.oaktree_farm.fields_added == true and data.oaktree_farm.plans_added == true %}   
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Plans</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Harvest year</th>
+              <!-- <th scope="col" class="govuk-table__header">Status</th> -->
+              <th scope="col" class="govuk-table__header">Last modified</th>
+              <th scope="col" class="govuk-table__header"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">  
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">2025</td>
+              <!-- <td class="govuk-table__cell">Status</td> -->
+              <td class="govuk-table__cell">{{data.todays_date}}</td>
+              <td class="govuk-table__cell"><a href="crop_plan_year_handler?harvestdate=2025">View or edit</a></td>
+            </tr>
+          </tbody>
+        </table>     
       {% endif %}
 
     <!-- <p class="govuk-body"><a href="#">View all previous plans</a></p> -->

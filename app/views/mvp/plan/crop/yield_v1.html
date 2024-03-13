@@ -22,12 +22,11 @@
       <!-- {% include "templates/title_span.html" %} -->
 
       <h1 class="govuk-heading-l">
-        What is the expected yield for {{data.chosen_crop | nameconverter}} per hectare in Long Field?
+        What is the expected yield for {{data.chosen_crop | nameconverter}} per hectare?
       </h1>
 
-      <p>The average expected yield from RB209 is 7 tonnes per hectare.</p>
-
       <form class="form" action="yield_handler" method="post">
+      <p>Enter the expected yield for most of the {{data.chosen_crop | nameconverter}} fields. You can change the expected yield for individual fields later.</p>
 
         <div class="govuk-form-group">
           <!-- <label class="govuk-label" for="weight">
@@ -37,16 +36,6 @@
             <div class="govuk-input__suffix" aria-hidden="true">tonne</div>
           </div>
         </div>
-
-        <div class="govuk-form-group">
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-              Use this yield for the rest of the fields in this plan
-            </label>
-          </div>
-        </div>
-
 
         {{ govukButton({
           text: "Continue"

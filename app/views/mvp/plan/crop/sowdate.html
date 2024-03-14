@@ -30,7 +30,7 @@
       <h1 class="govuk-heading-l">
         What is the estimated sowing date for {{data.chosen_crop | nameconverter}} in Long Field?
       </h1>
-      <form class="form" action="yield" method="post">
+      <form class="form" action="mvp_date_handler" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
@@ -73,8 +73,8 @@
 
         <div class="govuk-form-group">
           <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+            <input class="govuk-checkboxes__input" id="alldate" name="alldate" type="checkbox" value="yes">
+            <label class="govuk-label govuk-checkboxes__label" for="alldate">
               Use this date for the rest of the fields in this plan
             </label>
           </div>

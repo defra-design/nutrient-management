@@ -12,6 +12,8 @@ const content = require('./content.js').content;
 const Farm = require('./farm.js');
 const oaktree_farm = Farm.createFarm();
 
+let currentFieldGroup = [];
+
 var tempField = {
     name: "Short Field",
     reference: "shortfield",
@@ -42,6 +44,14 @@ let plan2024 = {
     plan_update: null,
     updated: '10 November 2023' 
 };
+
+let getFieldByReference = function(chosenField, farmFields) {
+    for (var y in farmFields) {
+        if (farmFields[y].reference == chosenField) {
+            return farmFields[y]
+        }
+    }
+}    
 
 //index route, loads data in application
 router.get('/', function (req, res) { 

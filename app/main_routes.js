@@ -265,4 +265,28 @@ router.get(/yield_handler/, function (req, res) {
     res.redirect(next)
 })
 
+router.get(/mvp_fields_handler/, function (req, res) { 
+    for (var x in req.session.data.crop_fields) {
+        for (var y in req.session.data.current_fields) {
+            if (req.session.data.current_fields[y].reference == req.session.data.crop_fields[x]) {
+                console.log(req.session.data.current_fields[y])
+            }
+        }
+    }
+    res.redirect('sowdate')
+})
+
+router.get(/mvp_date_handler/, function (req, res) { 
+    if(req.session.data.alldate == 'yes') {
+        res.redirect('yield')
+    }
+    // show the first chosen field
+    // if they dont check the box 
+    // show the next chosen field
+    // if there's no more fields go to yield
+   
+})
+
+
+
 module.exports = router

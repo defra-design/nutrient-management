@@ -9,8 +9,8 @@ const field_details_mvp = require('./data/field_details_mvp.json');
 const crop_types = require('./data/crops.json');
 const content = require('./content.js').content;
 
-var Farm = require('./farm.js');
-var oaktree_farm = Farm.createFarm();
+const Farm = require('./farm.js');
+const oaktree_farm = Farm.createFarm();
 
 var tempField = {
     name: "Short Field",
@@ -43,11 +43,12 @@ let plan2024 = {
     updated: '10 November 2023' 
 };
 
-//index route loads data in application
+//index route, loads data in application
 router.get('/', function (req, res) { 
-    // content vars
+    //content variables
     req.session.data.content = content
 
+    //create oaktree farm
     req.session.data.oaktree_farm = oaktree_farm
     req.session.data.oaktree_farm.name = 'Oaktree Lane Farm'
     req.session.data.oaktree_farm.postcode = "NE46 7LQ"
@@ -62,7 +63,7 @@ router.get('/', function (req, res) {
     req.session.data.oaktree_farm.soil_added = false
     req.session.data.oaktree_farm.fields_added = false
     req.session.data.oaktree_farm.plans_added = false
-    req.session.data.oaktree_farm.printFarm()
+    //req.session.data.oaktree_farm.printFarm()
 
     //data
     req.session.data.field_details = field_details
@@ -108,4 +109,5 @@ router.get('/', function (req, res) {
 
 //import routes
 var main_routes = require('./main_routes.js');
-router.use('/', main_routes);
+var alpha_routes = require('./alpha_routes.js');
+router.use('/', main_routes, alpha_routes);

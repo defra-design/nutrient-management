@@ -32,7 +32,7 @@
 
     <br>
     <h2 class="govuk-heading-m">
-      {{data.organic_term}} plan for {{data.chosenfield.name}}
+      {{data.content.organic_term}} plan for {{data.chosenfield.name}}
     </h2>
     <div class="check-answers">
       {% include "./check_one_organic.html" ignore missing %}
@@ -49,7 +49,7 @@
     </div>
       <!-- <div class="govuk-grid-column-full">
   <h2 class="govuk-heading-m">
-      {{data.harvest_year | capitalize}} {{data.non_organic_term}} recommendations for {{data.chosenfield.name}}
+      {{data.harvest_year | capitalize}} {{data.content.non_organic_term}} recommendations for {{data.chosenfield.name}}
     </h2> 
 
     table class="govuk-table recomendation-table">
@@ -105,7 +105,7 @@
     <!-- <div class="govuk-grid-column-two-thirds-from-desktop">
     <br>
     <h2 class="govuk-heading-m">
-      {{data.non_organic_term}} plan 
+      {{data.content.non_organic_term}} plan 
     </h2>
     <div class="check-answers">
       {% include "./check_two_content.html" ignore missing %}-->

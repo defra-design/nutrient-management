@@ -6,80 +6,34 @@
 
 {% block content %}
 
-{% if data.farms_added == false %}
-  <p class="govuk-body">
-    You have not set up any farms.
-  </p>
+{% if data.show_success_message == true %}
+  <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+    aria-labelledby="govuk-notification-banner-title"
+    data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Success
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <h3 class="govuk-notification-banner__heading">
+        You have added Oaktree Lane Farm.
+      </h3>
+      <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub">View Oaktree Lane Farm</a> </p>
+    </div>
+  </div>
+{% endif %}
+
+<h1 class="govuk-heading-l">Current farms</h1>
+
+{% if data.oaktree_farm.setup == true %}
+  <div>
+      <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub">View Oaktree Lane Farm</a> </p>
+      <br>
+  </div>
 {% else %}
-
-<!-- <div class="govuk-notification-banner" role="region"
-  aria-labelledby="govuk-notification-banner-title"
-  data-module="govuk-notification-banner">
-  <div class="govuk-notification-banner__header">
-    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-      Important
-    </h2>
-  </div>
-  <div class="govuk-notification-banner__content">
-    <p class="govuk-notification-banner__heading">
-      You have 7 days left to send your application.
-      <a class="govuk-notification-banner__link" href="#">View application</a>.
-    </p>
-  </div>
-</div> -->
-
-<div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
-  aria-labelledby="govuk-notification-banner-title"
-  data-module="govuk-notification-banner">
-  <div class="govuk-notification-banner__header">
-    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-      Success
-    </h2>
-  </div>
-  <div class="govuk-notification-banner__content">
-    <h3 class="govuk-notification-banner__heading">
-      You have added Oaktree Lane Farm.
-    </h3>
-    <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub">View Oaktree Lane Farm</a> </p>
-  </div>
-</div>
-
-<!-- <ul class="govuk-list">
-  <li>
-    <a class="govuk-link" href="hub">Oaktree Lane Farm</a>
-  </li>
-</uli> -->
-
+  <p class="govuk-body">You currently have no farms.</p>
 {% endif %}
-
-<h1 class="govuk-heading-xl">Current farms</h1>
-<!-- <h1 class="govuk-heading-xl">{{data.farm_details.plan_status}}</h1> -->
-
-<!-- <div class="status-header">
-  <p class="govuk-table__body">Planning status</p>
-  {% if data.farm_details.plan_status == "none" %}
-  <h2 class="govuk-heading-m">No nutrient application plan for {{data.harvest_year}}</h2>
-  <p class="govuk-body">
-    <a href="./create/fields.html" class="govuk-link">Create a nutrient application plan</a>
-  </p>
-{% else %}
-  <h2 class="govuk-heading-m">Plan started for {{data.harvest_year}}</h2>
-  <p class="govuk-body">
-    <a href="./create/fields.html" class="govuk-link">View or edit nutrient application plan</a>
-  </p>
-{% endif %}
-</div>  -->
-
-{% if data.farms_added == true %}
-
-<div>
-    <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub">View Oaktree Lane Farm</a> </p>
-</div>
-
-
-{% endif %}
-
-<hr class="medium_seperator">
 
 <div>
   <h2 class="govuk-heading-m">Add a new farm</h2>

@@ -31,6 +31,7 @@ CropGroup.prototype.reset = function () {
 CropGroup.prototype.getFieldByReference = function (currentFarmFields, referenceNumber) {
   for (var field in currentFarmFields) {
     if (currentFarmFields[field].reference == referenceNumber) {
+        console.log(currentFarmFields[field])
         return currentFarmFields[field]
     }
   }

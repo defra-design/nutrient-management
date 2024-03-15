@@ -33,8 +33,8 @@ crop_group_one.secondCropReference = 'Turnips-stubble';
 crop_group_one.firstCropFields = ['1', '2', '3'];
 crop_group_one.secondCropFields = ['1', '2', '3'];
 
-var testy = crop_group_one.getFieldByReference(field_details_mvp, 9);
-console.log(testy);
+// var testy = crop_group_one.getFieldByReference(field_details_mvp, 9);
+// console.log(testy);
 
 let currentFieldGroup = [];
 
@@ -69,14 +69,6 @@ let plan2024 = {
     updated: '10 November 2023' 
 };
 
-let getFieldByReference = function(chosenField, farmFields) {
-    for (var y in farmFields) {
-        if (farmFields[y].reference == chosenField) {
-            return farmFields[y]
-        }
-    }
-}    
-
 //index route, loads data in application
 router.get('/', function (req, res) { 
     //content variables
@@ -88,8 +80,8 @@ router.get('/', function (req, res) {
     
     //create 2025 crop group one
     req.session.data.crop_group_one = crop_group_one
-    crop_group_one.printCropGroup();
-
+    req.session.data.crop_group_one.printCropGroup();
+    req.session.data.crop_group_one.getFieldByReference(req.session.data.field_details_mvp, 9)
 
     //data
     req.session.data.field_details = field_details

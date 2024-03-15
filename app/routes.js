@@ -11,6 +11,30 @@ const content = require('./content.js').content;
 
 const Farm = require('./farm.js');
 const oaktree_farm = Farm.createFarm();
+oaktree_farm.name = 'Oaktree Lane Farm';
+oaktree_farm.postcode = "NE46 7LQ";
+oaktree_farm.nvz = "some";
+oaktree_farm.elevation =  "some";
+oaktree_farm.rganic_producer = false;
+oaktree_farm.latest_update = null;
+oaktree_farm.planFour = false;
+oaktree_farm.planFive = false;
+oaktree_farm.use_mvp_fields = false;
+oaktree_farm.setup = false;
+oaktree_farm.soil_added = false;
+oaktree_farm.fields_added = false;
+oaktree_farm.plans_added = false;
+
+const CropGroup = require('./crop_group.js');
+const crop_group_one = CropGroup.createCropGroup();
+crop_group_one.year = '2025';
+crop_group_one.firstCropReference = 'Wheat-Winter';
+crop_group_one.secondCropReference = 'Turnips-stubble';
+crop_group_one.firstCropFields = ['1', '2', '3'];
+crop_group_one.secondCropFields = ['1', '2', '3'];
+
+var testy = crop_group_one.getFieldByReference(field_details_mvp, 9);
+console.log(testy);
 
 let currentFieldGroup = [];
 
@@ -60,20 +84,12 @@ router.get('/', function (req, res) {
 
     //create oaktree farm
     req.session.data.oaktree_farm = oaktree_farm
-    req.session.data.oaktree_farm.name = 'Oaktree Lane Farm'
-    req.session.data.oaktree_farm.postcode = "NE46 7LQ"
-    req.session.data.oaktree_farm.nvz = "some"
-    req.session.data.oaktree_farm.elevation =  "some"
-    req.session.data.oaktree_farm.rganic_producer = false
-    req.session.data.oaktree_farm.latest_update = null
-    req.session.data.oaktree_farm.planFour = false
-    req.session.data.oaktree_farm.planFive = false
-    req.session.data.oaktree_farm.use_mvp_fields = false
-    req.session.data.oaktree_farm.setup = false
-    req.session.data.oaktree_farm.soil_added = false
-    req.session.data.oaktree_farm.fields_added = false
-    req.session.data.oaktree_farm.plans_added = false
-    //req.session.data.oaktree_farm.printFarm()
+    req.session.data.oaktree_farm.printFarm()
+    
+    //create 2025 crop group one
+    req.session.data.crop_group_one = crop_group_one
+    crop_group_one.printCropGroup();
+
 
     //data
     req.session.data.field_details = field_details

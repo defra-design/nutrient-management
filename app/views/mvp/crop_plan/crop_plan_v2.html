@@ -40,11 +40,10 @@
         <h3 class="govuk-notification-banner__heading">
           {{data.chosen_plan.plan_update | statusconverter}}
         </h3>
-        <!-- <p class="govuk-body"><a href="/mvp/plan/crop/crop_group">Add another crop to this plan</a></p> -->
-        <p class="govuk-body"><a href="">Add another crop to this plan</a></p>
-        <p class="govuk-body"><a href="">Add manures or fertilisers to this plan</a></p>
-        <p class="govuk-body"><a href="">Create a record from this plan</a></p>
-        <p class="govuk-body"><a href="">Download this plan</a></p>
+        <p class="govuk-body"><a href="/mvp/plan/crop/crop_group">Add another crop to this plan</a></p>
+        <!-- <p class="govuk-body"><a href="../update/change_fields">Manage the crops and fields in this plan</a></p> -->
+        <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="/mvp/plan/year">Create a nutrient management plan</a></p>     -->
+        <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub">View Oaktree Lane Farm</a> </p> -->
       </div>
     </div>
   {% endif %}
@@ -53,19 +52,40 @@
   
   <div class="crop_plan_title">
 
-    <p class="govuk-body">Last updated: {{data.chosen_plan.updated}}</p>
-    <p class="govuk-body"><a href="">Add another crop to this plan</a></p>
-    <p class="govuk-body"><a href="">Add manures or fertilisers to this plan</a></p>
-    <p class="govuk-body"><a href="">Create a record from this plan</a></p>
-    <p class="govuk-body"><a href="">Download or print this plan</a></p>
+    {% if data.oaktree_farm.use_mvp_fields == false %}
+      {% set fieldCount = 0  %}
+        {% for item in data.current_fields  %}
+          {% set fieldCount = fieldCount + 1  %}
+        {% endfor  %}
+        {% if fieldCount == 1 %}
+          <p class="govuk-body">There is 1 field in this plan.</p>
+        {% else %}
+          <p class="govuk-body">There are {{fieldCount}} fields in this plan.</p>
+        {% endif %}
+      {% else %}
+      <p class="govuk-body">There are 3 fields in this plan.</p>
+    {% endif  %}
+
+    <p class="govuk-body">Last updated: {{data.chosen_plan.updated}}.</p>
+    <p class="govuk-body"><a href="/mvp/plan/crop/crop_group">Add another crop to this plan</a></p>
+    <!-- <p class="govuk-body"><a href="../update/change_fields">Manage the crops and fields in this plan</a></p> -->
 </div>
 
   <hr class="seperator_five">
 
   <h2 class="govuk-heading-m">Winter Wheat</h2>
 
+  {% if data.oaktree_farm.use_mvp_fields == false %}
+    {% if fieldCount == 1 %}
+      <p class="govuk-body">1 field</p>
+    {% else %}
+      <p class="govuk-body">There are {{fieldCount}} fields in this group.</p>
+    {% endif %}
+  {% else %}
+    <p class="govuk-body">There are 3 fields in this group.</p>
+  {% endif %}
+
   <p class="govuk-body"><a href="">Change this Winter Wheat plan</a></p>
-  <!-- <p class="govuk-body"><a href="/mvp/update/change_plan">Change this Winter Wheat plan</a></p> -->
 
   {% set page_crop_status = 'Crop added' %}
 
@@ -75,7 +95,8 @@
     {% set page_crop_status = 'Manure added' %}
   {% endif %}
 
-  <table class="govuk-table margin-bottom-forty">
+  <table class="govuk-table">
+    <!-- <caption class="govuk-table__caption govuk-table__caption--m">Long Field</caption> -->
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Field</th>
@@ -111,7 +132,21 @@
     </tbody>
   </table>
 
+  <!-- <p class="govuk-body"><a href="">Change this Winter Wheat plan</a></p> -->
+  <!-- <hr class="seperator_five"> -->
+  
+  <!-- <hr class="big_seperator"> -->
   <h2 class="govuk-heading-m">Stubble Turnips</h2>
+
+  {% if data.oaktree_farm.use_mvp_fields == false %}
+    {% if fieldCount == 1 %}
+      <p class="govuk-body">1 field</p>
+    {% else %}
+      <p class="govuk-body">There are {{fieldCount}} fields in this group.</p>
+    {% endif %}
+  {% else %}
+    <p class="govuk-body">There are 3 fields in this group.</p>
+  {% endif %}
 
   <p class="govuk-body"><a href="">Change this Stubble Turnips plan</a></p>
 
@@ -124,6 +159,7 @@
   {% endif %}
 
   <table class="govuk-table">
+    <!-- <caption class="govuk-table__caption govuk-table__caption--m">Long Field</caption> -->
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Field</th>
@@ -159,6 +195,62 @@
     </tbody>
   </table>
 
+  <!-- <p class="govuk-body"><a href="">Change this Stubble Turnips plan</a></p> -->
+
+  <!-- <p class="govuk-body"><a href="change_wheat">Change Winter Wheat plan</a></p> -->
+
+  <!-- <hr class="big_seperator">
+
+  <h2 class="govuk-heading-m">Grass</h2>
+  <p class="govuk-body">3 fields</p>
+
+  <table class="govuk-table crop_table data-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Field</th>
+        <th scope="col" class="govuk-table__header">Status</th>
+        <th scope="col" class="govuk-table__header"> </th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Field 4</td>
+        <td class="govuk-table__cell">Crop added</td>
+        <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Field4">View field plan and recommendations</a></td>
+      </tr>      
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Field 5</td>
+        <td class="govuk-table__cell">Crop added</td>
+        <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Field4">View field plan and recommendations</a></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Field 6</td>
+        <td class="govuk-table__cell">Crop added</td>
+        <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Field4">View field plan and recommendations</a></td>
+      </tr>
+    </tbody>
+  </table> -->
+    <!-- <div class="govuk-grid-column-one-third">
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-s" id="subsection-title">
+          Update this plan
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list font-size-17">
+            <li>
+              <a href="../update/change_fields">
+                Manage crops and fields in this plan
+              </a>
+            </li>
+            <li>
+              <a href="">
+                Delete this plan
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div> -->
 
   </div>
 

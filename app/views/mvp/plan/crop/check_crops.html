@@ -57,7 +57,7 @@
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
-  {% if data.crop_count == 1 %}
+  {% if data.another_crop == 'yes' %}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Do you plan to use any other crops in this harvest year?</dt>
       <dd class="govuk-summary-list__value">Yes</dd>
@@ -88,11 +88,6 @@
       <dd class="govuk-summary-list__value">4 tonnes per hectare</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Do you plan to use any other crops in this harvest year?</dt>
-      <dd class="govuk-summary-list__value">{{data.another_crop | capitalize}}</dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div> 
   {% else %}
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Do you plan to use any other crops in this harvest year?</dt>

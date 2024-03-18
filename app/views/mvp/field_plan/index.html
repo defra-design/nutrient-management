@@ -34,12 +34,9 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-    <div class="status-header">
-      <h1 class="govuk-heading-l">{{data.chosenfield}} <br>Plan and recommendations</h1>
-      <p class="govuk-body">Harvest year: {{data.chosen_plan.harvest_date}}</p>
+    <div class="status-header margin-bottom-forty">
+      <h1 class="govuk-heading-l">{{data.chosenfield}} recommendations {{data.chosen_plan.harvest_date}}</h1>
     </div>  
-
-    <hr class="seperator_five">
 
     <h2 class="govuk-heading-m">Crop details</h2>
 
@@ -62,14 +59,16 @@
           <td class="govuk-table__cell">Estimated yield</td>
           <td class="govuk-table__cell">7 tonne per hecare</td>
         </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Crop use</td>
-          <td class="govuk-table__cell">Feed</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Straw use</td>
-          <td class="govuk-table__cell">Baled</td>
-        </tr>
+        {% if data.chosen_crop !== "Turnips-stubble" %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Crop use</td>
+            <td class="govuk-table__cell">Feed</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Straw use</td>
+            <td class="govuk-table__cell">Baled</td>
+          </tr>
+        {% endif %}
       </tbody>
     </table>   
 

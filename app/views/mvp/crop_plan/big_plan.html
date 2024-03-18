@@ -1,0 +1,201 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/templates/signed-in.html" ignore missing %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Oaktree Lane Farm",
+        href: "../hub"
+      },
+      {
+        text: "Plans and records",
+        href: "../plans_records"
+      },
+      {
+        text: "Harvest year " + data.chosen_plan.harvest_date
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Crop plan for harvest year {{data.chosen_plan.harvest_date}}</h1>
+    
+    <div class="crop_plan_title">
+
+        {% if data.oaktree_farm.use_mvp_fields == false %}
+        {% set fieldCount = 0  %}
+            {% for item in data.current_fields  %}
+            {% set fieldCount = fieldCount + 1  %}
+            {% endfor  %}
+            {% if fieldCount == 1 %}
+            <p class="govuk-body">There is 1 field in this plan.</p>
+            {% else %}
+            <p class="govuk-body">There are {{fieldCount}} fields in this plan.</p>
+            {% endif %}
+        {% else %}
+        <p class="govuk-body">There are 3 fields in this plan.</p>
+        {% endif  %}
+
+        <p class="govuk-body">Last updated: {{data.chosen_plan.updated}}.</p>
+        <p class="govuk-body"><a href="/mvp/plan/crop/crop_group">Add another crop to this plan</a></p>
+    </div>
+
+    <hr class="seperator_five">
+
+    <h2 class="govuk-heading-m">Winter Wheat</h2>
+
+    <p class="govuk-body"><a href="">Change this Winter Wheat plan</a></p>
+
+    <table class="govuk-table margin-bottom-forty big_crop_table">
+      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Long Field</caption> -->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Field</th>
+          <th scope="col" class="govuk-table__header">Second crop</th>
+          <th scope="col" class="govuk-table__header"> </th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Long Field</td>
+          <td class="govuk-table__cell">Stubble Turnips</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Long Field">View recommendations</a></td>
+        </tr>      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Barn Field</td>
+          <td class="govuk-table__cell">Stubble Turnips</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Barn Field">View recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Orchard</td>
+          <td class="govuk-table__cell">Stubble Turnips</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Narrow field">View recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Valley</td>
+            <td class="govuk-table__cell">Stubble Turnips</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Long Field">View recommendations</a></td>
+        </tr>      
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Poplar</td>
+            <td class="govuk-table__cell">Stubble Turnips</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Barn Field">View recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Oaks</td>
+            <td class="govuk-table__cell">Stubble Turnips</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Narrow field">View recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Narrow field</td>
+            <td class="govuk-table__cell">Stubble Turnips</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Narrow field">View recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">25 Acres</td>
+            <td class="govuk-table__cell">Stubble Turnips</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Narrow field">View recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Shed</td>
+            <td class="govuk-table__cell">Stubble Turnips</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Narrow field">View recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Park 1</td>
+            <td class="govuk-table__cell">Stubble Turnips</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Narrow field">View recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Park 2</td>
+            <td class="govuk-table__cell">Stubble Turnips</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Narrow field">View recommendations</a></td>
+        </tr>
+
+
+      </tbody>
+    </table>
+
+    <h2 class="govuk-heading-m">Winter Rye</h2>
+
+    <p class="govuk-body"><a href="">Change this Winter Rye plan</a></p>
+
+    <table class="govuk-table big_crop_table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Field</th>
+          <th scope="col" class="govuk-table__header">Second Crop</th>
+          <th scope="col" class="govuk-table__header"> </th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+      {% if data.oaktree_farm.use_mvp_fields == true %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Barns</td>
+          <td class="govuk-table__cell">Stubble Turnips</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Long Field">View recommendations</a></td>
+        </tr>      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Red well</td>
+          <td class="govuk-table__cell">Stubble Turnips</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Barn Field">View recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Hops 1</td>
+          <td class="govuk-table__cell">Stubble Turnips</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Barn Field">View recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Hops 2</td>
+            <td class="govuk-table__cell">None</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Barn Field">View recommendations</a></td>
+          </tr>      
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Hops 3</td>
+            <td class="govuk-table__cell">None</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Barn Field">View recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Short Field</td>
+            <td class="govuk-table__cell">None</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Barn Field">View recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Low meadow</td>
+                <td class="govuk-table__cell">None</td>
+                <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Barn Field">View recommendations</a></td>
+            </tr>
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">High meadow</td>
+            <td class="govuk-table__cell">None</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Barn Field">View recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Short Field</td>
+            <td class="govuk-table__cell">None</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Barn Field">View recommendations</a></td>
+        </tr>
+
+        {% endif %}
+
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+{% endblock %}

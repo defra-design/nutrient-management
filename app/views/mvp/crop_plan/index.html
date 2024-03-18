@@ -52,7 +52,6 @@
   <h1 class="govuk-heading-l">Crop plan for harvest year {{data.chosen_plan.harvest_date}}</h1>
   
   <div class="crop_plan_title">
-
     <p class="govuk-body">Last updated: {{data.chosen_plan.updated}}</p>
     <p class="govuk-body"><a href="">Add another crop to this plan</a></p>
     <p class="govuk-body"><a href="">Add manures or fertilisers to this plan</a></p>
@@ -66,14 +65,6 @@
 
   <p class="govuk-body"><a href="">Change this Winter Wheat plan</a></p>
   <!-- <p class="govuk-body"><a href="/mvp/update/change_plan">Change this Winter Wheat plan</a></p> -->
-
-  {% set page_crop_status = 'Crop added' %}
-
-  {% if data.chosen_plan.manure_added == true and data.chosen_plan.fertiliser_added == true %}
-    {% set page_crop_status = 'Crops, manure and fertiliser added' %}
-  {% elif data.chosen_plan.fertiliser_added == false and data.chosen_plan.manure_added == true  %}
-    {% set page_crop_status = 'Manure added' %}
-  {% endif %}
 
   <table class="govuk-table margin-bottom-forty">
     <thead class="govuk-table__head">

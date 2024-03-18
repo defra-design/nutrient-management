@@ -32,11 +32,12 @@ router.get(/plans_mvp_setup_handler/, function (req, res) {
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.oaktree_farm.use_mvp_fields = true
-    req.session.data.chosen_plan = req.session.data.plan2025
-    req.session.data.current_fields = req.session.data.field_details_mvp
     req.session.data.oaktree_farm.soil_added = true
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
+    req.session.data.chosen_plan = req.session.data.plan2025 // should come out
+    req.session.data.current_crop_group = req.session.data.crop_group_one
+    req.session.data.current_fields = req.session.data.field_details_mvp
     res.redirect('/mvp/start')
 })
 
@@ -287,6 +288,9 @@ router.get(/mvp_date_handler/, function (req, res) {
     res.redirect('yield')
 })
 
+router.get(/main_plan_view/, function (req, res) { 
+    res.render('mvp/crop_plan/main_plan_view')
+})
 
 
 module.exports = router

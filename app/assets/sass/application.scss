@@ -197,15 +197,6 @@ hr.medium_seperator {
 //     padding: 15px 25px;
 // }
 
-.crop_table {
-    tr td:first-child {
-        width: 12%;
-    }
-    tr td:last-child {
-        text-align: right;
-    }
-}
-
 .font-size-17 {
     font-size: 17px;
     li {
@@ -267,4 +258,19 @@ tr.right-last {
     font-size: 19px;
     line-height: 1.25;
     margin-top: 20px;
+}
+
+.crop_table {
+    tr td:first-child {
+        width: 12%;
+    }
+    tr td:last-child {
+        text-align: right;
+    }
+}
+
+.big_crop_table {
+    tr.td:first-child {
+        width: 60%
+    }
 }

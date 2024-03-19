@@ -20,16 +20,18 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="date" method="post" novalidate="">
+      <h1 class="govuk-heading-l">Add the soil analysis for {{data.temp_field_name}}</h1>
 
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h1 class="govuk-fieldset__heading">Soil details</h1>
-        </legend>
+      <form action="date" method="post" novalidate="">
                 
-        <div class="govuk-form-group">
+        <div class="govuk-form-group margin-bottom-forty">
           <fieldset class="govuk-fieldset">
-            <label class="govuk-label" for="address-postcode">What is the soil type in {{data.temp_field_name}}? (Choose one)</label>
+            <label class="govuk-label" for="address-postcode">What is the soil type in {{data.temp_field_name}}?</label>
             <div class="govuk-radios" data-module="govuk-radios">
+              <div id="contact-hint" class="govuk-hint">
+                Select one option
+              </div>
+    
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="light" name="whereDoYouLive" type="radio" value="light">
                 <label class="govuk-label govuk-radios__label" for="light">Light Sand</label>
@@ -66,13 +68,29 @@
           <fieldset class="govuk-fieldset">
             <label class="govuk-label" for="potassium">Does {{data.temp_field_name}} contain potash-releasing clay?</label>
             <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-              <div class="govuk-radios__item">
+              <div class="govuk-radios__item margin-bottom-none">
                 <input class="govuk-radios__input" id="potassium" name="potassium" type="radio" value="yes">
                 <label class="govuk-label govuk-radios__label" for="potassium">Yes</label>
               </div>
-              <div class="govuk-radios__item">
+              <div class="govuk-radios__item margin-bottom-none">
                 <input class="govuk-radios__input" id="potassium-2" name="potassium" type="radio" value="no">
                 <label class="govuk-label govuk-radios__label" for="potassium-2">No</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group margin-bottom-forty">
+          <fieldset class="govuk-fieldset">
+            <label class="govuk-label" for="nitrate">Is the soil deficient in sulphur (S)?</label>
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nitrate" name="nitrate" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="nitrate">Yes</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nitrate-2" name="nitrate" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="nitrate-2">No</label>
               </div>
             </div>
           </fieldset>

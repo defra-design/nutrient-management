@@ -56,8 +56,9 @@ router.get(/mvp_check_handler/, function (req, res) {
     req.session.data.crop_group_2025.firstCropReference = req.session.data.chosen_crop
     req.session.data.crop_group_2025.secondCropReference = req.session.data.cover_crop;
     req.session.data.crop_group_2025.firstCropFields = req.session.data.crop_fields
-    console.log(req.session.data.crop_group_2025.firstCropFields[0])
     req.session.data.crop_group_2025.secondCropFields = req.session.data.cover_fields
+    console.log(req.session.data.crop_group_2025.secondCropFields[0])
+
 
     res.redirect('/mvp/crop_plan/plan_view')
 })
@@ -293,22 +294,17 @@ router.get(/mvp_date_handler/, function (req, res) {
 router.get('/mvp/crop_plan/plan_view', function (req, res) { 
 
     req.session.data.fieldsToShow = []
-
     req.session.data.secondFieldsInThisPlan = req.session.data.crop_group_2025.secondCropFields
-
     req.session.data.thirdFieldsInThisPlan = []
     req.session.data.forthFieldsInThisPlan = req.session.data.crop_group_2025.forthCropFields
 
     for (let thisItem in req.session.data.crop_group_2025.firstCropFields ) {
-        // console.log('here ' + req.session.data.crop_group_2025.firstCropFields[thisItem].name)
-
         let thisField = allFunctions.getFieldByReference(req.session.data.current_fields, req.session.data.crop_group_2025.firstCropFields[thisItem].reference)
-
         req.session.data.fieldsToShow.push(thisField)
     }
         
     for (let thisItem in req.session.data.crop_group_2025.thirdCropFields ) {
-        let thisField = allFunctions.getFieldByReference(req.session.data.current_fields, req.session.data.crop_group_2025.thirdCropFields[thisItem])
+        let thisField = allFunctions.getFieldByReference(req.session.data.current_fields, req.session.data.crop_group_2025.thirdCropFields[thisItem].reference)
         req.session.data.thirdFieldsInThisPlan.push(thisField)
     }
 

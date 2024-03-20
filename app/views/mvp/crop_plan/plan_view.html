@@ -53,7 +53,6 @@
 
       <tbody class="govuk-table__body">
       {% for field in data.fieldsToShow %}
-      
       {% set hasSecondCrop = false %}
 
       {% for thisField in data.secondFieldsInThisPlan %}
@@ -65,7 +64,7 @@
             <td class="govuk-table__cell">{{field.name}}</td>
             <td class="govuk-table__cell">
               {% if hasSecondCrop == true %}
-              Stubble Turnips
+              {{data.cover_crop | nameconverter}}
             {% else %}
               None
             {% endif %}

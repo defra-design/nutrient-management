@@ -277,16 +277,8 @@ router.get(/mvp_fields_handler/, function (req, res) {
 })
 
 router.get(/mvp_date_handler/, function (req, res) { 
-    // if(req.session.data.alldate == 'yes') {
-    //     res.redirect('yield')
-    // }
-    // show the first chosen field
-    // if they dont check the box 
-    // show the next chosen field
-    // if there's no more fields go to yield
     res.redirect('yield')
 })
-
 
 
 module.exports = router

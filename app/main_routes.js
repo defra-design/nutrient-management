@@ -41,7 +41,36 @@ router.get(/plans_mvp_setup_handler/, function (req, res) {
     req.session.data.current_fields = req.session.data.field_details_mvp
     // use populated plan 2025
     req.session.data.crop_group_2025 = req.session.data.crop_group_populated
-    // req.session.data.crop_group_2025.getFieldByReference(req.session.data.field_details_mvp, 9)
+
+    req.session.data.fieldsToShow = []
+    req.session.data.secondFieldsInThisPlan = req.session.data.crop_group_2025.secondCropFields
+
+    for (let thisItem in req.session.data.crop_group_2025.firstCropFields ) {
+        let thisField = allFunctions.getFieldByReference(req.session.data.current_fields, req.session.data.crop_group_2025.firstCropFields[thisItem])
+        req.session.data.fieldsToShow.push(thisField)
+    }
+
+    for (let thisItem in req.session.data.crop_group_2025.thirdCropFields ) {
+        let thisField = allFunctions.getFieldByReference(req.session.data.current_fields, req.session.data.crop_group_2025.thirdCropFields[thisItem])
+        req.session.data.thirdFieldsInThisPlan.push(thisField)
+    }
+
+    for (var x in req.session.data.fieldsToShow) {
+        for (var y in req.session.data.current_fields) {
+            if (req.session.data.current_fields[y].reference == req.session.data.fieldsToShow[x]) {
+                req.session.data.fieldsToShow[x] = req.session.data.current_fields[y]
+            }
+        }
+    }
+
+    for (var x in req.session.data.secondFieldsInThisPlan) {
+        for (var y in req.session.data.current_fields) {
+            if (req.session.data.current_fields[y].reference == req.session.data.secondFieldsInThisPlan[x]) {
+                req.session.data.secondFieldsInThisPlan[x] = req.session.data.current_fields[y]
+            }
+        }
+    }
+
     res.redirect('/mvp/start')
 })
 

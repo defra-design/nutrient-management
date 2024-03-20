@@ -280,7 +280,7 @@ router.get(/crop_plan_year_handler/, function (req, res) {
         req.session.data.plan2025.plan_update = null
         req.session.data.chosen_plan = req.session.data.plan2025
     }
-    res.redirect('./crop_plan/index')
+    res.redirect('./crop_plan/plan_view')
 })
 
 //view the selected plan

@@ -57,7 +57,7 @@ router.get(/mvp_check_handler/, function (req, res) {
     req.session.data.crop_group_2025.secondCropReference = req.session.data.cover_crop;
     req.session.data.crop_group_2025.firstCropFields = req.session.data.crop_fields;
     req.session.data.crop_group_2025.secondCropFields = req.session.data.cover_fields;
-
+    //might be able to remove fields in this plan?
     req.session.data.fieldsToShow = []
     req.session.data.secondFieldsInThisPlan = req.session.data.crop_group_2025.secondCropFields
     req.session.data.thirdFieldsInThisPlan = []
@@ -70,8 +70,6 @@ router.get(/mvp_check_handler/, function (req, res) {
         let thisField = allFunctions.getFieldByReference(req.session.data.current_fields, req.session.data.crop_group_2025.thirdCropFields[thisItem].reference)
         req.session.data.thirdFieldsInThisPlan.push(thisField)
     }
-
-
     res.redirect('/mvp/crop_plan/plan_view')
 })
 
@@ -297,6 +295,17 @@ router.get(/mvp_fields_handler/, function (req, res) {
         }
     }
     res.redirect('sowdate')
+})
+
+router.get(/cover_handler/, function (req, res) { 
+    for (var x in req.session.data.cover_fields) {
+        for (var y in req.session.data.current_fields) {
+            if (req.session.data.current_fields[y].reference == req.session.data.cover_fields[x]) {
+                req.session.data.cover_fields[x] = req.session.data.current_fields[y]
+            }
+        }
+    }
+    res.redirect('sowdate_two')
 })
 
 router.get(/mvp_date_handler/, function (req, res) { 

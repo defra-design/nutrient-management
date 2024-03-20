@@ -56,7 +56,7 @@
       {% set hasSecondCrop = false %}
 
       {% for thisField in data.secondFieldsInThisPlan %}
-          {% if thisField === field.reference %}
+          {% if thisField.reference === field.reference %}
             {% set hasSecondCrop = true %}
           {% endif %}
         {% endfor %}  

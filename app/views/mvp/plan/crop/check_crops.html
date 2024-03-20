@@ -8,7 +8,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">First crop for the harvest year</dt>
-    <dd class="govuk-summary-list__value">Winter Wheat</dd>
+    <dd class="govuk-summary-list__value">{{data.chosen_crop | nameconverter}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
@@ -21,14 +21,9 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Which fields do you plan to grow Winter Wheat in?</dt>
     <dd class="govuk-summary-list__value">
-      {% if data.oaktree_farm.use_mvp_fields == false %}
-        {% for field in data.current_fields %}
-          {{field.name}}, <br>
-        {% endfor %}
-      {% else %}
-      Long Field, <br> Barn Field, <br> Orchard
-      {% endif %}
-      
+      {% for field in data.crop_fields %}
+        {{field.name}} <br>
+      {% endfor %}      
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
@@ -65,7 +60,7 @@
     </div>
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Second crop for the harvest year</dt>
-      <dd class="govuk-summary-list__value">Stubble Turnips</dd>
+      <dd class="govuk-summary-list__value">{{data.cover_crop | nameconverter}}</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
     <div class="govuk-summary-list__row">
@@ -75,7 +70,11 @@
     </div>  
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Which fields do you plan to grow Stubble Turnips in?</dt>
-      <dd class="govuk-summary-list__value">Long Field, <br> Barn Field, <br> Orchard</dd>
+      <dd class="govuk-summary-list__value">
+        {% for coverfield in data.cover_fields %}
+          {{coverfield.name}} <br>
+       {% endfor %}      
+      </dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
     <div class="govuk-summary-list__row">

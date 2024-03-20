@@ -16,7 +16,7 @@
     {"name" : "Kale", "type": "forage", "reference": "Kale" , "prettyname": "Kale", "fave": false },
     {"name" : "Maize, forage", "type": "forage", "reference": "Maize-forage" , "prettyname": "Maize (forage)", "fave": false },
     {"name" : "Mangels", "type": "forage", "reference": "Mangels" , "prettyname": "Mangels", "fave": false },
-    {"name" : "Rape, forage", "type": "forage", "reference": "Rape-forage" , "prettyname": "Rape (forage)", "fave": false },
+    {"name" : "Forage Rape", "type": "forage", "reference": "Rape-forage" , "prettyname": "Rape (forage)", "fave": false },
     {"name" : "Swedes, forage", "type": "forage", "reference": "Swedes-forage" , "prettyname": "Swedes", "fave": false },
     {"name" : "Triticale, forage", "type": "forage", "reference": "triticale-forage" , "prettyname": "Triticale (forage)", "fave": false },
     {"name" : "Turnips, forage", "type": "forage", "reference": "Turnips-forage" , "prettyname": "Turnips (forage)", "fave": false },

@@ -40,7 +40,6 @@
     <hr class="seperator_five">
 
     <h2 class="govuk-heading-m">{{data.crop_group_2025.firstCropReference | nameconverter }}</h2>
-
     <p class="govuk-body"><a href="">Change this {{data.crop_group_2025.firstCropReference | nameconverter }} plan</a></p>
 
     <table class="govuk-table margin-bottom-forty big_crop_table">
@@ -78,72 +77,48 @@
       </tbody>
     </table>
 
-    <h2 class="govuk-heading-m">Winter Rye</h2>
+    {% if data.crop_group_2025.thirdCropReference != '' %}
+    
+      <h2 class="govuk-heading-m">{{data.crop_group_2025.thirdCropReference | nameconverter }}</h2>
+      <p class="govuk-body"><a href="">Change this {{data.crop_group_2025.thirdCropReference | nameconverter }} plan</a></p>
 
-    <p class="govuk-body"><a href="">Change this Winter Rye plan</a></p>
+      <table class="govuk-table margin-bottom-forty big_crop_table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Field</th>
+            <th scope="col" class="govuk-table__header">Second crop</th>
+            <th scope="col" class="govuk-table__header"> </th>
+          </tr>
+        </thead>
 
-    <table class="govuk-table big_crop_table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Field</th>
-          <th scope="col" class="govuk-table__header">Second Crop</th>
-          <th scope="col" class="govuk-table__header"> </th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
+        <tbody class="govuk-table__body">
 
-      {% if data.oaktree_farm.use_mvp_fields == true %}
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Barns</td>
-          <td class="govuk-table__cell">Stubble Turnips</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Barns">View recommendations</a></td>
-        </tr>      
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Red well</td>
-          <td class="govuk-table__cell">Stubble Turnips</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=>Red well">View recommendations</a></td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Hops 1</td>
-          <td class="govuk-table__cell">Stubble Turnips</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Hops 1">View recommendations</a></td>
-        </tr>
-        <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Hops 2</td>
-            <td class="govuk-table__cell">None</td>
-            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Hops 2">View recommendations</a></td>
-          </tr>      
-        <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Hops 3</td>
-            <td class="govuk-table__cell">None</td>
-            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Hops 3">View recommendations</a></td>
-        </tr>
-        <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Short Field</td>
-            <td class="govuk-table__cell">None</td>
-            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Short Field">View recommendations</a></td>
-        </tr>
-        <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Low meadow</td>
-                <td class="govuk-table__cell">None</td>
-                <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Low meadow<">View recommendations</a></td>
+        {% for field in data.thirdFieldsInThisPlan %}
+        {% set hasFourthCrop = false %}
+
+        {% for thisField in data.forthFieldsInThisPlan %}
+            {% if thisField === field.reference %}
+              {% set hasFourthCrop = true %}
+            {% endif %}
+          {% endfor %}  
+            <tr class="govuk-table__row">    
+              <td class="govuk-table__cell">{{field.name}}</td>
+              <td class="govuk-table__cell">
+                {% if hasFourthCrop == true %}
+                Stubble Turnips
+              {% else %}
+                None
+              {% endif %}
+              </td>
+              <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield={{field.name}}">View recommendations</a></td>
             </tr>
-        <tr class="govuk-table__row">
-            <td class="govuk-table__cell">High meadow</td>
-            <td class="govuk-table__cell">None</td>
-            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=High meadow">View recommendations</a></td>
-        </tr>
-        <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Short Field</td>
-            <td class="govuk-table__cell">None</td>
-            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Short Field">View recommendations</a></td>
-        </tr>
+        {% endfor %}  
 
-        {% endif %}
+        </tbody>
+      </table>
 
-      </tbody>
-    </table>
-
+    {% endif %}
+    
   </div>
 
 </div>

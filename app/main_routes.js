@@ -286,10 +286,20 @@ router.get(/mvp_date_handler/, function (req, res) {
 router.get(/plan_v5/, function (req, res) { 
     req.session.data.fieldsInThisPlan = []
     req.session.data.secondFieldsInThisPlan = req.session.data.crop_group_2025.secondCropFields
+
+    req.session.data.thirdFieldsInThisPlan = []
+    req.session.data.forthFieldsInThisPlan = req.session.data.crop_group_2025.forthCropFields
+
     for (let thisItem in req.session.data.crop_group_2025.firstCropFields ) {
         let thisField = allFunctions.getFieldByReference(req.session.data.current_fields, req.session.data.crop_group_2025.firstCropFields[thisItem])
         req.session.data.fieldsInThisPlan.push(thisField)
     }
+
+    for (let thisItem in req.session.data.crop_group_2025.thirdCropFields ) {
+        let thisField = allFunctions.getFieldByReference(req.session.data.current_fields, req.session.data.crop_group_2025.thirdCropFields[thisItem])
+        req.session.data.thirdFieldsInThisPlan.push(thisField)
+    }
+
     res.render('mvp/crop_plan/plan_v5')
 })
 

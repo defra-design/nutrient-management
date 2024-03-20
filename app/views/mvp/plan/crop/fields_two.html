@@ -42,9 +42,9 @@
             </div>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
 
-              {% for field in data.selected_fields %}
+              {% for field in data.crop_fields %}
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id={{field.reference}} name="chosen_fields" type="checkbox" value={{field.reference}}>
+                <input class="govuk-checkboxes__input" id={{field.reference}} name="cover_fileds" type="checkbox" value={{field.reference}}>
                 <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
                   {{field.name}}
                 </label>

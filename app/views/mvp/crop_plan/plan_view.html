@@ -52,8 +52,8 @@
       </thead>
 
       <tbody class="govuk-table__body">
-
-      {% for field in data.fieldsInThisPlan %}
+      {% for field in data.fieldsToShow %}
+      
       {% set hasSecondCrop = false %}
 
       {% for thisField in data.secondFieldsInThisPlan %}

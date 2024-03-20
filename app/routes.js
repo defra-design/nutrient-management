@@ -85,7 +85,7 @@ router.get('/', function (req, res) {
 
     //create oaktree farm
     req.session.data.oaktree_farm = oaktree_farm
-    req.session.data.oaktree_farm.printFarm()
+    // req.session.data.oaktree_farm.printFarm()
     
     //create 2025 crop plan
     req.session.data.crop_group_populated = crop_group_populated

@@ -7,4 +7,18 @@ function getFieldByReference (currentFarmFields, referenceNumber) {
     }
   };
 
+ function printCropGroup(group) {
+    console.log(  'group' +
+                  group.year + ", " +
+                  group.firstCropReference + ", " +
+                  group.secondCropReference + ", " +
+                  group.thirdCropReference + ", " +
+                  group.forthCropReference + ", " +
+                  group.firstCropFields + ", " +
+                  group.secondCropFields + ", " +
+                  group.thirdCropFields + ", " +
+                  group.fourthCropFields)
+  };
+
+module.exports.printCropGroup = printCropGroup;
 module.exports.getFieldByReference = getFieldByReference;

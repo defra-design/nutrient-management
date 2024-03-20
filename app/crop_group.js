@@ -21,18 +21,6 @@ fourthCropFields
 
 }
 
-CropGroup.prototype.printCropGroup = function () {
-  console.log(  this.year + ", " +
-                this.firstCropReference + ", " +
-                this.secondCropReference + ", " +
-                this.thirdCropReference + ", " +
-                this.forthCropReference + ", " +
-                this.firstCropFields + ", " +
-                this.secondCropFields + ", " +
-                this.thirdCropFields + ", " +
-                this.fourthCropFields)
-};
-
 CropGroup.prototype.reset = function () {
   this.year = null,
   this.firstCropReference = null,

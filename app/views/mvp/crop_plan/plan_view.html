@@ -76,7 +76,7 @@
       </tbody>
     </table>
 
-    {% if data.crop_group_2025.thirdCropReference != '' %}
+    {% if data.crop_group_2025.thirdCropReference != null %}
     
       <h2 class="govuk-heading-m">{{data.crop_group_2025.thirdCropReference | nameconverter }}</h2>
       <p class="govuk-body"><a href="">Change this {{data.crop_group_2025.thirdCropReference | nameconverter }} plan</a></p>

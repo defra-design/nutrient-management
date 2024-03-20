@@ -25,7 +25,6 @@ oaktree_farm.soil_added = false;
 oaktree_farm.fields_added = false;
 oaktree_farm.plans_added = false;
 
-
 const CropGroup = require('./crop_group.js');
 let crop_group_populated = CropGroup.createCropGroup();
 crop_group_populated.year = '2025';
@@ -130,6 +129,13 @@ router.get('/', function (req, res) {
     // route vars
     req.session.data.manure_spreads = 0
     req.session.data.fertiliser_spreads = 0
+
+    // reset the fields shown in the plan
+    req.session.data.fieldsToShow = []
+    req.session.data.secondFieldsInThisPlan = []
+    req.session.data.thirdFieldsInThisPlan = []
+    req.session.data.forthFieldsInThisPlan = []
+
     res.render('index')
     
 })

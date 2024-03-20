@@ -7,10 +7,6 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const addFilter = govukPrototypeKit.views.addFilter
 
 const field_details = require('./data/field_details.json');
-
-
-// Add your filters here
-
 const crop_types = require('./data/crops.json');
 
 // addFilter('uppercase', function (content) {
@@ -75,4 +71,12 @@ addFilter('convert_all_some_none', function (status) {
         status = "None"
     }
     return status
+})
+
+addFilter('array_count', function (array) {
+    let counter = 0
+    for (var item in array) {
+        counter++
+    }
+    return counter
 })

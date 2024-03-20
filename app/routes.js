@@ -25,20 +25,23 @@ oaktree_farm.soil_added = false;
 oaktree_farm.fields_added = false;
 oaktree_farm.plans_added = false;
 
-const CropGroup = require('./crop_group.js');
-const crop_group_one = CropGroup.createCropGroup();
-crop_group_one.year = '2025';
-crop_group_one.firstCropReference = 'Wheat-Winter';
-crop_group_one.secondCropReference = 'Turnips-stubble';
-crop_group_one.firstCropFields = ['1', '2', '3'];
-crop_group_one.secondCropFields = ['1', '2', '3'];
 
-// var testy = crop_group_one.getFieldByReference(field_details_mvp, 9);
+const CropGroup = require('./crop_group.js');
+let crop_group_populated = CropGroup.createCropGroup();
+crop_group_populated.year = '2025';
+crop_group_populated.firstCropReference = 'Wheat-Winter';
+crop_group_populated.secondCropReference = 'Turnips-stubble';
+crop_group_populated.firstCropFields = ['1', '2', '3'];
+crop_group_populated.secondCropFields = ['1', '2', '3'];
+
+const allFunctions = require('./allFunctions.js');
+
+// var testy = allFunctions.getFieldByReference(field_details_mvp, 9);
 // console.log(testy);
 
 let currentFieldGroup = [];
 
-var tempField = {
+let tempField = {
     name: "Short Field",
     reference: "shortfield",
     nvz: false,
@@ -78,10 +81,15 @@ router.get('/', function (req, res) {
     req.session.data.oaktree_farm = oaktree_farm
     req.session.data.oaktree_farm.printFarm()
     
-    //create 2025 crop group one
-    req.session.data.crop_group_one = crop_group_one
-    req.session.data.crop_group_one.printCropGroup();
-    req.session.data.crop_group_one.getFieldByReference(req.session.data.field_details_mvp, 9)
+    //create 2025 crop plan
+    req.session.data.crop_group_populated = crop_group_populated
+    req.session.data.crop_group_populated.printCropGroup();
+
+    // set this on the index page
+    // there is an issue in that the prototype needs to be told to user these feilds and this plan for 2025
+    req.session.data.use_populated_plan = true
+    req.session.data.crop_group_2025 = req.session.data.crop_group_populated
+    // req.session.data.crop_group_2025.getFieldByReference(req.session.data.field_details_mvp, 9)
 
     //data
     req.session.data.field_details = field_details
@@ -126,6 +134,6 @@ router.get('/', function (req, res) {
 })
 
 //import routes
-var main_routes = require('./main_routes.js');
-var alpha_routes = require('./alpha_routes.js');
+const main_routes = require('./main_routes.js');
+const alpha_routes = require('./alpha_routes.js');
 router.use('/', main_routes, alpha_routes);

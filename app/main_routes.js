@@ -1,6 +1,8 @@
 var express = require('express')
 var router = express.Router()
 
+const allFunctions = require('./allFunctions.js');
+
 /////////////////////////////
 ////// PROTOTYPE SETUP //////
 /////////////////////////////
@@ -288,8 +290,22 @@ router.get(/mvp_date_handler/, function (req, res) {
     res.redirect('yield')
 })
 
-router.get(/main_plan_view/, function (req, res) { 
-    res.render('mvp/crop_plan/main_plan_view')
+router.get(/plan_v5/, function (req, res) { 
+
+    // get the current fields in a list
+
+    //loop through all the selected references
+    // if the reference matches a field in the current farm fields
+    // add the field object it to the array and print its name out
+
+    // var testy = allFunctions.getFieldByReference(req.session.data.field_details_mvp, 9);
+// console.log(testy);
+    req.session.data.fieldsInThisPlan = []
+    for (let thisItem in req.session.data.crop_group_2025.firstCropFields ) {
+        let thisField = allFunctions.getFieldByReference(req.session.data.current_fields, req.session.data.crop_group_2025.firstCropFields[thisItem])
+        req.session.data.fieldsInThisPlan.push(thisField)
+    }
+    res.render('mvp/crop_plan/plan_v5')
 })
 
 

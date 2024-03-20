@@ -53,12 +53,26 @@
       </thead>
 
       <tbody class="govuk-table__body">
-        {% for field in data.fieldsInThisPlan %}  
-        <tr class="govuk-table__row">    
-          <td class="govuk-table__cell">{{field.name}}</td>
-          <td class="govuk-table__cell">Stubble Turnips</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield={{field.name}}">View recommendations</a></td>
-        </tr>    
+
+      {% for field in data.fieldsInThisPlan %}
+      {% set hasSecondCrop = false %}
+
+      {% for thisField in data.secondFieldsInThisPlan %}
+          {% if thisField === field.reference %}
+            {% set hasSecondCrop = true %}
+          {% endif %}
+        {% endfor %}  
+          <tr class="govuk-table__row">    
+            <td class="govuk-table__cell">{{field.name}}</td>
+            <td class="govuk-table__cell">
+              {% if hasSecondCrop == true %}
+              Stubble Turnips
+            {% else %}
+              None
+            {% endif %}
+            </td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield={{field.name}}">View recommendations</a></td>
+          </tr>
       {% endfor %}  
 
       </tbody>

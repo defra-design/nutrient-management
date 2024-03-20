@@ -280,27 +280,12 @@ router.get(/mvp_fields_handler/, function (req, res) {
 })
 
 router.get(/mvp_date_handler/, function (req, res) { 
-    // if(req.session.data.alldate == 'yes') {
-    //     res.redirect('yield')
-    // }
-    // show the first chosen field
-    // if they dont check the box 
-    // show the next chosen field
-    // if there's no more fields go to yield
     res.redirect('yield')
 })
 
 router.get(/plan_v5/, function (req, res) { 
-
-    // get the current fields in a list
-
-    //loop through all the selected references
-    // if the reference matches a field in the current farm fields
-    // add the field object it to the array and print its name out
-
-    // var testy = allFunctions.getFieldByReference(req.session.data.field_details_mvp, 9);
-// console.log(testy);
     req.session.data.fieldsInThisPlan = []
+    req.session.data.secondFieldsInThisPlan = req.session.data.crop_group_2025.secondCropFields
     for (let thisItem in req.session.data.crop_group_2025.firstCropFields ) {
         let thisField = allFunctions.getFieldByReference(req.session.data.current_fields, req.session.data.crop_group_2025.firstCropFields[thisItem])
         req.session.data.fieldsInThisPlan.push(thisField)

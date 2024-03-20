@@ -31,8 +31,8 @@ let crop_group_populated = CropGroup.createCropGroup();
 crop_group_populated.year = '2025';
 crop_group_populated.firstCropReference = 'Wheat-Winter';
 crop_group_populated.secondCropReference = 'Turnips-stubble';
-crop_group_populated.firstCropFields = ['1', '2', '3'];
-crop_group_populated.secondCropFields = ['1', '2', '3'];
+crop_group_populated.firstCropFields = ['5', '6', '7'];
+crop_group_populated.secondCropFields = ['5', '7'];
 
 const allFunctions = require('./allFunctions.js');
 

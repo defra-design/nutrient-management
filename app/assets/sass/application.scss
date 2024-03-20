@@ -274,7 +274,9 @@ tr.right-last {
 }
 
 .big_crop_table {
-    tr.td:first-child {
-        width: 60%
+    tr {
+        td:first-child {
+            width: 30%
+        }
     }
 }

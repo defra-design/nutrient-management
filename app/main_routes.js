@@ -37,8 +37,9 @@ router.get(/plans_mvp_setup_handler/, function (req, res) {
     req.session.data.oaktree_farm.soil_added = true
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
-    req.session.data.chosen_plan = req.session.data.plan2025 // should come out
-    req.session.data.current_crop_group = req.session.data.crop_group_one
+    // use populated plan 2025
+    req.session.data.crop_group_2025 = req.session.data.crop_group_populated
+    // req.session.data.crop_group_2025.getFieldByReference(req.session.data.field_details_mvp, 9)
     req.session.data.current_fields = req.session.data.field_details_mvp
     res.redirect('/mvp/start')
 })

@@ -38,6 +38,8 @@ crop_group_populated.secondCropFields = ['1', '2', '3'];
 crop_group_populated.thirdCropFields = ['5', '6', '7', '8'];
 crop_group_populated.forthCropFields = ['5', '6'];
 
+let crop_group_2025 = CropGroup.createCropGroup();
+
 const allFunctions = require('./allFunctions.js');
 
 // var testy = allFunctions.getFieldByReference(field_details_mvp, 9);
@@ -87,13 +89,8 @@ router.get('/', function (req, res) {
     
     //create 2025 crop plan
     req.session.data.crop_group_populated = crop_group_populated
-    req.session.data.crop_group_populated.printCropGroup();
-
-    // set this on the index page
-    // there is an issue in that the prototype needs to be told to user these feilds and this plan for 2025
-    req.session.data.use_populated_plan = true
-    req.session.data.crop_group_2025 = req.session.data.crop_group_populated
-    // req.session.data.crop_group_2025.getFieldByReference(req.session.data.field_details_mvp, 9)
+    req.session.data.crop_group_2025 = crop_group_2025
+    // req.session.data.crop_group_populated.printCropGroup();
 
     //data
     req.session.data.field_details = field_details

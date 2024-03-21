@@ -325,7 +325,7 @@ router.get(/mvp_fields_handler/, function (req, res) {
             }
         }
     }
-    res.redirect('sowdate')
+    res.redirect('sowdate_question')
 })
 
 router.get(/cover_handler/, function (req, res) { 
@@ -363,6 +363,15 @@ router.get(/yield_handler/, function (req, res) {
     let next = (req.session.data.chosen_crop == "Turnips-stubble") ? 'check' : 'crop_use'
     res.redirect(next)
 })
+
+router.get(/sowdate_value_handler/, function (req, res) { 
+    if (req.session.data.sow_option_one != 'no') {
+        res.redirect('sowdate_value')
+    } else {
+        res.redirect('yield_question')
+    }
+})
+
 
 
 module.exports = router

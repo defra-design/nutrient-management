@@ -20,31 +20,30 @@
 
       <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        Have you sown your {{data.cover_crop | nameconverter}} yet?
+        How do you want to enter the expected yield (optional)?
       </h1>
 
-      <form class="form" action="sowdatetwo_value_handler" method="post">
+      <form class="form" action="mvp_y2_handler" method="post">
 
         <div class="govuk-form-group">
-
             <div class="govuk-radios" data-module="govuk-radios">
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="single" name="sow_option_two" type="radio" value="single">
+                <input class="govuk-radios__input" id="single" name="yield_option_two" type="radio" value="single">
                 <label class="govuk-label govuk-radios__label" for="single">
-                  Yes, I sowed all the fields on the same date
+                  Enter a single figure for all these fields
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="different" name="sow_option_two" type="radio" value="different">
+                <input class="govuk-radios__input" id="different" name="yield_option_two" type="radio" value="different">
                 <label class="govuk-label govuk-radios__label" for="different">
-                  Yes, I sowed the fields on different dates
+                  Enter different figures for each field
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="no" name="sow_option_two" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="no">
-                  No, I'll enter the sowing date later
+                <input class="govuk-radios__input" id="rb209" name="yield_option_two" type="radio" value="rb209">
+                <label class="govuk-label govuk-radios__label" for="rb209">
+                  Use the RB209 figure of 4 tonnes per hectare for all these fields
                 </label>
               </div>
             

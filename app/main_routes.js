@@ -317,11 +317,6 @@ router.get(/secondcrop_handler/, function (req, res) {
     res.redirect(next)
 })
 
-router.get(/yield_handler/, function (req, res) { 
-    let next = (req.session.data.chosen_crop == "Turnips-stubble") ? 'check' : 'crop_use'
-    res.redirect(next)
-})
-
 router.get(/mvp_fields_handler/, function (req, res) { 
     for (var x in req.session.data.crop_fields) {
         for (var y in req.session.data.current_fields) {
@@ -345,7 +340,28 @@ router.get(/cover_handler/, function (req, res) {
 })
 
 router.get(/mvp_date_handler/, function (req, res) { 
-    res.redirect('yield')
+    if (req.session.data.yield_option_one == 'rb209') {
+        res.redirect('crop_use')
+    } else {
+        res.redirect('y')
+    }
+})
+
+router.get(/mvp_y2_handler/, function (req, res) { 
+    res.redirect('yield_value_two')
+})
+
+router.get(/mvp_y_handler/, function (req, res) { 
+    if (req.session.data.yield_option_one != 'rb209') {
+        res.redirect('yield_value')
+    } else {
+        res.redirect('crop_use')
+    }
+})
+
+router.get(/yield_handler/, function (req, res) { 
+    let next = (req.session.data.chosen_crop == "Turnips-stubble") ? 'check' : 'crop_use'
+    res.redirect(next)
 })
 
 

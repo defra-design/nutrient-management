@@ -88,6 +88,7 @@ router.get(/mvp_check_handler/, function (req, res) {
     req.session.data.plan2025.plan_status = 'crop_added';
     req.session.data.plan2025.crop_added = true;
     req.session.data.oaktree_farm.plans_added = true;
+    req.session.data.show_success_message = true;
     //set plan
     req.session.data.crop_group_2025.firstCropReference = req.session.data.chosen_crop;
     req.session.data.crop_group_2025.secondCropReference = req.session.data.cover_crop;

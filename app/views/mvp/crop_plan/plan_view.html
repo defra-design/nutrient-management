@@ -29,12 +29,31 @@
 
   <div class="govuk-grid-column-two-thirds">
 
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+          Plan created.
+        </h3>
+        <!-- <p class="govuk-body"><a href="/mvp/plan/crop/crop_group">Add another crop to this plan</a></p> -->
+        <!-- <p class="govuk-body"><a href="">Add another crop to this plan</a></p>
+        <p class="govuk-body"><a href="">Add manures or fertilisers to this plan</a></p>
+        <p class="govuk-body"><a href="">Create a record from this plan</a></p>
+        <p class="govuk-body"><a href="">Download this plan</a></p> -->
+      </div>
+    </div>
+
     <h1 class="govuk-heading-l">Crop plan for harvest year {{data.crop_group_2025.year}}</h1>
 
     <div class="crop_plan_title">
       <p class="govuk-body">There are {{data.crop_group_2025.firstCropFields | array_count }} fields in this plan</p>
       <p class="govuk-body">Last updated: {{data.chosen_plan.updated}}</p>
-      <p class="govuk-body"><a href="/mvp/plan/crop/crop_group">Add another crop to this plan</a></p>
+      <!-- <p class="govuk-body"><a href="/mvp/plan/crop/crop_group">Add another crop to this plan</a></p> -->
+      <p class="govuk-body"><a href="">Add another crop to this plan</a></p>
     </div>
 
     <hr class="seperator_five">

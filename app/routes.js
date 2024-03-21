@@ -31,11 +31,11 @@ crop_group_populated.year = '2025';
 crop_group_populated.firstCropReference = 'Wheat-Winter';
 crop_group_populated.secondCropReference = 'Turnips-stubble';
 crop_group_populated.thirdCropReference = 'rye-Winter';
-crop_group_populated.forthCropReference = 'Turnips-stubble';
+crop_group_populated.fourthCropReference = 'Turnips-stubble';
 crop_group_populated.firstCropFields = ['1', '2', '3', '4'];
 crop_group_populated.secondCropFields = ['1', '2', '3'];
 crop_group_populated.thirdCropFields = ['5', '6', '7', '8'];
-crop_group_populated.forthCropFields = ['5', '6'];
+crop_group_populated.fourthCropFields = ['5', '6'];
 
 let crop_group_2025 = CropGroup.createCropGroup();
 
@@ -134,7 +134,7 @@ router.get('/', function (req, res) {
     req.session.data.fieldsToShow = []
     req.session.data.secondFieldsInThisPlan = []
     req.session.data.thirdFieldsInThisPlan = []
-    req.session.data.forthFieldsInThisPlan = []
+    req.session.data.fourthFieldsInThisPlan = []
 
     res.render('index')
     

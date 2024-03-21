@@ -95,7 +95,7 @@
         {% for field in data.thirdFieldsInThisPlan %}
         {% set hasFourthCrop = false %}
 
-        {% for thisField in data.forthFieldsInThisPlan %}
+        {% for thisField in data.fourthFieldsInThisPlan %}
             {% if thisField === field.reference %}
               {% set hasFourthCrop = true %}
             {% endif %}

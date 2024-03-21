@@ -13,7 +13,7 @@ function getFieldByReference (currentFarmFields, referenceNumber) {
                   group.firstCropReference + ", " +
                   group.secondCropReference + ", " +
                   group.thirdCropReference + ", " +
-                  group.forthCropReference + ", " +
+                  group.fourthCropReference + ", " +
                   group.firstCropFields + ", " +
                   group.secondCropFields + ", " +
                   group.thirdCropFields + ", " +

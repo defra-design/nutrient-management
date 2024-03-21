@@ -28,13 +28,13 @@
       <!-- {% include "templates/title_span.html" %} -->
 
       <h1 class="govuk-heading-l">
-        {% if data.sow_option_one == "single" %}
-        What is the sowing date for {{data.chosen_crop | nameconverter}} in these fields?
+        {% if data.sow_option_two == "single" %}
+        What is the sowing date for {{data.cover_crop | nameconverter}} in these fields?
       {% else %}
-        What is the sowing date for {{data.chosen_crop | nameconverter}} in {{data.crop_fields[0].name | nameconverter}}?
+        What is the sowing date for {{data.cover_crop | nameconverter}} in {{data.cover_fields[0].name | nameconverter}}?
       {% endif %}
       </h1>
-      <form class="form" action="yield_question" method="post">
+      <form class="form" action="yield_question_two" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">

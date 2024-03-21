@@ -22,7 +22,11 @@
       <!-- {% include "templates/title_span.html" %} -->
 
       <h1 class="govuk-heading-l">
-        What is the expected yield for {{data.cover_crop | nameconverter}} per hectare in Long Field?
+        {% if data.yield_option_one == "single" %}
+          What is the expected yield for {{data.cover_crop | nameconverter}} per hectare in these fields?
+        {% else %}
+          What is the expected yield for {{data.cover_crop | nameconverter}} per hectare in {{data.crop_fields[0].name | nameconverter}}?
+        {% endif %}
       </h1>
 
       <!-- <p>The average expected yield from RB209 is 7 tonnes per hectare.</p> -->
@@ -37,16 +41,6 @@
             <div class="govuk-input__suffix" aria-hidden="true">tonne</div>
           </div>
         </div>
-
-        <div class="govuk-form-group">
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-              Use this yield for the rest of the fields in this plan
-            </label>
-          </div>
-        </div>
-
 
         {{ govukButton({
           text: "Continue"

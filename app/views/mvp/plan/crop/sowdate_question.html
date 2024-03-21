@@ -20,7 +20,7 @@
 
       <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        Have you sown your Winter Wheat yet?
+        Have you sown your {{data.chosen_crop | nameconverter}} yet?
       </h1>
 
       <form class="form" action="sowdate_value_handler" method="post">

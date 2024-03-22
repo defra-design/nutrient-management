@@ -7,6 +7,19 @@ function getFieldByReference (currentFarmFields, referenceNumber) {
     }
   };
 
+function getMultipleFieldsByReferences (referenceNumbers, currentFields) {
+    for (let x in referenceNumbers) {
+        for (let y in currentFields) {
+            if (currentFields[y].reference == referenceNumbers[x]) {
+                // console.log(currentFields[y].name +  ' ' + referenceNumbers[y] )
+                referenceNumbers[x] = currentFields[y]
+            }
+        }
+    }
+    return referenceNumbers
+};
+
+
  function printCropGroup(group) {
     console.log(  'group' +
                   group.year + ", " +
@@ -22,3 +35,4 @@ function getFieldByReference (currentFarmFields, referenceNumber) {
 
 module.exports.printCropGroup = printCropGroup;
 module.exports.getFieldByReference = getFieldByReference;
+module.exports.getMultipleFieldsByReferences = getMultipleFieldsByReferences;

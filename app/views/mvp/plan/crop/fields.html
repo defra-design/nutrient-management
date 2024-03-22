@@ -41,15 +41,23 @@
               Select all that apply.
             </div>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-
-              {% for field in data.current_fields %}
+              
+            {% for field in data.current_fields %}
+              {% set isPlanned = false %}
+              {% for thisField in data.crop_group_2025.firstCropFields %} 
+                {% if thisField.reference == field.reference %}
+                  {% set isPlanned = true %}
+                {% endif %}
+              {% endfor %} 
+              {% if isPlanned == false %}
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id={{field.reference}} name="crop_fields" type="checkbox" value={{field.reference}}>
                 <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
                   {{field.name}}
                 </label>
               </div>
-            {% endfor %} 
+              {% endif %}
+            {% endfor %}   
 
             </div>
           </fieldset>

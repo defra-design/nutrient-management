@@ -94,19 +94,43 @@ router.get(/mvp_check_handler/, function (req, res) {
     req.session.data.crop_group_2025.secondCropReference = req.session.data.cover_crop;
     req.session.data.crop_group_2025.firstCropFields = req.session.data.crop_fields;
     req.session.data.crop_group_2025.secondCropFields = req.session.data.cover_fields;
-    //might be able to remove fields in this plan?
-    req.session.data.fieldsToShow = []
-    req.session.data.secondFieldsInThisPlan = req.session.data.crop_group_2025.secondCropFields
-    req.session.data.thirdFieldsInThisPlan = []
-    req.session.data.fourthFieldsInThisPlan = req.session.data.crop_group_2025.fourthCropFields
-    for (let thisItem in req.session.data.crop_group_2025.firstCropFields ) {
-        let thisField = allFunctions.getFieldByReference(req.session.data.current_fields, req.session.data.crop_group_2025.firstCropFields[thisItem].reference)
-        req.session.data.fieldsToShow.push(thisField)
+
+    //get by reference
+    for (var x in req.session.data.crop_group_2025.firstCropFields) {
+        for (var y in req.session.data.current_fields) {
+            if (req.session.data.current_fields[y].reference == req.session.data.crop_group_2025.firstCropFields[x]) {
+                req.session.data.crop_group_2025.firstCropFields[x] = req.session.data.current_fields[y]
+            }
+        }
     }
-    for (let thisItem in req.session.data.crop_group_2025.thirdCropFields ) {
-        let thisField = allFunctions.getFieldByReference(req.session.data.current_fields, req.session.data.crop_group_2025.thirdCropFields[thisItem].reference)
-        req.session.data.thirdFieldsInThisPlan.push(thisField)
+
+    //get by reference
+    for (var x in req.session.data.crop_group_2025.secondCropFields) {
+        for (var y in req.session.data.current_fields) {
+            if (req.session.data.current_fields[y].reference == req.session.data.crop_group_2025.secondCropFields[x]) {
+                req.session.data.crop_group_2025.secondCropFields[x] = req.session.data.current_fields[y]
+            }
+        }
     }
+
+    //get by reference
+    for (var x in req.session.data.crop_group_2025.thirdCropFields) {
+        for (var y in req.session.data.current_fields) {
+            if (req.session.data.current_fields[y].reference == req.session.data.crop_group_2025.thirdCropFields[x]) {
+                req.session.data.crop_group_2025.thirdCropFields[x] = req.session.data.current_fields[y]
+            }
+        }
+    }
+
+    //get by reference
+    for (var x in req.session.data.crop_group_2025.fourthCropFields) {
+        for (var y in req.session.data.current_fields) {
+            if (req.session.data.current_fields[y].reference == req.session.data.crop_group_2025.fourthCropFields[x]) {
+                req.session.data.crop_group_2025.fourthCropFields[x] = req.session.data.current_fields[y]
+            }
+        }
+    }    
+    
     res.redirect('/mvp/crop_plan/plan_view')
 })
 

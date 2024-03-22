@@ -340,14 +340,6 @@ router.get(/cover_handler/, function (req, res) {
     res.redirect('sowdate_two')
 })
 
-router.get(/mvp_date_handler/, function (req, res) { 
-    if (req.session.data.yield_option_one == 'rb209') {
-        res.redirect('crop_use')
-    } else {
-        res.redirect('y')
-    }
-})
-
 router.get(/yield_question_handler/, function (req, res) { 
     if (req.session.data.yield_option_one != 'rb209') {
         res.redirect('yield_value')

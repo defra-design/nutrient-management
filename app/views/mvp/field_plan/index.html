@@ -31,65 +31,33 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-
   <div class="govuk-grid-column-two-thirds">
-
     <div class="status-header margin-bottom-forty">
-      <h1 class="govuk-heading-l">{{data.chosenfield}} recommendations {{data.chosen_plan.harvest_date}}</h1>
+      <h1 class="govuk-heading-l">Nutrient recommendations for {{data.chosenfield}} {{data.chosen_plan.harvest_date}}</h1>
     </div>  
-
-    <h2 class="govuk-heading-m">Crop details</h2>
-
-    <table class="govuk-table recomendation-table">
-      <!-- <caption class="govuk-table__caption govuk-table__caption--s">{{data.chosen_crop | nameconverter}}</caption> -->
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Crop type</td>
-          <td class="govuk-table__cell">{{data.chosen_crop | nameconverter}}</td>
-        </tr>   
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Variety</td>
-          <td class="govuk-table__cell">Not entered</td>
-        </tr>         
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Estimated sowing date</td>
-          <td class="govuk-table__cell">1 October 2023</td>
-        </tr>      
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Estimated yield</td>
-          <td class="govuk-table__cell">7 tonne per hecare</td>
-        </tr>
-        {% if data.chosen_crop !== "Turnips-stubble" %}
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Crop use</td>
-            <td class="govuk-table__cell">Feed</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Straw use</td>
-            <td class="govuk-table__cell">Baled</td>
-          </tr>
-        {% endif %}
-      </tbody>
-    </table>   
-
-    <p class="govuk-body"><a href="">Change crop details for {{data.chosenfield}}</a></p>
+    <div class="margin-bottom-forty">
+      <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
+      {% include "./templates/nutrients_mvp.html" ignore missing %}
+    </div>
+    <div class="">
+      <h2 class="govuk-heading-m">Crop details</h2>
+      {% include "./templates/main-crop-details.html" ignore missing %}
+      <p class="govuk-body"><a href="">Change {{data.chosen_crop | nameconverter}} details for {{data.chosenfield}}</a></p>
+    </div>
 
     <hr class="seperator_five">
 
-    <!-- <h2 class="govuk-heading-m">Soil Nitrogen (N) supply</h2> 
-
-    <p class="govuk-body">10kg per hectare</p>
-
-    <p class="govuk-body"><a href="">Add an SNS measurement</a></p>
-
-    <hr class="seperator_five"> -->
-
-    <h2 class="govuk-heading-m">Nutrient recommendations</h2>
-
-    {% include "./templates/nutrients_mvp.html" ignore missing %}
-    
+    <div class="margin-bottom-forty">
+      <h2 class="govuk-heading-m">{{data.cover_crop | nameconverter}} nutrient recommendations</h2>
+      {% include "./templates/nutrients_mvp.html" ignore missing %}
+    </div>
+    <div class="">
+      <h2 class="govuk-heading-m">Crop details</h2>
+      {% include "./templates/second-crop-details.html" ignore missing %}
+      <p class="govuk-body"><a href="">Change {{data.cover_crop | nameconverter}} details for {{data.chosenfield}}</a></p>
+    </div>
   </div>
-
 </div>
+
 
 {% endblock %}

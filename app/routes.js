@@ -26,6 +26,21 @@ oaktree_farm.fields_added = false;
 oaktree_farm.plans_added = false;
 
 const CropGroup = require('./crop_group.js');
+//crop group with 1 main crop
+let crop_group_one = CropGroup.createCropGroup();
+crop_group_one.year = '2025';
+crop_group_one.firstCropReference = 'Wheat-Winter';
+crop_group_one.secondCropReference = 'Turnips-stubble';
+crop_group_one.thirdCropReference = null
+crop_group_one.fourthCropReference = null
+crop_group_one.firstCropFields = ['1', '2', '3', '4'];
+crop_group_one.secondCropFields = ['1', '2', '3'];
+crop_group_one.thirdCropFields = [];
+crop_group_one.fourthCropFields = [];
+crop_group_one.firstCropSelected = true
+crop_group_one.thirdCropSelected = false
+
+//crop group with 2 main crops selected
 let crop_group_populated = CropGroup.createCropGroup();
 crop_group_populated.year = '2025';
 crop_group_populated.firstCropReference = 'Wheat-Winter';
@@ -36,6 +51,8 @@ crop_group_populated.firstCropFields = ['1', '2', '3', '4'];
 crop_group_populated.secondCropFields = ['1', '2', '3'];
 crop_group_populated.thirdCropFields = ['5', '6', '7', '8'];
 crop_group_populated.fourthCropFields = ['5', '6'];
+crop_group_populated.firstCropSelected = true
+crop_group_populated.thirdCropSelected = true
 
 let crop_group_2025 = CropGroup.createCropGroup();
 
@@ -87,6 +104,7 @@ router.get('/', function (req, res) {
     // req.session.data.oaktree_farm.printFarm()
     
     //create 2025 crop plan
+    req.session.data.crop_group_one = crop_group_one
     req.session.data.crop_group_populated = crop_group_populated
     req.session.data.crop_group_2025 = crop_group_2025
     // req.session.data.crop_group_populated.printCropGroup();

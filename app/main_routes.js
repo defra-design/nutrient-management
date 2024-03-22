@@ -30,6 +30,27 @@ router.get(/fields_mvp_setup_handler/, function (req, res) {
     res.redirect('/mvp/start')
 })
 
+router.get(/one_crop_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.oaktree_farm.fields_added = true
+    req.session.data.oaktree_farm.use_mvp_fields = true
+    req.session.data.oaktree_farm.soil_added = true
+    req.session.data.oaktree_farm.planFive = true
+    req.session.data.oaktree_farm.plans_added = true
+    req.session.data.current_fields = req.session.data.field_details_mvp
+    // use plan with one crop 2025
+    req.session.data.crop_group_2025 = req.session.data.crop_group_one
+    
+    //convert the reference numbers to actual field objects
+    req.session.data.crop_group_2025.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2025.firstCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2025.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2025.secondCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2025.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2025.thirdCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2025.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2025.fourthCropFields, req.session.data.current_fields)
+
+    res.redirect('/mvp/start')
+})
+
 router.get(/plans_mvp_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     req.session.data.oaktree_farm.setup = true
@@ -59,48 +80,25 @@ router.get(/mvp_check_handler/, function (req, res) {
     req.session.data.plan2025.crop_added = true;
     req.session.data.oaktree_farm.plans_added = true;
     req.session.data.show_success_message = true;
+
     //set plan
-    req.session.data.crop_group_2025.firstCropReference = req.session.data.chosen_crop;
-    req.session.data.crop_group_2025.secondCropReference = req.session.data.cover_crop;
-    req.session.data.crop_group_2025.firstCropFields = req.session.data.crop_fields;
-    req.session.data.crop_group_2025.secondCropFields = req.session.data.cover_fields;
-
-    //get by reference
-    for (var x in req.session.data.crop_group_2025.firstCropFields) {
-        for (var y in req.session.data.current_fields) {
-            if (req.session.data.current_fields[y].reference == req.session.data.crop_group_2025.firstCropFields[x]) {
-                req.session.data.crop_group_2025.firstCropFields[x] = req.session.data.current_fields[y]
-            }
-        }
+    if(req.session.data.crop_group_2025.firstCropReference == null) {
+        req.session.data.crop_group_2025.firstCropReference = req.session.data.chosen_crop;
+        req.session.data.crop_group_2025.secondCropReference = req.session.data.cover_crop;
+        req.session.data.crop_group_2025.firstCropFields = req.session.data.crop_fields;
+        req.session.data.crop_group_2025.secondCropFields = req.session.data.cover_fields;
+        //get by reference
+        req.session.data.crop_group_2025.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2025.firstCropFields, req.session.data.current_fields)
+        req.session.data.crop_group_2025.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2025.secondCropFields, req.session.data.current_fields)
+    } else {
+        req.session.data.crop_group_2025.thirdCropReference = req.session.data.chosen_crop;
+        req.session.data.crop_group_2025.fourthCropReference = req.session.data.cover_crop;
+        req.session.data.crop_group_2025.thirdCropFields = req.session.data.crop_fields;
+        req.session.data.crop_group_2025.fourthCropFields = req.session.data.cover_fields;
+        //get by reference
+        req.session.data.crop_group_2025.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2025.thirdCropFields, req.session.data.current_fields)
+        req.session.data.crop_group_2025.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2025.fourthCropFields, req.session.data.current_fields)    
     }
-
-    //get by reference
-    for (var x in req.session.data.crop_group_2025.secondCropFields) {
-        for (var y in req.session.data.current_fields) {
-            if (req.session.data.current_fields[y].reference == req.session.data.crop_group_2025.secondCropFields[x]) {
-                req.session.data.crop_group_2025.secondCropFields[x] = req.session.data.current_fields[y]
-            }
-        }
-    }
-
-    //get by reference
-    for (var x in req.session.data.crop_group_2025.thirdCropFields) {
-        for (var y in req.session.data.current_fields) {
-            if (req.session.data.current_fields[y].reference == req.session.data.crop_group_2025.thirdCropFields[x]) {
-                req.session.data.crop_group_2025.thirdCropFields[x] = req.session.data.current_fields[y]
-            }
-        }
-    }
-
-    //get by reference
-    for (var x in req.session.data.crop_group_2025.fourthCropFields) {
-        for (var y in req.session.data.current_fields) {
-            if (req.session.data.current_fields[y].reference == req.session.data.crop_group_2025.fourthCropFields[x]) {
-                req.session.data.crop_group_2025.fourthCropFields[x] = req.session.data.current_fields[y]
-            }
-        }
-    }    
-
     res.redirect('/mvp/crop_plan/plan_view')
 })
 

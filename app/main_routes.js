@@ -348,7 +348,7 @@ router.get(/mvp_date_handler/, function (req, res) {
     }
 })
 
-router.get(/mvp_y_handler/, function (req, res) { 
+router.get(/yield_question_handler/, function (req, res) { 
     if (req.session.data.yield_option_one != 'rb209') {
         res.redirect('yield_value')
     } else {
@@ -356,7 +356,7 @@ router.get(/mvp_y_handler/, function (req, res) {
     }
 })
 
-router.get(/mvp_y2_handler/, function (req, res) { 
+router.get(/yield_questiontwo_handler/, function (req, res) { 
     if (req.session.data.yield_option_two != 'rb209') {
         res.redirect('yield_value_two')
     } else {
@@ -384,7 +384,5 @@ router.get(/sowdatetwo_value_handler/, function (req, res) {
         res.redirect('yield_question_two')
     }
 })
-
-
 
 module.exports = router

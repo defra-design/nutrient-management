@@ -23,9 +23,9 @@
 
       <h1 class="govuk-heading-l">
         {% if data.yield_option_one == "single" %}
-          What is the expected yield for {{data.chosen_crop | nameconverter}} per hectare in these fields?
+          What is the expected yield for {{data.chosen_crop | nameconverter}} in these fields?
         {% else %}
-          What is the expected yield for {{data.chosen_crop | nameconverter}} per hectare in {{data.crop_fields[0].name | nameconverter}}?
+          What is the expected yield for {{data.chosen_crop | nameconverter}} in {{data.crop_fields[0].name | nameconverter}}?
         {% endif %}
       </h1>
 
@@ -38,7 +38,7 @@
             Yield
           </label> -->
           <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
-            <div class="govuk-input__suffix" aria-hidden="true">tonne</div>
+            <div class="govuk-input__suffix" aria-hidden="true">tonnes/hectare</div>
           </div>
         </div>
 

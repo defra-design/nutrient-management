@@ -20,7 +20,7 @@
 
       <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        How do you want to enter the expected yield?
+        How do you want to enter the expected yield for {{data.chosen_crop | nameconverter}} in these fields?
       </h1>
 
       <form class="form" action="yield_question_handler" method="post">

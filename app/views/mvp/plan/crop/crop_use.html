@@ -28,7 +28,7 @@ Milling{% extends "layouts/main.html" %}
       <!-- {% include "templates/title_span.html" %} -->
 
       <h1 class="govuk-heading-l">
-        How do you plan to use the crop from these fields?
+        How do you plan to use the {{data.chosen_crop | nameconverter}} from these fields?
       </h1>
 
       <form class="form" action="straw" method="post">

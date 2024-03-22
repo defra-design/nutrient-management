@@ -41,42 +41,12 @@ router.get(/plans_mvp_setup_handler/, function (req, res) {
     req.session.data.current_fields = req.session.data.field_details_mvp
     // use populated plan 2025
     req.session.data.crop_group_2025 = req.session.data.crop_group_populated
-
-    //get by reference
-    for (var x in req.session.data.crop_group_2025.firstCropFields) {
-        for (var y in req.session.data.current_fields) {
-            if (req.session.data.current_fields[y].reference == req.session.data.crop_group_2025.firstCropFields[x]) {
-                req.session.data.crop_group_2025.firstCropFields[x] = req.session.data.current_fields[y]
-            }
-        }
-    }
-
-    //get by reference
-    for (var x in req.session.data.crop_group_2025.secondCropFields) {
-        for (var y in req.session.data.current_fields) {
-            if (req.session.data.current_fields[y].reference == req.session.data.crop_group_2025.secondCropFields[x]) {
-                req.session.data.crop_group_2025.secondCropFields[x] = req.session.data.current_fields[y]
-            }
-        }
-    }
-
-    //get by reference
-    for (var x in req.session.data.crop_group_2025.thirdCropFields) {
-        for (var y in req.session.data.current_fields) {
-            if (req.session.data.current_fields[y].reference == req.session.data.crop_group_2025.thirdCropFields[x]) {
-                req.session.data.crop_group_2025.thirdCropFields[x] = req.session.data.current_fields[y]
-            }
-        }
-    }
-
-    //get by reference
-    for (var x in req.session.data.crop_group_2025.fourthCropFields) {
-        for (var y in req.session.data.current_fields) {
-            if (req.session.data.current_fields[y].reference == req.session.data.crop_group_2025.fourthCropFields[x]) {
-                req.session.data.crop_group_2025.fourthCropFields[x] = req.session.data.current_fields[y]
-            }
-        }
-    }
+    
+    //convert the reference numbers to actual field objects
+    req.session.data.crop_group_2025.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2025.firstCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2025.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2025.secondCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2025.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2025.thirdCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2025.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2025.fourthCropFields, req.session.data.current_fields)
 
     res.redirect('/mvp/start')
 })
@@ -130,7 +100,7 @@ router.get(/mvp_check_handler/, function (req, res) {
             }
         }
     }    
-    
+
     res.redirect('/mvp/crop_plan/plan_view')
 })
 

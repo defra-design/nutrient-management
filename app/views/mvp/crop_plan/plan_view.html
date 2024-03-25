@@ -91,7 +91,7 @@
               None
             {% endif %}
             </td>
-            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop={{data.crop_group_2025.firstCropReference}}&chosenfield={{field.name}}">View recommendations</a></td>
+            <td class="govuk-table__cell"><a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.firstCropReference}}&chosenfield={{field.reference}}">View recommendations</a></td>
           </tr>
       {% endfor %}  
 
@@ -131,7 +131,7 @@
                 None
               {% endif %}
               </td>
-              <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop={{data.crop_group_2025.thirdCropReference}}&chosenfield={{field.name}}">View recommendations</a></td>
+              <td class="govuk-table__cell"><a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.thirdCropReference}}&chosenfield={{field.reference}}&">View recommendations</a></td>
             </tr>
         {% endfor %}  
 

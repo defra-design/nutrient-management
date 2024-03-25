@@ -19,6 +19,15 @@ function getMultipleFieldsByReferences (referenceNumbers, currentFields) {
     return referenceNumbers
 };
 
+function totalFieldsCount(plan) {
+    let totalFields = plan.firstCropFields.length
+    if (plan.thirdCropFields) {
+        totalFields =  totalFields + plan.thirdCropFields.length;
+    }
+    console.log('total fields' + totalFields);
+    return totalFields
+}
+
 
  function printCropGroup(group) {
     console.log(  'group' +
@@ -36,3 +45,4 @@ function getMultipleFieldsByReferences (referenceNumbers, currentFields) {
 module.exports.printCropGroup = printCropGroup;
 module.exports.getFieldByReference = getFieldByReference;
 module.exports.getMultipleFieldsByReferences = getMultipleFieldsByReferences;
+module.exports.totalFieldsCount = totalFieldsCount;

@@ -54,7 +54,7 @@
     <h1 class="govuk-heading-l">Crop plan for {{data.crop_group_2025.year}}</h1>
 
     <div class="crop_plan_title">
-      <p class="govuk-body">There are {{data.crop_group_2025.firstCropFields | array_count }} fields in this plan</p>
+      <p class="govuk-body">There are {{data.crop_group_2025.totalFields}} fields in this plan</p>
       <p class="govuk-body">Last updated: {{data.content.todays_date}}</p>
       <p class="govuk-body"><a href="/mvp/plan/crop/crop_group">Add another crop to this plan</a></p>
     </div>
@@ -91,7 +91,13 @@
               None
             {% endif %}
             </td>
-            <td class="govuk-table__cell"><a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.firstCropReference}}&chosenfield={{field.reference}}">View recommendations</a></td>
+            <td class="govuk-table__cell">
+              {% if hasSecondCrop == true %}
+              <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.firstCropReference}}&chosenfield={{field.reference}}&covercrop={{data.crop_group_2025.secondCropReference}}">View recommendations</a>
+            {% else %}
+              <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.firstCropReference}}&chosenfield={{field.reference}}&covercrop=none">View recommendations</a>
+            {% endif %}
+            </td>
           </tr>
       {% endfor %}  
 
@@ -115,9 +121,9 @@
         <tbody class="govuk-table__body">
 
         {% for field in data.crop_group_2025.thirdCropFields %}
-        {% set hasSecondCrop = false %}
+          {% set hasSecondCrop = false %}
 
-        {% for thisField in data.crop_group_2025.fourthCropFields %}
+          {% for thisField in data.crop_group_2025.fourthCropFields %}
             {% if thisField.reference === field.reference %}
               {% set hasSecondCrop = true %}
             {% endif %}
@@ -125,13 +131,20 @@
             <tr class="govuk-table__row">    
               <td class="govuk-table__cell">{{field.name}}</td>
               <td class="govuk-table__cell">
-                {% if hasSecondCrop == true %}
+              {% if hasSecondCrop == true %}
                 {{data.crop_group_2025.fourthCropReference | nameconverter}}
               {% else %}
                 None
               {% endif %}
               </td>
-              <td class="govuk-table__cell"><a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.thirdCropReference}}&chosenfield={{field.reference}}&">View recommendations</a></td>
+              <td class="govuk-table__cell">
+                {% if hasSecondCrop == true %}
+                  <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.thirdCropReference}}&chosenfield={{field.reference}}&covercrop={{data.crop_group_2025.fourthCropReference}}">View recommendations</a>
+                {% else %}
+                  <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.thirdCropReference}}&chosenfield={{field.reference}}&covercrop=none">View recommendations</a>
+              {% endif %}
+              </td>
+              
             </tr>
         {% endfor %}  
 

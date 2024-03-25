@@ -8,6 +8,7 @@ const field_details_v2 = require('./data/field_details_v2.json');
 const field_details_mvp = require('./data/field_details_mvp.json');
 const crop_types = require('./data/crops.json');
 const content = require('./content.js').content;
+const allFunctions = require('./allFunctions.js');
 
 const Farm = require('./farm.js');
 const oaktree_farm = Farm.createFarm();
@@ -37,8 +38,10 @@ crop_group_one.firstCropFields = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '
 crop_group_one.secondCropFields = ['1', '2', '3', '4', '5'];
 crop_group_one.thirdCropFields = [];
 crop_group_one.fourthCropFields = [];
-crop_group_one.firstCropSelected = true
-crop_group_one.thirdCropSelected = false
+crop_group_one.firstCropSelected = true;
+crop_group_one.thirdCropSelected = false;
+crop_group_one.totalFields = allFunctions.totalFieldsCount(crop_group_one);
+
 
 //crop group with 2 main crops selected
 let crop_group_populated = CropGroup.createCropGroup();
@@ -53,10 +56,9 @@ crop_group_populated.thirdCropFields = ['5', '6', '7', '8'];
 crop_group_populated.fourthCropFields = ['5', '6'];
 crop_group_populated.firstCropSelected = true
 crop_group_populated.thirdCropSelected = true
+crop_group_populated.totalFields = allFunctions.totalFieldsCount(crop_group_populated);
 
 let crop_group_2025 = CropGroup.createCropGroup();
-
-const allFunctions = require('./allFunctions.js');
 
 // var testy = allFunctions.getFieldByReference(field_details_mvp, 9);
 // console.log(testy);

@@ -99,6 +99,8 @@ router.get(/mvp_check_handler/, function (req, res) {
         req.session.data.crop_group_2025.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2025.thirdCropFields, req.session.data.current_fields)
         req.session.data.crop_group_2025.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2025.fourthCropFields, req.session.data.current_fields)    
     }
+    req.session.data.crop_group_2025.totalFields = allFunctions.totalFieldsCount(req.session.data.crop_group_2025);
+
     res.redirect('/mvp/crop_plan/plan_view')
 })
 

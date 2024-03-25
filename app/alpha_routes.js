@@ -297,8 +297,8 @@ router.get(/field_level_plan_handler/, function (req, res) {
 router.get(/mvpfield_plan_handler/, function (req, res) { 
     req.session.data.chosenField = allFunctions.getFieldByReference(req.session.data.current_fields, req.query.chosenfield)
     req.session.data.chosen_crop = req.query.chosencrop
-    req.session.data.plan2025.plan_update = null
-    req.session.data.chosen_plan = req.session.data.plan2025
+    // req.session.data.plan2025.plan_update = null
+    // req.session.data.chosen_plan = req.session.data.plan2025
     res.redirect('../field_plan/index')
 })
 

@@ -24,7 +24,7 @@ function totalFieldsCount(plan) {
     if (plan.thirdCropFields) {
         totalFields =  totalFields + plan.thirdCropFields.length;
     }
-    console.log('total fields' + totalFields);
+    // console.log('total fields' + totalFields);
     return totalFields
 }
 

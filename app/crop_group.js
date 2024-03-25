@@ -9,7 +9,8 @@ secondCropFields,
 thirdCropFields,
 fourthCropFields,
 firstCropSelected,
-thirdCropSelected
+thirdCropSelected,
+totalFields
 ) {
   this.year = year,
   this.firstCropReference = firstCropReference,
@@ -20,8 +21,9 @@ thirdCropSelected
   this.secondCropFields = secondCropFields,
   this.thirdCropFields = thirdCropFields,
   this.fourthCropFields = fourthCropFields,
-  this.firstCropSelected = firstCropSelected
-  this.thirdCropSelected = thirdCropSelected
+  this.firstCropSelected = firstCropSelected,
+  this.thirdCropSelected = thirdCropSelected,
+  this.totalFields = totalFields
 
 }
 
@@ -35,8 +37,9 @@ CropGroup.prototype.reset = function () {
   this.secondCropFields = null,
   this.thirdCropFields = null,
   this.fourthCropFields = null,
-  this.firstCropSelected = null
+  this.firstCropSelected = null,
   this.thirdCropSelected = null
+  this.totalFields = null
 };
 
 function createCropGroup() {

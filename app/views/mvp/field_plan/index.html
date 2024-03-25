@@ -17,7 +17,7 @@
       href: "../plans_records"
     },
     {
-      text: "Harvest year " + data.chosen_plan.harvest_date,
+      text: "Harvest year 2025",
       href: "../crop_plan/plan_view"
     },
     {
@@ -32,6 +32,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+
     <div class="status-header margin-bottom-forty">
       <h1 class="govuk-heading-l">Nutrient recommendations for {{data.chosenField.name}} 2025</h1>
     </div>  
@@ -45,17 +46,19 @@
       <p class="govuk-body"><a href="">Change {{data.chosen_crop | nameconverter}} details for {{data.chosenField.name}}</a></p>
     </div>
 
-    <hr class="seperator_five">
-
-    <div class="margin-bottom-forty">
-      <h2 class="govuk-heading-m">{{data.crop_group_2025.secondCropReference | nameconverter}} nutrient recommendations</h2>
-      {% include "./templates/nutrients_mvp.html" ignore missing %}
-    </div>
-    <div class="">
-      <h2 class="govuk-heading-m">Crop details</h2>
-      {% include "./templates/second-crop-details.html" ignore missing %}
-      <p class="govuk-body"><a href="">Change {{data.crop_group_2025.secondCropReference | nameconverter}} details for {{data.chosenField.name}}</a></p>
-    </div>
+    {% if data.cover_crop != 'none' %}
+      <hr class="seperator_five">
+      <div class="margin-bottom-forty">
+        <h2 class="govuk-heading-m">{{data.cover_crop | nameconverter}} nutrient recommendations</h2>
+        {% include "./templates/nutrients_mvp.html" ignore missing %}
+      </div>
+      <div class="">
+        <h2 class="govuk-heading-m">Crop details</h2>
+        {% include "./templates/second-crop-details.html" ignore missing %}
+        <p class="govuk-body"><a href="">Change {{data.cover_crop | nameconverter}} details for {{data.chosenField.name}}</a></p>
+      </div>
+    {% endif %}
+    
   </div>
 </div>
 

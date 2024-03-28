@@ -220,8 +220,11 @@ router.get(/mvp_crop_handler/, function (req, res) {
 
 //add another crop
 router.get(/mvp_another_crop_handler/, function (req, res) { 
-    let next = (req.session.data.another_crop == "yes") ? 'crop_type_second' : 'check'
-    res.redirect(next)
+    if (req.session.data.cover_crop == 'none') {
+        res.redirect('check')
+    } else {
+        res.redirect('variety_two')
+    }
 })
 
 router.get(/field_name_handler/, function (req, res) { 
@@ -307,10 +310,10 @@ router.get(/mineral_handler/, function (req, res) {
     res.redirect(next)
 })
 
-router.get(/secondcrop_handler/, function (req, res) { 
-    let next = ('variety_two')
-    res.redirect(next)
-})
+// router.get(/secondcrop_handler/, function (req, res) { 
+//     let next = ('variety_two')
+//     res.redirect(next)
+// })
 
 router.get(/mvp_fields_handler/, function (req, res) { 
     for (var x in req.session.data.crop_fields) {

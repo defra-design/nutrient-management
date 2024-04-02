@@ -19,7 +19,7 @@
       {% include "templates/title_span.html" %}
 
       <h1 class="govuk-heading-l">
-        Do you plan to spread {{data.non_organic_term | lower }}  on {{data.chosenfield.name}}?
+        Do you plan to spread {{data.content.non_organic_term | lower }}  on {{data.chosenfield.name}}?
       </h1>
 
       <form class="form" action="fertiliser_if_handler" method="post">

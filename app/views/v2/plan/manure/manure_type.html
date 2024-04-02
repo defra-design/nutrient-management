@@ -18,10 +18,10 @@
 
       <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        What type of {{data.organic_term | lower}} do you plan to use in this application?
+        What type of {{data.content.organic_term | lower}} do you plan to use in this application?
       </h1>
 
-      <h3 class="govuk-heading-s">Select from your most commonly used {{data.organic_term | lower}}s</h3>
+      <h3 class="govuk-heading-s">Select from your most commonly used {{data.content.organic_term | lower}}s</h3>
 
       <form class="form" action="manure_again" method="post">
 
@@ -57,7 +57,7 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="other" name="manure_type" type="radio" value="other">
               <label class="govuk-label govuk-radios__label" for="other">
-                Select another {{data.organic_term | lower}}
+                Select another {{data.content.organic_term | lower}}
               </label>
             </div>
           </fieldset>

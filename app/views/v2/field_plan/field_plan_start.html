@@ -135,17 +135,17 @@
     <p>You have not planned any organic material applications.</p>
 
     <p class="govuk-body">
-      <a class="govuk-link" href="#">Add an {{data.organic_term | lower}} plan</a>
+      <a class="govuk-link" href="#">Add an {{data.content.organic_term | lower}} plan</a>
     </p>
 
     <hr class="big_seperator">
 
-  <h2 class="govuk-heading-m">{{data.non_organic_term }} plan</h2>
+  <h2 class="govuk-heading-m">{{data.content.non_organic_term }} plan</h2>
 
   <p>You have not planned any inorganic fertiliser applications.</p>
 
   <p class="govuk-body">
-      <a class="govuk-link" href="#">Add an {{data.non_organic_term | lower}} plan</a>
+      <a class="govuk-link" href="#">Add an {{data.content.non_organic_term | lower}} plan</a>
   </p>
 
 {% endblock %}

@@ -17,7 +17,7 @@
     
     {% include "templates/title_span.html" %}
     <h1 class="govuk-heading-l">
-      {{data.non_organic_term }} recommendations<br> for {{data.chosenfield.name}}
+      {{data.content.non_organic_term}} recommendations<br> for {{data.chosenfield.name}}
     </h1>
     
     {% if data.field_use == 'arable' %}
@@ -79,18 +79,18 @@
 <!-- <form action="fertiliser_if" method="post" novalidate>
   <div class="button">
     {{ govukButton({
-      text: "Add " + data.non_organic_term | lower + " details"
+      text: "Add " + data.content.non_organic_term | lower + " details"
     }) }}
   </div>
 
 </form> -->
 
 <p class="govuk-body">
-  <a href="fertiliser_if">Continue to {{data.non_organic_term | lower}} plan</a>
+  <a href="fertiliser_if">Continue to {{data.content.non_organic_term | lower}} plan</a>
 </p>
 
 <p class="govuk-body">
-  <a href="check_one">Edit {{data.organic_term | lower}} plan</a>
+  <a href="check_one">Edit {{data.content.organic_term | lower}} plan</a>
 </p>
 
 <p class="govuk-body">

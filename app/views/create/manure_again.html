@@ -19,7 +19,7 @@
       {% include "templates/title_span.html" %}
 
       <h1 class="govuk-heading-l">
-        Do you plan to spread more {{data.organic_term | lower}} on {{data.chosenfield.name}}?
+        Do you plan to spread more {{data.content.organic_term | lower}} on {{data.chosenfield.name}}?
       </h1>
 
       <form class="form" action="manure_again_handler" method="post">

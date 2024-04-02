@@ -30,7 +30,7 @@
     {% if data.plan_type == 'previous' %}
     <br>
     <h2 class="govuk-heading-m">
-      {{data.organic_term | capitalize }}
+      {{data.content.organic_term | capitalize }}
     </h2>
     <div class="check-answers">
       {% include "./manure/check_manure.html" %}

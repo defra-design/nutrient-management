@@ -94,18 +94,18 @@
 {% else %}
   <p>You have not planned any organic material applications.</p>
   <p class="govuk-body">
-    <a class="govuk-link" href="#">Add {{data.organic_term | lower}} applications</a>
+    <a class="govuk-link" href="#">Add {{data.content.organic_term | lower}} applications</a>
   </p>
 {% endif %}
 
 <hr class="big_seperator">
-<h2 class="govuk-heading-m">{{data.non_organic_term }} plan</h2>
+<h2 class="govuk-heading-m">{{data.content.non_organic_term }} plan</h2>
 {% if data.chosen_plan.fertiliser_added == true %}
   {% include "./templates/non_organic_material_plan.html" ignore missing %}
 {% else %}
 <p>You have not planned any inorganic fertiliser applications.</p>
 <p class="govuk-body">
-  <a class="govuk-link" href="#">Add {{data.non_organic_term | lower}} applications</a>
+  <a class="govuk-link" href="#">Add {{data.content.non_organic_term | lower}} applications</a>
 </p>
 {% endif %}
 

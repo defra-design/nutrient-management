@@ -114,13 +114,13 @@
     </table>    
 
     <p class="govuk-body">
-      <a class="govuk-link" href="#">View or change {{data.organic_term | lower}} plan</a>
+      <a class="govuk-link" href="#">View or change {{data.content.organic_term | lower}} plan</a>
     </p>
 
   <hr class="medium_seperator">
 
 <table class="govuk-table recomendation-table data-table application-table data-table">
-  <caption class="govuk-table__caption govuk-table__caption--m">{{data.non_organic_term }} application plan</caption>
+  <caption class="govuk-table__caption govuk-table__caption--m">{{data.content.non_organic_term }} application plan</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Nutrient</th>
@@ -151,7 +151,7 @@
   </tbody>
 </table>
 <p class="govuk-body">
-    <a class="govuk-link" href="check_two">View or change {{data.non_organic_term | lower}} plan</a>
+    <a class="govuk-link" href="check_two">View or change {{data.content.non_organic_term | lower}} plan</a>
 </p>
 
 

@@ -17,7 +17,7 @@
     
     {% include "templates/title_span.html" %}
     <h1 class="govuk-heading-l">
-      Check crop and {{data.organic_term | lower }} details for {{data.chosenfield.name}}
+      Check crop and {{data.content.organic_term | lower }} details for {{data.chosenfield.name}}
     </h1>
 
     <h2 class="govuk-heading-m">
@@ -37,7 +37,7 @@
 
     <br>
     <h2 class="govuk-heading-m">
-    These values are based on your crop choice and {{data.organic_term | lower }} applications
+    These values are based on your crop choice and {{data.content.organic_term | lower }} applications
     </h2>
     <div class="check-answers">
       {% include "./check_five_values.html" ignore missing %}

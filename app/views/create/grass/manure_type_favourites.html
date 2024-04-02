@@ -20,13 +20,13 @@
         Nutrient application plan 2023 to 2024
       </span>
       <h1 class="govuk-heading-l">
-        Which {{data.organic_term | lower}} do you plan to use in this application?
+        Which {{data.content.organic_term | lower}} do you plan to use in this application?
       </h1>
 
       <form class="form" action="check_five" method="post">
 
         <div class="govuk-form-group">
-          <h3 class="govuk-heading-s">Select from your most common {{data.organic_term | lower}} types</h3>
+          <h3 class="govuk-heading-s">Select from your most common {{data.content.organic_term | lower}} types</h3>
           <fieldset class="govuk-fieldset">
 
           <div class="govuk-radios__item">
@@ -50,7 +50,7 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="other" name="manure_type" type="radio" value="other">
               <label class="govuk-label govuk-radios__label" for="other">
-                Select another {{data.organic_term | lower }}
+                Select another {{data.content.organic_term | lower }}
               </label>
             </div>
           </fieldset>

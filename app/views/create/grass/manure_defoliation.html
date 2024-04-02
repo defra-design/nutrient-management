@@ -18,7 +18,7 @@
 
       {% include "templates/title_span.html" %}
       <h1 class="govuk-heading-l">
-        When do you plan to apply {{data.organic_term | lower}} in {{data.chosenfield.name}}?
+        When do you plan to apply {{data.content.organic_term | lower}} in {{data.chosenfield.name}}?
       </h1>
 
       <form class="form" action="manure_when" method="post">

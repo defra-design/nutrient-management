@@ -32,7 +32,7 @@
       {% include "./check_manure_values.html" ignore missing %}
     </div>
 
-    <form action="/v2_manure_check_handler/" method="post" novalidate>
+    <form action="/mvp/crop_plan/plan_view" method="post" novalidate>
       {{ govukButton({
         text: "Add to plan"
       }) }}

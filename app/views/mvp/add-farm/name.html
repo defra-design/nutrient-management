@@ -20,6 +20,21 @@ Add a farm - farm name – {{ serviceName }}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <!-- <div id="error" data-module="auto-track-event ga4-auto-tracker govuk-error-summary" data-track-category="userAlerts: local_transaction" data-track-action="postcodeErrorShown: fullPostcodeNoLocationsApiMatch" data-track-label="We couldn't find this postcode." data-ga4-auto="{&quot;event_name&quot;:&quot;form_error&quot;,&quot;action&quot;:&quot;error&quot;,&quot;type&quot;:&quot;local transaction&quot;,&quot;text&quot;:&quot;We couldn't find this postcode.&quot;,&quot;section&quot;:&quot;Enter a postcode&quot;,&quot;tool_name&quot;:&quot;Report a noise nuisance to your council&quot;}" class="gem-c-error-summary govuk-error-summary" data-auto-track-event-module-started="true" data-ga4-auto-tracker-module-started="true" data-govuk-error-summary-module-started="true">
+        <div role="alert">
+            <h2 class="govuk-error-summary__title">
+              There is a problem
+            </h2>
+          <div class="govuk-error-summary__body">
+              <ul class="govuk-list govuk-error-summary__list">
+                  <li class="gem-c-error-summary__list-item">
+                      <a href="#postcode">We couldn't find this postcode.</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      </div>
+ -->
       <h1 class="govuk-heading-l">Add a farm</h1>
 
       <p class="govuk-body">If you have more than one holding, it's best to add a separate farm for each.</p>
@@ -31,8 +46,13 @@ Add a farm - farm name – {{ serviceName }}
           <input class="govuk-input" id="farm_name" name="farm_name" type="text" autocomplete="">
         </div>
 
-        <div class="govuk-form-group margin-bottom-forty">
+        <!-- <div class="govuk-form-group margin-bottom-forty govuk-form-group--error"> -->
+          <div class="govuk-form-group">
           <label class="govuk-label" for="farm_postcode">What is the farm postcode?</label>
+          <!-- <p class="gem-c-error-message govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> We couldn't find this postcode.
+          </p> -->
+
           <input class="govuk-input govuk-input--width-5" id="farm_postcode" name="farm_postcode" type="text" autocomplete="">
         </div>
 

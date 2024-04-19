@@ -174,9 +174,7 @@ router.get(/crop_group_handler/, function (req, res) {
 })
 
 router.get(/cropmvp_handler/, function (req, res) { 
-    if (req.session.data.crop_group == "other") {
-        res.redirect('fields')
-    } else if (req.session.data.crop_group == 'grass') { 
+    if (req.session.data.crop_group == 'grass') { 
         req.session.data.chosen_crop = 'grass'
         req.session.data.crop_group = null
         res.redirect('crop_group')

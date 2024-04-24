@@ -69,7 +69,11 @@
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Field</th>
-          <th scope="col" class="govuk-table__header">Other crop</th>
+          {% if data.crop_group_2025.secondCropFields != null %}
+            <th scope="col" class="govuk-table__header">Second crop</th>
+          {% else  %}
+            <th scope="col" class="govuk-table__header"></th>
+          {% endif %}
           <th scope="col" class="govuk-table__header"> </th>
         </tr>
       </thead>
@@ -86,8 +90,10 @@
           <tr class="govuk-table__row">    
             <td class="govuk-table__cell">{{field.name}}</td>
             <td class="govuk-table__cell">
-              {% if hasSecondCrop == true %}
+            {% if hasSecondCrop == true %}
               {{data.crop_group_2025.secondCropReference | nameconverter}}
+            {% elif data.crop_group_2025.secondCropFields == null %}
+              <span> </span>
             {% else %}
               None
             {% endif %}
@@ -145,9 +151,8 @@
                   <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.thirdCropReference}}&chosenfield={{field.reference}}&covercrop=none">View recommendations</a>
               {% endif %}
               </td>
-              
             </tr>
-        {% endfor %}  
+        {% endfor %}
 
         </tbody>
       </table>

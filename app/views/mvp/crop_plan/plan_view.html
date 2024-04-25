@@ -66,19 +66,26 @@
     <p class="govuk-body"><a href="">Change this {{data.crop_group_2025.firstCropReference | nameconverter }} plan</a></p>
 
     <table class="govuk-table margin-bottom-forty big_crop_table">
+      
+      <!-- 
+        Set headers 
+        Go through the list, if there are no fields in crop2 or they show their crop as 'none' dont show the second header
+        There is a big where the first three fields are being populated with 'none' - need to fix
+      -->
+
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Field</th>
-          {% if data.crop_group_2025.secondCropFields != null %}
+          {% if data.crop_group_2025.secondCropFields.length != 0 %}
             <th scope="col" class="govuk-table__header">Second crop</th>
-          {% else  %}
-            <th scope="col" class="govuk-table__header"></th>
           {% endif %}
-          <th scope="col" class="govuk-table__header"> </th>
+          <th scope="col" class="govuk-table__header"></th>
         </tr>
       </thead>
-
       <tbody class="govuk-table__body">
+
+        <!-- {{data.crop_group_2025.secondCropFields[0].name}} -->
+
       {% for field in data.crop_group_2025.firstCropFields %}
       {% set hasSecondCrop = false %}
 
@@ -87,25 +94,25 @@
             {% set hasSecondCrop = true %}
           {% endif %}
         {% endfor %}  
-          <tr class="govuk-table__row">    
-            <td class="govuk-table__cell">{{field.name}}</td>
-            <td class="govuk-table__cell">
+        <tr class="govuk-table__row">    
+          <td class="govuk-table__cell">{{field.name}}</td>
+          <td class="govuk-table__cell">
+          {% if hasSecondCrop == true and data.crop_group_2025.secondCropReference != 'none' %}
+            {{data.crop_group_2025.secondCropReference | nameconverter | upper}}
+          {% elif data.crop_group_2025.secondCropFields == null %}
+            <span> </span>
+          {% else %}
+            None
+          {% endif %}
+          </td>
+          <td class="govuk-table__cell">
             {% if hasSecondCrop == true %}
-              {{data.crop_group_2025.secondCropReference | nameconverter}}
-            {% elif data.crop_group_2025.secondCropFields == null %}
-              <span> </span>
-            {% else %}
-              None
-            {% endif %}
-            </td>
-            <td class="govuk-table__cell">
-              {% if hasSecondCrop == true %}
-              <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.firstCropReference}}&chosenfield={{field.reference}}&covercrop={{data.crop_group_2025.secondCropReference}}">View recommendations</a>
-            {% else %}
-              <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.firstCropReference}}&chosenfield={{field.reference}}&covercrop=none">View recommendations</a>
-            {% endif %}
-            </td>
-          </tr>
+            <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.firstCropReference}}&chosenfield={{field.reference}}&covercrop={{data.crop_group_2025.secondCropReference}}">View recommendations</a>
+          {% else %}
+            <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.firstCropReference}}&chosenfield={{field.reference}}&covercrop=none">View recommendations</a>
+          {% endif %}
+          </td>
+        </tr>
       {% endfor %}  
 
       </tbody>
@@ -120,11 +127,12 @@
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Field</th>
-            <th scope="col" class="govuk-table__header">Other crop</th>
-            <th scope="col" class="govuk-table__header"> </th>
+            {% if data.crop_group_2025.thirdCropFields.length != 0 %}
+              <th scope="col" class="govuk-table__header">Second crop</th>
+            {% endif %}
+            <th scope="col" class="govuk-table__header"></th>
           </tr>
         </thead>
-
         <tbody class="govuk-table__body">
 
         {% for field in data.crop_group_2025.thirdCropFields %}

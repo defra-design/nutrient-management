@@ -58,6 +58,7 @@ crop_group_populated.firstCropSelected = true
 crop_group_populated.thirdCropSelected = true
 crop_group_populated.totalFields = allFunctions.totalFieldsCount(crop_group_populated);
 
+let crop_group_2024 = CropGroup.createCropGroup();
 let crop_group_2025 = CropGroup.createCropGroup();
 
 // var testy = allFunctions.getFieldByReference(field_details_mvp, 9);
@@ -109,6 +110,7 @@ router.get('/', function (req, res) {
     req.session.data.crop_group_one = crop_group_one
     req.session.data.crop_group_populated = crop_group_populated
     req.session.data.crop_group_2025 = crop_group_2025
+    req.session.data.crop_group_2024 = crop_group_2024
     // req.session.data.crop_group_populated.printCropGroup();
 
     //data
@@ -151,13 +153,22 @@ router.get('/', function (req, res) {
     req.session.data.fertiliser_spreads = 0
 
     // reset the fields shown in the plan
-    req.session.data.fieldsToShow = []
-    req.session.data.secondFieldsInThisPlan = []
-    req.session.data.thirdFieldsInThisPlan = []
-    req.session.data.fourthFieldsInThisPlan = []
+    // req.session.data.fieldsToShow = []
+    // req.session.data.secondFieldsInThisPlan = []
+    // req.session.data.thirdFieldsInThisPlan = []
+    // req.session.data.fourthFieldsInThisPlan = []
+
+    req.session.data.crop_group_2025.firstCropFields = []
+    req.session.data.crop_group_2025.secondCropFields = []
+    req.session.data.crop_group_2025.thirdCropFields = []
+    req.session.data.crop_group_2025.fourthCropFields = []
+
+    req.session.data.crop_group_2024.firstCropFields = []
+    req.session.data.crop_group_2024.secondCropFields = []
+    req.session.data.crop_group_2024.thirdCropFields = []
+    req.session.data.crop_group_2024.fourthCropFields = []
 
     res.render('index')
-    
 })
 
 //import routes

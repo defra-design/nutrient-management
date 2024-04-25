@@ -43,6 +43,11 @@
                   {% set isPlanned = true %}
                 {% endif %}
               {% endfor %} 
+              {% for thisField in data.crop_group_2025.thirdCropFields %} 
+              {% if thisField.reference == field.reference %}
+                {% set isPlanned = true %}
+              {% endif %}
+            {% endfor %} 
               {% if isPlanned == false %}
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id={{field.reference}} name="crop_fields" type="checkbox" value={{field.reference}}>

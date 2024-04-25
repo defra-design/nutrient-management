@@ -218,6 +218,14 @@ router.get(/mvp_crop_handler/, function (req, res) {
     res.redirect('variety')
 })
 
+router.get(/cropuse_handler/, function (req, res) { 
+    if (req.session.data.crop_group == 'other') { 
+        res.redirect('another_crop')
+    } else {
+        res.redirect('crop_use')
+    }
+})
+
 //add another crop
 router.get(/mvp_another_crop_handler/, function (req, res) { 
     if (req.session.data.cover_crop == 'none') {

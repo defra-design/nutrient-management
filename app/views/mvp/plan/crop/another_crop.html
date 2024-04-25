@@ -24,46 +24,66 @@
         
               <!-- {% include "templates/title_span.html" %} -->
               <h1 class="govuk-heading-l">
-                Do you plan to grow any of these crops in these fields?
+                {% if data.crop_group != 'other' %}
+                  Do you plan to grow any of these crops in these fields?
+                {% else %}
+                  Do you plan to grow any other crops in these fields?
+                {% endif %}
               </h1>
         
               <form class="form" action="mvp_another_crop_handler" method="post">
-        
                 <div class="govuk-form-group">
-                  <!-- <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                      <h1 class="govuk-fieldset__heading">
-                        Where do you live?
-                      </h1>
-                    </legend> -->
-        
+
+                  {% if data.crop_group == 'other' %}
+
+                      <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+                          <label class="govuk-label govuk-radios__label" for="contact">
+                            Yes
+                          </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label" for="cover_crop">
+                              Crop name
+                            </label>
+                            <input class="govuk-input govuk-input--width-20" id="cover_crop" name="cover_crop" type="text" spellcheck="false" autocomplete="off">
+                          </div>
+                        </div>
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                          <label class="govuk-label govuk-radios__label" for="contact-2">
+                            No
+                          </label>
+                        </div>
+                      </div>
+
+                  {% else %}
                     <div class="govuk-radios" data-module="govuk-radios">
-        
                       <div class="govuk-radios__item">
                         <input class="govuk-radios__input" id="turnips" name="cover_crop" type="radio" value="Turnips-stubble">
                         <label class="govuk-label govuk-radios__label" for="turnips">
                           Stubble Turnips
                         </label>
                       </div>
-        
                       <div class="govuk-radios__item">
                         <input class="govuk-radios__input" id="Rape-forage" name="cover_crop" type="radio" value="Rape-forage">
                         <label class="govuk-label govuk-radios__label" for="Rape-forage">
                           Forage Rape
                         </label>
                       </div>
-
                       <div class="govuk-radios__divider">or</div>
-
                       <div class="govuk-radios__item">
                         <input class="govuk-radios__input" id="none" name="cover_crop" type="radio" value="none">
                         <label class="govuk-label govuk-radios__label" for="none">
                           No
                         </label>
                       </div>
-        
                     </div>
-                  </fieldset>
+                  {% endif %}
+      
+
                 </div>
                 {{ govukButton({
                   text: "Continue"

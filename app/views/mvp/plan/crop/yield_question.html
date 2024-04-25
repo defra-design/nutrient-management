@@ -47,13 +47,16 @@
                   Enter different figures for each field
                 </label>
               </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rb209" name="yield_option_one" type="radio" value="rb209">
-                <label class="govuk-label govuk-radios__label" for="rb209">
-                  Use the standard figure of 7 tonnes per hectare for all these fields
-                </label>
-              </div>
-            
+
+              {% if data.crop_group != 'other' %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="rb209" name="yield_option_one" type="radio" value="rb209">
+                  <label class="govuk-label govuk-radios__label" for="rb209">
+                    Use the standard figure of 7 tonnes per hectare for all these fields
+                  </label>
+                </div>
+            {% endif %}
+
             </div>
           </fieldset>
         </div>

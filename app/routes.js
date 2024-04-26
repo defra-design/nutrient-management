@@ -167,7 +167,7 @@ router.get('/', function (req, res) {
     req.session.data.crop_group_2024.secondCropFields = []
     req.session.data.crop_group_2024.thirdCropFields = []
     req.session.data.crop_group_2024.fourthCropFields = []
-
+    req.session.data.cover_fields = []
     res.render('index')
 })
 

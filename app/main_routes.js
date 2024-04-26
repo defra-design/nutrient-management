@@ -335,6 +335,7 @@ router.get(/mvp_fields_handler/, function (req, res) {
 })
 
 router.get(/cover_handler/, function (req, res) { 
+    req.session.data.crop_group_2025.secondCropFields = []
     for (var x in req.session.data.cover_fields) {
         for (var y in req.session.data.current_fields) {
             if (req.session.data.current_fields[y].reference == req.session.data.cover_fields[x]) {

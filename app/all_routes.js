@@ -403,6 +403,7 @@ router.get(/mvp_check_handler/, function (req, res) {
     req.session.data.plan2025.crop_added = true
     req.session.data.chosen_plan = req.session.data.plan2025
     req.session.data.oaktree_farm.plans_added = true
+    console.log(req.session.data.crop_group_2025.secondCropFields.length)
     res.redirect('/mvp/crop_plan/index')
 })
 

@@ -228,10 +228,19 @@ router.get(/cropuse_handler/, function (req, res) {
 
 //add another crop
 router.get(/mvp_another_crop_handler/, function (req, res) { 
-    if (req.session.data.cover_crop == 'none') {
-        res.redirect('check')
+    if (req.session.data.crop_group == 'other') {
+        if (req.session.data.other_selected == 'yes') {
+            res.redirect('name_two')
+        } else {
+            res.redirect('check')
+
+        }
     } else {
-        res.redirect('variety_two')
+        if (req.session.data.cover_crop == 'none') {
+            res.redirect('check')
+        } else {
+            res.redirect('variety_two')
+        }
     }
 })
 

@@ -29,8 +29,8 @@
             {% for potato in data.potato_details %}
               {% if potato.potatoGroupId == data.chosen_crop %}
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id={{potato.potatoVariety}} name="chosen_crop" type="radio" value={{potato.potatoVariety}}>
-                  <label class="govuk-label govuk-radios__label" for={{potato.potatoVariety}}>
+                  <input class="govuk-radios__input" id={{potato.potatoVarietyId}} name="chosen_crop" type="radio" value={{potato.potatoVarietyId}}>
+                  <label class="govuk-label govuk-radios__label" for={{potato.potatoVarietyId}}>
                     {{potato.potatoVariety}}
                   </label>
                 </div>

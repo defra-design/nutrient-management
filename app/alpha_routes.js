@@ -201,11 +201,13 @@ router.get(/mvp_crop_handler/, function (req, res) {
 
 //potatoes
 router.get(/potato_type_handler/, function (req, res) { 
-    req.session.data.chosen_crop = req.session.data.chosen_crop + " potatoes"
-    // if (req.session.data.crop_group == "other") {
-    //     res.redirect('crop_when')
-    // } else {
-    // }
+    // console.log('chosenCrop' + req.session.data.chosen_crop)
+    // console.log('chosenCrop' + req.session.data.chosen_crop)
+    for (var x in req.session.data.potato_details) {
+        if (req.session.data.potato_details[x].potatoVarietyId == req.session.data.chosen_crop) {
+            req.session.data.chosen_crop = req.session.data.potato_details[x].potatoVariety + " potatoes"
+        }
+    }
     res.redirect('fields')
 })
 

@@ -186,6 +186,29 @@ router.get(/cropmvp_handler/, function (req, res) {
     }
 })
 
+/////// MVP Crops
+//Set the chosen_crop
+router.get(/mvp_crop_handler/, function (req, res) { 
+    if (req.session.data.crop_group == 'potatoes') { 
+        res.redirect('crop_type_potato')
+    } else {
+        if (req.session.data.chosen_crop == null)  {
+            req.session.data.chosen_crop = 'Wheat-Winter'
+        }
+        res.redirect('variety')
+    }
+})
+
+//potatoes
+router.get(/potato_type_handler/, function (req, res) { 
+    req.session.data.chosen_crop = req.session.data.chosen_crop + " potatoes"
+    // if (req.session.data.crop_group == "other") {
+    //     res.redirect('crop_when')
+    // } else {
+    // }
+    res.redirect('fields')
+})
+
 //grass
 router.get(/grass_use_handler/, function (req, res) { 
     res.redirect('arable_length')

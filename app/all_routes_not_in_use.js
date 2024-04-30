@@ -210,20 +210,20 @@ router.get(/crop_group_handler/, function (req, res) {
     }
 })
 
-router.get(/cropmvp_handler/, function (req, res) { 
-    if (req.session.data.crop_group == "other") {
-        res.redirect('fields')
-    } else if (req.session.data.crop_group == 'grass') { 
-        req.session.data.chosen_crop = 'grass'
-        req.session.data.crop_group = null
-        res.redirect('crop_group')
-    } else if (req.session.data.crop_group == null) { 
-        req.session.data.crop_group = 'cereals'
-        res.redirect('crop_type_all')
-    } else {
-        res.redirect('crop_type_all')
-    }
-})
+// router.get(/cropmvp_handler/, function (req, res) { 
+//     if (req.session.data.crop_group == "other") {
+//         res.redirect('fields')
+//     } else if (req.session.data.crop_group == 'grass') { 
+//         req.session.data.chosen_crop = 'grass'
+//         req.session.data.crop_group = null
+//         res.redirect('crop_group')
+//     } else if (req.session.data.crop_group == null) { 
+//         req.session.data.crop_group = 'cereals'
+//         res.redirect('crop_type_all')
+//     } else {
+//         res.redirect('crop_type_all')
+//     }
+// })
 
 //grass
 router.get(/grass_use_handler/, function (req, res) { 
@@ -512,14 +512,6 @@ router.get(/add_farms_handler/, function (req, res) {
     res.redirect('../hub')
 })
 
-/////// MVP Crops
-//Set the chosen_crop
-router.get(/mvp_crop_handler/, function (req, res) { 
-    if (req.session.data.chosen_crop == null) { 
-        req.session.data.chosen_crop = 'Wheat-Winter'
-    }
-    res.redirect('variety')
-})
 
 //add another crop
 router.get(/mvp_another_crop_handler/, function (req, res) { 

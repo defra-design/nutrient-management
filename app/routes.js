@@ -6,6 +6,7 @@ const farm_details = require('./data/farm_details.json');
 const field_details = require('./data/field_details.json');
 const field_details_v2 = require('./data/field_details_v2.json');
 const field_details_mvp = require('./data/field_details_mvp.json');
+const potato_details = require('./data/potatoes.json');
 const crop_types = require('./data/crops.json');
 const content = require('./content.js').content;
 const allFunctions = require('./allFunctions.js');
@@ -119,6 +120,7 @@ router.get('/', function (req, res) {
     req.session.data.field_details = field_details
     req.session.data.field_details_v2 = field_details_v2
     req.session.data.field_details_mvp = field_details_mvp
+    req.session.data.potato_details = potato_details
     req.session.data.crop_types = crop_types
     req.session.data.farm_details = farm_details
     req.session.data.chosenfield = null

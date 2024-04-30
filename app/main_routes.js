@@ -209,15 +209,6 @@ router.get(/add_farms_handler/, function (req, res) {
     res.redirect('../hub')
 })
 
-/////// MVP Crops
-//Set the chosen_crop
-router.get(/mvp_crop_handler/, function (req, res) { 
-    if (req.session.data.chosen_crop == null) { 
-        req.session.data.chosen_crop = 'Wheat-Winter'
-    }
-    res.redirect('variety')
-})
-
 router.get(/cropuse_handler/, function (req, res) { 
     if (req.session.data.crop_group == 'other') { 
         res.redirect('another_crop')

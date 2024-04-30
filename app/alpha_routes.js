@@ -174,10 +174,13 @@ router.get(/crop_group_handler/, function (req, res) {
 })
 
 router.get(/cropmvp_handler/, function (req, res) { 
-    if (req.session.data.crop_group == 'grass') { 
-        req.session.data.chosen_crop = 'grass'
-        req.session.data.crop_group = null
-        res.redirect('crop_group')
+    // if (req.session.data.crop_group == 'grass') { 
+    //     req.session.data.chosen_crop = 'grass'
+    //     req.session.data.crop_group = null
+    //     res.redirect('crop_group')
+    // }
+     if (req.session.data.crop_group == 'potatoes') { 
+        res.redirect('crop_type_potato')
     } else if (req.session.data.crop_group == null) { 
         req.session.data.crop_group = 'cereals'
         res.redirect('crop_type_all')
@@ -201,13 +204,12 @@ router.get(/mvp_crop_handler/, function (req, res) {
 
 //potatoes
 router.get(/potato_type_handler/, function (req, res) { 
-    // console.log('chosenCrop' + req.session.data.chosen_crop)
-    // console.log('chosenCrop' + req.session.data.chosen_crop)
-    for (var x in req.session.data.potato_details) {
-        if (req.session.data.potato_details[x].potatoVarietyId == req.session.data.chosen_crop) {
-            req.session.data.chosen_crop = req.session.data.potato_details[x].potatoVariety + " potatoes"
-        }
-    }
+    // for (var x in req.session.data.potato_details) {
+    //     if (req.session.data.potato_details[x].potatoVarietyId == req.session.data.chosen_crop) {
+    //         req.session.data.chosen_crop = req.session.data.potato_details[x].potatoVariety + " potatoes"
+    //     }
+    // }
+    req.session.data.chosen_crop = req.session.data.chosen_crop + " potatoes"
     res.redirect('fields')
 })
 

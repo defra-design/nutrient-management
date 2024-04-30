@@ -19,24 +19,17 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-          What is the name of the potato?
+          What is the variety name?
       </h1>
 
       <form class="form" action="potato_type_handler" method="post">
 
         <div class="govuk-form-group">
           <div class="govuk-radios" data-module="govuk-radios">
-            {% for potato in data.potato_details %}
-              {% if potato.potatoGroupId == data.chosen_crop %}
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id={{potato.potatoVarietyId}} name="chosen_crop" type="radio" value={{potato.potatoVarietyId}}>
-                  <label class="govuk-label govuk-radios__label" for={{potato.potatoVarietyId}}>
-                    {{potato.potatoVariety}}
-                  </label>
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
+            <div class="govuk-form-group">
+              <input class="govuk-input" id="chosen_crop" name="chosen_crop" type="text" autocomplete="off">
+            </div> 
+        </div>
         </fieldset>
       </div>
       {{ govukButton({

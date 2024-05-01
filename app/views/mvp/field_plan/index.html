@@ -39,9 +39,9 @@
     <div class="margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
       {% if data.crop_type == 'other' %}
-        {% include "./templates/nutrients_mvp.html" ignore missing %}
-      {% else %}
         {% include "./templates/nutrients_other.html" ignore missing %}
+      {% else %}
+        {% include "./templates/nutrients_mvp.html" ignore missing %}
       {% endif %}
     </div>
     <div class="">

@@ -34,11 +34,11 @@
   <div class="govuk-grid-column-two-thirds">
 
     <div class="status-header margin-bottom-forty">
-      <h1 class="govuk-heading-l">Nutrient recommendations for {{data.chosenField.name}} 2025</h1>
+      <h1 class="govuk-heading-l">Nutrient recommendations for {{data.chosenField.name}} 2024</h1>
     </div>  
     <div class="margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
-      {% if data.crop_type == 'other' %}
+      {% if data.crop_group == 'other' %}
         {% include "./templates/nutrients_other.html" ignore missing %}
       {% else %}
         {% include "./templates/nutrients_mvp.html" ignore missing %}

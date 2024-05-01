@@ -24,12 +24,15 @@
 
       <form class="form" action="potato_type_handler" method="post">
 
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-form-group">
+            <input class="govuk-input" id="chosen_crop" name="chosen_crop" type="text" autocomplete="off">
+          </div> 
+
         <div class="govuk-form-group">
-          <div class="govuk-radios" data-module="govuk-radios">
-            <div class="govuk-form-group">
-              <input class="govuk-input" id="chosen_crop" name="chosen_crop" type="text" autocomplete="off">
-            </div> 
+          <p class="govuk-body"><a href="#">My variety is not listed</a></p>
         </div>
+
         </fieldset>
       </div>
       {{ govukButton({

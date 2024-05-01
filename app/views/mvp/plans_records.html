@@ -27,8 +27,6 @@
   {% if data.oaktree_farm.plans_added == false %}
     <p class="govuk-body">You have no nutrient management plans.</p>
     <p class="govuk-body"><a href="plan/year">Create a new plan</a></p>
-  {% else %}
-    <p class="govuk-body"><a href="/mvp/plan/crop/crop_group">Create a 2025 plan</a></p>
   {% endif %}
 
 </div>  
@@ -77,6 +75,15 @@
           </tbody>
         </table>     
       {% endif %}
+
+      {% if data.oaktree_farm.plans_added == false %}
+      <p class="govuk-body">You have no nutrient management plans.</p>
+      <p class="govuk-body"><a href="plan/year">Create a new plan</a></p>
+    {% else %}
+      <p class="govuk-body"><a href="/mvp/plan/crop/crop_group">Create a 2025 plan</a></p>
+      <p class="govuk-body"><a href="/mvp/plan/crop/crop_group">Create a 2023 plan</a></p>
+    {% endif %}
+  
 
     <!-- <p class="govuk-body"><a href="#">View all previous plans</a></p> -->
     <!-- <hr class="big_seperator"> -->

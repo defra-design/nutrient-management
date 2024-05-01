@@ -21,7 +21,11 @@
 
       <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        What is the variety name (optional)?
+        {% if data.crop_group == 'potatoes'%}
+          What is the variety name?
+        {% else %}
+          What is the variety name (optional)?
+        {% endif %}
       </h1>
 
       <form class="form" action="variety_handler" method="post" autocomplete="off">

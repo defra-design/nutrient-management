@@ -38,12 +38,12 @@
               
             {% for field in data.current_fields %}
               {% set isPlanned = false %}
-              {% for thisField in data.crop_group_2025.firstCropFields %} 
+              {% for thisField in data.crop_group_2024.firstCropFields %} 
                 {% if thisField.reference == field.reference %}
                   {% set isPlanned = true %}
                 {% endif %}
               {% endfor %} 
-              {% for thisField in data.crop_group_2025.thirdCropFields %} 
+              {% for thisField in data.crop_group_2024.thirdCropFields %} 
               {% if thisField.reference == field.reference %}
                 {% set isPlanned = true %}
               {% endif %}

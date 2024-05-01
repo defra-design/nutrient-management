@@ -51,10 +51,10 @@
 
     {% endif %}
 
-    <h1 class="govuk-heading-l">Crop plan for {{data.crop_group_2025.year}}</h1>
+    <h1 class="govuk-heading-l">Crop plan for 2024</h1>
 
     <div class="crop_plan_title">
-      <p class="govuk-body">There are {{data.crop_group_2025.totalFields}} fields in this plan</p>
+      <p class="govuk-body">There are {{data.crop_group_2024.totalFields}} fields in this plan</p>
       <p class="govuk-body">Last updated: {{data.content.todays_date}}</p>
       <p class="govuk-body"><a href="/mvp/plan/crop/crop_group">Add another crop to this plan</a></p>
       <p class="govuk-body"><a href="/mvp/plan/manure/manure_fields">Add manures to this plan</a></p>
@@ -62,11 +62,11 @@
 
     <hr class="seperator_five">
 
-    <h2 class="govuk-heading-m">{{data.crop_group_2025.firstCropReference | nameconverter }}</h2>
-    {% if data.crop_group_2025.firstCropVariety != null %}
-      <p class="govuk-body">Variety: {{data.crop_group_2025.firstCropVariety}}</p>
+    <h2 class="govuk-heading-m">{{data.crop_group_2024.firstCropReference | nameconverter }}</h2>
+    {% if data.crop_group_2024.firstCropVariety != null %}
+      <p class="govuk-body">Variety: {{data.crop_group_2024.firstCropVariety}}</p>
     {% endif %}
-    <p class="govuk-body"><a href="">Change this {{data.crop_group_2025.firstCropReference | nameconverter }} plan</a></p>
+    <p class="govuk-body"><a href="">Change this {{data.crop_group_2024.firstCropReference | nameconverter }} plan</a></p>
 
     <table class="govuk-table margin-bottom-forty big_crop_table">
       
@@ -79,7 +79,7 @@
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Field</th>
-          {% if data.crop_group_2025.secondCropFields.length != 0 %}
+          {% if data.crop_group_2024.secondCropFields.length != 0 %}
             <th scope="col" class="govuk-table__header">Second crop</th>
             {% else %}
             <th scope="col" class="govuk-table__header"></th>
@@ -89,10 +89,10 @@
       </thead>
       <tbody class="govuk-table__body">
 
-      {% for field in data.crop_group_2025.firstCropFields %}
+      {% for field in data.crop_group_2024.firstCropFields %}
       {% set hasSecondCrop = false %}
 
-      {% for thisField in data.crop_group_2025.secondCropFields %}
+      {% for thisField in data.crop_group_2024.secondCropFields %}
         {% if thisField.reference === field.reference %}
           {% set hasSecondCrop = true %}
         {% endif %}
@@ -100,11 +100,11 @@
         <tr class="govuk-table__row">    
           <td class="govuk-table__cell">{{field.name}}</td>
 
-        {% if data.crop_group_2025.secondCropFields.length != 0 %}
+        {% if data.crop_group_2024.secondCropFields.length != 0 %}
           <td class="govuk-table__cell">
           {% if hasSecondCrop == true %}
-            {{data.crop_group_2025.secondCropReference | nameconverter }}
-          {% elif data.crop_group_2025.secondCropFields == null %}
+            {{data.crop_group_2024.secondCropReference | nameconverter }}
+          {% elif data.crop_group_2024.secondCropFields == null %}
             <span> </span>
           {% else %}
             None
@@ -116,9 +116,9 @@
 
           <td class="govuk-table__cell">
             {% if hasSecondCrop == true %}
-            <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.firstCropReference}}&chosenfield={{field.reference}}&covercrop={{data.crop_group_2025.secondCropReference}}">View recommendations</a>
+            <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2024.firstCropReference}}&chosenfield={{field.reference}}&covercrop={{data.crop_group_2024.secondCropReference}}">View recommendations</a>
           {% else %}
-            <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.firstCropReference}}&chosenfield={{field.reference}}&covercrop=none">View recommendations</a>
+            <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2024.firstCropReference}}&chosenfield={{field.reference}}&covercrop=none">View recommendations</a>
           {% endif %}
           </td>
         </tr>
@@ -127,19 +127,19 @@
       </tbody>
     </table>
 
-    {% if data.crop_group_2025.thirdCropReference != null %}
+    {% if data.crop_group_2024.thirdCropReference != null %}
     
-    <h2 class="govuk-heading-m">{{data.crop_group_2025.thirdCropReference | nameconverter }}</h2>
-    {% if data.crop_group_2025.thirdCropVariety != null %}
-      <p class="govuk-body">Variety: {{data.crop_group_2025.thirdCropVariety}}</p>
+    <h2 class="govuk-heading-m">{{data.crop_group_2024.thirdCropReference | nameconverter }}</h2>
+    {% if data.crop_group_2024.thirdCropVariety != null %}
+      <p class="govuk-body">Variety: {{data.crop_group_2024.thirdCropVariety}}</p>
     {% endif %}
-    <p class="govuk-body"><a href="">Change this {{data.crop_group_2025.thirdCropReference | nameconverter }} plan</a></p>
+    <p class="govuk-body"><a href="">Change this {{data.crop_group_2024.thirdCropReference | nameconverter }} plan</a></p>
 
     <table class="govuk-table margin-bottom-forty big_crop_table">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Field</th>
-          {% if data.crop_group_2025.fourthCropFields.length != 0 %}
+          {% if data.crop_group_2024.fourthCropFields.length != 0 %}
             <th scope="col" class="govuk-table__header">Second crop</th>
             {% else %}
             <th scope="col" class="govuk-table__header"></th>
@@ -149,10 +149,10 @@
       </thead>
       <tbody class="govuk-table__body">
 
-      {% for field in data.crop_group_2025.thirdCropFields %}
+      {% for field in data.crop_group_2024.thirdCropFields %}
       {% set hasSecondCrop = false %}
 
-        {% for thisField in data.crop_group_2025.fourthCropFields %}
+        {% for thisField in data.crop_group_2024.fourthCropFields %}
           {% if thisField.reference === field.reference %}
             {% set hasSecondCrop = true %}
           {% endif %}
@@ -160,11 +160,11 @@
         <tr class="govuk-table__row">   
           <td class="govuk-table__cell">{{field.name}}</td>
 
-        {% if data.crop_group_2025.fourthCropFields.length != 0 %}
+        {% if data.crop_group_2024.fourthCropFields.length != 0 %}
           <td class="govuk-table__cell">
             {% if hasSecondCrop == true %}
-              {{data.crop_group_2025.fourthCropReference | nameconverter }}
-            {% elif data.crop_group_2025.fourthCropFields == null %}
+              {{data.crop_group_2024.fourthCropReference | nameconverter }}
+            {% elif data.crop_group_2024.fourthCropFields == null %}
             <span> </span>
             {% else %}
               None
@@ -176,9 +176,9 @@
   
             <td class="govuk-table__cell">
               {% if hasSecondCrop == true %}
-                <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.thirdCropReference}}&chosenfield={{field.reference}}&covercrop={{data.crop_group_2025.fourthCropReference}}">View recommendations</a>
+                <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2024.thirdCropReference}}&chosenfield={{field.reference}}&covercrop={{data.crop_group_2024.fourthCropReference}}">View recommendations</a>
               {% else %}
-                <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2025.thirdCropReference}}&chosenfield={{field.reference}}&covercrop=none">View recommendations</a>
+                <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2024.thirdCropReference}}&chosenfield={{field.reference}}&covercrop=none">View recommendations</a>
             {% endif %}
             </td>
           </tr>

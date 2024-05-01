@@ -204,8 +204,7 @@ router.get(/mvp_crop_handler/, function (req, res) {
 
 router.get(/variety_handler/, function (req, res) { 
     if (req.session.data.crop_group == 'potatoes') { 
-        console.log(req.session.data.crop_group)
-        req.session.data.chosen_crop = req.session.data.chosen_crop + " potatoes"
+        req.session.data.chosen_crop = req.session.data.variety + " potato"
     }
     res.redirect('fields')
 })
@@ -217,7 +216,7 @@ router.get(/potato_type_handler/, function (req, res) {
     //         req.session.data.chosen_crop = req.session.data.potato_details[x].potatoVariety + " potatoes"
     //     }
     // }
-    req.session.data.chosen_crop = req.session.data.chosen_crop + " potatoes"
+    req.session.data.chosen_crop = req.session.data.chosen_crop + " potato"
     res.redirect('fields')
 })
 

@@ -19,14 +19,16 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Have you sown
+        Do you have a date for when you planted your
         <!-- {% if data.crop_group == 'potatoes' %}
           planted
         {% else %}
           sown
         {% endif %} -->
-        your {{data.chosen_crop | nameconverter}} yet?
+        {{data.chosen_crop | nameconverter}}, or when you will plant it?
       </h1>
+
+      <p>You can change your planting date later.</p>
 
       <form class="form" action="sowdate_value_handler" method="post">
 
@@ -37,19 +39,19 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="single" name="sow_option_one" type="radio" value="single">
                 <label class="govuk-label govuk-radios__label" for="single">
-                  Yes, I sowed all the fields on the same date
+                  Yes, I have a single date for all these fields
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="different" name="sow_option_one" type="radio" value="different">
                 <label class="govuk-label govuk-radios__label" for="different">
-                  Yes, I sowed the fields on different dates
+                  Yes, I have different dates for each of these fields
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="no" name="sow_option_one" type="radio" value="no">
                 <label class="govuk-label govuk-radios__label" for="no">
-                  No, I'll enter the sowing date later
+                  No, I'll enter the date later
                 </label>
               </div>
             

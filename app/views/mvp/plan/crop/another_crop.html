@@ -25,7 +25,7 @@
               <!-- {% include "templates/title_span.html" %} -->
               <h1 class="govuk-heading-l">
                 {% if data.crop_group != 'other' %}
-                  Do you plan to grow any of these crops in these fields?
+                  Select any crops you plan to grow in these fields in the same harvest year as your {{data.chosen_crop | nameconverter}}
                 {% else %}
                   Do you plan to grow any other crops in these fields?
                 {% endif %}
@@ -65,11 +65,10 @@
                           Forage Rape
                         </label>
                       </div>
-                      <div class="govuk-radios__divider">or</div>
                       <div class="govuk-radios__item">
                         <input class="govuk-radios__input" id="none" name="cover_crop" type="radio" value="none">
                         <label class="govuk-label govuk-radios__label" for="none">
-                          No
+                          I don't plan to grow any of these crops in the same harvest year
                         </label>
                       </div>
                     </div>

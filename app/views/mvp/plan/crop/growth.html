@@ -28,23 +28,35 @@ Milling{% extends "layouts/main.html" %}
       <!-- {% include "templates/title_span.html" %} -->
 
       <h1 class="govuk-heading-l">
-        What is the growing season for {{data.chosen_crop | nameconverter}}?
+        What is the length of growing season for {{data.chosen_crop | nameconverter}}?
       </h1>
 
-      <form class="form" action="another_crop" method="post">
+      <form class="form" action="check" method="post">
 
         <div class="govuk-form-group">
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
-                <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                <input class="govuk-radios__input" id="season_1" name="season" type="radio" value="Less than 60 days">
+                <label class="govuk-label govuk-radios__label" for="season_1">
                   Less than 60 days
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
-                <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                <input class="govuk-radios__input" id="season_2" name="season" type="radio" value="60 - 90 days">
+                <label class="govuk-label govuk-radios__label" for="season_2">
                   60 - 90 days 
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="season_3" name="season" type="radio" value="90 - 120 days ">
+                <label class="govuk-label govuk-radios__label" for="season_3">
+                  90 - 120 days 
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="season_4" name="season" type="radio" value="More than 120 days">
+                <label class="govuk-label govuk-radios__label" for="season_4">
+                  More than 120 days 
                 </label>
               </div>
           </fieldset>

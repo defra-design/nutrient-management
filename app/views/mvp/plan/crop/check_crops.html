@@ -82,6 +82,18 @@
     </div>      
   {% endif %}
   
+  {% if data.crop_group == 'potatoes' %}
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What is the length of growing season for {{data.chosen_crop | nameconverter}}?</dt>
+    <dd class="govuk-summary-list__value">{{data.season}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  {% elif data.chosen_crop == 'other' %}
+  
+  {% else %}
+
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">How do you plan to use the crop?</dt>
     <dd class="govuk-summary-list__value">Milling</dd>
@@ -93,6 +105,8 @@
     <dd class="govuk-summary-list__value">Incorporated</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+
+  {% endif %}
 
   {% if data.cover_crop != 'none' %}
     <div class="govuk-summary-list__row">
@@ -167,8 +181,8 @@
         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       </div>      
     {% endif %}
-
-  {% else %}
+  
+  {% elif data.crop_group != 'potatoes' %}
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Do you plan to use any other crops in this harvest year?</dt>
     <dd class="govuk-summary-list__value">No</dd>

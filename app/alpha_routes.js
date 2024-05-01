@@ -179,9 +179,10 @@ router.get(/cropmvp_handler/, function (req, res) {
     //     req.session.data.crop_group = null
     //     res.redirect('crop_group')
     // }
-     if (req.session.data.crop_group == 'potatoes') { 
-        res.redirect('crop_type_potato')
-    } else if (req.session.data.crop_group == null) { 
+    //  if (req.session.data.crop_group == 'potatoes') { 
+    //     res.redirect('crop_type_potato')
+    // } 
+     if (req.session.data.crop_group == null) { 
         req.session.data.crop_group = 'cereals'
         res.redirect('crop_type_all')
     } else {
@@ -192,14 +193,21 @@ router.get(/cropmvp_handler/, function (req, res) {
 /////// MVP Crops
 //Set the chosen_crop
 router.get(/mvp_crop_handler/, function (req, res) { 
-    if (req.session.data.crop_group == 'potatoes') { 
-        res.redirect('crop_type_potato')
-    } else {
-        if (req.session.data.chosen_crop == null)  {
-            req.session.data.chosen_crop = 'Wheat-Winter'
-        }
-        res.redirect('variety')
+    // if (req.session.data.crop_group == 'potatoes') { 
+    //     res.redirect('crop_type_potato')
+    // }
+    if (req.session.data.chosen_crop == null)  {
+        req.session.data.chosen_crop = 'Wheat-Winter'
     }
+    res.redirect('variety')
+})
+
+router.get(/variety_handler/, function (req, res) { 
+    if (req.session.data.crop_group == 'potatoes') { 
+        console.log(req.session.data.crop_group)
+        req.session.data.chosen_crop = req.session.data.chosen_crop + " potatoes"
+    }
+    res.redirect('fields')
 })
 
 //potatoes

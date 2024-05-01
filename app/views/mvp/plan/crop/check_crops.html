@@ -19,13 +19,11 @@
   </div>
 
   {% if data.crop_group != 'potatoes' %}
-
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">What is the variety name (optional)?</dt>
     <dd class="govuk-summary-list__value">Not entered</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
-
   {% endif %}
 
   <div class="govuk-summary-list__row">
@@ -39,7 +37,7 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Have you sown your {{data.chosen_crop | nameconverter}} yet?</dt>
+    <dt class="govuk-summary-list__key">Have you planted your {{data.chosen_crop | nameconverter}} yet?</dt>
 
     <dd class="govuk-summary-list__value">
       {% if data.sow_option_one == 'single' %}
@@ -71,7 +69,7 @@
       {% elif data.yield_option_one == 'different'  %}
         Enter different figures for each field
       {% else %}
-        Use the RB209 figure of 7 tonnes per hectare for all these fields
+        Use the RB209 figure of 60 tonnes per hectare for all these fields
       {% endif %}
     </dd>
 
@@ -81,7 +79,7 @@
   {% if data.yield_option_one != 'rb209' %}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">What is the expected yield for {{data.chosen_crop | nameconverter}} per hectare in these fields?</dt>
-      <dd class="govuk-summary-list__value">7 tonnes per hectare</dd>
+      <dd class="govuk-summary-list__value">60 tonnes per hectare</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>      
   {% endif %}
@@ -114,7 +112,7 @@
 
   {% if data.cover_crop != 'none' %}
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Do you plan to use any other crops in this harvest year?</dt>
+      <dt class="govuk-summary-list__key">Select any crops you plan to grow in these fields in the same harvest year as your Winter Wheat</dt>
       <dd class="govuk-summary-list__value">Yes</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
@@ -139,7 +137,7 @@
     </div>
 
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Have you sown your {{data.cover_crop | nameconverter}} yet?</dt>
+      <dt class="govuk-summary-list__key">Have you planted your {{data.cover_crop | nameconverter}} yet?</dt>
   
       <dd class="govuk-summary-list__value">
         {% if data.sow_option_two == 'single' %}
@@ -171,7 +169,7 @@
         {% elif data.yield_option_two == 'different'  %}
           Enter different figures for each field
         {% else %}
-          Use the RB209 figure of 7 tonnes per hectare for all these fields
+          Use the RB209 figure of 60 tonnes per hectare for all these fields
         {% endif %}
       </dd>
   
@@ -181,7 +179,7 @@
     {% if data.yield_option_two != 'rb209' %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">What is the expected yield for {{data.cover_crop | nameconverter}} per hectare in these fields?</dt>
-        <dd class="govuk-summary-list__value">7 tonnes per hectare</dd>
+        <dd class="govuk-summary-list__value">60 tonnes per hectare</dd>
         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       </div>      
     {% endif %}

@@ -38,11 +38,19 @@
     </div>  
     <div class="margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
+      {% if data.crop_type == 'other' %}
       {% include "./templates/nutrients_mvp.html" ignore missing %}
+      {% else %}
+      {% include "./templates/nutrients_other.html" ignore missing %}
+      {% endif %}
     </div>
     <div class="">
       <h2 class="govuk-heading-m">Crop details</h2>
-      {% include "./templates/main-crop-details.html" ignore missing %}
+      {% if data.crop_group == 'potatoes' %}
+        {% include "./templates/potato-crop-details.html" ignore missing %}
+      {% else %}
+        {% include "./templates/main-crop-details.html" ignore missing %}
+      {% endif %}
       <p class="govuk-body"><a href="">Change {{data.chosen_crop | nameconverter}} details for {{data.chosenField.name}}</a></p>
     </div>
 

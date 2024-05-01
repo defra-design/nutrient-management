@@ -350,7 +350,11 @@ router.get(/yield_question_handler/, function (req, res) {
     if (req.session.data.yield_option_one != 'rb209') {
         res.redirect('yield_value')
     } else {
-        res.redirect('crop_use')
+       if (req.session.data.crop_group == 'potatoes') {
+            res.redirect('growth')
+       } else {
+            res.redirect('crop_use')
+       }
     }
 })
 

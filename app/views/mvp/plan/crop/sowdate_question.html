@@ -18,9 +18,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        Have you sown your {{data.chosen_crop | nameconverter}} yet?
+        Have you sown
+        <!-- {% if data.crop_group == 'potatoes' %}
+          planted
+        {% else %}
+          sown
+        {% endif %} -->
+        your {{data.chosen_crop | nameconverter}} yet?
       </h1>
 
       <form class="form" action="sowdate_value_handler" method="post">

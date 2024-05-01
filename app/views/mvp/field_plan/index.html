@@ -39,15 +39,17 @@
     <div class="margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
       {% if data.crop_type == 'other' %}
-      {% include "./templates/nutrients_mvp.html" ignore missing %}
+        {% include "./templates/nutrients_mvp.html" ignore missing %}
       {% else %}
-      {% include "./templates/nutrients_other.html" ignore missing %}
+        {% include "./templates/nutrients_other.html" ignore missing %}
       {% endif %}
     </div>
     <div class="">
       <h2 class="govuk-heading-m">Crop details</h2>
       {% if data.crop_group == 'potatoes' %}
         {% include "./templates/potato-crop-details.html" ignore missing %}
+      {% elif data.crop_group == 'other' %}
+      {% include "./templates/other-crop-details.html" ignore missing %}
       {% else %}
         {% include "./templates/main-crop-details.html" ignore missing %}
       {% endif %}
@@ -58,7 +60,11 @@
       <hr class="seperator_five">
       <div class="margin-bottom-forty">
         <h2 class="govuk-heading-m">{{data.cover_crop | nameconverter}} nutrient recommendations</h2>
-        {% include "./templates/nutrients_mvp.html" ignore missing %}
+        {% if data.crop_type == 'other' %}
+          {% include "./templates/nutrients_mvp.html" ignore missing %}
+        {% else %}
+          {% include "./templates/nutrients_other.html" ignore missing %}
+        {% endif %}
       </div>
       <div class="">
         <h2 class="govuk-heading-m">Crop details</h2>

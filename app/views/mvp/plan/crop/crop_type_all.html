@@ -21,22 +21,22 @@
       <h1 class="govuk-heading-l">
         {% if data.crop_group == 'other' %}
           What is the name of the crop?
+        {% elif data.crop_group == 'potatoes' %}
+          Which potato variety group are you planning to grow?
         {% else %}
           Which crop type would you like to plan for?
         {% endif %}
-
       </h1>
+
+      {% if data.crop_group == 'potatoes' %}
+        <p class="govuk-body margin-bottom-forty">
+          <a href="https://potatoes.ahdb.org.uk/knowledge-library/potato-nitrogen-groups" target="_blank">Help me find my potato variety group</a> (opens in a new tab)
+        </p>
+      {% endif %}
 
       <form class="form" action="mvp_crop_handler" method="post">
 
         <div class="govuk-form-group">
-          <!-- <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                Where do you live?
-              </h1>
-            </legend> -->
-
             <div class="govuk-radios" data-module="govuk-radios">
 
               {% if data.crop_group == 'other' %}

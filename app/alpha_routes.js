@@ -196,14 +196,21 @@ router.get(/mvp_crop_handler/, function (req, res) {
     // if (req.session.data.crop_group == 'potatoes') { 
     //     res.redirect('crop_type_potato')
     // }
-    if (req.session.data.chosen_crop == null)  {
-        req.session.data.chosen_crop = 'Wheat-Winter'
+    if (req.session.data.chosen_crop == null || req.session.data.chosen_crop == '')  {
+        if (req.session.data.crop_group == 'other') {
+            req.session.data.chosen_crop = 'Flax'
+        } else {
+            req.session.data.chosen_crop = 'Winter Wheat'
+        }
     }
     res.redirect('variety')
 })
 
 router.get(/variety_handler/, function (req, res) { 
     if (req.session.data.crop_group == 'potatoes') { 
+        if (req.session.data.variety == '' || req.session.data.variety == null) {
+            req.session.data.variety = 'Maris Piper'
+        }
         req.session.data.chosen_crop = req.session.data.variety + " potato"
     }
     res.redirect('fields')

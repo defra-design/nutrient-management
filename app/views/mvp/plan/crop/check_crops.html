@@ -69,7 +69,7 @@
       {% elif data.yield_option_one == 'different'  %}
         Enter different figures for each field
       {% else %}
-        Use the RB209 figure of 60 tonnes per hectare for all these fields
+        Use the RB209 figure of 8 tonnes per hectare for all these fields
       {% endif %}
     </dd>
 
@@ -79,7 +79,7 @@
   {% if data.yield_option_one != 'rb209' %}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">What is the expected yield for {{data.chosen_crop | nameconverter}} per hectare in these fields?</dt>
-      <dd class="govuk-summary-list__value">60 tonnes per hectare</dd>
+      <dd class="govuk-summary-list__value">8 tonnes per hectare</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>      
   {% endif %}
@@ -169,7 +169,7 @@
         {% elif data.yield_option_two == 'different'  %}
           Enter different figures for each field
         {% else %}
-          Use the RB209 figure of 60 tonnes per hectare for all these fields
+          Use the RB209 figure of 8 tonnes per hectare for all these fields
         {% endif %}
       </dd>
   
@@ -179,7 +179,7 @@
     {% if data.yield_option_two != 'rb209' %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">What is the expected yield for {{data.cover_crop | nameconverter}} per hectare in these fields?</dt>
-        <dd class="govuk-summary-list__value">60 tonnes per hectare</dd>
+        <dd class="govuk-summary-list__value">8 tonnes per hectare</dd>
         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       </div>      
     {% endif %}

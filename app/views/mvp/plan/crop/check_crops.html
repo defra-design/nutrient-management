@@ -85,7 +85,6 @@
   {% endif %}
   
   {% if data.crop_group == 'potatoes' %}
-
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">What is the length of growing season for {{data.chosen_crop | nameconverter}}?</dt>
     <dd class="govuk-summary-list__value">{{data.season}}</dd>
@@ -110,7 +109,7 @@
 
   {% endif %}
 
-  {% if data.cover_crop != 'none' %}
+  {% if data.cover_crop != 'none' and data.crop_group != 'potatoes' %}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Select any crops you plan to grow in these fields in the same harvest year as your Winter Wheat</dt>
       <dd class="govuk-summary-list__value">Yes</dd>

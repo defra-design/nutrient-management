@@ -47,7 +47,7 @@ crop_group_one.totalFields = allFunctions.totalFieldsCount(crop_group_one);
 
 //crop group with 2 main crops selected
 let crop_group_populated = CropGroup.createCropGroup();
-crop_group_populated.year = '2025';
+crop_group_populated.year = '2024';
 crop_group_populated.firstCropReference = 'Wheat-Winter';
 crop_group_populated.secondCropReference = 'Turnips-stubble';
 crop_group_populated.thirdCropReference = 'rye-Winter';

@@ -1,0 +1,157 @@
+<h2 class="govuk-heading-m">Winter Wheat</h2>
+
+    <!-- {% if data.oaktree_farm.use_version_2_fields == false %}
+      {% if fieldCount == 1 %}
+        <p class="govuk-body">1 field</p>
+      {% else %}
+        <p class="govuk-body">There are {{fieldCount}} fields in this group.</p>
+      {% endif %}
+    {% else %}
+      <p class="govuk-body">There are 3 fields in this group.</p>
+    {% endif %} -->
+
+    <p class="govuk-body"><a href="">Change this Winter Wheat plan</a></p>
+
+    {% set page_crop_status = 'Crop added' %}
+
+    {% if data.chosen_plan.manure_added == true and data.chosen_plan.fertiliser_added == true %}
+      {% set page_crop_status = 'Crops, manure and fertiliser added' %}
+    {% elif data.chosen_plan.fertiliser_added == false and data.chosen_plan.manure_added == true  %}
+      {% set page_crop_status = 'Manure added' %}
+    {% endif %}
+
+    <table class="govuk-table margin-bottom-forty">
+      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Long Field</caption> -->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Field</th>
+          <th scope="col" class="govuk-table__header"> </th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+      {% if data.oaktree_farm.use_version_2_fields == true %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Long Field</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Long Field">View field plan and recommendations</a></td>
+        </tr>      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Barn Field</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Barn Field">View field plan and recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Narrow field</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Narrow field">View field plan and recommendations</a></td>
+        </tr>
+        {% else %}
+
+        {% for field in data.current_fields %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{field.name}}</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield={{field.name}}">View field plan and recommendations</a></td>
+          </tr>
+        {% endfor %}
+
+        {% endif %}
+
+      </tbody>
+    </table>
+
+    <!-- <p class="govuk-body"><a href="">Change this Winter Wheat plan</a></p> -->
+    <!-- <hr class="seperator_five"> -->
+    
+    <!-- <hr class="big_seperator"> -->
+    <h2 class="govuk-heading-m">Stubble Turnips</h2>
+
+    <!-- {% if data.oaktree_farm.use_version_2_fields == false %}
+      {% if fieldCount == 1 %}
+        <p class="govuk-body">1 field</p>
+      {% else %}
+        <p class="govuk-body">There are {{fieldCount}} fields in this group.</p>
+      {% endif %}
+    {% else %}
+      <p class="govuk-body">There are 3 fields in this group.</p>
+    {% endif %} -->
+
+    <p class="govuk-body"><a href="">Change this Stubble Turnips plan</a></p>
+
+    {% set page_crop_status = 'Crop added' %}
+
+    {% if data.chosen_plan.manure_added == true and data.chosen_plan.fertiliser_added == true %}
+      {% set page_crop_status = 'Crops, manure and fertiliser added' %}
+    {% elif data.chosen_plan.fertiliser_added == false and data.chosen_plan.manure_added == true  %}
+      {% set page_crop_status = 'Manure added' %}
+    {% endif %}
+
+    <table class="govuk-table">
+      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Long Field</caption> -->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Field</th>
+          <th scope="col" class="govuk-table__header"> </th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+      {% if data.oaktree_farm.use_version_2_fields == true %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Long Field</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Long Field">View field plan and recommendations</a></td>
+        </tr>      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Barn Field</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Barn Field">View field plan and recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Narrow field</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield=Narrow field">View field plan and recommendations</a></td>
+        </tr>
+        {% else %}
+
+        {% for field in data.current_fields %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{field.name}}</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Turnips-stubble&chosenfield={{field.name}}">View field plan and recommendations</a></td>
+          </tr>
+        {% endfor %}
+
+        {% endif %}
+
+      </tbody>
+    </table>
+
+    <!-- <p class="govuk-body"><a href="">Change this Stubble Turnips plan</a></p> -->
+
+    <!-- <p class="govuk-body"><a href="change_wheat">Change Winter Wheat plan</a></p> -->
+
+    <!-- <hr class="big_seperator">
+
+    <h2 class="govuk-heading-m">Grass</h2>
+    <p class="govuk-body">3 fields</p>
+
+    <table class="govuk-table crop_table data-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Field</th>
+          <th scope="col" class="govuk-table__header">Status</th>
+          <th scope="col" class="govuk-table__header"> </th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Field 4</td>
+          <td class="govuk-table__cell">Crop added</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Field4">View field plan and recommendations</a></td>
+        </tr>      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Field 5</td>
+          <td class="govuk-table__cell">Crop added</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Field4">View field plan and recommendations</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Field 6</td>
+          <td class="govuk-table__cell">Crop added</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Field4">View field plan and recommendations</a></td>
+        </tr>
+      </tbody>
+    </table> -->

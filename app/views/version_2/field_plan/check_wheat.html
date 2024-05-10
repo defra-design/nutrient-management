@@ -17,24 +17,16 @@
     
     <!-- {% include "templates/title_span.html" %} -->
     <h1 class="govuk-heading-l">
-      Check your answers
+     Crop details for Field 1
     </h1>
 
     <div class="check-answers">
-        {% include "./check_manure.html" %}
+        {% include "./templates/check_one_crops.html" %}
     </div>
 
-    <br>
-    <h2 class="govuk-heading-m">
-      These values are based on your {{data.content.organic_term | lower }} choices
-    </h2>
-    <div class="check-answers">
-      {% include "./check_manure_values.html" ignore missing %}
-    </div>
-
-    <form action="add_manure_handler" method="post" novalidate>
+    <form action="field_plan" method="post" novalidate>
       {{ govukButton({
-        text: "Add to plan"
+        text: "Update plan"
       }) }}
     </form>
     <p class="govuk-body">

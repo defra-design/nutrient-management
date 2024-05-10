@@ -101,6 +101,7 @@ let plan2024 = {
 
 //index route, loads data in application
 router.get('/', function (req, res) { 
+    req.session.data.prototypeVersion = 'mvp'
     //content variables
     req.session.data.content = content
 

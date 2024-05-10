@@ -174,7 +174,7 @@ router.get(/organic_handler/, function (req, res) {
     // console.log('organic = ' + req.session.data.organic_producer )
     // console.log('elevation = ' + req.session.data.farm_elevation )
     // console.log(req.session.data.oaktree_farm)
-    res.redirect('/mvp/add-farm/check')
+    res.redirect('/add-farm/check')
 })
 
 router.get(/soil_type_handler/, function (req, res) { 
@@ -206,7 +206,7 @@ router.get(/add_farms_handler/, function (req, res) {
     req.session.data.oaktree_farm.latest_update = 'added'
     req.session.data.show_success_message = true
     // console.log(req.session.data.oaktree_farm)
-    res.redirect('../hub')
+    res.redirect('/mvp/hub')
 })
 
 router.get(/cropuse_handler/, function (req, res) { 

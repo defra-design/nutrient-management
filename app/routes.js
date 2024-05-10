@@ -9,7 +9,7 @@ const field_details_mvp = require('./data/field_details_mvp.json');
 const potato_details = require('./data/potatoes.json');
 const crop_types = require('./data/crops.json');
 const content = require('./content.js').content;
-const allFunctions = require('./allFunctions.js');
+const allFunctions = require('./functions/allFunctions.js');
 
 const Farm = require('./farm.js');
 const oaktree_farm = Farm.createFarm();

@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
 
-const allFunctions = require('./allFunctions.js');
+const allFunctions = require('./functions/allFunctions.js');
 
 /////////////////////////////
 ////// PROTOTYPE SETUP //////

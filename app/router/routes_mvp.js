@@ -1,11 +1,12 @@
 var express = require('express')
 var router = express.Router()
-
 const allFunctions = require('../functions/allFunctions.js');
+
 
 /////////////////////////////
 ////// PROTOTYPE SETUP //////
 /////////////////////////////
+
 router.get(/farm_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     req.session.data.oaktree_farm.setup = true
@@ -72,78 +73,14 @@ router.get(/plans_mvp_setup_handler/, function (req, res) {
     res.redirect('/mvp/start')
 })
 
-//////MVP
 
-//add crop
-router.get(/mvp_check_handler/, function (req, res) { 
-    req.session.data.plan2025.plan_status = 'crop_added';
-    req.session.data.plan2025.crop_added = true;
-    req.session.data.oaktree_farm.plans_added = true;
-    req.session.data.show_success_message = true;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //set plan
-    if(req.session.data.crop_group_2024.firstCropReference == null) {
-        req.session.data.crop_group_2024.firstCropReference = req.session.data.chosen_crop;
-        req.session.data.crop_group_2024.secondCropReference = req.session.data.cover_crop;
-        req.session.data.crop_group_2024.firstCropFields = req.session.data.crop_fields;
-        req.session.data.crop_group_2024.secondCropFields = req.session.data.cover_fields;
-        //get by reference
-        req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.current_fields)
-        req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.current_fields)
-    } else {
-        req.session.data.crop_group_2024.thirdCropReference = req.session.data.chosen_crop;
-        req.session.data.crop_group_2024.fourthCropReference = req.session.data.cover_crop;
-        req.session.data.crop_group_2024.thirdCropFields = req.session.data.crop_fields;
-        req.session.data.crop_group_2024.fourthCropFields = req.session.data.cover_fields;
-        //get by reference
-        req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.current_fields)
-        req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.current_fields)    
-    }
-    req.session.data.crop_group_2024.totalFields = allFunctions.totalFieldsCount(req.session.data.crop_group_2024);
 
-    res.redirect('/mvp/crop_plan/plan_view')
-})
-
-////MVP add a field
-router.get(/add-field-handler/, function (req, res) { 
-    req.session.data.oaktree_farm.latest_update = 'field_added';
-    req.session.data.oaktree_farm.fields_added = true;
-    req.session.data.show_success_message = true
-    req.session.data.oaktree_farm.soil_added = true
-    var tempString = req.session.data.tempField.name
-    tempString = tempString.toLowerCase()
-    tempString = tempString.replace(/\s/g,'')
-    req.session.data.tempField.reference = tempString
-    console.log('name = ' + req.session.data.tempField.name)
-    console.log('reference = ' + req.session.data.tempField.reference)
-    req.session.data.current_fields.push(req.session.data.tempField)
-    console.log(req.session.data.tempField)
-    res.redirect('/mvp/field/manage-fields')
-})
-
-//farm view reset messages
-router.get(/hub_reset_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    res.redirect('/mvp/hub')
-})
-
-//manage fields view reset messages
-router.get(/field_reset_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    res.redirect('/mvp/field/manage-fields')
-})
-
-//add a field view reset messages
-router.get(/field_add_reset_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    res.redirect('/add-field/name')
-})
-
-//add a field view reset messages
-router.get(/field_details_reset_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    res.redirect('/mvp/field/field-details')
-})
+/////////////////////////////
+////////// ADD FARM /////////
+/////////////////////////////
 
 router.get(/organic_handler/, function (req, res) { 
     //name
@@ -177,22 +114,6 @@ router.get(/organic_handler/, function (req, res) {
     res.redirect('/add-farm/check')
 })
 
-router.get(/soil_type_handler/, function (req, res) { 
-    if (req.session.data.oaktree_farm.nvz == 'some' ) {
-        res.redirect('nvz')
-    } else if (req.session.data.oaktree_farm.elevation == 'some') {
-        res.redirect('elevation')
-    } else {
-        res.redirect('soil-one')
-    }
-})
-
-router.get(/nvz_handler/, function (req, res) { 
-    let next = (req.session.data.oaktree_farm.elevation == 'some') ? 'elevation' : 'soil'
-    res.redirect(next)
-})
-
-//add farms
 router.get(/add_farms_handler/, function (req, res) { 
     //name
     req.session.data.oaktree_farm.name = req.session.data.farm_name
@@ -209,29 +130,51 @@ router.get(/add_farms_handler/, function (req, res) {
     res.redirect('../hub')
 })
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////
+////////// ADD FIELD /////////
+/////////////////////////////
+
+router.get(/add-field-handler/, function (req, res) { 
+    req.session.data.oaktree_farm.latest_update = 'field_added';
+    req.session.data.oaktree_farm.fields_added = true;
+    req.session.data.show_success_message = true
+    req.session.data.oaktree_farm.soil_added = true
+    var tempString = req.session.data.tempField.name
+    tempString = tempString.toLowerCase()
+    tempString = tempString.replace(/\s/g,'')
+    req.session.data.tempField.reference = tempString
+    console.log('name = ' + req.session.data.tempField.name)
+    console.log('reference = ' + req.session.data.tempField.reference)
+    req.session.data.current_fields.push(req.session.data.tempField)
+    console.log(req.session.data.tempField)
+    res.redirect('/mvp/field/manage-fields')
+})
+
+router.get(/soil_type_handler/, function (req, res) { 
+    if (req.session.data.oaktree_farm.nvz == 'some' ) {
+        res.redirect('nvz')
+    } else if (req.session.data.oaktree_farm.elevation == 'some') {
+        res.redirect('elevation')
+    } else {
+        res.redirect('soil-one')
+    }
+})
+
+router.get(/nvz_handler/, function (req, res) { 
+    let next = (req.session.data.oaktree_farm.elevation == 'some') ? 'elevation' : 'soil'
+    res.redirect(next)
+})
+
 router.get(/cropuse_handler/, function (req, res) { 
     if (req.session.data.crop_group == 'other') { 
         res.redirect('another_crop')
     } else {
         res.redirect('crop_use')
-    }
-})
-
-//add another crop
-router.get(/mvp_another_crop_handler/, function (req, res) { 
-    if (req.session.data.crop_group == 'other') {
-        if (req.session.data.other_selected == 'yes') {
-            res.redirect('name_two')
-        } else {
-            res.redirect('check')
-
-        }
-    } else {
-        if (req.session.data.cover_crop == 'none') {
-            res.redirect('check')
-        } else {
-            res.redirect('variety_two')
-        }
     }
 })
 
@@ -318,10 +261,32 @@ router.get(/mineral_handler/, function (req, res) {
     res.redirect(next)
 })
 
-// router.get(/secondcrop_handler/, function (req, res) { 
-//     let next = ('variety_two')
-//     res.redirect(next)
-// })
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////
+//////// ADD CROPS //////////
+/////////////////////////////
+
+
+router.get(/mvp_another_crop_handler/, function (req, res) { 
+    if (req.session.data.crop_group == 'other') {
+        if (req.session.data.other_selected == 'yes') {
+            res.redirect('name_two')
+        } else {
+            res.redirect('check')
+
+        }
+    } else {
+        if (req.session.data.cover_crop == 'none') {
+            res.redirect('check')
+        } else {
+            res.redirect('variety_two')
+        }
+    }
+})
 
 router.get(/mvp_fields_handler/, function (req, res) { 
     for (var x in req.session.data.crop_fields) {
@@ -385,6 +350,68 @@ router.get(/sowdatetwo_value_handler/, function (req, res) {
     } else {
         res.redirect('yield_question_two')
     }
+})
+
+router.get(/mvp_check_handler/, function (req, res) { 
+    req.session.data.plan2025.plan_status = 'crop_added';
+    req.session.data.plan2025.crop_added = true;
+    req.session.data.oaktree_farm.plans_added = true;
+    req.session.data.show_success_message = true;
+
+    //set plan
+    if(req.session.data.crop_group_2024.firstCropReference == null) {
+        req.session.data.crop_group_2024.firstCropReference = req.session.data.chosen_crop;
+        req.session.data.crop_group_2024.secondCropReference = req.session.data.cover_crop;
+        req.session.data.crop_group_2024.firstCropFields = req.session.data.crop_fields;
+        req.session.data.crop_group_2024.secondCropFields = req.session.data.cover_fields;
+        //get by reference
+        req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.current_fields)
+        req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.current_fields)
+    } else {
+        req.session.data.crop_group_2024.thirdCropReference = req.session.data.chosen_crop;
+        req.session.data.crop_group_2024.fourthCropReference = req.session.data.cover_crop;
+        req.session.data.crop_group_2024.thirdCropFields = req.session.data.crop_fields;
+        req.session.data.crop_group_2024.fourthCropFields = req.session.data.cover_fields;
+        //get by reference
+        req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.current_fields)
+        req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.current_fields)    
+    }
+    req.session.data.crop_group_2024.totalFields = allFunctions.totalFieldsCount(req.session.data.crop_group_2024);
+
+    res.redirect('/mvp/crop_plan/plan_view')
+})
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////
+/////// ALERT MESSAGES //////
+/////////////////////////////
+
+//farm view reset messages
+router.get(/hub_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('/mvp/hub')
+})
+
+//manage fields view reset messages
+router.get(/field_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('/mvp/field/manage-fields')
+})
+
+//add a field view reset messages
+router.get(/field_add_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('/add-field/name')
+})
+
+//add a field view reset messages
+router.get(/field_details_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('/mvp/field/field-details')
 })
 
 module.exports = router

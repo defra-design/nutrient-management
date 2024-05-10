@@ -136,7 +136,7 @@ router.get(/field_reset_handler/, function (req, res) {
 //add a field view reset messages
 router.get(/field_add_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    res.redirect('/mvp/add-field/name')
+    res.redirect('/add-field/name')
 })
 
 //add a field view reset messages
@@ -270,7 +270,7 @@ router.get(/previous_group_handler/, function (req, res) {
 router.get(/log_croptype_handler/, function (req, res) {
     console.log(req.session.data.chosen_crop)
     if (req.session.data.sns_method == "no") {
-        res.redirect('/mvp/add-field/add-field-check')
+        res.redirect('/add-field/add-field-check')
     } else {
         if (req.session.data.crop_group == 'leafy' || req.session.data.crop_group == 'root') {
             res.redirect('sample_depth')
@@ -289,7 +289,7 @@ router.get(/organicadjustment_handler/, function (req, res) {
     } else if (req.session.data.crop_group == "cereals" || req.session.data.crop_group == 'arable-other') {
         res.redirect('shoots')
     } else {
-        res.redirect('/mvp/add-field/add-field-check')
+        res.redirect('/add-field/add-field-check')
     }
 })
 

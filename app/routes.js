@@ -11,7 +11,7 @@ const crop_types = require('./data/crops.json');
 const content = require('./content.js').content;
 const allFunctions = require('./functions/allFunctions.js');
 
-const Farm = require('./farm.js');
+const Farm = require('./functions/farm.js');
 const oaktree_farm = Farm.createFarm();
 oaktree_farm.name = 'Oaktree Lane Farm';
 oaktree_farm.postcode = "NE46 7LQ";
@@ -27,7 +27,7 @@ oaktree_farm.soil_added = false;
 oaktree_farm.fields_added = false;
 oaktree_farm.plans_added = false;
 
-const CropGroup = require('./crop_group.js');
+const CropGroup = require('./functions/crop_group.js');
 //crop group with 1 main crop
 let crop_group_one = CropGroup.createCropGroup();
 crop_group_one.year = '2025';
@@ -175,6 +175,6 @@ router.get('/', function (req, res) {
 })
 
 //import routes
-const routes_main = require('./routes_main.js');
-const routes_alpha = require('./routes_alpha.js');
+const routes_main = require('./router/routes_main.js');
+const routes_alpha = require('./router/routes_alpha.js');
 router.use('/', routes_main, routes_alpha);

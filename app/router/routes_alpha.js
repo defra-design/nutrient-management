@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
 
-const allFunctions = require('./functions/allFunctions.js');
+const allFunctions = require('../functions/allFunctions.js');
 
 //Set the chosenfield OBJECT
 router.get(/create_plan_handler/, function (req, res) { 

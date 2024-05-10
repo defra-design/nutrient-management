@@ -363,7 +363,7 @@ router.get(/v2_check_fertiliser_handler/, function (req, res) {
 
 //change crop plan
 router.get(/crop_change_handler/, function (req, res) { 
-    let next = (req.session.data.change_crop == 'plan_fertiliser') ? '../plan/fertiliser/fertiliser_when' : '../plan/manure/manure_fields'
+    let next = (req.session.data.change_crop == 'plan_fertiliser') ? '../plan/fertiliser/fertiliser_when' : '../plan/plan_manure/manure_fields'
     res.redirect(next)
 })
 

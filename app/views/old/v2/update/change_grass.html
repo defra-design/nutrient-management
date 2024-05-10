@@ -18,10 +18,10 @@
 
       <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        Manage crops and fields
+        How would you like to change your Grass plan for Harvest Year 2025?
       </h1>
 
-      <form class="form" action="" method="post">
+      <form class="form" action="#" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset">
@@ -34,31 +34,37 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="add" name="change_crop" type="radio" value="add">
                 <label class="govuk-label govuk-radios__label" for="add">
-                  Add fields
+                  Add Grass fields
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="remove" name="change_crop" type="radio" value="remove">
                 <label class="govuk-label govuk-radios__label" for="remove">
-                  Remove fields
+                  Remove Grass fields
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="plan_organic" name="change_crop" type="radio" value="plan_organic">
                 <label class="govuk-label govuk-radios__label" for="plan_organic">
-                 Add a crop
+                 Plan {{data.content.organic_term | lower}} application for all Grass fields
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="plan_fertiliser" name="change_crop" type="radio" value="plan_fertiliser">
-                <label class="govuk-label govuk-radios__label" for="plan_fertiliser">
-                 Remove Grass from this plan
+                <input class="govuk-radios__input" id="add_fertiliser" name="change_crop" type="radio" value="add_fertiliser">
+                <label class="govuk-label govuk-radios__label" for="add_fertiliser">
+                 Plan {{data.content.non_organic_term | lower}} application for all Grass fields
                 </label>
               </div>
+              <!-- <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="add" name="change_crop" type="radio" value="add">
+                <label class="govuk-label govuk-radios__label" for="add">
+                  Change Winter Wheat to a different crop
+                </label>
+              </div> -->
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="delete" name="change_crop" type="radio" value="delete">
                 <label class="govuk-label govuk-radios__label" for="delete">
-                  Remove Winter Wheat from this plan
+                  Remove Grass from this plan
                 </label>
               </div>
             </div>

@@ -28,7 +28,7 @@ router.get(/view_plan_handler/, function (req, res) {
             req.session.data.chosenfield = req.session.data.field_details[y]
         }
     }
-    res.redirect('/create/plan')
+    res.redirect('/old/create/plan')
 })
 
 //how do you want to create your plan? 
@@ -107,7 +107,7 @@ router.get(/recs_status_handler/, function (req, res) {
         }
     }
     req.session.data.farm_details.plan_status = "recommendations"
-    res.redirect('/create/recs')
+    res.redirect('/old/create/recs')
 })
 
 //FERTILISER
@@ -291,10 +291,10 @@ router.get(/v2_another_crop_handler/, function (req, res) {
 router.get(/v2_plan_handler/, function (req, res) { 
     if (req.session.data.v2_plan_type == 'new') {
         req.session.data.plan_type = 'new'
-        res.redirect('/v2/plan/crops')
+        res.redirect('old/v2/old/plan/crops')
     } else {
         req.session.data.plan_type = 'previous'
-        res.redirect('/v2/plan/check')
+        res.redirect('old/v2/old/plan/check')
     }
 })
 
@@ -310,7 +310,7 @@ router.get(/v2_check_handler/, function (req, res) {
         req.session.data.plan2025.crop_added = true
     }
     req.session.data.chosen_plan = req.session.data.plan2025
-    res.redirect('/v2/crop_plan/index')
+    res.redirect('old/v2/crop_plan/index')
 })
 
 //view the plan by year
@@ -350,7 +350,7 @@ router.get(/v2_manure_check_handler/, function (req, res) {
         req.session.data.plan2025.plan_update = 'manure_added'
     }
     req.session.data.chosen_plan = req.session.data.plan2025
-    res.redirect('/v2/crop_plan/index')
+    res.redirect('old/v2/crop_plan/index')
 })
 
 //add fertiliser
@@ -358,12 +358,12 @@ router.get(/v2_check_fertiliser_handler/, function (req, res) {
     req.session.data.plan2025.fertiliser_added = true
     req.session.data.plan2025.plan_update = 'fertiliser_added'
     req.session.data.chosen_plan = req.session.data.plan2025
-    res.redirect('/v2/crop_plan/index')
+    res.redirect('old/v2/crop_plan/index')
 })
 
 //change crop plan
 router.get(/crop_change_handler/, function (req, res) { 
-    let next = (req.session.data.change_crop == 'plan_fertiliser') ? '../plan/fertiliser/fertiliser_when' : '../plan/plan_manure/manure_fields'
+    let next = (req.session.data.change_crop == 'add_fertiliser') ? '../old/plan/fertiliser/fertiliser_when' : '../old/plan/add_manure/manure_fields'
     res.redirect(next)
 })
 

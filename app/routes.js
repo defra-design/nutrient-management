@@ -44,22 +44,21 @@ crop_group_one.firstCropSelected = true;
 crop_group_one.thirdCropSelected = false;
 crop_group_one.totalFields = allFunctions.totalFieldsCount(crop_group_one);
 
-
-//crop group with 2 main crops selected
-let crop_group_populated = CropGroup.createCropGroup();
-crop_group_populated.year = '2024';
-crop_group_populated.firstCropReference = 'Wheat-Winter';
-crop_group_populated.secondCropReference = 'Turnips-stubble';
-crop_group_populated.thirdCropReference = 'rye-Winter';
-crop_group_populated.thirdCropVariety = 'Boyko';
-crop_group_populated.fourthCropReference = 'Turnips-stubble';
-crop_group_populated.firstCropFields = ['1', '2', '3', '4'];
-crop_group_populated.secondCropFields = ['1', '2', '3'];
-crop_group_populated.thirdCropFields = ['5', '6', '7', '8'];
-crop_group_populated.fourthCropFields = ['5', '6'];
-crop_group_populated.firstCropSelected = true
-crop_group_populated.thirdCropSelected = true
-crop_group_populated.totalFields = allFunctions.totalFieldsCount(crop_group_populated);
+//crop group with 2 main crops
+let crop_group_two = CropGroup.createCropGroup();
+crop_group_two.year = '2024';
+crop_group_two.firstCropReference = 'Wheat-Winter';
+crop_group_two.secondCropReference = 'Turnips-stubble';
+crop_group_two.thirdCropReference = 'rye-Winter';
+crop_group_two.thirdCropVariety = 'Boyko';
+crop_group_two.fourthCropReference = 'Turnips-stubble';
+crop_group_two.firstCropFields = ['1', '2', '3', '4'];
+// crop_group_two.secondCropFields = ['1', '2', '3'];
+crop_group_two.thirdCropFields = ['5', '6', '7', '8'];
+// crop_group_two.fourthCropFields = ['5', '6'];
+crop_group_two.firstCropSelected = true
+crop_group_two.thirdCropSelected = true
+crop_group_two.totalFields = allFunctions.totalFieldsCount(crop_group_two);
 
 let crop_group_2023 = CropGroup.createCropGroup();
 let crop_group_2024 = CropGroup.createCropGroup();
@@ -111,10 +110,10 @@ router.get('/', function (req, res) {
     
     //create 2025 crop plan
     req.session.data.crop_group_one = crop_group_one
-    req.session.data.crop_group_populated = crop_group_populated
+    req.session.data.crop_group_two = crop_group_two
     req.session.data.crop_group_2024 = crop_group_2024
     req.session.data.crop_group_2023 = crop_group_2023
-    // req.session.data.crop_group_populated.printCropGroup();
+    // req.session.data.crop_group_two.printCropGroup();
 
     //data
     req.session.data.field_details = field_details

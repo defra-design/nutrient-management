@@ -14,7 +14,7 @@ thirdCropFields,
 fourthCropFields,
 firstCropSelected,
 thirdCropSelected,
-totalFields
+totalFields 
 ) {
   this.year = year,
   this.firstCropReference = firstCropReference,
@@ -32,7 +32,6 @@ totalFields
   this.firstCropSelected = firstCropSelected,
   this.thirdCropSelected = thirdCropSelected,
   this.totalFields = totalFields
-
 }
 
 CropGroup.prototype.reset = function () {

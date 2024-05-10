@@ -206,7 +206,7 @@ router.get(/add_farms_handler/, function (req, res) {
     req.session.data.oaktree_farm.latest_update = 'added'
     req.session.data.show_success_message = true
     // console.log(req.session.data.oaktree_farm)
-    res.redirect('/mvp/hub')
+    res.redirect('../hub')
 })
 
 router.get(/cropuse_handler/, function (req, res) { 
@@ -270,7 +270,7 @@ router.get(/previous_group_handler/, function (req, res) {
 router.get(/log_croptype_handler/, function (req, res) {
     console.log(req.session.data.chosen_crop)
     if (req.session.data.sns_method == "no") {
-        res.redirect('/add-field/add-field-check')
+        res.redirect('/add-field/check')
     } else {
         if (req.session.data.crop_group == 'leafy' || req.session.data.crop_group == 'root') {
             res.redirect('sample_depth')
@@ -289,7 +289,7 @@ router.get(/organicadjustment_handler/, function (req, res) {
     } else if (req.session.data.crop_group == "cereals" || req.session.data.crop_group == 'arable-other') {
         res.redirect('shoots')
     } else {
-        res.redirect('/add-field/add-field-check')
+        res.redirect('/add-field/check')
     }
 })
 

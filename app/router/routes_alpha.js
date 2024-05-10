@@ -124,13 +124,13 @@ router.get(/fertiliser_if_handler/, function (req, res) {
             res.redirect('fertiliser_when')
         }
     } else {
-        res.redirect('check_two')
+        res.redirect('check')
     }
 })
 
 //do you plan to spread more fertiliser
 router.get(/fertiliser_again_handler/, function (req, res) { 
-    let next = (req.session.data.fertiliser_again == "yes") ? 'fertiliser_when' : 'check_two'
+    let next = (req.session.data.fertiliser_again == "yes") ? 'fertiliser_when' : 'check'
     res.redirect(next)
 })
 
@@ -259,7 +259,7 @@ router.get(/add_multi_handler/, function (req, res) {
 
 //add field - grass history - handler
 router.get(/add-grass-handler/, function (req, res) { 
-    let next = (req.session.data.previous_grass == 'yes') ? 'plough' : 'add-field-check'
+    let next = (req.session.data.previous_grass == 'yes') ? 'plough' : 'check'
     res.redirect(next)
 })
 

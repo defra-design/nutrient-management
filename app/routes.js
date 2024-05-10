@@ -175,6 +175,6 @@ router.get('/', function (req, res) {
 })
 
 //import routes
-const main_routes = require('./main_routes.js');
-const alpha_routes = require('./alpha_routes.js');
-router.use('/', main_routes, alpha_routes);
+const routes_main = require('./routes_main.js');
+const routes_alpha = require('./routes_alpha.js');
+router.use('/', routes_main, routes_alpha);

@@ -53,7 +53,7 @@
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} Nutrient recommendations</h2>
       {% if data.multi_manures == false and data.single_manures == false %}
-        <p>You have no {{data.content.organic_term | lower}} applications planned for this field. <a href="">Add {{data.content.non_organic_term | lower}} applications</a></p>
+        {% include "./templates/nutrients_blank.html" ignore missing %}
       {% else %}
         {% include "./templates/nutrients_manure.html" ignore missing %}
       {% endif %}
@@ -61,7 +61,12 @@
 
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
-        {% include "./templates/applications.html" ignore missing %}
+      {% if data.multi_manures == false and data.single_manures == false %}
+      <p>You have no {{data.content.organic_term | lower}} applications planned for this field. <a href="">Add {{data.content.non_organic_term | lower}} applications</a></p>
+    {% else %}
+      {% include "./templates/applications.html" ignore missing %}
+    {% endif %}
+
     </div>
 
     <div class="govuk-grid-column-full margin-bottom-forty">

@@ -454,4 +454,11 @@ router.get(/add_manure_handler/, function (req, res) {
     res.redirect('/' + req.session.data.prototype_version + '/crop_plan/plan_view')
 })
 
+router.get(/version2_manure_handler/, function (req, res) { 
+    req.session.data.show_success_message = true
+    req.session.data.multi_manures = true
+    req.session.data.single_manures = false
+    res.redirect('/version_2/crop_plan/plan_view')
+})
+
 module.exports = router

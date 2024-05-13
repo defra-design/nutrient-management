@@ -39,7 +39,11 @@
       </div>
       <div class="govuk-notification-banner__content">
         <h3 class="govuk-notification-banner__heading">
-          Plan created
+          {% if data.multi_manures == true or data.single_manures == true %}
+            {{data.content.organic_term}} applications added.
+          {% else %}
+            Plan created
+          {% endif %}
         </h3>
         <!-- <p class="govuk-body"><a href="/old/plan/add_crops/crop_group">Add another crop to this plan</a></p> -->
         <!-- <p class="govuk-body"><a href="">Add another crop to this plan</a></p> -->
@@ -57,7 +61,7 @@
       <p class="govuk-body">There are {{data.crop_group_2024.totalFields}} fields in this plan</p>
       <p class="govuk-body">Last updated: {{data.content.todays_date}}</p>
       <p class="govuk-body"><a href="/add_crops/crop_group">Add another crop to this plan</a></p>
-      <p class="govuk-body"><a href="/add_manure/manure_fields">Add manures to this plan</a></p>
+      <p class="govuk-body"><a href="/add_manure/manure_fields">Add manures to multiple fields in this plan</a></p>
     </div>
 
     <hr class="seperator_five">

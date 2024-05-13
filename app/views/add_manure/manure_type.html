@@ -16,50 +16,36 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        What type of {{data.content.organic_term | lower}} do you plan to use in this application?
+        What type of Pig slurry do you plan to use in this application?
       </h1>
-
-      <h3 class="govuk-heading-s">Select from your most commonly used {{data.content.organic_term | lower}}s</h3>
 
       <form class="form" action="manure_again" method="post">
 
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
+          <!-- <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Where do you live?
+              </h1>
+            </legend> -->
+            <div class="govuk-radios" data-module="govuk-radios">
 
-          <div class="govuk-radios" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="cattle_solid" name="manure_type" type="radio" value="cattle_solid">
-              <label class="govuk-label govuk-radios__label" for="cattle_solid">
-                Cattle farmyard manure (FYM), fresh 
-              </label>
-            </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="ig_solids" name="manure_type" type="radio" value="pig_solids">
+                <label class="govuk-label govuk-radios__label" for="ig_solids">
+                  Separated solids                
+                </label>
+              </div>
 
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="cattle_liquids" name="manure_type" type="radio" value="cattle_liquids">
-              <label class="govuk-label govuk-radios__label" for="cattle_liquids">
-                Pig slury, seperated solids
-              </label>
-            </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="pig_liquid" name="manure_type" type="radio" value="pig_liquid">
+                <label class="govuk-label govuk-radios__label" for="pig_liquid">
+                  Separated liquid
+                </label>
+              </div>
 
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="treatment_cake" name="manure_type" type="radio" value="treatment_cake">
-              <label class="govuk-label govuk-radios__label" for="treatment_cake">
-                Water treatment cake
-              </label>
-            </div>
-          </fieldset>
-          <fieldset class="govuk-fieldset">
-
-            <br>
-            <h3 class="govuk-heading-s">or</h3>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="other" name="manure_type" type="radio" value="other">
-              <label class="govuk-label govuk-radios__label" for="other">
-                Select another {{data.content.organic_term | lower}}
-              </label>
-            </div>
+          </div>
           </fieldset>
         </div>
         {{ govukButton({

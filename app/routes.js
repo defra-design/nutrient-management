@@ -60,6 +60,22 @@ crop_group_two.firstCropSelected = true
 crop_group_two.thirdCropSelected = true
 crop_group_two.totalFields = allFunctions.totalFieldsCount(crop_group_two);
 
+let crop_group_three = CropGroup.createCropGroup();
+crop_group_three.year = '2024';
+crop_group_three.firstCropReference = 'Wheat-Winter';
+crop_group_three.secondCropReference = null;
+crop_group_three.thirdCropReference = 'rye-Winter';
+crop_group_three.thirdCropVariety = 'Boyko';
+crop_group_three.fourthCropReference = null;
+crop_group_three.firstCropFields = ['1', '2', '3', '4'];
+// crop_group_three.secondCropFields = ['1', '2', '3'];
+crop_group_three.thirdCropFields = ['5', '6', '7', '8'];
+// crop_group_three.fourthCropFields = ['5', '6'];
+crop_group_three.firstCropSelected = true
+crop_group_three.thirdCropSelected = true
+crop_group_three.totalFields = allFunctions.totalFieldsCount(crop_group_three);
+
+
 let crop_group_2023 = CropGroup.createCropGroup();
 let crop_group_2024 = CropGroup.createCropGroup();
 
@@ -112,6 +128,7 @@ router.get('/', function (req, res) {
     //create 2025 crop plan
     req.session.data.crop_group_one = crop_group_one
     req.session.data.crop_group_two = crop_group_two
+    req.session.data.crop_group_three = crop_group_three
     req.session.data.crop_group_2024 = crop_group_2024
     req.session.data.crop_group_2023 = crop_group_2023
     // req.session.data.crop_group_two.printCropGroup();
@@ -172,6 +189,11 @@ router.get('/', function (req, res) {
     req.session.data.crop_group_2023.thirdCropFields = []
     req.session.data.crop_group_2023.fourthCropFields = []
     req.session.data.cover_fields = []
+
+    //manures - temp remove
+    req.session.data.multi_manures = false
+    req.session.data.single_manures = false
+
     res.render('index')
 })
 

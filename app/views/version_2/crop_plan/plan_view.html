@@ -69,7 +69,7 @@
       <p class="govuk-body">Variety: {{data.crop_group_2024.firstCropVariety}}</p>
     {% endif %}
 
-    <p class="govuk-body"><a href="">Change this {{data.crop_group_2024.firstCropReference | nameconverter }} plan</a></p>
+    <p class="govuk-body"><a href="">Change the {{data.crop_group_2024.firstCropReference | nameconverter }} plan for all of these fields</a></p>
 
     <table class="govuk-table margin-bottom-forty big_crop_table">
       
@@ -83,6 +83,9 @@
             <th scope="col" class="govuk-table__header">Second crop</th>
             <th scope="col" class="govuk-table__header"></th>
           {% endif %}
+
+          <th scope="col" class="govuk-table__header">{{data.content.organic_term}} applications</th>
+
           <th scope="col" class="govuk-table__header"></th>
         </tr>
       </thead>
@@ -110,16 +113,27 @@
             None
           {% endif %}
         </td>
+
         <td class="govuk-table__cell"></td>
+        
       {% endif %}
+
+      <td class="govuk-table__cell">
+        {% if data.multi_manures == false and data.single_manures == false %}
+          None
+        {% else %}
+          1
+        {% endif %}
+      </td>
 
           <td class="govuk-table__cell">
             {% if hasSecondCrop == true %}
-            <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2024.firstCropReference}}&chosenfield={{field.reference}}&covercrop={{data.crop_group_2024.secondCropReference}}">View recommendations</a>
+            <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2024.firstCropReference}}&chosenfield={{field.reference}}&covercrop={{data.crop_group_2024.secondCropReference}}">View field plan</a>
           {% else %}
-            <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2024.firstCropReference}}&chosenfield={{field.reference}}&covercrop=none">View recommendations</a>
+            <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2024.firstCropReference}}&chosenfield={{field.reference}}&covercrop=none">View field plan</a>
           {% endif %}
           </td>
+
         </tr>
       {% endfor %}  
 
@@ -142,7 +156,7 @@
       <p class="govuk-body">Variety: {{data.crop_group_2024.thirdCropVariety}}</p>
     {% endif %}
 
-    <p class="govuk-body"><a href="">Change this {{data.crop_group_2024.thirdCropReference | nameconverter }} plan</a></p>
+    <p class="govuk-body"><a href="">Change the {{data.crop_group_2024.thirdCropReference | nameconverter }}  plan for all of these fields</a></p>
 
     <table class="govuk-table margin-bottom-forty big_crop_table">
       
@@ -150,12 +164,16 @@
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Field</th>
+
           {% if data.crop_group_2024.fourthCropFields == null %}
             <th scope="col" class="govuk-table__header"></th>
             {% else %}
             <th scope="col" class="govuk-table__header">Second crop</th>
             <th scope="col" class="govuk-table__header"></th>
           {% endif %}
+
+          <th scope="col" class="govuk-table__header">{{data.content.organic_term}} applications</th>
+
           <th scope="col" class="govuk-table__header"></th>
         </tr>
       </thead>
@@ -184,13 +202,22 @@
           {% endif %}
         </td>
         <td class="govuk-table__cell"></td>
+
       {% endif %}
+
+      <td class="govuk-table__cell">
+        {% if data.multi_manures == false and data.single_manures == false %}
+          None
+        {% else %}
+          1
+        {% endif %}
+      </td>
 
           <td class="govuk-table__cell">
             {% if hasSecondCrop == true %}
-            <a href="version_2field_plan_handler?chosencrop={{data.crop_group_2024.thirdCropReference}}&chosenfield={{field.reference}}&covercrop={{data.crop_group_2024.fourthCropReference}}">View recommendations</a>
+            <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2024.thirdCropReference}}&chosenfield={{field.reference}}&covercrop={{data.crop_group_2024.fourthCropReference}}">View field plan</a>
           {% else %}
-            <a href="version_2field_plan_handler?chosencrop={{data.crop_group_2024.thirdCropReference}}&chosenfield={{field.reference}}&covercrop=none">View recommendations</a>
+            <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2024.thirdCropReference}}&chosenfield={{field.reference}}&covercrop=none">View field plan</a>
           {% endif %}
           </td>
         </tr>

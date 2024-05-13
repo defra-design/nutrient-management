@@ -86,7 +86,7 @@ router.get(/one_manure_handler/, function (req, res) {
     req.session.data.oaktree_farm.plans_added = true
     req.session.data.current_fields = req.session.data.field_details_mvp
     // use plan with one crop 2025
-    req.session.data.crop_group_2024 = req.session.data.crop_group_one
+    req.session.data.crop_group_2024 = req.session.data.crop_group_three
     
     //convert the reference numbers to actual field objects
     req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.current_fields)

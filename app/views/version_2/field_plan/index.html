@@ -31,48 +31,43 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-
   <div class="govuk-grid-column-two-thirds">
+
     <div class="status-header margin-bottom-forty">
-      <h1 class="govuk-heading-l">{{data.chosenField.name}} plan 2024</h1>
-    </div>  
+      <h1 class="govuk-heading-l">Nutrient recommendations for {{data.chosenField.name}} 2024</h1>
+    </div> 
+    
+    <div class="margin-bottom-forty">
+      <p class="govuk-body "><a href="">Change {{data.chosen_crop | nameconverter}} plan for {{data.chosenField.name}}</a></p>
+      <p class="govuk-body "><a href="">Add or update {{data.content.organic_term | lower}} applications for {{data.chosenField.name}}</a></p>
+      <p class="govuk-body "><a href="">Add {{data.content.non_organic_term | lower}} applications for {{data.chosenField.name}}</a></p>
+    </div>
+    
   </div>
 
-  <div class="govuk-grid-column-full">
-    <div class="status-header margin-bottom-forty">
-      <h2 class="govuk-heading-m">Recommendations</h2>
-      {% include "./templates/nutrients_completed.html" ignore missing %}
-      <!-- <p class="govuk-body"><a href="">Add organic material applications for {{data.chosenField.name}}</a></p> -->
-    </div>  
+  <div class="govuk-grid-column-full margin-bottom-forty">
+    <h2 class="govuk-heading-m">Crop detials</h2>
+      {% include "./templates/main-crop.html" ignore missing %}
   </div>
 
-  <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-full margin-bottom-forty">
+      <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} Nutrient recommendations</h2>
+      {% if data.multi_manures == false and data.single_manures == false %}
+        <p>You have no {{data.content.organic_term | lower}} applications planned for this field. <a href="">Add {{data.content.non_organic_term | lower}} applications</a></p>
+      {% else %}
+        {% include "./templates/nutrients_manure.html" ignore missing %}
+      {% endif %}
+    </div>
 
-    <div class="status-header margin-bottom-forty">
-      <h2 class="govuk-heading-m">Crop details</h2>
-      <p class="govuk-body">You have 1 crop planned, {{data.chosen_crop | nameconverter}}.</p>
-      <p class="govuk-body"><a href="">View or change the {{data.chosen_crop | nameconverter}} plan for {{data.chosenField.name}}</a></p>
-    </div>  
+    <div class="govuk-grid-column-full margin-bottom-forty">
+      <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
+        {% include "./templates/applications.html" ignore missing %}
+    </div>
 
-    <div class="status-header margin-bottom-forty">
-      <h2 class="govuk-heading-m">Organic material applications</h2>
-      <p class="govuk-body">You have planned 3 organic material applications for {{data.chosenField.name}}.</p>
-      <p class="govuk-body"><a href="">View or change organic material applications for {{data.chosenField.name}}</a></p>
-    </div>  
-
-    <div class="status-header margin-bottom-forty">
-      <h2 class="govuk-heading-m">Inorganic material applications</h2>
-      <p class="govuk-body">You have 1 planned organic material application for {{data.chosenField.name}}.</p>
-      <p class="govuk-body"><a href="">View or change inorganic material applications for {{data.chosenField.name}}</a></p>
-    </div>  
-
-    <div class="status-header margin-bottom-forty">
-      <h2 class="govuk-heading-m">Guidance notes</h2>
-      <!-- <p class="govuk-body">You have 3 planned organic material applications for {{data.chosenField.name}}.</p> -->
-      <p class="govuk-body"><a href="">View the guidance notes for {{data.chosenField.name}}</a></p>
-    </div>  
-  
-  </div>
+    <div class="govuk-grid-column-full margin-bottom-forty">
+      <h2 class="govuk-heading-m">{{data.content.non_organic_term}} applications</h2>
+        <p>You have no {{data.content.non_organic_term | lower}} applications planned for this field. <a href="">Add {{data.content.non_organic_term | lower}} applications</a></p>
+    </div>
 
 </div>
 

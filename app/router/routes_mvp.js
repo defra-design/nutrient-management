@@ -448,6 +448,14 @@ router.get(/field_details_reset_handler/, function (req, res) {
 //////// ADD MANURES ////////
 /////////////////////////////
 
+router.get(/v2manure_handler/, function (req, res) { 
+    req.session.data.manure_journey = req.query.manurejourney
+    if (req.session.data.manure_journey == 'multi') {
+        res.redirect('/add_manure/manure_fields')
+    } else {
+        res.redirect('/add_manure/manure_date')
+    }
+})
 
 router.get(/add_manure_handler/, function (req, res) { 
     req.session.data.show_success_message = true
@@ -456,9 +464,14 @@ router.get(/add_manure_handler/, function (req, res) {
 
 router.get(/version2_manure_handler/, function (req, res) { 
     req.session.data.show_success_message = true
-    req.session.data.multi_manures = true
-    req.session.data.single_manures = false
-    res.redirect('/version_2/crop_plan/plan_view')
+    if (req.session.data.manure_journey == 'multi') {
+        req.session.data.multi_manures = true
+        res.redirect('/version_2/crop_plan/plan_view')
+    } else {
+        req.session.data.single_manures = true    
+        res.redirect('/version_2/field_plan/index')
+    }
 })
+
 
 module.exports = router

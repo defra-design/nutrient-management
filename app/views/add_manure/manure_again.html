@@ -19,7 +19,11 @@
       <!-- {% include "templates/title_span.html" %} -->
 
       <h1 class="govuk-heading-l">
-        Do you plan to spread more {{data.content.organic_term | lower}} on the Winter Wheat fields?
+      {% if data.manure_journey == 'multi' %}
+        Do you want to add another {{data.content.organic_term | lower}} application for these fields?
+      {% else %}
+        Do you want to add another {{data.content.organic_term | lower}} application for Narrow Field?
+      {% endif %}
       </h1>
 
       <form class="form" action="check" method="post">

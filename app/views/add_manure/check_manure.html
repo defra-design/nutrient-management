@@ -2,7 +2,11 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Which fields would you like to plan organic material applications for?</dt>
-    <dd class="govuk-summary-list__value">All the fields in the 2024 plan</dd>
+    {% if data.manure_journey == 'multi' %}
+      <dd class="govuk-summary-list__value">All the fields in the 2024 plan</dd>
+    {% else %}
+      <dd class="govuk-summary-list__value">Long Field</dd>
+    {% endif %}
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
@@ -19,7 +23,13 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Do you plan to spread more organic material on the Winter Wheat fields?</dt>
+    <dt class="govuk-summary-list__key">Do you want to add another {{data.content.organic_term | lower}} application for 
+      {% if data.manure_journey == 'multi' %}
+        these fields?
+      {% else %}
+        Narrow Field?
+      {% endif %}
+    </dt>
     <dd class="govuk-summary-list__value">No</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>

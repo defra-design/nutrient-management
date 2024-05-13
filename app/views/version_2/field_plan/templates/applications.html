@@ -9,11 +9,24 @@
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">11 April 2024</td>
-      <td class="govuk-table__cell">Pig Slury, seperated solids</td>
-      <td class="govuk-table__cell">Band spreader - trailing hose</td>
-      <td class="govuk-table__cell">40 tonne</td>
-    </tr>      
+
+    {% if data.multi_manures == true %}
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">11 April 2024</td>
+        <td class="govuk-table__cell">Pig Slury, seperated solids</td>
+        <td class="govuk-table__cell">Band spreader - trailing hose</td>
+        <td class="govuk-table__cell">40 tonne</td>
+      </tr>      
+    {% endif %}
+
+    {% if data.single_manures == true %}
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">20 May 2024</td>
+        <td class="govuk-table__cell">Pig Slury, seperated solids</td>
+        <td class="govuk-table__cell">Band spreader - trailing hose</td>
+        <td class="govuk-table__cell">40 tonne</td>
+      </tr>      
+    {% endif %}
+
   </tbody>
 </table>

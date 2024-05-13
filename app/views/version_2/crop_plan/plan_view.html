@@ -61,7 +61,7 @@
       <p class="govuk-body">There are {{data.crop_group_2024.totalFields}} fields in this plan</p>
       <p class="govuk-body">Last updated: {{data.content.todays_date}}</p>
       <p class="govuk-body"><a href="/add_crops/crop_group">Add another crop to this plan</a></p>
-      <p class="govuk-body"><a href="/add_manure/manure_fields">Add manures to multiple fields in this plan</a></p>
+      <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Add manures to multiple fields in this plan</a></p>
     </div>
 
     <hr class="seperator_five">
@@ -125,8 +125,12 @@
       <td class="govuk-table__cell">
         {% if data.multi_manures == false and data.single_manures == false %}
           None
-        {% else %}
-          1
+        {% elif data.multi_manures == true and data.single_manures == true %}
+          {% if field.reference == '7' %}
+            2
+          {% else %}
+            1
+          {% endif %}
         {% endif %}
       </td>
 
@@ -212,8 +216,12 @@
       <td class="govuk-table__cell">
         {% if data.multi_manures == false and data.single_manures == false %}
           None
-        {% else %}
-          1
+        {% elif data.multi_manures == true and data.single_manures == true %}
+          {% if field.reference == '7' %}
+            2
+          {% else %}
+            1
+          {% endif %}
         {% endif %}
       </td>
 

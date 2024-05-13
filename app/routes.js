@@ -193,6 +193,7 @@ router.get('/', function (req, res) {
     //manures - temp remove
     req.session.data.multi_manures = false
     req.session.data.single_manures = false
+    req.session.data.manure_journey = null //multi or single
 
     res.render('index')
 })

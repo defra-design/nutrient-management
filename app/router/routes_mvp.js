@@ -439,6 +439,12 @@ router.get(/field_details_reset_handler/, function (req, res) {
     res.redirect('/field/field-details')
 })
 
+//plan_view reset messages
+router.get(/planview_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('../crop_plan/plan_view')
+})
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////

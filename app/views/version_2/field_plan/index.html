@@ -18,7 +18,7 @@
     },
     {
       text: "Harvest year 2025",
-      href: "../crop_plan/plan_view"
+      href: "planview_reset_handler"
     },
     {
       text: data.chosenField.name
@@ -32,6 +32,24 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+
+    {% if data.show_success_message == true %}
+
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+            {{data.content.organic_term}} applications added to {{data.chosenField.name}}.
+        </h3>
+      </div>
+    </div>
+
+    {% endif %}
+
 
     <div class="status-header margin-bottom-forty">
       <h1 class="govuk-heading-l">Nutrient recommendations for {{data.chosenField.name}} 2024</h1>

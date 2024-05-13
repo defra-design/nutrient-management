@@ -5,7 +5,7 @@
     {% if data.manure_journey == 'multi' %}
       <dd class="govuk-summary-list__value">All the fields in the 2024 plan</dd>
     {% else %}
-      <dd class="govuk-summary-list__value">Long Field</dd>
+      <dd class="govuk-summary-list__value">{{data.chosenField.name}}</dd>
     {% endif %}
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
@@ -27,7 +27,7 @@
       {% if data.manure_journey == 'multi' %}
         these fields?
       {% else %}
-        Narrow Field?
+        {{data.chosenField.name}}
       {% endif %}
     </dt>
     <dd class="govuk-summary-list__value">No</dd>

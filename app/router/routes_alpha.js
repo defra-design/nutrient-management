@@ -334,6 +334,7 @@ router.get(/field_level_plan_handler/, function (req, res) {
 })
 
 router.get(/mvpfield_plan_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
     req.session.data.chosenField = allFunctions.getFieldByReference(req.session.data.current_fields, req.query.chosenfield)
     req.session.data.chosen_crop = req.query.chosencrop
     req.session.data.cover_crop = req.query.covercrop

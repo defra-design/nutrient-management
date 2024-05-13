@@ -28,7 +28,7 @@
         {% if data.manure_journey == 'multi' %}
           When do you first plan to spread {{data.content.organic_term | lower}} on these fields?
         {% else %}
-          When do you plan to spread {{data.content.organic_term | lower}} on Narrow field?
+          When do you plan to spread {{data.content.organic_term | lower}} on {{data.chosenField.name}}?
         {% endif %}
       </h1>
 

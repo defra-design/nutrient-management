@@ -40,7 +40,7 @@
       <div class="govuk-notification-banner__content">
         <h3 class="govuk-notification-banner__heading">
           {% if data.multi_manures == true or data.single_manures == true %}
-            {{data.content.organic_term}} applications added.
+            {{data.content.organic_term}} applications added to all fields.
           {% else %}
             Plan created
           {% endif %}
@@ -131,7 +131,13 @@
           {% else %}
             1
           {% endif %}
+        {% elif data.multi_manures == false and data.single_manures == true %}
+          {% if field.reference == '7' %}
+          1
+        {% else %}
+          None
         {% endif %}
+    {% endif %}
       </td>
 
           <td class="govuk-table__cell">
@@ -222,7 +228,13 @@
           {% else %}
             1
           {% endif %}
+        {% elif data.multi_manures == false and data.single_manures == true %}
+          {% if field.reference == '7' %}
+          1
+        {% else %}
+          None
         {% endif %}
+    {% endif %}
       </td>
 
           <td class="govuk-table__cell">

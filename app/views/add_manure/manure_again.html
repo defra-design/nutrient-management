@@ -22,7 +22,7 @@
       {% if data.manure_journey == 'multi' %}
         Do you want to add another {{data.content.organic_term | lower}} application for these fields?
       {% else %}
-        Do you want to add another {{data.content.organic_term | lower}} application for Narrow Field?
+        Do you want to add another {{data.content.organic_term | lower}} application for {{data.chosenField.name}}?
       {% endif %}
       </h1>
 

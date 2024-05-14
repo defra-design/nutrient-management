@@ -123,21 +123,30 @@
       {% endif %}
 
       <td class="govuk-table__cell">
-        {% if data.multi_manures == false and data.single_manures == false %}
-          None
-        {% elif data.multi_manures == true and data.single_manures == true %}
-          {% if field.reference == '7' %}
-            2
+        {% if data.multi_manures == true %}
+          {% if data.single_manures == true %}
+            {% if field.reference == '7' %}
+              2
+            {% else %}
+              1
+            {% endif %}
           {% else %}
-            1
+              1
           {% endif %}
-        {% elif data.multi_manures == false and data.single_manures == true %}
-          {% if field.reference == '7' %}
-          1
-        {% else %}
-          None
-        {% endif %}
-    {% endif %}
+        {% endif %} 
+          
+        {% if data.multi_manures == false %}
+          {% if data.single_manures == true %}
+            {% if field.reference == '7' %}
+              1
+            {% else %}
+              None
+            {% endif %}
+          {% else %}
+            None
+          {% endif %}
+        {% endif %} 
+          
       </td>
 
           <td class="govuk-table__cell">

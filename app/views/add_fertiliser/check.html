@@ -21,14 +21,10 @@
     </h1>
 
     <div class="check-answers">
-      {% if data.fertiliser_if == 'yes' %}
         {% include "./check_content.html" ignore missing %}
-      {% else %}
-        {% include "./check_no_content.html" ignore missing %}
-      {% endif%}
     </div>
 
-    <form action="v2_check_fertiliser_handler" method="post" novalidate>
+    <form action="/version_2/crop_plan/plan_view" method="post" novalidate>
       {{ govukButton({
         text: "Add to application plan"
       }) }}

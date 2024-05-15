@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
@@ -20,7 +22,7 @@
         What type of Pig slurry do you plan to use in this application?
       </h1>
 
-      <form class="form" action="manure_quantity" method="post">
+      <form class="form" action="manure_defaults" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset">

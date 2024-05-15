@@ -19,43 +19,17 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        How would you like to calculate the amount of manure used?
+        How many days will there be before the manure is incorporated?
       </h1>
 
-      <form class="form" action="manure_incorporation_method" method="post">
+      <form class="form" action="rain_defaults" method="post">
 
         <div class="govuk-form-group">
-          <!-- <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                Where do you live?
-              </h1>
-            </legend> -->
-            <div class="govuk-radios" data-module="govuk-radios">
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="area" name="quantity_type" type="radio" value="area">
-                <label class="govuk-label govuk-radios__label" for="area">
-                  Enter an area and quantity            
-                </label>
+            <div class="govuk-form-group">
+                <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+                  <div class="govuk-input__suffix" aria-hidden="true">days</div>
+                </div>
               </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rate" name="quantity_type" type="radio" value="rate">
-                <label class="govuk-label govuk-radios__label" for="rate">
-                  Enter an application rate
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="default" name="quantity_type" type="radio" value="default">
-                <label class="govuk-label govuk-radios__label" for="default">
-                  Use the standard application rate of 30 tonnes per hectare
-                </label>
-              </div>
-
-          </div>
-          </fieldset>
         </div>
         {{ govukButton({
           text: "Continue"

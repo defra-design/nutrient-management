@@ -22,6 +22,7 @@
 
     <form class="form" action="fertiliser_again" method="post">
 
+        {% if data.chosen_nitrogen == true %}
         <div class="govuk-form-group">
           <label class="govuk-label" for="weight">
             <strong>Nitrogen (N)</strong><br>
@@ -30,7 +31,9 @@
             <div class="govuk-input__suffix" aria-hidden="true">kg per hectare</div>
           </div>
         </div>
+      {% endif %}
 
+      {% if data.chosen_phosphate == true %}
         <div class="govuk-form-group">
           <label class="govuk-label" for="weight">
             <strong>Phosphate (P2O5)</strong>
@@ -39,7 +42,9 @@
             <div class="govuk-input__suffix" aria-hidden="true">kg per hectare</div>
           </div>
         </div>
+        {% endif %}
 
+        {% if data.chosen_potash == true %}
         <div class="govuk-form-group">
           <label class="govuk-label" for="weight">
             <strong>Potash (K2O)</strong><br>
@@ -48,7 +53,9 @@
             <div class="govuk-input__suffix" aria-hidden="true">kg per hectare</div>
           </div>
         </div>
+        {% endif %}
 
+        {% if data.chosen_sulphur == true %}
         <div class="govuk-form-group">
           <label class="govuk-label" for="weight">
             <strong>Sulphur (SO3)	</strong>
@@ -57,7 +64,9 @@
             <div class="govuk-input__suffix" aria-hidden="true">kg per hectare</div>
           </div>
         </div>
+        {% endif %}
 
+        {% if data.chosen_lime == true %}
         <div class="govuk-form-group">
           <label class="govuk-label" for="weight">
             <strong>Lime</strong><br>
@@ -66,6 +75,7 @@
             <div class="govuk-input__suffix" aria-hidden="true">kg per hectare</div>
           </div>
         </div>
+        {% endif %}
 
         {{ govukButton({
           text: "Continue"

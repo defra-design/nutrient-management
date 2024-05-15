@@ -1,4 +1,4 @@
-<dl class="govuk-summary-list">
+<dl class="govuk-summary-list margin-bottom-forty">
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Which fields would you like to plan organic material applications for?</dt>
@@ -9,77 +9,39 @@
     {% endif %}
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+<div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">When do you first plan to spread organic material on the fields?</dt>
+  <dd class="govuk-summary-list__value">01 Feb 2025</dd>
+  <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+</div>
+
+  {% include "./check_manure_values.html" %}
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">When do you first plan to spread organic material on the fields?</dt>
-    <dd class="govuk-summary-list__value">01 Feb 2025</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What type of organic material do you plan to use in this application?</dt>
-    <dd class="govuk-summary-list__value">Pig Slury, seperated solids</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Do you want to use the default nutrient values for Pig Slurry, separated solids?</dt>
-    <dd class="govuk-summary-list__value">Yes</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How would you like to calculate the amount of manure used?</dt>
-    <dd class="govuk-summary-list__value">Use the standard application rate of 40 tonnes per hectare</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How will the manure be incorporated?</dt>
-    <dd class="govuk-summary-list__value">&nbsp;</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How many days will there be before the manure is incorporated?</dt>
-    <dd class="govuk-summary-list__value">7 days</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">End of drainage</dt>
-    <dd class="govuk-summary-list__value">31 March 2024</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Rainfall since application</dt>
-    <dd class="govuk-summary-list__value">6mm</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Wind speed at application</dt>
-    <dd class="govuk-summary-list__value">0 knots</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Topsoil moisture</dt>
-    <dd class="govuk-summary-list__value">Dry</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Do you want to add another {{data.content.organic_term | lower}} application for 
+    <dt class="govuk-summary-list__key">Do you want to add this {{data.content.organic_term | lower}} to 
       {% if data.manure_journey == 'multi' %}
-        these fields?
+        these fields
       {% else %}
         {{data.chosenField.name}}
       {% endif %}
+      again, in the same way? 
     </dt>
-    <dd class="govuk-summary-list__value">No</dd>
+
+    {% if data.manure_count == 0 %}
+      <dd class="govuk-summary-list__value">No</dd>
+    {% else %}
+      <dd class="govuk-summary-list__value">Yes</dd>
+    {% endif %}
+
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+
+  {% if data.manure_count != 0 %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">When will you next apply {{data.chosen_manure}} to these fields?</dt>
+      <dd class="govuk-summary-list__value">01 Feb 2025</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+    {% endif %}
 
 </dl>

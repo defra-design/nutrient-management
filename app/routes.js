@@ -194,6 +194,9 @@ router.get('/', function (req, res) {
     req.session.data.multi_manures = false
     req.session.data.single_manures = false
     req.session.data.manure_journey = null //multi or single
+    req.session.data.manure_count = 0
+    req.session.data.chosen_manure = 'Pig slurry, separated solids'
+    req.session.data.manure_delay = null
 
     res.render('index')
 })

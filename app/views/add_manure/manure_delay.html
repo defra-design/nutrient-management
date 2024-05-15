@@ -19,7 +19,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        How long will it be before the manure is incorporated?
+        How long will it be before the {{data.chosen_manure}} is incorporated?
       </h1>
 
       <p></p>
@@ -32,15 +32,15 @@
               <div class="govuk-radios" data-module="govuk-radios">
 
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="area" name="quantity_type" type="radio" value="area">
-                  <label class="govuk-label govuk-radios__label" for="area">
+                  <input class="govuk-radios__input" id="hours" name="manure_delay" type="radio" value="Hours">
+                  <label class="govuk-label govuk-radios__label" for="hours">
                     Hours            
                   </label>
                 </div>
   
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="rate" name="quantity_type" type="radio" value="rate">
-                  <label class="govuk-label govuk-radios__label" for="rate">
+                  <input class="govuk-radios__input" id="days" name="manure_delay" type="radio" value="Days">
+                  <label class="govuk-label govuk-radios__label" for="days">
                     Days
                   </label>
                 </div>  
@@ -105,7 +105,7 @@ Cattle slurry
   Cattle slurry, separated solids
 
 Pig slurry	
-  Pig slurry, separated solids
+  {{data.chosen_manure}}
   Pig slurry, separated liquid
 
 Dirty water	

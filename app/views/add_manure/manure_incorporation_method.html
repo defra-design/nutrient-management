@@ -19,7 +19,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        How will the manure be incorporated?
+        How will the {{data.chosen_manure}} be incorporated?
       </h1>
 
       <form class="form" action="manure_delay" method="post">
@@ -34,29 +34,29 @@
             <div class="govuk-radios" data-module="govuk-radios">
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="area" name="quantity_type" type="radio" value="area">
-                <label class="govuk-label govuk-radios__label" for="area">
+                <input class="govuk-radios__input" id="discs" name="incorporation" type="radio" value="Discs">
+                <label class="govuk-label govuk-radios__label" for="discs">
                   Discs            
                 </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rate" name="quantity_type" type="radio" value="rate">
-                <label class="govuk-label govuk-radios__label" for="rate">
+                <input class="govuk-radios__input" id="plough" name="incorporation" type="radio" value="Plough">
+                <label class="govuk-label govuk-radios__label" for="plough">
                   Plough
                 </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="default" name="quantity_type" type="radio" value="default">
-                <label class="govuk-label govuk-radios__label" for="default">
+                <input class="govuk-radios__input" id="rotary" name="incorporation" type="radio" value="Rotary cultivator">
+                <label class="govuk-label govuk-radios__label" for="rotary">
                   Rotary cultivator
                 </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="default" name="quantity_type" type="radio" value="default">
-                <label class="govuk-label govuk-radios__label" for="default">
+                <input class="govuk-radios__input" id="tine" name="incorporation" type="radio" value="Tine cultivator">
+                <label class="govuk-label govuk-radios__label" for="tine">
                   Tine cultivator
                 </label>
               </div>
@@ -64,8 +64,8 @@
               <div class="govuk-radios__divider">or</div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="default" name="quantity_type" type="radio" value="default">
-                <label class="govuk-label govuk-radios__label" for="default">
+                <input class="govuk-radios__input" id="none" name="incorporation" type="radio" value="It won't be incorporated">
+                <label class="govuk-label govuk-radios__label" for="none">
                   It won't be incorporated
                 </label>
               </div>
@@ -127,7 +127,7 @@ Cattle slurry
   Cattle slurry, separated solids
 
 Pig slurry	
-  Pig slurry, separated solids
+  {{data.chosen_manure}}
   Pig slurry, separated liquid
 
 Dirty water	

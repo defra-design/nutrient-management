@@ -19,7 +19,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        How would you like to calculate the amount of manure used?
+        How would you like to calculate the amount of {{data.chosen_manure}} used?
       </h1>
 
       <form class="form" action="manure_incorporation_method" method="post">
@@ -110,7 +110,7 @@ Cattle slurry
   Cattle slurry, separated solids
 
 Pig slurry	
-  Pig slurry, separated solids
+  {{data.chosen_manure}}
   Pig slurry, separated liquid
 
 Dirty water	

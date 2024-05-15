@@ -15,28 +15,30 @@
 
 {% block content %}
 
-  {% if data.manure_spreads == 0 %}
-    {% set manure_count = "first" %}
-  {% else %}
-    {% set manure_count = "Continue" %}
-  {% endif %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
       <!-- {% include "templates/title_span.html" %} -->
 
       <h1 class="govuk-heading-l">
-        {% if data.manure_journey == 'multi' %}
-          When do you first plan to spread {{data.content.organic_term | lower}} on these fields?
+        {% if data.manure_count == 0 %}
+          {% if data.manure_journey == 'multi' %}
+            When do you plan to apply {{data.content.organic_term | lower}} on these fields?
+          {% else %}
+            When do you plan to apply {{data.content.organic_term | lower}} on {{data.chosenField.name}}?
+          {% endif %}
         {% else %}
-          When do you plan to spread {{data.content.organic_term | lower}} on {{data.chosenField.name}}?
+          {% if data.manure_journey == 'multi' %}
+            When will you next apply {{data.content.organic_term | lower}} on these fields?
+          {% else %}
+            WWhen will you next apply {{data.content.organic_term | lower}} on {{data.chosenField.name}}?
+          {% endif %}
         {% endif %}
       </h1>
 
       <!-- <p>Enter the estimated date you firdst plan to apply {{data.content.organic_term | lower}} to the Winter Wheat fields, you can change the date for individual fields later.</p> -->
 
-      <form class="form" action="manure_group" method="post">
+      <form class="form" action="manuredate_handler" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">

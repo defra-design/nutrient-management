@@ -479,5 +479,23 @@ router.get(/version2_manure_handler/, function (req, res) {
     }
 })
 
+router.get(/manureagain_handler/, function (req, res) { 
+    if (req.session.data.manureagain == "yes") {
+        req.session.data.manure_count++
+        console.log(req.session.data.manure_count)
+        res.redirect('manure_date')
+    } else {
+        res.redirect('check')
+    }
+})   
+
+router.get(/manuredate_handler/, function (req, res) { 
+    if (req.session.data.manure_count == 0) {
+        res.redirect('manure_group')
+    } else {
+        res.redirect('manure_again')
+    }
+})
+
 
 module.exports = router

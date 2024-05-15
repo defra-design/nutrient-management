@@ -19,10 +19,10 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        What type of Pig slurry do you plan to use in this application?
+        How will the Pig slury, separated solids be applied?
       </h1>
 
-      <form class="form" action="manure_applied" method="post">
+      <form class="form" action="manure_defaults" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset">
@@ -34,16 +34,23 @@
             <div class="govuk-radios" data-module="govuk-radios">
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="ig_solids" name="manure_type" type="radio" value="pig_solids">
-                <label class="govuk-label govuk-radios__label" for="ig_solids">
-                  Separated solids                
+                <input class="govuk-radios__input" id="area" name="quantity_type" type="radio" value="area">
+                <label class="govuk-label govuk-radios__label" for="area">
+                  Option            
                 </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="pig_liquid" name="manure_type" type="radio" value="pig_liquid">
-                <label class="govuk-label govuk-radios__label" for="pig_liquid">
-                  Separated liquid
+                <input class="govuk-radios__input" id="rate" name="quantity_type" type="radio" value="rate">
+                <label class="govuk-label govuk-radios__label" for="rate">
+                  Option
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="default" name="quantity_type" type="radio" value="default">
+                <label class="govuk-label govuk-radios__label" for="default">
+                  Option
                 </label>
               </div>
 

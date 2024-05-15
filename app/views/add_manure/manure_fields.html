@@ -20,7 +20,7 @@
 
       <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        Which fields would you like to plan {{data.content.organic_term}} applications for?
+        Which fields would you like to plan {{data.content.organic_term | lower}} applications for?
       </h1>
 
       <form class="form" action="manure_date" method="post">

@@ -16,8 +16,9 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
-    
-      <!-- <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+
+    {% if data.show_manure_notification == true %}
+      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
         <div class="govuk-notification-banner__header">
           <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
             Important
@@ -29,7 +30,8 @@
             <a class="govuk-notification-banner__link" href="#">Call to action</a>.
           </p>
         </div>
-      </div> -->
+      </div>
+      {% endif %}
 
     <h1 class="govuk-heading-l">
       Check your answers

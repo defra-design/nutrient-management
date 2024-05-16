@@ -459,7 +459,7 @@ router.get(/v2manure_handler/, function (req, res) {
     if (req.session.data.manure_journey == 'multi') {
         res.redirect('/add_manure/manure_fields')
     } else {
-        res.redirect('/add_manure/manure_date')
+        res.redirect('/add_manure/manure_group')
     }
 })
 
@@ -488,6 +488,20 @@ router.get(/manureagain_handler/, function (req, res) {
         res.redirect('check')
     }
 })   
+
+router.get(/manurecheck_handler/, function (req, res) { 
+    if (req.query.notification == 'true') {
+        req.session.data.show_manure_notification = true
+    }
+    res.redirect('/add_manure/check')
+})
+
+router.get(/manuredate_handler/, function (req, res) { 
+    if (req.query.notification == 'true') {
+        req.session.data.show_manure_notification = true
+    }
+    res.redirect('/add_manure/manure_date')
+})
 
 // router.get(/manuredate_handler/, function (req, res) { 
 //     if (req.session.data.manure_count == 0) {

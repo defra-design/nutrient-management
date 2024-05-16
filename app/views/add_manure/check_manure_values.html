@@ -2,7 +2,11 @@
   <dt class="govuk-summary-list__key">When do you first plan to spread organic material on the fields?</dt>
   <dd class="govuk-summary-list__value">
   <p class="govuk-body">1 Feb 2024</p>
-  <p class="govuk-body strong">This date is inside the closed spreading period</p>
+
+  {% if data.show_manure_notification == true %}
+    <p class="govuk-body strong">This date is inside the closed spreading period</p>
+  {% endif %}
+  
   </dd>
   <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
 </div>

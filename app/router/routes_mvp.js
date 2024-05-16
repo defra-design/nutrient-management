@@ -489,13 +489,13 @@ router.get(/manureagain_handler/, function (req, res) {
     }
 })   
 
-router.get(/manuredate_handler/, function (req, res) { 
-    if (req.session.data.manure_count == 0) {
-        res.redirect('manure_group')
-    } else {
-        res.redirect('manure_again')
-    }
-})
+// router.get(/manuredate_handler/, function (req, res) { 
+//     if (req.session.data.manure_count == 0) {
+//         res.redirect('manure_group')
+//     } else {
+//         res.redirect('manure_again')
+//     }
+// })
 
 
 module.exports = router

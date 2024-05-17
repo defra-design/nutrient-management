@@ -1,0 +1,47 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <!-- {% include "templates/title_span.html" %} -->
+
+      <h1 class="govuk-heading-l">
+        Which harvest year would you like to plan for?
+      </h1>
+
+      <form class="form" action="plan_type" method="post">
+
+        <div class="govuk-form-group">
+          <div id="event-name-hint" class="govuk-hint">
+            For example 2024
+          </div>
+          <input class="govuk-input govuk-input--width-5" id="event-name" name="eventName" type="text" aria-describedby="event-name-hint">
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="#">Cancel</a>
+  </p>
+
+{% endblock %}

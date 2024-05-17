@@ -5,8 +5,6 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "/templates/signed-in.html" ignore missing %}
-  
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
@@ -18,11 +16,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      {% include "templates/title_span.html" %}
       <h1 class="govuk-heading-l">
-        How would you like to enter the application rate for your {{data.chosen_manure}}?
+        What type of Pig slurry do you plan to use in this application?
       </h1>
 
-      <form class="form" action="manure_incorporation_method" method="post">
+      <form class="form" action="manure_again" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset">
@@ -34,23 +33,16 @@
             <div class="govuk-radios" data-module="govuk-radios">
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="area" name="quantity_type" type="radio" value="area">
-                <label class="govuk-label govuk-radios__label" for="area">
-                  Calculate based on the area and quantity            
+                <input class="govuk-radios__input" id="ig_solids" name="manure_type" type="radio" value="pig_solids">
+                <label class="govuk-label govuk-radios__label" for="ig_solids">
+                  Separated solids                
                 </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rate" name="quantity_type" type="radio" value="rate">
-                <label class="govuk-label govuk-radios__label" for="rate">
-                  Enter an application rate
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="default" name="quantity_type" type="radio" value="default">
-                <label class="govuk-label govuk-radios__label" for="default">
-                  Use the typical application rate of 30 tonnes per hectare
+                <input class="govuk-radios__input" id="pig_liquid" name="manure_type" type="radio" value="pig_liquid">
+                <label class="govuk-label govuk-radios__label" for="pig_liquid">
+                  Separated liquid
                 </label>
               </div>
 
@@ -110,7 +102,7 @@ Cattle slurry
   Cattle slurry, separated solids
 
 Pig slurry	
-  {{data.chosen_manure}}
+  Pig slurry, separated solids
   Pig slurry, separated liquid
 
 Dirty water	

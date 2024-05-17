@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- {% include "templates/title_span.html" %} -->
+      <h1 class="govuk-heading-l">
+        How would you like to create a plan?
+      </h1>
+
+      <form class="form" action="v2_plan_handler" method="post">
+
+        <div class="govuk-form-group">
+          <!-- <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Where do you live?
+              </h1>
+            </legend> -->
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="previous" name="v2_plan_type" type="radio" value="previous">
+                <label class="govuk-label govuk-radios__label" for="previous">
+                  Start with an existing plan or record (for example last year's plan)
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="new" name="v2_plan_type" type="radio" value="new">
+                <label class="govuk-label govuk-radios__label" for="new">
+                  Choose crops manually for the year
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

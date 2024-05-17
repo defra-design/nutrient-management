@@ -152,7 +152,7 @@ router.get(/add_farms_handler/, function (req, res) {
     req.session.data.oaktree_farm.latest_update = 'added'
     req.session.data.show_success_message = true
     // console.log(req.session.data.oaktree_farm)
-    res.redirect('../hub')
+    res.redirect('/'+ req.session.data.prototype_version +'/hub')
 })
 
 

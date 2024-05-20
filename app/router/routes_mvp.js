@@ -418,7 +418,7 @@ router.get(/mvp_check_handler/, function (req, res) {
 //farm view reset messages
 router.get(/hub_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    res.redirect('hub')
+    res.redirect('/' + req.session.data.prototype_version + '/hub')
 })
 
 //manage fields view reset messages

@@ -1,0 +1,207 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "//old/prototype_2/hub.html"
+      },
+      {
+        text: "Nutrient Application Plan"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-l">{{data.content.harvest_year | capitalize }} Nutrient Application Plan <br>for {{data.chosenfield.name}}</h1>
+
+<!-- <h2 class="govuk-heading-m">Plan created</h2> -->
+
+<ul class="govuk-list menu-list">
+  <li>
+    <a class="govuk-link" href="#">Create a record from this plan</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="#">Print or download this plan</a>
+  </li>
+</ul>
+<p class="govuk-body">All values are in Kilograms per Hectare</p>
+
+<hr class="big_seperator">
+
+<h2 class="govuk-heading-m">Crop and {{data.content.organic_term | lower}} application plan</h2>
+
+<p class="govuk-body">Wheat, Winter</p>
+
+<table class="govuk-table recomendation-table data-table">
+  <!-- <caption class="govuk-table__caption govuk-table__caption--m">Organic manure application plan</caption>
+  <thead class="govuk-table__head"> -->
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Manure type</th>
+      <th scope="col" class="govuk-table__header">Application date</th>
+      <th scope="col" class="govuk-table__header">Application amount (per hectare)</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Pig Slurry</td>
+      <td class="govuk-table__cell">March - April</td>
+      <td class="govuk-table__cell">20kg</td>
+    </tr>   
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Pig Slurry</td>
+      <td class="govuk-table__cell">April - May</td>
+      <td class="govuk-table__cell">20kg</td>
+    </tr>         
+  </tbody>
+</table>
+<p class="govuk-body">
+  <a class="govuk-link" href="check_one">Change crop and {{data.content.organic_term | lower}} plan</a>
+</p>
+<hr>
+<br>
+
+<table class="govuk-table recomendation-table data-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Inorganic nutrient recommendations</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Nutrient</th>
+      <th scope="col" class="govuk-table__header">Index / pH</th>
+      <th scope="col" class="govuk-table__header">Crop need</th>
+      <th scope="col" class="govuk-table__header">Manure</th>
+      <th scope="col" class="govuk-table__header">Fertiliser or Lime</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Nitrogen (N)</td>
+      <td class="govuk-table__cell">2</td>
+      <td class="govuk-table__cell">150</td>
+      <td class="govuk-table__cell">38</td>
+      <td class="govuk-table__cell">112</td>
+    </tr>      
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Phosphate (P2O5)</td>
+      <td class="govuk-table__cell">2</td>
+      <td class="govuk-table__cell">65</td>
+      <td class="govuk-table__cell">48</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Potash (K2O)</td>
+      <td class="govuk-table__cell">2-</td>
+      <td class="govuk-table__cell">85</td>
+      <td class="govuk-table__cell">128</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Sulphur (SO3)</td>
+      <td class="govuk-table__cell">3</td>
+      <td class="govuk-table__cell">40</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">40</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Lime</td>
+      <td class="govuk-table__cell">6.5</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="govuk-table recomendation-table data-table application-table data-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Inorganic nutrients application plan</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Nutrient</th>
+        <th scope="col" class="govuk-table__header">Aug to Sep
+      <th scope="col" class="govuk-table__header">Oct to Dec</th>
+      <th scope="col" class="govuk-table__header">Jan to Feb</th>
+      <th scope="col" class="govuk-table__header">Feb to Mar</th>
+      <th scope="col" class="govuk-table__header">Mar to Apr</th>
+      <th scope="col" class="govuk-table__header">Apr toMay</th>
+      <th scope="col" class="govuk-table__header nowrap">May to Jun</th>
+      <th scope="col" class="govuk-table__header nowrap">Jun to Jul</th>
+      <th scope="col" class="govuk-table__header">Total</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Nitrogen (N)</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">40</td>
+      <td class="govuk-table__cell">75</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell govuk-table__header">115</td>
+    </tr>      
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Phosphate (P2O5)</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell govuk-table__header">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Potash (K2O)</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell govuk-table__header">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Sulphur (SO3)</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">40</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell govuk-table__header">40</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Lime</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell govuk-table__header">0</td>
+    </tr>
+  </tbody>
+</table>
+<p class="govuk-body">
+    <a class="govuk-link" href="check">Change {{data.content.non_organic_term | lower}} plan</a>
+</p>
+
+
+{% endblock %}

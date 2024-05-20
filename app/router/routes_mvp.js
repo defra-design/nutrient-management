@@ -415,6 +415,13 @@ router.get(/mvp_check_handler/, function (req, res) {
 /////// ALERT MESSAGES //////
 /////////////////////////////
 
+
+router.get(/delete_handler/, function (req, res) { 
+    req.session.data.show_success_message = true
+    req.session.data.oaktree_farm.setup = false
+    res.redirect('/' + req.session.data.prototype_version + '/farms')
+})
+
 //farm view reset messages
 router.get(/hub_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false

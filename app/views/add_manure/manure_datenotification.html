@@ -52,7 +52,7 @@
 
       <!-- <p>Enter the estimated date you first plan to apply {{data.content.organic_term | lower}} to the Winter Wheat fields, you can change the date for individual fields later.</p> -->
 
-      <form class="form" action="manure_applied" method="post">
+      <form class="form" action="manuredate_handler?notification=true" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
@@ -72,7 +72,11 @@
                   <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
                     Day
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+                  {% if data.show_manure_notification == true %}
+                    <input value="2" class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+                  {% else %}   
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">       
+                  {% endif %}          
                 </div>
               </div>
               <div class="govuk-date-input__item">
@@ -80,15 +84,23 @@
                   <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
                     Month
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
-                </div>
+                  {% if data.show_manure_notification == true %}
+                    <input value="9" class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+                  {% else %}
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+                  {% endif %}
+                  </div>
               </div>
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
                     Year
                   </label>
+                  {% if data.show_manure_notification == true %}
+                  <input value="2024" class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+                  {% else %}
                   <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+                  {% endif %}
                 </div>
               </div>
             </div>

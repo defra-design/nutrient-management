@@ -507,7 +507,7 @@ router.get(/manuredate_handler/, function (req, res) {
     if (req.query.notification == 'true') {
         req.session.data.show_manure_notification = true
     }
-    res.redirect('/add_manure/manure_date')
+    res.redirect('/add_manure/manure_datenotification')
 })
 
 // router.get(/manuredate_handler/, function (req, res) { 

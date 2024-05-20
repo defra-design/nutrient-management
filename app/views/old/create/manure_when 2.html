@@ -5,8 +5,6 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "/templates/signed-in.html" ignore missing %}
-  
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
@@ -15,44 +13,22 @@
 
 {% block content %}
 
+  {% if data.manure_spreads == 0 %}
+    {% set manure_count = "first" %}
+  {% else %}
+    {% set manure_count = "next" %}
+  {% endif %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      {% if data.show_manure_notification == true %}
-        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-          <div class="govuk-notification-banner__header">
-            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-              Important
-            </h2>
-          </div>
-          <div class="govuk-notification-banner__content">
-            <p class="govuk-notification-banner__heading">
-              The date you entered is inside the closed spreading period of 1 October to 31 January.
-              <a class="govuk-notification-banner__link" href="#">Find out more</a>
-            </p>
-          </div>
-        </div>
-      {% endif %}
+      
+      {% include "templates/title_span.html" %}
 
       <h1 class="govuk-heading-l">
-        {% if data.manure_count == 0 %}
-          {% if data.manure_journey == 'multi' %}
-            When do you plan to apply {{data.chosen_manure}} on these fields?
-          {% else %}
-            When do you plan to apply {{data.chosen_manure}} on {{data.chosenField.name}}?
-          {% endif %}
-        {% else %}
-          {% if data.manure_journey == 'multi' %}
-            When will you next apply {{data.chosen_manure}} on these fields?
-          {% else %}
-            WWhen will you next apply {{data.chosen_manure}} on {{data.chosenField.name}}?
-          {% endif %}
-        {% endif %}
+        When do you {{manure_count}} plan to spread {{data.content.organic_term | lower}} on {{data.chosenfield.name}}?
       </h1>
 
-      <!-- <p>Enter the estimated date you first plan to apply {{data.content.organic_term | lower}} to the Winter Wheat fields, you can change the date for individual fields later.</p> -->
-
-      <form class="form" action="manure_applied" method="post">
+      <form class="form" action="manure_counter_updater" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
@@ -62,9 +38,7 @@
               </h1>
             </legend> -->
             <div id="passport-issued-hint" class="govuk-hint">
-            <p>If you don't know the exact date, enter an estimated date, for example, 27 3 2023. You can change the date for each field later.</p>
-
-          <p>Remember, based on your crop and soil type, your closed period for spreading manures with high readily available nitrogen is 1 October to 31 January.</p>
+              Enter an estimated date, for example, 27 3 2023
             </div>
             <div class="govuk-date-input" id="passport-issued">
               <div class="govuk-date-input__item">

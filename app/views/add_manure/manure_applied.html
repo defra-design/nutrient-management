@@ -19,7 +19,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        How will the {{data.chosen_manure}} be applied?
+        How will the {{data.chosen_manure | lower}} be applied?
       </h1>
 
       <form class="form" action="manure_defaults" method="post">
@@ -103,7 +103,7 @@ Cattle slurry
   Cattle slurry, separated solids
 
 Pig slurry	
-  {{data.chosen_manure}}
+  {{data.chosen_manure | lower}}
   Pig slurry, separated liquid
 
 Dirty water	

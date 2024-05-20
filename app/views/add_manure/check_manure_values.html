@@ -1,7 +1,7 @@
 <div class="govuk-summary-list__row">
   <dt class="govuk-summary-list__key">When do you first plan to spread organic material on the fields?</dt>
   <dd class="govuk-summary-list__value">
-  <p class="govuk-body">1 Feb 2024</p>
+  <p class="govuk-body">30 August 2023</p>
 
   {% if data.show_manure_notification == true %}
     <p class="govuk-body strong">This date is inside the closed spreading period</p>
@@ -18,7 +18,7 @@
 </div>
 
 <div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">Do you want to use the default nutrient values for {{data.chosen_manure}}?</dt>
+  <dt class="govuk-summary-list__key">Do you want to use the default nutrient values for {{data.chosen_manure | lower}}?</dt>
   <dd class="govuk-summary-list__value">Yes</dd>
   <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
 </div>

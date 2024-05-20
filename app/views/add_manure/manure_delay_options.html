@@ -25,7 +25,7 @@
         {% else %}
           days
         {% endif %}
-        will it be before the {{data.chosen_manure}} is incorporated?
+        will it be before the {{data.chosen_manure | lower}} is incorporated?
       </h1>
 
       <p></p>
@@ -98,7 +98,7 @@ Cattle slurry
   Cattle slurry, separated solids
 
 Pig slurry	
-  {{data.chosen_manure}}
+  {{data.chosen_manure | lower}}
   Pig slurry, separated liquid
 
 Dirty water	

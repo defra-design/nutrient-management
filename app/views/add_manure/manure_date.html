@@ -37,15 +37,15 @@
       <h1 class="govuk-heading-l">
         {% if data.manure_count == 0 %}
           {% if data.manure_journey == 'multi' %}
-            When do you plan to apply {{data.chosen_manure}} on these fields?
+            When do you plan to apply {{data.chosen_manure | lower}} on these fields?
           {% else %}
-            When do you plan to apply {{data.chosen_manure}} on {{data.chosenField.name}}?
+            When do you plan to apply {{data.chosen_manure | lower}} on {{data.chosenField.name}}?
           {% endif %}
         {% else %}
           {% if data.manure_journey == 'multi' %}
-            When will you next apply {{data.chosen_manure}} on these fields?
+            When will you next apply {{data.chosen_manure | lower}} on these fields?
           {% else %}
-            WWhen will you next apply {{data.chosen_manure}} on {{data.chosenField.name}}?
+            WWhen will you next apply {{data.chosen_manure | lower}} on {{data.chosenField.name}}?
           {% endif %}
         {% endif %}
       </h1>

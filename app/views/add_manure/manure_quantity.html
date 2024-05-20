@@ -19,7 +19,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        How would you like to enter the application rate for your {{data.chosen_manure}}?
+        How would you like to enter the application rate for your {{data.chosen_manure | lower}}?
       </h1>
 
       <form class="form" action="manure_incorporation_method" method="post">
@@ -50,7 +50,7 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="default" name="quantity_type" type="radio" value="default">
                 <label class="govuk-label govuk-radios__label" for="default">
-                  Use the typical application rate of 30 tonnes per hectare
+                  Use the typical application rate of 40 tonnes per hectare
                 </label>
               </div>
 
@@ -110,7 +110,7 @@ Cattle slurry
   Cattle slurry, separated solids
 
 Pig slurry	
-  {{data.chosen_manure}}
+  {{data.chosen_manure | lower}}
   Pig slurry, separated liquid
 
 Dirty water	

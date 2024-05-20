@@ -15,35 +15,45 @@
       {{ serviceName }}
     </h1>
 
-    <h2 class="govuk-heading-m">Proof of concept - add farm, field and crops</h2>
-    <p class="govuk-body-s">Last updated: early May 2024</p>
-
-    <p class="govuk-body start-link">
-      <a href="mvp/start" class="govuk-link">No farm set up</a>
-    </p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Proof of concept prototypes
+        </span>
+      </summary>
+      <div class="detail_list">
+        <h2 class="govuk-heading-m">Proof of concept - add farm, field and crops</h2>
+        <p class="govuk-body-s">Last updated: early May 2024</p>
     
-    <p class="govuk-body start-link">
-      <a href="farm_setup_handler" class="govuk-link">Farm without fields</a>
-    </p>
-
-    <p class="govuk-body start-link">
-      <a href="fields_mvp_setup_handler" class="govuk-link">Farm with fields</a>
-    </p>
-
-    <p class="govuk-body start-link">
-      <a href="one_crop_handler" class="govuk-link">Farm with fields and one crop in a plan</a>
-    </p>
-
-    <p class="govuk-body start-link">
-      <a href="plans_mvp_setup_handler" class="govuk-link">Farm with fields and two crops in a plan</a>
-    </p>
-
+        <p class="govuk-body start-link">
+          <a href="mvp/start" class="govuk-link">No farm set up</a>
+        </p>
+        
+        <p class="govuk-body start-link">
+          <a href="farm_setup_handler" class="govuk-link">Farm without fields</a>
+        </p>
+    
+        <p class="govuk-body start-link">
+          <a href="fields_mvp_setup_handler" class="govuk-link">Farm with fields</a>
+        </p>
+    
+        <p class="govuk-body start-link">
+          <a href="one_crop_handler" class="govuk-link">Farm with fields and one crop in a plan</a>
+        </p>
+    
+        <p class="govuk-body start-link">
+          <a href="plans_mvp_setup_handler" class="govuk-link">Farm with fields and two crops in a plan</a>
+        </p>
+        </div>
+    
+      </details>
+    
 
     <!-- v2 -->
 
 
-    <h3 class="govuk-heading-s">Beyond proof of concept - add manures</h3>
-    <p class="govuk-body-s">Last updated: 20 May 2024</p>
+    <h3 class="govuk-heading-s">Manures</h3>
+    <!-- <p class="govuk-body-s">Last updated: 20 May 2024</p> -->
 
     <p class="govuk-body start-link">
       <a href="one_manure_handler" class="govuk-link">Crop plan with no {{data.content.organic_term | lower}} added</a>
@@ -65,7 +75,7 @@
     <hr>
     <br>
     <p class="govuk-body-s">
-      <a href="prototypes">Previous prototypes and more informations</a>
+      <a href="prototypes">Previous prototypes and more information</a>
     </p>
 
   </div>

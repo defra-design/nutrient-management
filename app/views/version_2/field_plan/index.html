@@ -58,9 +58,15 @@
     <div class="margin-bottom-forty">
       <p class="govuk-body "><a href="">Change {{data.chosen_crop | nameconverter}} plan for {{data.chosenField.name}}</a></p>
 
-      <p class="govuk-body "><a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosenField.name}}</a></p>
+      <p class="govuk-body">
+        {% if data.multi_manures == false and data.single_manures == false %}
+          <a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosenField.name}}</a>
+        {% else %}
+          <a href="v2manure_handler?manurejourney=single">Add or edit {{data.content.organic_term | lower}} applications for {{data.chosenField.name}}</a>
+        {% endif %}
+      </p>
 
-      <p class="govuk-body "><a href="">Add {{data.content.non_organic_term | lower}} applications for {{data.chosenField.name}}</a></p>
+      <p class="govuk-body"><a href="">Add {{data.content.non_organic_term | lower}} applications for {{data.chosenField.name}}</a></p>
     </div>
     
   </div>
@@ -90,7 +96,7 @@
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
       {% if data.multi_manures == false and data.single_manures == false %}
-      <p>You have no {{data.content.organic_term | lower}} applications planned for this field. <a href="v2manure_handler?manurejourney=single"> <br>Add {{data.content.organic_term | lower}} applications</a></p>
+      <p>You have no {{data.content.organic_term | lower}} applications planned for this field. <a href="v2manure_handler?manurejourney=single"> <br><a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosenField.name}}</a></a></p>
     {% else %}
       {% include "./templates/applications.html" ignore missing %}
     {% endif %}
@@ -99,7 +105,7 @@
 
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.non_organic_term}} applications</h2>
-        <p>You have no {{data.content.non_organic_term | lower}} applications planned for this field. <a href=""> <br>Add {{data.content.non_organic_term | lower}} applications</a></p>
+        <p>You have no {{data.content.non_organic_term | lower}} applications planned for this field. <a href=""> <br>Add {{data.content.non_organic_term | lower}} applications for {{data.chosenField.name}}</a></p>
     </div>
 
 </div>

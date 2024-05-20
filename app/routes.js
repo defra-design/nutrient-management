@@ -198,6 +198,8 @@ router.get('/', function (req, res) {
     req.session.data.chosen_manure = 'Pig slurry, separated solids'
     req.session.data.manure_delay = null
     req.session.data.show_manure_notification = false
+    
+    req.session.data.prototype_version = 'mvp'
 
     res.render('index')
 })

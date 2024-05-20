@@ -61,7 +61,9 @@
       <p class="govuk-body">There are {{data.crop_group_2024.totalFields}} fields in this plan</p>
       <p class="govuk-body">Last updated: {{data.content.todays_date}}</p>
       <p class="govuk-body"><a href="/add_crops/crop_group">Add another crop to this plan</a></p>
-      <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Add organic material applications to multiple fields in this plan</a></p>
+
+      <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Add {{data.content.organic_term | lower}} to multiple fields in this plan</a></p>
+
     </div>
 
     <hr class="seperator_five">

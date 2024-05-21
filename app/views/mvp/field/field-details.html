@@ -10,11 +10,11 @@
     items: [
     {
       text: "All farms",
-      href: "/mvp/farms.html"
+      href: "/version_2/farms.html"
     },
     {
       text: "Oaktree Lane Farm",
-      href: "/mvp/hub.html"
+      href: "/version_2/hub.html"
     },
       {
         text: "Fields",
@@ -47,6 +47,10 @@
             <h3 class="govuk-notification-banner__heading">
               You have added new soil analysis for {{data.chosenfield}}.
             </h3>
+          {% elif data.oaktree_farm.latest_update == 'field_updated' %}
+          <h3 class="govuk-notification-banner__heading">
+            You have updated {{data.chosenfield}}.
+          </h3>
           {% endif %}
         </div>
       </div>
@@ -89,19 +93,23 @@
       </tbody>
     </table>   
 
-    <p class="govuk-body"><a href="">Change field details</a></p>
+    <p class="govuk-body margin-bottom-forty"><a href="/add-field/update">Change field details</a></p>
+
+    <p>You can also remove {{data.chosenfield}}. This will remove all of the field data including soil analysis. It will also remove {{data.chosenfield}} from your plans. You will not be able to get it back.</p>
+      
+    <p class="govuk-body margin-bottom-forty"><a href="/add-field/remove">Remove {{data.chosenfield}}</a></p>
+
 
     <hr class="big_seperator">
 
     <h2 class="govuk-heading-m">Soil analysis</h2>
 
-    <p class="govuk-body margin margin-bottom-forty"><a href="">Add new soil analysis</a></p>
+    <p class="govuk-body margin margin-bottom-forty"><a href="//old/soil/date">Add new soil analysis</a></p>
 
     {% if data.oaktree_farm.soil_added == true %}
       <table class="govuk-table field-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Type</th>
             <th scope="col" class="govuk-table__header">Date sample taken</th>
             <th scope="col" class="govuk-table__header"> </th>
           </tr>
@@ -109,18 +117,9 @@
         <tbody class="govuk-table__body">
 
         <tr class="govuk-table__row right-last">
-          <td class="govuk-table__cell">P, K and Mg</td>
           <td class="govuk-table__cell">11 February 2023</td>
           <td class="govuk-table__cell">
             <a href="soil-details">View soil analysis</a>
-          </td>
-        </tr>
-
-        <tr class="govuk-table__row right-last">
-          <td class="govuk-table__cell">SNS</td>
-          <td class="govuk-table__cell">11 February 2023</td>
-          <td class="govuk-table__cell">
-            <a href="">View soil analysis</a>
           </td>
         </tr>
 
@@ -128,7 +127,7 @@
       </table>    
     {% else %}
       <p class="govuk-body">You have not added any soil analysis.</p>
-      <p class="govuk-body"><a href="">Add new soil analysis</a></p>
+      <p class="govuk-body"><a href="//old/soil/date">Add new soil analysis</a></p>
     {% endif %}
 
     <!-- <div class="govuk-grid-column-one-third">

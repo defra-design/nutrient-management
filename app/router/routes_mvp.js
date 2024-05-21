@@ -525,6 +525,12 @@ router.get(/manuredate_handler/, function (req, res) {
 // })
 
 
+
+//////////////////////////////////
+//////// ADD FERTILISERS /////////
+//////////////////////////////////
+
+//START
 router.get(/v2fertiliser_handler/, function (req, res) { 
     req.session.data.fertiliser_journey = req.query.fertiliserjourney
     if (req.session.data.fertiliser_journey == 'multi') {
@@ -534,5 +540,16 @@ router.get(/v2fertiliser_handler/, function (req, res) {
     }
 })
 
-
+//CHECK
+    router.get(/version2_fertiliser_handler/, function (req, res) { 
+        req.session.data.show_success_message = true
+        if (req.session.data.fertiliser_journey == 'multi') {
+            req.session.data.multi_fertiliser = true
+            res.redirect('/version_2/crop_plan/plan_view')
+        } else {
+            req.session.data.single_fertiliser = true    
+            res.redirect('/version_2/field_plan/index')
+        }
+    })
+    
 module.exports = router

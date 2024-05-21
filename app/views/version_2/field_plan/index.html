@@ -89,7 +89,7 @@
        </div> 
     </div>
 
-
+    <!-- manures -->
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
       {% if data.multi_manures == false and data.single_manures == false %}
@@ -99,12 +99,15 @@
       {% endif %}
     </div>
 
+    <!-- fertiliser -->
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.non_organic_term}} applications</h2>
+      {% if data.multi_fertiliser == false and data.single_fertiliser == false %}
         <p>You have no {{data.content.non_organic_term | lower}} applications planned for this field. <a href=""> <br>Add {{data.content.non_organic_term | lower}} applications for {{data.chosenField.name}}</a></p>
+      {% else %}
         {% include "./templates/fertiliser_applications.html" ignore missing %}
-
-      </div>
+      {% endif %}
+    </div>
 
 </div>
 

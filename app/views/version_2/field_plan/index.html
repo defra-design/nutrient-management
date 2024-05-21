@@ -30,6 +30,7 @@
 
 {% block content %}
 
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
@@ -73,13 +74,10 @@
       {% include "./templates/main-crop.html" ignore missing %}
   </div>
 
+    <!-- recommendation table -->
     <div class="govuk-grid-column-full">
       <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
-      {% if data.multi_manures == false and data.single_manures == false %}
-        {% include "./templates/nutrients_blank.html" ignore missing %}
-      {% else %}
-        {% include "./templates/nutrients_manure.html" ignore missing %}
-      {% endif %}
+        {% include "./templates/nutrients_new.html" ignore missing %}
     </div>
     <div class="govuk-grid-column-two-thirds margin-bottom-forty">
       <div class="govuk-inset-text">

@@ -20,9 +20,12 @@ function getMultipleFieldsByReferences (referenceNumbers, currentFields) {
 };
 
 function totalFieldsCount(plan) {
-    let totalFields = plan.firstCropFields.length
+    let totalFields = 0;
+    if (plan.firstCropFields != undefined) {
+        let totalFields = plan.firstCropFields.length
+    }
     if (plan.thirdCropFields) {
-        totalFields =  totalFields + plan.thirdCropFields.length;
+        totalFields = totalFields + plan.thirdCropFields.length;
     }
     // console.log('total fields' + totalFields);
     return totalFields

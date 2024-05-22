@@ -31,6 +31,18 @@ function totalFieldsCount(plan) {
     return totalFields
 }
 
+function basicSetup (farm, manure, fertiliser) {
+    farm.setup = true
+    farm.soil_added = true
+    farm.fields_added = true
+    if (manure == false) {
+        console.log('no manure')
+    }
+    if (fertiliser == false) {
+        console.log('no fertiliser')
+    }
+  };
+
 
  function printCropGroup(group) {
     console.log(  'group' +
@@ -49,3 +61,4 @@ module.exports.printCropGroup = printCropGroup;
 module.exports.getFieldByReference = getFieldByReference;
 module.exports.getMultipleFieldsByReferences = getMultipleFieldsByReferences;
 module.exports.totalFieldsCount = totalFieldsCount;
+module.exports.basicSetup = basicSetup;

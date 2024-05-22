@@ -15,29 +15,33 @@ router.get(/farm_setup_handler/, function (req, res) {
 
 router.get(/fields_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    req.session.data.oaktree_farm.setup = true
-    req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.setup = true
+    // req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.soil_added = true
+    allFunctions.basicSetup(req.session.data.oaktree_farm, false, false)
     res.redirect('/mvp/start')
 })
 
 router.get(/fields_mvp_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    req.session.data.oaktree_farm.setup = true
-    req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.setup = true
+    // req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.soil_added = true
+    allFunctions.basicSetup(req.session.data.oaktree_farm, false, false)
     req.session.data.oaktree_farm.use_mvp_fields = true
     req.session.data.current_fields = req.session.data.field_details_mvp
     // plan for 2025 is empty
-    req.session.data.oaktree_farm.soil_added = true
     req.session.data.prototype_version = 'mvp'
     res.redirect('/mvp/start')
 })
 
 router.get(/one_crop_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    req.session.data.oaktree_farm.setup = true
-    req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.setup = true
+    // req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.soil_added = true
+    allFunctions.basicSetup(req.session.data.oaktree_farm, false, false)
     req.session.data.oaktree_farm.use_mvp_fields = true
-    req.session.data.oaktree_farm.soil_added = true
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
     req.session.data.current_fields = req.session.data.field_details_mvp
@@ -56,10 +60,11 @@ router.get(/one_crop_handler/, function (req, res) {
 
 router.get(/plans_mvp_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    req.session.data.oaktree_farm.setup = true
-    req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.setup = true
+    // req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.soil_added = true
+    allFunctions.basicSetup(req.session.data.oaktree_farm, false, false)
     req.session.data.oaktree_farm.use_mvp_fields = true
-    req.session.data.oaktree_farm.soil_added = true
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
     req.session.data.current_fields = req.session.data.field_details_mvp
@@ -78,10 +83,11 @@ router.get(/plans_mvp_setup_handler/, function (req, res) {
 ////////////////// + MANURES
 router.get(/one_manure_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    req.session.data.oaktree_farm.setup = true
-    req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.setup = true
+    // req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.soil_added = true
+    allFunctions.basicSetup(req.session.data.oaktree_farm, false, false)
     req.session.data.oaktree_farm.use_mvp_fields = true
-    req.session.data.oaktree_farm.soil_added = true
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
     req.session.data.current_fields = req.session.data.field_details_mvp
@@ -101,10 +107,11 @@ router.get(/one_manure_handler/, function (req, res) {
 ////////////////// + FERTILISERS
 router.get(/two_manure_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    req.session.data.oaktree_farm.setup = true
-    req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.setup = true
+    // req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.soil_added = true
+    allFunctions.basicSetup(req.session.data.oaktree_farm, false, false)
     req.session.data.oaktree_farm.use_mvp_fields = true
-    req.session.data.oaktree_farm.soil_added = true
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
     req.session.data.current_fields = req.session.data.field_details_mvp

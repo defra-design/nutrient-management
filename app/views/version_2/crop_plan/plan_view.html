@@ -38,10 +38,14 @@
       </div>
       <div class="govuk-notification-banner__content">
         <h3 class="govuk-notification-banner__heading">
-          {% if data.multi_manures == true or data.single_manures == true %}
+          {% if data.show_manure_notification == true %}
             {{data.content.organic_term}} applications added to all fields in this plan.
           {% else %}
-            Plan created
+            {% if data.show_fertiliser_notification == true %}
+              {{data.content.non_organic_term}} applications added to all fields in this plan.
+            {% else %}
+              Plan created
+            {% endif %}
           {% endif %}
         </h3>
         <!-- <p class="govuk-body"><a href="/old/plan/add_crops/crop_group">Add another crop to this plan</a></p> -->

@@ -483,6 +483,8 @@ router.get(/add_manure_handler/, function (req, res) {
 
 router.get(/version2_manure_handler/, function (req, res) { 
     req.session.data.show_success_message = true
+    req.session.data.show_fertiliser_notification = false
+    req.session.data.show_manure_notification = true    
     if (req.session.data.manure_journey == 'multi') {
         req.session.data.multi_manures = true
         res.redirect('/version_2/crop_plan/plan_view')
@@ -543,6 +545,8 @@ router.get(/v2fertiliser_handler/, function (req, res) {
 //CHECK
     router.get(/version2_fertiliser_handler/, function (req, res) { 
         req.session.data.show_success_message = true
+        req.session.data.show_fertiliser_notification = true
+        req.session.data.show_manure_notification = false    
         if (req.session.data.fertiliser_journey == 'multi') {
             req.session.data.multi_fertiliser = true
             res.redirect('/version_2/crop_plan/plan_view')

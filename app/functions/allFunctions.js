@@ -31,10 +31,12 @@ function totalFieldsCount(plan) {
     return totalFields
 }
 
-function basicSetup (farm, manure, fertiliser) {
+function basicSetup (farm, mvpFields, manure, fertiliser) {
     farm.setup = true
     farm.soil_added = true
     farm.fields_added = true
+    farm.use_mvp_fields = true
+    farm.use_mvp_fields = mvpFields
     if (manure == false) {
         console.log('no manure')
     }

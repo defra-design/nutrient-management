@@ -98,6 +98,39 @@ router.get(/one_manure_handler/, function (req, res) {
     res.redirect('/version_2/start')
 })
 
+////////////////// + FERTILISERS
+router.get(/two_manure_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.oaktree_farm.fields_added = true
+    req.session.data.oaktree_farm.use_mvp_fields = true
+    req.session.data.oaktree_farm.soil_added = true
+    req.session.data.oaktree_farm.planFive = true
+    req.session.data.oaktree_farm.plans_added = true
+    req.session.data.current_fields = req.session.data.field_details_mvp
+    // use plan with one crop 2025
+    req.session.data.crop_group_2024 = req.session.data.crop_group_three
+    
+    //convert the reference numbers to actual field objects
+    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.current_fields)
+
+    req.session.data.prototype_version = 'version_2'
+
+    req.session.data.multi_manures = true
+    req.session.data.single_manures = false
+    req.session.data.manure_journey = null //multi or single
+    req.session.data.manure_count = 0
+    req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'
+    req.session.data.manure_delay = null
+    req.session.data.show_manure_notification = false
+
+    res.redirect('/version_2/start')
+})
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////

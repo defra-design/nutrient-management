@@ -273,6 +273,14 @@ tr.right-last {
     }
 }
 
+.big_crop_table {
+    tr {
+        td:first-child {
+            width: 30%
+        }
+    }
+}
+
 .big_crop_table_version_two {
     tr {
         td {

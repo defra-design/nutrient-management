@@ -15,36 +15,40 @@ router.get(/farm_setup_handler/, function (req, res) {
 
 router.get(/fields_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    req.session.data.oaktree_farm.setup = true
-    req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.setup = true
+    // req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.soil_added = true
+    allFunctions.basicSetup(req.session.data.oaktree_farm, false, false, false)
     res.redirect('/mvp/start')
 })
 
 router.get(/fields_mvp_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    req.session.data.oaktree_farm.setup = true
-    req.session.data.oaktree_farm.fields_added = true
-    req.session.data.oaktree_farm.use_mvp_fields = true
+    // req.session.data.oaktree_farm.setup = true
+    // req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.soil_added = true
+    // req.session.data.oaktree_farm.use_mvp_fields = true
+    allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.current_fields = req.session.data.field_details_mvp
     // plan for 2025 is empty
-    req.session.data.oaktree_farm.soil_added = true
     req.session.data.prototype_version = 'mvp'
     res.redirect('/mvp/start')
 })
 
 router.get(/one_crop_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    req.session.data.oaktree_farm.setup = true
-    req.session.data.oaktree_farm.fields_added = true
-    req.session.data.oaktree_farm.use_mvp_fields = true
-    req.session.data.oaktree_farm.soil_added = true
+    // req.session.data.oaktree_farm.setup = true
+    // req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.soil_added = true
+    // req.session.data.oaktree_farm.use_mvp_fields = true
+    allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
     req.session.data.current_fields = req.session.data.field_details_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_one
     
-    //convert the reference numbers to actual field objects
+    //convert the reference numbers to field objects
     req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.current_fields)
     req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.current_fields)
     req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.current_fields)
@@ -56,10 +60,11 @@ router.get(/one_crop_handler/, function (req, res) {
 
 router.get(/plans_mvp_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    req.session.data.oaktree_farm.setup = true
-    req.session.data.oaktree_farm.fields_added = true
-    req.session.data.oaktree_farm.use_mvp_fields = true
-    req.session.data.oaktree_farm.soil_added = true
+    // req.session.data.oaktree_farm.setup = true
+    // req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.soil_added = true
+    // req.session.data.oaktree_farm.use_mvp_fields = true
+    allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
     req.session.data.current_fields = req.session.data.field_details_mvp
@@ -78,10 +83,11 @@ router.get(/plans_mvp_setup_handler/, function (req, res) {
 ////////////////// + MANURES
 router.get(/one_manure_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    req.session.data.oaktree_farm.setup = true
-    req.session.data.oaktree_farm.fields_added = true
-    req.session.data.oaktree_farm.use_mvp_fields = true
-    req.session.data.oaktree_farm.soil_added = true
+    // req.session.data.oaktree_farm.setup = true
+    // req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.soil_added = true
+    // req.session.data.oaktree_farm.use_mvp_fields = true
+    allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
     req.session.data.current_fields = req.session.data.field_details_mvp
@@ -98,6 +104,65 @@ router.get(/one_manure_handler/, function (req, res) {
     res.redirect('/version_2/start')
 })
 
+////////////////// + FERTILISERS
+router.get(/two_manure_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    // req.session.data.oaktree_farm.setup = true
+    // req.session.data.oaktree_farm.fields_added = true
+    // req.session.data.oaktree_farm.soil_added = true
+    // req.session.data.oaktree_farm.use_mvp_fields = true
+    allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
+    req.session.data.oaktree_farm.planFive = true
+    req.session.data.oaktree_farm.plans_added = true
+    req.session.data.current_fields = req.session.data.field_details_mvp
+    // use plan with one crop 2025
+    req.session.data.crop_group_2024 = req.session.data.crop_group_three
+    
+    //convert the reference numbers to actual field objects
+    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.current_fields)
+
+    req.session.data.prototype_version = 'version_2'
+
+    req.session.data.multi_manures = true
+    req.session.data.single_manures = false
+    req.session.data.manure_journey = null //multi or single
+    req.session.data.manure_count = 0
+    req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'
+    req.session.data.show_manure_notification = false
+
+    res.redirect('/version_2/start')
+})
+
+router.get(/one_fertiliser_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    allFunctions.basicSetup(req.session.data.oaktree_farm, true, true, true)
+    req.session.data.oaktree_farm.planFive = true
+    req.session.data.oaktree_farm.plans_added = true
+    req.session.data.current_fields = req.session.data.field_details_mvp
+    // use plan with one crop 2025
+    req.session.data.crop_group_2024 = req.session.data.crop_group_three
+    
+    //convert the reference numbers to actual field objects
+    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.current_fields)
+    
+    req.session.data.multi_fertiliser = true
+
+    req.session.data.multi_manures = true
+    req.session.data.single_manures = false
+    req.session.data.manure_journey = null //multi or single
+    req.session.data.manure_count = 0
+    req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'
+    req.session.data.show_manure_notification = false
+
+    req.session.data.prototype_version = 'version_2'
+    res.redirect('/version_2/start')
+})
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -483,6 +548,8 @@ router.get(/add_manure_handler/, function (req, res) {
 
 router.get(/version2_manure_handler/, function (req, res) { 
     req.session.data.show_success_message = true
+    req.session.data.show_fertiliser_notification = false
+    req.session.data.show_manure_notification = true    
     if (req.session.data.manure_journey == 'multi') {
         req.session.data.multi_manures = true
         res.redirect('/version_2/crop_plan/plan_view')
@@ -525,4 +592,33 @@ router.get(/manuredate_handler/, function (req, res) {
 // })
 
 
+
+//////////////////////////////////
+//////// ADD FERTILISERS /////////
+//////////////////////////////////
+
+//START
+router.get(/v2fertiliser_handler/, function (req, res) { 
+    req.session.data.fertiliser_journey = req.query.fertiliserjourney
+    if (req.session.data.fertiliser_journey == 'multi') {
+        res.redirect('/add_fertiliser/fertiliser_fields')
+    } else {
+        res.redirect('/add_manure/fertiliser_amount')
+    }
+})
+
+//CHECK
+    router.get(/version2_fertiliser_handler/, function (req, res) { 
+        req.session.data.show_success_message = true
+        req.session.data.show_fertiliser_notification = true
+        req.session.data.show_manure_notification = false    
+        if (req.session.data.fertiliser_journey == 'multi') {
+            req.session.data.multi_fertiliser = true
+            res.redirect('/version_2/crop_plan/plan_view')
+        } else {
+            req.session.data.single_fertiliser = true    
+            res.redirect('/version_2/field_plan/index')
+        }
+    })
+    
 module.exports = router

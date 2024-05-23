@@ -196,9 +196,16 @@ router.get('/', function (req, res) {
     req.session.data.manure_journey = null //multi or single
     req.session.data.manure_count = 0
     req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'
-    req.session.data.manure_delay = null
+    // req.session.data.manure_delay = null
     req.session.data.show_manure_notification = false
     
+    //fertilisers - temp remove
+    req.session.data.multi_fertiliser = false
+    req.session.data.single_fertiliser = false
+    req.session.data.fertiliser_journey = null //multi or single
+    req.session.data.fertiliser_count = 0
+    req.session.data.show_fertiliser_notification = false
+
     req.session.data.prototype_version = 'mvp'
 
     res.render('index')

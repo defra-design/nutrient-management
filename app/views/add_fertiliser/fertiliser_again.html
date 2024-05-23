@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
@@ -17,7 +19,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Do you plan to spread more {{data.content.non_organic_term | lower }}?
+        Do you plan to spread more {{data.content.non_organic_term | lower }} on these fields?
       </h1>
 
       <form class="form" action="check" method="post">

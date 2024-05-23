@@ -281,6 +281,17 @@ tr.right-last {
     }
 }
 
+.big_crop_table_version_two {
+    tr {
+        td {
+            width: 20%
+        }
+        td:nth-child(2), td:nth-child(3) {
+            width: 20%
+        }
+    }
+}
+
 .start-link {
     margin-bottom: 30px;
     font-weight: bold;

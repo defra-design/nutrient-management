@@ -1,27 +1,45 @@
-
 <dl class="govuk-summary-list">
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Second crop for the harvest year</dt>
-    <dd class="govuk-summary-list__value">Grass</dd>
+    <dt class="govuk-summary-list__key">Which harvest year would you like to plan for?</dt>
+    <dd class="govuk-summary-list__value">2025</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Which fields do you plan to grow Grass in?</dt>
-    <dd class="govuk-summary-list__value">Field 4, <br> Field 5, <br> Field 6</dd>
+    <dt class="govuk-summary-list__key">Crop</dt>
+    <dd class="govuk-summary-list__value">{{data.crop_group | capitalize}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div> 
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Which fields do you plan to grow {{data.chosen_crop | nameconverter}} in?</dt>
+    <dd class="govuk-summary-list__value">
+      {% for field in data.crop_fields %}
+        {{field.name}} <br>
+      {% endfor %}      
+    </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
-  <!-- <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What is the estimated sowing date?</dt>
-    <dd class="govuk-summary-list__value">01 April 2025</dd>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What is the required dry matter yield for these fields?</dt>
+    <dd class="govuk-summary-list__value">12 tonnes per hectare</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div> -->
+  </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Do you want to add another crop to this plan?</dt>
-    <dd class="govuk-summary-list__value">No</dd>
+    <dt class="govuk-summary-list__key">How many defoliations will you have in these fields?</dt>
+    <dd class="govuk-summary-list__value">2</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Defoliations</dt>
+    <dd class="govuk-summary-list__value">
+      1 - Grazing<br>
+      2 - Silage
+    </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 

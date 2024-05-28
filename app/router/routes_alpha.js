@@ -174,15 +174,12 @@ router.get(/crop_group_handler/, function (req, res) {
 })
 
 router.get(/cropmvp_handler/, function (req, res) { 
-    // if (req.session.data.crop_group == 'grass') { 
-    //     req.session.data.chosen_crop = 'grass'
-    //     req.session.data.crop_group = null
-    //     res.redirect('crop_group')
-    // }
-    //  if (req.session.data.crop_group == 'potatoes') { 
-    //     res.redirect('crop_type_potato')
-    // } 
-     if (req.session.data.crop_group == null) { 
+    if (req.session.data.crop_group == 'grass') { 
+        req.session.data.chosen_crop = 'grass'
+        res.redirect('fields')
+    } else if (req.session.data.crop_group == 'potatoes') { 
+        res.redirect('crop_type_potato')
+    } else if (req.session.data.crop_group == null) { 
         req.session.data.crop_group = 'cereals'
         res.redirect('crop_type_all')
     } else {

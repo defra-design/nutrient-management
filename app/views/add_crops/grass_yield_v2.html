@@ -5,6 +5,9 @@
 {% endblock %}
 
 {% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
@@ -16,12 +19,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% include "templates/title_span.html" %}
       <h1 class="govuk-heading-l">
         What is the target dry matter yield for these fields?
       </h1>
 
-      <form class="form" action="use" method="post">
+      <form class="form" action="grass_defoliation" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset" aria-describedby="contact-hint">

@@ -48,6 +48,11 @@
             {% endif %}
           {% endif %}
         </h3>
+        <!-- <p class="govuk-body"><a href="/old/plan/add_crops/crop_group">Add another crop to this plan</a></p> -->
+        <!-- <p class="govuk-body"><a href="">Add another crop to this plan</a></p> -->
+        <!-- <p class="govuk-body"><a href="">Add manures or fertilisers to this plan</a></p> -->
+        <!-- <p class="govuk-body"><a href="">Create a record from this plan</a></p> -->
+        <!-- <p class="govuk-body"><a href="">Download this plan</a></p> -->
       </div>
     </div>
     {% endif %}
@@ -85,10 +90,12 @@
             <th scope="col" class="govuk-table__header"></th>
             {% else %}
             <th scope="col" class="govuk-table__header">Second crop</th>
+            <th scope="col" class="govuk-table__header"></th>
           {% endif %}
 
           <th scope="col" class="govuk-table__header">Organic applications</th>
           <th scope="col" class="govuk-table__header">Inorganic applications</th>
+
           <th scope="col" class="govuk-table__header">&nbsp;</th>
         </tr>
       </thead>
@@ -103,7 +110,6 @@
           {% set hasSecondCrop = true %}
         {% endif %}
       {% endfor %}  
-
         <tr class="govuk-table__row">    
           <td class="govuk-table__cell">{{field.name}}</td>
 
@@ -117,6 +123,8 @@
             None
           {% endif %}
         </td>
+
+        <td class="govuk-table__cell"></td>
         
       {% endif %}
 

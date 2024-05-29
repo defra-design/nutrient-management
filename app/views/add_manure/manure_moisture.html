@@ -1,0 +1,144 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        How wet was the topsoil at time of application?
+      </h1>
+
+      <p></p>
+
+      <form class="form" action="check" method="post">
+
+        <div class="govuk-form-group">
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+                <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                  Option 1
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+                <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                  Option 2
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="whereDoYouLive-3" name="whereDoYouLive" type="radio" value="wales">
+                <label class="govuk-label govuk-radios__label" for="whereDoYouLive-3">
+                  Option 3
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+    
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}
+
+
+
+
+
+
+
+<!-- Cattle farmyard manure (FYM)
+  Cattle FYM - fresh
+  Cattle FYM - old	
+
+Pig farmyard manure (FYM)
+  Pig FYM - fresh	
+  Pig FYM - old	
+
+Sheep farmyard manure (FYM)
+  Sheep FYM - fresh	
+  Sheep FYM - old
+
+Duck farmyard manure (FYM)
+  Duck FYM - fresh	
+  Duck FYM - old	
+
+Layer manure	
+
+Broiler / Turkey litter	
+
+Horse Farmyard manure (FYM)	
+
+Goat Farmyard manure (FYM)	
+
+Cattle slurry	
+  Cattle slurry, strainer box liquid
+  Cattle slurry, weeping wall liquid
+  Cattle slurry, mechanically separated liquid
+  Cattle slurry, separated solids
+
+Pig slurry	
+  {{data.chosen_manure | lower}}
+  Pig slurry, separated liquid
+
+Dirty water	
+
+Biosolids
+  Biosolids liquid digested	
+  Brosolids, digested cake	
+  Biosolids, thermally dried	
+  Brosolids, lime stabilised	
+  Biosolids, composted	
+
+Green
+Green compost	
+Green / Food compost	
+
+Digestate
+  Digestate (whole), food-based
+  Digestate (whole), pig slurry-based
+  Digestate (whole), cattle slurry-based
+
+Paper crumble
+  Paper crumble, chemically / physically treated
+  Paper crumble, biologically treated
+
+Waste food
+  Waste food, general	
+  Waste food, dairy	
+  Waste food, soft drinks	
+  Waste food, brewing	
+
+Mushroom compost	
+
+Water treatment cake
+
+Straw mulch	 -->
+
+

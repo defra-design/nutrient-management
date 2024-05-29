@@ -164,6 +164,18 @@ router.get(/one_fertiliser_handler/, function (req, res) {
     res.redirect('/version_2/start')
 })
 
+////////////////// + Grass 
+router.get(/one_grass_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
+    req.session.data.current_fields = req.session.data.field_details_mvp
+    // plan for 2025 is empty
+
+    req.session.data.prototype_version = 'version_2'
+    res.redirect('/version_2/start')
+})
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

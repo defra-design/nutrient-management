@@ -20,14 +20,20 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Was there any rainfall within six hours of the application?
+        Rainfall within 6 hours of application
       </h1>
 
       <p></p>
 
-      <form class="form" action="manure_rain_total" method="post">
+      <form class="form" action="rain_defaults" method="post">
 
         <div class="govuk-form-group">
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">mm</div>
+          </div>
+        </div>
+
+        <!-- <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
@@ -50,18 +56,19 @@
                   No
                 </label>
               </div>
-              <!-- <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
                 <div class="govuk-form-group">
                   <label class="govuk-label" for="contact-by-phone">
                     Phone number
                   </label>
                   <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contactByPhone" type="tel" autocomplete="tel">
                 </div>
-              </div> -->
+              </div>
             </div>
           </fieldset>
-        </div>
-      {{ govukButton({
+        </div> -->
+
+        {{ govukButton({
         text: "Continue"
       }) }}
 

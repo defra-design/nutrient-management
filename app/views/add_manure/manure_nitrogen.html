@@ -20,14 +20,20 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Do you need to add Autumn crop Nitrogen uptake?
+        What is the Autumn crop Nitrogen uptake?
       </h1>
 
       <p></p>
 
-      <form class="form" action="manure_drainage" method="post">
+      <form class="form" action="rain_defaults" method="post">
 
         <div class="govuk-form-group">
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">kg/ha</div>
+          </div>
+        </div>
+
+          <!-- <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
@@ -52,7 +58,7 @@
               </div>
             </div>
           </fieldset>
-        </div>
+        </div> -->
 
       {{ govukButton({
         text: "Continue"

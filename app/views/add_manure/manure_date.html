@@ -37,15 +37,15 @@
       <h1 class="govuk-heading-l">
         {% if data.manure_count == 0 %}
           {% if data.manure_journey == 'multi' %}
-            When do you plan to apply {{data.chosen_manure | lower}} on these fields?
+            When are you applying {{data.chosen_manure | lower}} on these fields?
           {% else %}
-            When do you plan to apply {{data.chosen_manure | lower}} on {{data.chosenField.name}}?
+            When are you applying {{data.chosen_manure | lower}} on {{data.chosenField.name}}?
           {% endif %}
         {% else %}
           {% if data.manure_journey == 'multi' %}
-            When will you next apply {{data.chosen_manure | lower}} on these fields?
+            When are you applying {{data.chosen_manure | lower}} on these fields?
           {% else %}
-            When will you next apply {{data.chosen_manure | lower}} on {{data.chosenField.name}}?
+            When are you applying {{data.chosen_manure | lower}} on {{data.chosenField.name}}?
           {% endif %}
         {% endif %}
       </h1>
@@ -62,9 +62,9 @@
               </h1>
             </legend> -->
             <div id="passport-issued-hint" class="govuk-hint">
-            <p>If you don't know the exact date, enter an estimated date, for example, <br>27 3 2023</span>. You can change the date for each field later.</p>
+            <p>If you don't know the exact date, enter an estimated date. For example, <br>27 3 2023</span>. You can change the date later.</p>
 
-          <p>Remember, based on your crop and soil type, your closed period for spreading manures with high readily available nitrogen is 1 October to 31 January.</p>
+          <p>Based on your crop and soil type, your closed period for spreading manures with high readily available nitrogen is 1 October to 31 January.</p>
             </div>
             <div class="govuk-date-input" id="passport-issued">
               <div class="govuk-date-input__item">

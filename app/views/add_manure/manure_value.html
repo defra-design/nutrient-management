@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {% if data.quantity_type == "area"  %}
+          Enter the area spread and manure quantity
+        {% else %}
+          Enter the application rate
+        {% endif %}
+      </h1>
+
+
+      <form class="form" action="v2_quantity_handler" method="post">
+        {% if data.quantity_type == "area"  %}
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="width-20">
+              Enter the area spread
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="width-10" name="width10" type="text">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="width-20">
+              Enter the manure quantity
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="width-10" name="width10" type="text">
+          </div>
+          
+          {% else %}
+
+          <div class="govuk-form-group">
+            <input class="govuk-input govuk-input--width-10" id="width-10" name="width10" type="text">
+          </div>
+
+        {% endif %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+    </div>
+    
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

@@ -22,21 +22,15 @@
         How would you like to enter the application rate for your {{data.chosen_manure | lower}}?
       </h1>
 
-      <form class="form" action="manure_incorporation_method" method="post">
+      <form class="form" action="v2_quantity_handler" method="post">
 
         <div class="govuk-form-group">
-          <!-- <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                Where do you live?
-              </h1>
-            </legend> -->
             <div class="govuk-radios" data-module="govuk-radios">
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="area" name="quantity_type" type="radio" value="area">
                 <label class="govuk-label govuk-radios__label" for="area">
-                  Calculate based on the area and quantity            
+                  Calculate based on the area spread and manure quantity            
                 </label>
               </div>
 

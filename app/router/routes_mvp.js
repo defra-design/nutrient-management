@@ -522,7 +522,7 @@ router.get(/manuregroup_handler/, function (req, res) {
     }
     var next = "/add_manure/manure_type"
     var id = req.session.data.manure_group_id
-    if (id == 5 || id == 6 || id == 7 || id == 8 || id == 12 || id == 13  || id == 16 || id == 17 || id == 13) {
+    if (id == 5 || id == 6 || id == 7 || id == 8 || id == 12 || id == 13 || id == 16 || id == 17 || id == 19 || id == 20|| id == 21 || id == 22) {
         next = "/add_manure/manure_date"
     }
     res.redirect(next)

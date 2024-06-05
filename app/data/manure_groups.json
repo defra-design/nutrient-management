@@ -7,7 +7,7 @@
     {"name": "Goat Farmyard Manure", "group": false, "groupname": "goatfym"},
     {"name": "Poultry manure", "group": false, "groupname": "poultryfym"},
     {"name": "Dirty water", "group": false, "groupname": "dirtywater"},
-    {"name": "Pig slurry", "group": true, "groupname": "pigslury"},
+    {"name": "Pig slurry", "group": true, "groupname": "pigslurry"},
     {"name": "Cattle slurry", "group": true, "groupname": "cattleslurry"},
     {"name": "Biosolids", "group": true, "groupname": "biosolids"},
     {"name": "Green Compost", "group": false, "groupname": "greencompost"},

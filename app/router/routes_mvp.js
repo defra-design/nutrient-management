@@ -537,6 +537,17 @@ router.get(/manuregroup_handler/, function (req, res) {
     res.redirect(next)
 })
 
+router.get(/manuretype_handler/, function (req, res) {
+    for (var type in req.session.data.manure_types) {
+        if (req.session.data.manure_type == req.session.data.manure_types[type].name) {
+            if (req.session.data.manure_types[type].group == true) {
+                req.session.data.manure_type = req.session.data.manure_types[name]
+            }
+        }
+    }
+    res.redirect("/add_manure/manure_date")
+})
+
 
 // router.get(/manuredate_handler/, function (req, res) { 
 //     if (req.session.data.manure_count == 0) {

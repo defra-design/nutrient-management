@@ -29,9 +29,9 @@
 
               {% for group in data.manure_groups %}
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="{{group.groupname}}" name="manure_group" type="radio" value="{{group.groupname}}">
-                  <label class="govuk-label govuk-radios__label" for="{{group.groupname}}">
-                    {{group.name}}
+                  <input class="govuk-radios__input" id="{{group.group_id}}" name="manure_group_id" type="radio" value="{{group.group_id}}">
+                  <label class="govuk-label govuk-radios__label" for="{{group.group_id}}">
+                    {{group.group_name}}
                   </label>
                 </div>
               {% endfor %}

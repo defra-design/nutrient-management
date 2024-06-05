@@ -22,7 +22,9 @@ addFilter('splitlines', function (content) {
 })
 
 addFilter('removewhite', function (content) {
-    return content.replace(/\s/g, "");
+    content = content.replace(/\s/g, "");
+    content = content.toLowerCase();
+    return content
 })
 
 addFilter('nameconverter', function (crop_name) {

@@ -36,7 +36,7 @@
               {% for x in data.manure_types %}
                 {% if x.group_id == data.manure_group_id %}
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="{{x.name | removewhite}}" name="manure_name" type="radio" value="{{x.name}}">
+                    <input class="govuk-radios__input" id="{{x.name | removewhite}}" name="manure_type" type="radio" value="{{x.name}}">
                     <label class="govuk-label govuk-radios__label" for="{{x.name | removewhite}}">
                       {{x.displayname}}        
                     </label>

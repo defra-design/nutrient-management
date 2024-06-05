@@ -21,6 +21,10 @@ addFilter('splitlines', function (content) {
     return content.replace('.', '\n');
 })
 
+addFilter('removewhite', function (content) {
+    return content.replace(/\s/g, "");
+})
+
 addFilter('nameconverter', function (crop_name) {
     for (var x in crop_types) {
         if (crop_name == crop_types[x].reference) {

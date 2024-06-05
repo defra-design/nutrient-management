@@ -19,33 +19,24 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        What type of cattle farmyard manure are you using in this application?
+        What type of {{data.manure_group.name}} are you using in this application?
       </h1>
 
       <form class="form" action="manure_date" method="post">
 
         <div class="govuk-form-group">
-          <!-- <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                Where do you live?
-              </h1>
-            </legend> -->
             <div class="govuk-radios" data-module="govuk-radios">
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="ig_solids" name="manure_type" type="radio" value="pig_solids">
-                <label class="govuk-label govuk-radios__label" for="ig_solids">
-                  Fresh               
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="pig_liquid" name="manure_type" type="radio" value="pig_liquid">
-                <label class="govuk-label govuk-radios__label" for="pig_liquid">
-                  Old
-                </label>
-              </div>
+              {% for group in data.manure_types %}
+                {% if group.groupname == data.manure_group.groupname %}
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="ig_solids" name="manure_type" type="radio" value="pig_solids">
+                    <label class="govuk-label govuk-radios__label" for="ig_solids">
+                      {{group.displayname}}        
+                    </label>
+                  </div>
+                {% endif %}
+              {% endfor %}
 
           </div>
           </fieldset>

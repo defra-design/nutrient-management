@@ -516,6 +516,28 @@ router.get(/manuredate_handler/, function (req, res) {
     res.redirect('/add_manure/manure_datenotification')
 })
 
+router.get(/manuregroup_handler/, function (req, res) { 
+    // for (var item in req.session.data.manure_types) {
+    //     if (req.session.data.manure_types[item].groupname == req.session.data.manure_group) {
+    //         console.log('here 3 ' + req.session.data.manure_types[item].name)
+    //     }
+    // }
+    if (req.session.data.manure_group == null) {
+        req.session.data.manure_group == 'cattlefym'
+    }
+    var next = "/add_manure/manure_date"
+    for (var group in req.session.data.manure_groups) {
+        if (req.session.data.manure_group == req.session.data.manure_groups[group].groupname) {
+            if (req.session.data.manure_groups[group].group == true) {
+                req.session.data.manure_group = req.session.data.manure_groups[group]
+                next = "/add_manure/manure_type"
+            }
+        }
+    }
+    res.redirect(next)
+})
+
+
 // router.get(/manuredate_handler/, function (req, res) { 
 //     if (req.session.data.manure_count == 0) {
 //         res.redirect('manure_group')

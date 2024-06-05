@@ -17,8 +17,8 @@
       href: "../plans_records"
     },
     {
-      text: "Harvest year 2025",
-      href: "../crop_plan/plan_view"
+      text: "Harvest year 2024",
+      href: "planview_reset_handler"
     },
     {
       text: data.chosenField.name
@@ -33,47 +33,81 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <div class="status-header margin-bottom-forty">
-      <h1 class="govuk-heading-l">Nutrient recommendations for {{data.chosenField.name}} 2024</h1>
-    </div>  
-    <div class="margin-bottom-forty">
-      <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
-      {% if data.crop_group == 'other' %}
-        {% include "./templates/nutrients_other.html" ignore missing %}
-      {% else %}
-        {% include "./templates/nutrients_mvp.html" ignore missing %}
-      {% endif %}
-    </div>
-    <div class="">
-      <h2 class="govuk-heading-m">Crop details</h2>
-      {% if data.crop_group == 'potatoes' %}
-        {% include "./templates/potato-crop-details.html" ignore missing %}
-      {% elif data.crop_group == 'other' %}
-      {% include "./templates/other-crop-details.html" ignore missing %}
-      {% else %}
-        {% include "./templates/main-crop-details.html" ignore missing %}
-      {% endif %}
-      <p class="govuk-body"><a href="">Change {{data.chosen_crop | nameconverter}} details for {{data.chosenField.name}}</a></p>
+    {% if data.show_success_message == true %}
+
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+            {{data.content.organic_term}} applications added to {{data.chosenField.name}}.
+        </h3>
+      </div>
     </div>
 
-    {% if data.cover_crop != 'none' %}
-      <hr class="seperator_five">
-      <div class="margin-bottom-forty">
-        <h2 class="govuk-heading-m">{{data.cover_crop | nameconverter}} nutrient recommendations</h2>
-        {% if data.crop_type == 'other' %}
-          {% include "./templates/nutrients_mvp.html" ignore missing %}
-        {% else %}
-          {% include "./templates/nutrients_other.html" ignore missing %}
-        {% endif %}
-      </div>
-      <div class="">
-        <h2 class="govuk-heading-m">Crop details</h2>
-        {% include "./templates/second-crop-details.html" ignore missing %}
-        <p class="govuk-body"><a href="">Change {{data.cover_crop | nameconverter}} details for {{data.chosenField.name}}</a></p>
-      </div>
     {% endif %}
+
+
+    <div class="status-header margin-bottom-forty">
+      <h1 class="govuk-heading-l">Nutrient recommendations for {{data.chosenField.name}} 2024</h1>
+    </div> 
+    
+    <div class="margin-bottom-forty">
+      <p class="govuk-body "><a href="">Change {{data.chosen_crop | nameconverter}} plan for {{data.chosenField.name}}</a></p>
+
+      <!-- <p class="govuk-body">
+        {% if data.multi_manures == false and data.single_manures == false %}
+          <a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosenField.name}}</a>
+        {% else %}
+          <a href="v2manure_handler?manurejourney=single">Add or edit {{data.content.organic_term | lower}} applications for {{data.chosenField.name}}</a>
+        {% endif %}
+      </p> -->
+
+      <!-- <p class="govuk-body"><a href="">Add {{data.content.non_organic_term | lower}} applications for {{data.chosenField.name}}</a></p> -->
+    </div>
     
   </div>
+
+  <div class="govuk-grid-column-full margin-bottom-forty">
+    <h2 class="govuk-heading-m">Crop details</h2>
+      {% include "./templates/main-crop.html" ignore missing %}
+  </div>
+
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
+      {% if data.multi_manures == false and data.single_manures == false %}
+        {% include "./templates/nutrients_blank.html" ignore missing %}
+      {% else %}
+        {% include "./templates/nutrients_manure.html" ignore missing %}
+      {% endif %}
+    </div>
+    <div class="govuk-grid-column-two-thirds margin-bottom-forty">
+      <div class="govuk-inset-text">
+        Apply no more than 100 kg N/ha at sowing or transplanting then apply <br>
+        N according to crop growth, e.g. up to 60 kg N/ha per month in the south-west and 20 kg N/ha in the north. 
+        Where seedbed SNS exceeds 4 and crops are likely to be harvested in April or later, top-dress N at the start of spring growth allowing for any over-winter losses of N.
+       </div> 
+    </div>
+
+
+    <!-- <div class="govuk-grid-column-full margin-bottom-forty">
+      <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
+      {% if data.multi_manures == false and data.single_manures == false %}
+      <p>You have no {{data.content.organic_term | lower}} applications planned for this field. <a href="v2manure_handler?manurejourney=single"> <br><a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosenField.name}}</a></a></p>
+    {% else %}
+      {% include "./templates/applications.html" ignore missing %}
+    {% endif %}
+
+    </div> -->
+
+    <!-- <div class="govuk-grid-column-full margin-bottom-forty">
+      <h2 class="govuk-heading-m">{{data.content.non_organic_term}} applications</h2>
+        <p>You have no {{data.content.non_organic_term | lower}} applications planned for this field. <a href=""> <br>Add {{data.content.non_organic_term | lower}} applications for {{data.chosenField.name}}</a></p>
+    </div> -->
+
 </div>
 
 

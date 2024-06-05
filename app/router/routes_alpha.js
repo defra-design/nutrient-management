@@ -274,6 +274,15 @@ router.get(/show-field-handler/, function (req, res) {
 ///////  V2
 ///////////
 
+
+router.get(/v2_quantity_handler/, function (req, res) { 
+    if (req.session.data.quantity_type == "area" || req.session.data.quantity_type == "rate") {
+        res.redirect('manure_value')
+    } else {
+        res.redirect('manure_incorporation_method')
+    }
+})
+
 //add another
 router.get(/v2_another_crop_handler/, function (req, res) { 
     if (req.session.data.another_crop == "yes") {

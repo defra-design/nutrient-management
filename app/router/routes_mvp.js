@@ -599,6 +599,33 @@ router.get(/manuredate_handler/, function (req, res) {
     res.redirect('/add_manure/manure_datenotification')
 })
 
+router.get(/manuregroup_handler/, function (req, res) { 
+    if (req.session.data.manure_group_id == null) {
+        req.session.data.manure_group_id == 1
+    }
+    var next = "/add_manure/manure_type"
+    var id = req.session.data.manure_group_id
+    if (id == 5 || id == 6 || id == 7 || id == 8 || id == 12 || id == 13 || id == 16 || id == 17 || id == 19 || id == 20|| id == 21 || id == 22) {
+        next = "/add_manure/manure_date"
+        for (var x in req.session.data.manure_types ) {
+            // console.log(req.session.data.manure_types[x])
+            if (req.session.data.manure_types[x].group_id == id) {
+                req.session.data.manure_type = req.session.data.manure_types[x].name
+            }
+        }
+        
+    }
+    res.redirect(next)
+})
+
+router.get(/manuretype_handler/, function (req, res) {
+    if (req.session.data.manure_type == null) {
+        req.session.data.manure_type == "Cattle FYM - Old"
+    }
+    res.redirect("/add_manure/manure_date")
+})
+
+
 // router.get(/manuredate_handler/, function (req, res) { 
 //     if (req.session.data.manure_count == 0) {
 //         res.redirect('manure_group')

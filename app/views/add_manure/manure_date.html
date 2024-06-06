@@ -37,15 +37,15 @@
       <h1 class="govuk-heading-l">
         {% if data.manure_count == 0 %}
           {% if data.manure_journey == 'multi' %}
-            When are you applying {{data.chosen_manure | lower}} on these fields?
+            When are you applying {{data.manure_type}} on these fields?
           {% else %}
-            When are you applying {{data.chosen_manure | lower}} on {{data.chosenField.name}}?
+            When are you applying {{data.manure_type}} on {{data.chosenField.name}}?
           {% endif %}
         {% else %}
           {% if data.manure_journey == 'multi' %}
-            When are you applying {{data.chosen_manure | lower}} on these fields?
+            When are you applying {{data.manure_type}} on these fields?
           {% else %}
-            When are you applying {{data.chosen_manure | lower}} on {{data.chosenField.name}}?
+            When are you applying {{data.manure_type}} on {{data.chosenField.name}}?
           {% endif %}
         {% endif %}
       </h1>
@@ -55,14 +55,8 @@
       <form class="form" action="manure_applied" method="post">
 
         <div class="govuk-form-group">
-          <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                When was your passport issued?
-              </h1>
-            </legend> -->
-            <div id="passport-issued-hint" class="govuk-hint">
-            <p>If you don't know the exact date, enter an estimated date. For example, <br>27 3 2023</span>. You can change the date later.</p>
+          <div id="passport-issued-hint" class="govuk-hint">
+          <p>If you don't know the exact date, enter an estimated date. For example, <br>27 3 2023</span>. You can change the date later.</p>
 
           <p>Based on your crop and soil type, your closed period for spreading manures with high readily available nitrogen is 1 October to 31 January.</p>
             </div>

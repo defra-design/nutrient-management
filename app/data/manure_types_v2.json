@@ -1,0 +1,22 @@
+[
+    {"name": "Cattle Farmyard Manure - Old" },
+    {"name": "Cattle Farmyard Manure - Fresh" },
+    {"name": "Pig Farmyard Manure - Old" },
+    {"name": "Pig Farmyard Manure - Fresh" },
+    {"name": "Sheep Farmyard Manure - Old" },
+    {"name": "Sheep Farmyard Manure - Fresh" },
+    {"name": "Duck Farmyard Manure - Old" },
+    {"name": "Duck Farmyard Manure - Fresh" },
+    {"name": "Horse Farmyard Manure" },
+    {"name": "Goat Farmyard Manure" },
+    {"name": "Poultry manure" },
+    {"name": "Dirty water" },
+    {"name": "Pig slurry whole" },
+    {"name": "Separated Pig Slurry - Separated Liquid Portion" },
+    {"name": "Separated Pig Slurry - Separated Solid Portion" },
+    {"name": "Cattle slurry whole" },
+    {"name": "Separated Cattle Slurry - Strainer Box" },
+    {"name": "Separated Cattle Slurry - Weeping Wall" },
+    {"name": "Separated Cattle Slurry - Mechanical Separator" },
+    {"name": "Separated Cattle Slurry - Solid Portion" }
+]

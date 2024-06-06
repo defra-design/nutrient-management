@@ -22,149 +22,19 @@
         What type of {{data.content.organic_term | lower}} are you using in this application?
       </h1>
 
-      <form class="form" action="manure_type" method="post">
+      <form class="form" action="manuregroup_handler" method="post">
 
         <div class="govuk-form-group">
-          <!-- <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                Where do you live?
-              </h1>
-            </legend> -->
             <div class="govuk-radios" data-module="govuk-radios">
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="cattle_fym" name="manure_type" type="radio" value="cattle_fym">
-                <label class="govuk-label govuk-radios__label" for="cattle_fym">
-                  Cattle farmyard manure (FYM)
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="pig_fym" name="manure_type" type="radio" value="pig_fym">
-                <label class="govuk-label govuk-radios__label" for="pig_fym">
-                  Pig farmyard manure (FYM)
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="sheep_fym" name="manure_type" type="radio" value="sheep_fym">
-                <label class="govuk-label govuk-radios__label" for="sheep_fym">
-                  Sheep farmyard manure (FYM)
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="duck_fym" name="manure_type" type="radio" value="duck_fym">
-                <label class="govuk-label govuk-radios__label" for="duck_fym">
-                  Duck farmyard manure (FYM)
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="horse_fym" name="manure_type" type="radio" value="horse_fym">
-                <label class="govuk-label govuk-radios__label" for="horse_fym">
-                  Horse Farmyard manure (FYM)
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="goat_fym" name="manure_type" type="radio" value="goat_fym">
-                <label class="govuk-label govuk-radios__label" for="goat_fym">
-                  Goat Farmyard manure (FYM)
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="layer" name="manure_type" type="radio" value="layer">
-                <label class="govuk-label govuk-radios__label" for="layer">
-                  Layer manure
-                </label>
-              </div>   
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="turkey" name="manure_type" type="radio" value="turkey">
-                <label class="govuk-label govuk-radios__label" for="turkey">
-                  Broiler / Turkey litter	
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="cattle_slurry" name="manure_type" type="radio" value="cattle_slurry">
-                <label class="govuk-label govuk-radios__label" for="cattle_slurry">
-                  Cattle slurry	
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="pig_slurry" name="manure_type" type="radio" value="pig_slurry">
-                <label class="govuk-label govuk-radios__label" for="pig_slurry">
-                  Pig slurry
-                </label>
-              </div>  
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="dirty_water" name="manure_type" type="radio" value="dirty_water">
-                <label class="govuk-label govuk-radios__label" for="dirty_water">
-                  Dirty water
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="biosolids" name="manure_type" type="radio" value="biosolids">
-                <label class="govuk-label govuk-radios__label" for="biosolids">
-                  Biosolids
-              </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="bcompostiosolids" name="manure_type" type="radio" value="bcompostiosolids">
-                <label class="govuk-label govuk-radios__label" for="bcompostiosolids">
-                  Green compost
-                </label>
-              </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="digestate" name="manure_type" type="radio" value="digestate">
-              <label class="govuk-label govuk-radios__label" for="digestate">
-                Digestate
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="paper_crumble" name="manure_type" type="radio" value="paper_crumble">
-              <label class="govuk-label govuk-radios__label" for="paper_crumble">
-                Paper crumble
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="waste_food" name="manure_type" type="radio" value="waste_food">
-              <label class="govuk-label govuk-radios__label" for="waste_food">
-                Waste food
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="mushroom" name="manure_type" type="radio" value="mushroom">
-              <label class="govuk-label govuk-radios__label" for="mushroom">
-                Mushroom compost	
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="treatment_cake" name="manure_type" type="radio" value="treatment_cake">
-              <label class="govuk-label govuk-radios__label" for="treatment_cake">
-                Water treatment cake
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="straw_mulch" name="manure_type" type="radio" value="straw_mulch">
-              <label class="govuk-label govuk-radios__label" for="straw_mulch">
-                Straw mulch
-              </label>
-            </div>
+              {% for group in data.manure_groups %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="{{group.group_id}}" name="manure_group_id" type="radio" value="{{group.group_id}}">
+                  <label class="govuk-label govuk-radios__label" for="{{group.group_id}}">
+                    {{group.group_name}}
+                  </label>
+                </div>
+              {% endfor %}
 
           </div>
           </fieldset>
@@ -189,51 +59,51 @@
 
 
 <!-- 
-New group Cattle FYM
+New group Cattle FYM 1
 Cattle FYM - Old
 Cattle FYM - Fresh
 
-New group Pig FYM
+New group Pig FYM 2
 Pig FYM - Old
 Pig FYM - Fresh
 
-New group Sheep FYM
+New group Sheep FYM 3
 Sheep FYM - Old
 Sheep FYM - Fresh
 
-New group Duck FYM
+New group Duck FYM 4
 Duck FYM - Old
 Duck FYM - Fresh
 
-Horse FYM
-Goat FYM
+Horse FYM 5
+Goat FYM 6
 
-Poultry manure
-Dirty water
+Poultry manure 7
+Dirty water 8
 
-New group Pig slurry
+New group Pig slurry 9
 Pig slurry (add complete)
 Separated Pig Slurry - Liquid Portion
 Separated Pig Slurry - Solid Portion
 
-New group Cattle slurry
+New group Cattle slurry 10
 Cattle slurry (add complete)
 Separated Cattle Slurry - Strainer Box
 Separated Cattle Slurry - Weeping Wall
 Separated Cattle Slurry - Mechanical Separator
 Separated Cattle Slurry - Solid Portion
 
-New group Biosolids
+New group Biosolids 11
 Biosolids - Digested Cake
 Biosolids - Thermally hydrolysed
 Biosolids - Thermally Dried
 Biosolids - Lime Stabilised
 Biosolids - Composted
 
-Green Compost
-Green/Food Compost
+Green Compost 12
+Green/Food Compost 13
 
-New group Digestate
+New group Digestate 14
 Digestate - Whole Food Based
 Digestate - Separated Liquor Food Based
 Digestate - Separated Fibre Food Based
@@ -241,25 +111,25 @@ Digestate - Whole Farm Sourced
 Digestate - Seperated Liquor Farm Sourced
 Digestate - Seperated Fibre Farm Sourced
 
-New group Paper Crumble
+New group Paper Crumble 15
 Paper Crumble - Chemically/Physcially Treated
 Paper Crumble - Biologically Treated
 
-Spent Mushroom Compost
-Water Treatment Cake
+Spent Mushroom Compost 16
+Water Treatment Cake 17
 
-New group Food Waste
+New group Food Waste 18
 Food Waste - Dairy
 Food Waste - Soft Drinks
 Food Waste - Brewing
 Food Waste - General
 
-Distillery pot ale
-Distillery effluent/sludge
-Brewery wash water
-Straw mulch
+Distillery pot ale 19
+Distillery effluent/sludge 20
+Brewery wash water 21
+Straw mulch 22
 
-New group Other
+New group Other 23
 Other - Solid materials
 Other - Liquid materials 
 -->

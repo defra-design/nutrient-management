@@ -10,6 +10,8 @@ const potato_details = require('./data/potatoes.json');
 const crop_types = require('./data/crops.json');
 const content = require('./content.js').content;
 const allFunctions = require('./functions/allFunctions.js');
+const manure_groups = require('./data/manure_groups.json');
+const manure_types = require('./data/manure_types.json');
 
 const Farm = require('./functions/farm.js');
 const oaktree_farm = Farm.createFarm();
@@ -134,6 +136,8 @@ router.get('/', function (req, res) {
     // req.session.data.crop_group_two.printCropGroup();
 
     //data
+    req.session.data.manure_groups = manure_groups
+    req.session.data.manure_types = manure_types
     req.session.data.field_details = field_details
     req.session.data.field_details_v2 = field_details_v2
     req.session.data.field_details_mvp = field_details_mvp

@@ -17,69 +17,88 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
         How much of each nutrient do you plan to include in this first application?
       </h1>
+    </div>
+  </div>
 
-    <form class="form" action="fertiliser_again" method="post">
-
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="weight">
-            <strong>Nitrogen (N)</strong><br>
-          </label>
-          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
-            <div class="govuk-input__suffix" aria-hidden="true">kg per hectare</div>
-          </div>
+  <!-- <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Show recommendations for Long Field
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          % include "/version_2/field_plan/templates/nutrients_new" ignore missing %
         </div>
+      </details>
+    </div>
+  </div>-->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+  
+        <form class="form" action="fertiliser_again" method="post">
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="weight">
-            <strong>Phosphate (P2O5)</strong>
-          </label>
-          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
-            <div class="govuk-input__suffix" aria-hidden="true">kg per hectare</div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="weight">
+              <strong>Nitrogen (N)</strong><br>
+            </label>
+            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+              <div class="govuk-input__suffix" aria-hidden="true">kg per hectare</div>
+            </div>
           </div>
-        </div>
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="weight">
-            <strong>Potash (K2O)</strong><br>
-          </label>
-          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
-            <div class="govuk-input__suffix" aria-hidden="true">kg per hectare</div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="weight">
+              <strong>Phosphate (P2O5)</strong>
+            </label>
+            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+              <div class="govuk-input__suffix" aria-hidden="true">kg per hectare</div>
+            </div>
           </div>
-        </div>
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="weight">
-            <strong>Sulphur (SO3)	</strong>
-          </label>
-          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
-            <div class="govuk-input__suffix" aria-hidden="true">kg per hectare</div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="weight">
+              <strong>Potash (K2O)</strong><br>
+            </label>
+            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+              <div class="govuk-input__suffix" aria-hidden="true">kg per hectare</div>
+            </div>
           </div>
-        </div>
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="weight">
-            <strong>Lime</strong><br>
-          </label>
-          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
-            <div class="govuk-input__suffix" aria-hidden="true">kg per hectare</div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="weight">
+              <strong>Sulphur (SO3)	</strong>
+            </label>
+            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+              <div class="govuk-input__suffix" aria-hidden="true">kg per hectare</div>
+            </div>
           </div>
-        </div>
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+          <div class="govuk-form-group margin-bottom-forty">
+            <label class="govuk-label" for="weight">
+              <strong>Lime</strong><br>
+            </label>
+            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+              <div class="govuk-input__suffix" aria-hidden="true">kg per hectare</div>
+            </div>
+          </div>
 
-      </form>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
 
-      <p class="govuk-body">
-        <a href="fields.html">Cancel</a>
-      </p>
+        </form>
+
+        <p class="govuk-body">
+          <a href="fields.html">Cancel</a>
+        </p>
 
       </div>
+    </div>
   
 
 

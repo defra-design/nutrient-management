@@ -617,7 +617,7 @@ router.get(/manure_date_handler/, function (req, res) {
     if (req.session.data.manure_type.liquid == true) {
         res.redirect("/add_manure/manure_applied")
     } else {
-        res.redirect("/add_manure/rain_defaults")
+        res.redirect("/add_manure/manure_defaults")
     }
 })
 

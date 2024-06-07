@@ -10,7 +10,12 @@
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
-  {% include "./check_manure_values.html" %}
+  {% if data.manure_type.liquid == true %}
+    {% include "./check_manure_liquid.html" %}
+  {% else %}
+    {% include "./check_manure_values.html" %}
+  {% endif %}
+
 
   <!-- <div class="govuk-summary-list__row">
     
@@ -34,7 +39,7 @@
 
   {% if data.manure_count != 0 %}
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">When will you next apply {{data.manure_type.name}} to these fields?</dt>
+      <dt class="govuk-summary-list__key">When will you next apply {{data.manure_type}} to these fields?</dt>
       <dd class="govuk-summary-list__value">30 August 2023</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>

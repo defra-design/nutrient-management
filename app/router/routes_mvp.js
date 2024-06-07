@@ -530,7 +530,6 @@ router.get(/manuregroup_handler/, function (req, res) {
                 req.session.data.manure_type = req.session.data.manure_types[x].name
             }
         }
-        
     }
     res.redirect(next)
 })

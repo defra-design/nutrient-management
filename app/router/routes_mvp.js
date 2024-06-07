@@ -538,6 +538,11 @@ router.get(/manuretype_handler/, function (req, res) {
     if (req.session.data.manure_type == null) {
         req.session.data.manure_type == "Cattle FYM - Old"
     }
+    for (var x in req.session.data.manure_types ) {
+        if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
+            req.session.data.manure_type = req.session.data.manure_types[x]
+        }
+    }
     res.redirect("/add_manure/manure_date")
 })
 

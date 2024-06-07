@@ -551,9 +551,6 @@ router.get(/incorporation_handler/, function (req, res) {
 })
 
 
-
-
-
 // router.get(/manuredate_handler/, function (req, res) { 
 //     if (req.session.data.manure_count == 0) {
 //         res.redirect('manure_group')
@@ -561,6 +558,5 @@ router.get(/incorporation_handler/, function (req, res) {
 //         res.redirect('manure_again')
 //     }
 // })
-
 
 module.exports = router

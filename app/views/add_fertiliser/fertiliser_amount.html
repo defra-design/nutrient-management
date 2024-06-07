@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"

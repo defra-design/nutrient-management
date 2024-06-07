@@ -24,7 +24,7 @@ plans_added
     this.use_mvp_fields = use_mvp_fields,
     this.setup = setup,
     this.soil_added = soil_added,
-    this.fields_added = fields_added
+    this.fields_added = fields_added,
     this.plans_added = plans_added
   }
 
@@ -55,7 +55,7 @@ Farm.prototype.reset = function () {
     this.planFive = false,
     this.use_mvp_fields = false,
     this.setup = false,
-    this.soil_added = false
+    this.soil_added = false,
     this.fields_added = false
 };
 

@@ -31,6 +31,23 @@ function totalFieldsCount(plan) {
     return totalFields
 }
 
+function basicSetup (farm, mvpFields, manure, fertiliser) {
+    farm.setup = true
+    farm.soil_added = true
+    farm.fields_added = true
+
+    farm.use_mvp_fields = mvpFields
+
+    // if (manure == true) {
+    //     req.session.data.multiple_manure = true
+    // }
+
+    // if (fertiliser == true) {
+    //     req.session.data.multiple_fertiliser = true
+    // }
+
+  };
+
 
  function printCropGroup(group) {
     console.log(  'group' +
@@ -49,3 +66,4 @@ module.exports.printCropGroup = printCropGroup;
 module.exports.getFieldByReference = getFieldByReference;
 module.exports.getMultipleFieldsByReferences = getMultipleFieldsByReferences;
 module.exports.totalFieldsCount = totalFieldsCount;
+module.exports.basicSetup = basicSetup;

@@ -19,7 +19,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        What is the application method for your {{data.manure_type}}?
+        What is the application method for your {{data.manure_type.name}}?
       </h1>
 
       <form class="form" action="manure_defaults" method="post">
@@ -34,21 +34,34 @@
             <div class="govuk-radios" data-module="govuk-radios">
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="area" name="quantity_type" type="radio" value="area">
-                <label class="govuk-label govuk-radios__label" for="area">
-                  Broadcast spreader            
+                <input class="govuk-radios__input" id="band" name="application_method" type="radio" value="Band spreader trailing hose">
+                <label class="govuk-label govuk-radios__label" for="band">
+                  Band spreader trailing hose    
                 </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rate" name="quantity_type" type="radio" value="rate">
-                <label class="govuk-label govuk-radios__label" for="rate">
-                  Discharge spreader
+                <input class="govuk-radios__input" id="broadcast" name="application_method" type="radio" value="Broadcast spreader">
+                <label class="govuk-label govuk-radios__label" for="broadcast">
+                  Broadcast spreader
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="deep" name="application_method" type="radio" value="Deep injection (23cm - 30cm)">
+                <label class="govuk-label govuk-radios__label" for="deep">
+                  Deep injection (23cm - 30cm)
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="shallow" name="application_method" type="radio" value="Shallow injection (5cm - 7cm)">
+                <label class="govuk-label govuk-radios__label" for="shallow">
+                  Shallow injection (5cm - 7cm)
                 </label>
               </div>
 
           </div>
-          </fieldset>
         </div>
         {{ govukButton({
           text: "Continue"

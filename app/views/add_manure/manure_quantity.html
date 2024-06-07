@@ -30,7 +30,12 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="rate" name="quantity_type" type="radio" value="rate">
                 <label class="govuk-label govuk-radios__label" for="rate">
-                  Enter an application rate in tonnes per hectare
+                  Enter an application rate in 
+                  {% if data.manure_type.liquid == true %}
+                    cubic metres per hectare
+                  {% else %}
+                    tonnes per hectare
+                  {% endif %}
                 </label>
               </div>
 
@@ -44,7 +49,12 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="default" name="quantity_type" type="radio" value="default">
                 <label class="govuk-label govuk-radios__label" for="default">
-                  Use the typical application rate of 20 tonnes per hectare
+                  Use the typical application rate of 
+                  {% if data.manure_type.liquid == true %}
+                    30 cubic metres per hectare
+                  {% else %}
+                    20 tonnes per hectare
+                  {% endif %}
                 </label>
               </div>
 

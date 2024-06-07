@@ -1,6 +1,6 @@
 [
-    {"group_name": "Farmyard Manure", "group_id": 24},
-    {"group_name": "Animal Slurry", "group_id": 25},
+    {"group_name": "Livestock Manure", "group_id": 24},
+    {"group_name": "Livestock Slurry", "group_id": 25},
     {"group_name": "Biosolids", "group_id": 26},
     {"group_name": "Digestate", "group_id": 27},
     {"group_name": "Other Organic Materials", "group_id": 28}

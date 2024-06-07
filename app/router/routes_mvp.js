@@ -546,6 +546,14 @@ router.get(/manuretype_handler/, function (req, res) {
     res.redirect("/add_manure/manure_date")
 })
 
+router.get(/manure_date_handler/, function (req, res) {
+    if (req.session.data.manure_type.liquid == true) {
+        res.redirect("/add_manure/manure_applied")
+    } else {
+        res.redirect("/add_manure/rain_defaults")
+    }
+})
+
 router.get(/incorporation_handler/, function (req, res) {
     if (req.session.data.incorporation_method == 'not_incorporated') {
         res.redirect("/add_manure/rain_defaults")
@@ -553,7 +561,6 @@ router.get(/incorporation_handler/, function (req, res) {
         res.redirect("/add_manure/manure_delay")
     }
 })
-
 
 // router.get(/manuredate_handler/, function (req, res) { 
 //     if (req.session.data.manure_count == 0) {

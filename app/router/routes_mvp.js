@@ -631,8 +631,7 @@ router.get(/incorporation_handler/, function (req, res) {
 
 router.get(/enter_manure_defualts_handler/, function (req, res) {
     if (req.session.data.edit_manure_defaults != "yes") {
-        // res.redirect("/add_manure/manure_defaults_update")
-        res.redirect("/add_manure/manure_quantity")
+        res.redirect("/add_manure/manure_defaults_update")
     } else {
         res.redirect("/add_manure/manure_quantity")
     }

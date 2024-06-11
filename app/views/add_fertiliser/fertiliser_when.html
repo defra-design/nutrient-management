@@ -27,10 +27,15 @@
       <!-- {% include "templates/title_span.html" %} -->
 
       <h1 class="govuk-heading-l">
-        When do you first plan to spread {{data.content.non_organic_term | lower}} on the Winter Wheat Fields?
+        When do you plan to spread {{data.content.non_organic_term | lower}}
+        {% if data.fertiliser_journey == "multi" %}
+          on the Winter Wheat Fields?
+        {% else %}
+          on {{data.chosenField.name}}?
+        {% endif %}
       </h1>
 
-      <!-- <p>Enter the estimated date you firdst plan to apply {{data.content.organic_term | lower}} to the Winter Wheat fields, you can change the date for individual fields later.</p> -->
+      <!-- <p>Enter the estimated date you first plan to apply {{data.content.organic_term | lower}} to the Winter Wheat fields, you can change the date for individual fields later.</p> -->
 
       <form class="form" action="fertiliser_amount" method="post">
 

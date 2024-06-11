@@ -642,13 +642,13 @@ router.get(/incorporation_handler/, function (req, res) {
 //////// ADD FERTILISERS /////////
 //////////////////////////////////
 
-//START
+
 router.get(/v2fertiliser_handler/, function (req, res) { 
     req.session.data.fertiliser_journey = req.query.fertiliserjourney
     if (req.session.data.fertiliser_journey == 'multi') {
         res.redirect('/add_fertiliser/fertiliser_fields')
     } else {
-        res.redirect('/add_manure/fertiliser_amount')
+        res.redirect('/add_fertiliser/fertiliser_when')
     }
 })
 

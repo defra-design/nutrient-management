@@ -1,87 +1,31 @@
-  {{ govukSummaryList({
-  rows: [ 
-  {
-    key: {
-      text: "Which fields would you like to add organic material applications to?"
-    },
-    value: {
-      text: "All fields in the 2024 plan"
-    },
-    actions: {
-      items: [
-        {
-          href: "",
-          text: "Change",
-          visuallyHiddenText: ""
-        }
-      ]
-    }
-  },{
-    key: {
-      text: "When do you first plan to spread " + data.content.non_organic_term | lower + "?"
-    },
-    value: {
-      text: "29 April 2024"
-    },
-    actions: {
-      items: [
-        {
-          href: "",
-          text: "Change",
-          visuallyHiddenText: ""
-        }
-      ]
-    }
-  }, {
-      key: {
-        text: "Which nutrients do you plan to include in this application?"
-      },
-      value: {
-        text: "Nitrogen(N)" 
-      },
-      actions: {
-        items: [
-          {
-            href: "",
-            text: "Change",
-            visuallyHiddenText: ""
-          }
-        ]
-      }
-    }, {
-      key: {
-        text: "How much of each nutrient do you plan to include in this application?"
-      },
-      value: {
-        text: "40 kg Nitrogen(N)" 
-      },
-      actions: {
-        items: [
-          {
-            href: "",
-            text: "Change",
-            visuallyHiddenText: ""
-          }
-        ]
-      }
-    }
-    ,
-    {
-      key: {
-        text: "Do you plan to spread more " + data.content.non_organic_term | lower + "?"
-      },
-      value: {
-        text: "No"
-      },
-      actions: {
-        items: [
-          {
-            href: "",
-            text: "Change",
-            visuallyHiddenText: ""
-          }
-        ]
-      }
-    }
-  ]
-  }) }}
+<dl class="govuk-summary-list margin-bottom-forty">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Which fields would you like to add organic material applications to?</dt>
+    <dd class="govuk-summary-list__value">
+      {% if data.fertiliser_journey == "multi" %}
+      The Winter Wheat fields
+      {% else %}
+        {{data.chosenField.name}}
+      {% endif %}
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">When do you first plan to spread inorganic fertiliser?</dt>
+    <dd class="govuk-summary-list__value">August to September</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How much of each nutrient do you plan to include in this application?</dt>
+    <dd class="govuk-summary-list__value">10kg Nitrogen(N)	</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Do you plan to spread more inorganic fertiliser?</dt>
+    <dd class="govuk-summary-list__value">No</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+</dl>

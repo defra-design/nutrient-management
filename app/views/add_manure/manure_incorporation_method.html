@@ -19,60 +19,53 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        What is the incorporation method for your {{data.manure_type}}?
+        What is the incorporation method for your {{data.manure_type.name}}?
       </h1>
 
-      <form class="form" action="manure_delay" method="post">
+      <form class="form" action="incorporation_handler" method="post">
 
         <div class="govuk-form-group">
-          <!-- <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                Where do you live?
-              </h1>
-            </legend> -->
-            <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios" data-module="govuk-radios">
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="discs" name="incorporation" type="radio" value="Discs">
-                <label class="govuk-label govuk-radios__label" for="discs">
-                  Discs            
-                </label>
-              </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="discs" name="incorporation_method" type="radio" value="Discs">
+              <label class="govuk-label govuk-radios__label" for="discs">
+                Discs            
+              </label>
+            </div>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="plough" name="incorporation" type="radio" value="Plough">
-                <label class="govuk-label govuk-radios__label" for="plough">
-                  Plough
-                </label>
-              </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="plough" name="incorporation_method" type="radio" value="Plough">
+              <label class="govuk-label govuk-radios__label" for="plough">
+                Plough
+              </label>
+            </div>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rotary" name="incorporation" type="radio" value="Rotary cultivator">
-                <label class="govuk-label govuk-radios__label" for="rotary">
-                  Rotary cultivator
-                </label>
-              </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="rotary" name="incorporation_method" type="radio" value="Rotary cultivator">
+              <label class="govuk-label govuk-radios__label" for="rotary">
+                Rotary cultivator
+              </label>
+            </div>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="tine" name="incorporation" type="radio" value="Tine cultivator">
-                <label class="govuk-label govuk-radios__label" for="tine">
-                  Tine cultivator
-                </label>
-              </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="tine" name="incorporation_method" type="radio" value="Tine cultivator">
+              <label class="govuk-label govuk-radios__label" for="tine">
+                Tine cultivator
+              </label>
+            </div>
 
-              <div class="govuk-radios__divider">or</div>
+            <div class="govuk-radios__divider">or</div>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="none" name="incorporation" type="radio" value="It won't be incorporated">
-                <label class="govuk-label govuk-radios__label" for="none">
-                  Not incorporated
-                </label>
-              </div>
-
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="none" name="incorporation_method" type="radio" value="not_incorporated">
+              <label class="govuk-label govuk-radios__label" for="none">
+                Not incorporated
+              </label>
+            </div>
 
           </div>
-          </fieldset>
+
         </div>
         {{ govukButton({
           text: "Continue"

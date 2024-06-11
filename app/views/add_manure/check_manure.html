@@ -10,7 +10,12 @@
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
-  {% include "./check_manure_values.html" %}
+  {% if data.manure_type.liquid == true %}
+    {% include "./check_manure_liquid.html" %}
+  {% else %}
+    {% include "./check_manure_values.html" %}
+  {% endif %}
+
 
   <!-- <div class="govuk-summary-list__row">
     

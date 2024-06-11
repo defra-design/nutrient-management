@@ -19,56 +19,18 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Do you want to use these nutrient values from RB209 for {{data.manure_type}}?
+        Do you want to use these standard nutrient values for {{data.manure_type.name}}?
       </h1>
 
-      <table class="govuk-table margin-bottom-forty">
-        <!-- <caption class="govuk-table__caption govuk-table__caption--m">Default nutrient values for {{data.chosen_manure | lower}}</caption> -->
-        <tdead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Nutrient</th>
-            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Value (Kilograms per tonne)</th>
-          </tr>
-        </tdead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">Dry Matter</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric">25</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">Total Nitrogen</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric">6</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">Ammonium (N)</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric">0.5</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">Uric Acid (N)</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">Nitrate (N) </td>
-            <td class="govuk-table__cell govuk-table__cell--numeric">0.1</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">Total phosphate (P205)</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric">3.2</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">Total potassium (K20)</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric">8</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">Total Sulphur (SO3)</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric">2.4</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">Total magnesium oxide (Mg0)</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric">1.8</td>
-          </tr>
-        </tbody>
-      </table>
+      <p>These values are taken from the AHDB Nutrient Mnagement Guide (RB209).</p>
+
+      {% if data.manure_type.liquid == true %}
+        {% include "./manure_defaults_liquid.html" %}
+      {% else %}
+       {% include "./manure_defaults_solid.html" %}
+      {% endif %}
+  
+
 
       <form class="form" action="manure_quantity" method="post">
         

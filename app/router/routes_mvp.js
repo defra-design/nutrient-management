@@ -613,7 +613,6 @@ router.get(/manuregroup_handler/, function (req, res) {
                 req.session.data.manure_type = req.session.data.manure_types[x].name
             }
         }
-        
     }
     res.redirect(next)
 })
@@ -622,9 +621,29 @@ router.get(/manuretype_handler/, function (req, res) {
     if (req.session.data.manure_type == null) {
         req.session.data.manure_type == "Cattle FYM - Old"
     }
+    for (var x in req.session.data.manure_types ) {
+        if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
+            req.session.data.manure_type = req.session.data.manure_types[x]
+        }
+    }
     res.redirect("/add_manure/manure_date")
 })
 
+router.get(/manure_date_handler/, function (req, res) {
+    if (req.session.data.manure_type.liquid == true) {
+        res.redirect("/add_manure/manure_applied")
+    } else {
+        res.redirect("/add_manure/manure_defaults")
+    }
+})
+
+router.get(/incorporation_handler/, function (req, res) {
+    if (req.session.data.incorporation_method == 'not_incorporated') {
+        res.redirect("/add_manure/rain_defaults")
+    } else {
+        res.redirect("/add_manure/manure_delay")
+    }
+})
 
 // router.get(/manuredate_handler/, function (req, res) { 
 //     if (req.session.data.manure_count == 0) {
@@ -633,7 +652,6 @@ router.get(/manuretype_handler/, function (req, res) {
 //         res.redirect('manure_again')
 //     }
 // })
-
 
 
 //////////////////////////////////

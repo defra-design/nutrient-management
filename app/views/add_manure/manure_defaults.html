@@ -29,24 +29,22 @@
       {% else %}
        {% include "./manure_defaults_solid.html" %}
       {% endif %}
-  
 
-
-      <form class="form" action="manure_quantity" method="post">
+      <form class="form" action="enter_manure_defualts_handler" method="post">
         
         <div class="govuk-form-group">
             <div class="govuk-radios" data-module="govuk-radios">
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="ig_solids" name="manure_type" type="radio" value="pig_solids">
-                <label class="govuk-label govuk-radios__label" for="ig_solids">
+                <input class="govuk-radios__input" id="yes" name="edit_manure_defaults" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="yes">
                   Yes              
                 </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="pig_liquid" name="manure_type" type="radio" value="pig_liquid">
-                <label class="govuk-label govuk-radios__label" for="pig_liquid">
+                <input class="govuk-radios__input" id="no" name="edit_manure_defaults" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="no">
                   No, I want to enter a recent manure analysis
                 </label>
               </div>

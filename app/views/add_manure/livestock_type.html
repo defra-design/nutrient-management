@@ -18,9 +18,10 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {% set manureName = '' %}
-      {% for x in data.manure_groups %}
-        {% if x.group_id == data.manure_type %}
-          {% set manureName = x.group_name %}
+
+      {% for x in data.manure_types_livestock_groups %}
+        {% if x.type == data.manure_type %}
+          {% set manureName = x.name %}
         {% endif %}
       {% endfor %}
 
@@ -28,8 +29,7 @@
         What type of {{ manureName }} are you using in this application?
       </h1>
 
-        <form class="form" action="manure_date" method="post">
-
+        <form class="form" action="livestock_type_handler" method="post">
 
         <div class="govuk-form-group">
             <div class="govuk-radios" data-module="govuk-radios">

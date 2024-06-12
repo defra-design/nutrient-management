@@ -591,20 +591,45 @@ router.get(/manuregroup_handler/, function (req, res) {
 })
 
 router.get(/manuretype_handler/, function (req, res) {
-    if (req.session.data.manure_type == null) {
-        req.session.data.manure_type == "Cattle Farmyard manure"
-    }
-    // for (var x in req.session.data.manure_types ) {
-    //     if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
-    //         req.session.data.manure_type = req.session.data.manure_types[x]
-    //     }
-    // }
+    var next = "/add_manure/manure_date"
     if (req.session.data.manure_group_id == "livestock") {
-        res.redirect("/add_manure/livestock_type")
+        req.session.data.manure_types == req.session.data.manure_types_livestock
+        console.log(req.session.data.manure_type)
+        if (req.session.data.manure_type == "dirty_water" || req.session.data.manure_type == "horse_fym" || req.session.data.manure_type == "goat_fym" || req.session.data.manure_type == "poultry") {
+            for (var x in req.session.data.manure_types_livestock) {
+                if (req.session.data.manure_types_livestock[x].type == req.session.data.manure_type) {
+                    req.session.data.manure_type = req.session.data.manure_types_livestock[x]
+                }
+            }
+        } else {
+            next = "/add_manure/livestock_type"
+        }
     } else {
-        res.redirect("/add_manure/manure_date")
+        if (req.session.data.manure_group_id == "biosolids") {
+            req.session.data.manure_types == req.session.data.manure_types_biosolid
+        } else if (req.session.data.manure_group_id == "other") {
+            req.session.data.manure_types == req.session.data.manure_types_other
+        } else if (req.session.data.manure_group_id == "digestate") {
+            req.session.data.manure_types == req.session.data.manure_types_digestate
+        }
+        for (var x in req.session.data.manure_types ) {
+            if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
+                req.session.data.manure_type = req.session.data.manure_types[x]
+            }
+        }
     }
+    res.redirect(next)
 })
+
+router.get(/livestock_type_handler/, function (req, res) {
+    for (var x in req.session.data.manure_types_livestock) {
+        if (req.session.data.manure_types_livestock[x].name == req.session.data.manure_type) {
+            req.session.data.manure_type = req.session.data.manure_types_livestock[x]
+        }
+    }
+    res.redirect("/add_manure/manure_date")
+})
+
 
 router.get(/manure_date_handler/, function (req, res) {
     if (req.session.data.manure_type.liquid == true) {
@@ -623,7 +648,7 @@ router.get(/incorporation_handler/, function (req, res) {
 })
 
 router.get(/enter_manure_defualts_handler/, function (req, res) {
-    if (req.session.data.edit_manure_defaults != "yes") {
+    if (req.session.data.edit_manure_defaults === "no") {
         res.redirect("/add_manure/manure_defaults_update")
     } else {
         res.redirect("/add_manure/manure_quantity")

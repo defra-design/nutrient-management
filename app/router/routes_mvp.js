@@ -585,32 +585,25 @@ router.get(/manuredate_handler/, function (req, res) {
 
 router.get(/manuregroup_handler/, function (req, res) { 
     if (req.session.data.manure_group_id == null) {
-        req.session.data.manure_group_id == 1
+        req.session.data.manure_group_id == "livestock"
     }
-    var next = "/add_manure/manure_type"
-    var id = req.session.data.manure_group_id
-    if (id == 5 || id == 6 || id == 7 || id == 8 || id == 12 || id == 13 || id == 16 || id == 17 || id == 19 || id == 20|| id == 21 || id == 22) {
-        next = "/add_manure/manure_date"
-        for (var x in req.session.data.manure_types ) {
-            // console.log(req.session.data.manure_types[x])
-            if (req.session.data.manure_types[x].group_id == id) {
-                req.session.data.manure_type = req.session.data.manure_types[x].name
-            }
-        }
-    }
-    res.redirect(next)
+    res.redirect("/add_manure/manure_type")
 })
 
 router.get(/manuretype_handler/, function (req, res) {
     if (req.session.data.manure_type == null) {
-        req.session.data.manure_type == "Cattle FYM - Old"
+        req.session.data.manure_type == "Cattle Farmyard manure"
     }
-    for (var x in req.session.data.manure_types ) {
-        if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
-            req.session.data.manure_type = req.session.data.manure_types[x]
-        }
+    // for (var x in req.session.data.manure_types ) {
+    //     if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
+    //         req.session.data.manure_type = req.session.data.manure_types[x]
+    //     }
+    // }
+    if (req.session.data.manure_group_id == "livestock") {
+        res.redirect("/add_manure/livestock_type")
+    } else {
+        res.redirect("/add_manure/manure_date")
     }
-    res.redirect("/add_manure/manure_date")
 })
 
 router.get(/manure_date_handler/, function (req, res) {

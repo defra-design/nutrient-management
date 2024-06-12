@@ -1,0 +1,18 @@
+[
+    {"name": "Green Compost", "display_name": "Green Compost", "type": "other", "group_id": "other"},
+    {"name": "Green/Food Compost", "display_name": "Green/Food Compost", "type": "other", "group_id": "other"},
+    {"name": "Paper Crumble - Chemically/Physcially Treated", "display_name": "Paper Crumble - Chemically/Physcially Treated", "type": "other", "group_id": "other"},
+    {"name": "Paper Crumble - Biologically Treated", "display_name": "Paper Crumble - Biologically Treated", "type": "other", "group_id": "other"},
+    {"name": "Spent Mushroom Compost", "display_name": "Spent Mushroom Compost", "type": "other", "group_id": "other"},
+    {"name": "Water Treatment Cake", "display_name": "Water Treatment Cake", "type": "other", "group_id": "other"},
+    {"name": "Food Waste - Dairy", "display_name": "Food Waste - Dairy", "type": "other", "group_id": "other"},
+    {"name": "Food Waste - Soft Drinks", "display_name": "Food Waste - Soft Drinks", "type": "other", "group_id": "other"},
+    {"name": "Food Waste - Brewing", "display_name": "Food Waste - Brewing", "type": "other", "group_id": "other"},
+    {"name": "Food Waste - General", "display_name": "Food Waste - General", "type": "other", "group_id": "other"},
+    {"name": "Distillery pot ale", "display_name": "Distillery pot ale", "type": "other", "group_id": "other"},
+    {"name": "Distillery effluent/sludge", "display_name": "Distillery effluent/sludge", "type": "other", "group_id": "other"},
+    {"name": "Brewery wash water", "display_name": "Brewery wash water", "type": "other", "group_id": "other"},
+    {"name": "Straw mulch", "display_name": "Straw mulch", "type": "other", "group_id": "other"},
+    {"name": "Other - Solid materials", "display_name": "Other - Solid materials", "type": "other", "group_id": "other"},
+    {"name": "Other - Liquid materials", "display_name": "Other - Liquid materials", "type": "other", "group_id": "other"}
+]

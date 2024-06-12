@@ -1,0 +1,7 @@
+[
+    {"name": "Biosolids - Digested Cake", "display_name": "Digested Cake", "type": "biosolids", "group_id": "biosolids"},
+    {"name": "Biosolids - Thermally hydrolysed", "display_name": "Thermally hydrolysed", "type": "biosolids", "group_id": "biosolids"},
+    {"name": "Biosolids - Thermally Dried",  "display_name": "Thermally Dried", "type": "biosolids", "group_id": "biosolids"},
+    {"name": "Biosolids - Lime Stabilised", "display_name": "Lime Stabilised", "type": "biosolids", "group_id": "biosolids"},
+    {"name": "Biosolids - Composted", "display_name": "Composted", "type": "biosolids", "group_id": "biosolids"}
+]

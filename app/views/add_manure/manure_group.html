@@ -25,28 +25,45 @@
       <form class="form" action="manuregroup_handler" method="post">
 
         <div class="govuk-form-group">
-            <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios" data-module="govuk-radios">
 
-              {% for group in data.manure_groups %}
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="{{group.group_id}}" name="manure_group_id" type="radio" value="{{group.group_id}}">
-                  <label class="govuk-label govuk-radios__label" for="{{group.group_id}}">
-                    {{group.group_name}}
-                  </label>
-                </div>
-              {% endfor %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="livestock" name="manure_group_id" type="radio" value="livestock">
+              <label class="govuk-label govuk-radios__label" for="livestock">
+                Livestock
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="biosolids" name="manure_group_id" type="radio" value="biosolids">
+              <label class="govuk-label govuk-radios__label" for="biosolids">
+                Biosolids
+              </label>
+            </div>
+            
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="digestate" name="manure_group_id" type="radio" value="digestate">
+              <label class="govuk-label govuk-radios__label" for="digestate">
+                Digestate
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="other" name="manure_group_id" type="radio" value="other">
+              <label class="govuk-label govuk-radios__label" for="other">
+                Other
+              </label>
+            </div>
 
           </div>
-          </fieldset>
         </div>
+
         {{ govukButton({
           text: "Continue"
         }) }}
 
       </form>
-
     </div>
-    
   </div>
 
   <p class="govuk-body">
@@ -54,121 +71,3 @@
   </p>
 
 {% endblock %}
-
-
-
-
-<!-- 
-New group Cattle FYM 1
-Cattle FYM - Old
-Cattle FYM - Fresh
-
-New group Pig FYM 2
-Pig FYM - Old
-Pig FYM - Fresh
-
-New group Sheep FYM 3
-Sheep FYM - Old
-Sheep FYM - Fresh
-
-New group Duck FYM 4
-Duck FYM - Old
-Duck FYM - Fresh
-
-Horse FYM 5
-Goat FYM 6
-
-Poultry manure 7
-Dirty water 8
-
-New group Pig slurry 9
-Pig slurry (add complete)
-Separated Pig Slurry - Liquid Portion
-Separated Pig Slurry - Solid Portion
-
-New group Cattle slurry 10
-Cattle slurry (add complete)
-Separated Cattle Slurry - Strainer Box
-Separated Cattle Slurry - Weeping Wall
-Separated Cattle Slurry - Mechanical Separator
-Separated Cattle Slurry - Solid Portion
-
-New group Biosolids 11
-Biosolids - Digested Cake
-Biosolids - Thermally hydrolysed
-Biosolids - Thermally Dried
-Biosolids - Lime Stabilised
-Biosolids - Composted
-
-Green Compost 12
-Green/Food Compost 13
-
-New group Digestate 14
-Digestate - Whole Food Based
-Digestate - Separated Liquor Food Based
-Digestate - Separated Fibre Food Based
-Digestate - Whole Farm Sourced
-Digestate - Separated Liquor Farm Sourced
-Digestate - Separated Fibre Farm Sourced
-
-New group Paper Crumble 15
-Paper Crumble - Chemically/Physcially Treated
-Paper Crumble - Biologically Treated
-
-Spent Mushroom Compost 16
-Water Treatment Cake 17
-
-New group Food Waste 18
-Food Waste - Dairy
-Food Waste - Soft Drinks
-Food Waste - Brewing
-Food Waste - General
-
-Distillery pot ale 19
-Distillery effluent/sludge 20
-Brewery wash water 21
-Straw mulch 22
-
-New group Other 23
-Other - Solid materials
-Other - Liquid materials 
--->
-
-
-<!-- 
-Cattle FYM
-Pig FYM
-Sheep FYM
-Duck FYM
-Horse FYM
-Goat FYM
-Poultry manure
-Dirty water
-Pig slurry
-Cattle slurry
-Biosolids
-Green Compost
-Green/Food Compost
-Digestate
-Paper Crumble
-Spent Mushroom Compost
-Water Treatment Cake
-Food Waste
-Distillery pot ale
-Distillery effluent/sludge
-Brewery wash water
-Straw mulch
-Other
--->
-
-<!-- 
-Animal manures
-Dirty water
-Biosolids
-Compost and food waste
-Digestate
-Paper Crumble
-Water Treatment Cake
-Straw mulch
-Other
--->

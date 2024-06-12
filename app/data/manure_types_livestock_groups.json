@@ -1,0 +1,12 @@
+[
+    {"name": "Cattle Farmyard manure", "type": "cattle_fym", "group_id": "livestock"},
+    {"name": "Pig Farmyard manure", "type": "pig_fym", "group_id": "livestock"},
+    {"name": "Sheep Farmyard manure", "type": "sheep_fym", "group_id": "livestock"},
+    {"name": "Duck Farmyard manure", "type": "duck_fym", "group_id": "livestock"},
+    {"name": "Horse Farmyard manure", "type": "horse_fym", "group_id": "livestock"},
+    {"name": "Goat Farmyard manure", "type": "goat_fym", "group_id": "livestock"},
+    {"name": "Poultry manure","type": "poultry", "group_id": "livestock"},
+    {"name": "Cattle slurry","type": "cattle_slurry", "group_id": "livestock"},
+    {"name": "Dirty water", "type": "dirty_water", "group_id": "livestock"},
+    {"name": "Pig slurry",  "type": "pig_slurry", "group_id": "livestock"}
+]

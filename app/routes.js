@@ -10,8 +10,11 @@ const potato_details = require('./data/potatoes.json');
 const crop_types = require('./data/crops.json');
 const content = require('./content.js').content;
 const allFunctions = require('./functions/allFunctions.js');
-const manure_groups = require('./data/manure_groups_v3.json');
-const manure_types = require('./data/manure_types_v3.json');
+const manure_types_digestate = require('./data/manure_types_digestate.json');
+const manure_types_other = require('./data/manure_types_other.json');
+const manure_types_biosolid = require('./data/manure_types_biosolid.json');
+const manure_types_livestock = require('./data/manure_types_livestock.json');
+const manure_types_livestock_groups = require('./data/manure_types_livestock_groups.json');
 
 const Farm = require('./functions/farm.js');
 const oaktree_farm = Farm.createFarm();
@@ -77,7 +80,6 @@ crop_group_three.firstCropSelected = true
 crop_group_three.thirdCropSelected = true
 crop_group_three.totalFields = allFunctions.totalFieldsCount(crop_group_three);
 
-
 let crop_group_2023 = CropGroup.createCropGroup();
 let crop_group_2024 = CropGroup.createCropGroup();
 
@@ -136,8 +138,12 @@ router.get('/', function (req, res) {
     // req.session.data.crop_group_two.printCropGroup();
 
     //data
-    req.session.data.manure_groups = manure_groups
-    req.session.data.manure_types = manure_types
+    req.session.data.manure_types_digestate = manure_types_digestate
+    req.session.data.manure_types_other = manure_types_other
+    req.session.data.manure_types_biosolid = manure_types_biosolid
+    req.session.data.manure_types_livestock = manure_types_livestock
+    req.session.data.manure_types_livestock_groups = manure_types_livestock_groups
+    
     req.session.data.field_details = field_details
     req.session.data.field_details_v2 = field_details_v2
     req.session.data.field_details_mvp = field_details_mvp

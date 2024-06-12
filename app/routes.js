@@ -10,8 +10,8 @@ const potato_details = require('./data/potatoes.json');
 const crop_types = require('./data/crops.json');
 const content = require('./content.js').content;
 const allFunctions = require('./functions/allFunctions.js');
-const manure_groups = require('./data/manure_groups_v2.json');
-const manure_types = require('./data/manure_types_v2.json');
+const manure_groups = require('./data/manure_groups_v3.json');
+const manure_types = require('./data/manure_types_v3.json');
 
 const Farm = require('./functions/farm.js');
 const oaktree_farm = Farm.createFarm();

@@ -19,7 +19,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        What type of {{ data.manure_type }} are you using in this application?
+        What type of {{ data.manure_group_id | convert_manure_group_id }} are you using in this application?
       </h1>
 
       <form class="form" action="manuretype_handler" method="post">

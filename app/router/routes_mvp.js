@@ -614,12 +614,11 @@ router.get(/manuretype_handler/, function (req, res) {
             req.session.data.manure_type == "poultry") {
             next = "/add_manure/manure_date"
             //get object
-            for (var x in req.session.data.manure_types ) {
-                if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
-                    req.session.data.manure_type = req.session.data.manure_types[x]
+            for (var x in req.session.data.manure_types_livestock ) {
+                if (req.session.data.manure_types_livestock[x].type == req.session.data.manure_type) {
+                    req.session.data.manure_type = req.session.data.manure_types_livestock[x]
                 }
             }
-        
         }
     }
     res.redirect(next)

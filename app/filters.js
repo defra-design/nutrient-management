@@ -86,3 +86,18 @@ addFilter('array_count', function (array) {
     }
     return counter
 })
+
+addFilter('convert_manure_group_id', function (group_id) {
+    if (group_id == 'livestock') {
+        group_name = "Livestock manure"
+    } else if (group_id == 'biosolids') {
+        group_name = "Biosolids"
+    } else if (group_id == 'digestate') {
+        group_name = "Digestate"
+    } else if (group_id == 'other') {
+        group_name = "Other organic materials"
+    } else {
+        group_name = group_id
+    }
+    return group_name
+})

@@ -17,15 +17,9 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% set manureName = '' %}
-      {% for x in data.manure_groups %}
-      {% if x.group_id == data.manure_group_id %}
-        {% set manureName = x.group_name %}
-      {% endif %}
-    {% endfor %}
 
       <h1 class="govuk-heading-l">
-        What type of {{ manureName }} are you using in this application?
+        What type of {{ data.manure_type }} are you using in this application?
       </h1>
 
       <form class="form" action="manuretype_handler" method="post">
@@ -33,42 +27,24 @@
         <div class="govuk-form-group">
 
           <div class="govuk-radios" data-module="govuk-radios">
-
-            {% if data.manure_group_id == "biosolids" %}
-              {% for x in data.manure_types_biosolid %}
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="{{x.name}}" name="manure_type" type="radio" value="{{x.name}}">
-                  <label class="govuk-label govuk-radios__label" for="{{x.name}}">
-                    {{x.display_name}}
-                  </label>
-                </div>
-              {% endfor %}
-            {% elif data.manure_group_id == "digestate" %}
-              {% for x in data.manure_types_digestate %}
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="{{x.name}}" name="manure_type" type="radio" value="{{x.name}}">
-                  <label class="govuk-label govuk-radios__label" for="{{x.name}}">
-                    {{x.display_name}}
-                  </label>
-                </div>
-              {% endfor %}
-            {% elif data.manure_group_id == "other" %}
-              {% for x in data.manure_types_other %}
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="{{x.name}}" name="manure_type" type="radio" value="{{x.name}}">
-                  <label class="govuk-label govuk-radios__label" for="{{x.name}}">
-                    {{x.display_name}}
-                  </label>
-                </div>
-              {% endfor %}
-            {% else %}
-              {% for x in data.manure_types_livestock_groups %}
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="{{x.type}}" name="manure_type" type="radio" value="{{x.type}}">
-                  <label class="govuk-label govuk-radios__label" for="{{x.type}}">
-                    {{x.name}}
-                  </label>
-                </div>
+            
+              {% if data.manure_group_id != 'livestock' %}
+                {% for x in data.manure_types %}
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="{{x.name}}" name="manure_type" type="radio" value="{{x.name}}">
+                    <label class="govuk-label govuk-radios__label" for="{{x.name}}">
+                      {{x.display_name}}
+                    </label>
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% for y in data.manure_types_livestock_groups %}
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="{{y.type}}" name="manure_type" type="radio" value="{{y.type}}">
+                    <label class="govuk-label govuk-radios__label" for="{{y.type}}">
+                      {{y.name}}
+                    </label>
+                  </div>
               {% endfor %}
             {% endif %}
 

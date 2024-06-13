@@ -584,44 +584,45 @@ router.get(/manuredate_handler/, function (req, res) {
 })
 
 router.get(/manuregroup_handler/, function (req, res) { 
-    if (req.session.data.manure_group_id == null) {
-        req.session.data.manure_group_id == "livestock"
+    if (req.session.data.manure_group_id == "livestock") {
+        req.session.data.manure_types = req.session.data.manure_types_livestock
+    } else if (req.session.data.manure_group_id == "biosolids") {
+        req.session.data.manure_types = req.session.data.manure_types_biosolid
+    } else if (req.session.data.manure_group_id == "other") {
+        req.session.data.manure_types = req.session.data.manure_types_other
+    } else if (req.session.data.manure_group_id == "digestate") {
+        req.session.data.manure_types = req.session.data.manure_types_digestate
     }
     res.redirect("/add_manure/manure_type")
 })
 
 router.get(/manuretype_handler/, function (req, res) {
+    // if (req.session.data.manure_group_id == "livestock") {
+        // if (req.session.data.manure_type == "dirty_water" || req.session.data.manure_type == "horse_fym" || req.session.data.manure_type == "goat_fym" || req.session.data.manure_type == "poultry") {
+        //     for (var x in req.session.data.manure_types_livestock) {
+        //         if (req.session.data.manure_types_livestock[x].type == req.session.data.manure_type) {
+        //             req.session.data.manure_type = req.session.data.manure_types_livestock[x]
+        //         }
+        //     }
+        // } else {
+        //     next = "/add_manure/livestock_type"
+        // }
+    // } else {
+    //     for (var x in req.session.data.manure_types ) {
+    //         if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
+    //             req.session.data.manure_type = req.session.data.manure_types[x]
+    //         }
+    //     }
+    // }
     var next = "/add_manure/manure_date"
     if (req.session.data.manure_group_id == "livestock") {
-        req.session.data.manure_types == req.session.data.manure_types_livestock
-        console.log(req.session.data.manure_type)
-        if (req.session.data.manure_type == "dirty_water" || req.session.data.manure_type == "horse_fym" || req.session.data.manure_type == "goat_fym" || req.session.data.manure_type == "poultry") {
-            for (var x in req.session.data.manure_types_livestock) {
-                if (req.session.data.manure_types_livestock[x].type == req.session.data.manure_type) {
-                    req.session.data.manure_type = req.session.data.manure_types_livestock[x]
-                }
-            }
-        } else {
-            next = "/add_manure/livestock_type"
-        }
-    } else {
-        if (req.session.data.manure_group_id == "biosolids") {
-            req.session.data.manure_types == req.session.data.manure_types_biosolid
-        } else if (req.session.data.manure_group_id == "other") {
-            req.session.data.manure_types == req.session.data.manure_types_other
-        } else if (req.session.data.manure_group_id == "digestate") {
-            req.session.data.manure_types == req.session.data.manure_types_digestate
-        }
-        for (var x in req.session.data.manure_types ) {
-            if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
-                req.session.data.manure_type = req.session.data.manure_types[x]
-            }
-        }
+        next = "/add_manure/livestock_type"
     }
     res.redirect(next)
 })
 
 router.get(/livestock_type_handler/, function (req, res) {
+    console.log(req.session.data.manure_type)
     for (var x in req.session.data.manure_types_livestock) {
         if (req.session.data.manure_types_livestock[x].name == req.session.data.manure_type) {
             req.session.data.manure_type = req.session.data.manure_types_livestock[x]

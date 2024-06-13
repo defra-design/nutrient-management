@@ -38,17 +38,16 @@
       </div>
       <div class="govuk-notification-banner__content">
         <h3 class="govuk-notification-banner__heading">
-          {% if data.multi_manures == true or data.single_manures == true %}
-            {{data.content.organic_term}} applications have been added to all fields in this plan.
+          {% if data.show_manure_notification == true %}
+            {{data.content.organic_term}} applications added to all fields in this plan.
           {% else %}
-            Plan created
+            {% if data.show_fertiliser_notification == true %}
+              {{data.content.non_organic_term}} applications added to all fields in this plan.
+            {% else %}
+              Plan created
+            {% endif %}
           {% endif %}
         </h3>
-        <!-- <p class="govuk-body"><a href="/old/plan/add_crops/crop_group">Add another crop to this plan</a></p> -->
-        <!-- <p class="govuk-body"><a href="">Add another crop to this plan</a></p> -->
-        <!-- <p class="govuk-body"><a href="">Add manures or fertilisers to this plan</a></p> -->
-        <!-- <p class="govuk-body"><a href="">Create a record from this plan</a></p> -->
-        <!-- <p class="govuk-body"><a href="">Download this plan</a></p> -->
       </div>
     </div>
     {% endif %}
@@ -61,6 +60,7 @@
       <p class="govuk-body"><a href="/add_crops/crop_group">Add another crop to this plan</a></p>
 
       <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Add {{data.content.organic_term | lower}} to multiple fields in this plan</a></p>
+      <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=multi">Add {{data.content.non_organic_term | lower}} to multiple fields in this plan</a></p>
 
     </div>
 
@@ -75,7 +75,7 @@
 
     <p class="govuk-body"><a href="">Edit the {{data.crop_group_2024.firstCropReference | nameconverter }} plan for all these fields</a></p>
 
-    <table class="govuk-table margin-bottom-forty big_crop_table">
+    <table class="govuk-table margin-bottom-forty big_crop_table_version_two">
       
       <!--show second crop table header where there is one -->
       <thead class="govuk-table__head">
@@ -85,12 +85,11 @@
             <th scope="col" class="govuk-table__header"></th>
             {% else %}
             <th scope="col" class="govuk-table__header">Second crop</th>
-            <th scope="col" class="govuk-table__header"></th>
           {% endif %}
 
-          <th scope="col" class="govuk-table__header">{{data.content.organic_term}} applications</th>
-
-          <th scope="col" class="govuk-table__header"></th>
+          <th scope="col" class="govuk-table__header">Organic applications</th>
+          <th scope="col" class="govuk-table__header">Inorganic applications</th>
+          <th scope="col" class="govuk-table__header">&nbsp;</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
@@ -104,6 +103,7 @@
           {% set hasSecondCrop = true %}
         {% endif %}
       {% endfor %}  
+
         <tr class="govuk-table__row">    
           <td class="govuk-table__cell">{{field.name}}</td>
 
@@ -117,8 +117,6 @@
             None
           {% endif %}
         </td>
-
-        <td class="govuk-table__cell"></td>
         
       {% endif %}
 
@@ -147,6 +145,33 @@
           {% endif %}
         {% endif %} 
       </td>
+
+      <td class="govuk-table__cell">
+        {% if data.multi_fertiliser == true %}
+          {% if data.single_fertiliser == true %}
+            {% if field.reference == '7' %}
+              2
+            {% else %}
+              1
+            {% endif %}
+          {% else %}
+              1
+          {% endif %}
+        {% endif %} 
+          
+        {% if data.multi_fertiliser == false %}
+          {% if data.single_fertiliser == true %}
+            {% if field.reference == '7' %}
+              1
+            {% else %}
+              None
+            {% endif %}
+          {% else %}
+            None
+          {% endif %}
+        {% endif %} 
+      </td>
+
 
           <td class="govuk-table__cell">
             {% if hasSecondCrop == true %}
@@ -180,7 +205,7 @@
 
     <p class="govuk-body"><a href="">Edit the {{data.crop_group_2024.thirdCropReference | nameconverter }}  plan for all these fields</a></p>
 
-    <table class="govuk-table margin-bottom-forty big_crop_table">
+    <table class="govuk-table margin-bottom-forty big_crop_table_version_two">
       
       <!--show second crop table header where there is one -->
       <thead class="govuk-table__head">
@@ -194,9 +219,10 @@
             <th scope="col" class="govuk-table__header"></th>
           {% endif %}
 
-          <th scope="col" class="govuk-table__header">{{data.content.organic_term}} applications</th>
+          <th scope="col" class="govuk-table__header">Organic applications</th>
+          <th scope="col" class="govuk-table__header">Inorganic applications</th>
 
-          <th scope="col" class="govuk-table__header"></th>
+          <th scope="col" class="govuk-table__header">&nbsp;</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
@@ -223,7 +249,7 @@
             None
           {% endif %}
         </td>
-        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell">nbsp;</td>
 
       {% endif %}
 
@@ -252,6 +278,33 @@
           {% endif %}
         {% endif %} 
       </td>
+
+      <td class="govuk-table__cell">
+        {% if data.multi_fertiliser == true %}
+          {% if data.single_fertiliser == true %}
+            {% if field.reference == '7' %}
+              2
+            {% else %}
+              1
+            {% endif %}
+          {% else %}
+              1
+          {% endif %}
+        {% endif %} 
+          
+        {% if data.multi_fertiliser == false %}
+          {% if data.single_fertiliser == true %}
+            {% if field.reference == '7' %}
+              1
+            {% else %}
+              None
+            {% endif %}
+          {% else %}
+            None
+          {% endif %}
+        {% endif %} 
+      </td>
+
 
           <td class="govuk-table__cell">
             {% if hasSecondCrop == true %}

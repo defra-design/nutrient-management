@@ -30,24 +30,23 @@
 
 {% block content %}
 
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
     {% if data.show_success_message == true %}
-
-    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-      <div class="govuk-notification-banner__header">
-        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-          Success
-        </h2>
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading">
+              {{data.content.organic_term}} applications added to {{data.chosenField.name}}.
+          </h3>
+        </div>
       </div>
-      <div class="govuk-notification-banner__content">
-        <h3 class="govuk-notification-banner__heading">
-            {{data.content.organic_term}} applications added to {{data.chosenField.name}}.
-        </h3>
-      </div>
-    </div>
-
     {% endif %}
 
 
@@ -65,8 +64,7 @@
           <a href="v2manure_handler?manurejourney=single">Add or edit {{data.content.organic_term | lower}} applications for {{data.chosenField.name}}</a>
         {% endif %}
       </p>
-
-      <!-- <p class="govuk-body"><a href="">Add {{data.content.non_organic_term | lower}} applications for {{data.chosenField.name}}</a></p> -->
+      <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add or edit {{data.content.non_organic_term | lower}} applications for {{data.chosenField.name}}</a></p>
     </div>
     
   </div>
@@ -76,13 +74,10 @@
       {% include "./templates/main-crop.html" ignore missing %}
   </div>
 
+    <!-- recommendation table -->
     <div class="govuk-grid-column-full">
       <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
-      {% if data.multi_manures == false and data.single_manures == false %}
-        {% include "./templates/nutrients_blank.html" ignore missing %}
-      {% else %}
-        {% include "./templates/nutrients_manure.html" ignore missing %}
-      {% endif %}
+        {% include "./templates/nutrients_new.html" ignore missing %}
     </div>
     <div class="govuk-grid-column-two-thirds margin-bottom-forty">
       <div class="govuk-inset-text">
@@ -92,21 +87,25 @@
        </div> 
     </div>
 
-
+    <!-- manures -->
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
       {% if data.multi_manures == false and data.single_manures == false %}
-      <p>You have no {{data.content.organic_term | lower}} applications planned for this field. <a href="v2manure_handler?manurejourney=single"> <br><a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosenField.name}}</a></a></p>
-    {% else %}
-      {% include "./templates/applications.html" ignore missing %}
-    {% endif %}
-
+        <p>You have no {{data.content.organic_term | lower}} applications planned for this field. <a href="v2manure_handler?manurejourney=single"> <br><a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosenField.name}}</a></a></p>
+      {% else %}
+        {% include "./templates/applications.html" ignore missing %}
+      {% endif %}
     </div>
 
-    <!-- <div class="govuk-grid-column-full margin-bottom-forty">
+    <!-- fertiliser -->
+    <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.non_organic_term}} applications</h2>
+      {% if data.multi_fertiliser == false and data.single_fertiliser == false %}
         <p>You have no {{data.content.non_organic_term | lower}} applications planned for this field. <a href=""> <br>Add {{data.content.non_organic_term | lower}} applications for {{data.chosenField.name}}</a></p>
-    </div> -->
+      {% else %}
+        {% include "./templates/fertiliser_applications.html" ignore missing %}
+      {% endif %}
+    </div>
 
 </div>
 

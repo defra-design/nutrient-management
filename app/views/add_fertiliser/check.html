@@ -19,7 +19,12 @@
     
     <!-- {% include "templates/title_span.html" %} -->
     <h1 class="govuk-heading-l">
-      Check {{data.content.non_organic_term | lower }} details for Winter Wheat Fields
+      Check {{data.content.non_organic_term | lower }} details 
+      {% if data.fertiliser_journey == "multi" %}
+        for the Winter Wheat Fields
+      {% else %}
+        for {{data.chosenField.name}}
+      {% endif %}
     </h1>
 
     <div class="check-answers">

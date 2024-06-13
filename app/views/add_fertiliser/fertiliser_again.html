@@ -19,7 +19,12 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Do you plan to spread more {{data.content.non_organic_term | lower }} on these fields?
+        Do you plan to spread more {{data.content.non_organic_term | lower }}
+        {% if data.fertiliser_journey == "multi" %}
+          on the Winter Wheat Fields?
+        {% else %}
+          on {{data.chosenField.name}}?
+        {% endif %}
       </h1>
 
       <form class="form" action="check" method="post">

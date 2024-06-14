@@ -12,7 +12,7 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">When do you first plan to spread inorganic fertiliser?</dt>
+    <dt class="govuk-summary-list__key">When do you plan to spread inorganic fertiliser?</dt>
     <dd class="govuk-summary-list__value">August to September</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
@@ -24,8 +24,48 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Do you plan to spread more inorganic fertiliser?</dt>
-    <dd class="govuk-summary-list__value">No</dd>
+    <dt class="govuk-summary-list__key">
+      Do you plan to spread more inorganic fertiliser on
+      {% if data.fertiliser_journey == "multi" %}
+        The Winter Wheat fields?
+      {% else %}
+        {{data.chosenField.name}}?
+      {% endif %}
+    </dt>
+      {% if data.fertiliser_count != 0 %}
+        <dd class="govuk-summary-list__value">Yes</dd>
+      {% else %}
+        <dd class="govuk-summary-list__value">No</dd>
+      {% endif %}
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+
+  {% if data.fertiliser_count != 0 %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">When do you plan to spread inorganic fertiliser?</dt>
+      <dd class="govuk-summary-list__value">Mid March to early April</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">How much of each nutrient do you plan to include in this application?</dt>
+      <dd class="govuk-summary-list__value">10kg Nitrogen(N)	</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Do you plan to spread more inorganic fertiliser on
+        {% if data.fertiliser_journey == "multi" %}
+          The Winter Wheat fields?
+        {% else %}
+          {{data.chosenField.name}}?
+        {% endif %}
+      </dt>
+      <dd class="govuk-summary-list__value">No</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>  
+
+  {% endif %}
+
 </dl>

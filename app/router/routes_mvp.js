@@ -699,18 +699,27 @@ router.get(/v2fertiliser_handler/, function (req, res) {
     }
 })
 
+router.get(/fertiliser_loop_handler/, function (req, res) { 
+    if (req.session.data.fertiliser_loop == 'no') {
+        res.redirect('/add_fertiliser/check')
+    } else {
+        req.session.data.fertiliser_count++
+        res.redirect('/add_fertiliser/fertiliser_when')
+    }
+})
+
 //CHECK
-    router.get(/version2_fertiliser_handler/, function (req, res) { 
-        req.session.data.show_success_message = true
-        req.session.data.show_fertiliser_notification = true
-        req.session.data.show_manure_notification = false    
-        if (req.session.data.fertiliser_journey == 'multi') {
-            req.session.data.multi_fertiliser = true
-            res.redirect('/version_2/crop_plan/plan_view')
-        } else {
-            req.session.data.single_fertiliser = true    
-            res.redirect('/version_2/field_plan/index')
-        }
-    })
+router.get(/version2_fertiliser_handler/, function (req, res) { 
+    req.session.data.show_success_message = true
+    req.session.data.show_fertiliser_notification = true
+    req.session.data.show_manure_notification = false    
+    if (req.session.data.fertiliser_journey == 'multi') {
+        req.session.data.multi_fertiliser = true
+        res.redirect('/version_2/crop_plan/plan_view')
+    } else {
+        req.session.data.single_fertiliser = true    
+        res.redirect('/version_2/field_plan/index')
+    }
+})
     
 module.exports = router

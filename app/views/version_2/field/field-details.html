@@ -45,11 +45,11 @@
         <div class="govuk-notification-banner__content">
           {% if data.oaktree_farm.latest_update == 'soil-added' %}
             <h3 class="govuk-notification-banner__heading">
-              You have added new soil analysis for {{data.chosenfield}}.
+              You have added a new soil analysis for {{data.chosenfield}}
             </h3>
           {% elif data.oaktree_farm.latest_update == 'field_updated' %}
           <h3 class="govuk-notification-banner__heading">
-            You have updated {{data.chosenfield}}.
+            You have updated {{data.chosenfield}}
           </h3>
           {% endif %}
         </div>
@@ -93,10 +93,7 @@
       </tbody>
     </table>   
 
-    <p class="govuk-body margin-bottom-forty"><a href="/add-field/update">Change field details</a></p>
-
-    <p>You can also remove {{data.chosenfield}}. This will remove all of the field data including soil analysis. It will also remove {{data.chosenfield}} from your plans. You will not be able to get it back.</p>
-      
+    <p class="govuk-body margin-bottom-forty"><a href="/add-field/update">Change field details</a></p>      
     <p class="govuk-body margin-bottom-forty"><a href="/add-field/remove">Remove {{data.chosenfield}}</a></p>
 
 

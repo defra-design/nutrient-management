@@ -19,12 +19,7 @@
     
     <!-- {% include "templates/title_span.html" %} -->
     <h1 class="govuk-heading-l">
-      Check {{data.content.non_organic_term | lower }} details 
-      {% if data.fertiliser_journey == "multi" %}
-        for the Winter Wheat Fields
-      {% else %}
-        for {{data.chosenField.name}}
-      {% endif %}
+      Check your answers
     </h1>
 
     <div class="check-answers">
@@ -33,7 +28,7 @@
 
     <form action="version2_fertiliser_handler" method="post" novalidate>
       {{ govukButton({
-        text: "Add to application plan"
+        text: "Add to plan"
       }) }}
     </form>
     <p class="govuk-body">

@@ -56,15 +56,15 @@
     
     <div class="margin-bottom-forty">
       <p class="govuk-body "><a href="">Change {{data.chosen_crop | nameconverter}} plan for {{data.chosenField.name}}</a></p>
-
+      <h2 class="govuk-heading-m">Applications of organic material and inorganic fertiliser</h2>
       <p class="govuk-body">
         {% if data.multi_manures == false and data.single_manures == false %}
-          <a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosenField.name}}</a>
+          <a href="v2manure_handler?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosenField.name}}</a>
         {% else %}
-          <a href="v2manure_handler?manurejourney=single">Add or edit {{data.content.organic_term | lower}} applications for {{data.chosenField.name}}</a>
+          <a href="v2manure_handler?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosenField.name}}</a>
         {% endif %}
       </p>
-      <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add or edit {{data.content.non_organic_term | lower}} applications for {{data.chosenField.name}}</a></p>
+      <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Plan or edit an application of {{data.content.non_organic_term | lower}} to {{data.chosenField.name}}</a></p>
     </div>
     
   </div>

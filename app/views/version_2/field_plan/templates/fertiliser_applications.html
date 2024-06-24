@@ -19,7 +19,18 @@
       <td class="govuk-table__cell">0</td>
       <td class="govuk-table__cell">0</td>
       <td class="govuk-table__cell">0</td>
-    </tr>      
+    </tr>
+
+    {% if data.single_fertiliser == true %}
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">August to September</td>
+        <td class="govuk-table__cell">10kg</td>
+        <td class="govuk-table__cell">0</td>
+        <td class="govuk-table__cell">0</td>
+        <td class="govuk-table__cell">0</td>
+        <td class="govuk-table__cell">0</td>
+      </tr>
+    {% endif %}
 
   </tbody>
 </table>

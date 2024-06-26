@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      {{ serviceName }}
+    </h1>
+
+    <p>Get nutrient recommendations for your crops, then manage and record your use of manures and fertilisers to align with environmental regulations.</p>
+    <p>Planning and recording can:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>save you money</li>
+      <li>help you align with environmental regulations</li>
+      <li>help protect the environment</li>
+    </ul>
+
+    <p>Your plan will be based on:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the crops you grow</li>
+      <li>the nutrients in your soil</li>
+      <li>the manures and fertilisers you use and how you apply them</li>
+    </ul>
+
+    {% if data.oaktree_farm.setup == true %}
+    <form class="form margin-top-forty" action="farms" method="post">
+      {% else %}
+      <form class="form margin-top-forty" action="/add-farm/name" method="post">
+    {% endif %}
+
+    {{ govukButton({
+      text: "Start now"
+    }) }}
+
+  </form>
+
+</div>
+</div>
+
+
+{% endblock %}

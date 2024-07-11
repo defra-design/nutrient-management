@@ -543,7 +543,7 @@ router.get(/delete_handler/, function (req, res) {
 //farm view reset messages
 router.get(/hub_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    res.redirect('/' + req.session.data.prototype_version + '/hub')
+    res.redirect('/' + req.session.data.prototype_version + '/farm/hub')
 })
 
 //manage fields view reset messages
@@ -555,7 +555,7 @@ router.get(/field_reset_handler/, function (req, res) {
 //add a field view reset messages
 router.get(/field_add_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    res.redirect('/add-field/name')
+    res.redirect('/'+ req.session.data.prototype_version + '/add-field/name')
 })
 
 //add a field view reset messages
@@ -582,9 +582,9 @@ router.get(/planview_reset_handler/, function (req, res) {
 router.get(/v2manure_handler/, function (req, res) { 
     req.session.data.manure_journey = req.query.manurejourney
     if (req.session.data.manure_journey == 'multi') {
-        res.redirect('/add_manure/manure_fields')
+        res.redirect('../../add_manure/manure_fields')
     } else {
-        res.redirect('/add_manure/manure_group')
+        res.redirect('../../add_manure/manure_group')
     }
 })
 
@@ -620,14 +620,14 @@ router.get(/manurecheck_handler/, function (req, res) {
     if (req.query.notification == 'true') {
         req.session.data.show_manure_notification = true
     }
-    res.redirect('/add_manure/check')
+    res.redirect('check')
 })
 
 router.get(/manuredate_handler/, function (req, res) { 
     if (req.query.notification == 'true') {
         req.session.data.show_manure_notification = true
     }
-    res.redirect('/add_manure/manure_datenotification')
+    res.redirect('manure_datenotification')
 })
 
 router.get(/manuregroup_handler/, function (req, res) { 
@@ -640,7 +640,7 @@ router.get(/manuregroup_handler/, function (req, res) {
     } else if (req.session.data.manure_group_id == "digestate") {
         req.session.data.manure_types = req.session.data.manure_types_digestate
     }
-    res.redirect("/add_manure/manure_type")
+    res.redirect("manure_type")
 })
 
 router.get(/manuretype_handler/, function (req, res) {
@@ -652,14 +652,14 @@ router.get(/manuretype_handler/, function (req, res) {
             }
         }
     }
-    var next = "/add_manure/manure_date"
+    var next = "manure_date"
     if (req.session.data.manure_group_id == "livestock") {
-        next = "/add_manure/livestock_type"
+        next = "livestock_type"
         if (req.session.data.manure_type == "dirty_water" ||
             req.session.data.manure_type == "horse_fym" || 
             req.session.data.manure_type == "goat_fym" ||
             req.session.data.manure_type == "poultry") {
-            next = "/add_manure/manure_date"
+            next = "manure_date"
             //get object
             for (var x in req.session.data.manure_types_livestock ) {
                 if (req.session.data.manure_types_livestock[x].type == req.session.data.manure_type) {
@@ -679,31 +679,31 @@ router.get(/livestock_type_handler/, function (req, res) {
             req.session.data.manure_type = req.session.data.manure_types_livestock[x]
         }
     }
-    res.redirect("/add_manure/manure_date")
+    res.redirect("manure_date")
 })
 
 
 router.get(/manure_date_handler/, function (req, res) {
     if (req.session.data.manure_type.liquid == true) {
-        res.redirect("/add_manure/manure_applied")
+        res.redirect("manure_applied")
     } else {
-        res.redirect("/add_manure/manure_defaults")
+        res.redirect("manure_defaults")
     }
 })
 
 router.get(/incorporation_handler/, function (req, res) {
     if (req.session.data.incorporation_method == 'not_incorporated') {
-        res.redirect("/add_manure/rain_defaults")
+        res.redirect("rain_defaults")
     } else {
-        res.redirect("/add_manure/manure_delay")
+        res.redirect("manure_delay")
     }
 })
 
 router.get(/enter_manure_defualts_handler/, function (req, res) {
     if (req.session.data.edit_manure_defaults === "no") {
-        res.redirect("/add_manure/manure_defaults_update")
+        res.redirect("manure_defaults_update")
     } else {
-        res.redirect("/add_manure/manure_quantity")
+        res.redirect("manure_quantity")
     }
 })
 
@@ -724,9 +724,9 @@ router.get(/enter_manure_defualts_handler/, function (req, res) {
 router.get(/v2fertiliser_handler/, function (req, res) { 
     req.session.data.fertiliser_journey = req.query.fertiliserjourney
     if (req.session.data.fertiliser_journey == 'multi') {
-        res.redirect('/add_fertiliser/fertiliser_fields')
+        res.redirect('../../add_fertiliser/fertiliser_fields')
     } else {
-        res.redirect('/add_fertiliser/fertiliser_amount')
+        res.redirect('../../add_fertiliser/fertiliser_amount')
     }
 })
 

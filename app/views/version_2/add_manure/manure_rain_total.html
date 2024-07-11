@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Total rainfall since application
+      </h1>
+
+      <p class="govuk-body">This is the total rainfall between x and y. If you think this is wrong, you can change it now or later.</p>
+
+      <div class="text-group margin-bottom-forty">
+        <h3 class="govuk-heading-s">Total rainfall</h3>
+        <p class="govuk-body">328mm</p>
+        <!-- <p class="govuk-body"><a href="rainfall-manual">Change</a></p> -->
+        <p class="govuk-body"><a href="">Change</a></p>
+      </div>
+      
+      <form action="rain_defaults" method="post" novalidate="">
+        <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
+
+  </div>
+
+</div>
+
+{% endblock %}

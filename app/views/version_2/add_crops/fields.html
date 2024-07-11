@@ -1,0 +1,86 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <!-- <span class="govuk-caption-l">
+        Nutrient application plan 2023 to 2024
+      </span> -->
+
+      <h1 class="govuk-heading-l">
+        Which fields do you plan to grow {{data.chosen_crop | nameconverter}} in?
+      </h1>
+
+      <form class="form" action="mvp_fields_handler" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <div id="waste-hint" class="govuk-hint">
+              Select all that apply.
+            </div>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+            {% for field in data.current_fields %}
+              {% set isPlanned = false %}
+              {% for thisField in data.crop_group_2024.firstCropFields %} 
+                {% if thisField.reference == field.reference %}
+                  {% set isPlanned = true %}
+                {% endif %}
+              {% endfor %} 
+              {% for thisField in data.crop_group_2024.thirdCropFields %} 
+              {% if thisField.reference == field.reference %}
+                {% set isPlanned = true %}
+              {% endif %}
+            {% endfor %} 
+              {% if isPlanned == false %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id={{field.reference}} name="crop_fields" type="checkbox" value={{field.reference}}>
+                <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                  {{field.name}}
+                </label>
+              </div>
+              {% endif %}
+            {% endfor %}   
+            
+            <div class="govuk-checkboxes__divider">or</div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="" name="" type="checkbox" value="">
+              <label class="govuk-label govuk-checkboxes__label" for="">
+                Select all
+              </label>
+            </div>
+
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

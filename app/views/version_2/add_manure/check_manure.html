@@ -1,0 +1,48 @@
+<dl class="govuk-summary-list margin-bottom-forty">
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Which fields would you like to plan organic material applications for?</dt>
+    {% if data.manure_journey == 'multi' %}
+      <dd class="govuk-summary-list__value">The winter wheat fields</dd>
+    {% else %}
+      <dd class="govuk-summary-list__value">{{data.chosenField.name}}</dd>
+    {% endif %}
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  {% if data.manure_type.liquid == true %}
+    {% include "./check_manure_liquid.html" %}
+  {% else %}
+    {% include "./check_manure_values.html" %}
+  {% endif %}
+
+
+  <!-- <div class="govuk-summary-list__row">
+    
+    <dt class="govuk-summary-list__key">Do you want to add this {{data.content.organic_term | lower}} to 
+      {% if data.manure_journey == 'multi' %}
+        these fields
+      {% else %}
+        {{data.chosenField.name}}
+      {% endif %}
+      again, in the same way? 
+    </dt>
+
+    {% if data.manure_count == 0 %}
+      <dd class="govuk-summary-list__value">No</dd>
+    {% else %}
+      <dd class="govuk-summary-list__value">Yes</dd>
+    {% endif %}
+
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div> -->
+
+  {% if data.manure_count != 0 %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">When will you next apply {{data.manure_type}} to these fields?</dt>
+      <dd class="govuk-summary-list__value">30 August 2023</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+    {% endif %}
+
+</dl>

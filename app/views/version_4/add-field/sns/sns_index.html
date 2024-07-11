@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Soil Nitrogen Supply Index for {{data.temp_field_name}}
+      </h1>
+
+      <p class="govuk-body">If you think this is wrong, you can change it now or later.</p>
+
+      <div class="text-group margin-bottom-forty">
+        <h3 class="govuk-heading-s">Soil Nitrogen Supply Index</h3>
+        <p class="govuk-body">2 (85kg/ha)</p>
+        <!-- <p class="govuk-body"><a href="sns_index_manual">Change</a></p> -->
+        <p class="govuk-body"><a href="">Change</a></p>
+      </div>
+      
+      <form action="/add-field/check" method="post" novalidate="">
+        <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
+
+  </div>
+
+</div>
+
+{% endblock %}

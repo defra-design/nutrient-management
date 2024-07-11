@@ -10,7 +10,14 @@ const allFunctions = require('../functions/allFunctions.js');
 router.get(/farm_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     req.session.data.oaktree_farm.setup = true
+    req.session.data.prototype_version = 'mvp'
     res.redirect('/mvp/start')
+})
+
+router.get(/v4_setup_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    req.session.data.prototype_version = 'version_4'
+    res.redirect('/version_4/start')
 })
 
 router.get(/fields_setup_handler/, function (req, res) { 
@@ -237,7 +244,7 @@ router.get(/organic_handler/, function (req, res) {
     // console.log('organic = ' + req.session.data.organic_producer )
     // console.log('elevation = ' + req.session.data.farm_elevation )
     // console.log(req.session.data.oaktree_farm)
-    res.redirect('/add-farm/check')
+    res.redirect('check')
 })
 
 router.get(/add_farms_handler/, function (req, res) { 
@@ -253,7 +260,7 @@ router.get(/add_farms_handler/, function (req, res) {
     req.session.data.oaktree_farm.latest_update = 'added'
     req.session.data.show_success_message = true
     // console.log(req.session.data.oaktree_farm)
-    res.redirect('/'+ req.session.data.prototype_version +'/hub')
+    res.redirect('/'+ req.session.data.prototype_version +'/farm/hub')
 })
 
 
@@ -278,7 +285,7 @@ router.get(/add-field-handler/, function (req, res) {
     console.log('reference = ' + req.session.data.tempField.reference)
     req.session.data.current_fields.push(req.session.data.tempField)
     console.log(req.session.data.tempField)
-    res.redirect('/mvp/field/manage-fields')
+    res.redirect('/'+ req.session.data.prototype_version +'/farm/field/manage-fields')
 })
 
 router.get(/soil_type_handler/, function (req, res) { 
@@ -514,7 +521,7 @@ router.get(/mvp_check_handler/, function (req, res) {
     }
     req.session.data.crop_group_2024.totalFields = allFunctions.totalFieldsCount(req.session.data.crop_group_2024);
 
-    res.redirect('/'+ req.session.data.prototype_version + '/crop_plan/plan_view')
+    res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 
 

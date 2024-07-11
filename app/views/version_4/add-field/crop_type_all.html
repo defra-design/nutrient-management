@@ -20,14 +20,10 @@
 
       <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        {% if data.sns_method == "no" %}
-          What was the previous crop type?
-        {% else %}
-          What is the current crop type?
-        {% endif %}
+        What was the previous crop type in 2023?
       </h1>
 
-      <form class="form" action="log_croptype_handler" method="post">
+      <form class="form" action="sns" method="post">
 
         <div class="govuk-form-group">
           <!-- <fieldset class="govuk-fieldset">

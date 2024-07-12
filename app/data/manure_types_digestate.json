@@ -1,0 +1,8 @@
+[
+    {"name": "Digestate - Whole Food Based", "display_name": "Whole Food Based", "type": "digestate", "liquid": true, "group_id": "digestate"},
+    {"name": "Digestate - Separated Liquor Food Based", "display_name": "Separated Liquor Food Based", "type": "digestate", "liquid": true, "group_id": "digestate"},
+    {"name": "Digestate - Separated Fibre Food Based", "display_name": "Separated Fibre Food Based", "type": "digestate", "liquid": false, "group_id": "digestate"},
+    {"name": "Digestate - Whole Farm Sourced", "display_name": "Whole Farm Sourced", "type": "other", "liquid": true, "group_id": "digestate"},
+    {"name": "Digestate - Separated Liquor Farm Sourced", "display_name": "Separated Liquor Farm Sourced", "type": "digestate", "liquid": true, "group_id": "digestate"},
+    {"name": "Digestate - Separated Fibre Farm Sourced", "display_name": "Separated Fibre Farm Sourced", "type": "digestate", "liquid": false, "group_id": "digestate"}
+]

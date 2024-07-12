@@ -1,0 +1,2219 @@
+[
+    {    "cropTypeId": 0,
+      "cropType": "Winter Wheat",
+      "cropGroupName": "Cereals",
+      "countryId": 3
+    },
+    {    "cropTypeId": 1,
+      "cropType": "Winter Barley",
+      "cropGroupName": "Cereals",
+      "countryId": 3
+    },
+    {    "cropTypeId": 2,
+      "cropType": "Spring Wheat",
+      "cropGroupName": "Cereals",
+      "countryId": 3
+    },
+    {    "cropTypeId": 3,
+      "cropType": "Spring Barley",
+      "cropGroupName": "Cereals",
+      "countryId": 3
+    },
+    {    "cropTypeId": 4,
+      "cropType": "Winter Oats",
+      "cropGroupName": "Cereals",
+      "countryId": 3
+    },
+    {    "cropTypeId": 5,
+      "cropType": "Spring Oats",
+      "cropGroupName": "Cereals",
+      "countryId": 3
+    },
+    {    "cropTypeId": 6,
+      "cropType": "Winter Rye",
+      "cropGroupName": "Cereals",
+      "countryId": 3
+    },
+    {    "cropTypeId": 7,
+      "cropType": "Spring Rye",
+      "cropGroupName": "Cereals",
+      "countryId": 3
+    },
+    {    "cropTypeId": 8,
+      "cropType": "Winter Triticale",
+      "cropGroupName": "Cereals",
+      "countryId": 3
+    },
+    {    "cropTypeId": 9,
+      "cropType": "Spring Triticale",
+      "cropGroupName": "Cereals",
+      "countryId": 3
+    },
+    {    "cropTypeId": 171,
+      "cropType": "Barley, spring (undersown)",
+      "cropGroupName": "Cereals",
+      "countryId": 2
+    },
+    {    "cropTypeId": 172,
+      "cropType": "Oats, spring (undersown)",
+      "cropGroupName": "Cereals",
+      "countryId": 2
+    },
+    {    "cropTypeId": 173,
+      "cropType": "Triticale, spring (undersown)",
+      "cropGroupName": "Cereals",
+      "countryId": 2
+    },
+    {    "cropTypeId": 174,
+      "cropType": "Wheat, spring (undersown)",
+      "cropGroupName": "Cereals",
+      "countryId": 2
+    },
+    {    "cropTypeId": 20,
+      "cropType": "Winter Oilseed Rape",
+      "cropGroupId": 1,
+      "countryId": 3
+    },
+    {    "cropTypeId": 21,
+      "cropType": "Spring Oilseed Rape",
+      "cropGroupId": 1,
+      "countryId": 3
+    },
+    {    "cropTypeId": 22,
+      "cropType": "Linseed",
+      "cropGroupId": 1,
+      "countryId": 3
+    },
+    {    "cropTypeId": 23,
+      "cropType": "Peas",
+      "cropGroupId": 1,
+      "countryId": 3
+    },
+    {    "cropTypeId": 24,
+      "cropType": "Winter Beans",
+      "cropGroupId": 1,
+      "countryId": 3
+    },
+    {    "cropTypeId": 25,
+      "cropType": "Spring Beans",
+      "cropGroupId": 1,
+      "countryId": 3
+    },
+    {    "cropTypeId": 26,
+      "cropType": "Sugar Beet",
+      "cropGroupId": 1,
+      "countryId": 1
+    },
+    {    "cropTypeId": 28,
+      "cropType": "Uncropped or Fallow",
+      "cropGroupId": 1,
+      "countryId": 3
+    },
+    {    "cropTypeId": 175,
+      "cropType": "Lupins",
+      "cropGroupId": 1,
+      "countryId": 2
+    },
+    {    "cropTypeId": 176,
+      "cropType": "Hemp",
+      "cropGroupId": 1,
+      "countryId": 2
+    },
+    {    "cropTypeId": 187,
+      "cropType": "Herbage for seed",
+      "cropGroupId": 1,
+      "countryId": 2
+    },
+    {    "cropTypeId": 27,
+      "cropType": "Ryegrass Grown For Seed",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 40,
+      "cropType": "Forage Maize",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 41,
+      "cropType": "Forage Swedes",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 43,
+      "cropType": "Forage Rape",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 44,
+      "cropType": "Stubble Turnips",
+      "cropGroupName": "Forage",
+      "countryId": 1
+    },
+    {    "cropTypeId": 45,
+      "cropType": "Fodder Beet",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 50,
+      "cropType": "Wholecrop Spring Barley",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 51,
+      "cropType": "Wholecrop Spring Wheat",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 52,
+      "cropType": "Wholecrop Winter Barley",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 53,
+      "cropType": "Wholecrop Winter Wheat",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 54,
+      "cropType": "Forage Spring Oats",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 55,
+      "cropType": "Forage Spring Rye",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 56,
+      "cropType": "Forage Spring Triticale",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 57,
+      "cropType": "Forage Winter Oats",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 58,
+      "cropType": "Forage Winter Rye",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 59,
+      "cropType": "Forage Winter Triticale",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 188,
+      "cropType": "Kale (cut)",
+      "cropGroupName": "Forage",
+      "countryId": 2
+    },
+    {    "cropTypeId": 189,
+      "cropType": "Kale Grazed",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 191,
+      "cropType": "Chicory, pure stand",
+      "cropGroupName": "Forage",
+      "countryId": 2
+    },
+    {    "cropTypeId": 194,
+      "cropType": "Swedes",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 195,
+      "cropType": "Turnips",
+      "cropGroupName": "Forage",
+      "countryId": 3
+    },
+    {    "cropTypeId": 60,
+      "cropType": "Asparagus",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 61,
+      "cropType": "Brussel Sprouts",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 62,
+      "cropType": "Cabbage",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 63,
+      "cropType": "Cauliflower",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 64,
+      "cropType": "Calabrese",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 65,
+      "cropType": "Celery Self-blanching",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 66,
+      "cropType": "Broad Beans",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 67,
+      "cropType": "Dwarf Beans",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 68,
+      "cropType": "Runner Beans",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 69,
+      "cropType": "Lettuce",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 70,
+      "cropType": "Radish",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 71,
+      "cropType": "Sweetcorn",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 72,
+      "cropType": "Courgettes",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 73,
+      "cropType": "Bulb Onions",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 74,
+      "cropType": "Salad Onions",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 75,
+      "cropType": "Leeks",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 77,
+      "cropType": "Baby Leaf Lettuce",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 78,
+      "cropType": "Wild Rocket",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 79,
+      "cropType": "Pumpkin",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 181,
+      "cropType": "Market Pick Peas",
+      "cropGroupId": 3,
+      "countryId": 3
+    },
+    {    "cropTypeId": 90,
+      "cropType": "Beetroot",
+      "cropGroupId": 4,
+      "countryId": 3
+    },
+    {    "cropTypeId": 91,
+      "cropType": "Parsnips",
+      "cropGroupId": 4,
+      "countryId": 3
+    },
+    {    "cropTypeId": 92,
+      "cropType": "Swedes",
+      "cropGroupId": 4,
+      "countryId": 1
+    },
+    {    "cropTypeId": 93,
+      "cropType": "Turnips",
+      "cropGroupId": 4,
+      "countryId": 3
+    },
+    {    "cropTypeId": 94,
+      "cropType": "Carrots",
+      "cropGroupId": 4,
+      "countryId": 3
+    },
+    {    "cropTypeId": 182,
+      "cropType": "Swedes, shopping",
+      "cropGroupId": 4,
+      "countryId": 2
+    },
+    {    "cropTypeId": 110,
+      "cropType": "Dessert Apples",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 1
+    },
+    {    "cropTypeId": 111,
+      "cropType": "Culinary Apples",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 1
+    },
+    {    "cropTypeId": 112,
+      "cropType": "Cider Apples",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 1
+    },
+    {    "cropTypeId": 113,
+      "cropType": "Pears",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 1
+    },
+    {    "cropTypeId": 114,
+      "cropType": "Cherries",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 1
+    },
+    {    "cropTypeId": 115,
+      "cropType": "Plums",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 1
+    },
+    {    "cropTypeId": 116,
+      "cropType": "Blackcurrants",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 3
+    },
+    {    "cropTypeId": 117,
+      "cropType": "Redcurrants",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 3
+    },
+    {    "cropTypeId": 118,
+      "cropType": "Gooseberries",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 3
+    },
+    {    "cropTypeId": 119,
+      "cropType": "Raspberries",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 3
+    },
+    {    "cropTypeId": 120,
+      "cropType": "Loganberries",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 3
+    },
+    {    "cropTypeId": 121,
+      "cropType": "Tayberries",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 3
+    },
+    {    "cropTypeId": 122,
+      "cropType": "Blackberries",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 3
+    },
+    {    "cropTypeId": 123,
+      "cropType": "Strawberries",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 3
+    },
+    {    "cropTypeId": 124,
+      "cropType": "Vines",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 1
+    },
+    {    "cropTypeId": 125,
+      "cropType": "Hops",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 1
+    },
+    {    "cropTypeId": 177,
+      "cropType": "Blueberries",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 2
+    },
+    {    "cropTypeId": 178,
+      "cropType": "Rhubarb",
+      "cropGroupName": "Fruits Vines and Hops",
+      "countryId": 2
+    },
+    {    "cropTypeId": 140,
+      "cropType": "Grass",
+      "cropGroupName": "Grass",
+      "countryId": 3
+    },
+    {    "cropTypeId": 160,
+      "cropType": "Potato Variety Group 1",
+      "cropGroupId": 7,
+      "countryId": 3
+    },
+    {    "cropTypeId": 161,
+      "cropType": "Potato Variety Group 2",
+      "cropGroupId": 7,
+      "countryId": 3
+    },
+    {    "cropTypeId": 162,
+      "cropType": "Potato Variety Group 3",
+      "cropGroupId": 7,
+      "countryId": 3
+    },
+    {    "cropTypeId": 163,
+      "cropType": "Potato Variety Group 4",
+      "cropGroupId": 7,
+      "countryId": 3
+    },
+    {    "cropTypeId": 170,
+      "cropType": "Other",
+      "cropGroupId": 8,
+      "countryId": 3
+    },
+    {    "cropTypeId": 184,
+      "cropType": "Miscanthus",
+      "cropGroupName": "Biomass",
+      "countryId": 1
+    },
+    {    "cropTypeId": 185,
+      "cropType": "Willow",
+      "cropGroupName": "Biomass",
+      "countryId": 1
+    },
+    {    "cropTypeId": 192,
+      "cropType": "Coriander",
+      "cropGroupName": "Herbs",
+      "countryId": 3
+    },
+    {    "cropTypeId": 193,
+      "cropType": "Mint",
+      "cropGroupName": "Herbs",
+      "countryId": 3
+    },
+    {    "cropTypeId": 76,
+      "cropType": "Bulbs And Bulb Flowers",
+      "cropGroupName": "Bulbs",
+      "countryId": 1
+    },
+    {    "cropTypeId": 179,
+      "cropType": "Narcissus",
+      "cropGroupName": "Bulbs",
+      "countryId": 3
+    },
+    {    "cropTypeId": 180,
+      "cropType": "Tulip",
+      "cropGroupName": "Bulbs",
+      "countryId": 2
+    }
+  ],
+  "statusCode": 200,
+  "timestamp": "2024-04-19T14:09:59.528Z",
+  "error": null,
+  "totalRecords": 103
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+Crop Info 1:
+
+{"status": true,
+  "data": [
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Feed",
+      "cropTypeId": 0,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 2,
+      "cropInfo1Name": "Milling",
+      "cropTypeId": 0,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 0,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 11,
+      "cropInfo1Name": "Grain distilling",
+      "cropTypeId": 0,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Feed",
+      "cropTypeId": 1,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "Malting",
+      "cropTypeId": 1,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 1,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 9,
+      "cropInfo1Name": "Malt for distilling",
+      "cropTypeId": 1,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 10,
+      "cropInfo1Name": "Malt for brewing",
+      "cropTypeId": 1,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 11,
+      "cropInfo1Name": "Grain distilling",
+      "cropTypeId": 1,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Feed",
+      "cropTypeId": 2,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 2,
+      "cropInfo1Name": "Milling",
+      "cropTypeId": 2,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 2,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Feed",
+      "cropTypeId": 3,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "Malting",
+      "cropTypeId": 3,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "High N grain distilling",
+      "cropTypeId": 3,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 6,
+      "cropInfo1Name": "High N malting",
+      "cropTypeId": 3,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 7,
+      "cropInfo1Name": "Low N malting",
+      "cropTypeId": 3,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 3,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 4,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Feed",
+      "cropTypeId": 4,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 4,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 5,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Feed",
+      "cropTypeId": 5,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 5,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 6,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Feed",
+      "cropTypeId": 6,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 2,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 6,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 7,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Feed",
+      "cropTypeId": 7,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 7,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 8,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Feed",
+      "cropTypeId": 8,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 8,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 9,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Feed",
+      "cropTypeId": 9,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 9,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "Straw to be baled",
+      "cropTypeId": 20,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Straw to be incorporated",
+      "cropTypeId": 20,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "Seed only",
+      "cropTypeId": 20,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 6,
+      "cropInfo1Name": "Seed and straw",
+      "cropTypeId": 20,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "Straw to be baled",
+      "cropTypeId": 21,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Straw to be incorporated",
+      "cropTypeId": 21,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "Seed only",
+      "cropTypeId": 21,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 6,
+      "cropInfo1Name": "Seed and straw",
+      "cropTypeId": 21,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 22,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Dried",
+      "cropTypeId": 23,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 2,
+      "cropInfo1Name": "Vining",
+      "cropTypeId": 23,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 4,
+      "cropInfo1Name": "Combining",
+      "cropTypeId": 23,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 24,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 25,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "Roots only",
+      "cropTypeId": 26,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 4,
+      "cropInfo1Name": "Roots and tops",
+      "cropTypeId": 26,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 27,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 28,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 40,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 41,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Roots only",
+      "cropTypeId": 41,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 2,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 41,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "Grazed",
+      "cropTypeId": 41,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "Grazed",
+      "cropTypeId": 42,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 4,
+      "cropInfo1Name": "Removed",
+      "cropTypeId": 42,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 43,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 44,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 45,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Roots only",
+      "cropTypeId": 45,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 2,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 45,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "Grazed",
+      "cropTypeId": 45,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 50,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 51,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 52,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 53,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 54,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 55,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 56,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 57,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 58,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 59,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Establishment year",
+      "cropTypeId": 60,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 2,
+      "cropInfo1Name": "Second and later years",
+      "cropTypeId": 60,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 61,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 62,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 14,
+      "cropInfo1Name": "Storage",
+      "cropTypeId": 62,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 15,
+      "cropInfo1Name": "Head pre-Christmas",
+      "cropTypeId": 62,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 16,
+      "cropInfo1Name": "Head post-Christmas",
+      "cropTypeId": 62,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 17,
+      "cropInfo1Name": "Collards pre-Christmas",
+      "cropTypeId": 62,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 18,
+      "cropInfo1Name": "Collards post-Christmas",
+      "cropTypeId": 62,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 6,
+      "cropInfo1Name": "Summer/autumn",
+      "cropTypeId": 63,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 7,
+      "cropInfo1Name": "Winter hardy/roscoff",
+      "cropTypeId": 63,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "First crop",
+      "cropTypeId": 63,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 9,
+      "cropInfo1Name": "Second crop",
+      "cropTypeId": 63,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 64,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "First crop",
+      "cropTypeId": 64,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 9,
+      "cropInfo1Name": "Second crop",
+      "cropTypeId": 64,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 65,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 66,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 67,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 68,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 69,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "First crop",
+      "cropTypeId": 69,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 9,
+      "cropInfo1Name": "Second crop",
+      "cropTypeId": 69,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 70,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 71,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 72,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 73,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 10,
+      "cropInfo1Name": "Spring sown",
+      "cropTypeId": 73,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 11,
+      "cropInfo1Name": "Autumn sown",
+      "cropTypeId": 73,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 74,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 6,
+      "cropInfo1Name": "Summer/autumn",
+      "cropTypeId": 74,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 12,
+      "cropInfo1Name": "Overwintered",
+      "cropTypeId": 74,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 75,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 76,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 77,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 78,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 79,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 90,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "Red baby",
+      "cropTypeId": 90,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 4,
+      "cropInfo1Name": "Other",
+      "cropTypeId": 90,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 91,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 92,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": -1,
+      "cropInfo1Name": "None",
+      "cropTypeId": 93,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 93,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 94,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Before planting",
+      "cropTypeId": 110,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "Grass/herbicide strip",
+      "cropTypeId": 110,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 4,
+      "cropInfo1Name": "Overall grass",
+      "cropTypeId": 110,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Before planting",
+      "cropTypeId": 111,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "Grass/herbicide strip",
+      "cropTypeId": 111,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 4,
+      "cropInfo1Name": "Overall grass",
+      "cropTypeId": 111,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Before planting",
+      "cropTypeId": 112,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "Grass/herbicide strip",
+      "cropTypeId": 112,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 4,
+      "cropInfo1Name": "Overall grass",
+      "cropTypeId": 112,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Before planting",
+      "cropTypeId": 113,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "Grass/herbicide strip",
+      "cropTypeId": 113,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 4,
+      "cropInfo1Name": "Overall grass",
+      "cropTypeId": 113,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Before planting",
+      "cropTypeId": 114,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "Grass/herbicide strip",
+      "cropTypeId": 114,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 4,
+      "cropInfo1Name": "Overall grass",
+      "cropTypeId": 114,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Before planting",
+      "cropTypeId": 115,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "Grass/herbicide strip",
+      "cropTypeId": 115,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 4,
+      "cropInfo1Name": "Overall grass",
+      "cropTypeId": 115,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Before planting",
+      "cropTypeId": 116,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "Established",
+      "cropTypeId": 116,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 10,
+      "cropInfo1Name": "Establishment year",
+      "cropTypeId": 116,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Before planting",
+      "cropTypeId": 117,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "Established",
+      "cropTypeId": 117,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 10,
+      "cropInfo1Name": "Establishment year",
+      "cropTypeId": 117,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Before planting",
+      "cropTypeId": 118,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "Established",
+      "cropTypeId": 118,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 10,
+      "cropInfo1Name": "Establishment year",
+      "cropTypeId": 118,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Before planting",
+      "cropTypeId": 119,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "Established",
+      "cropTypeId": 119,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 10,
+      "cropInfo1Name": "Establishment year",
+      "cropTypeId": 119,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Before planting",
+      "cropTypeId": 120,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "Established",
+      "cropTypeId": 120,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 10,
+      "cropInfo1Name": "Establishment year",
+      "cropTypeId": 120,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Before planting",
+      "cropTypeId": 121,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "Established",
+      "cropTypeId": 121,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 10,
+      "cropInfo1Name": "Establishment year",
+      "cropTypeId": 121,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Before planting",
+      "cropTypeId": 122,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "Established",
+      "cropTypeId": 122,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 10,
+      "cropInfo1Name": "Establishment year",
+      "cropTypeId": 122,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Before planting",
+      "cropTypeId": 123,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "Everbearers (established)",
+      "cropTypeId": 123,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 6,
+      "cropInfo1Name": "Maincrop (established)",
+      "cropTypeId": 123,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 11,
+      "cropInfo1Name": "Main season (establishment year)",
+      "cropTypeId": 123,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 12,
+      "cropInfo1Name": "Main season (established)",
+      "cropTypeId": 123,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 13,
+      "cropInfo1Name": "Everbearers (establishment year)",
+      "cropTypeId": 123,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 14,
+      "cropInfo1Name": "Everbearers (established)",
+      "cropTypeId": 123,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Before planting",
+      "cropTypeId": 124,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "Established",
+      "cropTypeId": 124,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Before planting",
+      "cropTypeId": 125,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "Established",
+      "cropTypeId": 125,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "<60 days",
+      "cropTypeId": 160,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 2,
+      "cropInfo1Name": "60-90 days",
+      "cropTypeId": 160,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "90-120 days",
+      "cropTypeId": 160,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 4,
+      "cropInfo1Name": ">120 days",
+      "cropTypeId": 160,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "<60 days (seed)",
+      "cropTypeId": 160,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 6,
+      "cropInfo1Name": "<60 days (punnets)",
+      "cropTypeId": 160,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 7,
+      "cropInfo1Name": "60-90 days (seed)",
+      "cropTypeId": 160,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "60-90 days (ware)",
+      "cropTypeId": 160,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 9,
+      "cropInfo1Name": "60-90 days (punnets)",
+      "cropTypeId": 160,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "<60 days",
+      "cropTypeId": 161,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 2,
+      "cropInfo1Name": "60-90 days",
+      "cropTypeId": 161,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "90-120 days",
+      "cropTypeId": 161,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 4,
+      "cropInfo1Name": ">120 days",
+      "cropTypeId": 161,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "<60 days (seed)",
+      "cropTypeId": 161,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 6,
+      "cropInfo1Name": "<60 days (punnets)",
+      "cropTypeId": 161,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 7,
+      "cropInfo1Name": "60-90 days (seed)",
+      "cropTypeId": 161,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "60-90 days (ware)",
+      "cropTypeId": 161,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 9,
+      "cropInfo1Name": "60-90 days (punnets)",
+      "cropTypeId": 161,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "<60 days",
+      "cropTypeId": 162,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 2,
+      "cropInfo1Name": "60-90 days",
+      "cropTypeId": 162,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "90-120 days",
+      "cropTypeId": 162,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 4,
+      "cropInfo1Name": ">120 days",
+      "cropTypeId": 162,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "<60 days (seed)",
+      "cropTypeId": 162,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 6,
+      "cropInfo1Name": "<60 days (punnets)",
+      "cropTypeId": 162,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 7,
+      "cropInfo1Name": "60-90 days (seed)",
+      "cropTypeId": 162,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "60-90 days (ware)",
+      "cropTypeId": 162,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 9,
+      "cropInfo1Name": "60-90 days (punnets)",
+      "cropTypeId": 162,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "<60 days",
+      "cropTypeId": 163,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 2,
+      "cropInfo1Name": "60-90 days",
+      "cropTypeId": 163,
+      "countryId": 1
+    },
+    {    "cropInfo1Id": 3,
+      "cropInfo1Name": "90-120 days",
+      "cropTypeId": 163,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 4,
+      "cropInfo1Name": ">120 days",
+      "cropTypeId": 163,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 7,
+      "cropInfo1Name": "60-90 days (seed)",
+      "cropTypeId": 163,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "60-90 days (ware)",
+      "cropTypeId": 163,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 9,
+      "cropInfo1Name": "60-90 days (punnets)",
+      "cropTypeId": 163,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Feed",
+      "cropTypeId": 171,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "High N grain distilling",
+      "cropTypeId": 171,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 6,
+      "cropInfo1Name": "High N malting",
+      "cropTypeId": 171,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 7,
+      "cropInfo1Name": "Low N malting",
+      "cropTypeId": 171,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 171,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Feed",
+      "cropTypeId": 172,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 172,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Feed",
+      "cropTypeId": 173,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 173,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Feed",
+      "cropTypeId": 174,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 2,
+      "cropInfo1Name": "Milling",
+      "cropTypeId": 174,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 8,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 174,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "Grain",
+      "cropTypeId": 175,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 6,
+      "cropInfo1Name": "Whole crop",
+      "cropTypeId": 175,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 176,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "Established",
+      "cropTypeId": 177,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 10,
+      "cropInfo1Name": "Establishment year",
+      "cropTypeId": 177,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 5,
+      "cropInfo1Name": "Established",
+      "cropTypeId": 178,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 10,
+      "cropInfo1Name": "Establishment year",
+      "cropTypeId": 178,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 179,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 180,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 181,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 182,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "Establishment (first 2 years)",
+      "cropTypeId": 184,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Subsequent years",
+      "cropTypeId": 184,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Subsequent years",
+      "cropTypeId": 185,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 2,
+      "cropInfo1Name": "Establishment",
+      "cropTypeId": 185,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 187,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 188,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 189,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 191,
+      "countryId": 2
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 192,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 1,
+      "cropInfo1Name": "Establishment year",
+      "cropTypeId": 193,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 2,
+      "cropInfo1Name": "Subsequent years",
+      "cropTypeId": 193,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 194,
+      "countryId": 3
+    },
+    {    "cropInfo1Id": 0,
+      "cropInfo1Name": "None",
+      "cropTypeId": 195,
+      "countryId": 3
+    }
+  ],
+
+
+
+
+
+
+Potato Groups:
+
+{"status": true,
+  "data": [
+    {    "potatoGroupId": 1,
+      "potatoGroup": "Group 1 - Determinate varieties",
+      "countryId": 3
+    },
+    {    "potatoGroupId": 2,
+      "potatoGroup": "Group 2 - Partially determinate varieties",
+      "countryId": 3
+    },
+    {    "potatoGroupId": 3,
+      "potatoGroup": "Group 3 - Indeterminate varieties",
+      "countryId": 3
+    },
+    {    "potatoGroupId": 4,
+      "potatoGroup": "Group 4 - Indeterminate varieties",
+      "countryId": 3
+    }
+  ],
+  "statusCode": 200,
+  "timestamp": "2024-04-19T14:13:03.190Z",
+  "error": null,
+  "totalRecords": 4
+}
+
+
+
+Potato Varieties:
+
+{"status": true,
+  "data": [
+    {    "potatoVarietyId": 1,
+      "potatoGroupId": 1,
+      "potatoVariety": "Accord",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 2,
+      "potatoGroupId": 1,
+      "potatoVariety": "Annabelle",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 3,
+      "potatoGroupId": 1,
+      "potatoVariety": "Anya",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 4,
+      "potatoGroupId": 1,
+      "potatoVariety": "Colmo",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 5,
+      "potatoGroupId": 1,
+      "potatoVariety": "Estima",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 6,
+      "potatoGroupId": 1,
+      "potatoVariety": "Innovator",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 7,
+      "potatoGroupId": 1,
+      "potatoVariety": "Maris Bard",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 8,
+      "potatoGroupId": 1,
+      "potatoVariety": "Minerva",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 9,
+      "potatoGroupId": 1,
+      "potatoVariety": "Premiere",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 10,
+      "potatoGroupId": 1,
+      "potatoVariety": "Rocket",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 11,
+      "potatoGroupId": 1,
+      "potatoVariety": "Vales Emerald",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 12,
+      "potatoGroupId": 1,
+      "potatoVariety": "Winston",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 13,
+      "potatoGroupId": 2,
+      "potatoVariety": "Atlantic",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 14,
+      "potatoGroupId": 2,
+      "potatoVariety": "Amanda",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 15,
+      "potatoGroupId": 2,
+      "potatoVariety": "Arcade",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 16,
+      "potatoGroupId": 2,
+      "potatoVariety": "Carlingford",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 17,
+      "potatoGroupId": 2,
+      "potatoVariety": "Charlotte",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 18,
+      "potatoGroupId": 2,
+      "potatoVariety": "Courage",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 19,
+      "potatoGroupId": 2,
+      "potatoVariety": "Dundrod",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 20,
+      "potatoGroupId": 2,
+      "potatoVariety": "Endeavour",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 21,
+      "potatoGroupId": 2,
+      "potatoVariety": "Harmony",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 22,
+      "potatoGroupId": 2,
+      "potatoVariety": "Juliette",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 23,
+      "potatoGroupId": 2,
+      "potatoVariety": "Kestrel",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 24,
+      "potatoGroupId": 2,
+      "potatoVariety": "Lady Claire",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 25,
+      "potatoGroupId": 2,
+      "potatoVariety": "Lady Rosetta",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 26,
+      "potatoGroupId": 2,
+      "potatoVariety": "Marfona",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 27,
+      "potatoGroupId": 2,
+      "potatoVariety": "Maris Peer",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 28,
+      "potatoGroupId": 2,
+      "potatoVariety": "Maritiema",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 29,
+      "potatoGroupId": 2,
+      "potatoVariety": "Melody",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 30,
+      "potatoGroupId": 2,
+      "potatoVariety": "Miranda",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 31,
+      "potatoGroupId": 2,
+      "potatoVariety": "Mozart",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 32,
+      "potatoGroupId": 2,
+      "potatoVariety": "Nadine",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 33,
+      "potatoGroupId": 2,
+      "potatoVariety": "Nicola",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 34,
+      "potatoGroupId": 2,
+      "potatoVariety": "Orchestra",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 35,
+      "potatoGroupId": 2,
+      "potatoVariety": "Orla",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 36,
+      "potatoGroupId": 2,
+      "potatoVariety": "Osprey",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 37,
+      "potatoGroupId": 2,
+      "potatoVariety": "Pentland Javelin",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 38,
+      "potatoGroupId": 2,
+      "potatoVariety": "Rembrandt",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 39,
+      "potatoGroupId": 2,
+      "potatoVariety": "Romano",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 40,
+      "potatoGroupId": 2,
+      "potatoVariety": "Saxon",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 41,
+      "potatoGroupId": 2,
+      "potatoVariety": "Shannon",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 42,
+      "potatoGroupId": 2,
+      "potatoVariety": "Shepody",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 43,
+      "potatoGroupId": 2,
+      "potatoVariety": "Vivaldi",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 44,
+      "potatoGroupId": 2,
+      "potatoVariety": "Wilja",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 45,
+      "potatoGroupId": 3,
+      "potatoVariety": "Agria",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 46,
+      "potatoGroupId": 3,
+      "potatoVariety": "Ambo",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 47,
+      "potatoGroupId": 3,
+      "potatoVariety": "Amora",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 48,
+      "potatoGroupId": 3,
+      "potatoVariety": "Cabaret",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 49,
+      "potatoGroupId": 3,
+      "potatoVariety": "Caesar",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 50,
+      "potatoGroupId": 3,
+      "potatoVariety": "Cosmos",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 51,
+      "potatoGroupId": 3,
+      "potatoVariety": "Cultra",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 52,
+      "potatoGroupId": 3,
+      "potatoVariety": "Daisy",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 53,
+      "potatoGroupId": 3,
+      "potatoVariety": "Desiree",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 54,
+      "potatoGroupId": 3,
+      "potatoVariety": "Eos",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 55,
+      "potatoGroupId": 3,
+      "potatoVariety": "Fambo",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 56,
+      "potatoGroupId": 3,
+      "potatoVariety": "Fianna",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 57,
+      "potatoGroupId": 3,
+      "potatoVariety": "Hermes",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 58,
+      "potatoGroupId": 3,
+      "potatoVariety": "Kerr's Pink",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 59,
+      "potatoGroupId": 3,
+      "potatoVariety": "King Edward",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 60,
+      "potatoGroupId": 3,
+      "potatoVariety": "Lady Christl",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 61,
+      "potatoGroupId": 3,
+      "potatoVariety": "Lady Valora",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 62,
+      "potatoGroupId": 3,
+      "potatoVariety": "Maris Piper",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 63,
+      "potatoGroupId": 3,
+      "potatoVariety": "Morene",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 64,
+      "potatoGroupId": 3,
+      "potatoVariety": "Navan",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 65,
+      "potatoGroupId": 3,
+      "potatoVariety": "Pentland Dell",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 66,
+      "potatoGroupId": 3,
+      "potatoVariety": "Pentland Squire",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 67,
+      "potatoGroupId": 3,
+      "potatoVariety": "Picasso",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 68,
+      "potatoGroupId": 3,
+      "potatoVariety": "Record",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 69,
+      "potatoGroupId": 3,
+      "potatoVariety": "Rooster",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 70,
+      "potatoGroupId": 3,
+      "potatoVariety": "Russet Burbank",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 71,
+      "potatoGroupId": 3,
+      "potatoVariety": "Sante",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 72,
+      "potatoGroupId": 3,
+      "potatoVariety": "Sassy",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 73,
+      "potatoGroupId": 3,
+      "potatoVariety": "Saturna",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 74,
+      "potatoGroupId": 3,
+      "potatoVariety": "Slaney",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 75,
+      "potatoGroupId": 3,
+      "potatoVariety": "Stemster",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 76,
+      "potatoGroupId": 3,
+      "potatoVariety": "Valor",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 77,
+      "potatoGroupId": 3,
+      "potatoVariety": "Victoria",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 78,
+      "potatoGroupId": 4,
+      "potatoVariety": "Asterix",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 79,
+      "potatoGroupId": 4,
+      "potatoVariety": "Cara",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 80,
+      "potatoGroupId": 4,
+      "potatoVariety": "Lady Balfour",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 81,
+      "potatoGroupId": 4,
+      "potatoVariety": "Markies",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 82,
+      "potatoGroupId": 4,
+      "potatoVariety": "Royal",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 83,
+      "potatoGroupId": 4,
+      "potatoVariety": "Vales Everest",
+      "countryId": 3
+    },
+    {    "potatoVarietyId": 84,
+      "potatoGroupId": 4,
+      "potatoVariety": "Vales Sovereign",
+      "countryId": 3
+    }
+  ],
+}
+
+

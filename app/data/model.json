@@ -1,0 +1,22 @@
+[
+    {
+      "farm" : "",
+      "all_fields" : "",
+      "field_count" : "",
+      "harvest_year" : "",
+      "crop_group" : "",
+      "crop_type" : "",
+      "variety" : "",
+      "planned_fields" : "",
+      "captured_first_planted_date" : false,
+      "first_planted_date" : "",
+      "first_yeild" : "",
+      "crop_use" : "",
+      "straw_use" : "",
+      "second_crop" : false,
+      "second_variety" : "",
+      "captured_second_planted_date" : false,
+      "second_planted_date" : "",
+      "second_yeild" : ""
+    }
+]

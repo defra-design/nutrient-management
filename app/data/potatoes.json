@@ -1,0 +1,422 @@
+[
+{
+  "potatoVarietyId": 1,
+  "potatoGroupId": 1,
+  "potatoVariety": "Accord"
+},
+{
+  "potatoVarietyId": 2,
+  "potatoGroupId": 1,
+  "potatoVariety": "Annabelle"
+},
+{
+  "potatoVarietyId": 3,
+  "potatoGroupId": 1,
+  "potatoVariety": "Anya"
+},
+{
+  "potatoVarietyId": 4,
+  "potatoGroupId": 1,
+  "potatoVariety": "Colmo"
+},
+{
+  "potatoVarietyId": 5,
+  "potatoGroupId": 1,
+  "potatoVariety": "Estima"
+},
+{
+  "potatoVarietyId": 6,
+  "potatoGroupId": 1,
+  "potatoVariety": "Innovator"
+},
+{
+  "potatoVarietyId": 7,
+  "potatoGroupId": 1,
+  "potatoVariety": "Maris Bard"
+},
+{
+  "potatoVarietyId": 8,
+  "potatoGroupId": 1,
+  "potatoVariety": "Minerva"
+},
+{
+  "potatoVarietyId": 9,
+  "potatoGroupId": 1,
+  "potatoVariety": "Premiere"
+},
+{
+  "potatoVarietyId": 10,
+  "potatoGroupId": 1,
+  "potatoVariety": "Rocket"
+},
+{
+  "potatoVarietyId": 11,
+  "potatoGroupId": 1,
+  "potatoVariety": "Vales Emerald"
+},
+{
+  "potatoVarietyId": 12,
+  "potatoGroupId": 1,
+  "potatoVariety": "Winston"
+},
+{
+  "potatoVarietyId": 13,
+  "potatoGroupId": 2,
+  "potatoVariety": "Atlantic"
+},
+{
+  "potatoVarietyId": 14,
+  "potatoGroupId": 2,
+  "potatoVariety": "Amanda"
+},
+{
+  "potatoVarietyId": 15,
+  "potatoGroupId": 2,
+  "potatoVariety": "Arcade"
+},
+{
+  "potatoVarietyId": 16,
+  "potatoGroupId": 2,
+  "potatoVariety": "Carlingford"
+},
+{
+  "potatoVarietyId": 17,
+  "potatoGroupId": 2,
+  "potatoVariety": "Charlotte"
+},
+{
+  "potatoVarietyId": 18,
+  "potatoGroupId": 2,
+  "potatoVariety": "Courage"
+},
+{
+  "potatoVarietyId": 19,
+  "potatoGroupId": 2,
+  "potatoVariety": "Dundrod"
+},
+{
+  "potatoVarietyId": 20,
+  "potatoGroupId": 2,
+  "potatoVariety": "Endeavour"
+},
+{
+  "potatoVarietyId": 21,
+  "potatoGroupId": 2,
+  "potatoVariety": "Harmony"
+},
+{
+  "potatoVarietyId": 22,
+  "potatoGroupId": 2,
+  "potatoVariety": "Juliette"
+},
+{
+  "potatoVarietyId": 23,
+  "potatoGroupId": 2,
+  "potatoVariety": "Kestrel"
+},
+{
+  "potatoVarietyId": 24,
+  "potatoGroupId": 2,
+  "potatoVariety": "Lady Claire"
+},
+{
+  "potatoVarietyId": 25,
+  "potatoGroupId": 2,
+  "potatoVariety": "Lady Rosetta"
+},
+{
+  "potatoVarietyId": 26,
+  "potatoGroupId": 2,
+  "potatoVariety": "Marfona"
+},
+{
+  "potatoVarietyId": 27,
+  "potatoGroupId": 2,
+  "potatoVariety": "Maris Peer"
+},
+{
+  "potatoVarietyId": 28,
+  "potatoGroupId": 2,
+  "potatoVariety": "Maritiema"
+},
+{
+  "potatoVarietyId": 29,
+  "potatoGroupId": 2,
+  "potatoVariety": "Melody"
+},
+{
+  "potatoVarietyId": 30,
+  "potatoGroupId": 2,
+  "potatoVariety": "Miranda"
+},
+{
+  "potatoVarietyId": 31,
+  "potatoGroupId": 2,
+  "potatoVariety": "Mozart"
+},
+{
+  "potatoVarietyId": 32,
+  "potatoGroupId": 2,
+  "potatoVariety": "Nadine"
+},
+{
+  "potatoVarietyId": 33,
+  "potatoGroupId": 2,
+  "potatoVariety": "Nicola"
+},
+{
+  "potatoVarietyId": 34,
+  "potatoGroupId": 2,
+  "potatoVariety": "Orchestra"
+},
+{
+  "potatoVarietyId": 35,
+  "potatoGroupId": 2,
+  "potatoVariety": "Orla"
+},
+{
+  "potatoVarietyId": 36,
+  "potatoGroupId": 2,
+  "potatoVariety": "Osprey"
+},
+{
+  "potatoVarietyId": 37,
+  "potatoGroupId": 2,
+  "potatoVariety": "Pentland Javelin"
+},
+{
+  "potatoVarietyId": 38,
+  "potatoGroupId": 2,
+  "potatoVariety": "Rembrandt"
+},
+{
+  "potatoVarietyId": 39,
+  "potatoGroupId": 2,
+  "potatoVariety": "Romano"
+},
+{
+  "potatoVarietyId": 40,
+  "potatoGroupId": 2,
+  "potatoVariety": "Saxon"
+},
+{
+  "potatoVarietyId": 41,
+  "potatoGroupId": 2,
+  "potatoVariety": "Shannon"
+},
+{
+  "potatoVarietyId": 42,
+  "potatoGroupId": 2,
+  "potatoVariety": "Shepody"
+},
+{
+  "potatoVarietyId": 43,
+  "potatoGroupId": 2,
+  "potatoVariety": "Vivaldi"
+},
+{
+  "potatoVarietyId": 44,
+  "potatoGroupId": 2,
+  "potatoVariety": "Wilja"
+},
+{
+  "potatoVarietyId": 45,
+  "potatoGroupId": 3,
+  "potatoVariety": "Agria"
+},
+{
+  "potatoVarietyId": 46,
+  "potatoGroupId": 3,
+  "potatoVariety": "Ambo"
+},
+{
+  "potatoVarietyId": 47,
+  "potatoGroupId": 3,
+  "potatoVariety": "Amora"
+},
+{
+  "potatoVarietyId": 48,
+  "potatoGroupId": 3,
+  "potatoVariety": "Cabaret"
+},
+{
+  "potatoVarietyId": 49,
+  "potatoGroupId": 3,
+  "potatoVariety": "Caesar"
+},
+{
+  "potatoVarietyId": 50,
+  "potatoGroupId": 3,
+  "potatoVariety": "Cosmos"
+},
+{
+  "potatoVarietyId": 51,
+  "potatoGroupId": 3,
+  "potatoVariety": "Cultra"
+},
+{
+  "potatoVarietyId": 52,
+  "potatoGroupId": 3,
+  "potatoVariety": "Daisy"
+},
+{
+  "potatoVarietyId": 53,
+  "potatoGroupId": 3,
+  "potatoVariety": "Desiree"
+},
+{
+  "potatoVarietyId": 54,
+  "potatoGroupId": 3,
+  "potatoVariety": "Eos"
+},
+{
+  "potatoVarietyId": 55,
+  "potatoGroupId": 3,
+  "potatoVariety": "Fambo"
+},
+{
+  "potatoVarietyId": 56,
+  "potatoGroupId": 3,
+  "potatoVariety": "Fianna"
+},
+{
+  "potatoVarietyId": 57,
+  "potatoGroupId": 3,
+  "potatoVariety": "Hermes"
+},
+{
+  "potatoVarietyId": 58,
+  "potatoGroupId": 3,
+  "potatoVariety": "Kerr's Pink"
+},
+{
+  "potatoVarietyId": 59,
+  "potatoGroupId": 3,
+  "potatoVariety": "King Edward"
+},
+{
+  "potatoVarietyId": 60,
+  "potatoGroupId": 3,
+  "potatoVariety": "Lady Christl"
+},
+{
+  "potatoVarietyId": 61,
+  "potatoGroupId": 3,
+  "potatoVariety": "Lady Valora"
+},
+{
+  "potatoVarietyId": 62,
+  "potatoGroupId": 3,
+  "potatoVariety": "Maris Piper"
+},
+{
+  "potatoVarietyId": 63,
+  "potatoGroupId": 3,
+  "potatoVariety": "Morene"
+},
+{
+  "potatoVarietyId": 64,
+  "potatoGroupId": 3,
+  "potatoVariety": "Navan"
+},
+{
+  "potatoVarietyId": 65,
+  "potatoGroupId": 3,
+  "potatoVariety": "Pentland Dell"
+},
+{
+  "potatoVarietyId": 66,
+  "potatoGroupId": 3,
+  "potatoVariety": "Pentland Squire"
+},
+{
+  "potatoVarietyId": 67,
+  "potatoGroupId": 3,
+  "potatoVariety": "Picasso"
+},
+{
+  "potatoVarietyId": 68,
+  "potatoGroupId": 3,
+  "potatoVariety": "Record"
+},
+{
+  "potatoVarietyId": 69,
+  "potatoGroupId": 3,
+  "potatoVariety": "Rooster"
+},
+{
+  "potatoVarietyId": 70,
+  "potatoGroupId": 3,
+  "potatoVariety": "Russet Burbank"
+},
+{
+  "potatoVarietyId": 71,
+  "potatoGroupId": 3,
+  "potatoVariety": "Sante"
+},
+{
+  "potatoVarietyId": 72,
+  "potatoGroupId": 3,
+  "potatoVariety": "Sassy"
+},
+{
+  "potatoVarietyId": 73,
+  "potatoGroupId": 3,
+  "potatoVariety": "Saturna"
+},
+{
+  "potatoVarietyId": 74,
+  "potatoGroupId": 3,
+  "potatoVariety": "Slaney"
+},
+{
+  "potatoVarietyId": 75,
+  "potatoGroupId": 3,
+  "potatoVariety": "Stemster"
+},
+{
+  "potatoVarietyId": 76,
+  "potatoGroupId": 3,
+  "potatoVariety": "Valor"
+},
+{
+  "potatoVarietyId": 77,
+  "potatoGroupId": 3,
+  "potatoVariety": "Victoria"
+},
+{
+  "potatoVarietyId": 78,
+  "potatoGroupId": 4,
+  "potatoVariety": "Asterix"
+},
+{
+  "potatoVarietyId": 79,
+  "potatoGroupId": 4,
+  "potatoVariety": "Cara"
+},
+{
+  "potatoVarietyId": 80,
+  "potatoGroupId": 4,
+  "potatoVariety": "Lady Balfour"
+},
+{
+  "potatoVarietyId": 81,
+  "potatoGroupId": 4,
+  "potatoVariety": "Markies"
+},
+{
+  "potatoVarietyId": 82,
+  "potatoGroupId": 4,
+  "potatoVariety": "Royal"
+},
+{
+  "potatoVarietyId": 83,
+  "potatoGroupId": 4,
+  "potatoVariety": "Vales Everest"
+},
+{
+  "potatoVarietyId": 84,
+  "potatoGroupId": 4,
+  "potatoVariety": "Vales Sovereign"
+}
+]

@@ -38,10 +38,6 @@ router.get(/fields_setup_handler/, function (req, res) {
 
 router.get(/fields_mvp_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    // req.session.data.oaktree_farm.setup = true
-    // req.session.data.oaktree_farm.fields_added = true
-    // req.session.data.oaktree_farm.soil_added = true
-    // req.session.data.oaktree_farm.use_mvp_fields = true
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.all_fields = req.session.data.field_list_mvp
     // plan for 2025 is empty
@@ -51,12 +47,7 @@ router.get(/fields_mvp_setup_handler/, function (req, res) {
 
 router.get(/one_crop_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    // req.session.data.oaktree_farm.setup = true
-    // req.session.data.oaktree_farm.fields_added = true
-    // req.session.data.oaktree_farm.soil_added = true
-    // req.session.data.oaktree_farm.use_mvp_fields = true
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
-    req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
     req.session.data.all_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
@@ -74,13 +65,9 @@ router.get(/one_crop_handler/, function (req, res) {
 
 router.get(/plans_mvp_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    // req.session.data.oaktree_farm.setup = true
-    // req.session.data.oaktree_farm.fields_added = true
-    // req.session.data.oaktree_farm.soil_added = true
-    // req.session.data.oaktree_farm.use_mvp_fields = true
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
-    req.session.data.oaktree_farm.planFive = true
-    req.session.data.oaktree_farm.plans_added = true
+    req.session.data.oaktree_farm.plan_2023_added = true
+    req.session.data.oaktree_farm.plan_2024_added = true
     req.session.data.all_fields = req.session.data.field_list_mvp
     // use populated plan 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_two
@@ -102,8 +89,8 @@ router.get(/one_manure_handler/, function (req, res) {
     // req.session.data.oaktree_farm.soil_added = true
     // req.session.data.oaktree_farm.use_mvp_fields = true
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
-    req.session.data.oaktree_farm.planFive = true
-    req.session.data.oaktree_farm.plans_added = true
+    req.session.data.oaktree_farm.plan_2023_added = true
+    req.session.data.oaktree_farm.plan_2024_added = true
     req.session.data.all_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_three
@@ -126,8 +113,8 @@ router.get(/two_manure_handler/, function (req, res) {
     // req.session.data.oaktree_farm.soil_added = true
     // req.session.data.oaktree_farm.use_mvp_fields = true
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
-    req.session.data.oaktree_farm.planFive = true
-    req.session.data.oaktree_farm.plans_added = true
+    req.session.data.oaktree_farm.plan_2023_added = true
+    req.session.data.oaktree_farm.plan_2024_added = true
     req.session.data.all_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_three
@@ -153,7 +140,8 @@ router.get(/two_manure_handler/, function (req, res) {
 router.get(/version4_fieldetup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
-    req.session.data.oaktree_farm.plans_added = true
+    req.session.data.oaktree_farm.plan_2023_added = true
+    req.session.data.oaktree_farm.plan_2024_added = false
     req.session.data.all_fields = req.session.data.field_list_mvp
     req.session.data.fields_2023 = req.session.data.all_fields
     // use plan with one crop 2025
@@ -169,8 +157,8 @@ router.get(/version4_fieldetup_handler/, function (req, res) {
 router.get(/one_fertiliser_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, true, true)
-    req.session.data.oaktree_farm.planFive = true
-    req.session.data.oaktree_farm.plans_added = true
+    req.session.data.oaktree_farm.plan_2023_added = true
+    req.session.data.oaktree_farm.plan_2024_added = true
     req.session.data.all_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_three
@@ -197,13 +185,10 @@ router.get(/one_fertiliser_handler/, function (req, res) {
 ////////////////// + MANURES
 router.get(/version_3_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    // req.session.data.oaktree_farm.setup = true
-    // req.session.data.oaktree_farm.fields_added = true
-    // req.session.data.oaktree_farm.soil_added = true
-    // req.session.data.oaktree_farm.use_mvp_fields = true
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
-    req.session.data.oaktree_farm.planFive = true
-    req.session.data.oaktree_farm.plans_added = true
+    req.session.data.oaktree_farm.plan_2023_added = true
+    req.session.data.oaktree_farm.plan_2024_added = true
+
     req.session.data.all_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_three
@@ -216,6 +201,25 @@ router.get(/version_3_handler/, function (req, res) {
 
     req.session.data.prototype_version = 'version_3'
     res.redirect('/version_3/start')
+})
+
+router.get(/version4_cropsetup_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
+    req.session.data.oaktree_farm.plan_2023_added = true
+    req.session.data.oaktree_farm.plan_2024_added = true
+    req.session.data.all_fields = req.session.data.field_list_mvp
+    // use plan with one crop 2025
+    req.session.data.crop_group_2024 = req.session.data.crop_group_one
+    
+    //convert the reference numbers to field objects
+    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.all_fields)
+    
+    req.session.data.prototype_version = 'version_4'
+    res.redirect('/version_4/start')
 })
 
 ////////////////// + Grass 

@@ -18,8 +18,6 @@ oaktree_farm.nvz = "some";
 oaktree_farm.elevation =  "some";
 oaktree_farm.organic_producer = false;
 oaktree_farm.latest_update = null;
-oaktree_farm.planFour = false;
-oaktree_farm.planFive = false;
 oaktree_farm.use_mvp_fields = false;
 oaktree_farm.setup = false;
 oaktree_farm.soil_added = false;
@@ -102,7 +100,7 @@ const manure_types_livestock_groups = require('./data/manure_types_livestock_gro
 
 
 ///////Plans
-const Plan = require('./functions/plan_manager.js');
+const Plan = require('./functions/plan.js');
 let plan_2023 = Plan.createPlan();
 let plan_2024 = Plan.createPlan();
 let plan2025 = {

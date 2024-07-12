@@ -249,7 +249,6 @@ router.get(/add_multi_handler/, function (req, res) {
             }
         }
     }
-    console.log("chosen crop" + req.session.data.chosen_crop)
     req.session.data.chosen_fields = []
     res.redirect('../fields')
 })
@@ -327,14 +326,16 @@ router.get(/crop_plan_year_handler/, function (req, res) {
 
 //view the selected plan
 router.get(/field_level_plan_handler/, function (req, res) { 
+    console.log('req.query.chosen_field ' + req.query.chosen_field)
     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field)
+    console.log(req.session.data.chosen_field)
     req.session.data.chosen_crop = req.query.chosencrop
     res.redirect('../field_plan/index')
 })
 
 router.get(/mvpfield_plan_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field)
+    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field.reference)
     req.session.data.chosen_crop = req.query.chosencrop
     req.session.data.cover_crop = req.query.covercrop
     res.redirect('../field_plan/index')
@@ -343,7 +344,7 @@ router.get(/mvpfield_plan_handler/, function (req, res) {
 //add manure
 router.get(/v2_manure_check_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field)
+    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field.reference)
     req.session.data.chosen_crop = req.query.chosencrop
     req.session.data.cover_crop = req.query.covercrop
     res.redirect('old/v2/crop_plan/index')
@@ -405,7 +406,6 @@ router.get(/add_soil_handler/, function (req, res) {
 
 router.get(/planning_year_handler/, function (req, res) { 
     req.session.data.oaktree_farm.planning_year = req.query.year
-    console.log(req.session.data.oaktree_farm.planning_year)
     res.redirect('/'+ req.session.data.prototype_version +'/add_crops/crop_group')
 })
 

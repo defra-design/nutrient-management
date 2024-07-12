@@ -17,7 +17,7 @@
       href: "../plans_records"
     },
     {
-      text: "Harvest year 2024",
+      text: "Harvest year " + data.harvest_date,
       href: "planview_reset_handler"
     },
     {
@@ -55,7 +55,7 @@
     </div> 
     
     <div class="margin-bottom-forty">
-      <p class="govuk-body "><a href="">Change {{data.chosen_crop | nameconverter}} plan for {{data.chosen_field.name}}</a></p>
+      <p class="govuk-body "><a href="">Change the {{data.chosen_crop | nameconverter}} plan for {{data.chosen_field.name}}</a></p>
       <h2 class="govuk-heading-m">Applications of organic material and inorganic fertiliser</h2>
       <p class="govuk-body">
         {% if data.multi_manures == false and data.single_manures == false %}

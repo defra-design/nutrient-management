@@ -14,6 +14,14 @@ router.get(/farm_setup_handler/, function (req, res) {
     res.redirect('/mvp/start')
 })
 
+router.get(/version4_farmsetup_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.prototype_version = 'version_4'
+    res.redirect('/version_4/start')
+})
+
+
 router.get(/v4_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     req.session.data.prototype_version = 'version_4'
@@ -143,20 +151,17 @@ router.get(/two_manure_handler/, function (req, res) {
     res.redirect('/version_2/start')
 })
 
-router.get(/four_manure_handler/, function (req, res) { 
+router.get(/version4_fieldetup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
-    req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
     req.session.data.all_fields = req.session.data.field_list_mvp
+    req.session.data.fields_2023 = req.session.data.all_fields
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_three
     
     //convert the reference numbers to actual field objects
     req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.all_fields)
-    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.all_fields)
-    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.all_fields)
-    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.all_fields)
 
     req.session.data.prototype_version = 'version_4'
     res.redirect('/version_4/start')

@@ -86,6 +86,17 @@ let crop_group_2024 = CropGroup.createCropGroup();
 // var testy = allFunctions.getFieldByReference(field_details_mvp, 9);
 // console.log(testy);
 
+
+const Plan = require('./functions/plan.js');
+let plan_2023 = Plan.createPlan();
+let plan_2024 = Plan.createPlan();
+
+//new fields management
+let farmFields2023 = [];
+let farmFields2024 = [];
+
+// console.log(farmFields[0])
+
 let currentFieldGroup = [];
 
 let tempField = {
@@ -217,6 +228,21 @@ router.get('/', function (req, res) {
     req.session.data.show_fertiliser_notification = false
 
     req.session.data.prototype_version = 'mvp'
+
+    // new fields management
+    req.session.data.farmFields2023 = farmFields2023;
+    req.session.data.farmFields2024 = farmFields2024;
+
+    req.session.data.farmFields2023.push({
+        name: "Jon's Field",
+        cropReference: 1,
+        multiManure: false,
+        singleManure: false,
+        multiFertilizer: false,
+        singleFertilizer: false
+    });
+
+    // console.log(req.session.data.farmFields2023)
 
     res.render('index')
 })

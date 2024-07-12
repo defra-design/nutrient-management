@@ -17,11 +17,11 @@
     
     {% include "templates/title_span.html" %}
     <h1 class="govuk-heading-l">
-      Check crop and {{data.content.organic_term | lower }} details for {{data.chosenfield.name}}
+      Check crop and {{data.content.organic_term | lower }} details for {{data.chosen_field.name}}
     </h1>
 
     <h2 class="govuk-heading-m">
-      Crop plan for {{data.chosenfield.name}}
+      Crop plan for {{data.chosen_field.name}}
     </h2>   
     <div class="check-answers">
         {% include "./check_five_grass.html" %}
@@ -29,7 +29,7 @@
 
     <br>
     <h2 class="govuk-heading-m">
-      {{data.content.organic_term}} plan for {{data.chosenfield.name}}
+      {{data.content.organic_term}} plan for {{data.chosen_field.name}}
     </h2>
     <div class="check-answers">
       {% include "./check_five_organic.html" ignore missing %}

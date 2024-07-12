@@ -52,10 +52,10 @@
     </div>
     {% endif %}
 
-    <h1 class="govuk-heading-l">Crop plan for {{data.harvestdate}}</h1>
+    <h1 class="govuk-heading-l">Crop plan for {{data.harvest_date}}</h1>
 
     <div class="crop_plan_title">
-      <p class="govuk-body">There are {{data.crop_group_2024.totalFields}} fields in this plan</p>
+      <p class="govuk-body">There is 1 field in this plan</p>
       <p class="govuk-body">Last updated: {{data.content.todays_date}}</p>
       <p class="govuk-body"><a href="/add_crops/crop_group">Add another crop to this plan</a></p>
 
@@ -67,7 +67,7 @@
 
     <hr class="seperator_five">
     
-    {% if data.harvestdate == '2023' %}
+    {% if data.harvest_date == '2023' %}
       {% include "./templates/2023plan.html" ignore missing %}
     {% else %}
       {% include "./templates/2024plan.html" ignore missing %}

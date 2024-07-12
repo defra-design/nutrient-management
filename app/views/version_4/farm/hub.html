@@ -63,13 +63,7 @@
     </div>
 
     <div>
-      {% if data.oaktree_farm.fields_added == true and data.oaktree_farm.plans_added == false %}
-        <ul class="menu-list govuk-list">
-          <li>
-            <a class="govuk-link" href="/add_crops/year">Create a crop nutrient management plan</a>
-          </li>
-        </ul>
-      {% elif data.oaktree_farm.fields_added == true and data.oaktree_farm.plans_added == true %}
+      {% if data.oaktree_farm.fields_added == true  %}
       <h2 class="govuk-heading-m">Plans and records</h2>
       <ul class="menu-list govuk-list">
         <li>

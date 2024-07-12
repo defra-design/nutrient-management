@@ -26,23 +26,18 @@ oaktree_farm.fields_added = false;
 oaktree_farm.plans_added = false;
 
 
-///////field
+///////fields
 const field_list_mvp = require('./data/field_list_mvp.json');
-let current_fields = [];
-let currentFieldGroup = [];
-let farmFields2023 = [];
-let farmFields2024 = [];
+let all_fields = [];
+let fields_2023 = [];
+let fields_2024 = [];
+
 let tempField = {
     name: "Short Field",
     reference: "shortfield",
     nvz: false,
-    elevation: false,
-    area: 0,
-    manure: 0,
-    cropped: 0,
-    type: null
+    elevation: false
 };
-
 
 
 ///////Crops
@@ -154,10 +149,8 @@ router.get('/', function (req, res) {
     req.session.data.field_list_mvp = field_list_mvp
     req.session.data.potato_details = potato_details
     req.session.data.crop_types = crop_types
-    req.session.data.chosenfield = null
+    req.session.data.chosen_field = null
     req.session.data.crop_group = null
-    req.session.data.current_fields = current_fields
-    req.session.data.tempField = tempField
 
     //plan functionality
     req.session.data.plan2024 = plan2024
@@ -217,32 +210,33 @@ router.get('/', function (req, res) {
     req.session.data.prototype_version = 'mvp'
 
     // new fields management
-    req.session.data.farmFields2023 = farmFields2023;
-    req.session.data.farmFields2024 = farmFields2024;
+    req.session.data.all_fields = all_fields
+    req.session.data.fields_2023 = fields_2023
+    req.session.data.fields_2024 = fields_2024
+    
+    // req.session.data.all_fields.push({
+    //     name: "Jon's Field",
+    //     reference: 1,
+    //     cropReference: 1,
+    //     secondCropReference: null,
+    //     multiManure: false,
+    //     singleManure: false,
+    //     multiFertiliser: false,
+    //     singleFertiliser: false
+    // });
 
-    req.session.data.farmFields2023.push({
-        name: "Jon's Field",
-        reference: 1,
-        cropReference: 1,
-        secondCropReference: null,
-        multiManure: false,
-        singleManure: false,
-        multiFertiliser: false,
-        singleFertiliser: false
-    });
+    // req.session.data.all_fields.push({
+    //     name: "Jack's Field",
+    //     reference: 2,
+    //     cropReference: 2,
+    //     secondCropReference: null,
+    //     multiManure: false,
+    //     singleManure: false,
+    //     multiFertiliser: false,
+    //     singleFertiliser: false
+    // });
 
-    req.session.data.farmFields2023.push({
-        name: "Jack's Field",
-        reference: 2,
-        cropReference: 2,
-        secondCropReference: null,
-        multiManure: false,
-        singleManure: false,
-        multiFertiliser: false,
-        singleFertiliser: false
-    });
-
-    // console.log(req.session.data.farmFields2023)
+    // console.log(req.session.data.farmfields_2023)
 
     res.render('index')
 })

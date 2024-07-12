@@ -21,7 +21,7 @@
       href: "planview_reset_handler"
     },
     {
-      text: data.chosenField.name
+      text: data.chosen_field.name
     }
   ]
 }) }}
@@ -43,7 +43,7 @@
         </div>
         <div class="govuk-notification-banner__content">
           <h3 class="govuk-notification-banner__heading">
-              {{data.content.organic_term}} applications added to {{data.chosenField.name}}.
+              {{data.content.organic_term}} applications added to {{data.chosen_field.name}}.
           </h3>
         </div>
       </div>
@@ -51,20 +51,20 @@
 
 
     <div class="status-header margin-bottom-forty">
-      <h1 class="govuk-heading-l">Nutrient recommendations for {{data.chosenField.name}} 2024</h1>
+      <h1 class="govuk-heading-l">Nutrient recommendations for {{data.chosen_field.name}} 2024</h1>
     </div> 
     
     <div class="margin-bottom-forty">
-      <p class="govuk-body "><a href="">Change {{data.chosen_crop | nameconverter}} plan for {{data.chosenField.name}}</a></p>
+      <p class="govuk-body "><a href="">Change {{data.chosen_crop | nameconverter}} plan for {{data.chosen_field.name}}</a></p>
       <h2 class="govuk-heading-m">Applications of organic material and inorganic fertiliser</h2>
       <p class="govuk-body">
         {% if data.multi_manures == false and data.single_manures == false %}
-          <a href="v2manure_handler?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosenField.name}}</a>
+          <a href="v2manure_handler?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosen_field.name}}</a>
         {% else %}
-          <a href="v2manure_handler?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosenField.name}}</a>
+          <a href="v2manure_handler?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosen_field.name}}</a>
         {% endif %}
       </p>
-      <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Plan or edit an application of {{data.content.non_organic_term | lower}} to {{data.chosenField.name}}</a></p>
+      <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Plan or edit an application of {{data.content.non_organic_term | lower}} to {{data.chosen_field.name}}</a></p>
     </div>
     
   </div>
@@ -91,7 +91,7 @@
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
       {% if data.multi_manures == false and data.single_manures == false %}
-        <p>You have no {{data.content.organic_term | lower}} applications planned for this field. <a href="v2manure_handler?manurejourney=single"> <br><a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosenField.name}}</a></a></p>
+        <p>You have no {{data.content.organic_term | lower}} applications planned for this field. <a href="v2manure_handler?manurejourney=single"> <br><a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a></a></p>
       {% else %}
         {% include "./templates/applications.html" ignore missing %}
       {% endif %}
@@ -101,7 +101,7 @@
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.non_organic_term}} applications</h2>
       {% if data.multi_fertiliser == false and data.single_fertiliser == false %}
-        <p>You have no {{data.content.non_organic_term | lower}} applications planned for this field. <a href=""> <br>Add {{data.content.non_organic_term | lower}} applications for {{data.chosenField.name}}</a></p>
+        <p>You have no {{data.content.non_organic_term | lower}} applications planned for this field. <a href=""> <br>Add {{data.content.non_organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
       {% else %}
         {% include "./templates/fertiliser_applications.html" ignore missing %}
       {% endif %}

@@ -21,7 +21,7 @@
       href: "../crop_plan/index"
     },
     {
-      text: data.chosenfield
+      text: data.chosen_field
     }
   ]
 }) }}
@@ -31,7 +31,7 @@
 {% block content %}
 
 <div class="status-header">
-  <h1 class="govuk-heading-l">{{data.chosenfield | fieldconverter}} plan and recommendations</h1>
+  <h1 class="govuk-heading-l">{{data.chosen_field | fieldconverter}} plan and recommendations</h1>
   <p class="govuk-body">Harvest year: {{data.chosen_plan.harvest_date}}</p>
   <p class="govuk-body">Status: {{data.chosen_plan.plan_status | statusconverter}}</p>
 </div>  

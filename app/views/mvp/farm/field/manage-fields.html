@@ -76,7 +76,7 @@
                 <td class="govuk-table__cell">{{field.name}}</td>
                 <!-- <td class="govuk-table__cell">None</td> -->
                 <td class="govuk-table__cell">
-                  <a href="field-select-handler?chosenfield={{field.name}}">Field and soil details</a>
+                  <a href="field-select-handler?chosen_field={{field.name}}">Field and soil details</a>
                 </td>
               </tr>
             {% endfor %} 
@@ -95,12 +95,12 @@
                 </tr>
               </thead>
               <tbody class="govuk-table__body">
-                {% for field in data.current_fields %}
+                {% for field in data.all_fields %}
                 <tr class="govuk-table__row">
                   <td class="govuk-table__cell">{{field.name}}</td>
                   <!-- <td class="govuk-table__cell">None</td> -->
                   <td class="govuk-table__cell">
-                    <a href="field-select-handler?chosenfield={{field.name}}">Field and soil details</a>
+                    <a href="field-select-handler?chosen_field={{field.name}}">Field and soil details</a>
                   </td>
                 </tr>
               {% endfor %} 

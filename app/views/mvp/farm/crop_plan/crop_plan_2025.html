@@ -70,11 +70,11 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
-        {% for field in data.current_fields %}
+        {% for field in data.all_fields %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">{{field.name}}</td>
             <td class="govuk-table__cell">Crop added</td>
-            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield={{field.name}}">View field plan and recommendations</a></td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosen_field={{field.name}}">View field plan and recommendations</a></td>
           </tr>
         {% endfor %}
       </tbody>
@@ -99,17 +99,17 @@
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Field 4</td>
           <td class="govuk-table__cell">Crop added</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Field4">View field plan and recommendations</a></td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosen_field=Field4">View field plan and recommendations</a></td>
         </tr>      
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Field 5</td>
           <td class="govuk-table__cell">Crop added</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Field4">View field plan and recommendations</a></td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosen_field=Field4">View field plan and recommendations</a></td>
         </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Field 6</td>
           <td class="govuk-table__cell">Crop added</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Field4">View field plan and recommendations</a></td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosen_field=Field4">View field plan and recommendations</a></td>
         </tr>
       </tbody>
     </table>

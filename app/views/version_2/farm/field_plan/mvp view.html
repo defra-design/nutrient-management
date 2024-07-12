@@ -21,7 +21,7 @@
       href: "../crop_plan/plan_view"
     },
     {
-      text: data.chosenField.name
+      text: data.chosen_field.name
     }
   ]
 }) }}
@@ -34,7 +34,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <div class="status-header margin-bottom-forty">
-      <h1 class="govuk-heading-l">Nutrient recommendations for {{data.chosenField.name}} 2024</h1>
+      <h1 class="govuk-heading-l">Nutrient recommendations for {{data.chosen_field.name}} 2024</h1>
     </div>  
     <div class="margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
@@ -53,7 +53,7 @@
       {% else %}
         {% include "./templates/main-crop-details.html" ignore missing %}
       {% endif %}
-      <p class="govuk-body"><a href="">Change {{data.chosen_crop | nameconverter}} details for {{data.chosenField.name}}</a></p>
+      <p class="govuk-body"><a href="">Change {{data.chosen_crop | nameconverter}} details for {{data.chosen_field.name}}</a></p>
     </div>
 
     {% if data.cover_crop != 'none' %}
@@ -69,7 +69,7 @@
       <div class="">
         <h2 class="govuk-heading-m">Crop details</h2>
         {% include "./templates/second-crop-details.html" ignore missing %}
-        <p class="govuk-body"><a href="">Change {{data.cover_crop | nameconverter}} details for {{data.chosenField.name}}</a></p>
+        <p class="govuk-body"><a href="">Change {{data.cover_crop | nameconverter}} details for {{data.chosen_field.name}}</a></p>
       </div>
     {% endif %}
     

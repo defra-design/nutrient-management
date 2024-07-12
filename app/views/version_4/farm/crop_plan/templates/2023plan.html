@@ -12,10 +12,12 @@
       </thead>
       <tbody class="govuk-table__body">
 
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Long Field</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosenfield=Long Field">View field plan and recommendations</a></td>
-        </tr>      
-        
+        {% for field in data.fields_2023 %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{field.name}}</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosen_field={{field.reference}}">View field plan and recommendations</a></td>
+          </tr>      
+        {% endfor %}  
+
       </tbody>
     </table>

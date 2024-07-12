@@ -36,7 +36,7 @@ router.get(/fields_mvp_setup_handler/, function (req, res) {
     // req.session.data.oaktree_farm.soil_added = true
     // req.session.data.oaktree_farm.use_mvp_fields = true
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
-    req.session.data.current_fields = req.session.data.field_list_mvp
+    req.session.data.all_fields = req.session.data.field_list_mvp
     // plan for 2025 is empty
     req.session.data.prototype_version = 'mvp'
     res.redirect('/mvp/start')
@@ -51,15 +51,15 @@ router.get(/one_crop_handler/, function (req, res) {
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
-    req.session.data.current_fields = req.session.data.field_list_mvp
+    req.session.data.all_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_one
     
     //convert the reference numbers to field objects
-    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.all_fields)
     
     req.session.data.prototype_version = 'mvp'
     res.redirect('/mvp/start')
@@ -74,15 +74,15 @@ router.get(/plans_mvp_setup_handler/, function (req, res) {
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
-    req.session.data.current_fields = req.session.data.field_list_mvp
+    req.session.data.all_fields = req.session.data.field_list_mvp
     // use populated plan 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_two
     
     //convert the reference numbers to actual field objects
-    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.all_fields)
 
     res.redirect('/mvp/start')
 })
@@ -97,15 +97,15 @@ router.get(/one_manure_handler/, function (req, res) {
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
-    req.session.data.current_fields = req.session.data.field_list_mvp
+    req.session.data.all_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_three
     
     //convert the reference numbers to actual field objects
-    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.all_fields)
 
     req.session.data.prototype_version = 'version_2'
     res.redirect('/version_2/start')
@@ -121,15 +121,15 @@ router.get(/two_manure_handler/, function (req, res) {
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
-    req.session.data.current_fields = req.session.data.field_list_mvp
+    req.session.data.all_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_three
     
     //convert the reference numbers to actual field objects
-    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.all_fields)
 
     req.session.data.prototype_version = 'version_2'
 
@@ -148,15 +148,15 @@ router.get(/four_manure_handler/, function (req, res) {
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
-    req.session.data.current_fields = req.session.data.field_list_mvp
+    req.session.data.all_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_three
     
     //convert the reference numbers to actual field objects
-    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.all_fields)
 
     req.session.data.prototype_version = 'version_4'
     res.redirect('/version_4/start')
@@ -167,15 +167,15 @@ router.get(/one_fertiliser_handler/, function (req, res) {
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, true, true)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
-    req.session.data.current_fields = req.session.data.field_list_mvp
+    req.session.data.all_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_three
     
     //convert the reference numbers to actual field objects
-    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.all_fields)
     
     req.session.data.multi_fertiliser = true
 
@@ -200,15 +200,15 @@ router.get(/version_3_handler/, function (req, res) {
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
-    req.session.data.current_fields = req.session.data.field_list_mvp
+    req.session.data.all_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_three
     
     //convert the reference numbers to actual field objects
-    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.current_fields)
-    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.all_fields)
+    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.all_fields)
 
     req.session.data.prototype_version = 'version_3'
     res.redirect('/version_3/start')
@@ -218,7 +218,7 @@ router.get(/version_3_handler/, function (req, res) {
 router.get(/one_grass_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
-    req.session.data.current_fields = req.session.data.field_list_mvp
+    req.session.data.all_fields = req.session.data.field_list_mvp
     // plan for 2025 is empty
 
     req.session.data.prototype_version = 'version_2'
@@ -302,8 +302,8 @@ router.get(/add-field-handler/, function (req, res) {
     req.session.data.tempField.reference = tempString
     console.log('name = ' + req.session.data.tempField.name)
     console.log('reference = ' + req.session.data.tempField.reference)
-    req.session.data.current_fields.push(req.session.data.tempField)
-    console.log(req.session.data.tempField)
+    req.session.data.all_fields.push(req.session.data.tempField)
+    req.session.data.fields_2023.push(req.session.data.tempField)
     res.redirect('/'+ req.session.data.prototype_version +'/farm/field/manage-fields')
 })
 
@@ -453,9 +453,9 @@ router.get(/mvp_another_crop_handler/, function (req, res) {
 
 router.get(/mvp_fields_handler/, function (req, res) { 
     for (var x in req.session.data.crop_fields) {
-        for (var y in req.session.data.current_fields) {
-            if (req.session.data.current_fields[y].reference == req.session.data.crop_fields[x]) {
-                req.session.data.crop_fields[x] = req.session.data.current_fields[y]
+        for (var y in req.session.data.all_fields) {
+            if (req.session.data.all_fields[y].reference == req.session.data.crop_fields[x]) {
+                req.session.data.crop_fields[x] = req.session.data.all_fields[y]
             }
         }
     }
@@ -469,9 +469,9 @@ router.get(/mvp_fields_handler/, function (req, res) {
 router.get(/cover_handler/, function (req, res) { 
     req.session.data.crop_group_2024.secondCropFields = []
     for (var x in req.session.data.cover_fields) {
-        for (var y in req.session.data.current_fields) {
-            if (req.session.data.current_fields[y].reference == req.session.data.cover_fields[x]) {
-                req.session.data.cover_fields[x] = req.session.data.current_fields[y]
+        for (var y in req.session.data.all_fields) {
+            if (req.session.data.all_fields[y].reference == req.session.data.cover_fields[x]) {
+                req.session.data.cover_fields[x] = req.session.data.all_fields[y]
             }
         }
     }
@@ -532,16 +532,16 @@ router.get(/mvp_check_handler/, function (req, res) {
         req.session.data.crop_group_2024.firstCropFields = req.session.data.crop_fields;
         req.session.data.crop_group_2024.secondCropFields = req.session.data.cover_fields;
         //get by reference
-        req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.current_fields)
-        req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.current_fields)
+        req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.all_fields)
+        req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.all_fields)
     } else {
         req.session.data.crop_group_2024.thirdCropReference = req.session.data.chosen_crop;
         req.session.data.crop_group_2024.fourthCropReference = req.session.data.cover_crop;
         req.session.data.crop_group_2024.thirdCropFields = req.session.data.crop_fields;
         req.session.data.crop_group_2024.fourthCropFields = req.session.data.cover_fields;
         //get by reference
-        req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.current_fields)
-        req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.current_fields)    
+        req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.all_fields)
+        req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.all_fields)    
     }
     req.session.data.crop_group_2024.totalFields = allFunctions.totalFieldsCount(req.session.data.crop_group_2024);
 

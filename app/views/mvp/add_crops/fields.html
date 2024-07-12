@@ -36,7 +36,7 @@
             </div>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
 
-            {% for field in data.current_fields %}
+            {% for field in data.all_fields %}
               {% set isPlanned = false %}
               {% for thisField in data.crop_group_2024.firstCropFields %} 
                 {% if thisField.reference == field.reference %}

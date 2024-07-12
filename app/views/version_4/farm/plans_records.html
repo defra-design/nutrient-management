@@ -26,7 +26,7 @@
     {% if data.plan_2024.setup == true %}
       <p class="govuk-body"><a href="">Create a 2025 plan</a></p>
     {% endif %}
-    {% if data.plan_2023.setup != true %}
+    {% if data.plan_2024.setup != true %}
       <p class="govuk-body"><a href="planning_year_handler?year=2024">Create a 2024 plan</a></p>
     {% endif %}
     <p class="govuk-body"><a href="">Create a 2022 plan</a></p>
@@ -49,14 +49,14 @@
 
             {% if data.plan_2024.setup == true  %}
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">2024</td>
+              <th scope="row" class="govuk-table__header">2024</td>
               <!-- <td class="govuk-table__cell">Status</td> -->
               <td class="govuk-table__cell">{{data.content.todays_date}}</td>
               <td class="govuk-table__cell"><a href="crop_plan_year_handler?harvest_date=2024">View or edit</a></td>
             </tr>
             {% endif %}  
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">2023</td>
+              <th scope="row" class="govuk-table__header">2023</td>
               <!-- <td class="govuk-table__cell">Status</td> -->
               <td class="govuk-table__cell">{{data.content.todays_date}}</td>
               <td class="govuk-table__cell"><a href="crop_plan_year_handler?harvest_date=2023">View or edit</a></td>

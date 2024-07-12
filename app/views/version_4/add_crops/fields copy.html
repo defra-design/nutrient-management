@@ -37,12 +37,25 @@
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
 
             {% for field in data.all_fields %}
+              {% set isPlanned = false %}
+              {% for thisField in data.crop_group_2024.firstCropFields %} 
+                {% if thisField.reference == field.reference %}
+                  {% set isPlanned = true %}
+                {% endif %}
+              {% endfor %} 
+              {% for thisField in data.crop_group_2024.thirdCropFields %} 
+              {% if thisField.reference == field.reference %}
+                {% set isPlanned = true %}
+              {% endif %}
+            {% endfor %} 
+              {% if isPlanned == false %}
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id={{field.reference}} name="crop_fields" type="checkbox" value={{field.reference}}>
                 <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
                   {{field.name}}
                 </label>
               </div>
+              {% endif %}
             {% endfor %}   
             
             <div class="govuk-checkboxes__divider">or</div>

@@ -20,7 +20,6 @@ oaktree_farm.organic_producer = false;
 oaktree_farm.latest_update = null;
 oaktree_farm.use_mvp_fields = false;
 oaktree_farm.setup = false;
-oaktree_farm.soil_added = false;
 oaktree_farm.fields_added = false;
 oaktree_farm.plans_added = false;
 

@@ -326,6 +326,7 @@ router.get(/crop_plan_year_handler/, function (req, res) {
 
 //view the selected plan
 router.get(/field_level_plan_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
     console.log('req.query.chosen_field ' + req.query.chosen_field)
     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field)
     console.log(req.session.data.chosen_field)
@@ -399,10 +400,8 @@ router.get(/field-select-handler/, function (req, res) {
 router.get(/add_soil_handler/, function (req, res) { 
     req.session.data.show_success_message = true
     req.session.data.oaktree_farm.latest_update = 'soil-added'
-    req.session.data.oaktree_farm.soil_added = true
     res.redirect('../field/field-details')
 })
-
 
 router.get(/planning_year_handler/, function (req, res) { 
     req.session.data.oaktree_farm.planning_year = req.query.year

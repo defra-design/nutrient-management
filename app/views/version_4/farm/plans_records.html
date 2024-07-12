@@ -23,7 +23,10 @@
 
   <h1 class="govuk-heading-l margin-bottom-forty">Plans and records</h1>
   <div class="margin-bottom-forty">
-    <p class="govuk-body"><a href="../add_crops/crop_group">Create a 2024 plan</a></p>
+
+    {% if data.plan2025.crop_added == false %}
+      <p class="govuk-body"><a href="../add_crops/crop_group">Create a 2024 plan</a></p>
+    {% endif %}
     <p class="govuk-body"><a href="/old/plan/add_crops/crop_group">Create a 2022 plan</a></p>
 </div>
 

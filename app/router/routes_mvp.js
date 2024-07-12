@@ -143,6 +143,25 @@ router.get(/two_manure_handler/, function (req, res) {
     res.redirect('/version_2/start')
 })
 
+router.get(/four_manure_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
+    req.session.data.oaktree_farm.planFive = true
+    req.session.data.oaktree_farm.plans_added = true
+    req.session.data.current_fields = req.session.data.field_details_mvp
+    // use plan with one crop 2025
+    req.session.data.crop_group_2024 = req.session.data.crop_group_three
+    
+    //convert the reference numbers to actual field objects
+    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.current_fields)
+    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.current_fields)
+
+    req.session.data.prototype_version = 'version_4'
+    res.redirect('/version_4/start')
+})
+
 router.get(/one_fertiliser_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, true, true)
@@ -542,7 +561,7 @@ router.get(/mvp_check_handler/, function (req, res) {
 router.get(/delete_handler/, function (req, res) { 
     req.session.data.show_success_message = true
     req.session.data.oaktree_farm.setup = false
-    res.redirect('/' + req.session.data.prototype_version + '/farms')
+    res.redirect('/' + req.session.data.prototype_version + '/farm/farms')
 })
 
 //farm view reset messages
@@ -554,7 +573,7 @@ router.get(/hub_reset_handler/, function (req, res) {
 //manage fields view reset messages
 router.get(/field_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    res.redirect('/' + req.session.data.prototype_version + '/field/manage-fields')
+    res.redirect('/' + req.session.data.prototype_version + '/farm/field/manage-fields')
 })
 
 //add a field view reset messages
@@ -566,7 +585,7 @@ router.get(/field_add_reset_handler/, function (req, res) {
 //add a field view reset messages
 router.get(/field_details_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    res.redirect('/field/field-details')
+    res.redirect('/'+ req.session.data.prototype_version +'/farm/field/field-details')
 })
 
 //plan_view reset messages
@@ -595,7 +614,7 @@ router.get(/v2manure_handler/, function (req, res) {
 
 router.get(/add_manure_handler/, function (req, res) { 
     req.session.data.show_success_message = true
-    res.redirect('/' + req.session.data.prototype_version + '/crop_plan/plan_view')
+    res.redirect('/' + req.session.data.prototype_version + '/farm//crop_plan/plan_view')
 })
 
 router.get(/version2_manure_handler/, function (req, res) { 

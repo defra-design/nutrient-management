@@ -66,14 +66,7 @@
     </div>
 
     <hr class="seperator_five">
-
-    <h2 class="govuk-heading-m">{{data.crop_group_2024.firstCropReference | nameconverter }}</h2>
-
-    <!--show variety -->
-    {% if data.crop_group_2024.firstCropVariety != null %}
-      <p class="govuk-body">Variety: {{data.crop_group_2024.firstCropVariety}}</p>
-    {% endif %}
-
+    
     {% if data.harvestdate == '2023' %}
       {% include "./templates/2023plan.html" ignore missing %}
     {% else %}

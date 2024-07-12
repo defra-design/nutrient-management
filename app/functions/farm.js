@@ -9,9 +9,7 @@ latest_update,
 use_mvp_fields,
 setup,
 soil_added,
-fields_added,
-plan_2023_added,
-plan_2024_added
+fields_added
 
 ) {
     this.name = name,
@@ -24,9 +22,7 @@ plan_2024_added
     this.use_mvp_fields = use_mvp_fields,
     this.setup = setup,
     this.soil_added = soil_added,
-    this.fields_added = fields_added,
-    this.plan_2023_added = plan_2023_added
-    this.plan_2024_added = plan_2024_added
+    this.fields_added = fields_added
   }
 
 Farm.prototype.printFarm = function () {
@@ -40,9 +36,7 @@ Farm.prototype.printFarm = function () {
                 this.use_mvp_fields + ", " +
                 this.setup + ", " +
                 this.soil_added + ", " +
-                this.fields_added + ", " +
-                this.plan_2023_added + ", " +
-                this.plan_2024_added)
+                this.fields_added)
 };
 
 Farm.prototype.reset = function () {
@@ -56,8 +50,6 @@ Farm.prototype.reset = function () {
     this.use_mvp_fields = false,
     this.setup = false,
     this.soil_added = false,
-    this.plan_2023_added = false,
-    this.plan_2024_added = false,
     this.fields_added = false
 };
 

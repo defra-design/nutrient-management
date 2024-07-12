@@ -1,4 +1,4 @@
-<h2 class="govuk-heading-m">Winter Wheat</h2>
+<h2 class="govuk-heading-m">{{data.plan_2023.firstCropReference | nameconverter}}</h2>
 
     <p class="govuk-body"><a href="">Change this Winter Wheat plan</a></p>
 
@@ -12,7 +12,7 @@
       </thead>
       <tbody class="govuk-table__body">
 
-        {% for field in data.fields_2023 %}
+        {% for field in data.plan_2023.firstFields %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">{{field.name}}</td>
             <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Wheat-Winter&chosen_field={{field.reference}}">View field plan and recommendations</a></td>

@@ -36,7 +36,19 @@ function basicSetup (farm, mvpFields, manure, fertiliser) {
     farm.soil_added = true
     farm.fields_added = true
     farm.use_mvp_fields = mvpFields
-  };
+};
+
+function getCropByReference (referenceNumber, crops) {
+    let cropToReturn
+    for (let crop in crops) {
+        if (crops[crop].reference == referenceNumber ) {
+            console.log(cropToReturn.name)
+            cropToReturn = crops[crop]
+        }
+    }
+    return cropToReturn
+};
+
 
 
  function printCropGroup(group) {

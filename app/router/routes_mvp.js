@@ -143,7 +143,6 @@ router.get(/version4_fieldetup_handler/, function (req, res) {
     req.session.data.oaktree_farm.plan_2023_added = true
     req.session.data.oaktree_farm.plan_2024_added = false
     req.session.data.all_fields = req.session.data.field_list_mvp
-    req.session.data.fields_2023 = req.session.data.all_fields
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_three
     
@@ -203,21 +202,18 @@ router.get(/version_3_handler/, function (req, res) {
     res.redirect('/version_3/start')
 })
 
+//// ********
 router.get(/version4_cropsetup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
-    req.session.data.oaktree_farm.plan_2023_added = true
-    req.session.data.oaktree_farm.plan_2024_added = true
     req.session.data.all_fields = req.session.data.field_list_mvp
-    // use plan with one crop 2025
-    req.session.data.crop_group_2024 = req.session.data.crop_group_one
-    
-    //convert the reference numbers to field objects
-    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.all_fields)
-    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.all_fields)
-    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.all_fields)
-    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.all_fields)
-    
+    req.session.data.plan_2023.firstCropReference = 'Wheat-Winter'
+    req.session.data.plan_2023.setup = true
+    req.session.data.plan_2023.firstFieldReferences = [1,2,3,4,5]
+    req.session.data.plan_2023.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2023.firstFieldReferences, req.session.data.all_fields)
+    console.log(req.session.data.plan_2023.firstFields)
+    req.session.data.plan_2024.setup = true
+    req.session.data.all_fields = req.session.data.field_list_mvp
     req.session.data.prototype_version = 'version_4'
     res.redirect('/version_4/start')
 })
@@ -311,7 +307,6 @@ router.get(/add-field-handler/, function (req, res) {
     console.log('name = ' + req.session.data.tempField.name)
     console.log('reference = ' + req.session.data.tempField.reference)
     req.session.data.all_fields.push(req.session.data.tempField)
-    req.session.data.fields_2023.push(req.session.data.tempField)
     res.redirect('/'+ req.session.data.prototype_version +'/farm/field/manage-fields')
 })
 

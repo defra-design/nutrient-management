@@ -321,14 +321,7 @@ router.get(/v2_check_handler/, function (req, res) {
 
 //view the plan by year
 router.get(/crop_plan_year_handler/, function (req, res) { 
-    if (req.query.harvest_date == '2024') {
-        req.session.data.chosen_plan = req.session.data.plan2024
-    } else if (req.query.harvest_date == '2023') {
-        req.session.data.chosen_plan = req.session.data.plan2023
-    } else {
-        req.session.data.plan2025.plan_update = null
-        req.session.data.chosen_plan = req.session.data.plan2025
-    }
+    req.session.data.oaktree_farm.planning_year = req.query.harvest_date
     res.redirect('./crop_plan/plan_view')
 })
 

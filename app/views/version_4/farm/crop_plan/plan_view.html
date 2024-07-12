@@ -52,10 +52,10 @@
     </div>
     {% endif %}
 
-    <h1 class="govuk-heading-l">Crop plan for {{data.oaktree-farm.planning_year}}</h1>
+    <h1 class="govuk-heading-l">Crop plan for {{data.oaktree_farm.planning_year}}</h1>
 
     <div class="crop_plan_title">
-      <p class="govuk-body">There is 1 field in this plan</p>
+      <p class="govuk-body">There are {{data.plan_2023.totalFields}} fields in this plan</p>
       <p class="govuk-body">Last updated: {{data.content.todays_date}}</p>
       <p class="govuk-body"><a href="/add_crops/crop_group">Add another crop to this plan</a></p>
 

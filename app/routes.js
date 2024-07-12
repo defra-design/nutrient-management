@@ -28,8 +28,6 @@ oaktree_farm.plans_added = false;
 ///////fields
 const field_list_mvp = require('./data/field_list_mvp.json');
 let all_fields = [];
-let fields_2023 = [];
-let fields_2024 = [];
 
 let tempField = {
     name: "Short Field",
@@ -39,9 +37,16 @@ let tempField = {
 };
 
 
+///////Plans
+const Plan = require('./functions/plan.js');
+let plan_2023 = Plan.createPlan();
+let plan_2024 = Plan.createPlan();
+
+
 ///////Crops
 const potato_details = require('./data/potatoes.json');
 const crop_types = require('./data/crops.json');
+
 const CropGroup = require('./functions/crop_group.js');
 let crop_group_one = CropGroup.createCropGroup();
 let crop_group_two = CropGroup.createCropGroup();
@@ -99,19 +104,6 @@ const manure_types_livestock = require('./data/manure_types_livestock.json');
 const manure_types_livestock_groups = require('./data/manure_types_livestock_groups.json');
 
 
-///////Plans
-const Plan = require('./functions/plan.js');
-let plan_2023 = Plan.createPlan();
-let plan_2024 = Plan.createPlan();
-let plan2025 = {
-    harvest_date: "2025",
-    crop_added: false,
-    manure_added: false,
-    fertiliser_added: false,
-    plan_update: 'crop_added',
-    updated: 'getFieldByReference' 
-};
-
 let plan2024 = {
     harvest_date: "2024",
     crop_added: true,
@@ -129,15 +121,7 @@ router.get('/', function (req, res) {
 
     //create oaktree farm
     req.session.data.oaktree_farm = oaktree_farm
-    // req.session.data.oaktree_farm.printFarm()
     
-    //create 2025 crop plan
-    req.session.data.crop_group_one = crop_group_one
-    req.session.data.crop_group_two = crop_group_two
-    req.session.data.crop_group_three = crop_group_three
-    req.session.data.crop_group_2024 = crop_group_2024
-    req.session.data.crop_group_2023 = crop_group_2023
-    // req.session.data.crop_group_two.printCropGroup();
 
     //data
     req.session.data.manure_types_digestate = manure_types_digestate
@@ -151,10 +135,15 @@ router.get('/', function (req, res) {
     req.session.data.chosen_field = null
     req.session.data.crop_group = null
 
-    //plan functionality
-    req.session.data.plan2024 = plan2024
-    req.session.data.plan2025 = plan2025
-    req.session.data.chosen_plan = plan2024
+
+    //plans
+    req.session.data.plan_2023 = plan_2023;
+    req.session.data.plan_2024 = plan_2024;
+    req.session.data.plan_2023.reset();
+    req.session.data.plan_2024.reset();
+    req.session.data.plan_2023.year = 2023;
+    req.session.data.plan_2024.year = 2024;
+
 
     req.session.data.selected_fields = [{"reference":"1", "name":"Long Field", "planStatus":false, "crop": null, "soil": null},
     {"reference":"2", "name":"Barn Field", "planStatus":false, "crop": null, "soil": null},
@@ -179,17 +168,6 @@ router.get('/', function (req, res) {
     req.session.data.manure_spreads = 0
     req.session.data.fertiliser_spreads = 0
 
-    req.session.data.crop_group_2024.firstCropFields = []
-    req.session.data.crop_group_2024.secondCropFields = []
-    req.session.data.crop_group_2024.thirdCropFields = []
-    req.session.data.crop_group_2024.fourthCropFields = []
-
-    req.session.data.crop_group_2023.firstCropFields = []
-    req.session.data.crop_group_2023.secondCropFields = []
-    req.session.data.crop_group_2023.thirdCropFields = []
-    req.session.data.crop_group_2023.fourthCropFields = []
-    req.session.data.cover_fields = []
-
     //manures - temp remove
     req.session.data.multi_manures = false
     req.session.data.single_manures = false
@@ -210,32 +188,6 @@ router.get('/', function (req, res) {
 
     // new fields management
     req.session.data.all_fields = all_fields
-    req.session.data.fields_2023 = fields_2023
-    req.session.data.fields_2024 = fields_2024
-    
-    // req.session.data.all_fields.push({
-    //     name: "Jon's Field",
-    //     reference: 1,
-    //     cropReference: 1,
-    //     secondCropReference: null,
-    //     multiManure: false,
-    //     singleManure: false,
-    //     multiFertiliser: false,
-    //     singleFertiliser: false
-    // });
-
-    // req.session.data.all_fields.push({
-    //     name: "Jack's Field",
-    //     reference: 2,
-    //     cropReference: 2,
-    //     secondCropReference: null,
-    //     multiManure: false,
-    //     singleManure: false,
-    //     multiFertiliser: false,
-    //     singleFertiliser: false
-    // });
-
-    // console.log(req.session.data.farmfields_2023)
 
     res.render('index')
 })

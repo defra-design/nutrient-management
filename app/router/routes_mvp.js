@@ -328,6 +328,11 @@ router.get(/sns_handler/, function (req, res) {
     res.redirect('sns/crop_group')
 })
 
+router.get(/sns_v3_handler/, function (req, res) { 
+    let next = (req.session.data.sns_method == "yes") ? 'sns/crop_group' : 'check'
+    res.redirect(next)
+})
+
 router.get(/mineralisation_handler/, function (req, res) { 
     let next = (req.session.data.mineralisation == "organic") ? 'organic' : 'adjustment'
     res.redirect(next)

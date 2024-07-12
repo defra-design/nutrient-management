@@ -1,65 +1,200 @@
- <h2 class="govuk-heading-m">Grass</h2>
-    <p class="govuk-body">3 fields</p>
+<table class="govuk-table margin-bottom-forty big_crop_table_version_two">
 
-    <table class="govuk-table crop_table data-table">
-      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Long Field</caption> -->
+      <!--show second crop table header where there is one -->
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Field</th>
-          <th scope="col" class="govuk-table__header">Status</th>
-          <th scope="col" class="govuk-table__header"> </th>
+          {% if data.crop_group_2024.secondCropFields == null %}
+            <th scope="col" class="govuk-table__header"></th>
+            {% else %}
+            <th scope="col" class="govuk-table__header">Second crop</th>
+          {% endif %}
+
+          <th scope="col" class="govuk-table__header">Organic applications</th>
+          <th scope="col" class="govuk-table__header">Inorganic applications</th>
+          <th scope="col" class="govuk-table__header">&nbsp;</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Field 1</td>
-          <td class="govuk-table__cell">Crop, manure and fertiliser added</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Grass&chosenfield=Field1">View field plan and recommendations</a></td>
-        </tr>      
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Field 2</td>
-          <td class="govuk-table__cell">Crop, manure and fertiliser added</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Grass&chosenfield=Field2">View field plan and recommendations</a></td>
+
+      <!--show the first crop fields -->
+      {% for field in data.crop_group_2024.firstCropFields %}
+      {% set hasSecondCrop = false %}
+
+      {% for thisField in data.crop_group_2024.secondCropFields %}
+        {% if thisField.reference === field.reference %}
+          {% set hasSecondCrop = true %}
+        {% endif %}
+      {% endfor %}  
+
+        <tr class="govuk-table__row">    
+          <td class="govuk-table__cell">{{field.name}}</td>
+
+        {% if data.crop_group_2024.secondCropFields == null %}
+          <td class="govuk-table__cell"></td>
+        {% else %}
+        <td class="govuk-table__cell">
+          {% if hasSecondCrop == true %}
+            {{data.crop_group_2024.secondCropReference | nameconverter }}
+          {% else %}
+            None
+          {% endif %}
+        </td>
+        
+      {% endif %}
+
+      <td class="govuk-table__cell">
+        {% if data.multi_manures == true %}
+          {% if data.single_manures == true %}
+            {% if field.reference == '3' %}
+              2
+            {% else %}
+              1
+            {% endif %}
+          {% else %}
+              1
+          {% endif %}
+        {% endif %} 
+          
+        {% if data.multi_manures == false %}
+          {% if data.single_manures == true %}
+            {% if field.reference == '3' %}
+              1
+            {% else %}
+              None
+            {% endif %}
+          {% else %}
+            None
+          {% endif %}
+        {% endif %} 
+      </td>
+
+      <td class="govuk-table__cell">
+        {% if data.multi_fertiliser == true %}
+          {% if data.single_fertiliser == true %}
+            {% if field.reference == '3' %}
+              2
+            {% else %}
+              1
+            {% endif %}
+          {% else %}
+              1
+          {% endif %}
+        {% endif %} 
+          
+        {% if data.multi_fertiliser == false %}
+          {% if data.single_fertiliser == true %}
+            {% if field.reference == '3' %}
+              1
+            {% else %}
+              None
+            {% endif %}
+          {% else %}
+            None
+          {% endif %}
+        {% endif %} 
+      </td>
+
+          <td class="govuk-table__cell">
+            {% if hasSecondCrop == true %}
+            <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2024.firstCropReference}}&chosenfield={{field.reference}}&covercrop={{data.crop_group_2024.secondCropReference}}">View field plan</a>
+          {% else %}
+            <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2024.firstCropReference}}&chosenfield={{field.reference}}&covercrop=none">View field plan</a>
+          {% endif %}
+          </td>
+
         </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Field 3</td>
-          <td class="govuk-table__cell">Crop, manure and fertiliser added</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=Grass&chosenfield=Field3">View field plan and recommendations</a></td>
-        </tr>
+      {% endfor %}  
+
       </tbody>
     </table>
-    <!-- <p class="govuk-body"><a href="#">Change Grass plan</a></p> -->
 
-    <hr class="big_seperator">
+    <!-- -->
+    <!-- -->
+    <!-- -->
+    <!-- -->
+    <!-- -->
+    <!-- -->
 
-    <h2 class="govuk-heading-m">Spring Barley</h2>
-    <p class="govuk-body">3 fields</p>
+    {% if data.crop_group_2024.thirdCropReference != null %}
 
-    <table class="govuk-table crop_table data-table">
-      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Long Field</caption> -->
+    <h2 class="govuk-heading-m">{{data.crop_group_2024.thirdCropReference | nameconverter }}</h2>
+
+    <!--show variety -->
+    {% if data.crop_group_2024.thirdCropVariety != null %}
+      <p class="govuk-body">Variety: {{data.crop_group_2024.thirdCropVariety}}</p>
+    {% endif %}
+
+    <p class="govuk-body"><a href="">Edit the {{data.crop_group_2024.thirdCropReference | nameconverter }}  plan for all these fields</a></p>
+
+    <table class="govuk-table margin-bottom-forty big_crop_table_version_two">
+      
+      <!--show second crop table header where there is one -->
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Field</th>
-          <th scope="col" class="govuk-table__header">Status</th>
-          <th scope="col" class="govuk-table__header"> </th>
+
+          {% if data.crop_group_2024.fourthCropFields == null %}
+            <th scope="col" class="govuk-table__header"></th>
+            {% else %}
+            <th scope="col" class="govuk-table__header">Second crop</th>
+            <th scope="col" class="govuk-table__header"></th>
+          {% endif %}
+
+          <th scope="col" class="govuk-table__header">Organic applications</th>
+          <th scope="col" class="govuk-table__header">Inorganic applications</th>
+
+          <th scope="col" class="govuk-table__header">&nbsp;</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Field 4</td>
-          <td class="govuk-table__cell">Crop added</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=barley-spring&chosenfield=Field4">View field plan and recommendations</a></td>
-        </tr>      
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Field 5</td>
-          <td class="govuk-table__cell">Crop added</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=barley-spring&chosenfield=Field5">View field plan and recommendations</a></td>
+
+      <!--show the first crop fields -->
+      {% for field in data.crop_group_2024.thirdCropFields %}
+      {% set hasSecondCrop = false %}
+
+      {% for thisField in data.crop_group_2024.fourthCropFields %}
+        {% if thisField.reference === field.reference %}
+          {% set hasSecondCrop = true %}
+        {% endif %}
+      {% endfor %}  
+        <tr class="govuk-table__row">    
+          <td class="govuk-table__cell">{{field.name}}</td>
+
+        {% if data.crop_group_2024.fourthCropFields == null %}
+          <td class="govuk-table__cell"></td>
+        {% else %}
+        <td class="govuk-table__cell">
+          {% if hasSecondCrop == true %}
+            {{data.crop_group_2024.fourthCropReference | nameconverter }}
+          {% else %}
+            None
+          {% endif %}
+        </td>
+        <td class="govuk-table__cell">nbsp;</td>
+
+      {% endif %}
+
+      <td class="govuk-table__cell">
+        None
+      </td>
+
+      <td class="govuk-table__cell">
+        None
+      </td>
+
+
+          <td class="govuk-table__cell">
+            {% if hasSecondCrop == true %}
+            <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2024.thirdCropReference}}&chosenfield={{field.reference}}&covercrop={{data.crop_group_2024.fourthCropReference}}">View field plan</a>
+          {% else %}
+            <a href="mvpfield_plan_handler?chosencrop={{data.crop_group_2024.thirdCropReference}}&chosenfield={{field.reference}}&covercrop=none">View field plan</a>
+          {% endif %}
+          </td>
         </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Field 6</td>
-          <td class="govuk-table__cell">Crop added</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop=barley-spring&chosenfield=Field6">View field plan and recommendations</a></td>
-        </tr>
+      {% endfor %}  
+
       </tbody>
     </table>
-    <!-- <p class="govuk-body"><a href="#">Change Winter Wheat plan</a></p> -->
+
+  {% endif %}

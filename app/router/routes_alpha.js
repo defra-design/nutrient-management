@@ -323,6 +323,8 @@ router.get(/v2_check_handler/, function (req, res) {
 router.get(/crop_plan_year_handler/, function (req, res) { 
     if (req.query.harvestdate == '2024') {
         req.session.data.chosen_plan = req.session.data.plan2024
+    } else if (req.query.harvestdate == '2023') {
+        req.session.data.chosen_plan = req.session.data.plan2023
     } else {
         req.session.data.plan2025.plan_update = null
         req.session.data.chosen_plan = req.session.data.plan2025

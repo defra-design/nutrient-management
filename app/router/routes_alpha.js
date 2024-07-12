@@ -22,14 +22,14 @@ router.get(/create_plan_handler/, function (req, res) {
     }
 })
 
-router.get(/view_plan_handler/, function (req, res) { 
-    for ( var y in req.session.data.field_details ) {
-        if(req.session.data.field_details[y].reference === req.query.chosenfield) {
-            req.session.data.chosenfield = req.session.data.field_details[y]
-        }
-    }
-    res.redirect('/old/create/plan')
-})
+// router.get(/view_plan_handler/, function (req, res) { 
+//     for ( var y in req.session.data.field_details ) {
+//         if(req.session.data.field_details[y].reference === req.query.chosenfield) {
+//             req.session.data.chosenfield = req.session.data.field_details[y]
+//         }
+//     }
+//     res.redirect('/old/create/plan')
+// })
 
 //how do you want to create your plan? 
 router.get(/plan-type-handler/, function (req, res) { 
@@ -67,34 +67,34 @@ router.get(/manure_counter_updater/, function (req, res) {
     res.redirect('manure_type')
 })
 
-//do you plan to spread manure multiple times
-router.get(/manure_again_handler/, function (req, res) { 
-if (req.session.data.manure_again == "yes") {
-    res.redirect('manure_when')
-} else {
-    if (req.session.data.plan_type == "new") {
-        res.redirect('check_one')
-    } else {
-        res.redirect('set_status')
-    }
-}
-})
+// //do you plan to spread manure multiple times
+// router.get(/manure_again_handler/, function (req, res) { 
+// if (req.session.data.manure_again == "yes") {
+//     res.redirect('manure_when')
+// } else {
+//     if (req.session.data.plan_type == "new") {
+//         res.redirect('check_one')
+//     } else {
+//         res.redirect('set_status')
+//     }
+// }
+// })
 
-//set the plan status
-router.get(/set_status/, function (req, res) { 
-    for ( var y in req.session.data.field_details ) {
-        if (req.session.data.field_details[y].reference === req.session.data.chosenfield.reference) {
-            if (req.session.data.plan_type == "previous") {
-                req.session.data.field_details[y].planStatus = 'recommendations'
-            } else {
-                req.session.data.field_details[y].planStatus = 'Plan complete'
-            }
-            req.session.data.field_details[y].crop = req.session.data.chosen_crop
-        }
-    }
-    req.session.data.farm_details.plan_status = 'new';
-    res.redirect('fields')
-})
+// //set the plan status
+// router.get(/set_status/, function (req, res) { 
+//     for ( var y in req.session.data.field_details ) {
+//         if (req.session.data.field_details[y].reference === req.session.data.chosenfield.reference) {
+//             if (req.session.data.plan_type == "previous") {
+//                 req.session.data.field_details[y].planStatus = 'recommendations'
+//             } else {
+//                 req.session.data.field_details[y].planStatus = 'Plan complete'
+//             }
+//             req.session.data.field_details[y].crop = req.session.data.chosen_crop
+//         }
+//     }
+//     req.session.data.farm_details.plan_status = 'new';
+//     res.redirect('fields')
+// })
 
 // update the status of the plan for chosenfield to nul, recs, full
 

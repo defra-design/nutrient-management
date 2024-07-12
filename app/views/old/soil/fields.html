@@ -30,14 +30,11 @@
           <fieldset class="govuk-fieldset">
             <div class="govuk-radios" data-module="govuk-radios">
 
-              {% for field in data.field_details_v2 %}
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="{{field.name}}" name="fields" type="radio" value="{{field.name}}">
                 <label class="govuk-label govuk-radios__label" for="{{field.name}}">
-                  {{field.name}}
                 </label>
               </div>
-              {% endfor %}
 
           </fieldset>
         </div>

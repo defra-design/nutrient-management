@@ -36,7 +36,7 @@ router.get(/fields_mvp_setup_handler/, function (req, res) {
     // req.session.data.oaktree_farm.soil_added = true
     // req.session.data.oaktree_farm.use_mvp_fields = true
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
-    req.session.data.current_fields = req.session.data.field_details_mvp
+    req.session.data.current_fields = req.session.data.field_list_mvp
     // plan for 2025 is empty
     req.session.data.prototype_version = 'mvp'
     res.redirect('/mvp/start')
@@ -51,7 +51,7 @@ router.get(/one_crop_handler/, function (req, res) {
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
-    req.session.data.current_fields = req.session.data.field_details_mvp
+    req.session.data.current_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_one
     
@@ -74,7 +74,7 @@ router.get(/plans_mvp_setup_handler/, function (req, res) {
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
-    req.session.data.current_fields = req.session.data.field_details_mvp
+    req.session.data.current_fields = req.session.data.field_list_mvp
     // use populated plan 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_two
     
@@ -97,7 +97,7 @@ router.get(/one_manure_handler/, function (req, res) {
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
-    req.session.data.current_fields = req.session.data.field_details_mvp
+    req.session.data.current_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_three
     
@@ -121,7 +121,7 @@ router.get(/two_manure_handler/, function (req, res) {
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
-    req.session.data.current_fields = req.session.data.field_details_mvp
+    req.session.data.current_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_three
     
@@ -148,7 +148,7 @@ router.get(/four_manure_handler/, function (req, res) {
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
-    req.session.data.current_fields = req.session.data.field_details_mvp
+    req.session.data.current_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_three
     
@@ -167,7 +167,7 @@ router.get(/one_fertiliser_handler/, function (req, res) {
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, true, true)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
-    req.session.data.current_fields = req.session.data.field_details_mvp
+    req.session.data.current_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_three
     
@@ -200,7 +200,7 @@ router.get(/version_3_handler/, function (req, res) {
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.oaktree_farm.planFive = true
     req.session.data.oaktree_farm.plans_added = true
-    req.session.data.current_fields = req.session.data.field_details_mvp
+    req.session.data.current_fields = req.session.data.field_list_mvp
     // use plan with one crop 2025
     req.session.data.crop_group_2024 = req.session.data.crop_group_three
     
@@ -218,7 +218,7 @@ router.get(/version_3_handler/, function (req, res) {
 router.get(/one_grass_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
-    req.session.data.current_fields = req.session.data.field_details_mvp
+    req.session.data.current_fields = req.session.data.field_list_mvp
     // plan for 2025 is empty
 
     req.session.data.prototype_version = 'version_2'

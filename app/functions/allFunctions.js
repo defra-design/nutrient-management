@@ -36,15 +36,6 @@ function basicSetup (farm, mvpFields, manure, fertiliser) {
     farm.soil_added = true
     farm.fields_added = true
     farm.use_mvp_fields = mvpFields
-
-    // if (manure == true) {
-    //     req.session.data.multiple_manure = true
-    // }
-
-    // if (fertiliser == true) {
-    //     req.session.data.multiple_fertiliser = true
-    // }
-
   };
 
 

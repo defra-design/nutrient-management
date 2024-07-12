@@ -1,23 +1,16 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-//import data
-const farm_details = require('./data/farm_details.json');
-const field_details = require('./data/field_details.json');
-const field_details_v2 = require('./data/field_details_v2.json');
-const field_details_mvp = require('./data/field_details_mvp.json');
-const potato_details = require('./data/potatoes.json');
-const crop_types = require('./data/crops.json');
+
+///////Misc
 const content = require('./content.js').content;
 const allFunctions = require('./functions/allFunctions.js');
-const manure_types_digestate = require('./data/manure_types_digestate.json');
-const manure_types_other = require('./data/manure_types_other.json');
-const manure_types_biosolid = require('./data/manure_types_biosolid.json');
-const manure_types_livestock = require('./data/manure_types_livestock.json');
-const manure_types_livestock_groups = require('./data/manure_types_livestock_groups.json');
 
+
+///////Farm
 const Farm = require('./functions/farm.js');
 const oaktree_farm = Farm.createFarm();
+// populate farm
 oaktree_farm.name = 'Oaktree Lane Farm';
 oaktree_farm.postcode = "NE46 7LQ";
 oaktree_farm.nvz = "some";
@@ -32,9 +25,36 @@ oaktree_farm.soil_added = false;
 oaktree_farm.fields_added = false;
 oaktree_farm.plans_added = false;
 
+
+///////field
+const field_list_mvp = require('./data/field_list_mvp.json');
+let current_fields = [];
+let currentFieldGroup = [];
+let farmFields2023 = [];
+let farmFields2024 = [];
+let tempField = {
+    name: "Short Field",
+    reference: "shortfield",
+    nvz: false,
+    elevation: false,
+    area: 0,
+    manure: 0,
+    cropped: 0,
+    type: null
+};
+
+
+
+///////Crops
+const potato_details = require('./data/potatoes.json');
+const crop_types = require('./data/crops.json');
 const CropGroup = require('./functions/crop_group.js');
-//crop group with 1 main crop
 let crop_group_one = CropGroup.createCropGroup();
+let crop_group_two = CropGroup.createCropGroup();
+let crop_group_three = CropGroup.createCropGroup();
+let crop_group_2023 = CropGroup.createCropGroup();
+let crop_group_2024 = CropGroup.createCropGroup();
+//crop group with 1 main crop
 crop_group_one.year = '2025';
 crop_group_one.firstCropReference = 'Wheat-Winter';
 crop_group_one.firstCropVariety = 'Crusoe';
@@ -48,9 +68,7 @@ crop_group_one.fourthCropFields = [];
 crop_group_one.firstCropSelected = true;
 crop_group_one.thirdCropSelected = false;
 crop_group_one.totalFields = allFunctions.totalFieldsCount(crop_group_one);
-
 //crop group with 2 main crops
-let crop_group_two = CropGroup.createCropGroup();
 crop_group_two.year = '2024';
 crop_group_two.firstCropReference = 'Wheat-Winter';
 crop_group_two.secondCropReference = 'Turnips-stubble';
@@ -64,8 +82,6 @@ crop_group_two.thirdCropFields = ['5', '6', '7', '8'];
 crop_group_two.firstCropSelected = true
 crop_group_two.thirdCropSelected = true
 crop_group_two.totalFields = allFunctions.totalFieldsCount(crop_group_two);
-
-let crop_group_three = CropGroup.createCropGroup();
 crop_group_three.year = '2024';
 crop_group_three.firstCropReference = 'Wheat-Winter';
 crop_group_three.secondCropReference = null;
@@ -80,38 +96,19 @@ crop_group_three.firstCropSelected = true
 crop_group_three.thirdCropSelected = true
 crop_group_three.totalFields = allFunctions.totalFieldsCount(crop_group_three);
 
-let crop_group_2023 = CropGroup.createCropGroup();
-let crop_group_2024 = CropGroup.createCropGroup();
 
-// var testy = allFunctions.getFieldByReference(field_details_mvp, 9);
-// console.log(testy);
+///////Manures
+const manure_types_digestate = require('./data/manure_types_digestate.json');
+const manure_types_other = require('./data/manure_types_other.json');
+const manure_types_biosolid = require('./data/manure_types_biosolid.json');
+const manure_types_livestock = require('./data/manure_types_livestock.json');
+const manure_types_livestock_groups = require('./data/manure_types_livestock_groups.json');
 
 
+///////Plans
 const Plan = require('./functions/plan.js');
 let plan_2023 = Plan.createPlan();
 let plan_2024 = Plan.createPlan();
-
-//new fields management
-let farmFields2023 = [];
-let farmFields2024 = [];
-
-// console.log(farmFields[0])
-
-let currentFieldGroup = [];
-
-let tempField = {
-    name: "Short Field",
-    reference: "shortfield",
-    nvz: false,
-    elevation: false,
-    area: 0,
-    manure: 0,
-    cropped: 0,
-    type: null
-};
-
-let current_fields = [];
-
 let plan2025 = {
     harvest_date: "2025",
     crop_added: false,
@@ -154,13 +151,9 @@ router.get('/', function (req, res) {
     req.session.data.manure_types_biosolid = manure_types_biosolid
     req.session.data.manure_types_livestock = manure_types_livestock
     req.session.data.manure_types_livestock_groups = manure_types_livestock_groups
-    
-    req.session.data.field_details = field_details
-    req.session.data.field_details_v2 = field_details_v2
-    req.session.data.field_details_mvp = field_details_mvp
+    req.session.data.field_list_mvp = field_list_mvp
     req.session.data.potato_details = potato_details
     req.session.data.crop_types = crop_types
-    req.session.data.farm_details = farm_details
     req.session.data.chosenfield = null
     req.session.data.crop_group = null
     req.session.data.current_fields = current_fields
@@ -193,12 +186,6 @@ router.get('/', function (req, res) {
     // route vars
     req.session.data.manure_spreads = 0
     req.session.data.fertiliser_spreads = 0
-
-    // reset the fields shown in the plan
-    // req.session.data.fieldsToShow = []
-    // req.session.data.secondFieldsInThisPlan = []
-    // req.session.data.thirdFieldsInThisPlan = []
-    // req.session.data.fourthFieldsInThisPlan = []
 
     req.session.data.crop_group_2024.firstCropFields = []
     req.session.data.crop_group_2024.secondCropFields = []

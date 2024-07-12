@@ -235,11 +235,24 @@ router.get('/', function (req, res) {
 
     req.session.data.farmFields2023.push({
         name: "Jon's Field",
+        reference: 1,
         cropReference: 1,
+        secondCropReference: null,
         multiManure: false,
         singleManure: false,
-        multiFertilizer: false,
-        singleFertilizer: false
+        multiFertiliser: false,
+        singleFertiliser: false
+    });
+
+    req.session.data.farmFields2023.push({
+        name: "Jack's Field",
+        reference: 2,
+        cropReference: 2,
+        secondCropReference: null,
+        multiManure: false,
+        singleManure: false,
+        multiFertiliser: false,
+        singleFertiliser: false
     });
 
     // console.log(req.session.data.farmFields2023)

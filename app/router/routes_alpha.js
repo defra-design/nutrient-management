@@ -410,4 +410,12 @@ router.get(/add_soil_handler/, function (req, res) {
 })
 
 
+router.get(/planning_year_handler/, function (req, res) { 
+    req.session.data.oaktree_farm.planning_year = req.query.year
+    console.log(req.session.data.oaktree_farm.planning_year)
+    res.redirect('/'+ req.session.data.prototype_version +'/add_crops/crop_group')
+})
+
+
+
 module.exports = router

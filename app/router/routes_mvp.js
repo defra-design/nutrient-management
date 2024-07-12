@@ -14,13 +14,12 @@ router.get(/farm_setup_handler/, function (req, res) {
     res.redirect('/mvp/start')
 })
 
-router.get(/version4_farmsetup_handler/, function (req, res) { 
+router.get(/v4_farmsetup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     req.session.data.oaktree_farm.setup = true
     req.session.data.prototype_version = 'version_4'
     res.redirect('/version_4/start')
 })
-
 
 router.get(/v4_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false

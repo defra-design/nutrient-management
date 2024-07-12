@@ -1,19 +1,13 @@
 <dl class="govuk-summary-list">
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Which harvest year would you like to plan for?</dt>
-    <dd class="govuk-summary-list__value">2025</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">First crop group</dt>
+    <dt class="govuk-summary-list__key">Crop group</dt>
     <dd class="govuk-summary-list__value">{{data.crop_group | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">First crop</dt>
+    <dt class="govuk-summary-list__key">Crop type</dt>
     <dd class="govuk-summary-list__value">{{data.chosen_crop | nameconverter}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
@@ -37,7 +31,7 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Have you planted your {{data.chosen_crop | nameconverter}} yet?</dt>
+    <dt class="govuk-summary-list__key">Do you have a date for when you planted your {{data.chosen_crop | nameconverter}}, or when you will plant it?</dt>
 
     <dd class="govuk-summary-list__value">
       {% if data.sow_option_one == 'single' %}

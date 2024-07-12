@@ -13,6 +13,7 @@ const oaktree_farm = Farm.createFarm();
 // populate farm
 oaktree_farm.name = 'Oaktree Lane Farm';
 oaktree_farm.postcode = "NE46 7LQ";
+oaktree_farm.planning_year = 2023;
 oaktree_farm.nvz = "some";
 oaktree_farm.elevation =  "some";
 oaktree_farm.organic_producer = false;
@@ -101,7 +102,7 @@ const manure_types_livestock_groups = require('./data/manure_types_livestock_gro
 
 
 ///////Plans
-const Plan = require('./functions/plan.js');
+const Plan = require('./functions/plan_manager.js');
 let plan_2023 = Plan.createPlan();
 let plan_2024 = Plan.createPlan();
 let plan2025 = {

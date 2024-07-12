@@ -1,6 +1,7 @@
 function Farm (
 name,
 postcode,
+planning_year,
 nvz,
 elevation,
 organic_producer,
@@ -15,6 +16,7 @@ plans_added
 ) {
     this.name = name,
     this.postcode = postcode,
+    this.planning_year = planning_year,
     this.nvz = nvz,
     this.elevation = elevation,
     this.organic_producer = organic_producer,
@@ -31,6 +33,7 @@ plans_added
 Farm.prototype.printFarm = function () {
   console.log(  this.name + ", " +
                 this.postcode + ", " +
+                this.planning_year + ", " +
                 this.nvz + ", " +
                 this.elevation + ", " +
                 this.organic_producer + ", " +
@@ -47,6 +50,7 @@ Farm.prototype.printFarm = function () {
 Farm.prototype.reset = function () {
     this.name = null,
     this.postcode = null,
+    this.planning_year = 2023,
     this.nvz = false,
     this.elevation = false,
     this.organic_producer = false,

@@ -116,7 +116,7 @@ router.get(/two_manure_handler/, function (req, res) {
     req.session.data.prototype_version = 'version_2'
 
     req.session.data.plan_2024.multipleManuresApplied = true
-    req.session.data.plan_2024.singlemanuresapplied = false
+    req.session.data.plan_2024.singleManuresApplied = false
     req.session.data.manure_journey = null //multi or single
     req.session.data.manure_count = 0
     req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'
@@ -143,7 +143,7 @@ router.get(/one_fertiliser_handler/, function (req, res) {
     req.session.data.multi_fertiliser = true
 
     req.session.data.plan_2024.multipleManuresApplied = true
-    req.session.data.plan_2024.singlemanuresapplied = false
+    req.session.data.plan_2024.singleManuresApplied = false
     req.session.data.manure_journey = null //multi or single
     req.session.data.manure_count = 0
     req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'

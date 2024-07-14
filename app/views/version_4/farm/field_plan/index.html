@@ -57,7 +57,7 @@
       <p class="govuk-body "><a href="">Change the {{data.chosen_crop | nameconverter}} plan for {{data.chosen_field.name}}</a></p>
       <h2 class="govuk-heading-m">Applications of organic material and inorganic fertiliser</h2>
       <p class="govuk-body">
-        {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singlemanuresapplied == false %}
+        {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singleManuresApplied == false %}
           <a href="v2manure_handler?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosen_field.name}}</a>
         {% else %}
           <a href="v2manure_handler?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosen_field.name}}</a>
@@ -77,7 +77,12 @@
     <div class="govuk-grid-column-full">
       <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
       <p class="govuk-body">These recommendations are per hectare for in Long Field {{data.oaktree_farm.planning_year}}</p>
+      {% if data.plan_2024.multipleManuresApplied == true %}
+        {% include "./templates/v4_nutrients_one_organic.html" ignore missing %}
+      {% else %}
         {% include "./templates/v4_nutrients_empty.html" ignore missing %}
+      {% endif %}
+
     </div>
     <div class="govuk-grid-column-two-thirds margin-bottom-forty">
       <div class="govuk-inset-text">
@@ -90,7 +95,7 @@
     <!-- manures -->
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
-      {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singlemanuresapplied == false %}
+      {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singleManuresApplied == false %}
         <p>You have no {{data.content.organic_term | lower}} applications planned for this field. <a href="v2manure_handler?manurejourney=single"> <br><a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a></a></p>
       {% else %}
         {% include "./templates/applications.html" ignore missing %}

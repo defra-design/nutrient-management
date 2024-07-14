@@ -287,10 +287,10 @@ tr.right-last {
             width: 20%
         }
         td:nth-child(2), td:nth-child(3) {
-            width: 20%
+            width: 22%
         }
         td:nth-child(4) {
-            width: 35%
+            width: 34%
         }
     }
 }
@@ -314,5 +314,19 @@ tr.right-last {
 }
 
 .new-recomendation-table {
-    
+    tr td:nth-child(1) {
+        width: 17%;
+    }
+    tr td:nth-child(2) {
+        width: 6%;
+    }
+    tr td:nth-child(3) {
+        width: 11%;
+    }
+    tr td:nth-child(4) {
+        width: 24%;
+    }
+    tr td:nth-child(5) {
+        width: 24%;
+    }
 }

@@ -27,7 +27,7 @@
 
 <div class="govuk-grid-row">
 
-  <div class="govuk-grid-column-full">
+  <div class="govuk-grid-column-two-thirds">
 
     {% if data.show_success_message == true %}
     <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
@@ -39,10 +39,10 @@
       <div class="govuk-notification-banner__content">
         <h3 class="govuk-notification-banner__heading">
           {% if data.show_manure_notification == true %}
-            {{data.content.organic_term}} applications added to all fields in this plan
+            {{data.content.organic_term}} application added to the Winter Wheat fields in this plan.
           {% else %}
             {% if data.show_fertiliser_notification == true %}
-              {{data.content.non_organic_term}} applications added to all fields in this plan
+              {{data.content.non_organic_term}} application added to the Winter Wheat fields in this plan.
             {% else %}
               Plan created
             {% endif %}
@@ -65,14 +65,17 @@
 
     </div>
 
-    <hr class="seperator_five">
-    
-    {% if data.oaktree_farm.planning_year == 2023 %}
-      {% include "./templates/2023plan.html" ignore missing %}
-    {% else %}
-      {% include "./templates/2024plan.html" ignore missing %}
-    {% endif %}
+  </div>
 
-</div>
+    <div class="govuk-grid-column-full">
+
+      <hr class="seperator_five">
+      {% if data.oaktree_farm.planning_year == 2023 %}
+        {% include "./templates/2023plan.html" ignore missing %}
+      {% else %}
+        {% include "./templates/2024plan.html" ignore missing %}
+      {% endif %}
+    </div>
+  </div>
 
 {% endblock %}

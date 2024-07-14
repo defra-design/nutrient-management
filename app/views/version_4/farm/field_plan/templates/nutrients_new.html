@@ -25,7 +25,7 @@
 {% set s_inorg = 0 %}
 {% set l_inorg = 0 %}
 
-{% if data.single_manures == true %}
+{% if data.plan_2024.singleManuresApplied == true %}
   {% set n_org = '40kg' %}
   {% set p_org = '48kg' %}
   {% set k_org = '128kg' %}
@@ -33,7 +33,7 @@
   {% set l_org = 0 %}
 {% endif %}
 
-{% if data.multi_manures == true %}
+{% if data.plan_2024.multipleManuresApplied == true %}
   {% set n_org = '40kg' %}
   {% set p_org = '48kg' %}
   {% set k_org = '128kg' %}

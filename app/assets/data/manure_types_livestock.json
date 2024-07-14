@@ -1,0 +1,22 @@
+[
+    {"name": "Cattle Farmyard manure - Old", "display_name": "Old", "type": "cattle_fym", "liquid": false, "group_id": "livestock"},
+    {"name": "Cattle Farmyard manure - Fresh", "display_name": "Fresh", "type": "cattle_fym", "liquid": false, "group_id": "livestock"},
+    {"name": "Pig Farmyard manure - Old", "display_name": "old", "type": "pig_fym", "liquid": false, "group_id": "livestock"},
+    {"name": "Pig Farmyard manure - Fresh", "display_name": "Fresh", "type": "pig_fym", "liquid": false, "group_id": "livestock"},
+    {"name": "Sheep Farmyard manure - Old", "display_name": "Old", "type": "sheep_fym", "liquid": false, "group_id": "livestock"},
+    {"name": "Sheep Farmyard manure - Fresh", "display_name": "Fresh", "type": "sheep_fym", "liquid": false, "group_id": "livestock"},
+    {"name": "Duck Farmyard manure - Old", "display_name": "Old", "type": "duck_fym", "liquid": false, "group_id": "livestock"},
+    {"name": "Duck Farmyard manure - Fresh", "display_name": "Fresh", "type": "duck_fym", "liquid": false, "group_id": "livestock"},
+    {"name": "Horse Farmyard manure", "display_name": "Horse FYM", "type": "horse_fym", "liquid": false, "group_id": "livestock"},
+    {"name": "Goat Farmyard manure", "display_name": "Goat FYM", "type": "goat_fym", "liquid": false, "group_id": "livestock"},
+    {"name": "Poultry manure", "display_name": "Poultry manure", "type": "poultry", "liquid": false, "group_id": "livestock"},
+    {"name": "Cattle slurry whole", "display_name": "Cattle slurry whole", "type": "cattle_slurry", "liquid": true, "group_id": "livestock"},
+    {"name": "Dirty water", "display_name": "Dirty water", "type": "dirty_water", "liquid": true, "group_id": "livestock"},
+    {"name": "Pig slurry whole", "display_name": "Pig slurry whole", "type": "pig_slurry", "liquid": true, "group_id": "livestock"},
+    {"name": "Separated Cattle Slurry - Strainer Box", "display_name": "Strainer Box", "type": "cattle_slurry", "liquid": true, "group_id": "livestock"},
+    {"name": "Separated Cattle Slurry - Weeping Wall", "display_name": "Weeping Wall", "type": "cattle_slurry", "liquid": true, "group_id": "livestock"},
+    {"name": "Separated Cattle Slurry - Mechanical Separator", "display_name": "Mechanical Separator", "type": "cattle_slurry", "liquid": true, "group_id": "livestock"},
+    {"name": "Separated Cattle Slurry - Solid Portion", "display_name": "Solid Portion", "type": "cattle_slurry", "liquid": false, "group_id": "livestock"},
+    {"name": "Separated Pig Slurry - Liquid Portion", "display_name": "Liquid Portion", "type": "pig_slurry", "liquid": true, "group_id": "livestock"},
+    {"name": "Separated Pig Slurry - Solid Portion", "display_name": "Solid Portion", "type": "pig_slurry", "liquid": false, "group_id": "livestock"}
+]

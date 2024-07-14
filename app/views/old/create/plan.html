@@ -22,7 +22,7 @@
 
 {% block content %}
 
-<h1 class="govuk-heading-l">{{data.content.harvest_year | capitalize }} Nutrient Application Plan <br>for {{data.chosenfield.name}}</h1>
+<h1 class="govuk-heading-l">{{data.content.harvest_year | capitalize }} Nutrient Application Plan <br>for {{data.chosen_field.name}}</h1>
 
 <!-- <h2 class="govuk-heading-m">Plan created</h2> -->
 
@@ -40,7 +40,7 @@
 
 <h2 class="govuk-heading-m">Crop and {{data.content.organic_term | lower}} application plan</h2>
 
-<p class="govuk-body">Crop type: {{data.chosenfield.crop | nameconverter }}</p>
+<p class="govuk-body">Crop type: {{data.chosen_field.crop | nameconverter }}</p>
 
 <table class="govuk-table recomendation-table data-table">
   <!-- <caption class="govuk-table__caption govuk-table__caption--m">Organic manure application plan</caption>

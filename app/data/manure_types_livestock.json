@@ -1,7 +1,7 @@
 [
     {"name": "Cattle Farmyard manure - Old", "display_name": "Old", "type": "cattle_fym", "liquid": false, "group_id": "livestock"},
     {"name": "Cattle Farmyard manure - Fresh", "display_name": "Fresh", "type": "cattle_fym", "liquid": false, "group_id": "livestock"},
-    {"name": "Pig Farmyard manure - Old", "display_name": "old", "type": "pig_fym", "liquid": false, "group_id": "livestock"},
+    {"name": "Pig Farmyard manure - Old", "display_name": "Old", "type": "pig_fym", "liquid": false, "group_id": "livestock"},
     {"name": "Pig Farmyard manure - Fresh", "display_name": "Fresh", "type": "pig_fym", "liquid": false, "group_id": "livestock"},
     {"name": "Sheep Farmyard manure - Old", "display_name": "Old", "type": "sheep_fym", "liquid": false, "group_id": "livestock"},
     {"name": "Sheep Farmyard manure - Fresh", "display_name": "Fresh", "type": "sheep_fym", "liquid": false, "group_id": "livestock"},

@@ -1,19 +1,13 @@
 <dl class="govuk-summary-list">
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Which harvest year would you like to plan for?</dt>
-    <dd class="govuk-summary-list__value">2025</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">First crop group</dt>
+    <dt class="govuk-summary-list__key">Crop group</dt>
     <dd class="govuk-summary-list__value">{{data.crop_group | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">First crop</dt>
+    <dt class="govuk-summary-list__key">Crop type</dt>
     <dd class="govuk-summary-list__value">{{data.chosen_crop | nameconverter}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
@@ -29,7 +23,7 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Which fields do you plan to grow {{data.chosen_crop | nameconverter}} in?</dt>
     <dd class="govuk-summary-list__value">
-      {% for field in data.crop_fields %}
+      {% for field in data.plan_2024.firstFields %}
         {{field.name}} <br>
       {% endfor %}      
     </dd>
@@ -37,7 +31,7 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Have you planted your {{data.chosen_crop | nameconverter}} yet?</dt>
+    <dt class="govuk-summary-list__key">Do you have a date for when you planted your {{data.chosen_crop | nameconverter}}, or when you will plant it?</dt>
 
     <dd class="govuk-summary-list__value">
       {% if data.sow_option_one == 'single' %}
@@ -109,7 +103,7 @@
 
   {% endif %}
 
-  {% if data.cover_crop != 'none' and data.crop_group != 'potatoes' %}
+  <!-- {% if data.cover_crop != 'none' and data.crop_group != 'potatoes' %}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Select any crops you plan to grow in these fields in the same harvest year as your Winter Wheat</dt>
       <dd class="govuk-summary-list__value">Yes</dd>
@@ -157,9 +151,9 @@
         <dd class="govuk-summary-list__value">10 Feb 2025</dd>
         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       </div>      
-    {% endif %}
+    {% endif %} -->
     
-    <div class="govuk-summary-list__row">
+    <!-- <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">How do you want to enter the expected yield?</dt>
   
       <dd class="govuk-summary-list__value">
@@ -173,22 +167,22 @@
       </dd>
   
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
+    </div> -->
   
-    {% if data.yield_option_two != 'rb209' %}
+    <!-- {% if data.yield_option_two != 'rb209' %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">What is the expected yield for {{data.cover_crop | nameconverter}} per hectare in these fields?</dt>
         <dd class="govuk-summary-list__value">8 tonnes per hectare</dd>
         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       </div>      
-    {% endif %}
+    {% endif %} -->
   
   {% elif data.crop_group != 'potatoes' %}
-  <div class="govuk-summary-list__row">
+  <!-- <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Do you plan to use any other crops in this harvest year?</dt>
     <dd class="govuk-summary-list__value">No</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
+  </div> -->
   {% endif %}
 
 </dl>

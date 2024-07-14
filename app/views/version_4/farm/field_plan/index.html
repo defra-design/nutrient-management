@@ -17,11 +17,11 @@
       href: "../plans_records"
     },
     {
-      text: "Harvest year 2024",
+      text: "Harvest year " + data.harvest_date,
       href: "planview_reset_handler"
     },
     {
-      text: data.chosenField.name
+      text: data.chosen_field.name
     }
   ]
 }) }}
@@ -43,28 +43,27 @@
         </div>
         <div class="govuk-notification-banner__content">
           <h3 class="govuk-notification-banner__heading">
-              {{data.content.organic_term}} applications added to {{data.chosenField.name}}.
+              {{data.content.organic_term}} applications added to {{data.chosen_field.name}}.
           </h3>
         </div>
       </div>
     {% endif %}
 
-
     <div class="status-header margin-bottom-forty">
-      <h1 class="govuk-heading-l">Nutrient recommendations for {{data.chosenField.name}} {{data.harvestdate}}</h1>
+      <h1 class="govuk-heading-l">Nutrient recommendations {{data.harvest_date}} for {{data.chosen_field.name}}</h1>
     </div> 
     
     <div class="margin-bottom-forty">
-      <p class="govuk-body "><a href="">Change {{data.chosen_crop | nameconverter}} plan for {{data.chosenField.name}}</a></p>
+      <p class="govuk-body "><a href="">Change the {{data.chosen_crop | nameconverter}} plan for {{data.chosen_field.name}}</a></p>
       <h2 class="govuk-heading-m">Applications of organic material and inorganic fertiliser</h2>
       <p class="govuk-body">
-        {% if data.multi_manures == false and data.single_manures == false %}
-          <a href="v2manure_handler?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosenField.name}}</a>
+        {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singleManuresApplied == false %}
+          <a href="v2manure_handler?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosen_field.name}}</a>
         {% else %}
-          <a href="v2manure_handler?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosenField.name}}</a>
+          <a href="v2manure_handler?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosen_field.name}}</a>
         {% endif %}
       </p>
-      <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Plan or edit an application of {{data.content.non_organic_term | lower}} to {{data.chosenField.name}}</a></p>
+      <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Plan or edit an application of {{data.content.non_organic_term | lower}} to {{data.chosen_field.name}}</a></p>
     </div>
     
   </div>
@@ -77,7 +76,13 @@
     <!-- recommendation table -->
     <div class="govuk-grid-column-full">
       <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
-        {% include "./templates/nutrients_new.html" ignore missing %}
+      <p class="govuk-body">These recommendations are per hectare for in Long Field {{data.oaktree_farm.planning_year}}</p>
+      {% if data.plan_2024.multipleManuresApplied == true %}
+        {% include "./templates/v4_nutrients_one_organic.html" ignore missing %}
+      {% else %}
+        {% include "./templates/v4_nutrients_empty.html" ignore missing %}
+      {% endif %}
+
     </div>
     <div class="govuk-grid-column-two-thirds margin-bottom-forty">
       <div class="govuk-inset-text">
@@ -90,8 +95,8 @@
     <!-- manures -->
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
-      {% if data.multi_manures == false and data.single_manures == false %}
-        <p>You have no {{data.content.organic_term | lower}} applications planned for this field. <a href="v2manure_handler?manurejourney=single"> <br><a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosenField.name}}</a></a></p>
+      {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singleManuresApplied == false %}
+        <p>You have no {{data.content.organic_term | lower}} applications planned for this field. <a href="v2manure_handler?manurejourney=single"> <br><a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a></a></p>
       {% else %}
         {% include "./templates/applications.html" ignore missing %}
       {% endif %}
@@ -101,7 +106,7 @@
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.non_organic_term}} applications</h2>
       {% if data.multi_fertiliser == false and data.single_fertiliser == false %}
-        <p>You have no {{data.content.non_organic_term | lower}} applications planned for this field. <a href=""> <br>Add {{data.content.non_organic_term | lower}} applications for {{data.chosenField.name}}</a></p>
+        <p>You have no {{data.content.non_organic_term | lower}} applications planned for this field. <a href=""> <br>Add {{data.content.non_organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
       {% else %}
         {% include "./templates/fertiliser_applications.html" ignore missing %}
       {% endif %}

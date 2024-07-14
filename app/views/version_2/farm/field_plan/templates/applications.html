@@ -10,7 +10,7 @@
   </thead>
   <tbody class="govuk-table__body">
 
-    {% if data.multi_manures == true %}
+    {% if data.plan_2024.multipleManuresApplied == true %}
       <tr class="govuk-table__row">
         <td class="govuk-table__cell">30 August 2023</td>
         <td class="govuk-table__cell">{{data.manure_type.name}}</td>
@@ -19,7 +19,7 @@
       </tr>      
     {% endif %}
 
-    {% if data.single_manures == true %}
+    {% if data.plan_2024.singleManuresApplied == true %}
       <tr class="govuk-table__row">
         <td class="govuk-table__cell">30 August 2023</td>
         <td class="govuk-table__cell">{{data.chosen_manure}}</td>

@@ -1,7 +1,6 @@
 function getFieldByReference (currentFarmFields, referenceNumber) {
     for (let field in currentFarmFields) {
       if (currentFarmFields[field].reference == referenceNumber) {
-          // console.log(currentFarmFields[field])
           return currentFarmFields[field]
       }
     }
@@ -11,7 +10,7 @@ function getMultipleFieldsByReferences (referenceNumbers, currentFields) {
     for (let x in referenceNumbers) {
         for (let y in currentFields) {
             if (currentFields[y].reference == referenceNumbers[x]) {
-                // console.log(currentFields[y].name +  ' ' + referenceNumbers[y] )
+                // console.log(currentFields[y].name +  ' ' + referenceNumbers[x] )
                 referenceNumbers[x] = currentFields[y]
             }
         }
@@ -36,16 +35,19 @@ function basicSetup (farm, mvpFields, manure, fertiliser) {
     farm.soil_added = true
     farm.fields_added = true
     farm.use_mvp_fields = mvpFields
+};
 
-    // if (manure == true) {
-    //     req.session.data.multiple_manure = true
-    // }
+function getCropByReference (referenceNumber, crops) {
+    let cropToReturn
+    for (let crop in crops) {
+        if (crops[crop].reference == referenceNumber ) {
+            console.log(cropToReturn.name)
+            cropToReturn = crops[crop]
+        }
+    }
+    return cropToReturn
+};
 
-    // if (fertiliser == true) {
-    //     req.session.data.multiple_fertiliser = true
-    // }
-
-  };
 
 
  function printCropGroup(group) {

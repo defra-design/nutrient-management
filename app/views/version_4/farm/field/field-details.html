@@ -21,7 +21,7 @@
         href: "field_reset_handler"
       },
       {
-        text: data.chosenfield
+        text: data.chosen_field
       }
     ]
   }) }}
@@ -45,18 +45,18 @@
         <div class="govuk-notification-banner__content">
           {% if data.oaktree_farm.latest_update == 'soil-added' %}
             <h3 class="govuk-notification-banner__heading">
-              You have added a new soil analysis for {{data.chosenfield}}
+              You have added a new soil analysis for {{data.chosen_field}}
             </h3>
           {% elif data.oaktree_farm.latest_update == 'field_updated' %}
           <h3 class="govuk-notification-banner__heading">
-            You have updated {{data.chosenfield}}
+            You have updated {{data.chosen_field}}
           </h3>
           {% endif %}
         </div>
       </div>
     {% endif %}
 
-    <h1 class="govuk-heading-l">{{data.chosenfield}}</h1>
+    <h1 class="govuk-heading-l">{{data.chosen_field}}</h1>
 
     <table class="govuk-table recomendation-table data-table data-table">
       <tbody class="govuk-table__body">
@@ -88,11 +88,19 @@
           <td class="govuk-table__cell">Is field above 300 meters</td>
           <td class="govuk-table__cell">No</td>
         </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">What is the previous crop group?</td>
+          <td class="govuk-table__cell">Arable cereals</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">What was the previous crop type in 2023?</td>
+          <td class="govuk-table__cell">Winter Wheat</td>
+        </tr>
       </tbody>
     </table>   
 
     <p class="govuk-body"><a href="update">Change field details</a></p>      
-    <p class="govuk-body margin-bottom-forty"><a href="remove">Remove {{data.chosenfield}}</a></p>
+    <p class="govuk-body margin-bottom-forty"><a href="remove">Remove {{data.chosen_field}}</a></p>
 
     <hr class="big_seperator">
 
@@ -100,7 +108,6 @@
 
     <p class="govuk-body margin margin-bottom-forty"><a href="">Add new soil analysis</a></p>
 
-    {% if data.oaktree_farm.soil_added == true %}
       <table class="govuk-table field-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
@@ -119,28 +126,6 @@
 
       </tbody>
       </table>    
-    {% else %}
-      <p class="govuk-body">You have not added any soil analysis.</p>
-      <p class="govuk-body"><a href="">Add new soil analysis</a></p>
-    {% endif %}
-
-    <!-- <div class="govuk-grid-column-one-third">
-
-    <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
-      <h2 class="govuk-heading-s" id="subsection-title">
-        Update field
-      </h2>
-      <nav role="navigation" aria-labelledby="subsection-title">
-        <ul class="govuk-list font-size-17">
-          <li>
-            <a href="">Change field details</a>
-          </li>
-          <li>
-            <a href="">Add new soil analysis</a>
-          </li>
-        </ul>
-      </aside>
-    </div> -->
 
   </div> 
 

@@ -45,7 +45,7 @@
                 You have added {{data.temp_field_name}}
               </h3>
               <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_add_reset_handler">Add another field</a>, or</p>  
-              <p class="govuk-body"><a class="govuk-notification-banner__link" href="/add_crops/year">Create a nutrient management plan</a></p>  
+              <p class="govuk-body"><a class="govuk-notification-banner__link" href="../../add_crops/year">Create a nutrient management plan</a></p>  
           {% endif %}
         </div>
       </div>
@@ -74,7 +74,7 @@
                 <td class="govuk-table__cell">{{field.name}}</td>
                 <!-- <td class="govuk-table__cell">None</td> -->
                 <td class="govuk-table__cell">
-                  <a href="field-select-handler?chosenfield={{field.name}}">Field and soil details</a>
+                  <a href="field-select-handler?chosen_field={{field.name}}">Field and soil details</a>
                 </td>
               </tr>
             {% endfor %} 
@@ -93,12 +93,12 @@
                 </tr>
               </thead>
               <tbody class="govuk-table__body">
-                {% for field in data.current_fields %}
+                {% for field in data.all_fields %}
                 <tr class="govuk-table__row">
                   <td class="govuk-table__cell">{{field.name}}</td>
                   <!-- <td class="govuk-table__cell">None</td> -->
                   <td class="govuk-table__cell">
-                    <a href="field-select-handler?chosenfield={{field.name}}">Field and soil details</a>
+                    <a href="field-select-handler?chosen_field={{field.name}}">Field and soil details</a>
                   </td>
                 </tr>
               {% endfor %} 

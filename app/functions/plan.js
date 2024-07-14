@@ -1,5 +1,6 @@
 function Plan (
 year,
+setup,
 firstFieldReferences,
 secondFieldReferences,
 thirdFieldReferences,
@@ -13,6 +14,7 @@ singleManuresApplied,
 multipleManuresApplied
 ) {
     this.year = year,
+    this.setup = setup,
     this.firstFieldReferences = firstFieldReferences
     this.secondFieldReferences = secondFieldReferences
     this.thirdFieldReferences = thirdFieldReferences
@@ -29,6 +31,7 @@ multipleManuresApplied
 Plan.prototype.printPlan = function () {
   console.log(
     "Plan Year = " + this.year + " ",
+    "Plan setup = " + this.setup + " ",
     "First fields references = " + this.firstFieldReferences + " ",
     "Second fields references = " + this.secondFieldReferences + " ",
     "Third fields references = " + this.thirdFieldReferences + " ",
@@ -40,14 +43,19 @@ Plan.prototype.printPlan = function () {
   )
 };
 
+Plan.prototype.totalFields = function () {
+  return this.firstFieldReferences.length
+};
+
 Plan.prototype.reset = function () {
   this.year = null,
-  this.firstFieldReferences = null,
-  this.secondFieldReferences = null,
-  this.thirdFieldReferences = null,
-  this.firstFields = null,
-  this.secondFields = null,
-  this.thirdFields = null,
+  this.setup = null,
+  this.firstFieldReferences = [],
+  this.secondFieldReferences = [],
+  this.thirdFieldReferences = [],
+  this.firstFields = [],
+  this.secondFields = [],
+  this.thirdFields = [],
   this.firstCropReference = null,
   this.secondCropReference = null,
   this.thirdCropReference = null,

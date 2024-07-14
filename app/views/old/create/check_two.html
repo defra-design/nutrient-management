@@ -17,7 +17,7 @@
     
     {% include "templates/title_span.html" %}
     <h1 class="govuk-heading-l">
-      Check {{data.content.non_organic_term | lower }} details for {{data.chosenfield.name}}
+      Check {{data.content.non_organic_term | lower }} details for {{data.chosen_field.name}}
     </h1>
 
     <div class="check-answers">
@@ -28,7 +28,7 @@
       {% endif%}
     </div>
 
-    <form action="set_status" method="post" novalidate>
+    <form action="" method="post" novalidate>
       {{ govukButton({
         text: "Add to application plan"
       }) }}

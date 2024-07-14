@@ -81,13 +81,13 @@
             </td>
             <td class="govuk-table__cell">
               {% if field.planStatus == false %}
-                <a href="create_plan_handler?chosenfield={{field.reference}}">Create plan</a>
+                <a href="">Create plan</a>
               {% elif field.planStatus == "recommendations" %}
                 <a href="recs">View recommendations</a>
               {% elif field.planStatus == "crop_added" %}
-                <a href="create_plan_handler?chosenfield={{field.reference}}">Continue plan</a>
+                <a href="">Continue plan</a>
               {% else %}
-                <a href="view_plan_handler?chosenfield={{field.reference}}">View or update plan</a>
+                <a href="">View or update plan</a>
             {% endif %}
             </td>
           </tr>

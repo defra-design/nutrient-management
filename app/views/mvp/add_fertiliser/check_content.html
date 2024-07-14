@@ -5,7 +5,7 @@
       {% if data.fertiliser_journey == "multi" %}
       The Winter Wheat fields
       {% else %}
-        {{data.chosenField.name}}
+        {{data.chosen_field.name}}
       {% endif %}
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
@@ -29,7 +29,7 @@
       {% if data.fertiliser_journey == "multi" %}
         The Winter Wheat fields?
       {% else %}
-        {{data.chosenField.name}}?
+        {{data.chosen_field.name}}?
       {% endif %}
     </dt>
       {% if data.fertiliser_count != 0 %}
@@ -59,7 +59,7 @@
         {% if data.fertiliser_journey == "multi" %}
           The Winter Wheat fields?
         {% else %}
-          {{data.chosenField.name}}?
+          {{data.chosen_field.name}}?
         {% endif %}
       </dt>
       <dd class="govuk-summary-list__value">No</dd>

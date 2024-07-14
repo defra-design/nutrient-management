@@ -17,7 +17,7 @@
         href: "../plans_records"
       },
       {
-        text: "Harvest year " + data.chosen_plan.harvest_date
+        text: "Harvest year " + data.oaktree_farm.planning_year
       }
     ]
   }) }}
@@ -39,12 +39,12 @@
       <div class="govuk-notification-banner__content">
         <h3 class="govuk-notification-banner__heading">
           {% if data.show_manure_notification == true %}
-            {{data.content.organic_term}} applications added to all fields in this plan
+            {{data.content.organic_term}} application added to the Winter Wheat fields in this plan.
           {% else %}
             {% if data.show_fertiliser_notification == true %}
-              {{data.content.non_organic_term}} applications added to all fields in this plan
+              {{data.content.non_organic_term}} application added to the Winter Wheat fields in this plan.
             {% else %}
-              Plan created
+              Plan created for 2024
             {% endif %}
           {% endif %}
         </h3>
@@ -52,10 +52,10 @@
     </div>
     {% endif %}
 
-    <h1 class="govuk-heading-l">Crop plan for {{data.harvestdate}}</h1>
+    <h1 class="govuk-heading-l">Crop plan for {{data.oaktree_farm.planning_year}}</h1>
 
     <div class="crop_plan_title">
-      <p class="govuk-body">There are {{data.crop_group_2024.totalFields}} fields in this plan</p>
+      <p class="govuk-body">There are {{data.plan_2024.totalFields}} fields in this plan</p>
       <p class="govuk-body">Last updated: {{data.content.todays_date}}</p>
       <p class="govuk-body"><a href="/add_crops/crop_group">Add another crop to this plan</a></p>
 
@@ -65,14 +65,17 @@
 
     </div>
 
-    <hr class="seperator_five">
-    
-    {% if data.harvestdate == '2023' %}
-      {% include "./templates/2023plan.html" ignore missing %}
-    {% else %}
-      {% include "./templates/2024plan.html" ignore missing %}
-    {% endif %}
+  </div>
 
-</div>
+    <div class="govuk-grid-column-full">
+
+      <hr class="seperator_five">
+      {% if data.oaktree_farm.planning_year == 2023 %}
+        {% include "./templates/2023plan.html" ignore missing %}
+      {% else %}
+        {% include "./templates/2024plan.html" ignore missing %}
+      {% endif %}
+    </div>
+  </div>
 
 {% endblock %}

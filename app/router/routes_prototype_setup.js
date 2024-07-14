@@ -178,7 +178,6 @@ router.get(/version4_fieldetup_handler/, function (req, res) {
     req.session.data.show_success_message = false
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.all_fields = req.session.data.field_list_mvp
-    req.session.data.all_fields = req.session.data.field_list_mvp
     ///2023 plan setup
     req.session.data.plan_2023.setup = true
     req.session.data.plan_2023.firstCropReference = 'Wheat-Winter'
@@ -197,7 +196,6 @@ router.get(/version4_fieldetup_handler/, function (req, res) {
 router.get(/version4_cropsetup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
-    req.session.data.all_fields = req.session.data.field_list_mvp
     req.session.data.all_fields = req.session.data.field_list_mvp
     ///2023 plan setup
     req.session.data.plan_2023.setup = true

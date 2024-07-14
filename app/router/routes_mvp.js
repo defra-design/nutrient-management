@@ -225,10 +225,13 @@ router.get(/mvp_fields_handler/, function (req, res) {
     for (var x in req.session.data.crop_fields) {
         for (var y in req.session.data.all_fields) {
             if (req.session.data.all_fields[y].reference == req.session.data.crop_fields[x]) {
-                req.session.data.crop_fields[x] = req.session.data.all_fields[y]
+                req.session.data.plan_2024.firstFieldReferences.push(req.session.data.crop_fields[x])
+                req.session.data.plan_2024.firstFields.push(req.session.data.all_fields[y])
+                
             }
         }
     }
+    console.log(req.session.data.firstFieldReferences)
     if (req.session.data.crop_group == 'grass') {
         res.redirect('grass/current_sward')
      } else {
@@ -294,8 +297,8 @@ router.get(/addcrops_check_handler/, function (req, res) {
     req.session.data.show_success_message = true;
     req.session.data.plan_2024.setup = true
     req.session.data.plan_2024.firstCropReference = 'Wheat-Winter'
-    req.session.data.plan_2024.firstFieldReferences.push(1)
-    req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2023.firstFieldReferences, req.session.data.all_fields)
+    // req.session.data.plan_2024.firstCropReference = req.session.data.chosen_crop
+    // req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.firstFieldReferences, req.session.data.all_fields)
     req.session.data.oaktree_farm.planning_year = 2024;
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })

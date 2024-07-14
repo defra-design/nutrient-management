@@ -35,7 +35,6 @@ let tempField = {
     elevation: false
 };
 
-
 ///////Plans
 const Plan = require('./functions/plan.js');
 let plan_2023 = Plan.createPlan();
@@ -121,6 +120,7 @@ router.get('/', function (req, res) {
     //create oaktree farm
     req.session.data.oaktree_farm = oaktree_farm
     
+    req.session.data.tempField = tempField
 
     //data
     req.session.data.manure_types_digestate = manure_types_digestate
@@ -194,4 +194,5 @@ router.get('/', function (req, res) {
 //import routes
 const routes_main = require('./router/routes_mvp.js');
 const routes_alpha = require('./router/routes_alpha.js');
-router.use('/', routes_main, routes_alpha);
+const routes_prototype_setup = require('./router/routes_prototype_setup.js');
+router.use('/', routes_main, routes_alpha, routes_prototype_setup);

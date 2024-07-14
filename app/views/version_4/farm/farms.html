@@ -41,25 +41,19 @@
     <h2 class="govuk-heading-l">Your farms</h2>
 
       {% if data.oaktree_farm.setup == false %}
-
         <p class="govuk-body">
           You have not added any farms.
         </p>
-
         <form class="form" action="../add-farm/name" method="post">
           {{ govukButton({
             text: "Add a farm"
           }) }}
         </form>
-
       {% else %}
-
         <div>
             <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub_reset_handler">Oaktree Lane Farm</a> </p>
         </div>
-        
         <hr class="seperator_five">
-
         <div>
           <h2 class="govuk-heading-m">Add a new farm</h2>
           <p class="govuk-body">
@@ -69,7 +63,6 @@
             <a class="govuk-link" href="./choose_file">Import data from the Planet desktop software</a>
           </p> -->
         </div>
-
       {% endif %}
 
   </div>

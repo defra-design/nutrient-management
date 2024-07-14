@@ -168,8 +168,8 @@ router.get('/', function (req, res) {
     req.session.data.fertiliser_spreads = 0
 
     //manures - temp remove
-    req.session.data.multi_manures = false
-    req.session.data.single_manures = false
+    req.session.data.plan_2024.multipleManuresApplied = false
+    req.session.data.plan_2024.singleManuresApplied = false
     req.session.data.manure_journey = null //multi or single
     req.session.data.manure_count = 0
     req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'

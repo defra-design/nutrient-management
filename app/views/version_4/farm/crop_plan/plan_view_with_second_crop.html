@@ -129,8 +129,8 @@
       {% endif %}
 
       <td class="govuk-table__cell">
-        {% if data.multi_manures == true %}
-          {% if data.single_manures == true %}
+        {% if data.plan_2024.multipleManuresApplied == true %}
+          {% if data.plan_2024.singlemanuresapplied == true %}
             {% if field.reference == '7' %}
               2
             {% else %}
@@ -141,8 +141,8 @@
           {% endif %}
         {% endif %} 
           
-        {% if data.multi_manures == false %}
-          {% if data.single_manures == true %}
+        {% if data.plan_2024.multipleManuresApplied == false %}
+          {% if data.plan_2024.singlemanuresapplied == true %}
             {% if field.reference == '7' %}
               1
             {% else %}
@@ -262,8 +262,8 @@
       {% endif %}
 
       <td class="govuk-table__cell">
-        {% if data.multi_manures == true %}
-          {% if data.single_manures == true %}
+        {% if data.plan_2024.multipleManuresApplied == true %}
+          {% if data.plan_2024.singlemanuresapplied == true %}
             {% if field.reference == '7' %}
               2
             {% else %}
@@ -274,8 +274,8 @@
           {% endif %}
         {% endif %} 
           
-        {% if data.multi_manures == false %}
-          {% if data.single_manures == true %}
+        {% if data.plan_2024.multipleManuresApplied == false %}
+          {% if data.plan_2024.singlemanuresapplied == true %}
             {% if field.reference == '7' %}
               1
             {% else %}

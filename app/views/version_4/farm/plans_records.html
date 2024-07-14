@@ -21,15 +21,16 @@
 
 {% block content %}
 
-  <h1 class="govuk-heading-l margin-bottom-forty">Plans and records</h1>
+  <h1 class="govuk-heading-l">Plans and records</h1>
+  <h2 class="govuk-heading-m">Add a new plan</h2>
   <div class="margin-bottom-forty">
     {% if data.plan_2024.setup == true %}
-      <p class="govuk-body"><a href="">Create a 2025 plan</a></p>
+      <p class="govuk-body"><a href="">Add a 2025 plan</a></p>
     {% endif %}
     {% if data.plan_2024.setup != true %}
-      <p class="govuk-body"><a href="planning_year_handler?year=2024">Create a 2024 plan</a></p>
+      <p class="govuk-body"><a href="planning_year_handler?year=2024">Add a 2024 plan</a></p>
     {% endif %}
-    <p class="govuk-body"><a href="">Create a 2022 plan</a></p>
+    <p class="govuk-body"><a href="">Add a 2022 plan</a></p>
 </div>
 
 <div class="govuk-grid-row">

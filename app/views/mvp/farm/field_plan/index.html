@@ -58,7 +58,7 @@
       <p class="govuk-body "><a href="">Change {{data.chosen_crop | nameconverter}} plan for {{data.chosen_field.name}}</a></p>
 
       <!-- <p class="govuk-body">
-        {% if data.multi_manures == false and data.single_manures == false %}
+        {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singlemanuresapplied == false %}
           <a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a>
         {% else %}
           <a href="v2manure_handler?manurejourney=single">Add or edit {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a>
@@ -77,7 +77,7 @@
 
     <div class="govuk-grid-column-full">
       <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
-      {% if data.multi_manures == false and data.single_manures == false %}
+      {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singlemanuresapplied == false %}
         {% include "./templates/nutrients_blank.html" ignore missing %}
       {% else %}
         {% include "./templates/nutrients_manure.html" ignore missing %}

@@ -58,7 +58,7 @@
       <p class="govuk-body "><a href="">Change {{data.chosen_crop | nameconverter}} plan for {{data.chosen_field.name}}</a></p>
       <h2 class="govuk-heading-m">Applications of organic material and inorganic fertiliser</h2>
       <p class="govuk-body">
-        {% if data.multi_manures == false and data.single_manures == false %}
+        {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singlemanuresapplied == false %}
           <a href="v2manure_handler?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosen_field.name}}</a>
         {% else %}
           <a href="v2manure_handler?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosen_field.name}}</a>
@@ -90,7 +90,7 @@
     <!-- manures -->
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
-      {% if data.multi_manures == false and data.single_manures == false %}
+      {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singlemanuresapplied == false %}
         <p>You have no {{data.content.organic_term | lower}} applications planned for this field. <a href="v2manure_handler?manurejourney=single"> <br><a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a></a></p>
       {% else %}
         {% include "./templates/applications.html" ignore missing %}

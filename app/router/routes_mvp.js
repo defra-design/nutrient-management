@@ -376,10 +376,10 @@ router.get(/version2_manure_handler/, function (req, res) {
     req.session.data.show_fertiliser_notification = false
     req.session.data.show_manure_notification = true    
     if (req.session.data.manure_journey == 'multi') {
-        req.session.data.multi_manures = true
+        req.session.data.plan_2024.multipleManuresApplied = true
         res.redirect('/' + req.session.data.prototype_version + '/farm//crop_plan/plan_view')
     } else {
-        req.session.data.single_manures = true    
+        req.session.data.plan_2024.singleManuresApplied = true
         res.redirect('/' + req.session.data.prototype_version + '/farm/field_plan/index')
     }
 })

@@ -103,7 +103,7 @@
 
   {% endif %}
 
-  {% if data.cover_crop != 'none' and data.crop_group != 'potatoes' %}
+  <!-- {% if data.cover_crop != 'none' and data.crop_group != 'potatoes' %}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Select any crops you plan to grow in these fields in the same harvest year as your Winter Wheat</dt>
       <dd class="govuk-summary-list__value">Yes</dd>
@@ -151,9 +151,9 @@
         <dd class="govuk-summary-list__value">10 Feb 2025</dd>
         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       </div>      
-    {% endif %}
+    {% endif %} -->
     
-    <div class="govuk-summary-list__row">
+    <!-- <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">How do you want to enter the expected yield?</dt>
   
       <dd class="govuk-summary-list__value">
@@ -167,15 +167,15 @@
       </dd>
   
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
+    </div> -->
   
-    {% if data.yield_option_two != 'rb209' %}
+    <!-- {% if data.yield_option_two != 'rb209' %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">What is the expected yield for {{data.cover_crop | nameconverter}} per hectare in these fields?</dt>
         <dd class="govuk-summary-list__value">8 tonnes per hectare</dd>
         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       </div>      
-    {% endif %}
+    {% endif %} -->
   
   {% elif data.crop_group != 'potatoes' %}
   <!-- <div class="govuk-summary-list__row">

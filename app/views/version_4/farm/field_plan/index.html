@@ -77,7 +77,8 @@
     <!-- recommendation table -->
     <div class="govuk-grid-column-full">
       <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
-        {% include "./templates/nutrients_new.html" ignore missing %}
+      <p class="govuk-body">{{data.chosen_crop | nameconverter}} nutrient recommendations</p>
+        {% include "./templates/v4_nutrients_empty.html" ignore missing %}
     </div>
     <div class="govuk-grid-column-two-thirds margin-bottom-forty">
       <div class="govuk-inset-text">

@@ -17,7 +17,7 @@
       href: "../plans_records"
     },
     {
-      text: "Harvest year 2024",
+      text: "Harvest year " + data.harvest_date,
       href: "planview_reset_handler"
     },
     {
@@ -49,13 +49,12 @@
       </div>
     {% endif %}
 
-
     <div class="status-header margin-bottom-forty">
-      <h1 class="govuk-heading-l">Nutrient recommendations for {{data.chosen_field.name}} 2024</h1>
+      <h1 class="govuk-heading-l">Nutrient recommendations {{data.harvest_date}} for {{data.chosen_field.name}}</h1>
     </div> 
     
     <div class="margin-bottom-forty">
-      <p class="govuk-body "><a href="">Change {{data.chosen_crop | nameconverter}} plan for {{data.chosen_field.name}}</a></p>
+      <p class="govuk-body "><a href="">Change the {{data.chosen_crop | nameconverter}} plan for {{data.chosen_field.name}}</a></p>
       <h2 class="govuk-heading-m">Applications of organic material and inorganic fertiliser</h2>
       <p class="govuk-body">
         {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singleManuresApplied == false %}
@@ -77,7 +76,13 @@
     <!-- recommendation table -->
     <div class="govuk-grid-column-full">
       <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
-        {% include "./templates/nutrients_new.html" ignore missing %}
+      <p class="govuk-body">These recommendations are per hectare for in Long Field {{data.oaktree_farm.planning_year}}</p>
+      {% if data.plan_2024.multipleManuresApplied == true %}
+        {% include "./templates/v4_nutrients_one_organic.html" ignore missing %}
+      {% else %}
+        {% include "./templates/v4_nutrients_empty.html" ignore missing %}
+      {% endif %}
+
     </div>
     <div class="govuk-grid-column-two-thirds margin-bottom-forty">
       <div class="govuk-inset-text">

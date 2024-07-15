@@ -513,10 +513,10 @@ router.get(/v2fertiliser_handler/, function (req, res) {
 
 router.get(/fertiliser_loop_handler/, function (req, res) { 
     if (req.session.data.fertiliser_loop == 'no') {
-        res.redirect('/add_fertiliser/check')
+        res.redirect('check')
     } else {
         req.session.data.fertiliser_count++
-        res.redirect('/add_fertiliser/fertiliser_amount')
+        res.redirect('fertiliser_amount')
     }
 })
 
@@ -528,10 +528,10 @@ router.get(/version2_fertiliser_handler/, function (req, res) {
     req.session.data.fertiliser_count = 0
     if (req.session.data.fertiliser_journey == 'multi') {
         req.session.data.multi_fertiliser = true
-        res.redirect('/version_2/crop_plan/plan_view')
+        res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
     } else {
-        req.session.data.single_fertiliser = true    
-        res.redirect('/version_2/field_plan/index')
+        req.session.data.single_fertiliser = true   
+        res.redirect('/' + req.session.data.prototype_version + '/farm/cfield_plan/index') 
     }
 })
     

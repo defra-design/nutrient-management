@@ -17,7 +17,7 @@
       href: "../plans_records"
     },
     {
-      text: "Harvest year 2024",
+      text: "Harvest year " + data.harvest_date,
       href: "planview_reset_handler"
     },
     {
@@ -30,42 +30,31 @@
 
 {% block content %}
 
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
     {% if data.show_success_message == true %}
-
-    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-      <div class="govuk-notification-banner__header">
-        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-          Success
-        </h2>
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading">
+              {{data.content.organic_term}} applications added to {{data.chosen_field.name}}.
+          </h3>
+        </div>
       </div>
-      <div class="govuk-notification-banner__content">
-        <h3 class="govuk-notification-banner__heading">
-            {{data.content.organic_term}} applications added to {{data.chosen_field.name}}.
-        </h3>
-      </div>
-    </div>
-
     {% endif %}
 
     <div class="status-header margin-bottom-forty">
-      <h1 class="govuk-heading-l">Nutrient recommendations for {{data.chosen_field.name}} 2024</h1>
+      <h1 class="govuk-heading-l">Nutrient recommendations {{data.harvest_date}} for {{data.chosen_field.name}}</h1>
     </div> 
     
     <div class="margin-bottom-forty">
-      <p class="govuk-body "><a href="">Change {{data.chosen_crop | nameconverter}} plan for {{data.chosen_field.name}}</a></p>
-
-      <!-- <p class="govuk-body">
-        {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singleManuresApplied == false %}
-          <a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a>
-        {% else %}
-          <a href="v2manure_handler?manurejourney=single">Add or edit {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a>
-        {% endif %}
-      </p> -->
-
-      <!-- <p class="govuk-body"><a href="">Add {{data.content.non_organic_term | lower}} applications for {{data.chosen_field.name}}</a></p> -->
+      <p class="govuk-body "><a href="">Change the {{data.chosen_crop | nameconverter}} plan for {{data.chosen_field.name}}</a></p>
     </div>
     
   </div>
@@ -75,13 +64,11 @@
       {% include "./templates/main-crop.html" ignore missing %}
   </div>
 
+    <!-- recommendation table -->
     <div class="govuk-grid-column-full">
       <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
-      {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singleManuresApplied == false %}
         {% include "./templates/nutrients_blank.html" ignore missing %}
-      {% else %}
-        {% include "./templates/nutrients_manure.html" ignore missing %}
-      {% endif %}
+
     </div>
     <div class="govuk-grid-column-two-thirds margin-bottom-forty">
       <div class="govuk-inset-text">
@@ -90,6 +77,7 @@
         Where seedbed SNS exceeds 4 and crops are likely to be harvested in April or later, top-dress N at the start of spring growth allowing for any over-winter losses of N.
        </div> 
     </div>
+
 
 </div>
 

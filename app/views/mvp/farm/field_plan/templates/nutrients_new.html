@@ -1,0 +1,99 @@
+
+
+<!-- data -->
+{% set n_index = 2 %}
+{% set p_index = 2 %}
+{% set k_index = '2-' %}
+{% set s_index = '-' %}
+{% set l_index = 6.5 %}
+
+{% set n_need = '150kg' %}
+{% set p_need = '65kg' %}
+{% set k_need = '85kg' %}
+{% set s_need = '40kg' %}
+{% set l_need = 0 %}
+
+{% set n_org = 0 %}
+{% set p_org = 0 %}
+{% set k_org = 0 %}
+{% set s_org = 0 %}
+{% set l_org = 0 %}
+
+{% set n_inorg = 0 %}
+{% set p_inorg = 0 %}
+{% set k_inorg = 0 %}
+{% set s_inorg = 0 %}
+{% set l_inorg = 0 %}
+
+{% if data.plan_2024.singleManuresApplied == true %}
+  {% set n_org = '40kg' %}
+  {% set p_org = '48kg' %}
+  {% set k_org = '128kg' %}
+  {% set s_org = 0 %}
+  {% set l_org = 0 %}
+{% endif %}
+
+{% if data.plan_2024.multipleManuresApplied == true %}
+  {% set n_org = '40kg' %}
+  {% set p_org = '48kg' %}
+  {% set k_org = '128kg' %}
+  {% set s_org = 0 %}
+  {% set l_org = 0 %}
+{% endif %}
+
+{% if data.plan_2024.multipleFertilisersApplied == true %}
+  {% set n_inorg = '10kg' %}
+{% endif %}
+
+{% if data.plan_2024.multipleFertilisersApplied == true %}
+{% endif %}
+
+<table class="govuk-table recomendation-table data-table">
+  <!-- <caption class="govuk-table__caption govuk-table__caption--m">Nutrient recommendations</caption> -->
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Nutrient</th>
+      <th scope="col" class="govuk-table__header">Index / pH</th>
+      <th scope="col" class="govuk-table__header">Crop need<br><span class="hint">per hectare</span></th>
+      <th scope="col" class="govuk-table__header">{{data.content.organic_term}}<br><span class="hint">per hectare</span></th>
+      <th scope="col" class="govuk-table__header">{{data.content.non_organic_term}} or lime<br><span class="hint">per hectare</span></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Nitrogen (N)</td>
+      <td class="govuk-table__cell">{{n_index}}</td>
+      <td class="govuk-table__cell">{{n_need}}</td>
+      <td class="govuk-table__cell">{{n_org}}</td>
+      <td class="govuk-table__cell">{{n_inorg}}</td>
+    </tr>      
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Phosphate (P2O5)</td>
+      <td class="govuk-table__cell">{{p_index}}</td>
+      <td class="govuk-table__cell">{{p_need}}</td>
+      <td class="govuk-table__cell">{{p_org}}</td>
+      <td class="govuk-table__cell">{{p_inorg}}</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Potash (K2O)</td>
+      <td class="govuk-table__cell">{{k_index}}</td>
+      <td class="govuk-table__cell">{{k_need}}</td>
+      <td class="govuk-table__cell">{{k_org}}</td>
+      <td class="govuk-table__cell">{{k_inorg}}</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Sulphur (SO3)</td>
+      <td class="govuk-table__cell">{{s_index}}</td>
+      <td class="govuk-table__cell">{{s_need}}</td>
+      <td class="govuk-table__cell">{{s_org}}</td>
+      <td class="govuk-table__cell">{{s_inorg}}</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__header">Lime</td>
+      <td class="govuk-table__cell">{{l_index}}</td>
+      <td class="govuk-table__cell">{{l_need}}</td>
+      <td class="govuk-table__cell">{{l_org}}</td>
+      <td class="govuk-table__cell">{{l_inorg}}</td>
+    </tr>
+  </tbody>
+</table>

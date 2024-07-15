@@ -11,7 +11,11 @@ firstCropReference,
 secondCropReference,
 thirdCropReference,
 singleManuresApplied,
-multipleManuresApplied
+multipleManuresApplied,
+multipleFertilisersApplied,
+singleFertilisersApplied
+
+
 ) {
     this.year = year,
     this.setup = setup,
@@ -25,7 +29,10 @@ multipleManuresApplied
     this.secondCropReference = secondCropReference,
     this.thirdCropReference = thirdCropReference,
     this.singleManuresApplied = singleManuresApplied,
-    this.multipleManuresApplied = multipleManuresApplied
+    this.multipleManuresApplied = multipleManuresApplied,
+    this.multipleFertilisersApplied = multipleFertilisersApplied,
+    this.singleFertilisersApplied = singleFertilisersApplied
+
   }
 
 Plan.prototype.printPlan = function () {
@@ -39,7 +46,10 @@ Plan.prototype.printPlan = function () {
     "Second Crop Reference = " + this.secondCropReference + " ",
     "Third Crop Reference = " + this.thirdCropReference + " ",
     "Single manures = " + this.singleManuresApplied + " ",
-    "Multi manures = " + this.multipleManuresApplied + " "
+    "Multi manures = " + this.multipleManuresApplied + " ",
+    "Single fertilisers = " + this.singleFertilisersApplied + " ",
+    "Multi fertilisers = " + this.multipleFertilisersApplied + " "
+
   )
 };
 
@@ -60,7 +70,9 @@ Plan.prototype.reset = function () {
   this.secondCropReference = null,
   this.thirdCropReference = null,
   this.singleManuresApplied = null
-  this.multipleManuresApplied = null
+  this.multipleManuresApplied = null,
+  this.singleFertilisersApplied = null,
+  this.multipleFertilisersApplied = null
 };
 
 function createPlan() {

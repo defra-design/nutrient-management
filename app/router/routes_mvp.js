@@ -505,9 +505,9 @@ router.get(/enter_manure_defualts_handler/, function (req, res) {
 router.get(/v2fertiliser_handler/, function (req, res) { 
     req.session.data.fertiliser_journey = req.query.fertiliserjourney
     if (req.session.data.fertiliser_journey == 'multi') {
-        res.redirect('../../add_fertiliser/fertiliser_fields')
+        res.redirect('/' + req.session.data.prototype_version + '/add_fertiliser/fertiliser_fields')
     } else {
-        res.redirect('../../add_fertiliser/fertiliser_amount')
+        res.redirect('/' + req.session.data.prototype_version + '/add_fertiliser/fertiliser_amount')
     }
 })
 

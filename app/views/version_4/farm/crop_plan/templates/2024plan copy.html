@@ -72,8 +72,8 @@
       </td>
 
       <td class="govuk-table__cell">
-        {% if data.multi_fertiliser == true %}
-          {% if data.single_fertiliser == true %}
+        {% if data.plan_2024.multipleFertilisersApplied == true %}
+          {% if data.plan_2024.singleFertilisersApplied == true %}
             {% if field.reference == '3' %}
               2
             {% else %}
@@ -84,8 +84,8 @@
           {% endif %}
         {% endif %} 
           
-        {% if data.multi_fertiliser == false %}
-          {% if data.single_fertiliser == true %}
+        {% if data.plan_2024.multipleFertilisersApplied == false %}
+          {% if data.plan_2024.singleFertilisersApplied == true %}
             {% if field.reference == '3' %}
               1
             {% else %}

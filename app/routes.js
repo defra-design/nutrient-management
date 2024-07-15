@@ -177,8 +177,8 @@ router.get('/', function (req, res) {
     req.session.data.show_manure_notification = false
     
     //fertilisers - temp remove
-    req.session.data.multi_fertiliser = false
-    req.session.data.single_fertiliser = false
+    req.session.data.plan_2024.multipleFertilisersApplied = false
+    req.session.data.plan_2024.singleFertilisersApplied = false
     req.session.data.fertiliser_journey = null //multi or single
     req.session.data.fertiliser_count = 0
     req.session.data.show_fertiliser_notification = false

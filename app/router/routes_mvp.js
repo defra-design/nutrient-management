@@ -527,11 +527,11 @@ router.get(/version2_fertiliser_handler/, function (req, res) {
     req.session.data.show_manure_notification = false    
     req.session.data.fertiliser_count = 0
     if (req.session.data.fertiliser_journey == 'multi') {
-        req.session.data.multi_fertiliser = true
+        req.session.data.plan_2024.multipleFertilisersApplied = true
         res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
     } else {
-        req.session.data.single_fertiliser = true   
-        res.redirect('/' + req.session.data.prototype_version + '/farm/cfield_plan/index') 
+        req.session.data.plan_2024.singleFertilisersApplied = true
+        res.redirect('/' + req.session.data.prototype_version + '/farm/field_plan/index') 
     }
 })
     

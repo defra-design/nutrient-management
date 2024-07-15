@@ -77,7 +77,9 @@
     <div class="govuk-grid-column-full">
       <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
       <p class="govuk-body">These recommendations are per hectare for in Long Field {{data.oaktree_farm.planning_year}}</p>
-      {% if data.plan_2024.multipleManuresApplied == true or data.plan_2024.singleManuresApplied == true %}
+      {% if data.plan_2024.multipleFertilisersApplied == true or data.plan_2024.singleFertilisersApplied == true %}
+        {% include "./templates/v4_nutrients_one_fertiliser.html" ignore missing %}
+      {% elif data.plan_2024.multipleManuresApplied == true or data.plan_2024.singleManuresApplied == true %}
         {% include "./templates/v4_nutrients_one_organic.html" ignore missing %}
       {% else %}
         {% include "./templates/v4_nutrients_empty.html" ignore missing %}
@@ -105,8 +107,8 @@
     <!-- fertiliser -->
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.non_organic_term}} applications</h2>
-      {% if data.multi_fertiliser == false and data.single_fertiliser == false %}
-        <p>You have no {{data.content.non_organic_term | lower}} applications planned for this field. <a href=""> <br>Add {{data.content.non_organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
+      {% if data.plan_2024.multipleFertilisersApplied == false and data.plan_2024.singleFertilisersApplied == false %}
+        <p>You have no {{data.content.non_organic_term | lower}} applications planned for this field. <a href="v2fertiliser_handler?fertiliserjourney=single"> <br>Add {{data.content.non_organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
       {% else %}
         {% include "./templates/fertiliser_applications.html" ignore missing %}
       {% endif %}

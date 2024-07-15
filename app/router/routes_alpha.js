@@ -328,9 +328,9 @@ router.get(/crop_plan_year_handler/, function (req, res) {
 //view the selected plan
 router.get(/field_level_plan_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    console.log('req.query.chosen_field ' + req.query.chosen_field)
+    // console.log('req.query.chosen_field ' + req.query.chosen_field)
     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field)
-    console.log(req.session.data.chosen_field)
+    // console.log(req.session.data.chosen_field)
     req.session.data.chosen_crop = req.query.chosencrop
     res.redirect('../field_plan/index')
 })

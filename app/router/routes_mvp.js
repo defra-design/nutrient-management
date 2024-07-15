@@ -141,9 +141,8 @@ router.get(/previous_group_handler/, function (req, res) {
 })
 
 router.get(/log_croptype_handler/, function (req, res) {
-    // console.log(req.session.data.chosen_crop)
     if (req.session.data.sns_method == "no") {
-        res.redirect('/add-field/check')
+        res.redirect('../check')
     } else {
         if (req.session.data.crop_group == 'leafy' || req.session.data.crop_group == 'root') {
             res.redirect('sample_depth')
@@ -234,7 +233,7 @@ router.get(/mvp_fields_handler/, function (req, res) {
             }
         }
     }
-    console.log(req.session.data.firstFieldReferences)
+    // console.log(req.session.data.firstFieldReferences)
     if (req.session.data.crop_group == 'grass') {
         res.redirect('grass/current_sward')
      } else {

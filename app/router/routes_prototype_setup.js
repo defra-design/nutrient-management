@@ -59,24 +59,6 @@ router.get(/one_crop_handler/, function (req, res) {
     res.redirect('/mvp/start')
 })
 
-router.get(/plans_mvp_setup_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
-    req.session.data.oaktree_farm.plan_2023_added = true
-    req.session.data.oaktree_farm.plan_2024_added = true
-    req.session.data.all_fields = req.session.data.field_list_mvp
-    // use populated plan 2025
-    req.session.data.crop_group_2024 = req.session.data.crop_group_two
-    
-    //convert the reference numbers to actual field objects
-    req.session.data.crop_group_2024.firstCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.firstCropFields, req.session.data.all_fields)
-    req.session.data.crop_group_2024.secondCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.secondCropFields, req.session.data.all_fields)
-    req.session.data.crop_group_2024.thirdCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.thirdCropFields, req.session.data.all_fields)
-    req.session.data.crop_group_2024.fourthCropFields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_group_2024.fourthCropFields, req.session.data.all_fields)
-
-    res.redirect('/mvp/start')
-})
-
 router.get(/version2_cropsetup_handler/, function (req, res) {     
     req.session.data.show_success_message = false
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)

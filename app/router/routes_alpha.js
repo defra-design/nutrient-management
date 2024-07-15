@@ -320,6 +320,7 @@ router.get(/v2_check_handler/, function (req, res) {
 
 //view the plan by year
 router.get(/crop_plan_year_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
     req.session.data.oaktree_farm.planning_year = req.query.harvest_date
     res.redirect('./crop_plan/plan_view')
 })

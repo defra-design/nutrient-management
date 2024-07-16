@@ -41,14 +41,16 @@
           <h3 class="govuk-notification-banner__heading">
             {{data.content.organic_term}} application added to the Winter Wheat fields in this plan.
           </h3>
+          <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
           {% else %}
             {% if data.show_fertiliser_notification == true %}
-            <h3 class="govuk-notification-banner__heading">
-              {{data.content.non_organic_term}} application added to the Winter Wheat fields in this plan.
-            </h3>
+              <h3 class="govuk-notification-banner__heading">
+                {{data.content.non_organic_term}} application added to the Winter Wheat fields in this plan.
+              </h3>
+              <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
             {% else %}
               <h3 class="govuk-notification-banner__heading">
-                Plan created for 2024
+                Crops added for 2024
               </h3>
               <p class="govuk-body">Select a field to see its nutrient recommendations.</p>
             {% endif %}

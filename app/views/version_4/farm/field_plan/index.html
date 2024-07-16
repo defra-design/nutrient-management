@@ -17,7 +17,7 @@
       href: "../plans_records"
     },
     {
-      text: "Harvest year " + data.harvest_date,
+      text: "Harvest year " + data.oaktree_farm.planning_year,
       href: "planview_reset_handler"
     },
     {
@@ -50,7 +50,7 @@
     {% endif %}
 
     <div class="status-header margin-bottom-forty">
-      <h1 class="govuk-heading-l">Nutrient recommendations {{data.harvest_date}} for {{data.chosen_field.name}}</h1>
+      <h1 class="govuk-heading-l">Nutrient recommendations {{data.oaktree_farm.planning_year}} for {{data.chosen_field.name}}</h1>
     </div> 
     
     <div class="margin-bottom-forty">

@@ -13,9 +13,8 @@ thirdCropReference,
 singleManuresApplied,
 multipleManuresApplied,
 multipleFertilisersApplied,
-singleFertilisersApplied
-
-
+singleFertilisersApplied,
+totalFields
 ) {
     this.year = year,
     this.setup = setup,
@@ -31,8 +30,8 @@ singleFertilisersApplied
     this.singleManuresApplied = singleManuresApplied,
     this.multipleManuresApplied = multipleManuresApplied,
     this.multipleFertilisersApplied = multipleFertilisersApplied,
-    this.singleFertilisersApplied = singleFertilisersApplied
-
+    this.singleFertilisersApplied = singleFertilisersApplied,
+    this.totalFields = totalFields
   }
 
 Plan.prototype.printPlan = function () {
@@ -48,13 +47,9 @@ Plan.prototype.printPlan = function () {
     "Single manures = " + this.singleManuresApplied + " ",
     "Multi manures = " + this.multipleManuresApplied + " ",
     "Single fertilisers = " + this.singleFertilisersApplied + " ",
-    "Multi fertilisers = " + this.multipleFertilisersApplied + " "
-
+    "Multi fertilisers = " + this.multipleFertilisersApplied + " ",
+    "total Fields = " + this.totalFields + " "
   )
-};
-
-Plan.prototype.totalFields = function () {
-  return this.firstFieldReferences.length
 };
 
 Plan.prototype.reset = function () {
@@ -72,7 +67,8 @@ Plan.prototype.reset = function () {
   this.singleManuresApplied = null
   this.multipleManuresApplied = null,
   this.singleFertilisersApplied = null,
-  this.multipleFertilisersApplied = null
+  this.multipleFertilisersApplied = null,
+  this.totalFields = null
 };
 
 function createPlan() {

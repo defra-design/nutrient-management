@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Add soil analysis for {{data.temp_field_name}}</h1>
+
+      <div class="govuk-inset-text">
+        Enter your soil nutrient values. As your soil sample is more than five years old, your crop need recommendations will be based on standard figures for your soil type. 
+      </div>
+
+      <form action="sns" method="post" novalidate="">
+
+        <!-- <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <label class="govuk-label" for="nitrate">What was the Phosphorus (P) analysis type?</label>
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nitrate" name="nitrate" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="nitrate">Olsen's</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nitrate-2" name="nitrate" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="nitrate-2">Resin</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+ -->
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="weight">
+              Phosphorus (P) index
+            </label>
+            <input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+          </div>
+
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="weight">
+              Potassium (K) index
+            </label>
+            <input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+          </div>
+          
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="weight">
+              Magnesium (Mg) index
+            </label>
+            <input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+          </div>
+       
+
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+      <p class="govuk-body cancel-link"><a href="../field/field-details">Cancel</a></p>
+
+    </div>
+    
+  </div>
+
+{% endblock %}

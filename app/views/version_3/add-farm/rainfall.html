@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Average annual rainfall for 
+        {%if data.farm_postcode != ""%}
+          {{data.farm_postcode}}
+        {% else %}
+          NE46 7LQ
+        {% endif %}
+      </h1>
+
+      <p class="govuk-body">This is your estimated average annual rainfall. If you think this is wrong, you can change it now or later.</p>
+
+      <div class="text-group margin-bottom-forty">
+        <h3 class="govuk-heading-s">Average annual rainfall</h3>
+        <p class="govuk-body">600mm</p>
+        <p class="govuk-body"><a href="rainfall-manual">Change</a></p>
+      </div>
+      
+      <form action="nvz" method="post" novalidate="">
+        <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="../farms">Cancel</a></p>
+
+  </div>
+
+</div>
+
+{% endblock %}

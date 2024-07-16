@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/templates/signed-in.html" ignore missing %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Oaktree Lane Farm",
+        href: "../hub"
+      },
+      {
+        text: "Plans and records",
+        href: "../plans_records"
+      },
+      {
+        text: "Harvest year 2023 to 2024"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if data.show_success_message == true %}
+      {% include "./templates/success_message.html" ignore missing %}
+    {% endif %}
+
+    <h1 class="govuk-heading-l">Plan for harvest year {{data.plan_2024.year}}</h1>
+
+    <div class="crop_plan_title">
+      <p class="govuk-body">Last updated: {{data.content.todays_date}}</p>
+      <p class="govuk-body">There are a total of 5 fields in this plan</p>
+      <p class="govuk-body"><a href="">Download, print, or export this plan</a></p>
+
+      <h2 class="govuk-heading-s">Contents</h2>
+      <p class="govuk-body"><span class="dash"> — </span><a href="plan_view">Crops and fields</a></p>
+      <p class="govuk-body"><span class="dash"> — </span>Organic and inorganic material applications</p>
+
+    </div>
+
+    </div>
+
+    <div class="govuk-grid-column-full">
+
+    <hr class="seperator_five">
+
+    <!-- manures -->
+    <div class="margin-bottom-forty">
+      <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
+      {% if req.session.data.plan_2024.multipleManuresApplied == false and req.session.data.plan_2024.singleManuresApplied == false %}
+        <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned.</p>
+        <p class="govuk-body"><a href="v3manure_handler?manurejourney=multi">Add {{data.content.organic_term | lower}} applications to multiple fields</a></p>
+      {% else %}
+        <p class="govuk-body"><a href="">Add another {{data.content.organic_term | lower}} application </a></p>
+        {% include "./templates/applications.html" ignore missing %}
+      {% endif %}
+    </div>
+
+    <!-- fertiliser -->
+    <div>
+      <h2 class="govuk-heading-m">{{data.content.non_organic_term}} applications</h2>
+      {% if data.multi_fertiliser == false and data.single_fertiliser == false %}
+        <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned.</p>
+        <p class="govuk-body"><a href="">Add {{data.content.non_organic_term | lower}} applications to multiple fields</a></p>
+      {% else %}
+        <p class="govuk-body"><a href="">Add another {{data.content.non_organic_term | lower}} application for {{data.chosenField.name}}</a></a></p>
+        {% include "./templates/fertiliser_applications.html" ignore missing %}
+      {% endif %}
+      </div>
+
+</div>
+
+{% endblock %}

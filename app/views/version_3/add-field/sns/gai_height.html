@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="gaiheight_handler" method="post" novalidate="">
+
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">Do you want to enter a growth area index (GAI), or the crop height?</h1>
+        </legend>
+
+        <div class="govuk-form-group margin-bottom-forty">
+          <fieldset class="govuk-fieldset">
+            <!-- <label class="govuk-label" for="nitrate">Is this field within a Nitrate Vulnerable Zone (NVZ)?</label> -->
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="gai" name="gaiheight" type="radio" value="gai">
+                <label class="govuk-label govuk-radios__label" for="gai">Growth area index (GAI)</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="height" name="gaiheight" type="radio" value="height">
+                <label class="govuk-label govuk-radios__label" for="height">Crop height</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="../hub">Cancel</a></p>
+
+    </div>
+    
+  </div>
+
+{% endblock %}

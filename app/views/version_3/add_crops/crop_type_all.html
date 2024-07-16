@@ -1,0 +1,101 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {% if data.current_year == true %}
+          {% if data.crop_group == 'other' %}
+            What is the name of the crop?
+          {% elif data.crop_group == 'potatoes' %}
+            Which potato variety group are you planning to grow?
+          {% else %}
+            What is the first crop type in your plan for 2024?
+          {% endif %}
+        {% else %}
+          {% if data.crop_group == 'other' %}
+            What is the name of the crop?
+          {% elif data.crop_group == 'potatoes' %}
+            Which potato variety group are you planning to grow?
+          {% else %}
+            Which crop type would you like to plan for?
+          {% endif %}
+        {% endif %}
+  
+      </h1>
+
+      {% if data.crop_group == 'potatoes' %}
+        <p class="govuk-body margin-bottom-forty">
+          <a href="https://potatoes.ahdb.org.uk/knowledge-library/potato-nitrogen-groups" target="_blank">Help me find my potato variety group</a> (opens in a new tab)
+        </p>
+      {% endif %}
+
+      <form class="form" action="mvp_crop_handler" method="post">
+
+        <div class="govuk-form-group">
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              {% if data.crop_group == 'other' %}
+
+              <div class="govuk-form-group">
+                <input class="govuk-input" id="chosen_crop" name="chosen_crop" type="text" autocomplete="off">
+              </div> 
+
+              {% else %}
+
+                {% for crop in data.crop_types %}
+                  {% if crop.type == data.crop_group %}
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id={{crop.reference}} name="chosen_crop" type="radio" value={{crop.reference}}>
+                      <label class="govuk-label govuk-radios__label" for={{crop.reference}}>
+                        {{crop.name}}
+                      </label>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+
+              {% endif %}
+
+            </div>
+          </fieldset>
+        </div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+    
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

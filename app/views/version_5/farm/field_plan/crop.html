@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/templates/signed-in.html" ignore missing %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Oaktree Lane Farm",
+      href: "../hub"
+    },
+    {
+      text: "Plans and records",
+      href: "../plans_records"
+    },
+    {
+      text: "Crop plan for 2023 to 2024",
+      href: "../crop_plan/plan_view"
+    },
+    {
+      text: "Field plan for " + data.chosenField.name
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <div class="status-header margin-bottom-forty">
+      <h1 class="govuk-heading-l">{{data.chosenField.name}} plan for harvest year 2023 to 2024</h1>
+    </div>  
+  </div>
+
+  <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-s">Contents</h2>
+      <p class="govuk-body"><span class="dash"> — </span><a href="recommendations">View nutrient recommendations and guidance for {{data.chosenField.name}}</a></p>
+      <p class="govuk-body"><span class="dash"> — </span><a href="manures">Manage organic and inorganic material applications for {{data.chosenField.name}}</a></p>
+      <p class="govuk-body margin-bottom-forty"><span class="dash"> — </span>Manage crop details for {{data.chosenField.name}}</p>
+      <hr class="margin-bottom-forty">
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <div class="status-header">
+      <h2 class="govuk-heading-m">Crop details</h2>
+      {% include "./templates/other-crop-details.html" ignore missing %}
+      <p class="govuk-body"><a href="">Change the crop details for this field</a></p>
+      <p class="govuk-body"><a href="">Add a second crop to this field for harvest year 2023 to 2024</a></p>
+  </div>
+
+</div>
+
+
+{% endblock %}

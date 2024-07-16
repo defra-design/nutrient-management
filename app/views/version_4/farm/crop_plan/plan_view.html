@@ -52,12 +52,25 @@
     </div>
     {% endif %}
 
+    {% if data.oaktree_farm.planning_year == 2023 %}
+      {% set totalFields = data.plan_2023.firstFields.length + data.plan_2023.secondFields.length %}
+    {% else %}
+      {% set totalFields = data.plan_2024.firstFields.length  %}
+    {% endif %}
+
+    {{planYear}}
+
+
     <h1 class="govuk-heading-l">Crop plan for {{data.oaktree_farm.planning_year}}</h1>
 
     <div class="crop_plan_title">
-      <p class="govuk-body">There are {{data.plan_2024.totalFields}} fields in this plan</p>
+      {% if totalFields == 1 %}
+        <p class="govuk-body">There is 1 field in this plan</p>
+      {% else %}
+        <p class="govuk-body">There are {{totalFields}} fields in this plan</p>
+      {% endif %}
       <p class="govuk-body">Last updated: {{data.content.todays_date}}</p>
-      <p class="govuk-body"><a href="/add_crops/crop_group">Add another crop to this plan</a></p>
+      <p class="govuk-body"><a href="">Add another crop to this plan</a></p>
 
       <h2 class="govuk-heading-m">Applications of organic material and inorganic fertiliser</h2>
       <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Plan an application of {{data.content.organic_term | lower}} to one or more fields</a></p>

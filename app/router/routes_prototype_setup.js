@@ -36,7 +36,14 @@ router.get(/fields_mvp_setup_handler/, function (req, res) {
     req.session.data.show_success_message = false
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.all_fields = req.session.data.field_list_mvp
-    // plan for 2025 is empty
+    ///2023 plan setup
+    req.session.data.plan_2024.setup = true
+    req.session.data.plan_2024.firstCropReference = 'Wheat-Winter'
+    req.session.data.plan_2024.firstFieldReferences = [1, 2, 3, 4, 5]
+    req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.firstFieldReferences, req.session.data.all_fields)
+    req.session.data.plan_2024.secondCropReference = 'oats-Winter'
+    req.session.data.plan_2024.secondFieldReferences = [6, 7, 8, 9, 10, 11]
+    req.session.data.plan_2024.secondFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.secondFieldReferences, req.session.data.all_fields)
     req.session.data.prototype_version = 'mvp'
     res.redirect('/mvp/start')
 })
@@ -49,8 +56,7 @@ router.get(/one_crop_handler/, function (req, res) {
     req.session.data.plan_2024.setup = true
     req.session.data.plan_2024.firstCropReference = 'Wheat-Winter'
     req.session.data.plan_2024.firstFieldReferences = [1, 2, 3, 4, 5]
-    req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2023.firstFieldReferences, req.session.data.all_fields)
-    //2024 manures    
+    req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.firstFieldReferences, req.session.data.all_fields)
     req.session.data.prototype_version = 'mvp'
     res.redirect('/mvp/start')
 })
@@ -180,7 +186,7 @@ router.get(/version4_cropsetup_handler/, function (req, res) {
     req.session.data.plan_2024.setup = true
     req.session.data.plan_2024.firstCropReference = 'Wheat-Winter'
     req.session.data.plan_2024.firstFieldReferences = [1, 2, 3, 4, 5]
-    req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2023.firstFieldReferences, req.session.data.all_fields)
+    req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.firstFieldReferences, req.session.data.all_fields)
     req.session.data.prototype_version = 'version_4'
     res.redirect('/version_4/start')
 })
@@ -202,7 +208,7 @@ router.get(/version4_manuresetup_handler/, function (req, res) {
     req.session.data.plan_2024.setup = true
     req.session.data.plan_2024.firstCropReference = 'Wheat-Winter'
     req.session.data.plan_2024.firstFieldReferences = [1, 2, 3, 4, 5]
-    req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2023.firstFieldReferences, req.session.data.all_fields)
+    req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.firstFieldReferences, req.session.data.all_fields)
     //2024 manures
     req.session.data.plan_2024.multipleManuresApplied = true
     req.session.data.prototype_version = 'version_4'
@@ -225,7 +231,7 @@ router.get(/version2_manuresetup_handler/, function (req, res) {
     req.session.data.plan_2024.setup = true
     req.session.data.plan_2024.firstCropReference = 'Wheat-Winter'
     req.session.data.plan_2024.firstFieldReferences = [1, 2, 3, 4, 5]
-    req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2023.firstFieldReferences, req.session.data.all_fields)
+    req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.firstFieldReferences, req.session.data.all_fields)
     //2024 manures
     req.session.data.plan_2024.multipleManuresApplied = true
     req.session.data.prototype_version = 'version_2'

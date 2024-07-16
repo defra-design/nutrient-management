@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Enter the number of shoots per square metre</h1>
+
+      <form action="nitrogen_mineralisation" method="post" novalidate="">
+
+        <div class="govuk-form-group">
+          <legend class="govuk-fieldset__legend">
+            What is the number of shoots per square metre?
+          </legend>      
+          <input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+        </div>
+
+        <div class="govuk-form-group">
+          <legend class="govuk-fieldset__legend">
+            When was the sample taken?
+          </legend>
+      
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="yes" name="sns_method" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="yes">
+                  Autumn
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="no" name="sns_method" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="no">
+                  Spring
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+      <p class="govuk-body cancel-link"><a href="/mvp/field/field-details">Cancel</a></p>
+
+    </div>
+    
+  </div>
+
+{% endblock %}

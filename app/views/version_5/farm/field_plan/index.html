@@ -41,19 +41,37 @@
     <h1 class="govuk-heading-l">{{data.chosen_field.name}} plan for harvest year {{data.oaktree_farm.planning_year}}</h1>
 
     <h2 class="govuk-heading-s">Contents</h2>
-    <p class="govuk-body"><span class="dash"> — </span><a href="recommendations">View nutrient recommendations and guidance for {{data.chosen_field.name}}</a></p>
+    <p class="govuk-body"><span class="dash"> — </span>View nutrient recommendations and guidance for {{data.chosen_field.name}}</p>
     <p class="govuk-body"><span class="dash"> — </span><a href="manures">Manage organic and inorganic material applications for {{data.chosen_field.name}}</a></p>
-    <p class="govuk-body margin-bottom-forty"><span class="dash"> — </span>Manage crop details for {{data.chosen_field.name}}</p>
+    <p class="govuk-body margin-bottom-forty"><span class="dash"> — </span><a href="crops">Manage crop details for {{data.chosen_field.name}}</a></p>
     <hr class="margin-bottom-forty">
+  
+  </div>
 
-    <div class="status-header">
-      <h2 class="govuk-heading-m">Crop details</h2>
-      {% include "./templates/other-crop-details.html" ignore missing %}
-      <p class="govuk-body"><a href="">Change the {{data.chosen_crop | nameconverter}} details for this field</a></p>
-      <p class="govuk-body"><a href="">Add a second crop to this field for harvest year {{data.oaktree_farm.planning_year}}</a></p>
+    <!-- recommendation table -->
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
+      <p class="govuk-body">These recommendations are per hectare for in Long Field {{data.oaktree_farm.planning_year}}</p>
+      {% if data.plan_2024.multipleFertilisersApplied == true or data.plan_2024.singleFertilisersApplied == true %}
+        {% include "./templates/v4_nutrients_one_fertiliser.html" ignore missing %}
+      {% elif data.plan_2024.multipleManuresApplied == true or data.plan_2024.singleManuresApplied == true %}
+        {% include "./templates/v4_nutrients_one_organic.html" ignore missing %}
+      {% else %}
+        {% include "./templates/v4_nutrients_empty.html" ignore missing %}
+      {% endif %}
+
+    </div>
+    <div class="govuk-grid-column-two-thirds margin-bottom-forty">
+      <div class="govuk-inset-text">
+        Apply no more than 100 kg N/ha at sowing or transplanting then apply <br>
+        N according to crop growth, e.g. up to 60 kg N/ha per month in the south-west and 20 kg N/ha in the north. 
+        Where seedbed SNS exceeds 4 and crops are likely to be harvested in April or later, top-dress N at the start of spring growth allowing for any over-winter losses of N.
+       </div> 
     </div>
 
-  </div>
+
+
 </div>
+
 
 {% endblock %}

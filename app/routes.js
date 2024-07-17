@@ -113,9 +113,8 @@ let plan2024 = {
 
 //index route, loads data in application
 router.get('/', function (req, res) { 
-    req.session.data.prototypeVersion = 'mvp'
-    //content variables
     req.session.data.content = content
+    req.session.data.prototypeVersion = 'mvp'
 
     //create oaktree farm
     req.session.data.oaktree_farm = oaktree_farm

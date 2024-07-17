@@ -19,41 +19,38 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Would you like to use these values for all future applications of {{data.manure_type.name}} on {{data.oaktree_farm.name}}?
+
+        Do you want to enter one value for 
+          {% if data.condition_question == 'nitrogen' %}
+            Autumn crop Nitrogen uptake 
+          {% else %}
+            Autumn crop Nitrogen uptake 
+          {% endif %}
+        for all these fields, or for each field separately?
       </h1>
 
-      <p class="govuk-body">If you use these values for all future applications you can change them at any time under farm and field details.</p>
-
-      <form class="form" action="manure_quantity" method="post">
-
+      {% if data.condition_question == 'nitrogen' %}
+        <form class="form" action="manure_nitrogen" method="post">
+      {% else %}
+        <form class="form" action="manure_nitrogen" method="post">
+      {% endif %}
+      
         <div class="govuk-form-group margin-bottom-forty">
             <div class="govuk-radios" data-module="govuk-radios">
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="rate" name="quantity_type" type="radio" value="rate">
                 <label class="govuk-label govuk-radios__label" for="rate">
-                  Yes          
+                  Enter one value for all these fields     
                 </label>
               </div>
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="area" name="quantity_type" type="radio" value="area">
                 <label class="govuk-label govuk-radios__label" for="area">
-                  No  
+                  Enter a different value for each of these fields
                 </label>
               </div>
-
-              <!-- <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="default" name="quantity_type" type="radio" value="default">
-                <label class="govuk-label govuk-radios__label" for="default">
-                  Use the typical application rate of 
-                  {% if data.manure_type.liquid == true %}
-                    30 m3/ha
-                  {% else %}
-                    20 t/ha
-                  {% endif %}
-                </label>
-              </div> -->
 
           </div>
         </div>

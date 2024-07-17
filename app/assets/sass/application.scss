@@ -336,3 +336,9 @@ tr.right-last {
         margin-bottom: 0;
     }
 }
+
+#conditions_table {
+    td:nth-child(2) {
+        width: 35%;
+    }
+}

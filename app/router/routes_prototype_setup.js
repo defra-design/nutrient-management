@@ -11,9 +11,8 @@ router.get(/v1_farm_setup_handler/, function (req, res) {
 
 router.get(/v1_fields_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    req.session.data.oaktree_farm.setup = true
-    req.session.data.oaktree_farm.fields_added = true
-    req.session.data.plan_2024.setup = true
+    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'fields')
+    req.session.data.all_fields = req.session.data.field_list_mvp
     ///2024 plan setup
     req.session.data.plan_2024.firstCropReference = 'Wheat-Winter'
     req.session.data.plan_2024.firstFieldReferences = [1, 2, 3, 4, 5]

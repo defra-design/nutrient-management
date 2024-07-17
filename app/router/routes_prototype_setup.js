@@ -85,7 +85,6 @@ router.get(/v4_start_setup_handler/, function (req, res) {
     res.redirect('/version_4/start')
 })
 
-
 router.get(/v4_farm_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     req.session.data.oaktree_farm.setup = true

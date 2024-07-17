@@ -91,7 +91,21 @@ router.get(/version2_manuresetup_handler/, function (req, res) {
 //// V4 ////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
-router.get(/version4_fieldetup_handler/, function (req, res) { 
+router.get(/v4_start_setup_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    req.session.data.prototype_version = 'version_4'
+    res.redirect('/version_4/start')
+})
+
+
+router.get(/v4_farm_setup_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.prototype_version = 'version_4'
+    res.redirect('/version_4/start')
+})
+
+router.get(/v4_field_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.all_fields = req.session.data.field_list_mvp
@@ -109,7 +123,7 @@ router.get(/version4_fieldetup_handler/, function (req, res) {
     res.redirect('/version_4/start')
 })
 
-router.get(/version4_cropsetup_handler/, function (req, res) { 
+router.get(/v4_crop_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.all_fields = req.session.data.field_list_mvp
@@ -130,7 +144,7 @@ router.get(/version4_cropsetup_handler/, function (req, res) {
     res.redirect('/version_4/start')
 })
 
-router.get(/version4_manuresetup_handler/, function (req, res) { 
+router.get(/v4_manure_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     allFunctions.basicSetup(req.session.data.oaktree_farm, true, false, false)
     req.session.data.all_fields = req.session.data.field_list_mvp
@@ -153,39 +167,25 @@ router.get(/version4_manuresetup_handler/, function (req, res) {
     res.redirect('/version_4/start')
 })
 
-router.get(/v4_farmsetup_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    req.session.data.oaktree_farm.setup = true
-    req.session.data.prototype_version = 'version_4'
-    res.redirect('/version_4/start')
-})
-
-router.get(/v4_setup_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    req.session.data.prototype_version = 'version_4'
-    res.redirect('/version_4/start')
-})
-
 
 ////////////////////////////////////////////////////////////////////////////
 //// V5 ////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
+router.get(/v5_start_setup_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    req.session.data.prototype_version = 'version_5'
+    res.redirect('/version_5/start')
+})
 
-router.get(/v5_farmsetup_handler/, function (req, res) { 
+router.get(/v5_farm_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     req.session.data.oaktree_farm.setup = true
     req.session.data.prototype_version = 'version_5'
     res.redirect('/version_5/start')
 })
 
-router.get(/v5_setup_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    req.session.data.prototype_version = 'version_5'
-    res.redirect('/version_5/start')
-})
-
-router.get(/version5_fieldetup_handler/, function (req, res) { 
+router.get(/v5_field_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'fields')
     req.session.data.all_fields = req.session.data.field_list_mvp
@@ -201,7 +201,7 @@ router.get(/version5_fieldetup_handler/, function (req, res) {
     res.redirect('/version_5/start')
 })
 
-router.get(/version5_cropsetup_handler/, function (req, res) { 
+router.get(/v5_crop_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
     req.session.data.all_fields = req.session.data.field_list_mvp
@@ -220,7 +220,7 @@ router.get(/version5_cropsetup_handler/, function (req, res) {
     res.redirect('/version_5/start')
 })
 
-router.get(/version5_manuresetup_handler/, function (req, res) { 
+router.get(/v5_manure_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'fertilisers')
     req.session.data.all_fields = req.session.data.field_list_mvp

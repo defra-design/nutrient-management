@@ -63,11 +63,15 @@
     </div>
 
     <div>
-      {% if data.plan_2024.setup != true %}
+      {% if data.oaktree_farm.fields_added == true  %}
       <h2 class="govuk-heading-m">Plans and records</h2>
       <ul class="menu-list govuk-list">
         <li>
-          <a class="govuk-link" href="plans_records">View or create a plan or record</a>
+          {% if data.plan_2024.setup != true  %}
+            <a class="govuk-link" href="../add_crops/year">View or create a plan or record</a>
+          {% else %}
+            <a class="govuk-link" href="plans_records">View or create a plan or record</a>
+          {% endif %}
         </li>
       </ul>
       {% else %}

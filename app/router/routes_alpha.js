@@ -422,6 +422,12 @@ router.get(/v4_plancopy_handler/, function (req, res) {
     res.redirect('crop_group')
 })
 
+router.get(/condition_question_handler/, function (req, res) { 
+    req.session.data.condition_question = req.query.question
+    res.redirect('condition_question')
+})
+
+
 
 
 module.exports = router

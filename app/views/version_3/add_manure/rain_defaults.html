@@ -24,9 +24,9 @@
         Conditions affecting the loss of nutrients from your organic materials
       </h1>
 
-      <!-- <p class="govuk-body">
-        You can change these values now or later.
-      </p> -->
+      <p class="govuk-body">
+        These values will be used to calculate how effective this organic material application is.
+      </p>
 
       <details class="govuk-details">
         <summary class="govuk-details__summary">
@@ -36,38 +36,38 @@
         </summary>
         <div class="govuk-details__text explanations">
 
-          <p>The effectiveness of your organic material application, and the amount of inorganic fertiliser you need, will vary depending on these conditions.</p>
+          <!-- <p>The effectiveness of your organic material application, and the amount of inorganic fertiliser you need, will vary depending on these conditions.</p> -->
 
           <h3 class="govuk-heading-s">Autumn crop Nitrogen uptake</h3>
-          <p class="govuk-body">Amount of N from the application taken up by the crop in the autumn</p>
+          <p class="govuk-body">Amount of N from the application taken up by the crop in the autumn.</p>
 
           <h3 class="govuk-heading-s">End of soil drainage</h3>
-          <p class="govuk-body">Date when soil drainage ends and the soil begins to dry out</p>
+          <p class="govuk-body">Date when soil drainage ends and the soil begins to dry out.</p>
               
 
           <h3 class="govuk-heading-s">Rainfall within 6 hours of application</h3>
-          <p class="govuk-body">Amount of rain that falls in the 6 hours after the material is applied</p>
+          <p class="govuk-body">Amount of rain that falls in the 6 hours after the material is applied.</p>
 
 
           <h3 class="govuk-heading-s">Effective rainfall after application</h3>
-          <p class="govuk-body">Average rainfall between manure application and end of soil drainage</p>
+          <p class="govuk-body">Average rainfall between manure application and end of soil drainage.</p>
 
                 
           <h3 class="govuk-heading-s">Windspeed during application</h3>
-          <p class="govuk-body">Windspeed when the material is applied</p>
+          <p class="govuk-body">Windspeed when the material is applied.</p>
 
           <h3 class="govuk-heading-s">Topsoil moisture</h3>
-          <p">How moist the topsoil is when the material is applied</p>
+          <p">How moist the topsoil is when the material is applied.</p>
 
           </div>
       </details>
 
-      <table class="govuk-table">
+      <table id="conditions_table" class="govuk-table">
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">Autumn crop Nitrogen uptake</th>
             <td class="govuk-table__cell">10kg per hectare</td>
-            <td class="govuk-table__cell"><a href="manure_nitrogen">Change</a></td>
+            <td class="govuk-table__cell"><a href="condition_question_handler?question=nitrogen">Change</a></td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">End of soil drainage</th>
@@ -81,8 +81,8 @@
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">Effective rainfall after application</th>
-            <td class="govuk-table__cell">328mm</td>
-            <td class="govuk-table__cell"><a href="manure_rain_total">Change</a></td>
+            <td class="govuk-table__cell">This is different for each of these fields, the average is 326mm</td>
+            <td class="govuk-table__cell"><a href="manure_rain_total">View</a></td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">Windspeed during application</th>

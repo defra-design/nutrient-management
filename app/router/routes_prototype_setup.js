@@ -80,15 +80,15 @@ router.get(/v2_manure_setup_handler/, function (req, res) {
 
 router.get(/v4_start_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    req.session.data.prototype_version = 'version_4'
-    res.redirect('/version_4/start')
+    req.session.data.prototype_version = 'version_3'
+    res.redirect('/version_3/start')
 })
 
 router.get(/v4_farm_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     req.session.data.oaktree_farm.setup = true
-    req.session.data.prototype_version = 'version_4'
-    res.redirect('/version_4/start')
+    req.session.data.prototype_version = 'version_3'
+    res.redirect('/version_3/start')
 })
 
 router.get(/v4_field_setup_handler/, function (req, res) { 
@@ -102,8 +102,8 @@ router.get(/v4_field_setup_handler/, function (req, res) {
     req.session.data.plan_2023.secondCropReference = 'oats-Winter'
     req.session.data.plan_2023.secondFieldReferences = [6, 7, 8, 9, 10, 11]
     req.session.data.plan_2023.secondFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2023.secondFieldReferences, req.session.data.all_fields)
-    req.session.data.prototype_version = 'version_4'
-    res.redirect('/version_4/start')
+    req.session.data.prototype_version = 'version_3'
+    res.redirect('/version_3/start')
 })
 
 router.get(/v4_crop_setup_handler/, function (req, res) { 
@@ -121,8 +121,8 @@ router.get(/v4_crop_setup_handler/, function (req, res) {
     req.session.data.plan_2024.firstCropReference = 'Wheat-Winter'
     req.session.data.plan_2024.firstFieldReferences = [1, 2, 3, 4, 5]
     req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.firstFieldReferences, req.session.data.all_fields)
-    req.session.data.prototype_version = 'version_4'
-    res.redirect('/version_4/start')
+    req.session.data.prototype_version = 'version_3'
+    res.redirect('/version_3/start')
 })
 
 router.get(/v4_manure_setup_handler/, function (req, res) { 
@@ -140,8 +140,8 @@ router.get(/v4_manure_setup_handler/, function (req, res) {
     req.session.data.plan_2024.firstCropReference = 'Wheat-Winter'
     req.session.data.plan_2024.firstFieldReferences = [1, 2, 3, 4, 5]
     req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.firstFieldReferences, req.session.data.all_fields)
-    req.session.data.prototype_version = 'version_4'
-    res.redirect('/version_4/start')
+    req.session.data.prototype_version = 'version_3'
+    res.redirect('/version_3/start')
 })
 
 
@@ -151,15 +151,15 @@ router.get(/v4_manure_setup_handler/, function (req, res) {
 
 router.get(/v5_start_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
-    req.session.data.prototype_version = 'version_5'
-    res.redirect('/version_5/start')
+    req.session.data.prototype_version = 'version_4'
+    res.redirect('/version_4/start')
 })
 
 router.get(/v5_farm_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     req.session.data.oaktree_farm.setup = true
-    req.session.data.prototype_version = 'version_5'
-    res.redirect('/version_5/start')
+    req.session.data.prototype_version = 'version_4'
+    res.redirect('/version_4/start')
 })
 
 router.get(/v5_field_setup_handler/, function (req, res) { 
@@ -173,8 +173,8 @@ router.get(/v5_field_setup_handler/, function (req, res) {
     req.session.data.plan_2023.secondCropReference = 'oats-Winter'
     req.session.data.plan_2023.secondFieldReferences = [6, 7, 8, 9, 10, 11]
     req.session.data.plan_2023.secondFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2023.secondFieldReferences, req.session.data.all_fields)
-    req.session.data.prototype_version = 'version_5'
-    res.redirect('/version_5/start')
+    req.session.data.prototype_version = 'version_4'
+    res.redirect('/version_4/start')
 })
 
 router.get(/v5_crop_setup_handler/, function (req, res) { 
@@ -192,8 +192,8 @@ router.get(/v5_crop_setup_handler/, function (req, res) {
     req.session.data.plan_2024.firstCropReference = 'Wheat-Winter'
     req.session.data.plan_2024.firstFieldReferences = [1, 2, 3, 4, 5]
     req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.firstFieldReferences, req.session.data.all_fields)
-    req.session.data.prototype_version = 'version_5'
-    res.redirect('/version_5/start')
+    req.session.data.prototype_version = 'version_4'
+    res.redirect('/version_4/start')
 })
 
 router.get(/v5_manure_setup_handler/, function (req, res) { 
@@ -211,8 +211,8 @@ router.get(/v5_manure_setup_handler/, function (req, res) {
     req.session.data.plan_2024.firstCropReference = 'Wheat-Winter'
     req.session.data.plan_2024.firstFieldReferences = [1, 2, 3, 4, 5]
     req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.firstFieldReferences, req.session.data.all_fields)
-    req.session.data.prototype_version = 'version_5'
-    res.redirect('/version_5/start')
+    req.session.data.prototype_version = 'version_4'
+    res.redirect('/version_4/start')
 })
 
 module.exports = router

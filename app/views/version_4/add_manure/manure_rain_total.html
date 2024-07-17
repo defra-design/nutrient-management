@@ -21,34 +21,17 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Effective rainfall after application
+        Total rainfall since application
       </h1>
 
-      <p class="govuk-body">This is the average rainfall between manure application and end of soil drainage.</p>
+      <p class="govuk-body">This is the total rainfall between x and y. If you think this is wrong, you can change it now or later.</p>
 
-        <table class="govuk-table margin-bottom-forty">
-          <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Field</th>
-              <th scope="col" class="govuk-table__header">Effective rainfall</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Field 1</td>
-              <td class="govuk-table__cell">328mm</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Field 2</td>
-              <td class="govuk-table__cell">318mm</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Field 3</td>
-              <td class="govuk-table__cell">333mm</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="text-group margin-bottom-forty">
+        <h3 class="govuk-heading-s">Total rainfall</h3>
+        <p class="govuk-body">328mm</p>
+        <!-- <p class="govuk-body"><a href="rainfall-manual">Change</a></p> -->
+        <p class="govuk-body"><a href="">Change</a></p>
+      </div>
       
       <form action="rain_defaults" method="post" novalidate="">
         <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">

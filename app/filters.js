@@ -6,6 +6,8 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const addFilter = govukPrototypeKit.views.addFilter
 
+// const allFunctions = require('../functions/allFunctions.js');
+
 const crop_types = require('./data/crops.json');
 
 // addFilter('uppercase', function (content) {

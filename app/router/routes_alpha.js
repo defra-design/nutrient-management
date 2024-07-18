@@ -427,6 +427,11 @@ router.get(/condition_question_handler/, function (req, res) {
     res.redirect('condition_question')
 })
 
+router.get(/addcrops_handler/, function (req, res) { 
+    req.session.data.secondcrop_journey = true
+    res.redirect('/'+ req.session.data.prototype_version + '/add_crops/crop_group')
+})
+
 
 
 

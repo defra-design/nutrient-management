@@ -174,6 +174,9 @@ router.get('/', function (req, res) {
     req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'
     // req.session.data.manure_delay = null
     req.session.data.show_manure_notification = false
+
+    req.session.data.secondcrop_journey = null //true for second crop
+
     
     //fertilisers - temp remove
     req.session.data.plan_2024.multipleFertilisersApplied = false

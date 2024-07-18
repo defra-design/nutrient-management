@@ -20,16 +20,20 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        What is the Autumn crop Nitrogen uptake?
+        What is the Autumn crop Nitrogen uptake for Field #1?
       </h1>
 
-      <p></p>
+      <!-- <p>This is the amount of Nitrogen(N) from the application taken up by the crop in the autumn.</p> -->
+        {% if data.manure_journey == 'multi' %}
+          <form class="form" action="manure_uptake_total" method="post">
+        {% else %}
+          <form class="form" action="rain_defaults" method="post">
+        {% endif %}
 
-      <form class="form" action="rain_defaults" method="post">
 
         <div class="govuk-form-group">
           <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
-            <div class="govuk-input__suffix" aria-hidden="true">kg/ha</div>
+            <div class="govuk-input__suffix" aria-hidden="true">kg per hectare</div>
           </div>
         </div>
 

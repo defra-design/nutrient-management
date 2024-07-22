@@ -433,6 +433,4 @@ router.get(/addcrops_handler/, function (req, res) {
 })
 
 
-
-
 module.exports = router

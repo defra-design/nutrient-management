@@ -1,7 +1,6 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-
 ///////Misc
 const content = require('./content.js').content;
 const allFunctions = require('./functions/allFunctions.js');
@@ -194,7 +193,8 @@ router.get('/', function (req, res) {
 })
 
 //import routes
-const routes_main = require('./router/routes_mvp.js');
-const routes_alpha = require('./router/routes_alpha.js');
 const routes_prototype_setup = require('./router/routes_prototype_setup.js');
-router.use('/', routes_main, routes_alpha, routes_prototype_setup);
+const routes_alpha = require('./router/routes_alpha.js');
+const routes_mvp = require('./router/routes_mvp.js');
+// router.use('/', routes_mvp, routes_alpha, routes_prototype_setup);
+router.use('/', routes_alpha, routes_mvp, routes_prototype_setup);

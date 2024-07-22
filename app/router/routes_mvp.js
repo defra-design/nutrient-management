@@ -34,6 +34,7 @@ router.get(/organic_handler/, function (req, res) {
     res.redirect('check')
 })
 
+//creates a farm
 router.get(/add_farms_handler/, function (req, res) { 
     //name
     req.session.data.oaktree_farm.name = req.session.data.farm_name
@@ -51,8 +52,42 @@ router.get(/add_farms_handler/, function (req, res) {
 })
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Alert messages
+router.get(/delete_handler/, function (req, res) { 
+    req.session.data.show_success_message = true
+    req.session.data.oaktree_farm.setup = false
+    res.redirect('/' + req.session.data.prototype_version + '/farm/farms')
+})
+
+//farm view reset messages
+router.get(/hub_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('/' + req.session.data.prototype_version + '/farm/hub')
+})
+
+//manage fields view reset messages
+router.get(/field_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('/' + req.session.data.prototype_version + '/farm/field/manage-fields')
+})
+
+//add a field view reset messages
+router.get(/field_add_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('/'+ req.session.data.prototype_version + '/add-field/name')
+})
+
+//add a field view reset messages
+router.get(/field_details_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('/'+ req.session.data.prototype_version +'/farm/field/field-details')
+})
+
+//plan_view reset messages
+router.get(/planview_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('../crop_plan/plan_view')
+})
 
 
 /////////////////////////////
@@ -314,56 +349,6 @@ router.get(/addcrops_check_handler/, function (req, res) {
     req.session.data.oaktree_farm.planning_year = 2024;
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////
-/////// ALERT MESSAGES //////
-/////////////////////////////
-
-
-router.get(/delete_handler/, function (req, res) { 
-    req.session.data.show_success_message = true
-    req.session.data.oaktree_farm.setup = false
-    res.redirect('/' + req.session.data.prototype_version + '/farm/farms')
-})
-
-//farm view reset messages
-router.get(/hub_reset_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    res.redirect('/' + req.session.data.prototype_version + '/farm/hub')
-})
-
-//manage fields view reset messages
-router.get(/field_reset_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    res.redirect('/' + req.session.data.prototype_version + '/farm/field/manage-fields')
-})
-
-//add a field view reset messages
-router.get(/field_add_reset_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    res.redirect('/'+ req.session.data.prototype_version + '/add-field/name')
-})
-
-//add a field view reset messages
-router.get(/field_details_reset_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    res.redirect('/'+ req.session.data.prototype_version +'/farm/field/field-details')
-})
-
-//plan_view reset messages
-router.get(/planview_reset_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    res.redirect('../crop_plan/plan_view')
-})
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////

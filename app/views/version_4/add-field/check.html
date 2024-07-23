@@ -26,7 +26,12 @@
       <div class="check-answers">
         <!-- <h2 class="govuk-heading-m">Field details</h2> -->
         <dl class="govuk-summary-list">
-          {% include "./check-details.html" ignore missing %}
+
+          {% if data.chosen_crop == 'Grass' %}
+          Grass
+          {% else %}
+            {% include "./check-details.html" ignore missing %}
+          {% endif %}
 
           {% if data.sns_method == 'yes'%}
             {% include "./check-details-sns.html" ignore missing %}

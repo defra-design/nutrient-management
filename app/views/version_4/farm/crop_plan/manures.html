@@ -68,9 +68,9 @@
       <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
       {% if req.session.data.plan_2024.multipleManuresApplied == false and req.session.data.plan_2024.singleManuresApplied == false %}
         <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned.</p>
-        <p class="govuk-body"><a href="v3manure_handler?manurejourney=multi">Add {{data.content.organic_term | lower}} applications to multiple fields</a></p>
+        <p class="govuk-body"><a href="v3manure_handler?manurejourney=multi">Add {{data.content.organic_term | lower}} applications</a></p>
       {% else %}
-        <p class="govuk-body"><a href="">Add another {{data.content.organic_term | lower}} application to multiple fields</a></p>
+        <p class="govuk-body"><a href="">Add another {{data.content.organic_term | lower}} application</a></p>
         {% include "./templates/applications.html" ignore missing %}
       {% endif %}
     </div>
@@ -80,9 +80,9 @@
       <h2 class="govuk-heading-m">{{data.content.non_organic_term}} applications</h2>
       {% if req.session.data.plan_2024.multipleFertilisersApplied == false and data.single_fertiliser == false %}
         <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned.</p>
-        <p class="govuk-body"><a href="">Add {{data.content.non_organic_term | lower}} applications to multiple fields</a></p>
+        <p class="govuk-body"><a href="">Add {{data.content.non_organic_term | lower}} applications</a></p>
       {% else %}
-        <p class="govuk-body"><a href="">Add another {{data.content.non_organic_term | lower}} application to multiple fields</a></p>
+        <p class="govuk-body"><a href="">Add another {{data.content.non_organic_term | lower}} application</a></p>
         {% include "./templates/fertiliser_applications.html" ignore missing %}
       {% endif %}
       </div>

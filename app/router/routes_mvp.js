@@ -159,16 +159,19 @@ router.get(/mineralisation_handler/, function (req, res) {
 })
 
 router.get(/previous_group_handler/, function (req, res) { 
-    // console.log(req.session.data.crop_group)
+    var next = 'crop_type_all'
     if (req.session.data.crop_group == null) {
         req.session.data.crop_group = 'cereals'
     }
     if (req.session.data.crop_group == 'other') {
         req.session.data.chosen_crop == 'Other'
-        res.redirect('log_croptype_handler')
-    } else {
-        res.redirect('crop_type_all')
-    }
+    } 
+    if (req.session.data.crop_group == 'grass') {
+        req.session.data.chosen_crop = 'Grass'
+        next = 'previous-grass'
+    } 
+    console.log(req.session.data.chosen_crop)
+    res.redirect(next)
 })
 
 router.get(/log_croptype_handler/, function (req, res) {

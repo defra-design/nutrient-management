@@ -20,32 +20,26 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-       How much nitrogen was applied per hectare to {{data.temp_field_name}} in 2023?
+        Did {{data.temp_field_name}} have a high Clover content in 2023?
       </h1>
 
-      <form class="form" action="check" method="post">
+      <form class="form" action="previous-nitrogen" method="post">
 
         <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
                 <div class="govuk-radios" data-module="govuk-radios">
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="high" name="grass_management" type="radio" value="high">
-                    <label class="govuk-label govuk-radios__label" for="high">
-                      Over 250kg
+                    <input class="govuk-radios__input" id="grazing" name="grass_management" type="radio" value="grazing">
+                    <label class="govuk-label govuk-radios__label" for="grazing">
+                      Yes
                     </label>
                   </div>    
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="mid" name="grass_management" type="radio" value="mid">
-                    <label class="govuk-label govuk-radios__label" for="mid">
-                      100kg to 250kg
+                    <input class="govuk-radios__input" id="red_clover" name="grass_management" type="radio" value="red_clover">
+                    <label class="govuk-label govuk-radios__label" for="red_clover">
+                      No
                     </label>
-                  </div>     
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="low" name="grass_management" type="radio" value="low">
-                    <label class="govuk-label govuk-radios__label" for="low">
-                      Up to 100kg
-                    </label>
-                  </div>         
+                  </div>
                 </div>
               </fieldset>
                       

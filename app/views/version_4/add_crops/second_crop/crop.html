@@ -22,29 +22,28 @@
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
         
+              <!-- {% include "templates/title_span.html" %} -->
               <h1 class="govuk-heading-l">
-                How do you want to add another crop?
+                Which crops do you plan to grow in these fields in 2024 after your Winter Wheat?
               </h1>
         
-              <form class="form" action="second_crop/fields" method="post">
+              <form class="form" action="variety" method="post">
                 <div class="govuk-form-group">
-
-                    <div class="govuk-radios" data-module="govuk-radios">
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="turnips" name="cover_crop" type="radio" value="Turnips-stubble">
-                        <label class="govuk-label govuk-radios__label" for="turnips">
-                          Add another main crop to the plan
-                        </label>
-                      </div>
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="Rape-forage" name="cover_crop" type="radio" value="Rape-forage">
-                        <label class="govuk-label govuk-radios__label" for="Rape-forage">
-                          Add a second crop to fields already in the plan
-                        </label>
-                      </div>
+                  <div class="govuk-radios" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="turnips" name="cover_crop" type="radio" value="Turnips-stubble">
+                      <label class="govuk-label govuk-radios__label" for="turnips">
+                        Stubble Turnips
+                      </label>
                     </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="Rape-forage" name="cover_crop" type="radio" value="Rape-forage">
+                      <label class="govuk-label govuk-radios__label" for="Rape-forage">
+                        Forage Rape
+                      </label>
+                    </div>
+                  </div>
       
-
                 </div>
                 {{ govukButton({
                   text: "Continue"

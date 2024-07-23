@@ -14,7 +14,8 @@ singleManuresApplied,
 multipleManuresApplied,
 multipleFertilisersApplied,
 singleFertilisersApplied,
-totalFields
+totalFields,
+forageCrop
 ) {
     this.year = year,
     this.setup = setup,
@@ -31,7 +32,8 @@ totalFields
     this.multipleManuresApplied = multipleManuresApplied,
     this.multipleFertilisersApplied = multipleFertilisersApplied,
     this.singleFertilisersApplied = singleFertilisersApplied,
-    this.totalFields = totalFields
+    this.totalFields = totalFields,
+    this.forageCrop = forageCrop
   }
 
 Plan.prototype.printPlan = function () {
@@ -48,7 +50,8 @@ Plan.prototype.printPlan = function () {
     "Multi manures = " + this.multipleManuresApplied + " ",
     "Single fertilisers = " + this.singleFertilisersApplied + " ",
     "Multi fertilisers = " + this.multipleFertilisersApplied + " ",
-    "total Fields = " + this.totalFields + " "
+    "total Fields = " + this.totalFields + " ",
+    "forage crop = " + this.forageCrop + " "
   )
 };
 
@@ -68,7 +71,8 @@ Plan.prototype.reset = function () {
   this.multipleManuresApplied = null,
   this.singleFertilisersApplied = null,
   this.multipleFertilisersApplied = null,
-  this.totalFields = null
+  this.totalFields = null,
+  this.forageCrop = null
 };
 
 function createPlan() {

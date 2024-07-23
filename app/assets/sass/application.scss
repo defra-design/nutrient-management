@@ -297,6 +297,20 @@ tr.right-last {
             width: 34%
         }
     }
+    margin-bottom :40px;
+}
+
+.big_crop_table_version_three {
+    font-size: 17px;
+    table__cell:last-child {
+        padding-right: 0;
+        text-align: right;
+    }
+}
+
+.big_crop_table_version_three table__cell:last-child {
+    padding-right: 0;
+    text-align: right;
 }
 
 .start-link {

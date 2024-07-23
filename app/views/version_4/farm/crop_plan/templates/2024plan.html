@@ -1,12 +1,15 @@
 <h2 class="govuk-heading-m">{{data.plan_2024.firstCropReference | nameconverter}}</h2>
 <p class="govuk-body"><a href="">Change this {{data.plan_2024.firstCropReference | nameconverter}} plan</a></p>
 
-<table class="govuk-table margin-bottom-forty big_crop_table_version_two">
+<table class="govuk-table big_crop_table_version_three">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Field</th>
-      <th scope="col" class="govuk-table__header">Organic applications</th>
-      <th scope="col" class="govuk-table__header">Inorganic applications</th>
+      <th scope="col" class="govuk-table__header">Planned organic applications</th>
+      <th scope="col" class="govuk-table__header">Planned inorganic applications</th>
+      {% if data.plan_2024.forageCrop == true %}
+        <th scope="col" class="govuk-table__header">Second Crop</th>
+      {% endif %}
       <th scope="col" class="govuk-table__header"> </th>
     </tr>
   </thead>
@@ -31,8 +34,11 @@
             None
           {% endif %}
         </td>
-        <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop={{data.plan_2024.firstCropReference}}&chosen_field={{field.reference}}">View field plan and recommendations</a></td>
-      </tr>      
+        {% if data.plan_2024.forageCrop == true %}
+          <td class="govuk-table__cell">Stubble Turnips</td>
+        {% endif %}
+        <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop={{data.plan_2024.firstCropReference}}&chosen_field={{field.reference}}">View field plan</a></td>
+      </tr> 
     {% endfor %}
 
   </tbody>
@@ -58,7 +64,7 @@
           <td class="govuk-table__cell">{{field.name}}</td>
           <td class="govuk-table__cell" class="govuk-table__header">None</td>
           <td class="govuk-table__cell" class="govuk-table__header">None</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop={{data.plan_2024.secondCropReference}}&chosen_field={{field.reference}}">View field plan and recommendations</a></td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop={{data.plan_2024.secondCropReference}}&chosen_field={{field.reference}}">View field plan</a></td>
         </tr>      
       {% endfor %}  
     </tbody>

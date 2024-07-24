@@ -19,28 +19,37 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Do you want to enter the same yield for these fields?
+        Do you have a date for when you planted your
+        Stubble Turnips, or when you will plant it?
       </h1>
-      <div id="event-name-hint" class="govuk-hint">
-        You can change this value for each individual field later.
-      </div>
 
-      <form class="form" action="yield_value" method="post">
+      <p>You can change your planting date later.</p>
+
+      <form class="form" action="yield_question" method="post">
 
         <div class="govuk-form-group">
+
             <div class="govuk-radios" data-module="govuk-radios">
+
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="same" name="yield_option_one" type="radio" value="same">
-                <label class="govuk-label govuk-radios__label" for="same">
-                  Yes, enter the same yield for these fields
+                <input class="govuk-radios__input" id="single" name="sow_option_one" type="radio" value="single">
+                <label class="govuk-label govuk-radios__label" for="single">
+                  Yes, I have a single date for all these fields
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="different" name="yield_option_one" type="radio" value="different">
+                <input class="govuk-radios__input" id="different" name="sow_option_one" type="radio" value="different">
                 <label class="govuk-label govuk-radios__label" for="different">
-                  No, enter different yields for each field
+                  Yes, I have different dates for each of these fields
                 </label>
               </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="no" name="sow_option_one" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="no">
+                  No, I'll enter the date later
+                </label>
+              </div>
+            
             </div>
           </fieldset>
         </div>

@@ -18,27 +18,31 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        Do you want to enter the same yield for these fields?
+        Which fields would you like to add a second crop to?
       </h1>
-      <div id="event-name-hint" class="govuk-hint">
-        You can change this value for each individual field later.
-      </div>
 
-      <form class="form" action="yield_value" method="post">
+      <form class="form" action="crop" method="post">
 
         <div class="govuk-form-group">
+          <!-- <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Where do you live?
+              </h1>
+            </legend> -->
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="same" name="yield_option_one" type="radio" value="same">
-                <label class="govuk-label govuk-radios__label" for="same">
-                  Yes, enter the same yield for these fields
+                <input class="govuk-radios__input" id="wheat" name="add" type="radio" value="wheat">
+                <label class="govuk-label govuk-radios__label" for="wheat">
+                  The Winter Wheat fields
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="different" name="yield_option_one" type="radio" value="different">
-                <label class="govuk-label govuk-radios__label" for="different">
-                  No, enter different yields for each field
+                <input class="govuk-radios__input" id="remove" name="add" type="radio" value="remove">
+                <label class="govuk-label govuk-radios__label" for="remove">
+                  The Winter Rye fields
                 </label>
               </div>
             </div>
@@ -51,21 +55,10 @@
       </form>
 
     </div>
-    
   </div>
 
   <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
+    <a href="#">Cancel</a>
   </p>
 
 {% endblock %}
-
-
-
-
-
-
-
-
-
-

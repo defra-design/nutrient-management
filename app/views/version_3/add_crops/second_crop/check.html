@@ -28,22 +28,12 @@
     </h2>
 
     <div class="check-answers">
-      {% include "./check_crops.html" %}
+        {% include "./check_crops.html" %}
     </div>
     
-    {% if data.plan_type == 'previous' %}
-    <br>
-    <h2 class="govuk-heading-m">
-      {{data.content.organic_term | capitalize }}
-    </h2>
-    <div class="check-answers">
-      {% include "./add_manure/check_manure.html" %}
-    </div>
-    {% endif %}
-
-    <form action="/addcrops_check_handler/" method="post" novalidate>
+    <form action="/foragecrops_check_handler/" method="post" novalidate>
       {{ govukButton({
-        text: "Create plan"
+        text: "Add to 2024 plan"
       }) }}
     </form>
     <p class="govuk-body">

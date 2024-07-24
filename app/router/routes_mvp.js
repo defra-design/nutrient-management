@@ -118,7 +118,7 @@ router.get(/soil_type_handler/, function (req, res) {
 })
 
 router.get(/nvz_handler/, function (req, res) { 
-    let next = (req.session.data.oaktree_farm.elevation == 'some') ? 'elevation' : 'soil'
+    let next = (req.session.data.oaktree_farm.elevation == 'some') ? 'elevation' : 'soil-one'
     res.redirect(next)
 })
 

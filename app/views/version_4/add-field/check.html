@@ -27,10 +27,11 @@
         <!-- <h2 class="govuk-heading-m">Field details</h2> -->
         <dl class="govuk-summary-list">
 
+          {% include "./check-details.html" ignore missing %}
           {% if data.chosen_crop == 'Grass' %}
-          Grass
+            {% include "./check-details-grass.html" ignore missing %}
           {% else %}
-            {% include "./check-details.html" ignore missing %}
+            {% include "./check-details-crop.html" ignore missing %}
           {% endif %}
 
           {% if data.sns_method == 'yes'%}

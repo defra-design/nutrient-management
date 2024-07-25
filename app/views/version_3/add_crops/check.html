@@ -28,7 +28,11 @@
     </h2>
 
     <div class="check-answers">
-      {% include "./check_crops.html" %}
+      {% if data.crop_group != 'grass' %}
+        {% include "./check_crops.html" %}
+      {% else %}
+        {% include "./check_grass.html" %}
+      {% endif %}
     </div>
     
     {% if data.plan_type == 'previous' %}

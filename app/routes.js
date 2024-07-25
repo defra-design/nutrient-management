@@ -165,7 +165,7 @@ router.get('/', function (req, res) {
     req.session.data.manure_spreads = 0
     req.session.data.fertiliser_spreads = 0
 
-    //manures - temp remove
+    //manures
     req.session.data.plan_2024.multipleManuresApplied = false
     req.session.data.plan_2024.singleManuresApplied = false
     req.session.data.manure_journey = null //multi or single
@@ -176,13 +176,25 @@ router.get('/', function (req, res) {
 
     req.session.data.secondcrop_journey = null //true for second crop
 
-    
-    //fertilisers - temp remove
+    //fertilisers
     req.session.data.plan_2024.multipleFertilisersApplied = false
     req.session.data.plan_2024.singleFertilisersApplied = false
     req.session.data.fertiliser_journey = null //multi or single
     req.session.data.fertiliser_count = 0
     req.session.data.show_fertiliser_notification = false
+    ///
+
+    //grass
+    req.session.data.defoliation_one = null
+    req.session.data.defoliation_two = null
+    req.session.data.defoliation_three = null
+    req.session.data.defoliation_four = null
+    req.session.data.defoliation_five = null
+    req.session.data.defoliation_size = null
+    req.session.data.weight_type = null
+    req.session.data.grass_total_yield = null
+    req.session.data.grass_total_yield_figure = null
+    ///
 
     req.session.data.prototype_version = 'mvp'
 
@@ -196,5 +208,6 @@ router.get('/', function (req, res) {
 const routes_prototype_setup = require('./router/routes_prototype_setup.js');
 const routes_alpha = require('./router/routes_alpha.js');
 const routes_mvp = require('./router/routes_mvp.js');
+// const vars = require('./router/vars.js');
 // router.use('/', routes_mvp, routes_alpha, routes_prototype_setup);
 router.use('/', routes_alpha, routes_mvp, routes_prototype_setup);

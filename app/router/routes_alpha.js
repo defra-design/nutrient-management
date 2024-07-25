@@ -439,5 +439,26 @@ router.get(/foragecrops_check_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 
+//grass
+router.get(/grassyield_handler/, function (req, res) { 
+    if (req.session.data.defoliation_one == null) {
+        req.session.data.defoliation_one = 'Grazing'
+    }
+    if (req.session.data.defoliation_two == null) {
+        req.session.data.defoliation_two = 'Grazing'
+    }
+    if (req.session.data.defoliation_three == null) {
+        req.session.data.defoliation_three = 'Grazing'
+    }
+    if (req.session.data.defoliation_four == null) {
+        req.session.data.defoliation_four = 'Grazing'
+    }
+    if (req.session.data.weight_type == null) {
+        req.session.data.weight_type = 'Fresh cut weight'
+    }
+    res.redirect('/'+ req.session.data.prototype_version + '/add_crops/check')
+})
+
+
 
 module.exports = router

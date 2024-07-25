@@ -1,69 +1,86 @@
 <dl class="govuk-summary-list">
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Which harvest year would you like to plan for?</dt>
-    <dd class="govuk-summary-list__value">2025</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Crop</dt>
-    <dd class="govuk-summary-list__value">{{data.crop_group | capitalize}}</dd>
+    <dt class="govuk-summary-list__key">Which crop group would you like to plan for?</dt>
+    <dd class="govuk-summary-list__value">Grass</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div> 
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Which fields do you plan to grow {{data.chosen_crop | nameconverter}} in?</dt>
+    <dt class="govuk-summary-list__key">Which fields do you plan to grow Grass in?</dt>
     <dd class="govuk-summary-list__value">
-      {% for field in data.crop_fields %}
+      {% for field in data.plan_2024.firstFields %}
         {{field.name}} <br>
-      {% endfor %}      
+      {% endfor %}     
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How do you want to enter the expected yield for Grass in these fields?</dt>
-    <dd class="govuk-summary-list__value">Enter the same yield for each of these fields</dd>
+  <!-- <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key"> What is the current sward in these fields?</dt>
+    <dd class="govuk-summary-list__value">Autumn sown</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How do you want to enter the expected yield for Grass in these fields?</dt>
-    <dd class="govuk-summary-list__value">Enter a total yield for the year</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How do you want to enter the total expected yield for Grass in these fields?</dt>
-    <dd class="govuk-summary-list__value">Enter the dry matter weight</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What is the required dry matter yield for these fields?</dt>
-    <dd class="govuk-summary-list__value">12 tonnes per hectare</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
+  </div> -->
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">How will these fields be managed?</dt>
-    <dd class="govuk-summary-list__value">Both grazed and cut</dd>
+    <dd class="govuk-summary-list__value">Grazing and Silage</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">How many defoliations will you have in these fields?</dt>
-    <dd class="govuk-summary-list__value">Two</dd>
+    <dd class="govuk-summary-list__value">4</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Defoliation sequence</dt>
+    <dt class="govuk-summary-list__key">Defoliations</dt>
     <dd class="govuk-summary-list__value">
-      <span class="span_figure">1</span><span class="span_figure">-</span>Grazing<br>
-      <span class="span_figure">2</span><span class="span_figure">-</span>Silage
+     1 - {{data.defoliation_one | capitalize}}<br>
+     2 - {{data.defoliation_two | capitalize}}<br>
+     3 - {{data.defoliation_three | capitalize}}<br>
+     4 - {{data.defoliation_four | capitalize}}
     </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How do you want to enter the yield for these fields?</dt>
+    <dd class="govuk-summary-list__value">Enter a total annual yield per field</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Do you want to enter the yield weight as fresh cut or dry matter for these fields?</dt>
+    <dd class="govuk-summary-list__value">{{data.weight_type}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Do you want to enter the same yield for these fields?</dt>
+    <dd class="govuk-summary-list__value">Yes, enter the same yield for these fields</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+
+    {% if data.weight_type == 'Fresh cut weight' %}
+      <dt class="govuk-summary-list__key">What is the required fresh cut yield per hectare for these fields?</dt>
+    {% else %}
+      <dt class="govuk-summary-list__key">What is the required dry matter yield per hectare for these fields?</dt>
+    {% endif %}
+
+    {% if data.grass_total_yield_figure == '' and data.grass_total_yield == null %}
+      <dd class="govuk-summary-list__value">10 tonnes</dd>
+    {% else  %}
+      {% if data.grass_total_yield_figure == '' %}
+        <dd class="govuk-summary-list__value">{{data.grass_total_yield}} tonnes</dd>
+      {% else %}
+        <dd class="govuk-summary-list__value">{{data.grass_total_yield_figure}} tones</dd>
+      {% endif %}
+    {% endif %}
+
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 

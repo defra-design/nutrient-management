@@ -514,7 +514,7 @@ router.get(/fertiliser_loop_handler/, function (req, res) {
         res.redirect('check')
     } else {
         req.session.data.fertiliser_count++
-        res.redirect('fertiliser_amount')
+        res.redirect('fertiliser_when')
     }
 })
 

@@ -18,6 +18,24 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <!-- <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Planning
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification">
+            Select your first crop group and type for 2024.
+            You can then add the crop to one or more fields to create your plan.
+          </p>
+          <p class="govuk-notification">
+            You can create as many crop groups as you need to, for example you can group crops by how tHay will be treated
+          </p>
+        </div>
+      </div>
+ -->
+
       <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
         Which crop group would you like to plan for?
@@ -26,12 +44,6 @@
       <form class="form" action="cropmvp_handler" method="post">
 
         <div class="govuk-form-group">
-          <!-- <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                Where do you live?
-              </h1>
-            </legend> -->
             {% include "./crop_group_content" %}
           </fieldset>
         </div>

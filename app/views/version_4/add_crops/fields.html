@@ -36,15 +36,23 @@
             </div>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
 
-            {% for field in data.all_fields %}
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id={{field.reference}} name="crop_fields" type="checkbox" value={{field.reference}}>
-                <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
-                  {{field.name}}
-                </label>
-              </div>
+              {% for field in data.all_fields %}
+              {% set isPlanned = false %}
+              {% for thisField in data.plan_2024.firstFields %} 
+                {% if thisField.reference == field.reference %}
+                  {% set isPlanned = true %}
+                {% endif %}
+              {% endfor %} 
+              {% if isPlanned == false %}
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id={{field.reference}} name="crop_fields" type="checkbox" value={{field.reference}}>
+                  <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                    {{field.name}}
+                  </label>
+                </div>
+              {% endif %}
             {% endfor %}   
-            
+      
             <div class="govuk-checkboxes__divider">or</div>
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="" name="" type="checkbox" value="">
@@ -61,7 +69,7 @@
           text: "Continue"
         }) }}
 
-      </form>
+      </form>    
 
     </div>
   </div>

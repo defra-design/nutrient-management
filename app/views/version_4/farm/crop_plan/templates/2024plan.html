@@ -1,12 +1,16 @@
 <h2 class="govuk-heading-m">{{data.plan_2024.firstCropReference | nameconverter}}</h2>
 <p class="govuk-body"><a href="">Change this {{data.plan_2024.firstCropReference | nameconverter}} plan</a></p>
 
-<table class="govuk-table margin-bottom-forty big_crop_table_version_two">
+<table class="govuk-table big_crop_table_version_three">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Field</th>
       <th scope="col" class="govuk-table__header">Organic applications</th>
       <th scope="col" class="govuk-table__header">Inorganic applications</th>
+      {% if data.plan_2024.forageCrop == true %}
+        <th scope="col" class="govuk-table__header">Second Crop</th>
+      {% endif %}
+      <th scope="col" class="govuk-table__header">Alerts</th>
       <th scope="col" class="govuk-table__header"> </th>
     </tr>
   </thead>
@@ -15,6 +19,7 @@
     {% for field in data.plan_2024.firstFields %}
       <tr class="govuk-table__row">
         <td class="govuk-table__cell">{{field.name}}</td>
+
         <td class="govuk-table__cell" class="govuk-table__header">
           {% if data.plan_2024.multipleManuresApplied == true and data.plan_2024.singleManuresApplied == false %}
             1
@@ -24,6 +29,7 @@
             None
           {% endif %}
         </td>
+
         <td class="govuk-table__cell" class="govuk-table__header">
           {% if data.plan_2024.multipleFertilisersApplied == true or data.plan_2024.singleFertilisersApplied %}
             1
@@ -31,8 +37,16 @@
             None
           {% endif %}
         </td>
-        <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop={{data.plan_2024.firstCropReference}}&chosen_field={{field.reference}}">View field plan and recommendations</a></td>
-      </tr>      
+
+        {% if data.plan_2024.forageCrop == true %}
+          <td class="govuk-table__cell">Stubble Turnips</td>
+        {% endif %}
+
+        <td class="govuk-table__cell">None</td>
+
+        <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop={{data.plan_2024.firstCropReference}}&chosen_field={{field.reference}}">View field plan</a></td>
+      
+      </tr> 
     {% endfor %}
 
   </tbody>
@@ -42,13 +56,14 @@
   <h2 class="govuk-heading-m">{{data.plan_2024.secondCropReference | nameconverter}}</h2>
   <p class="govuk-body"><a href="">Change this {{data.plan_2024.secondCropReference | nameconverter}} plan</a></p>
 
-  <table class="govuk-table margin-bottom-forty big_crop_table_version_two">
+  <table class="govuk-table big_crop_table_version_three">
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Field</th>
         <th scope="col" class="govuk-table__header">Organic applications</th>
         <th scope="col" class="govuk-table__header">Inorganic applications</th>
-          <th scope="col" class="govuk-table__header"> </th>
+        <th scope="col" class="govuk-table__header">Alerts</th>
+        <th scope="col" class="govuk-table__header"> </th>
       </tr>
     </thead>
 
@@ -58,7 +73,8 @@
           <td class="govuk-table__cell">{{field.name}}</td>
           <td class="govuk-table__cell" class="govuk-table__header">None</td>
           <td class="govuk-table__cell" class="govuk-table__header">None</td>
-          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop={{data.plan_2024.secondCropReference}}&chosen_field={{field.reference}}">View field plan and recommendations</a></td>
+          <td class="govuk-table__cell" class="govuk-table__header">None</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_handler?chosencrop={{data.plan_2024.secondCropReference}}&chosen_field={{field.reference}}">View field plan</a></td>
         </tr>      
       {% endfor %}  
     </tbody>

@@ -54,10 +54,8 @@
       <h1 class="govuk-heading-xl">{{data.oaktree_farm.name}}</h1>
       <p class="govuk-body address">South Road, Hexham, Northumberland NE46 7LQ</p>
   
-      {% if data.oaktree_farm.use_mvp_fields == true %}
-        <p class="govuk-body">20 fields</p>
-      {% elif data.oaktree_farm.fields_added == true %}
-        <p class="govuk-body">1 field</p>
+      {% if data.oaktree_farm.fields_added == true %}
+        <p class="govuk-body">{{data.all_fields.length}} fields, 40 hectares in total.</p>
       {% endif %}
       
     </div>

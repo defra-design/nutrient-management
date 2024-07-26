@@ -48,9 +48,14 @@
 
     <div class="status-header">
       <h2 class="govuk-heading-m">Crop details</h2>
-      {% include "./templates/other-crop-details.html" ignore missing %}
-      <p class="govuk-body"><a href="">Change the {{data.chosen_crop | nameconverter}} details for this field</a></p>
-      <p class="govuk-body"><a href="">Add a second crop to this field for harvest year {{data.oaktree_farm.planning_year}}</a></p>
+      {% if data.chosen_crop != 'Grass' %}
+        {% include "./templates/other-crop-details.html" ignore missing %}
+        <p class="govuk-body"><a href="">Change the {{data.chosen_crop | nameconverter}} details for this field</a></p>
+        <p class="govuk-body"><a href="">Add a second crop to this field for harvest year {{data.oaktree_farm.planning_year}}</a></p>
+      {% else %}
+      {% include "./templates/grass-details.html" ignore missing %}
+        <p class="govuk-body"><a href="">Change the {{data.chosen_crop | nameconverter}} details for this field</a></p>
+      {% endif %}
     </div>
 
   </div>

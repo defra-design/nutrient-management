@@ -28,10 +28,10 @@
     </h2>
 
     <div class="check-answers">
-      {% if data.crop_group == 'grass' %}
-        {% include "./check_grass.html" %}
-      {% else %}
+      {% if data.crop_group != 'grass' %}
         {% include "./check_crops.html" %}
+      {% else %}
+        {% include "./check_grass.html" %}
       {% endif %}
     </div>
     

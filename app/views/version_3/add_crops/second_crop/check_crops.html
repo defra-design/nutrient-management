@@ -1,0 +1,46 @@
+<dl class="govuk-summary-list">
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Which fields would you like to add a second crop to?</dt>
+    <dd class="govuk-summary-list__value">
+      The Winter Wheat fields<br>
+      Field #1<br>
+      Field #2<br>
+      Field #3
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+  
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Crop type</dt>
+    <dd class="govuk-summary-list__value">Stubble Turnips</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Do you have a date for when you planted your Stubble Turnips, or when you will plant it?</dt>
+
+    <dd class="govuk-summary-list__value">
+      {% if data.sow_option_one == 'single' %}
+        Yes, I sowed all the fields on the same date
+      {% elif data.sow_option_one == 'different'  %}
+        Yes, I sowed the fields on different dates
+      {% else %}
+        No, I'll enter the sowing date later
+      {% endif %}
+    </dd>
+
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+  
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How do you want to enter the expected yield?</dt>
+
+    <dd class="govuk-summary-list__value">
+        Use the RB209 figure of 8 tonnes per hectare for all these fields
+    </dd>
+
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+  
+</dl>

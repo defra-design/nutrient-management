@@ -31,13 +31,10 @@ router.get(/organic_handler/, function (req, res) {
     }  else if (req.session.data.organic_producer == 'no')  {
         req.session.data.organic_producer = false
     }  
-    // console.log('nvz = ' + req.session.data.farm_nvz )
-    // console.log('organic = ' + req.session.data.organic_producer )
-    // console.log('elevation = ' + req.session.data.farm_elevation )
-    // console.log(req.session.data.oaktree_farm)
     res.redirect('check')
 })
 
+//creates a farm
 router.get(/add_farms_handler/, function (req, res) { 
     //name
     req.session.data.oaktree_farm.name = req.session.data.farm_name
@@ -55,8 +52,42 @@ router.get(/add_farms_handler/, function (req, res) {
 })
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Alert messages
+router.get(/delete_handler/, function (req, res) { 
+    req.session.data.show_success_message = true
+    req.session.data.oaktree_farm.setup = false
+    res.redirect('/' + req.session.data.prototype_version + '/farm/farms')
+})
+
+//farm view reset messages
+router.get(/hub_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('/' + req.session.data.prototype_version + '/farm/hub')
+})
+
+//manage fields view reset messages
+router.get(/field_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('/' + req.session.data.prototype_version + '/farm/field/manage-fields')
+})
+
+//add a field view reset messages
+router.get(/field_add_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('/'+ req.session.data.prototype_version + '/add-field/name')
+})
+
+//add a field view reset messages
+router.get(/field_details_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('/'+ req.session.data.prototype_version +'/farm/field/field-details')
+})
+
+//plan_view reset messages
+router.get(/planview_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    res.redirect('../crop_plan/plan_view')
+})
 
 
 /////////////////////////////
@@ -128,16 +159,19 @@ router.get(/mineralisation_handler/, function (req, res) {
 })
 
 router.get(/previous_group_handler/, function (req, res) { 
-    // console.log(req.session.data.crop_group)
+    var next = 'crop_type_all'
     if (req.session.data.crop_group == null) {
         req.session.data.crop_group = 'cereals'
     }
     if (req.session.data.crop_group == 'other') {
         req.session.data.chosen_crop == 'Other'
-        res.redirect('log_croptype_handler')
-    } else {
-        res.redirect('crop_type_all')
-    }
+    } 
+    if (req.session.data.crop_group == 'grass') {
+        req.session.data.chosen_crop = 'Grass'
+        next = 'previous-grass'
+    } 
+    console.log(req.session.data.chosen_crop)
+    res.redirect(next)
 })
 
 router.get(/log_croptype_handler/, function (req, res) {
@@ -224,14 +258,24 @@ router.get(/mvp_another_crop_handler/, function (req, res) {
 })
 
 router.get(/mvp_fields_handler/, function (req, res) { 
-    for (var x in req.session.data.crop_fields) {
-        for (var y in req.session.data.all_fields) {
-            if (req.session.data.all_fields[y].reference == req.session.data.crop_fields[x]) {
-                req.session.data.plan_2024.firstFieldReferences.push(req.session.data.crop_fields[x])
-                req.session.data.plan_2024.firstFields.push(req.session.data.all_fields[y])
-                
+    if (req.session.data.secondcrop_journey == true) {
+        for (var x in req.session.data.crop_fields) {
+            for (var y in req.session.data.all_fields) {
+                if (req.session.data.all_fields[y].reference == req.session.data.crop_fields[x]) {
+                    req.session.data.plan_2024.secondFieldReferences.push(req.session.data.crop_fields[x])
+                    req.session.data.plan_2024.secondFields.push(req.session.data.all_fields[y])
+                }
             }
-        }
+        }    
+    } else {
+        for (var x in req.session.data.crop_fields) {
+            for (var y in req.session.data.all_fields) {
+                if (req.session.data.all_fields[y].reference == req.session.data.crop_fields[x]) {
+                    req.session.data.plan_2024.firstFieldReferences.push(req.session.data.crop_fields[x])
+                    req.session.data.plan_2024.firstFields.push(req.session.data.all_fields[y])
+                }
+            }
+        }    
     }
     // console.log(req.session.data.firstFieldReferences)
     if (req.session.data.crop_group == 'grass') {
@@ -298,61 +342,16 @@ router.get(/addcrops_check_handler/, function (req, res) {
     req.session.data.oaktree_farm.plans_added = true;
     req.session.data.show_success_message = true;
     req.session.data.plan_2024.setup = true
-    req.session.data.plan_2024.firstCropReference = req.session.data.chosen_crop
-    // req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.firstFieldReferences, req.session.data.all_fields)
+    if(req.session.data.secondcrop_journey == true) {
+        req.session.data.plan_2024.secondCropReference = req.session.data.chosen_crop
+        // req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.firstFieldReferences, req.session.data.all_fields)    
+    } else {
+        req.session.data.plan_2024.firstCropReference = req.session.data.chosen_crop
+        // req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.firstFieldReferences, req.session.data.all_fields)
+    }
     req.session.data.oaktree_farm.planning_year = 2024;
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////
-/////// ALERT MESSAGES //////
-/////////////////////////////
-
-
-router.get(/delete_handler/, function (req, res) { 
-    req.session.data.show_success_message = true
-    req.session.data.oaktree_farm.setup = false
-    res.redirect('/' + req.session.data.prototype_version + '/farm/farms')
-})
-
-//farm view reset messages
-router.get(/hub_reset_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    res.redirect('/' + req.session.data.prototype_version + '/farm/hub')
-})
-
-//manage fields view reset messages
-router.get(/field_reset_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    res.redirect('/' + req.session.data.prototype_version + '/farm/field/manage-fields')
-})
-
-//add a field view reset messages
-router.get(/field_add_reset_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    res.redirect('/'+ req.session.data.prototype_version + '/add-field/name')
-})
-
-//add a field view reset messages
-router.get(/field_details_reset_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    res.redirect('/'+ req.session.data.prototype_version +'/farm/field/field-details')
-})
-
-//plan_view reset messages
-router.get(/planview_reset_handler/, function (req, res) { 
-    req.session.data.show_success_message = false
-    res.redirect('../crop_plan/plan_view')
-})
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////

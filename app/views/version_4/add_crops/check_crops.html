@@ -23,9 +23,15 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Which fields do you plan to grow {{data.chosen_crop | nameconverter}} in?</dt>
     <dd class="govuk-summary-list__value">
-      {% for field in data.plan_2024.firstFields %}
-        {{field.name}} <br>
-      {% endfor %}      
+      {% if data.secondcrop_journey == true %}
+        {% for field in data.plan_2024.secondFields %}
+          {{field.name}} <br>
+        {% endfor %}      
+      {% else %}     
+        {% for field in data.plan_2024.firstFields %}
+          {{field.name}} <br>
+        {% endfor %}      
+      {% endif %}
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>

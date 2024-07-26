@@ -53,11 +53,11 @@
         <h2 class="govuk-heading-m">Organic and inorganic material applications for {{data.chosen_field.name}}</h2>
       </div>  
     </div>
-  
+
     <!-- manures -->
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-s">{{data.content.organic_term}} applications</h2>
-      {% if data.plan_2023.multipleManureApplications == false and data.plan_2023.multipleManureApplications == false %}
+      {% if data.plan_2024.singleManureApplications == false and data.plan_2024.multipleManureApplications == false %}
         <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned for this field.</p>
         <p class="govuk-body"><a href="">Add {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
       {% else %}
@@ -69,7 +69,7 @@
     <!-- fertiliser -->
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-s">{{data.content.non_organic_term}} applications</h2>
-      {% if data.multi_fertiliser == false and data.single_fertiliser == false %}
+      {% if data.plan_2024.singleFertilisersApplied == false and data.plan_2024.multipleFertilisersApplied == false %}
         <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned for this field.</p>
         <p class="govuk-body"><a href="">Add {{data.content.non_organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
       {% else %}

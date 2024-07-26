@@ -41,7 +41,7 @@
 
     {{planYear}}
 
-    <h1 class="govuk-heading-l">Plan for {{data.oaktree_farm.planning_year}}</h1>
+    <h1 class="govuk-heading-l">Plan for harvest year {{data.oaktree_farm.planning_year}}</h1>
 
     <div class="crop_plan_title">
       <p class="govuk-body">Last updated: {{data.content.todays_date}}</p>
@@ -57,22 +57,6 @@
       <p class="govuk-body"><span class="dash"> — </span>Organic and inorganic material applications</p>
     </div>
 
-
-    <!-- <div class="crop_plan_title">
-      {% if totalFields == 1 %}
-        <p class="govuk-body">There is 1 field in this plan</p>
-      {% else %}
-        <p class="govuk-body">There are {{totalFields}} fields in this plan</p>
-      {% endif %}
-      <p class="govuk-body">Last updated: {{data.content.todays_date}}</p>
-      <p class="govuk-body"><a href="">Add another crop to this plan</a></p>
-
-      <h2 class="govuk-heading-m">Applications of organic material and inorganic fertiliser</h2>
-      <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Plan an application of {{data.content.organic_term | lower}} to one or more fields</a></p>
-      <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=multi">Plan an application of {{data.content.non_organic_term | lower}} to one or more fields</a></p>
-
-    </div> -->
-
   </div>
 
   <div class="govuk-grid-column-full">
@@ -84,9 +68,9 @@
       <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
       {% if req.session.data.plan_2024.multipleManuresApplied == false and req.session.data.plan_2024.singleManuresApplied == false %}
         <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned.</p>
-        <p class="govuk-body"><a href="v3manure_handler?manurejourney=multi">Add {{data.content.organic_term | lower}} applications to multiple fields</a></p>
+        <p class="govuk-body"><a href="v3manure_handler?manurejourney=multi">Add {{data.content.organic_term | lower}} applications</a></p>
       {% else %}
-        <p class="govuk-body"><a href="">Add another {{data.content.organic_term | lower}} application </a></p>
+        <p class="govuk-body"><a href="">Add another {{data.content.organic_term | lower}} application</a></p>
         {% include "./templates/applications.html" ignore missing %}
       {% endif %}
     </div>
@@ -96,9 +80,9 @@
       <h2 class="govuk-heading-m">{{data.content.non_organic_term}} applications</h2>
       {% if req.session.data.plan_2024.multipleFertilisersApplied == false and data.single_fertiliser == false %}
         <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned.</p>
-        <p class="govuk-body"><a href="">Add {{data.content.non_organic_term | lower}} applications to multiple fields</a></p>
+        <p class="govuk-body"><a href="">Add {{data.content.non_organic_term | lower}} applications</a></p>
       {% else %}
-        <p class="govuk-body"><a href="">Add another {{data.content.non_organic_term | lower}} application for {{data.chosenField.name}}</a></a></p>
+        <p class="govuk-body"><a href="">Add another {{data.content.non_organic_term | lower}} application</a></p>
         {% include "./templates/fertiliser_applications.html" ignore missing %}
       {% endif %}
       </div>

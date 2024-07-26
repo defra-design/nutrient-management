@@ -223,8 +223,8 @@ router.get(/v5_grass_setup_handler/, function (req, res) {
     req.session.data.plan_2023.firstCropReference = 'Grass'
     req.session.data.plan_2023.firstFieldReferences = [1, 2, 3, 4, 5, 6, 7]
     req.session.data.plan_2023.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2023.firstFieldReferences, req.session.data.all_fields)
-    req.session.data.plan_2023.multipleManureApplications = false 
-    req.session.data.plan_2023.singleManureApplications = false
+    req.session.data.plan_2023.multipleManuresApplied = false 
+    req.session.data.plan_2023.singleManuresApplied = false
     req.session.data.plan_2023.multipleFertilisersApplied = false 
     req.session.data.plan_2023.singleFertilisersApplied = false
 
@@ -232,8 +232,8 @@ router.get(/v5_grass_setup_handler/, function (req, res) {
     req.session.data.plan_2024.firstCropReference = 'Grass'
     req.session.data.plan_2024.firstFieldReferences = [1, 2, 3, 4, 5, 6 ,7]
     req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.firstFieldReferences, req.session.data.all_fields)
-    req.session.data.plan_2024.multipleManureApplications = false 
-    req.session.data.plan_2024.singleManureApplications = false
+    req.session.data.plan_2024.multipleManuresApplied = false 
+    req.session.data.plan_2024.singleManuresApplied = false
     req.session.data.plan_2024.multipleFertilisersApplied = false 
     req.session.data.plan_2024.singleFertilisersApplied = false
     req.session.data.prototype_version = 'version_4'

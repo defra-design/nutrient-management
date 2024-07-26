@@ -66,7 +66,7 @@
     <!-- manures -->
     <div class="margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
-      {% if req.session.data.plan_2024.multipleManuresApplied == false and req.session.data.plan_2024.singleManuresApplied == false %}
+      {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singleManuresApplied == false %}
         <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned.</p>
         <p class="govuk-body"><a href="v3manure_handler?manurejourney=multi">Add {{data.content.organic_term | lower}} applications</a></p>
       {% else %}
@@ -78,7 +78,7 @@
     <!-- fertiliser -->
     <div>
       <h2 class="govuk-heading-m">{{data.content.non_organic_term}} applications</h2>
-      {% if req.session.data.plan_2024.multipleFertilisersApplied == false and data.single_fertiliser == false %}
+      {% if data.plan_2024.multipleFertilisersApplied == false and data.singleFertilisersApplied == false %}
         <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned.</p>
         <p class="govuk-body"><a href="">Add {{data.content.non_organic_term | lower}} applications</a></p>
       {% else %}
@@ -90,3 +90,5 @@
 </div>
 
 {% endblock %}
+
+

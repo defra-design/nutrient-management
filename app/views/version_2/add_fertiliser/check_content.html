@@ -1,6 +1,6 @@
 <dl class="govuk-summary-list margin-bottom-forty">
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Which fields would you like to add organic material applications to?</dt>
+    <dt class="govuk-summary-list__key"> Which fields would you like to plan an {{data.content.non_organic_term | lower}} application for?</dt>
     <dd class="govuk-summary-list__value">
       {% if data.fertiliser_journey == "multi" %}
       The Winter Wheat fields
@@ -12,24 +12,31 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How much of each nutrient do you plan to include in this application?</dt>
+    <dt class="govuk-summary-list__key">How much of each nutrient are you using in this application?</dt>
     <dd class="govuk-summary-list__value">10kg Nitrogen(N)	</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">When do you plan to spread inorganic fertiliser?</dt>
+    <dt class="govuk-summary-list__key">
+      When are you applying {{data.content.non_organic_term | lower}}
+      {% if data.fertiliser_journey == "multi" %}
+        on these Fields?
+      {% else %}
+        on {{data.chosen_field.name}}?
+      {% endif %}
+    </dt>
     <dd class="govuk-summary-list__value">Mid February to early March</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Do you plan to spread more inorganic fertiliser on
+      Do you want to plan another {{data.content.non_organic_term | lower }} application
       {% if data.fertiliser_journey == "multi" %}
-        The Winter Wheat fields?
+        for these fields?
       {% else %}
-        {{data.chosen_field.name}}?
+        for {{data.chosen_field.name}}?
       {% endif %}
     </dt>
       {% if data.fertiliser_count != 0 %}
@@ -42,24 +49,31 @@
 
   {% if data.fertiliser_count != 0 %}
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">When do you plan to spread inorganic fertiliser?</dt>
+      <dt class="govuk-summary-list__key">
+        When are you applying {{data.content.non_organic_term | lower}}
+        {% if data.fertiliser_journey == "multi" %}
+          on these Fields?
+        {% else %}
+          on {{data.chosen_field.name}}?
+        {% endif %}  
+      </dt>
       <dd class="govuk-summary-list__value">Mid April to early May</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
 
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">How much of each nutrient do you plan to include in this application?</dt>
+      <dt class="govuk-summary-list__key">How much of each nutrient are you using in this application?</dt>
       <dd class="govuk-summary-list__value">10kg Nitrogen(N)	</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
 
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">
-        Do you plan to spread more inorganic fertiliser on
+        Do you want to plan another {{data.content.non_organic_term | lower }} application
         {% if data.fertiliser_journey == "multi" %}
-          The Winter Wheat fields?
+          for these fields?
         {% else %}
-          {{data.chosen_field.name}}?
+          for {{data.chosen_field.name}}?
         {% endif %}
       </dt>
       <dd class="govuk-summary-list__value">No</dd>

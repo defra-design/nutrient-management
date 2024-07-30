@@ -279,7 +279,7 @@ router.get(/mvp_fields_handler/, function (req, res) {
     }
     // console.log(req.session.data.firstFieldReferences)
     if (req.session.data.crop_group == 'grass') {
-        res.redirect('grass/current_sward')
+        res.redirect('grass/management')
      } else {
         res.redirect('sowdate_question')
     }

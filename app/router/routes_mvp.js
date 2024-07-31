@@ -145,6 +145,8 @@ router.get(/add_values_handler/, function (req, res) {
 })
 
 router.get(/sns_handler/, function (req, res) { 
+    let next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'sns/crop_group'
+    res.redirect(next)
     res.redirect('sns/crop_group')
 })
 

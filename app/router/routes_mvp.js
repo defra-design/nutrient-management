@@ -151,7 +151,7 @@ router.get(/sns_handler/, function (req, res) {
 })
 
 router.get(/sns_v3_handler/, function (req, res) { 
-    let next = (req.session.data.sns_method == "yes") ? 'sns/crop_group' : 'check'
+    let next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'check'
     res.redirect(next)
 })
 

@@ -30,26 +30,26 @@
   <div class="govuk-grid-column-two-thirds">
 
     {% if data.show_success_message == true %}
-    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-      <div class="govuk-notification-banner__header">
-        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-          Success
-        </h2>
-      </div>
-      <div class="govuk-notification-banner__content">
-        <h3 class="govuk-notification-banner__heading">
-          {% if data.show_manure_notification == true %}
-            {{data.content.organic_term}} application added to the Winter Wheat fields in this plan.
-          {% else %}
-            {% if data.show_fertiliser_notification == true %}
-              {{data.content.non_organic_term}} application added to the Winter Wheat fields in this plan.
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading">
+            {% if data.show_manure_notification == true %}
+              {{data.content.organic_term}} application added to the Winter Wheat fields in this plan.
             {% else %}
-              Plan created for 2024
+              {% if data.show_fertiliser_notification == true %}
+                {{data.content.non_organic_term}} application added to the Winter Wheat fields in this plan.
+              {% else %}
+                Plan created for 2024
+              {% endif %}
             {% endif %}
-          {% endif %}
-        </h3>
+          </h3>
+        </div>
       </div>
-    </div>
     {% endif %}
 
     <h1 class="govuk-heading-l">Crop plan for {{data.oaktree_farm.planning_year}}</h1>
@@ -61,7 +61,7 @@
         <p class="govuk-body">There are {{data.plan_2024.firstFields.length}} fields in this plan</p>
       {% endif %}
       <p class="govuk-body">Last updated: {{data.content.todays_date}}</p>
-      <p class="govuk-body"><a href="/add_crops/crop_group">Add another crop to this plan</a></p>
+      <p class="govuk-body"><a href="../../add_crops/crop_group">Add another crop to this plan</a></p>
 
       <h2 class="govuk-heading-m">Applications of organic material and inorganic fertiliser</h2>
       <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Plan an application of {{data.content.organic_term | lower}} to one or more fields</a></p>

@@ -407,7 +407,7 @@ router.get(/add_soil_handler/, function (req, res) {
 router.get(/planning_year_handler/, function (req, res) { 
     var next = '/add_crops/crop_group'
     req.session.data.oaktree_farm.planning_year = req.query.year
-    if (req.session.data.prototype_version == 'version_3') {
+    if (req.session.data.prototype_version == 'version_3' || req.session.data.prototype_version == 'version_4') {
         next = '/add_crops/create_next'
     }
     res.redirect('/'+ req.session.data.prototype_version + next)

@@ -78,7 +78,7 @@
     <!-- fertiliser -->
     <div>
       <h2 class="govuk-heading-m">{{data.content.non_organic_term}} applications</h2>
-      {% if data.plan_2024.multipleFertilisersApplied == false and data.singleFertilisersApplied == false %}
+      {% if data.plan_2024.multipleFertilisersApplied == false and data.plan_2024.singleFertilisersApplied == false %}
         <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned.</p>
         <p class="govuk-body"><a href="">Add {{data.content.non_organic_term | lower}} applications</a></p>
       {% else %}

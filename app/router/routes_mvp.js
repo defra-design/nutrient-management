@@ -507,7 +507,7 @@ router.get(/v2fertiliser_handler/, function (req, res) {
     if (req.session.data.fertiliser_journey == 'multi') {
         res.redirect('/' + req.session.data.prototype_version + '/add_fertiliser/fertiliser_fields')
     } else {
-        res.redirect('/' + req.session.data.prototype_version + '/add_fertiliser/fertiliser_amount')
+        res.redirect('/' + req.session.data.prototype_version + '/add_fertiliser/fertiliser_when')
     }
 })
 

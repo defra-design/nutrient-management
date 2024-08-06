@@ -467,5 +467,11 @@ router.get(/previous_use_handler/, function (req, res) {
         res.redirect('crop_group')
     }
 })
+ 
+router.get(/another_crop_handler/, function (req, res) { 
+    res.redirect('second_crop/fields')
+})
+
+
 
 module.exports = router

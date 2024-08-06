@@ -34,10 +34,10 @@
         </div>
       {% endif %}
 
-      <h1 class="govuk-heading-l">
+      <!-- <h1 class="govuk-heading-l">
         {% if data.manure_count == 0 %}
           {% if data.manure_journey == 'multi' %}
-            When are you applying {{data.manure_type.name | lower}} on these fields?
+            When are you applying {{data.manure_type.name}} on these fields?
           {% else %}
             When are you applying {{data.manure_type.name}} on {{data.chosen_field.name}}?
           {% endif %}
@@ -48,27 +48,32 @@
             When are you applying {{data.manure_type.name}} on {{data.chosen_field.name}}?
           {% endif %}
         {% endif %}
+      </h1> -->
+
+      <h1 class="govuk-heading-l">
+        Your closed period for spreading organic manures with high readily available nitrogen is:<br> 1 October 2024 to 31 January 2025
       </h1>
+
+      <p class="govuk-body">Based on your crop, soil type and farm details.</p>
+
+      <h2 class="govuk-heading-m">
+        When are you applying poultry manure on these fields?
+      </h2>
 
       <!-- <p>Enter the estimated date you first plan to apply {{data.content.organic_term | lower}} to the Winter Wheat fields, you can change the date for individual fields later.</p> -->
 
       <form class="form" action="manure_date_handler" method="post">
 
         <div class="govuk-form-group">
-          <!-- <div class="govuk-inset-text"> -->
-            <div id="closed-period">
-              <p class="">Your closed period for spreading organic manures with high readily available nitrogen is:</p>
-              <h3 class="govuk-heading-m">1 October 2024 to 31 January 2025</h3>
-              <p>Based on your crop, soil type and farm details.</p>
-            </div>
-            <div class="govuk-hint">
-              If you don't know the exact application date enter an estimate. You can change it later.<br>
-            </div>
-            <div class="govuk-hint">
-              The format is '21 06 2024'.
-            </div>
-          <!-- </div> -->
-            <div class="govuk-date-input" id="passport-issued">
+
+          <div class="govuk-hint">
+            If you don't know the exact application date enter an estimate. You can change it later.<br>
+          </div>
+          <div class="govuk-hint">
+            The format is '21 06 2024'.
+          </div>
+
+          <div class="govuk-date-input" id="passport-issued">
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-date-input__label" for="passport-issued-day">

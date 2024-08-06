@@ -363,3 +363,11 @@ tr.right-last {
     width: 100%;
     display: block;
 }
+
+#closed-period {
+    h3, p {
+        margin: 0;
+        padding-bottom: 5px;
+    }
+    margin-bottom: 20px;
+}

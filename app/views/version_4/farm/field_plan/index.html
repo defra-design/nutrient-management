@@ -52,7 +52,7 @@
     <div class="govuk-grid-column-full">
       <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
       {% if data.chosen_crop == 'Grass' or data.chosen_crop == 'grass' %}
-        <p class="govuk-body">These recommendations are for Long Field in {{data.oaktree_farm.planning_year}}.</p>
+        <p class="govuk-body">These recommendations are for Long Field, harvest year {{data.oaktree_farm.planning_year}}</p>
         {% include "./templates/v4_grass_empty.html" ignore missing %}
       {% else %}
       <p class="govuk-body">These recommendations are for Long Field in {{data.oaktree_farm.planning_year}}. Amounts are per hectare</p>

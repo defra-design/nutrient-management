@@ -59,7 +59,7 @@
   {% if data.defoliation_one == null %}
     Hay <span class="govuk-body amounts-label">Amounts are per hectare</span>
   {% else %}
-    {{data.defoliation_one}}
+    {{data.defoliation_one | capitalize}}
   {% endif %}
 </h2>
 <table class="govuk-table new-recomendation-table data-table margin-bottom-forty">
@@ -122,7 +122,7 @@
   {% if data.defoliation_two == null %}
     Hay <span class="govuk-body amounts-label">Amounts are per hectare</span>
   {% else %}
-    {{data.defoliation_Two}}
+    {{data.defoliation_two | capitalize}}
   {% endif %}
 </h2>
 <table class="govuk-table new-recomendation-table data-table margin-bottom-forty">
@@ -185,7 +185,7 @@
   {% if data.defoliation_three == null %}
     Graze <span class="govuk-body amounts-label">Amounts are per hectare</span>
   {% else %}
-    {{data.defoliation_three}}
+    {{data.defoliation_three | capitalize}}
   {% endif %}
 </h2>
 <table class="govuk-table new-recomendation-table data-table margin-bottom-forty">
@@ -248,7 +248,7 @@
   {% if data.defoliation_four == null %}
     Graze <span class="govuk-body amounts-label">Amounts are per hectare</span>
   {% else %}
-    {{data.defoliation_four}}
+    {{data.defoliation_four | capitalize}}
   {% endif %}
 </h2>
 <table class="govuk-table new-recomendation-table data-table margin-bottom-forty">

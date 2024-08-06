@@ -461,8 +461,8 @@ router.get(/grassyield_handler/, function (req, res) {
 
  
 router.get(/previous_use_handler/, function (req, res) { 
-    if (req.session.data.use_2023 == 'grass') {
-        res.redirect('previous-clover')
+    if (req.session.data.use_2023 == 'yes') {
+        res.redirect('previous_use_two')
     } else {
         res.redirect('crop_group')
     }

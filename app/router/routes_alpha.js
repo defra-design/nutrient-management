@@ -459,6 +459,13 @@ router.get(/grassyield_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version + '/add_crops/check')
 })
 
-
+ 
+router.get(/previous_use_handler/, function (req, res) { 
+    if (req.session.data.use_2023 == 'grass') {
+        res.redirect('previous-clover')
+    } else {
+        res.redirect('crop_group')
+    }
+})
 
 module.exports = router

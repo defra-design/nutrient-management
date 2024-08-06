@@ -473,5 +473,13 @@ router.get(/another_crop_handler/, function (req, res) {
 })
 
 
+router.get(/another_crop_handler/, function (req, res) { 
+    var next = 'second_crop/fields'
+    if (req.session.data.next_crop = 'new') {
+        next = 'crop_group'
+    }
+    res.redirect(next)
+})
+
 
 module.exports = router

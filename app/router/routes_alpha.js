@@ -459,9 +459,9 @@ router.get(/grassyield_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version + '/add_crops/check')
 })
 
- 
 router.get(/previous_use_handler/, function (req, res) { 
     if (req.session.data.use_2023 == 'yes') {
+        req.session.data.chosen_crop = 'Grass'
         res.redirect('previous_use_two')
     } else {
         res.redirect('crop_group')
@@ -472,7 +472,6 @@ router.get(/another_crop_handler/, function (req, res) {
     res.redirect('second_crop/fields')
 })
 
-
 router.get(/another_crop_handler/, function (req, res) { 
     var next = 'second_crop/fields'
     if (req.session.data.next_crop = 'new') {
@@ -481,5 +480,9 @@ router.get(/another_crop_handler/, function (req, res) {
     res.redirect(next)
 })
 
+router.get(/previous_cuts_handler/, function (req, res) { 
+    let next = (req.session.data.previous_management == 'grazed') ? 'previous_nitrogen' : 'previous_cuts_two'
+    res.redirect(next)
+})
 
 module.exports = router

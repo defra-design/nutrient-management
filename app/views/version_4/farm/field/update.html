@@ -26,12 +26,8 @@
       <div class="check-answers">
         <!-- <h2 class="govuk-heading-m">Field details</h2> -->
         <dl class="govuk-summary-list">
-          {% include "./check-details.html" ignore missing %}
-          {% if data.sns_method == 'yes'%}
-            {% include "./check-details-sns.html" ignore missing %}
-          {% else %}
-            {% include "./check-details-sns-simple.html" ignore missing %}
-          {% endif %}
+          {% include "./templates/check-details.html" ignore missing %}
+          {% include "./templates/check-details-sns-simple.html" ignore missing %}
         </dl>
       </div>
       <br>

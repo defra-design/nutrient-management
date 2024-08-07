@@ -20,10 +20,14 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-       How much nitrogen was applied per hectare to {{data.temp_field_name}} in 2023?
+       How much total Nitrogen (N) was applied per hectare to {{data.temp_field_name}} in 2023?
       </h1>
 
-      <form class="form" action="check" method="post">
+      <div id="event-name-hint" class="govuk-hint">
+        Include nitrogen from organic and inorganic material.
+      </div>    
+
+      <form class="form" action="previous_clover" method="post">
 
         <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">

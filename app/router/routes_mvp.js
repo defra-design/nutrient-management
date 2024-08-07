@@ -229,7 +229,7 @@ router.get(/mineral_handler/, function (req, res) {
 router.get(/field_update_handler/, function (req, res) { 
     req.session.data.show_success_message = true
     req.session.data.oaktree_farm.latest_update = 'field_updated'
-    res.redirect('/' + req.session.data.prototype_version + '/field/field-details')
+    res.redirect('/' + req.session.data.prototype_version + '/farm/field/field-details')
 })
 
 

@@ -38,8 +38,19 @@
 
       <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
-        Which crop group would you like to plan for?
+        What type of crop would you like to plan?
       </h1>
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Help with planning crop groups
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>Select your first crop for 2024, you can then select the fields where you will grow it. Crops are grouped by type and variety. You can create as many crop groups as you need to.</p>
+        </div>
+      </details>
 
       <form class="form" action="cropmvp_handler" method="post">
 

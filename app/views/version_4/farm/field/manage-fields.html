@@ -44,7 +44,7 @@
               <h3 class="govuk-notification-banner__heading">
                 You have added {{data.temp_field_name}}
               </h3>
-              <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_add_reset_handler">Add another field</a>, or</p>  
+              <p class="govuk-body"><a class="govuk-notification-banner__link" href="../../add-field/copy_field">Add another field</a>, or</p>  
               <p class="govuk-body"><a class="govuk-notification-banner__link" href="/version_4/farm/plans_records">Create a nutrient management plan</a></p>  
           {% endif %}
         </div>
@@ -56,7 +56,7 @@
         fields
       </h1>
 
-      <p class="govuk-body"><a href="field_add_reset_handler">Add another field</a></p>
+      <p class="govuk-body"><a href="../../add-field/copy_field">Add another field</a></p>
 
       {% if data.oaktree_farm.fields_added == true %}
         <table class="govuk-table">
@@ -82,7 +82,7 @@
         </table>
         {% else %}
           <p class="govuk-body">You have not added any fields.</p>
-          <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_add_reset_handler">Add a field</a>
+          <p class="govuk-body"><a class="govuk-notification-banner__link" href="../../add-field/copy_field">Add a field</a>
         {% endif %}
       
     </div>

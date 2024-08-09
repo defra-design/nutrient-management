@@ -78,6 +78,13 @@ router.get(/field_add_reset_handler/, function (req, res) {
 })
 
 //add a field view reset messages
+router.get(/copy_field_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    let next = (req.session.data.copy_field == 'yes') ? './copy/fields' : 'name'
+    res.redirect(next)
+})
+
+//add a field view reset messages
 router.get(/field_details_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     res.redirect('/'+ req.session.data.prototype_version +'/farm/field/field-details')

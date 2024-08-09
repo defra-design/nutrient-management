@@ -77,6 +77,24 @@
       </div>
       {% endif %}
 
+      {% if data.plan_2024.forageCrop == true %}
+        <div class="govuk-grid-column-full">
+          <h2 class="govuk-heading-m">Stubble Turnips recommendations</h2>
+          {% if data.chosen_crop == 'Grass' or data.chosen_crop == 'grass' %}
+            <p class="govuk-body">These recommendations are for {{data.chosen_field.name}}, harvest year {{data.oaktree_farm.planning_year}}</p>
+            {% include "./templates/v4_grass_empty.html" ignore missing %}
+          {% else %}
+          <p class="govuk-body">These recommendations are for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}. Amounts are per hectare.</p>
+            {% if data.plan_2024.multipleFertilisersApplied == true or data.plan_2024.singleFertilisersApplied == true %}
+              {% include "./templates/v4_nutrients_one_fertiliser.html" ignore missing %}
+            {% elif data.plan_2024.multipleManuresApplied == true or data.plan_2024.singleManuresApplied == true %}
+              {% include "./templates/v4_nutrients_one_organic.html" ignore missing %}
+            {% else %}
+              {% include "./templates/v4_nutrients_empty.html" ignore missing %}
+            {% endif %}
+          {% endif %}
+        </div>
+      {% endif %}
 
 </div>
 

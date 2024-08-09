@@ -23,34 +23,28 @@
         Which fields would you like to add a second crop to?
       </h1>
 
-      <form class="form" action="fields_two" method="post">
+      <form class="form" action="crop" method="post">
 
         <div class="govuk-form-group">
-          <!-- <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                Where do you live?
-              </h1>
-            </legend> -->
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="wheat" name="add" type="radio" value="wheat">
-                <label class="govuk-label govuk-radios__label" for="wheat">
-                  Cereal fields
+                <input class="govuk-radios__input" id="all" name="second_fields" type="radio" value="all">
+                <label class="govuk-label govuk-radios__label" for="all">
+                  All Spring Oat fields
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="wheat" name="add" type="radio" value="wheat">
-                <label class="govuk-label govuk-radios__label" for="wheat">
-                  Winter Wheat fields
+                <input class="govuk-radios__input" id="some" name="second_fields" type="radio" value="some">
+                <label class="govuk-label govuk-radios__label" for="some">
+                  Select specific Fields
                 </label>
               </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="remove" name="add" type="radio" value="remove">
+              <!-- <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="remove" name="second_fields" type="radio" value="remove">
                 <label class="govuk-label govuk-radios__label" for="remove">
                   Winter Rye fields
                 </label>
-              </div>
+              </div> -->
             </div>
           </fieldset>
         </div>

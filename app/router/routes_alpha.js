@@ -429,7 +429,7 @@ router.get(/condition_question_handler/, function (req, res) {
 
 router.get(/addcrops_handler/, function (req, res) { 
     req.session.data.secondcrop_journey = true
-    res.redirect('/'+ req.session.data.prototype_version + '/add_crops/crop_group')
+    res.redirect('/'+ req.session.data.prototype_version + '/add_crops/another_crop')
 })
 
 router.get(/foragecrops_check_handler/, function (req, res) { 
@@ -469,7 +469,8 @@ router.get(/previous_use_handler/, function (req, res) {
 })
  
 router.get(/another_crop_handler/, function (req, res) { 
-    res.redirect('second_crop/fields')
+    let next = (req.session.data.second_crop == 'new') ? 'crop_group' : 'second_crop/fields'
+    res.redirect(next)
 })
 
 router.get(/another_crop_handler/, function (req, res) { 

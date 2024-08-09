@@ -1,9 +1,9 @@
 <dl class="govuk-summary-list">
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Do you want to plan a new crop group, or add a second crop to multiple fields?</dt>
+    <dt class="govuk-summary-list__key">Do you want to add a new crop, or add a second crop to fields in the plan?</dt>
     <dd class="govuk-summary-list__value">
-      Add a second crop to multiple fields
+      Add a second crop to fields in the plan
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
@@ -11,21 +11,13 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Which fields would you like to add a second crop to?</dt>
     <dd class="govuk-summary-list__value">
-      Cereal fields
-    </dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Is the second crop for all Cereal fields or specific fields?</dt>
-    <dd class="govuk-summary-list__value">
-      All Cereal fields
+      All Spring Oat fields
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
   
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Which crop type do you plan to grow in these fields in 2024 after your Winter Wheat?</dt>
+    <dt class="govuk-summary-list__key">Which crop type do you plan to grow in these fields in 2024, after your Spring Oats?</dt>
     <dd class="govuk-summary-list__value">Stubble Turnips</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
@@ -41,11 +33,11 @@
 
     <dd class="govuk-summary-list__value">
       {% if data.sow_option_one == 'single' %}
-        Yes, I sowed all the fields on the same date
+        Yes, I have a single date for all these fields
       {% elif data.sow_option_one == 'different'  %}
-        Yes, I sowed the fields on different dates
+        Yes, I have different dates for each of these fields
       {% else %}
-        No, I'll enter the sowing date later
+        No, I'll enter the date later
       {% endif %}
     </dd>
 
@@ -53,7 +45,7 @@
   </div>
   
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How do you want to enter the expected yield?</dt>
+    <dt class="govuk-summary-list__key">How do you want to enter the expected yield for Stubble Turnips in these fields?</dt>
 
     <dd class="govuk-summary-list__value">
         Use the RB209 figure of 8 tonnes per hectare for all these fields

@@ -177,7 +177,27 @@ router.get(/v5_field_setup_handler/, function (req, res) {
     res.redirect('/version_4/start')
 })
 
-router.get(/v5_crop_setup_handler/, function (req, res) { 
+router.get(/v5_onecrop_setup_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
+    req.session.data.all_fields = req.session.data.field_list_mvp
+    ///2023 plan setup
+    req.session.data.plan_2023.firstCropReference = 'Wheat-Winter'
+    req.session.data.plan_2023.firstFieldReferences = [1, 2, 3, 4, 5]
+    req.session.data.plan_2023.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2023.firstFieldReferences, req.session.data.all_fields)
+    req.session.data.plan_2023.secondCropReference = 'oats-Winter'
+    req.session.data.plan_2023.secondFieldReferences = [6, 7, 8, 9, 10, 11]
+    req.session.data.plan_2023.secondFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2023.secondFieldReferences, req.session.data.all_fields)
+    ///2024 plan setup
+    req.session.data.plan_2024.firstCropReference = 'oats-Spring'
+    req.session.data.plan_2024.firstFieldReferences = [1, 2, 3, 4, 5]
+    req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.firstFieldReferences, req.session.data.all_fields)
+    req.session.data.prototype_version = 'version_4'
+    res.redirect('/version_4/start')
+})
+
+
+router.get(/v5_twocrops_setup_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
     req.session.data.all_fields = req.session.data.field_list_mvp

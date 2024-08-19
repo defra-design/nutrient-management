@@ -219,7 +219,12 @@ router.get(/fieldtype_handler/, function (req, res) {
 })
 
 router.get(/copy_name_handler/, function (req, res) { 
-    req.session.data.tempField.name = (req.session.data.temp_field_name == '') ? 'New Field' : req.session.data.temp_field_name
+    // req.session.data.tempField.name = (req.session.data.temp_field_name == '') ? 'New Field' : req.session.data.temp_field_name
+    req.session.data.tempField.reference = req.session.data.all_fields.length + 1
+    if (req.session.data.temp_field_name == "") {
+        req.session.data.temp_field_name = 'New Field #' + req.session.data.tempField.reference 
+    }
+    req.session.data.tempField.name = req.session.data.temp_field_name
     res.redirect('./copy-field-check')
 })
 
@@ -287,6 +292,7 @@ router.get(/mvp_fields_handler/, function (req, res) {
         }    
     }
     // console.log(req.session.data.firstFieldReferences)
+    console.log(req.session.data.crop_fields)
     if (req.session.data.crop_group == 'grass') {
         res.redirect('grass/current_sward')
      } else {

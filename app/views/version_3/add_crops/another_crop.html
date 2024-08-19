@@ -23,23 +23,23 @@
             <div class="govuk-grid-column-two-thirds">
         
               <h1 class="govuk-heading-l">
-                How do you want to add another crop?
+                Do you want to add a new crop, or add a second crop to fields in the plan?
               </h1>
         
-              <form class="form" action="second_crop/fields" method="post">
+              <form class="form" action="another_crop_handler" method="post">
                 <div class="govuk-form-group">
 
                     <div class="govuk-radios" data-module="govuk-radios">
                       <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="turnips" name="cover_crop" type="radio" value="Turnips-stubble">
-                        <label class="govuk-label govuk-radios__label" for="turnips">
-                          Add another main crop to the plan
+                        <input class="govuk-radios__input" id="new" name="second_crop" type="radio" value="new">
+                        <label class="govuk-label govuk-radios__label" for="new">
+                          Add a new crop
                         </label>
                       </div>
                       <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="Rape-forage" name="cover_crop" type="radio" value="Rape-forage">
-                        <label class="govuk-label govuk-radios__label" for="Rape-forage">
-                          Add a second crop to fields already in the plan
+                        <input class="govuk-radios__input" id="second" name="second_crop" type="radio" value="second">
+                        <label class="govuk-label govuk-radios__label" for="second">
+                          Add a second crop to fields in the plan
                         </label>
                       </div>
                     </div>

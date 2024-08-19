@@ -30,6 +30,7 @@
               The date you entered is inside the closed spreading period of 1 October to 31 January.
             </p>
             <p class="govuk-body"><a class="govuk-notification-banner__link" target="_blank" href="https://www.gov.uk/guidance/using-nitrogen-fertilisers-in-nitrate-vulnerable-zones#:~:text=If%20the%20land%20is%20irrigated,500kg%20of%20nitrogen%20per%20hectare.">Find out more (opens in a  new tab)</a></p>
+            <p class="govuk-body">You can continue, but you should change your application date.</p>
           </div>
         </div>
       {% endif %}
@@ -43,17 +44,17 @@
       <form class="form" action="manuredate_handler?notification=true" method="post">
 
         <div class="govuk-form-group">
-          <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                When was your passport issued?
-              </h1>
-            </legend> -->
-            <div id="passport-issued-hint" class="govuk-hint">
-            <p>If you don't know the exact date, enter an estimated date, for example, <br>27 3 2023</span>. You can change the date for each field later.</p>
-
-          <p>Remember, based on your crop and soil type, your closed period for spreading manures with high readily available nitrogen is 1 October to 31 January.</p>
-            </div>
+          <div id="closed-period">
+            <p class="">Your closed period for spreading organic manures with high readily available nitrogen is:</p>
+            <h3 class="govuk-heading-s">1 October 2024 to 31 January 2025</h3>
+            <p>Based on your crop, soil type and farm details.</p>
+          </div>
+          <div class="govuk-hint">
+            If you don't know the exact application date enter an estimate. You can change it later.<br>
+          </div>
+          <div class="govuk-hint">
+            The format is '21 06 2024'.
+          </div>
             <div class="govuk-date-input" id="passport-issued">
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">

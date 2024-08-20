@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Important
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification-banner__heading">
+            This application may take you over the maximum application rate for slurry.
+          </p>
+          <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" target="_blank" href="https://www.gov.uk/guidance/using-nitrogen-fertilisers-in-nitrate-vulnerable-zones#:~:text=If%20the%20land%20is%20irrigated,500kg%20of%20nitrogen%20per%20hectare.">Find out more (opens in a  new tab)</a></p> -->
+          <p class="govuk-body">The NVZ Action Programme states that the application rate of slurry between 1 October 2024 and the end of February must not exceed 50 m3/ha or 8 t/ha for poultry manure in a single application. You must also allow at least 3 weeks between each individual application.</p>
+          <p class="govuk-body">You can continue but you should consider adjusting your application date to avoid [issue].</p>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-l">
+        How would you like to enter the application rate for your {{data.manure_type.name}}?
+      </h1>
+
+      <form class="form" action="v2_quantity_handler" method="post">
+
+        <div class="govuk-form-group">
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rate" name="quantity_type" type="radio" value="rate">
+                <label class="govuk-label govuk-radios__label" for="rate">
+                  Enter an application rate in 
+                  {% if data.manure_type.liquid == true %}
+                    m3/ha
+                  {% else %}
+                    t/ha
+                  {% endif %}
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="area" name="quantity_type" type="radio" value="area">
+                <label class="govuk-label govuk-radios__label" for="area">
+                  Calculate based on the area and quantity you are spreading            
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="default" name="quantity_type" type="radio" value="default">
+                <label class="govuk-label govuk-radios__label" for="default">
+                  Use the typical application rate of 
+                  {% if data.manure_type.liquid == true %}
+                    30 m3/ha
+                  {% else %}
+                    20 t/ha
+                  {% endif %}
+                </label>
+              </div>
+
+          </div>
+          </fieldset>
+        </div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+    
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

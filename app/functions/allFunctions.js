@@ -55,6 +55,11 @@ function farmSetup (farm, plan2023, plan2024, stage) {
     }
 };
 
+function planSetup (planYear, cropOne, cropTwo) {
+    planYear.firstCropReference = cropOne
+    planYear.secondCropReference = cropTwo
+};
+
 
 function getCropByReference (referenceNumber, crops) {
     let cropToReturn
@@ -88,3 +93,4 @@ module.exports.getMultipleFieldsByReferences = getMultipleFieldsByReferences;
 module.exports.totalFieldsCount = totalFieldsCount;
 module.exports.basicSetup = basicSetup;
 module.exports.farmSetup = farmSetup;
+module.exports.planSetup = planSetup;

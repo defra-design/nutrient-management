@@ -55,9 +55,10 @@ function farmSetup (farm, plan2023, plan2024, stage) {
     }
 };
 
-function planSetup (planYear, cropOne, cropTwo) {
+function planSetup (planYear, cropOne, cropTwo, firstFields) {
     planYear.firstCropReference = cropOne
     planYear.secondCropReference = cropTwo
+    planYear.firstFieldReferences = firstFields
 };
 
 

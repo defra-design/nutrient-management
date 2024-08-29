@@ -1,0 +1,101 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Assumed conditions on 1 June 2024
+      </h1>
+
+      <p class="govuk-body">We will use these figures to calculate the amount of nutrients in your {{data.content.organic_term | lower}}. You can change any that look incorrect.</p>
+
+      <div class="text-group">
+        <p class="govuk-body strong">Autumn crop Nitrogen uptake</p>
+        <p class="govuk-body">10kg per hectare</p>
+        <p class="govuk-body"><a href="rainfall-manual">Change</a></p>
+      </div>
+
+      <div class="text-group">
+        <p class="govuk-body strong">End of soil drainage</p>
+        <p class="govuk-body">31 March 2024</p>
+        <p class="govuk-body"><a href="rainfall-manual">Change</a></p>
+      </div>
+
+      <div class="text-group">
+        <p class="govuk-body strong">Rainfall within 6 hours of application</p>
+        <p class="govuk-body">0mm</p>
+        <p class="govuk-body"><a href="rainfall-manual">Change</a></p>
+      </div>
+
+      <div class="text-group">
+        <p class="govuk-body strong">Total rainfall since application</p>
+        <p class="govuk-body">328mm</p>
+        <p class="govuk-body"><a href="rainfall-manual">Change</a></p>
+      </div>
+
+      <div class="text-group">
+        <p class="govuk-body strong">Windspeed at application</p>
+        <p class="govuk-body">Calm/gentile (0 - 3 Beaufort scale)</p>
+        <p class="govuk-body"><a href="rainfall-manual">Change</a></p>
+      </div>
+
+      <div class="text-group">
+        <p class="govuk-body strong">Topsoil moisture</p>
+        <p class="govuk-body">Moist</p>
+        <p class="govuk-body"><a href="rainfall-manual">Change</a></p>
+      </div>
+
+      <!-- <p class="govuk-body">Do you want to use these figures or change them?</p> -->
+
+      <form class="form" action="check" method="post">
+
+        <!-- <div class="govuk-form-group margin-bottom-forty">
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="ig_solids" name="manure_type" type="radio" value="pig_solids">
+                <label class="govuk-label govuk-radios__label" for="ig_solids">
+                  Use these figures         
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="pig_liquid" name="manure_type" type="radio" value="pig_liquid">
+                <label class="govuk-label govuk-radios__label" for="pig_liquid">
+                 Change these figures
+                </label>
+              </div>
+
+          </div>
+          </fieldset>
+        </div> -->
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
+
+  </div>
+
+</div>
+
+{% endblock %}

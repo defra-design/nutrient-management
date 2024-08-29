@@ -1,0 +1,104 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Conditions affecting the loss of nutrients from your organic materials
+      </h1>
+
+      <p class="govuk-body">
+        These are approximate values. You can change them now or later.
+      </p>
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            About these values
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          The effectiveness of your organic material application, 
+          and the amount of inorganic fertiliser you need, will vary 
+          depending on these conditions. 
+          </div>
+      </details>
+
+      <table class="govuk-table">
+        <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
+        <!-- <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date</th>
+            <th scope="col" class="govuk-table__header"></th>
+          </tr>
+        </thead> -->
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Autumn crop Nitrogen uptake</th>
+            <td class="govuk-table__cell">Amount of N from the application taken up by the crop in the autumn</td>
+            <td class="govuk-table__cell">10kg per hectare</td>
+            <td class="govuk-table__cell"><a href="manure_nitrogen">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">End of soil drainage</th>
+            <td class="govuk-table__cell">Date when soil drainage ends and the soil begins to dry out</td>
+            <td class="govuk-table__cell">31 March 2024</td>
+            <td class="govuk-table__cell"><a href="manure_drainage">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Rainfall within 6 hours of application</th>
+            <td class="govuk-table__cell">Amount of rain that falls in the 6 hours after the material is applied</td>
+            <td class="govuk-table__cell">0mm</td>
+            <td class="govuk-table__cell"><a href="manure_rain_six">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Effective rainfall after application</th>
+            <td class="govuk-table__cell">Average rainfall between manure application and end of soil drainage</td>
+            <td class="govuk-table__cell">328mm</td>
+            <td class="govuk-table__cell"><a href="manure_rain_total">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Windspeed during application</th>
+            <td class="govuk-table__cell">Windspeed when the material is applied</td>
+            <td class="govuk-table__cell">Calm/gentle (0 - 3 Beaufort scale)</td>
+            <td class="govuk-table__cell"><a href="manure_wind">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Topsoil moisture</th>
+            <td class="govuk-table__cell">How moist the topsoil is when the material is applied</td>
+            <td class="govuk-table__cell">Moist</td>
+            <td class="govuk-table__cell"><a href="manure_moisture">Change</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <form action="check" method="post" novalidate="">
+        <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
+
+  </div>
+
+</div>
+
+{% endblock %}

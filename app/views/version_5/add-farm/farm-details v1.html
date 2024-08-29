@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "hub_reset_handler"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">
+        Details for Oaktree Lane Farm
+      </h1>
+
+      <!-- <h2 class="govuk-heading-m">
+        Farm details
+      </h2> -->
+      <div class="check-answers">
+        {% include "./check-farm.html" ignore missing %}
+      </div>
+      <br>
+
+      <!-- <h2 class="govuk-heading-m">
+        Business details
+      </h2>
+      <div class="check-answers">
+        {% include "./check-business.html" ignore missing %}
+      </div> -->
+
+      <form action="add_farms_handler" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Update"
+        }) }}
+
+      </form>
+
+      <p>
+        <a href="hub_reset_handler">Cancel</a>
+      </p>
+
+
+    </div>
+  </div>
+{% endblock %}

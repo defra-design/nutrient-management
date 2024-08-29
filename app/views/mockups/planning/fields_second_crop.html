@@ -1,0 +1,112 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <!-- <span class="govuk-caption-l">
+        Nutrient application plan 2023 to 2024
+      </span> -->
+
+      <h1 class="govuk-heading-l">
+        Which fields do you plan to grow Beetroot in?
+      </h1>
+
+      <form class="form" action="" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <div id="waste-hint" class="govuk-hint">
+              Select all that apply.
+            </div>
+
+            <h2 class="govuk-heading-s">
+              Fields where beetroot would be the first crop for harvest year 2024
+            </h2>      
+
+            <div class="govuk-checkboxes margin-bottom-forty" data-module="govuk-checkboxes">
+          
+              <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="narrowfield" name="crop_fields" type="checkbox" value="narrowfield">
+                  <label class="govuk-label govuk-checkboxes__label" for="narrowfield">
+                      Narrow field
+                  </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="achres" name="crop_fields" type="checkbox" value="achres">
+                  <label class="govuk-label govuk-checkboxes__label" for="achres">
+                      25 Acres
+                  </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="shed" name="crop_fields" type="checkbox" value="shed">
+                  <label class="govuk-label govuk-checkboxes__label" for="shed">
+                      Shed
+                  </label>
+              </div>
+      
+            </div>
+
+            <h2 class="govuk-heading-s">
+              Fields where beetroot would be the second crop for harvest year 2024
+            </h2>      
+
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          
+              <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="short" name="crop_fields" type="checkbox" value="short">
+                  <label class="govuk-label govuk-checkboxes__label" for="short">
+                    Short Field
+                  </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="low" name="crop_fields" type="checkbox" value="low">
+                  <label class="govuk-label govuk-checkboxes__label" for="low">
+                    Low meadow
+                  </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="high" name="crop_fields" type="checkbox" value="high">
+                  <label class="govuk-label govuk-checkboxes__label" for="high">
+                    High meadow
+                  </label>
+              </div>
+      
+            </div>
+
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>    
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

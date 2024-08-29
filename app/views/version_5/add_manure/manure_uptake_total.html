@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Autumn crop Nitrogen uptake
+      </h1>
+
+      <p class="govuk-body">This is the amount of Nitrogen (N) from the application taken up by the crop in the autumn.</p>
+
+        <table class="govuk-table margin-bottom-forty">
+          <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Field</th>
+              <th scope="col" class="govuk-table__header">Autumn crop Nitrogen uptake</th>
+              <th scope="col" class="govuk-table__header"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Field #1</td>
+              <td class="govuk-table__cell">10 kg per per hectare</td>
+              <td class="govuk-table__cell"><a href="manure_nitrogen">Change</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Field #2</td>
+              <td class="govuk-table__cell">15 kg per hectare</td>
+              <td class="govuk-table__cell"><a href="manure_nitrogen">Change</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Field #3</td>
+              <td class="govuk-table__cell">10 kg per hectare</td>
+              <td class="govuk-table__cell"><a href="manure_nitrogen">Change</a></td>
+            </tr>
+          </tbody>
+        </table>
+      
+      <form action="rain_defaults" method="post" novalidate="">
+        <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
+
+  </div>
+
+</div>
+
+{% endblock %}

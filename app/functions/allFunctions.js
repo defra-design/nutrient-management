@@ -55,10 +55,18 @@ function farmSetup (farm, plan2023, plan2024, stage) {
     }
 };
 
-function planSetup (planYear, cropOne, cropTwo, firstFields) {
+function cropSetup (planYear, cropOne, cropTwo, firstFields, secondFields) {
     planYear.firstCropReference = cropOne
     planYear.secondCropReference = cropTwo
     planYear.firstFieldReferences = firstFields
+    planYear.secondFieldReferences = secondFields
+};
+
+function manureSetup (planYear, multipleManures, singleManures, multipleFertilisers, singleFertilisers) {
+    planYear.multipleManuresApplied = multipleManures 
+    planYear.singleManuresApplied = singleManures
+    planYear.multipleFertilisersApplied = multipleFertilisers 
+    planYear.singleFertilisersApplied = singleFertilisers
 };
 
 
@@ -94,4 +102,5 @@ module.exports.getMultipleFieldsByReferences = getMultipleFieldsByReferences;
 module.exports.totalFieldsCount = totalFieldsCount;
 module.exports.basicSetup = basicSetup;
 module.exports.farmSetup = farmSetup;
-module.exports.planSetup = planSetup;
+module.exports.cropSetup = cropSetup;
+module.exports.manureSetup = manureSetup;

@@ -57,7 +57,7 @@
   </tbody>
 </table>
 
-{% if data.plan_2024.secondFieldReferences.length != 0 %}
+{% if data.plan_2024.secondFieldReferences.length != 0 and data.plan_2024.secondFieldReferences != null%}
   <h2 class="govuk-heading-m">{{data.plan_2024.secondCropReference | nameconverter}}</h2>
   <p class="govuk-body"><a href="">Change this plan</a></p>
 

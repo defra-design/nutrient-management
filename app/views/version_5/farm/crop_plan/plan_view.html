@@ -50,35 +50,62 @@
 
         <ul class="govuk-tabs__list">
           <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-            <a class="govuk-tabs__tab" href="#past-day">
+            <a class="govuk-tabs__tab" href="#crops">
               Crops
             </a>
           </li>
           <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#past-week">
-              Organic and Inorganic material applications
+            <a class="govuk-tabs__tab" href="#organic">
+              Organic material applications
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#inorganic">
+              Inorganic fertiliser applications
             </a>
           </li>
         </ul>
 
-        <div class="govuk-tabs__panel" id="past-day">
+        <div class="govuk-tabs__panel" id="crops">
           <h2 class="govuk-heading-l">Crops</h2>
-          <p class="govuk-body"><a href="">Add another crop</a></p>  
+          <p class="govuk-body"><a href="">Add a crop</a></p>  
+          <hr class="seperator_five">
+
           {% include "./templates/2024_plan_tabs.html" ignore missing %}
         </div>
 
-        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="organic">
           <div class="margin-bottom-forty">
-            <h2 class="govuk-heading-l">Organic and inorganic material applications</h2>
-            <h3 class="govuk-heading-m">Organic material applications</h3>
-            <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned.</p>
-            <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Add {{data.content.organic_term | lower}} applications</a></p>  
+            <h2 class="govuk-heading-l">Organic material applications</h2>
+            <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Add an {{data.content.organic_term | lower}} application</a></p>
           </div>
+          <hr class="seperator_five">
+
+          <!-- manures -->
+          <div class="margin-bottom-forty">
+            {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singleManuresApplied == false %}
+              <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned.</p>
+              <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Add {{data.content.organic_term | lower}} applications</a></p>
+            {% else %}
+              {% include "./templates/applications_tabs.html" ignore missing %}
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="inorganic">
+          <div class="margin-bottom-forty">
+            <h2 class="govuk-heading-l">Inorganic fertiliser applications</h2>
+            <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=multi">Add an {{data.content.non_organic_term | lower}} application</a></p>
+          </div>
+          <hr class="seperator_five">
           <div>
-            <h3 class="govuk-heading-m">Inorganic fertiliser applications</h3>
-            <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned.</p>
-            <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=multi">Add {{data.content.non_organic_term | lower}} applications</a></p>  
-          </div>
+            {% if data.plan_2024.multipleFertilisersApplied == false and data.plan_2024.singleFertilisersApplied == false %}
+              <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned.</p>
+              <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=multi">Add {{data.content.non_organic_term | lower}} applications</a></p>
+            {% else %}
+              {% include "./templates/fertiliser_applications_tabs.html" ignore missing %}
+            {% endif %}
+          </div>       
         </div>
 
       </div>

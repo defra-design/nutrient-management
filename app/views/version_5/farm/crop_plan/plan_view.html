@@ -40,35 +40,48 @@
     </div>
 
     <div class="govuk-grid-column-full">
-      <h1 class="govuk-heading-l">Plan for harvest year {{data.oaktree_farm.planning_year}}</h1>
-
-      <div class="crop_plan_title">
-        <p class="govuk-body">Last updated: {{data.content.todays_date}}</p>
-        {% if totalFields == 1 %}
-          <p class="govuk-body">There is 1 field in this plan</p>
-        {% else %}
-          <p class="govuk-body">There are {{totalFields}} fields in this plan</p>
-        {% endif %}
-
-        <p class="govuk-body"><a href="">Download, print, or export this plan</a></p>
-        <h2 class="govuk-heading-s">Contents</h2>
-        <p class="govuk-body"><span class="dash"> — </span>Crops and fields</p>
-        <p class="govuk-body"><span class="dash"> — </span><a href="manures">Organic and inorganic material applications</a></p>
-      </div>
-
-      <hr class="seperator_five">
-
+      <h1 class="govuk-heading-xl">Plan for harvest year {{data.oaktree_farm.planning_year}}</h1>
       <div class="margin-bottom-forty">
-        <!-- <h2 class="govuk-heading-s">Options</h2> -->
-        <p class="govuk-body"><a href="addcrops_handler">Add another crop</a></p>
+        <p class="govuk-body">Last updated: {{data.content.todays_date}}, there are {{totalFields}} fields in this plan</p>
+        <p class="govuk-body"><a href="">Download, print, or export this plan</a></p>
       </div>
 
-      {% if data.oaktree_farm.planning_year == 2023 %}
-        {% include "./templates/2023plan.html" ignore missing %}
-      {% else %}
-        {% include "./templates/2024plan.html" ignore missing %}
-      {% endif %}
-  </div>
+      <div class="govuk-tabs" data-module="govuk-tabs">
+
+        <ul class="govuk-tabs__list">
+          <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+            <a class="govuk-tabs__tab" href="#past-day">
+              Crops
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#past-week">
+              Organic and Inorganic material applications
+            </a>
+          </li>
+        </ul>
+
+        <div class="govuk-tabs__panel" id="past-day">
+          <h2 class="govuk-heading-l">Crops</h2>
+          <p class="govuk-body"><a href="">Add another crop</a></p>  
+          {% include "./templates/2024_plan_tabs.html" ignore missing %}
+        </div>
+
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+          <div class="margin-bottom-forty">
+            <h2 class="govuk-heading-l">Organic and inorganic material applications</h2>
+            <h3 class="govuk-heading-m">Organic material applications</h3>
+            <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned.</p>
+            <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Add {{data.content.organic_term | lower}} applications</a></p>  
+          </div>
+          <div>
+            <h3 class="govuk-heading-m">Inorganic fertiliser applications</h3>
+            <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned.</p>
+            <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=multi">Add {{data.content.non_organic_term | lower}} applications</a></p>  
+          </div>
+        </div>
+
+      </div>
 
 </div>
 

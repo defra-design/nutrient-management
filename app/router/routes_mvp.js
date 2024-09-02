@@ -313,15 +313,16 @@ router.get(/cover_handler/, function (req, res) {
 })
 
 router.get(/yield_question_handler/, function (req, res) { 
+    let next = 'crop_use'
     if (req.session.data.yield_option_one != 'rb209') {
-        res.redirect('yield_value')
-    } else {
-       if (req.session.data.crop_group == 'potatoes') {
-            res.redirect('growth')
-       } else {
-            res.redirect('crop_use')
-       }
+        next = 'yield_value'
+    } 
+    if (req.session.data.crop_group == 'potatoes') {
+        next = 'growth'
+    } else if (req.session.data.chosen_crop == 'Beetroot') {
+        next = 'check'
     }
+    res.redirect(next)
 })
 
 router.get(/yield_questiontwo_handler/, function (req, res) { 

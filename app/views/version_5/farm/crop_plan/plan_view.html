@@ -40,9 +40,9 @@
     </div>
 
     <div class="govuk-grid-column-full">
-      <h1 class="govuk-heading-xl">Plan for harvest year {{data.oaktree_farm.planning_year}}</h1>
+      <h1 class="govuk-heading-l">Plan for harvest year {{data.oaktree_farm.planning_year}}</h1>
       <div class="margin-bottom-forty">
-        <p class="govuk-body">Last updated: {{data.content.todays_date}}, there are {{totalFields}} fields in this plan</p>
+        <p class="govuk-body-s">Last updated: {{data.content.todays_date}}, there are {{totalFields}} fields in this plan</p>
         <p class="govuk-body"><a href="">Download, print, or export this plan</a></p>
       </div>
 
@@ -51,7 +51,7 @@
         <ul class="govuk-tabs__list">
           <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
             <a class="govuk-tabs__tab" href="#crops">
-              Crops
+              Crops and fields
             </a>
           </li>
           <li class="govuk-tabs__list-item">
@@ -67,8 +67,8 @@
         </ul>
 
         <div class="govuk-tabs__panel" id="crops">
-          <h2 class="govuk-heading-l">Crops</h2>
-          <p class="govuk-body"><a href="">Add a crop</a></p>  
+          <h2 class="govuk-heading-m non-standard">Crops and fields</h2>
+          <p class="govuk-body"><a href="../../add_crops/crop_group">Add a crop</a></p>
           <hr class="seperator_five">
 
           {% include "./templates/2024_plan_tabs.html" ignore missing %}
@@ -76,17 +76,20 @@
 
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="organic">
           <div class="margin-bottom-forty">
-            <h2 class="govuk-heading-l">Organic material applications</h2>
+            <h2 class="govuk-heading-m non-standard">Organic material applications</h2>
+            {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singleManuresApplied == false %}
+              <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned.</p>
+            {% endif %}
             <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Add an {{data.content.organic_term | lower}} application</a></p>
           </div>
-          <hr class="seperator_five">
+
+          {% if data.plan_2024.multipleManuresApplied == true or data.plan_2024.singleManuresApplied == true %}
+            <hr class="seperator_five">
+          {% endif %}
 
           <!-- manures -->
           <div class="margin-bottom-forty">
-            {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singleManuresApplied == false %}
-              <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned.</p>
-              <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Add {{data.content.organic_term | lower}} applications</a></p>
-            {% else %}
+            {% if data.plan_2024.multipleManuresApplied != false or data.plan_2024.singleManuresApplied != false %}
               {% include "./templates/applications_tabs.html" ignore missing %}
             {% endif %}
           </div>
@@ -94,15 +97,19 @@
 
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="inorganic">
           <div class="margin-bottom-forty">
-            <h2 class="govuk-heading-l">Inorganic fertiliser applications</h2>
-            <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=multi">Add an {{data.content.non_organic_term | lower}} application</a></p>
-          </div>
-          <hr class="seperator_five">
-          <div>
+            <h2 class="govuk-heading-m non-standard">Inorganic fertiliser applications</h2>
             {% if data.plan_2024.multipleFertilisersApplied == false and data.plan_2024.singleFertilisersApplied == false %}
               <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned.</p>
-              <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=multi">Add {{data.content.non_organic_term | lower}} applications</a></p>
-            {% else %}
+            {% endif %}
+            <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=multi">Add an {{data.content.non_organic_term | lower}} application</a></p>
+          </div>
+
+          {% if data.plan_2024.multipleFertilisersApplied == true or data.plan_2024.singleFertilisersApplied == true %}
+            <hr class="seperator_five">
+          {% endif %}
+
+          <div class="margin-bottom-forty">
+            {% if data.plan_2024.multipleFertilisersApplied == true or data.plan_2024.singleFertilisersApplied == true %}
               {% include "./templates/fertiliser_applications_tabs.html" ignore missing %}
             {% endif %}
           </div>       

@@ -81,8 +81,6 @@ function getCropByReference (referenceNumber, crops) {
     return cropToReturn
 };
 
-
-
  function printCropGroup(group) {
     console.log(  'group' +
                   group.year + ", " +

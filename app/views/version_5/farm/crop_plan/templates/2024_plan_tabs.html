@@ -1,20 +1,12 @@
-{% if data.plan_2024.forageCrop == true %}
-  <h2 class="govuk-heading-m">{{data.plan_2024.firstCropReference | nameconverter}} and {{data.plan_2024.secondCropReference | nameconverter}}</h2>
-  <p class="govuk-body"><a href="">Change this plan</a></p>
-{% else %}
   <h2 class="govuk-heading-m">{{data.plan_2024.firstCropReference | nameconverter}}</h2>
   <p class="govuk-body"><a href="">Change this plan</a></p>
-{% endif %}
 
-<table class="govuk-table big_crop_table_version_three">
+<table class="govuk-table big_crop_table_version_three margin-bottom-forty">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Field</th>
       <th scope="col" class="govuk-table__header">Organic applications</th>
       <th scope="col" class="govuk-table__header">Inorganic applications</th>
-      {% if data.plan_2024.forageCrop == true %}
-        <th scope="col" class="govuk-table__header">Second Crop</th>
-      {% endif %}
       <th scope="col" class="govuk-table__header">Alerts</th>
       <th scope="col" class="govuk-table__header"> </th>
     </tr>
@@ -42,10 +34,6 @@
             None
           {% endif %}
         </td>
-
-        {% if data.plan_2024.forageCrop == true %}
-          <td class="govuk-table__cell">Beetroot</td>
-        {% endif %}
 
         <td class="govuk-table__cell">None</td>
 

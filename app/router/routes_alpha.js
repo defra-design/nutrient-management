@@ -473,14 +473,6 @@ router.get(/another_crop_handler/, function (req, res) {
     res.redirect(next)
 })
 
-router.get(/another_crop_handler/, function (req, res) { 
-    var next = 'second_crop/fields'
-    if (req.session.data.next_crop = 'new') {
-        next = 'crop_group'
-    }
-    res.redirect(next)
-})
-
 router.get(/previous_cuts_handler/, function (req, res) { 
     let next = (req.session.data.previous_management == 'grazed') ? 'previous_nitrogen' : 'previous_cuts_two'
     res.redirect(next)

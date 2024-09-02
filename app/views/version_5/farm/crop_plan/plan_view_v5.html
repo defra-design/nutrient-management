@@ -80,4 +80,33 @@
 
 </div>
 
+
+
+
+<div class="govuk-grid-column-full">
+  {% for group in data.cropGroupsV5 %}
+  <p>Group reference {{group.reference}}</p>
+  <p>{{group.crop_reference | nameconverter}}</p>
+  <p>Fields</p>
+  <p>
+    {% for field in group.fields %}
+      {{field.name}},
+    {% endfor %}  
+    </p>
+  <p>--</p>
+  {% endfor %}  
+
+
+  <!-- {% for y in data.cropGroupsV5.fields %}
+      <p>{{ y.name }}</p>
+    {% endfor %}  
+
+    <p>break</p>
+
+
+    {% for x in data.cropGroupV5_1.fields %}
+    <p>{{x.name}}</p>
+    {% endfor %}   -->
+</div>
+
 {% endblock %}

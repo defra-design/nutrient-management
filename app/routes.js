@@ -45,52 +45,13 @@ const potato_details = require('./data/potatoes.json');
 const crop_types = require('./data/crops.json');
 
 const CropGroup = require('./functions/crop_group.js');
-let crop_group_one = CropGroup.createCropGroup();
-let crop_group_two = CropGroup.createCropGroup();
-let crop_group_three = CropGroup.createCropGroup();
-let crop_group_2023 = CropGroup.createCropGroup();
-let crop_group_2024 = CropGroup.createCropGroup();
-//crop group with 1 main crop
-crop_group_one.year = '2025';
-crop_group_one.firstCropReference = 'Wheat-Winter';
-crop_group_one.firstCropVariety = 'Crusoe';
-crop_group_one.secondCropReference = 'Turnips-stubble';
-crop_group_one.thirdCropReference = null
-crop_group_one.fourthCropReference = null
-crop_group_one.firstCropFields = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-crop_group_one.secondCropFields = ['1', '2', '3', '4', '5'];
-crop_group_one.thirdCropFields = [];
-crop_group_one.fourthCropFields = [];
-crop_group_one.firstCropSelected = true;
-crop_group_one.thirdCropSelected = false;
-crop_group_one.totalFields = allFunctions.totalFieldsCount(crop_group_one);
-//crop group with 2 main crops
-crop_group_two.year = '2024';
-crop_group_two.firstCropReference = 'Wheat-Winter';
-crop_group_two.secondCropReference = 'Turnips-stubble';
-crop_group_two.thirdCropReference = 'rye-Winter';
-crop_group_two.thirdCropVariety = 'Boyko';
-crop_group_two.fourthCropReference = 'Turnips-stubble';
-crop_group_two.firstCropFields = ['1', '2', '3', '4'];
-// crop_group_two.secondCropFields = ['1', '2', '3'];
-crop_group_two.thirdCropFields = ['5', '6', '7', '8'];
-// crop_group_two.fourthCropFields = ['5', '6'];
-crop_group_two.firstCropSelected = true
-crop_group_two.thirdCropSelected = true
-crop_group_two.totalFields = allFunctions.totalFieldsCount(crop_group_two);
-crop_group_three.year = '2024';
-crop_group_three.firstCropReference = 'Wheat-Winter';
-crop_group_three.secondCropReference = null;
-crop_group_three.thirdCropReference = 'rye-Winter';
-crop_group_three.thirdCropVariety = 'Boyko';
-crop_group_three.fourthCropReference = null;
-crop_group_three.firstCropFields = ['1', '2', '3', '4'];
-// crop_group_three.secondCropFields = ['1', '2', '3'];
-crop_group_three.thirdCropFields = ['5', '6', '7', '8'];
-// crop_group_three.fourthCropFields = ['5', '6'];
-crop_group_three.firstCropSelected = true
-crop_group_three.thirdCropSelected = true
-crop_group_three.totalFields = allFunctions.totalFieldsCount(crop_group_three);
+// version 5
+let cropGroupV5_1 = CropGroup.createCropGroup()
+cropGroupV5_1.reference = 1
+cropGroupV5_1.year = 2024
+cropGroupV5_1.fields = [11,12,13,14,15]
+cropGroupV5_1.crop_reference = 'Oilseed-Spring'
+cropGroupV5_1.variety = 'Aurelia'
 
 
 ///////Manures
@@ -111,14 +72,6 @@ let plan2024 = {
 };
 
 
-//version 5
-// let cropGroupV5_1 = {
-//     reference: 1,
-//     year: 2024,
-//     fields: [1,2,3,4,5],
-//     crop_reference: 'Oilseed-Spring',
-//     variety: 'Aurelia'
-// }
 
 //index route, loads data in application
 router.get('/', function (req, res) { 
@@ -208,6 +161,16 @@ router.get('/', function (req, res) {
 
     req.session.data.prototype_version = 'mvp'
 
+    // version 5
+    req.session.data.cropGroup = require('./functions/crop_group.js');
+    req.session.data.cropGroupsV5 = []
+
+    req.session.data.cropGroupV5_1 = cropGroupV5_1
+    req.session.data.cropGroupV5_1.fields = allFunctions.getMultipleFieldsByReferences(req.session.data.cropGroupV5_1.fields, req.session.data.field_list_mvp )
+    req.session.data.cropGroupsV5.push(cropGroupV5_1)
+
+    console.log(req.session.data.cropGroupsV5)
+    
     // new fields management
     req.session.data.all_fields = all_fields
 

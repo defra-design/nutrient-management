@@ -369,6 +369,22 @@ router.get(/addcrops_check_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 
+router.get(/crops_V5_check_handler/, function (req, res) { 
+    req.session.data.show_success_message = true;
+    //get a reference and add it to its name
+    var newRef = req.session.data.cropGroupsV5.length + 1
+    var newGroup = {
+        reference: newRef,
+        year: '2024',
+        fields: allFunctions.getMultipleFieldsByReferences([1,2,3,4,5], req.session.data.all_fields ),
+        crop_reference: req.session.data.chosen_crop,
+        variety: null 
+    }
+    //add it to the array
+    req.session.data.cropGroupsV5.push(newGroup)
+    res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+})
+
 
 /////////////////////////////
 //////// ADD MANURES ////////

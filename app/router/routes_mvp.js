@@ -383,6 +383,19 @@ router.get(/v2manure_handler/, function (req, res) {
     }
 })
 
+router.get(/v3manure_journey_handler/, function (req, res) { 
+    req.session.data.manure_journey = req.query.manurejourney
+    res.redirect('/' + req.session.data.prototype_version + '/add_manure/application_choice')
+})
+
+router.get(/v3manure_choice_handler/, function (req, res) { 
+    if (req.session.data.manure_journey == 'multi') {
+        res.redirect('/' + req.session.data.prototype_version + '/add_manure/manure_fields')
+    } else {
+        res.redirect('/' + req.session.data.prototype_version + '/add_manure/manure_group')
+    }
+})
+
 router.get(/add_manure_handler/, function (req, res) { 
     req.session.data.show_success_message = true
     res.redirect('/' + req.session.data.prototype_version + '/farm//crop_plan/plan_view')

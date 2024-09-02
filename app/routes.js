@@ -110,6 +110,16 @@ let plan2024 = {
     updated: '10 November 2023' 
 };
 
+
+//version 5
+// let cropGroupV5_1 = {
+//     reference: 1,
+//     year: 2024,
+//     fields: [1,2,3,4,5],
+//     crop_reference: 'Oilseed-Spring',
+//     variety: 'Aurelia'
+// }
+
 //index route, loads data in application
 router.get('/', function (req, res) { 
     req.session.data.content = content

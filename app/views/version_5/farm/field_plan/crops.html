@@ -3,7 +3,7 @@
   <p class="govuk-body">These are are the planned crops for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p>
  
   {% if data.plan_2024.forageCrop != true %}
-    <p class="govuk-body"><a href="">Add a second crop to {{data.chosen_field.name}} for harvest year {{data.oaktree_farm.planning_year}}</a></p>      
+    <p class="govuk-body"><a href="#">Add a second crop to {{data.chosen_field.name}} for harvest year {{data.oaktree_farm.planning_year}}</a></p>      
   {% endif %}
 
   <hr class="seperator_five">
@@ -15,13 +15,13 @@
     {% else %}
       {% include "./templates/grass-details.html" ignore missing %}
     {% endif %}
-    <p class="govuk-body"><a href="">Change the {{data.chosen_crop | nameconverter}} plan for {{data.chosen_field.name}} </a></p>
+    <p class="govuk-body"><a href="#">Change the {{data.chosen_crop | nameconverter}} plan for {{data.chosen_field.name}} </a></p>
   </div>
 
   {% if data.plan_2024.forageCrop == true %}
     <h2 class="govuk-heading-m">{{data.cover_crop}} details</h2>
     {% include "./templates/second-crop-details.html" ignore missing %}
-    <p class="govuk-body"><a href="">Change the {{data.forage_crop | nameconverter}} plan for {{data.chosen_field.name}} </a></p>
+    <p class="govuk-body"><a href="#">Change the {{data.forage_crop | nameconverter}} plan for {{data.chosen_field.name}} </a></p>
   {% endif %}
 
 </div>

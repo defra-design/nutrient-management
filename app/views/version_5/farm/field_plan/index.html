@@ -128,7 +128,7 @@
         <p class="govuk-body">These are are the planned crops for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p>
         <hr class="seperator_five">
 
-        <h2 class="govuk-heading-s">Main crop details</h2>
+        <h2 class="govuk-heading-m">{{data.chosen_crop}} details</h2>
         {% if data.chosen_crop != 'Grass' and data.chosen_crop != 'grass' %}
           {% include "./templates/other-crop-details.html" ignore missing %}
         {% else %}
@@ -136,10 +136,9 @@
         {% endif %}
 
         {% if data.plan_2024.forageCrop == true %}
-          <h2 class="govuk-heading-s">Second crop details</h2>
+          <h2 class="govuk-heading-m">{{data.cover_crop}} details</h2>
           {% include "./templates/second-crop-details.html" ignore missing %}
         {% endif %}
-
 
         {% if data.plan_2024.forageCrop != true %}
           <p class="govuk-body"><a href="">Add a second crop to this field for harvest year {{data.oaktree_farm.planning_year}}</a></p>      

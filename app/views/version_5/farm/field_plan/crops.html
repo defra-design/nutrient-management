@@ -1,0 +1,28 @@
+<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="crops">
+  <h2 class="govuk-heading-m non-standard">Crop details</h2>
+  <p class="govuk-body">These are are the planned crops for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p>
+ 
+  {% if data.plan_2024.forageCrop != true %}
+    <p class="govuk-body"><a href="">Add a second crop to this field for harvest year {{data.oaktree_farm.planning_year}}</a></p>      
+  {% endif %}
+
+  <hr class="seperator_five">
+
+  <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} details</h2>
+  {% if data.chosen_crop != 'Grass' and data.chosen_crop != 'grass' %}
+    {% include "./templates/other-crop-details.html" ignore missing %}
+  {% else %}
+    {% include "./templates/grass-details.html" ignore missing %}
+  {% endif %}
+
+  {% if data.plan_2024.forageCrop == true %}
+    <h2 class="govuk-heading-m">{{data.cover_crop}} details</h2>
+    {% include "./templates/second-crop-details.html" ignore missing %}
+  {% endif %}
+
+  {% if data.plan_2024.forageCrop == true %}
+    <p class="govuk-body"><a href="">Change the crop details for this field</a></p>
+  {% else %}
+    <p class="govuk-body"><a href="">Change the {{data.chosen_crop | nameconverter}} plan for {{data.chosen_field.name}}</a></p>
+  {% endif %}
+</div>

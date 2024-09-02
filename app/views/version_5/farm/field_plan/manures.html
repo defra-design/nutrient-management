@@ -1,0 +1,31 @@
+<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="manures">
+  <h2 class="govuk-heading-m non-standard">Organic and inorganic material applications</h2>
+  <p class="govuk-body">These are are the planned organic and inorganic material applications for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}. <br>Amounts are per hectare.</p>
+  
+  <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add an {{data.content.non_organic_term | lower}} application for {{data.chosen_field.name}}</a></p>
+
+  <p class="govuk-body"><a href="v2manure_handler?manurejourney=single">Add an {{data.content.organic_term | lower}} application for {{data.chosen_field.name}}</a></p>
+
+  <hr class="seperator_five">
+
+  <!-- manures -->
+  <div class="margin-bottom-forty">
+    <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
+      
+    {% if data.plan_2024.singleManuresApplied == false and data.plan_2024.multipleManuresApplied == false %}
+      <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned for {{data.chosen_field.name}}.</p>
+      <p class="govuk-body"><a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
+    {% else %}
+      {% include "./templates/applications.html" ignore missing %}
+    {% endif %}
+  </div>
+
+  <!-- fertiliser -->
+  <h2 class="govuk-heading-m">{{data.content.non_organic_term}} applications</h2>
+  {% if data.plan_2024.singleFertilisersApplied == false and data.plan_2024.multipleFertilisersApplied == false %}
+    <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned for {{data.chosen_field.name}}.</p>
+    <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add {{data.content.non_organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
+  {% else %}
+    {% include "./templates/fertiliser_applications.html" ignore missing %}
+  {% endif %}
+</div>

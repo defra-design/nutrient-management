@@ -292,6 +292,26 @@ router.get(/mvp_fields_handler/, function (req, res) {
         }    
     }
     // console.log(req.session.data.firstFieldReferences)
+    if (req.session.data.crop_group == 'grass') {
+        res.redirect('grass/current_sward')
+     } else {
+        res.redirect('sowdate_question')
+    }
+})
+
+router.get(/v5_fields_handler/, function (req, res) { 
+    console.log(req.session.data.crop_fields)
+    let tempFields = []
+    if ( req.session.data.crop_fields === undefined) {
+        req.session.data.crop_fields = [11, 12, 13, 14, 15]
+    }
+    for (var x in req.session.data.crop_fields) {
+        for (var y in req.session.data.all_fields) {
+            if (req.session.data.all_fields[y].reference == req.session.data.crop_fields[x]) {
+                req.session.data.tempFields.push(req.session.data.all_fields[y])
+            }
+        }
+    }
     console.log(req.session.data.crop_fields)
     if (req.session.data.crop_group == 'grass') {
         res.redirect('grass/current_sward')
@@ -376,7 +396,7 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     var newGroup = {
         reference: newRef,
         year: '2024',
-        fields: allFunctions.getMultipleFieldsByReferences([1,2,3,4,5], req.session.data.all_fields ),
+        fields: allFunctions.getMultipleFieldsByReferences([req.session.data.crop_fields], req.session.data.all_fields ),
         crop_reference: req.session.data.chosen_crop,
         variety: null 
     }

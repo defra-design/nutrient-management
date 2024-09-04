@@ -46,12 +46,12 @@ const crop_types = require('./data/crops.json');
 
 const CropGroup = require('./functions/crop_group.js');
 // version 5
-let cropGroupV5_1 = CropGroup.createCropGroup()
-cropGroupV5_1.reference = 1
-cropGroupV5_1.year = 2024
-cropGroupV5_1.fields = [11,12,13,14,15]
-cropGroupV5_1.crop_reference = 'Oilseed-Spring'
-cropGroupV5_1.variety = 'Aurelia'
+// let cropGroupV5_1 = CropGroup.createCropGroup()
+// cropGroupV5_1.reference = 1
+// cropGroupV5_1.year = 2024
+// cropGroupV5_1.fields = [11,12,13,14,15]
+// cropGroupV5_1.crop_reference = 'Oilseed-Spring'
+// cropGroupV5_1.variety = 'Aurelia'
 
 
 ///////Manures
@@ -164,12 +164,10 @@ router.get('/', function (req, res) {
     // version 5
     req.session.data.cropGroup = require('./functions/crop_group.js');
     req.session.data.cropGroupsV5 = []
-
-    req.session.data.cropGroupV5_1 = cropGroupV5_1
-    req.session.data.cropGroupV5_1.fields = allFunctions.getMultipleFieldsByReferences(req.session.data.cropGroupV5_1.fields, req.session.data.field_list_mvp )
-    req.session.data.cropGroupsV5.push(cropGroupV5_1)
-
-    console.log(req.session.data.cropGroupsV5)
+    // req.session.data.cropGroupV5_1 = cropGroupV5_1
+    // req.session.data.cropGroupV5_1.fields = allFunctions.getMultipleFieldsByReferences(req.session.data.cropGroupV5_1.fields, req.session.data.field_list_mvp )
+    // req.session.data.cropGroupsV5.push(cropGroupV5_1)
+    // console.log(req.session.data.cropGroupsV5)
     
     // new fields management
     req.session.data.all_fields = all_fields

@@ -48,3 +48,22 @@
   </p>
 
 {% endblock %}
+
+
+<!-- <div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="event-name">
+        {% if data.crop_group == 'potatoes'%}
+        What is the variety name?
+      {% else %}
+        What do you want to name this group?
+      {% endif %}
+    </label>
+  </h1>
+  {% if data.crop_group != 'potatoes'%}
+  <div class="govuk-hint">
+    If your using a specific variety of {{data.chosen_crop | nameconverter}} you should enter that as the group name.
+  </div>
+{% endif %}
+    <input class="govuk-input" id="variety" name="variety" type="text">
+</div> -->

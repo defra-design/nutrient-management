@@ -382,7 +382,6 @@ router.get(/addcrops_check_handler/, function (req, res) {
 
 router.get(/crops_V5_check_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
-    //get a reference and add it to its name
     var newRef = req.session.data.cropGroupsV5.length + 1
     var newGroup = {
         reference: newRef,
@@ -391,8 +390,6 @@ router.get(/crops_V5_check_handler/, function (req, res) {
         crop_reference: req.session.data.chosen_crop,
         variety: null 
     }
-    console.log(newGroup.fields)
-    //add it to the array
     req.session.data.cropGroupsV5.push(newGroup)
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })

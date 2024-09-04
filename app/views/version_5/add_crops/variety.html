@@ -20,19 +20,37 @@
     <div class="govuk-grid-column-two-thirds">
 
       <!-- {% include "templates/title_span.html" %} -->
-      <h1 class="govuk-heading-l">
+      <!-- <h1 class="govuk-heading-l">
         {% if data.crop_group == 'potatoes'%}
           What is the variety name?
         {% else %}
           What is the variety name (optional)?
         {% endif %}
-      </h1>
+      </h1> -->
 
       <form class="form" action="variety_handler" method="post" autocomplete="off">
 
-        <div class="govuk-form-group">
+        <!-- <div class="govuk-form-group">
           <input class="govuk-input" id="variety" name="variety" type="text">
-        </div>
+        </div> -->
+
+        <div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="event-name">
+        {% if data.crop_group == 'potatoes'%}
+        What is the variety name?
+      {% else %}
+        What do you want to call this crop group (optional)?
+      {% endif %}
+    </label>
+  </h1>
+  {% if data.crop_group != 'potatoes'%}
+  <div class="govuk-hint">
+    If your using a variety of {{data.chosen_crop | nameconverter}} enter that as the name.
+  </div>
+{% endif %}
+    <input class="govuk-input" id="variety" name="variety" type="text">
+</div>
 
         {{ govukButton({
           text: "Continue"
@@ -50,20 +68,3 @@
 {% endblock %}
 
 
-<!-- <div class="govuk-form-group">
-  <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="event-name">
-        {% if data.crop_group == 'potatoes'%}
-        What is the variety name?
-      {% else %}
-        What do you want to name this group?
-      {% endif %}
-    </label>
-  </h1>
-  {% if data.crop_group != 'potatoes'%}
-  <div class="govuk-hint">
-    If your using a specific variety of {{data.chosen_crop | nameconverter}} you should enter that as the group name.
-  </div>
-{% endif %}
-    <input class="govuk-input" id="variety" name="variety" type="text">
-</div> -->

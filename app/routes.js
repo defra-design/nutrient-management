@@ -162,13 +162,9 @@ router.get('/', function (req, res) {
     req.session.data.prototype_version = 'mvp'
 
     // version 5
-    req.session.data.cropGroup = require('./functions/crop_group.js');
+    // req.session.data.cropGroup = require('./functions/crop_group.js');
     req.session.data.cropGroupsV5 = []
-    // req.session.data.cropGroupV5_1 = cropGroupV5_1
-    // req.session.data.cropGroupV5_1.fields = allFunctions.getMultipleFieldsByReferences(req.session.data.cropGroupV5_1.fields, req.session.data.field_list_mvp )
-    // req.session.data.cropGroupsV5.push(cropGroupV5_1)
-    // console.log(req.session.data.cropGroupsV5)
-    
+=    
     // new fields management
     req.session.data.all_fields = all_fields
 

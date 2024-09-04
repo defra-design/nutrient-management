@@ -69,6 +69,17 @@ function manureSetup (planYear, multipleManures, singleManures, multipleFertilis
     planYear.singleFertilisersApplied = singleFertilisers
 };
 
+function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, groups) {
+    var newGroup = {
+        reference: reference,
+        year: year,
+        fields: getMultipleFieldsByReferences(field_references, current_fields),
+        crop_reference: crop_reference,
+        variety: variety
+    }
+    return newGroup
+}
+
 
 function getCropByReference (referenceNumber, crops) {
     let cropToReturn
@@ -102,3 +113,4 @@ module.exports.basicSetup = basicSetup;
 module.exports.farmSetup = farmSetup;
 module.exports.cropSetup = cropSetup;
 module.exports.manureSetup = manureSetup;
+module.exports.createCropGroup = createCropGroup;

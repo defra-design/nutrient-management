@@ -164,16 +164,9 @@ router.get(/twocrops_v5_setup_handler/, function (req, res) {
 })
 
 router.get(/grass_v5_setup_handler/, function (req, res) { 
-    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'grass')
+    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'grass', req.session.data.cropGroupsV5)
     req.session.data.all_fields = req.session.data.field_list_mvp
-    var newGroup = {
-        reference: 1,
-        year: '2024',
-        fields: allFunctions.getMultipleFieldsByReferences([1,2,3,4,5], req.session.data.all_fields),
-        crop_reference: 'grass',
-        variety: null
-    }
-    req.session.data.cropGroupsV5.push(newGroup)
+    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'grass', null))
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
 })
@@ -181,14 +174,16 @@ router.get(/grass_v5_setup_handler/, function (req, res) {
 router.get(/manure_v5_setup_handler/, function (req, res) { 
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'fertilisers')
     req.session.data.all_fields = req.session.data.field_list_mvp
-    var newGroup = {
-        reference: 1,
-        year: '2024',
-        fields: allFunctions.getMultipleFieldsByReferences([1,2,3,4,5], req.session.data.all_fields),
-        crop_reference: 'Wheat-Winter',
-        variety: 'Typhoon' 
-    }
-    req.session.data.cropGroupsV5.push(newGroup)
+    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', 'Typhoon'))
+
+    // var newGroup = {
+    //     reference: 1,
+    //     year: '2024',
+    //     fields: allFunctions.getMultipleFieldsByReferences([1,2,3,4,5], req.session.data.all_fields),
+    //     crop_reference: 'Wheat-Winter',
+    //     variety: 'Typhoon' 
+    // }
+    // req.session.data.cropGroupsV5.push(newGroup)
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
 })

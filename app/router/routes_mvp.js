@@ -383,7 +383,7 @@ router.get(/addcrops_check_handler/, function (req, res) {
 router.get(/crops_V5_check_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
     var newRef = req.session.data.cropGroupsV5.length + 1
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(newRef, 2024, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, null))
+    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(newRef, 2024, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, req.session.data.variety))
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 

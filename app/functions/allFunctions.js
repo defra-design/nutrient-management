@@ -6,6 +6,14 @@ function getFieldByReference (currentFarmFields, referenceNumber) {
     }
   };
 
+//   function getFieldByReference (currentFarmFields, referenceNumber) {
+//     for (let field in currentFarmFields) {
+//       if (currentFarmFields[field].reference == referenceNumber) {
+//           return currentFarmFields[field]
+//       }
+//     }
+//   };
+
 function getMultipleFieldsByReferences (referenceNumbers, currentFields) {
     for (let x in referenceNumbers) {
         for (let y in currentFields) {
@@ -69,7 +77,7 @@ function manureSetup (planYear, multipleManures, singleManures, multipleFertilis
     planYear.singleFertilisersApplied = singleFertilisers
 };
 
-function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, groups) {
+function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety,) {
     var newGroup = {
         reference: reference,
         year: year,

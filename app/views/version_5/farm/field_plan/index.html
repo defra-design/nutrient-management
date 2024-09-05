@@ -30,7 +30,6 @@
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 
   <div class="govuk-grid-column-full">
@@ -39,7 +38,7 @@
       {% include "./templates/success_message.html.html" ignore missing %}
     {% endif %}
 
-    <h1 class="govuk-heading-l margin-bottom-forty">{{data.chosen_field.name}} plan for harvest year {{data.oaktree_farm.planning_year}}</h1>
+    <h1 class="govuk-heading-l margin-bottom-forty">{{data.chosen_field.name}} plan {{data.oaktree_farm.planning_year}}</h1>
 
     <div class="govuk-tabs" data-module="govuk-tabs">
       <h2 class="govuk-tabs__title">Contents</h2>

@@ -335,6 +335,17 @@ router.get(/field_level_plan_handler/, function (req, res) {
     res.redirect('../field_plan/index')
 })
 
+router.get(/field_level_plan_v5_handler/, function (req, res) { 
+    req.session.data.show_success_message = false
+    // console.log('req.query.chosen_field ' + req.query.chosen_field)
+    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field)
+    // console.log(req.session.data.chosen_field)
+    req.session.data.chosen_crop = req.query.cropreference
+    req.session.data.chosen_variety = req.query.variety
+    res.redirect('../field_plan/index')
+})
+
+
 router.get(/mvpfield_plan_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field.reference)

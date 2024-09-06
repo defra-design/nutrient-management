@@ -2,10 +2,6 @@
   <h2 class="govuk-heading-m non-standard">Crop details</h2>
   <p class="govuk-body">These are are the planned crops for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p>
  
-  {% if data.plan_2024.forageCrop != true %}
-    <p class="govuk-body"><a href="#">Add a second crop to {{data.chosen_field.name}} for harvest year {{data.oaktree_farm.planning_year}}</a></p>      
-  {% endif %}
-
   <hr class="seperator_five">
 
   <div class="margin-bottom-forty">
@@ -34,6 +30,7 @@
   {% endfor %}
 
   {% if appears_in_other_groups == true %}
+  <hr class="seperator_five">
   <h2 class="govuk-heading-m">{{second_crop_reference | nameconverter}} details</h2>
   {% if data.chosen_crop != 'Grass' and data.chosen_crop != 'grass' %}
     {% include "./templates/other-crop-details.html" ignore missing %}

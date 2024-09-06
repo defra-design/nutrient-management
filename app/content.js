@@ -4,7 +4,8 @@ var content = {
     harvest_year : "harvest year 2024",
     todays_date : "2 September 2024",
     manure_measurement : "tonnes",
-    content_loaded  : "Content loaded"
+    content_loaded  : "Content loaded",
+    defoliations  : "Cuts and grazes"
 };
 
 module.exports.content = content;

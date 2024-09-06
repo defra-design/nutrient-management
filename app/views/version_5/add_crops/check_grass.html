@@ -29,13 +29,13 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How many defoliations will you have in these fields?</dt>
+    <dt class="govuk-summary-list__key">How many {{data.content.defoliations | lower}} will you have in these fields?</dt>
     <dd class="govuk-summary-list__value">4</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Defoliations</dt>
+    <dt class="govuk-summary-list__key">{{data.content.defoliations}}</dt>
     <dd class="govuk-summary-list__value">
      1 - {{data.defoliation_one | capitalize}}<br>
      2 - {{data.defoliation_two | capitalize}}<br>

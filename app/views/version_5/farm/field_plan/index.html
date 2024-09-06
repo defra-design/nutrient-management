@@ -32,11 +32,16 @@
 
 <div class="govuk-grid-row">
 
-  <div class="govuk-grid-column-full">
-
+  <div class="govuk-grid-column-two-thirds">
     {% if data.show_success_message == true %}
       {% include "./templates/success_message.html.html" ignore missing %}
     {% endif %}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-l margin-bottom-forty">{{data.chosen_field.name}} plan {{data.oaktree_farm.planning_year}}</h1>
 

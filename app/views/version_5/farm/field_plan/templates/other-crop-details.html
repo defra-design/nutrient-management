@@ -3,7 +3,11 @@
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Variety</td>
-      <td class="govuk-table__cell">{{data.chosen_variety}}</td>
+      {% if  data.chosen_group.variety == null %}
+        <td class="govuk-table__cell">Not entered</td>
+      {% else %}
+        <td class="govuk-table__cell">{{data.chosen_group.variety}}</td>
+      {% endif %}
     </tr>         
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Sowing date</td>
@@ -11,7 +15,7 @@
     </tr>      
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Estimated yield</td>
-      <td class="govuk-table__cell">8 tonnes per hecare</td>
+      <td class="govuk-table__cell">8 tonnes per hectare</td>
     </tr>
   </tbody>
 </table>  

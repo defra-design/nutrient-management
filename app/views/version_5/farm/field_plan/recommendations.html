@@ -2,7 +2,7 @@
   <h2 class="govuk-heading-m non-standard">Nutrient recommendations</h2>
   <hr class="seperator_five">
 
-  <h2 class="govuk-heading-m">Nutrient recommendations for {{data.chosen_crop | nameconverter}}  in  {{data.chosen_field.name}}</h2>
+  <h2 class="govuk-heading-m">Nutrient recommendations for {{data.chosen_group.crop_reference}}  in  {{data.chosen_field.name}}</h2>
   <p class="govuk-body">Amounts are per hectare.</p>
   {% if data.chosen_crop == 'Grass' or data.chosen_crop == 'grass' %}
     {% include "./templates/v4_grass_empty.html" ignore missing %}
@@ -55,5 +55,52 @@
       </div>
     {% endif %}  
   {% endif %}
+
+
+  {% set appears_in_other_groups = false %}
+  {% set second_crop_reference = null %}
+
+  {% for group in data.cropGroupsV5 %}
+    {% if group.reference != data.chosen_group.reference %}
+      {% for field in group.fields %}
+        {% if field.reference == data.chosen_field.reference %}
+          {% set appears_in_other_groups = true %}
+          {% set second_crop_reference = group.crop_reference %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+  <!-- TESTS IMPORTANT
+  <p>group = {{data.chosen_group.reference}}</p>
+  <p>field = {{data.chosen_field.name}}</p>
+
+  <p>appears_in_other_groups? = {{appears_in_other_groups}}</p>
+  <p>reference? = {{second_crop_reference}}</p> -->
+
+    {% if appears_in_other_groups == true %}
+      <h2 class="govuk-heading-m">Nutrient recommendations for {{secondCrop | nameconverter}}  in  {{data.chosen_field.name}}</h2>
+      {% if data.chosen_crop == 'Grass' or data.chosen_crop == 'grass' %}
+        <p class="govuk-body-s">These recommendations are for {{data.chosen_field.name}}, harvest year {{data.oaktree_farm.planning_year}}</p>
+        {% include "./templates/v4_grass_empty.html" ignore missing %}
+      {% else %}
+        {% if data.plan_2024.multipleFertilisersApplied == true or data.plan_2024.singleFertilisersApplied == true %}
+          {% include "./templates/v4_nutrients_one_fertiliser.html" ignore missing %}
+        {% elif data.plan_2024.multipleManuresApplied == true or data.plan_2024.singleManuresApplied == true %}
+          {% include "./templates/v4_nutrients_one_organic.html" ignore missing %}
+        {% else %}
+          {% include "./templates/v4_nutrients_empty.html" ignore missing %}
+        {% endif %}
+      {% endif %}
+      <h2 class="govuk-heading-s">Guidance</h2>
+      <div class="guidance">
+        <p class="govuk-body">
+          Apply no more than 100 kg N/ha at sowing or transplanting then apply
+          N according to crop growth, e.g. up to 60 kg N/ha per month in the south-west and 20 kg N/ha in the north. 
+          Where seedbed SNS exceeds 4 and crops are likely to be harvested in April or later, top-dress N at the start of spring growth allowing for any over-winter losses of N.
+        </p>
+      </div>
+  
+    {% endif %}
 
 </div>

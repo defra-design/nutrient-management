@@ -6,6 +6,15 @@ function getFieldByReference (currentFarmFields, referenceNumber) {
     }
   };
 
+  function getGroupByReference (currentGroups, referenceNumber) {
+    for (let group in currentGroups) {
+      if (currentGroups[group].reference == referenceNumber) {
+          return currentGroups[group]
+      }
+    }
+  };
+
+
 //   function getFieldByReference (currentFarmFields, referenceNumber) {
 //     for (let field in currentFarmFields) {
 //       if (currentFarmFields[field].reference == referenceNumber) {
@@ -77,7 +86,7 @@ function manureSetup (planYear, multipleManures, singleManures, multipleFertilis
     planYear.singleFertilisersApplied = singleFertilisers
 };
 
-function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety,) {
+function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety) {
     var newGroup = {
         reference: reference,
         year: year,
@@ -87,7 +96,6 @@ function createCropGroup (reference, year, field_references, current_fields, cro
     }
     return newGroup
 }
-
 
 function getCropByReference (referenceNumber, crops) {
     let cropToReturn
@@ -115,6 +123,7 @@ function getCropByReference (referenceNumber, crops) {
 
 module.exports.printCropGroup = printCropGroup;
 module.exports.getFieldByReference = getFieldByReference;
+module.exports.getGroupByReference = getGroupByReference;
 module.exports.getMultipleFieldsByReferences = getMultipleFieldsByReferences;
 module.exports.totalFieldsCount = totalFieldsCount;
 module.exports.basicSetup = basicSetup;

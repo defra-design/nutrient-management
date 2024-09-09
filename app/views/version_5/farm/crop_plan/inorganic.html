@@ -1,11 +1,3 @@
-{% set inorganics = false %}
-{% for group in data.fertiliserGroupsV5 %}
-  {% if group.organic == false %}
-    {% set inorganics = true %}
-  {% endif %}
-{% endfor %}
-
-
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="inorganic">
   <div class="margin-bottom-forty">
     <h2 class="govuk-heading-m non-standard">Inorganic fertiliser applications</h2>

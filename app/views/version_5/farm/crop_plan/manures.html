@@ -1,9 +1,3 @@
-{% set organics = false %}
-{% for group in data.fertiliserGroupsV5 %}
-  {% if group.organic == true %}
-    {% set organics = true %}
-  {% endif %}
-{% endfor %}
 
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="organic">
   <div class="margin-bottom-forty">

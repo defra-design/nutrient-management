@@ -8,7 +8,6 @@
       </p>
     <p>--</p> -->
   
-
   <h2 class="govuk-heading-m">
     {% if group.variety == null %}
       {{group.crop_reference | nameconverter  }} <span class="nonbold">&nbsp;(Group {{group.reference}})</span>
@@ -34,17 +33,15 @@
         <td class="govuk-table__cell">{{field.name}}</td>
 
         <td class="govuk-table__cell" class="govuk-table__header">
-          {% if data.plan_2024.multipleManuresApplied == true and data.plan_2024.singleManuresApplied == false %}
+          {% if organics == true %}
             1
-          {% elif data.plan_2024.multipleManuresApplied == true and data.plan_2024.singleManuresApplied == true %}
-            2
           {% else %}
             None
           {% endif %}
         </td>
 
         <td class="govuk-table__cell" class="govuk-table__header">
-          {% if data.plan_2024.multipleFertilisersApplied == true or data.plan_2024.singleFertilisersApplied %}
+          {% if inorganics == true %}
             1
           {% else %}
             None

@@ -572,10 +572,10 @@ router.get(/version2_fertiliser_handler/, function (req, res) {
     req.session.data.show_manure_notification = false    
     req.session.data.fertiliser_count = 0
     if (req.session.data.fertiliser_journey == 'multi') {
-        req.session.data.plan_2024.multipleFertilisersApplied = true
+        req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (2, 2024, [11,12,13,14,15,16,17,18,19,20], req.session.data.all_fields, false, 'Nitrogen(N)', false, '1 September 2024'))
         res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
     } else {
-        req.session.data.plan_2024.singleFertilisersApplied = true
+        req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (2, 2024, [11,12,13,14,15,16,17,18,19,20], req.session.data.all_fields, false, 'Nitrogen(N)', false, '1 September 2024'))
         res.redirect('/' + req.session.data.prototype_version + '/farm/field_plan/index') 
     }
 })

@@ -53,7 +53,6 @@ const CropGroup = require('./functions/crop_group.js');
 // cropGroupV5_1.crop_reference = 'Oilseed-Spring'
 // cropGroupV5_1.variety = 'Aurelia'
 
-
 ///////Manures
 const manure_types_digestate = require('./data/manure_types_digestate.json');
 const manure_types_other = require('./data/manure_types_other.json');

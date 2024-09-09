@@ -22,6 +22,7 @@
   {% endif %}
 
   <div class="govuk-grid-row">
+
     <div class="govuk-grid-column-two-thirds">
       
       <!-- {% include "templates/title_span.html" %} -->
@@ -40,58 +41,45 @@
       <form class="form" action="fertiliser_amount" method="post">
 
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="august" name="fertiliser_date" type="radio" value="August to September">
-                <label class="govuk-label govuk-radios__label" for="august">
-                  August to September
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="october" name="fertiliser_date" type="radio" value="October to December">
-                <label class="govuk-label govuk-radios__label" for="october">
-                  October to December
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="january" name="fertiliser_date" type="radio" value="January to mid February">
-                <label class="govuk-label govuk-radios__label" for="january">
-                  January to mid February
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="February" name="fertiliser_date" type="radio" value=" Mid February to early March">
-                <label class="govuk-label govuk-radios__label" for="February">
-                  Mid February to early March
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="march" name="fertiliser_date" type="radio" value="Mid March to early April">
-                <label class="govuk-label govuk-radios__label" for="march">
-                  Mid March to early April
-                </label>
-              </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="april" name="fertiliser_date" type="radio" value="Mid April to early May">
-              <label class="govuk-label govuk-radios__label" for="april">
-                Mid April to early May
-              </label>
+          <!-- <div class="govuk-inset-text"> -->
+            <!-- <div id="closed-period">
+              <p class="">Your closed period for spreading organic manures with high readily available nitrogen is:</p>
+              <h3 class="govuk-heading-s">1 October 2024 to 31 January 2025</h3>
+              <p>Based on your crop, soil type and farm details.</p>
+            </div> -->
+            <div class="govuk-hint">
+              If you don't know the exact application date enter an estimate. You can change it later.<br>
             </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="may" name="fertiliser_date" type="radio" value="Mid May to early June">
-            <label class="govuk-label govuk-radios__label" for="may">
-              Mid May to early June
-            </label>
-          </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="june" name="fertiliser_date" type="radio" value="Mid June to July">
-          <label class="govuk-label govuk-radios__label" for="june">
-            Mid June to July
-          </label>
-        </div>
-
-
+            <div class="govuk-hint">
+              The format is '21 06 2024'.
+            </div>
+          <!-- </div> -->
+            <div class="govuk-date-input" id="passport-issued">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
           </fieldset>
         </div>
 
@@ -102,6 +90,7 @@
       </form>
 
     </div>
+
   </div>
 
   <p class="govuk-body">

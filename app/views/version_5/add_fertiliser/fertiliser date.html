@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
@@ -13,35 +15,59 @@
 
 {% block content %}
 
-  {% if data.manure_spreads == 0 %}
-    {% set manure_count = "first" %}
-  {% else %}
-    {% set manure_count = "Continue" %}
-  {% endif %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      
-      <!-- {% include "templates/title_span.html" %} -->
+
+      {% if data.show_manure_notification == true %}
+        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Important
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <p class="govuk-notification-banner__heading">
+              The date you entered is inside the closed spreading period of 1 October to 31 January.
+            </p>
+            <p class="govuk-body"><a class="govuk-notification-banner__link" target="_blank" href="https://www.gov.uk/guidance/using-nitrogen-fertilisers-in-nitrate-vulnerable-zones#:~:text=If%20the%20land%20is%20irrigated,500kg%20of%20nitrogen%20per%20hectare.">Find out more (opens in a  new tab)</a></p>
+          </div>
+        </div>
+      {% endif %}
 
       <h1 class="govuk-heading-l">
-        When do you first plan to spread {{data.content.non_organic_term | lower}} on the Winter Wheat Fields?
+        {% if data.manure_count == 0 %}
+          {% if data.manure_journey == 'multi' %}
+            When are you applying {{data.manure_type.name}} on these fields?
+          {% else %}
+            When are you applying {{data.manure_type.name}} on {{data.chosen_field.name}}?
+          {% endif %}
+        {% else %}
+          {% if data.manure_journey == 'multi' %}
+            When are you applying {{data.manure_type.name}} on these fields?
+          {% else %}
+            When are you applying {{data.manure_type.name}} on {{data.chosen_field.name}}?
+          {% endif %}
+        {% endif %}
       </h1>
 
-      <!-- <p>Enter the estimated date you firdst plan to apply {{data.content.organic_term | lower}} to the Winter Wheat fields, you can change the date for individual fields later.</p> -->
+      <!-- <p>Enter the estimated date you first plan to apply {{data.content.organic_term | lower}} to the Winter Wheat fields, you can change the date for individual fields later.</p> -->
 
       <form class="form" action="fertiliser_amount" method="post">
 
         <div class="govuk-form-group">
-          <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                When was your passport issued?
-              </h1>
-            </legend> -->
-            <div id="passport-issued-hint" class="govuk-hint">
-              Enter an estimated date, for example, 27 3 2023, you can change the date for individual fields later.
+          <!-- <div class="govuk-inset-text"> -->
+            <div id="closed-period">
+              <p class="">Your closed period for spreading organic manures with high readily available nitrogen is:</p>
+              <h3 class="govuk-heading-s">1 October 2024 to 31 January 2025</h3>
+              <p>Based on your crop, soil type and farm details.</p>
             </div>
+            <div class="govuk-hint">
+              If you don't know the exact application date enter an estimate. You can change it later.<br>
+            </div>
+            <div class="govuk-hint">
+              The format is '21 06 2024'.
+            </div>
+          <!-- </div> -->
             <div class="govuk-date-input" id="passport-issued">
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
@@ -76,6 +102,7 @@
         }) }}
 
       </form>
+
 
     </div>
   </div>

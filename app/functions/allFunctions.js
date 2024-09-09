@@ -97,6 +97,20 @@ function createCropGroup (reference, year, field_references, current_fields, cro
     return newGroup
 }
 
+function createApplicationGroup (reference, year, field_references, current_fields, organic, manure_type, single_application, application_date) {
+    var newGroup = {
+        reference: reference,
+        year: year,
+        fields: getMultipleFieldsByReferences(field_references, current_fields),
+        organic: organic,
+        manure_type: manure_type,
+        single_application: single_application,
+        application_date: application_date
+    }
+    return newGroup
+}
+
+
 function getCropByReference (referenceNumber, crops) {
     let cropToReturn
     for (let crop in crops) {
@@ -131,3 +145,4 @@ module.exports.farmSetup = farmSetup;
 module.exports.cropSetup = cropSetup;
 module.exports.manureSetup = manureSetup;
 module.exports.createCropGroup = createCropGroup;
+module.exports.createApplicationGroup = createApplicationGroup;

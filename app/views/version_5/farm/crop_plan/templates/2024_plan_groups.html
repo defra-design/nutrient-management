@@ -30,6 +30,7 @@
 
     <tbody class="govuk-table__body">
     {% set hasManure = false %}
+    {% set hasInnorganic = false %}
     {% for field in group.fields %}
 
       {% for manureGroup in data.fertiliserGroupsV5 %}
@@ -39,9 +40,14 @@
               {% set hasManure = true %}
             {% endif %}
           {% endfor %}
+        {% else %}
+          {% for fertField in manureGroup.fields %}
+            {% if fertField.reference == field.reference %}
+              {% set hasInnorganic = true %}
+            {% endif %}
+          {% endfor %}
         {% endif %}
       {% endfor %}
-
 
       <tr class="govuk-table__row">
         <td class="govuk-table__cell">{{field.name}}</td>
@@ -55,7 +61,7 @@
         </td>
 
         <td class="govuk-table__cell" class="govuk-table__header">
-          {% if inorganics == true %}
+          {% if hasInnorganic == true %}
             1
           {% else %}
             None

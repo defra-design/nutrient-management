@@ -160,12 +160,17 @@ router.get('/', function (req, res) {
 
     req.session.data.prototype_version = 'mvp'
 
+    // new fields management
+    req.session.data.all_fields = all_fields
+
     // version 5
     // req.session.data.cropGroup = require('./functions/crop_group.js');
     req.session.data.cropGroupsV5 = []
-=    
-    // new fields management
-    req.session.data.all_fields = all_fields
+    req.session.data.fertiliserGroupsV5 = []
+    req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (1, 2024, [11,12,13,14,15,16,17,18,19,20], req.session.data.all_fields, true, 'Cattle Farmyard manure - Fresh', false, '1 July 2024'))
+    console.log(req.session.data.fertiliserGroupsV5)
+    // function createApplicationGroup (reference, year, field_references, current_fields, organic, manure_type, single_application, application_date) {
+    // req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(newRef, 2024, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, req.session.data.variety))
 
     res.render('index')
 })

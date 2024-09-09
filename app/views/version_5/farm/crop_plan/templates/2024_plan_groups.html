@@ -27,13 +27,27 @@
         <th scope="col" class="govuk-table__header"> </th>
       </tr>
     </thead>
+
     <tbody class="govuk-table__body">
+    {% set hasManure = false %}
     {% for field in group.fields %}
+
+      {% for manureGroup in data.fertiliserGroupsV5 %}
+        {% if manureGroup.organic == true %}
+          {% for manureField in manureGroup.fields %}
+            {% if manureField == field.reference %}
+              {% set hasManure = true %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+
+
       <tr class="govuk-table__row">
         <td class="govuk-table__cell">{{field.name}}</td>
 
         <td class="govuk-table__cell" class="govuk-table__header">
-          {% if organics == true %}
+          {% if hasManure == true %}
             1
           {% else %}
             None

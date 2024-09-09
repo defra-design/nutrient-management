@@ -18,5 +18,5 @@
 {"reference":17, "name":"Short Field", "planStatus":false, "crop": null, "soil": null},
 {"reference":18, "name":"Low meadow", "planStatus":false, "crop": null, "soil": null},
 {"reference":19, "name":"High meadow", "planStatus":false, "crop": null, "soil": null},
-{"reference":20, "name":"Short Field", "planStatus":false, "crop": null, "soil": null}
+{"reference":20, "name":"High barns", "planStatus":false, "crop": null, "soil": null}
 ]

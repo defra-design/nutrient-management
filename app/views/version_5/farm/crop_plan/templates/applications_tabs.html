@@ -8,13 +8,31 @@
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-
-  <tr class="govuk-table__row">
-    <td class="govuk-table__cell">30 August 2023</td>
-    <td class="govuk-table__cell">Cattle Farmyard Manure - Fresh</td>
-    <td class="govuk-table__cell">5</td>
-    <td class="govuk-table__cell"><a href="#">Change</a></td>
-  </tr>      
-
+    {% for group in data.fertiliserGroupsV5 %}
+      {% if group.organic == true %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{group.application_date}}</td>
+          <td class="govuk-table__cell">{{group.manure_type}}</td>
+          <td class="govuk-table__cell">{{group.fields.length}}</td>
+          <td class="govuk-table__cell"><a href="#">Change</a></td>
+        </tr>      
+      {% endif %} 
+    {% endfor %} 
   </tbody>
 </table>
+
+   <!-- {% for group in data.fertiliserGroupsV5 %}
+    <p>reference {{group.reference}}</p>
+    <p>year {{group.year}}</p>
+    <p>
+      {% for field in group.fields %}
+        {{field}} ,
+      {% endfor %}  
+    </p>
+    <p>fields.length {{group.fields.length}}</p>
+    <p>organic {{group.organic}}</p>
+    <p>manure_type {{group.manure_type}}</p>
+    <p>single_application {{group.single_application}}</p>
+    <p>application_date {{group.application_date}}</p>
+  {% endfor %}  
+  -->

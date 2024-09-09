@@ -8,22 +8,18 @@
       <th scope="col" class="govuk-table__header"></th>
     </tr>
   </thead>
-  <tbody class="govuk-table__body">
 
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">August to September</td>
-      <td class="govuk-table__cell">Nitrogen (N) and Sulphur (SO3) </td>
-      <td class="govuk-table__cell">5</td>
-      <td class="govuk-table__cell"><a href="#">Change</a></td>
-    </tr>
-
-    {% if data.plan_2024.singleFertilisersApplied == true %}
-      <tr class="govuk-table__row">
-        <td class="govuk-table__cell">Mid April to early May</td>
-        <td class="govuk-table__cell">Nitrogen only</td>
-        <td class="govuk-table__cell">1</td>
-      </tr>
-    {% endif %}
-
-  </tbody>
+    <tbody class="govuk-table__body">
+      {% for group in data.fertiliserGroupsV5 %}
+        {% if group.organic == false %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{group.application_date}}</td>
+            <td class="govuk-table__cell">{{group.manure_type}}</td>
+            <td class="govuk-table__cell">{{group.fields.length}}</td>
+            <td class="govuk-table__cell"><a href="#">Change</a></td>
+          </tr>      
+        {% endif %} 
+      {% endfor %} 
+    </tbody>
+  
 </table>

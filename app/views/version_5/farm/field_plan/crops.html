@@ -6,7 +6,7 @@
 
   <div class="tabs-thirds margin-bottom-forty">
     <h2 class="govuk-heading-m">{{data.chosen_group.crop_reference | nameconverter}} details</h2>
-    {% if data.chosen_crop != 'Grass' and data.chosen_crop != 'grass' %}
+    {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' %}
       {% include "./templates/other-crop-details.html" ignore missing %}
     {% else %}
       {% include "./templates/grass-details.html" ignore missing %}
@@ -29,15 +29,17 @@
     {% endif %}
   {% endfor %}
 
-  {% if appears_in_other_groups == true %}
-  <hr class="seperator_five">
-  <h2 class="govuk-heading-m">{{second_crop_reference | nameconverter}} details</h2>
-  {% if data.chosen_crop != 'Grass' and data.chosen_crop != 'grass' %}
-    {% include "./templates/other-crop-details.html" ignore missing %}
-  {% else %}
-    {% include "./templates/grass-details.html" ignore missing %}
-  {% endif %}
-  <p class="govuk-body"><a href="#">Change the {{second_crop_reference | nameconverter}} plan for {{data.chosen_field.name}} </a></p>
+  {% if appears_in_other_groups == true and second_crop_reference != data.chosen_group.crop_reference %}
+    <hr class="seperator_five">
+    <div class="tabs-thirds margin-bottom-forty">
+      <h2 class="govuk-heading-m">{{second_crop_reference | nameconverter}} details</h2>
+      {% if data.second_crop_reference != 'Grass' and data.second_crop_reference != 'grass' %}
+        {% include "./templates/other-crop-details.html" ignore missing %}
+      {% else %}
+        {% include "./templates/grass-details.html" ignore missing %}
+      {% endif %}
+      <p class="govuk-body"><a href="#">Change the {{second_crop_reference | nameconverter}} plan for {{data.chosen_field.name}} </a></p>
+    </div>
 {% endif %}
 
 </div>

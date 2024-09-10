@@ -43,7 +43,7 @@
           {% endfor %}
         {% else %}
           {% for fertField in manureGroup.fields %}
-            {% if fertField.reference == field.reference %}
+            {% if fertField == field.reference %}
               {% set hasInnorganic = true %}
             {% endif %}
           {% endfor %}

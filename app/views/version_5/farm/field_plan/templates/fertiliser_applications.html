@@ -12,20 +12,10 @@
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">August to September</td>
-      <td class="govuk-table__cell">10 kg</td>
-      <td class="govuk-table__cell">0</td>
-      <td class="govuk-table__cell">0</td>
-      <td class="govuk-table__cell">0</td>
-      <td class="govuk-table__cell">0</td>
-      <td class="govuk-table__cell"><a href="#">Change</a></td>
-    </tr>
-
-    {% if data.plan_2024.singleFertilisersApplied == true %}
+    {% for group in data.fertiliserGroupsV5 %}
+      {% if group.organic == false %}
       <tr class="govuk-table__row">
-        <td class="govuk-table__cell">August to September</td>
+        <td class="govuk-table__cell">{{group.application_date}}</td>
         <td class="govuk-table__cell">10 kg</td>
         <td class="govuk-table__cell">0</td>
         <td class="govuk-table__cell">0</td>
@@ -33,7 +23,20 @@
         <td class="govuk-table__cell">0</td>
         <td class="govuk-table__cell"><a href="#">Change</a></td>
       </tr>
-    {% endif %}
-
+      {% endif %} 
+    {% endfor %}
   </tbody>
 </table>
+
+
+    <!-- {% for group in data.fertiliserGroupsV5 %}
+      {% if group.organic == true %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{group.application_date}}</td>
+          <td class="govuk-table__cell">{{group.manure_type}}</td>
+          <td class="govuk-table__cell">Broadcast spreader</td>
+          <td class="govuk-table__cell">40 tonnes per hectare</td>
+            <td class="govuk-table__cell"><a href="#">Change</a></td>
+        </tr>      
+    {% endif %} 
+  {% endfor %}  -->

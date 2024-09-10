@@ -72,7 +72,7 @@
           {% if field == data.chosen_group.reference %}
             {% if group.organic == true %}
               {% set organics = true %}
-            {% elif group.inorganic == true %}
+            {% else %}
               {% set inorganics = true %}
             {% endif %}
           {% endif %}

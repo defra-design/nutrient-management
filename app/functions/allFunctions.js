@@ -101,7 +101,7 @@ function createApplicationGroup (reference, year, field_references, current_fiel
     var newGroup = {
         reference: reference,
         year: year,
-        fields: getMultipleFieldsByReferences(field_references, current_fields),
+        fields: field_references,
         organic: organic,
         manure_type: manure_type,
         single_application: single_application,

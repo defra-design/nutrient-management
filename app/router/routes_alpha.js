@@ -344,12 +344,9 @@ router.get(/field_level_plan_v5_handler/, function (req, res) {
     //group.reference 
     req.session.data.chosen_group = req.query.groupref
     req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.cropGroupsV5, req.query.groupref)
-    console.log(req.session.data.chosen_group)
     //field reference
     req.session.data.chosen_field = req.query.fieldref
-    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)
-    console.log(req.session.data.chosen_field)
-    
+    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)    
     req.session.data.show_success_message = false    
     res.redirect('../field_plan/index')
 })

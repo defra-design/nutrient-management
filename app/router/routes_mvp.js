@@ -179,7 +179,6 @@ router.get(/previous_group_handler/, function (req, res) {
         req.session.data.chosen_crop = 'Grass'
         next = 'previous-grass'
     } 
-    console.log(req.session.data.chosen_crop)
     res.redirect(next)
 })
 
@@ -572,10 +571,10 @@ router.get(/version2_fertiliser_handler/, function (req, res) {
     req.session.data.show_manure_notification = false    
     req.session.data.fertiliser_count = 0
     if (req.session.data.fertiliser_journey == 'multi') {
-        req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (2, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, false, 'Nitrogen(N)', false, '1 September 2024'))
+        req.session.data.plan_2024.multipleFertilisersApplied = true
         res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
     } else {
-        req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (2, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, false, 'Nitrogen(N)', false, '1 September 2024'))
+        req.session.data.plan_2024.singleFertilisersApplied = true
         res.redirect('/' + req.session.data.prototype_version + '/farm/field_plan/index') 
     }
 })

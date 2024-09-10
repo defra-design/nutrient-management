@@ -1,6 +1,24 @@
+{% set organics = false %}
+{% set inorganics = false %}
+{% for group in data.fertiliserGroupsV5 %}
+  {% for field in group.fields %}
+    {% if field == data.chosen_group.reference %}
+      {% if group.organic == true %}
+        {% set organics = true %}
+      {% elif group.inorganic == true %}
+        {% set inorganics = true %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+<!-- {{organics}}
+{{inorganics}} -->
+
+
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="manures">
   <h2 class="govuk-heading-m non-standard">Organic and inorganic material applications</h2>
-  {% if data.plan_2024.singleFertilisersApplied == true or data.plan_2024.multipleFertilisersApplied == true or data.plan_2024.singleManuresApplied == true or data.plan_2024.multipleManuresApplied == true %}
+  {% if organics == true or inorganics == true %}
     <p class="govuk-body">These are are the planned organic and inorganic material applications for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p>
     <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add an {{data.content.non_organic_term | lower}} application for {{data.chosen_field.name}}</a></p>
     <p class="govuk-body"><a href="v2manure_handler?manurejourney=single">Add an {{data.content.organic_term | lower}} application for {{data.chosen_field.name}}</a></p>
@@ -11,7 +29,7 @@
   <div class="margin-bottom-forty">
     <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
       
-    {% if data.plan_2024.singleManuresApplied == false and data.plan_2024.multipleManuresApplied == false %}
+    {% if organics == false %}
       <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned for {{data.chosen_field.name}}.</p>
       <p class="govuk-body"><a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
     {% else %}
@@ -21,7 +39,7 @@
 
   <!-- fertiliser -->
   <h2 class="govuk-heading-m">{{data.content.non_organic_term}} applications</h2>
-  {% if data.plan_2024.singleFertilisersApplied == false and data.plan_2024.multipleFertilisersApplied == false %}
+  {% if inorganics == false %}
     <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned for {{data.chosen_field.name}}.</p>
     <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add {{data.content.non_organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
   {% else %}

@@ -29,9 +29,10 @@
     </thead>
 
     <tbody class="govuk-table__body">
+    {% for field in group.fields %}
     {% set hasManure = false %}
     {% set hasInnorganic = false %}
-    {% for field in group.fields %}
+
 
       {% for manureGroup in data.fertiliserGroupsV5 %}
         {% if manureGroup.organic == true %}

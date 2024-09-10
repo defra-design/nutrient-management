@@ -579,5 +579,14 @@ router.get(/version2_fertiliser_handler/, function (req, res) {
         res.redirect('/' + req.session.data.prototype_version + '/farm/field_plan/index') 
     }
 })
+
+router.get(/fertiliser_v5_handler/, function (req, res) { 
+    req.session.data.show_success_message = true
+    req.session.data.show_fertiliser_notification = true
+    req.session.data.show_manure_notification = false    
+    req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (2, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, false, 'Nitrogen(N)', false, '1 September 2024'))
+    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+})
+
     
 module.exports = router

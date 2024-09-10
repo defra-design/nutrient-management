@@ -64,7 +64,21 @@
           </a>
         </li>
       </ul>
-      
+
+      {% set organics = false %}
+      {% set inorganics = false %}
+      {% for group in data.fertiliserGroupsV5 %}
+        {% for field in group.fields %}
+          {% if field == data.chosen_group.reference %}
+            {% if group.organic == true %}
+              {% set organics = true %}
+            {% elif group.inorganic == true %}
+              {% set inorganics = true %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+
       <!-- crops -->
       {% include "./recommendations.html" ignore missing %}
       

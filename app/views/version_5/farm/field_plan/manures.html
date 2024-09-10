@@ -1,21 +1,3 @@
-{% set organics = false %}
-{% set inorganics = false %}
-{% for group in data.fertiliserGroupsV5 %}
-  {% for field in group.fields %}
-    {% if field == data.chosen_group.reference %}
-      {% if group.organic == true %}
-        {% set organics = true %}
-      {% elif group.inorganic == true %}
-        {% set inorganics = true %}
-      {% endif %}
-    {% endif %}
-  {% endfor %}
-{% endfor %}
-
-<!-- {{organics}}
-{{inorganics}} -->
-
-
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="manures">
   <h2 class="govuk-heading-m non-standard">Organic and inorganic material applications</h2>
   {% if organics == true or inorganics == true %}

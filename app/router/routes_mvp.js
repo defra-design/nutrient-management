@@ -158,7 +158,10 @@ router.get(/sns_handler/, function (req, res) {
 })
 
 router.get(/sns_v3_handler/, function (req, res) { 
-    let next = (req.session.data.sns_method == "no") ? 'check' : 'sns/date'
+    let next = 'check'
+    if (req.session.data.sns_method == "yes") {
+        next = 'sns/date'
+    }
     res.redirect(next)
 })
 

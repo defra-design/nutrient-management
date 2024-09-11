@@ -122,6 +122,11 @@ function getCropByReference (referenceNumber, crops) {
     return cropToReturn
 };
 
+function totalFieldCount () {
+    counter = 100
+    return counter
+};
+
  function printCropGroup(group) {
     console.log(  'group' +
                   group.year + ", " +
@@ -146,3 +151,4 @@ module.exports.cropSetup = cropSetup;
 module.exports.manureSetup = manureSetup;
 module.exports.createCropGroup = createCropGroup;
 module.exports.createApplicationGroup = createApplicationGroup;
+module.exports.createApplicationGroup = totalFieldCount;

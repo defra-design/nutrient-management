@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/templates/signed-in.html" ignore missing %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  {% set totalFields = 0 %}
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Change an organic manure application for multiple Fields</h1>
+
+      <table class="govuk-table">
+        <!-- <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date</th>
+            <th scope="col" class="govuk-table__header">Amount</th>
+          </tr>
+        </thead> -->
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">What type of organic manure are you using in this application?</th>
+            <td class="govuk-table__cell">Cattle Farmyard manure - Old</td>
+            <td class="govuk-table__cell"><a href="#">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">When are you applying organic manure on these fields?</th>
+            <td class="govuk-table__cell">10 September 2024</td>
+            <td class="govuk-table__cell"><a href="#">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Fields</th>
+            <td class="govuk-table__cell">
+              Long Field<br>
+              Barn Field<br>
+              Orchard<br>
+              Valley<br>
+              Poplar<br>
+              Oaks<br>
+              Narrow field<br>
+              25 Acres<br>
+              Shed<br>
+              Park 1
+            </td>
+            <td class="govuk-table__cell"><a href="#">Change</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <form action="version5_manure_handler" method="post" novalidate>
+        {{ govukButton({
+          text: "Update"
+        }) }}
+      </form>
+
+      <p class="govuk-body">
+        <a href="field_plan">Cancel</a>
+      </p>
+  
+  </div>
+
+</div>
+
+{% endblock %}

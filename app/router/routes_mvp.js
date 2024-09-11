@@ -434,6 +434,15 @@ router.get(/version2_manure_handler/, function (req, res) {
     }
 })
 
+router.get(/version5_manure_handler/, function (req, res) { 
+    req.session.data.show_success_message = true
+    req.session.data.show_fertiliser_notification = false
+    req.session.data.show_manure_notification = true   
+    req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (2, 2024, [1,2,3,4,5], req.session.data.all_fields, true, 'Cattle Farmyard manure - Old', false, '10 September 2024'))
+    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+
+})
+
 router.get(/manureagain_handler/, function (req, res) { 
     if (req.session.data.manureagain == "yes") {
         req.session.data.manure_count++

@@ -165,6 +165,7 @@ router.get(/add_fertiliser_setup/, function (req, res) {
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(2, 2024, [11,12,13,14,15,16,17,18,19,20], req.session.data.all_fields, 'grass', null))
     req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (1, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, true, 'Cattle Farmyard manure - Old', false, '10 September 2024'))
     req.session.data.prototype_version = req.query.version
+    console.log(req.session.data.fertiliserGroupsV5)
     res.redirect('/' + req.query.version + '/start')
 })
 

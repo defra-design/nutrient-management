@@ -1,5 +1,6 @@
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="manures">
-  <h2 class="govuk-heading-m non-standard">Organic and inorganic material applications for for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}</h2>
+  <h2 class="govuk-heading-m non-standard">Organic and inorganic material applications</h2>
+  <p class="govuk-body">These are the organic and inorganic material applications for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}</p>
   {% if organics == true or inorganics == true %}
     <!-- <p class="govuk-body">These are are the planned organic and inorganic material applications for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p> -->
     <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add an {{data.content.non_organic_term | lower}} application for {{data.chosen_field.name}}</a></p>

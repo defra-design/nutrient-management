@@ -1,6 +1,6 @@
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="crops">
-  <h2 class="govuk-heading-m non-standard">Crop details</h2>
-  <p class="govuk-body">These are are the planned crops for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p>
+  <h2 class="govuk-heading-m non-standard">Crop details for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}</h2>
+    <!-- <p class="govuk-body">These are are the planned crops for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p> -->
  
   <hr class="seperator_five">
 
@@ -11,7 +11,7 @@
     {% else %}
       {% include "./templates/grass-details.html" ignore missing %}
     {% endif %}
-    <p class="govuk-body"><a href="#">Change the {{data.chosen_group.crop_reference | nameconverter}} plan for {{data.chosen_field.name}} </a></p>
+    <p class="govuk-body"><a href="#">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
   </div>
 
   <!-- second crop -->
@@ -38,7 +38,7 @@
       {% else %}
         {% include "./templates/grass-details.html" ignore missing %}
       {% endif %}
-      <p class="govuk-body"><a href="#">Change the {{second_crop_reference | nameconverter}} plan for {{data.chosen_field.name}} </a></p>
+      <p class="govuk-body"><a href="#">Change the {{second_crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
     </div>
 {% endif %}
 

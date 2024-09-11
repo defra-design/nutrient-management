@@ -167,6 +167,9 @@ router.get('/', function (req, res) {
     req.session.data.cropGroupsV5 = []
     req.session.data.fertiliserGroupsV5 = []
 
+    // notifications
+    req.session.data.updateMessage = null
+
     res.render('index')
 })
 

@@ -1,78 +1,131 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+  Check your answers 1 – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-{% include "/templates/signed-in.html" ignore missing %}
-
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
-
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
 {% endblock %}
 
 {% block content %}
-
 <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
 
-  {% set totalFields = 0 %}
+    <h1 class="govuk-heading-l">
+      Change an organic manure application
+    </h1>
 
-    <div class="govuk-grid-column-two-thirds">
+    <div class="check-answers">
+      <dl class="govuk-summary-list margin-bottom-forty">
 
-      <h1 class="govuk-heading-l">Change an organic manure application for multiple Fields</h1>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Which fields would you like to plan organic material applications for?</dt>
+          <dd class="govuk-summary-list__value">
+            Long Field<br>
+            Barn Field<br>
+            Orchard<br>
+            Valley<br>
+            Poplar<br>
+            Oaks<br>
+            Narrow field<br>
+            25 Acres<br>
+            Shed<br>
+            Park 1<br>
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What type of organic material do you plan to use in this application?</dt>
+          <dd class="govuk-summary-list__value">{{data.manure_type.name}}</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">When do you first plan to spread organic material on the fields?</dt>
+          <dd class="govuk-summary-list__value">
+          <p class="govuk-body">30 August 2023</p>
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Do you want to use the default nutrient values for {{data.manure_group.name}}?</dt>
+          <dd class="govuk-summary-list__value">Yes</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How would you like to calculate the amount of manure used?</dt>
+          <dd class="govuk-summary-list__value">Use the standard application rate of 40 tonnes per hectare</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How will the manure be incorporated?</dt>
+          <dd class="govuk-summary-list__value">Discs</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How many days will there be before the manure is incorporated?</dt>
+          <dd class="govuk-summary-list__value">1 to 2 days</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Autumn crop Nitrogen uptake</dt>
+          <dd class="govuk-summary-list__value">10kg per hectare</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">End of soil drainage</dt>
+          <dd class="govuk-summary-list__value">31 March 2024</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Rainfall within 6 hours of application</dt>
+          <dd class="govuk-summary-list__value">0</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Total rainfall since application</dt>
+          <dd class="govuk-summary-list__value">328mm</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Windspeed at application</dt>
+          <dd class="govuk-summary-list__value">Calm/gentle (0 - 3 Beaufort scale)</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Topsoil moisture</dt>
+          <dd class="govuk-summary-list__value">Moist</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>      
+      
+      </dl>    
+    </div>
 
-      <table class="govuk-table">
-        <!-- <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Date</th>
-            <th scope="col" class="govuk-table__header">Amount</th>
-          </tr>
-        </thead> -->
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">What type of organic manure are you using in this application?</th>
-            <td class="govuk-table__cell">Cattle Farmyard manure - Old</td>
-            <td class="govuk-table__cell"><a href="#">Change</a></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">When are you applying organic manure on these fields?</th>
-            <td class="govuk-table__cell">10 September 2024</td>
-            <td class="govuk-table__cell"><a href="#">Change</a></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Fields</th>
-            <td class="govuk-table__cell">
-              Long Field<br>
-              Barn Field<br>
-              Orchard<br>
-              Valley<br>
-              Poplar<br>
-              Oaks<br>
-              Narrow field<br>
-              25 Acres<br>
-              Shed<br>
-              Park 1
-            </td>
-            <td class="govuk-table__cell"><a href="#">Change</a></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <form action="version5_manure_handler" method="post" novalidate>
-        {{ govukButton({
-          text: "Update"
-        }) }}
-      </form>
-
-      <p class="govuk-body">
-        <a href="field_plan">Cancel</a>
-      </p>
-  
+    <form action="version5_manure_update_handler" method="post" novalidate>
+      {{ govukButton({
+        text: "Update"
+      }) }}
+    </form>
+    <p class="govuk-body">
+      <a href="field_plan">Cancel</a>
+    </p>
   </div>
-
 </div>
-
 {% endblock %}

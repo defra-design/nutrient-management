@@ -443,6 +443,14 @@ router.get(/version5_manure_handler/, function (req, res) {
 
 })
 
+router.get(/version5_manure_update_handler/, function (req, res) { 
+    req.session.data.show_success_message = true
+    req.session.data.show_fertiliser_notification = false
+    req.session.data.show_manure_update_notification = true   
+    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+
+})
+
 router.get(/manureagain_handler/, function (req, res) { 
     if (req.session.data.manureagain == "yes") {
         req.session.data.manure_count++

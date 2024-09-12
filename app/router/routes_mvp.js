@@ -423,8 +423,7 @@ router.get(/add_manure_handler/, function (req, res) {
 
 router.get(/version2_manure_handler/, function (req, res) { 
     req.session.data.show_success_message = true
-    req.session.data.show_fertiliser_notification = false
-    req.session.data.show_manure_notification = true    
+    req.session.data.successMessage = 2
     if (req.session.data.manure_journey == 'multi') {
         req.session.data.plan_2024.multipleManuresApplied = true
         res.redirect('/' + req.session.data.prototype_version + '/farm//crop_plan/plan_view')
@@ -436,20 +435,26 @@ router.get(/version2_manure_handler/, function (req, res) {
 
 router.get(/version5_manure_handler/, function (req, res) { 
     req.session.data.show_success_message = true
-    req.session.data.show_fertiliser_notification = false
-    req.session.data.show_manure_notification = true   
+    req.session.data.successMessage = 2
+    req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (2, 2024, [1,2,3,4,5], req.session.data.all_fields, true, 'Cattle Farmyard manure - Old', false, '10 September 2024'))
+    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+})
+
+router.get(/version5_manure_update_handler/, function (req, res) { 
+    req.session.data.show_success_message = true
+    req.session.data.successMessage = 4
+    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+
+})
+
+router.get(/version5_manure_handler/, function (req, res) { 
+    req.session.data.show_success_message = true
+    req.session.data.successMessage = 2
     req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (2, 2024, [1,2,3,4,5], req.session.data.all_fields, true, 'Cattle Farmyard manure - Old', false, '10 September 2024'))
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 
 })
 
-router.get(/version5_manure_update_handler/, function (req, res) { 
-    req.session.data.show_success_message = true
-    req.session.data.show_fertiliser_notification = false
-    req.session.data.show_manure_update_notification = true   
-    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
-
-})
 
 router.get(/manureagain_handler/, function (req, res) { 
     if (req.session.data.manureagain == "yes") {
@@ -587,8 +592,7 @@ router.get(/fertiliser_loop_handler/, function (req, res) {
 //CHECK
 router.get(/version2_fertiliser_handler/, function (req, res) { 
     req.session.data.show_success_message = true
-    req.session.data.show_fertiliser_notification = true
-    req.session.data.show_manure_notification = false    
+    req.session.data.successMessage = 3
     req.session.data.fertiliser_count = 0
     if (req.session.data.fertiliser_journey == 'multi') {
         req.session.data.plan_2024.multipleFertilisersApplied = true
@@ -601,11 +605,17 @@ router.get(/version2_fertiliser_handler/, function (req, res) {
 
 router.get(/fertiliser_v5_handler/, function (req, res) { 
     req.session.data.show_success_message = true
-    req.session.data.show_fertiliser_notification = true
-    req.session.data.show_manure_notification = false    
+    req.session.data.successMessage = 3
     req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (2, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, false, 'Nitrogen(N)', false, '1 September 2024'))
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
+
+router.get(/fertiliser_v5_update_handler/, function (req, res) { 
+    req.session.data.show_success_message = true
+    req.session.data.successMessage = 5
+    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+})
+
 
     
 module.exports = router

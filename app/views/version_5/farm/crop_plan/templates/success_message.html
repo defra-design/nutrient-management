@@ -1,11 +1,4 @@
-<div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-  <div class="govuk-notification-banner__header">
-    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-      Success
-    </h2>
-  </div>
-  <div class="govuk-notification-banner__content">
-      {% if data.show_manure_notification == true %}
+      <!-- {% if data.show_manure_notification == true %}
       <h3 class="govuk-notification-banner__heading">
         {{data.content.organic_term}} application added to the Winter Wheat fields in this plan.
       </h3>
@@ -25,46 +18,56 @@
       {% endif %}
     </h3>
   </div>
-</div>
+
+  
+</div> -->
 
 
-
-
+<div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+  
     <!-- crops added - 1 -->
-    <!-- {% if data.updateMessage == 1 %}
+    {% if data.successMessage == 1 %}
       <h3 class="govuk-notification-banner__heading">
         Crops added for 2024
       </h3>
-    {% endif %} -->
+    {% endif %}
 
     <!-- manure added - 2 -->
-    <!-- {% if data.updateMessage == 2 %}
+    {% if data.successMessage == 2 %}
       <h3 class="govuk-notification-banner__heading"> 
         {{data.content.organic_term}} application added to the Winter Wheat fields in this plan.
       </h3>
       <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
-    {% endif %} -->
+    {% endif %}
     
     <!-- fertiliser added - 3 -->
-    <!-- {% if data.updateMessage == 3 %}
+    {% if data.successMessage == 3 %}
       <h3 class="govuk-notification-banner__heading">
         {{data.content.non_organic_term}} application added to the Winter Wheat fields in this plan.
       </h3>
       <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
-    {% endif %} -->
+    {% endif %}
 
     <!-- manure updated - 4 -->
-    <!-- {% if data.updateMessage == 4 %}
+    {% if data.successMessage == 4 %}
       <h3 class="govuk-notification-banner__heading">
         {{data.content.organic_term}} application updated.
       </h3>
       <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
-    {% endif %} -->
+    {% endif %}
     
     <!-- fertiliser updated - 5 -->
-    <!-- {% if data.updateMessage == 5 %}
+    {% if data.successMessage == 5 %}
       <h3 class="govuk-notification-banner__heading">
         {{data.content.non_organic_term}} updated.
       </h3>
       <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
-    {% endif %} -->
+    {% endif %}
+  </div>
+</div>

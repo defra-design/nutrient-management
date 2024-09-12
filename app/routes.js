@@ -134,7 +134,6 @@ router.get('/', function (req, res) {
     req.session.data.manure_count = 0
     req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'
     // req.session.data.manure_delay = null
-    req.session.data.show_manure_notification = false
 
     req.session.data.secondcrop_journey = null //true for second crop
 
@@ -168,7 +167,7 @@ router.get('/', function (req, res) {
     req.session.data.fertiliserGroupsV5 = []
 
     // notifications
-    req.session.data.updateMessage = null
+    req.session.data.successMessage = null
 
     res.render('index')
 })

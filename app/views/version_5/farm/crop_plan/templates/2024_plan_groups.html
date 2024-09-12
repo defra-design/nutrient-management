@@ -34,18 +34,22 @@
     {% for field in group.fields %}
     {% set hasManure = false %}
     {% set hasInnorganic = false %}
+    {% set manureCount = 0 %}
+    {% set inorganicCount = 0 %}
 
       {% for manureGroup in data.fertiliserGroupsV5 %}
         {% if manureGroup.organic == true %}
           {% for manureField in manureGroup.fields %}
             {% if manureField == field.reference %}
               {% set hasManure = true %}
+              {% set manureCount = manureCount + 1 %}
             {% endif %}
           {% endfor %}
         {% else %}
           {% for fertField in manureGroup.fields %}
             {% if fertField == field.reference %}
               {% set hasInnorganic = true %}
+              {% set inorganicCount = inorganicCount + 1 %}
             {% endif %}
           {% endfor %}
         {% endif %}
@@ -56,7 +60,7 @@
 
         <td class="govuk-table__cell" class="govuk-table__header">
           {% if hasManure == true %}
-            1
+            {{manureCount}}
           {% else %}
             None
           {% endif %}
@@ -64,7 +68,7 @@
 
         <td class="govuk-table__cell" class="govuk-table__header">
           {% if hasInnorganic == true %}
-            1
+            {{inorganicCount}}
           {% else %}
             None
           {% endif %}

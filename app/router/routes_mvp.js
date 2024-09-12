@@ -440,30 +440,20 @@ router.get(/version2_manure_handler/, function (req, res) {
     }
 })
 
-router.get(/version5_manure_handler/, function (req, res) { 
-    req.session.data.show_success_message = true
-    req.session.data.successMessage = 2
-    let newref = req.session.data.fertiliserGroupsV5.lenght +1
-    req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (newref, 2024, [1,2,3,4,5], req.session.data.all_fields, true, 'Cattle Farmyard manure - Old', false, '10 September 2024'))
-    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
-})
-
 router.get(/version5_manure_update_handler/, function (req, res) { 
     req.session.data.show_success_message = true
     req.session.data.successMessage = 4
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
-
 })
 
 router.get(/version5_manure_handler/, function (req, res) { 
     req.session.data.show_success_message = true
     req.session.data.successMessage = 2
-    let newref = req.session.data.fertiliserGroupsV5.lenght +1
-    req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (newref, 2024, [1,2,3,4,5], req.session.data.all_fields, true, 'Cattle Farmyard manure - Old', false, '10 September 2024'))
+    let newref = req.session.data.fertiliserGroupsV5.length +1
+    let fieldsRef = allFunctions.getManureFields()
+    req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (newref, 2024, fieldsRef, req.session.data.all_fields, true, 'Cattle Farmyard manure - Old', false, '10 September 2024'))
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
-
 })
-
 
 router.get(/manureagain_handler/, function (req, res) { 
     if (req.session.data.manureagain == "yes") {

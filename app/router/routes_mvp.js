@@ -450,7 +450,7 @@ router.get(/version5_manure_handler/, function (req, res) {
     req.session.data.show_success_message = true
     req.session.data.successMessage = 2
     let newref = req.session.data.fertiliserGroupsV5.length +1
-    let fieldsRef = allFunctions.getManureFields()
+    let fieldsRef = allFunctions.getManureFields(req.session.data.manure_fields)
     req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (newref, 2024, fieldsRef, req.session.data.all_fields, true, 'Cattle Farmyard manure - Old', false, '10 September 2024'))
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })

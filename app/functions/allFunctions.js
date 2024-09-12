@@ -122,8 +122,16 @@ function getCropByReference (referenceNumber, crops) {
     return cropToReturn
 };
 
-function getManureFields() {
-    return  [1,2,3,4,5]
+function getManureFields(chosenFields) {
+    console.log(chosenFields)
+    let fieldsToReturn = null
+    if (chosenFields == 'all') {
+        fieldsToReturn = [1,2,3,4,5,6,7,8,9,10]
+    } else {
+        fieldsToReturn = [1,2,3,4,5]
+    }
+    console.log(fieldsToReturn)
+    return fieldsToReturn
 };
 
  function printCropGroup(group) {

@@ -450,8 +450,23 @@ router.get(/version5_manure_handler/, function (req, res) {
     req.session.data.show_success_message = true
     req.session.data.successMessage = 2
     let newref = req.session.data.fertiliserGroupsV5.length +1
-    let fieldsRef = allFunctions.getManureFields(req.session.data.manure_fields)
-    req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (newref, 2024, fieldsRef, req.session.data.all_fields, true, 'Cattle Farmyard manure - Old', false, '10 September 2024'))
+    // let fieldsRef = allFunctions.getManureFields(req.session.data.manure_fields)
+    let crop_group_references = []
+    let fieldsRefs = []
+    // what groups do you want to apply this to?
+    if (req.session.data.manure_fields == 'all') {
+        for (var group in req.session.data.cropGroupsV5) {
+            crop_group_references.push(req.session.data.cropGroupsV5[group].reference)
+            for (var fieldref in req.session.data.cropGroupsV5[group].fields ) {
+                fieldsRefs.push(req.session.data.cropGroupsV5[group].fields[fieldref].reference)
+            }
+        }
+    }
+    console.log(crop_group_references)
+    console.log(fieldsRefs)
+    // what are the fields in that group
+    //if the group and the fields match show this application
+    allFunctions.createApplicationGroup (newref, 2024, crop_group_references, fieldsRefs, true, 'Cattle Farmyard manure - Old', '10 September 2024')
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 

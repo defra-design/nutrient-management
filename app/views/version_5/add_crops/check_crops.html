@@ -14,7 +14,7 @@
 
   {% if data.crop_group != 'potatoes' %}
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What do you want to call this crop group (optional)?</dt>
+    <dt class="govuk-summary-list__key">What is the variety name (optional)?</dt>
     <dd class="govuk-summary-list__value">{{data.variety}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
@@ -23,16 +23,16 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Which fields do you plan to grow {{data.chosen_crop | nameconverter}} in?</dt>
     <dd class="govuk-summary-list__value">
-      {% if data.secondcrop_journey == true %}
-        {% for field in data.plan_2024.secondFields %}
-          {{field.name}} <br>
-        {% endfor %}      
-      {% else %}     
         {% for field in data.crop_fields %}
           {{field.name}} <br>
         {% endfor %}      
-      {% endif %}
     </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What would you like to call this crop group (optional)?</dt>
+    <dd class="govuk-summary-list__value">{{data.group_name}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 

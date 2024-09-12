@@ -9,13 +9,14 @@
     <p>--</p> -->
   
   <h2 class="govuk-heading-m">
-    {% if group.variety == null %}
-      {{group.crop_reference | nameconverter  }} <span class="nonbold">&nbsp;(Group {{group.reference}})</span>
-    {% else %}
-      {{group.crop_reference | nameconverter  }} <span class="nonbold">&nbsp;({{group.variety}})</span>
-    {% endif %}
+    {{group.crop_reference | nameconverter  }} 
+    <span class="nonbold">
+      {% if group.variety %}
+        ({{group.variety}})
+      {% endif %}
+    </span>
   </h2>
-    <p class="govuk-body"><a href="">Change this group</a></p>
+  <p class="govuk-body"><a href="">Change this group</a></p>
 
   <table class="govuk-table big_crop_table_version_three margin-bottom-forty">
     <thead class="govuk-table__head">
@@ -32,7 +33,6 @@
     {% for field in group.fields %}
     {% set hasManure = false %}
     {% set hasInnorganic = false %}
-
 
       {% for manureGroup in data.fertiliserGroupsV5 %}
         {% if manureGroup.organic == true %}

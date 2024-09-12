@@ -218,6 +218,13 @@ router.get(/variety_handler/, function (req, res) {
     res.redirect('fields')
 })
 
+router.get(/groupname_handler/, function (req, res) { 
+    res.redirect('sowdate_question')
+})
+
+
+
+
 //potatoes
 router.get(/potato_type_handler/, function (req, res) { 
     // for (var x in req.session.data.potato_details) {

@@ -5,7 +5,14 @@
   <hr class="seperator_five">
 
   <div class="tabs-thirds margin-bottom-forty">
-    <h2 class="govuk-heading-m">{{data.chosen_group.crop_reference | nameconverter}} details</h2>
+    <h2 class="govuk-heading-m">
+      {{data.chosen_group.crop_reference | nameconverter}} 
+      {% if data.chosen_group.variety %}
+        (data.chosen_group.variety)
+      {% endif %}
+      {{(data.chosen_group.groupname)}}
+      details
+    </h2>
     {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' %}
       {% include "./templates/other-crop-details.html" ignore missing %}
     {% else %}
@@ -18,7 +25,7 @@
   {% set appears_in_other_groups = false %}
   {% set second_crop_reference = null %}
 
-  {% for group in data.cropGroupsV5 %}
+  <!-- {% for group in data.cropGroupsV5 %}
     {% if group.reference != data.chosen_group.reference %}
       {% for field in group.fields %}
         {% if field.reference == data.chosen_field.reference %}
@@ -27,12 +34,15 @@
         {% endif %}
       {% endfor %}
     {% endif %}
-  {% endfor %}
+  {% endfor %} -->
 
-  {% if appears_in_other_groups == true and second_crop_reference != data.chosen_group.crop_reference %}
+  {% if appears_in_other_groups == true %}
     <hr class="seperator_five">
     <div class="tabs-thirds margin-bottom-forty">
-      <h2 class="govuk-heading-m">{{second_crop_reference | nameconverter}} details</h2>
+      <h2 class="govuk-heading-m">
+        {{second_crop_reference | nameconverter}} details
+
+      </h2>
       {% if data.second_crop_reference != 'Grass' and data.second_crop_reference != 'grass' %}
         {% include "./templates/other-crop-details.html" ignore missing %}
       {% else %}

@@ -209,16 +209,13 @@ router.get(/variety_handler/, function (req, res) {
             req.session.data.variety = 'Maris Piper'
         }
         req.session.data.chosen_crop = req.session.data.variety + " potato"
-    } else {
-        var newRef = req.session.data.cropGroupsV5.length + 1
-        if (req.session.data.variety == null || req.session.data.variety == '') {
-            req.session.data.variety = 'Group ' + newRef
-        }
-    }
+    } 
     res.redirect('fields')
 })
 
 router.get(/groupname_handler/, function (req, res) { 
+    var newRef = req.session.data.cropGroupsV5.length + 1
+    req.session.data.groupname = 'Group ' + newRef
     res.redirect('sowdate_question')
 })
 

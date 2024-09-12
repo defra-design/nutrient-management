@@ -95,7 +95,6 @@ function createCropGroup (reference, year, field_references, current_fields, cro
         variety: variety, 
         groupname: group
     }
-    console.log(newGroup)
     return newGroup
 }
 

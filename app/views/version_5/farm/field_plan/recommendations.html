@@ -3,7 +3,9 @@
   <h2 class="govuk-heading-m non-standard">Nutrient recommendations</h2>
   <hr class="seperator_five">
 
-  <h2 class="govuk-heading-m">Nutrient recommendations for {{data.chosen_group.crop_reference | nameconverter}}  in  {{data.chosen_field.name}}</h2>
+  <h2 class="govuk-heading-m">
+    Nutrient recommendations for {{data.chosen_group.crop_reference | nameconverter}} ({{data.chosen_group.variety}}) {{data.chosen_group.groupname}}
+  </h2>
   <p class="govuk-body">Amounts are per hectare.</p>
   {% if data.chosen_crop == 'Grass' or data.chosen_crop == 'grass' %}
     {% include "./templates/v4_grass_empty.html" ignore missing %}
@@ -33,12 +35,16 @@
   <!-- second crop -->
   {% set appears_in_other_groups = false %}
   {% set second_crop_reference = null %}
+  {% set second_group_variety = null %}
+  {% set second_group_reference = null %}
 
   {% for group in data.cropGroupsV5 %}
     {% if group.reference != data.chosen_group.reference %}
       {% for field in group.fields %}
         {% if field.reference == data.chosen_field.reference %}
           {% set appears_in_other_groups = true %}
+          {% set second_group_reference = group.reference %}
+          {% set second_group_variety = group.variety %}
           {% set second_crop_reference = group.crop_reference %}
         {% endif %}
       {% endfor %}
@@ -47,7 +53,11 @@
 
   {% if appears_in_other_groups == true %}
     <hr class="seperator_five">
-    <h2 class="govuk-heading-m">Nutrient recommendations for {{second_crop_reference | nameconverter}}  in  {{data.chosen_field.name}}</h2>
+    <h2 class="govuk-heading-m">
+      Nutrient recommendations for {{data.second_crop_reference | nameconverter}} ({{second_group_variety}}) Group {{second_group_reference}}
+    </h2>
+    <p class="govuk-body">Amounts are per hectare.</p>
+  
     {% if data.chosen_crop == 'Grass' or data.chosen_crop == 'grass' %}
       <p class="govuk-body-s">These recommendations are for {{data.chosen_field.name}}, harvest year {{data.oaktree_farm.planning_year}}</p>
       {% include "./templates/v4_grass_empty.html" ignore missing %}

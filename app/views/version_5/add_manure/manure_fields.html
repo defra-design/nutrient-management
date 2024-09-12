@@ -26,28 +26,36 @@
       <form class="form" action="manure_group" method="post">
 
         <div class="govuk-form-group">
-          <!-- <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                Where do you live?
-              </h1>
-            </legend> -->
-            <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="all" name="manure_fields" type="radio" value="all">
+              <label class="govuk-label govuk-radios__label" for="all">
+                All fields in the 2024 plan
+              </label>
+            </div>
+            {% for group in data.cropGroupsV5 %}
+              <!-- {{group.crop_reference}} 
+              {% if group.variety %}
+                ({{group.variety}}) 
+              {% endif %}
+              {{group.groupname}} 
+              {{group.reference}}  -->
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="add" name="add" type="radio" value="add">
-                <label class="govuk-label govuk-radios__label" for="add">
-                  All fields in the 2024 plan
+                <input class="govuk-radios__input" id={{group.reference}} name="manure_fields" type="radio" value={{group.reference}}>
+                <label class="govuk-label govuk-radios__label" for={{group.reference}}>
+                  The 
+                  {{group.crop_reference}}
+                  {% if group.variety %}
+                  ({{group.variety}}) 
+                {% endif %}
+                {{group.groupname}} 
+                fields  
                 </label>
               </div>
+            {% endfor %}
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="wheat" name="add" type="radio" value="wheat">
-                <label class="govuk-label govuk-radios__label" for="wheat">
-                  The Winter Wheat (Skyfall) fields
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="plan_organic" name="add" type="radio" value="plan_organic">
-                <label class="govuk-label govuk-radios__label" for="plan_organic">
+                <input class="govuk-radios__input" id="specific" name="manure_fields" type="radio" value="specific">
+                <label class="govuk-label govuk-radios__label" for="specific">
                  Select specific fields
                 </label>
               </div>

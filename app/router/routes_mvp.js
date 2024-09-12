@@ -326,14 +326,16 @@ router.get(/cover_handler/, function (req, res) {
 })
 
 router.get(/yield_question_handler/, function (req, res) { 
-    let next = 'crop_use'
+    let next = 'check'
     if (req.session.data.yield_option_one != 'rb209') {
         next = 'yield_value'
-    } 
-    if (req.session.data.crop_group == 'potatoes') {
-        next = 'growth'
-    } else if (req.session.data.chosen_crop == 'Beetroot') {
-        next = 'check'
+    } else { 
+        if (req.session.data.crop_group == 'potatoes') {
+            next = 'growth'
+        }
+        if (req.session.data.crop_group == 'cereals') {
+            next = 'crop_use'
+        }
     }
     res.redirect(next)
 })
@@ -390,6 +392,7 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(newRef, 2024, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, req.session.data.variety, req.session.data.groupname))
     req.session.data.groupname = null;
     req.session.data.variety = null;
+    
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 

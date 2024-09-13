@@ -48,7 +48,12 @@
           </thead>
           <tbody class="govuk-table__body">  
 
-            {% if data.plan_2024.setup == true  %}
+            {% set cropcount = 0 %}
+            {% for x in data.cropGroupsV5 %}
+              {% set cropcount = cropcount + 1 %}
+            {% endfor %}
+
+            {% if cropcount != 0  %}
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">2025</td>
               <!-- <td class="govuk-table__cell">Status</td> -->

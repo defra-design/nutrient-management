@@ -392,7 +392,6 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(newRef, 2024, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, req.session.data.variety, req.session.data.groupname))
     req.session.data.groupname = null;
     req.session.data.variety = null;
-    
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 
@@ -457,6 +456,15 @@ router.get(/version5_manure_handler/, function (req, res) {
             cropgroupreferences.push(req.session.data.cropGroupsV5[group].reference)
             for (var fieldref in req.session.data.cropGroupsV5[group].fields ) {
                 fieldsRefs.push(req.session.data.cropGroupsV5[group].fields[fieldref].reference)
+            }
+        }
+    } else {
+        for (var group in req.session.data.cropGroupsV5) {
+            if (req.session.data.cropGroupsV5[group].reference == req.session.data.manure_fields) {
+                cropgroupreferences.push(req.session.data.manure_fields)
+                for (var fieldref in req.session.data.cropGroupsV5[group].fields ) {
+                    fieldsRefs.push(req.session.data.cropGroupsV5[group].fields[fieldref].reference)
+                }
             }
         }
     }

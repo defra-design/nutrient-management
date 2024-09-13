@@ -37,21 +37,22 @@
       </tr>
     </thead>
 
-    {% set manureCount = 0 %}
-    {% set inorganicCount = 0 %}
+      {% set manureCount = 0 %}
+      {% set inorganicCount = 0 %}
 
-    
-        {% for manureGroup in data.fertiliserGroupsV5 %}
-          {% if manureGroup.organic == true %}
-            {% set manureCount = manureCount + 1 %}
-          {% else %}
-            {% set inorganicCount = inorganicCount + 1 %}
+      {% for manureGroup in data.fertiliserGroupsV5 %}
+        {% for groupref in manureGroup.crop_group_references %}
+          {% if groupref == group.reference %}
+            {{groupref}}
+            {% if manureGroup.organic %}
+              {% set manureCount = manureCount + 1 %}
+            {% else %}
+              {% set inorganicCount = inorganicCount + 1 %}
+            {% endif %}
           {% endif %}
-        {% if group.reference == manureGroup.reference %}
-          {{group.reference}} & {{manureGroup.reference}}
-        {% endif %}
+        {% endfor %}
+        <br>
       {% endfor %}
-
 
     {% for field in group.fields %}
 

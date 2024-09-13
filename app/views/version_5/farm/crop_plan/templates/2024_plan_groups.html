@@ -43,8 +43,7 @@
       {% for manureGroup in data.fertiliserGroupsV5 %}
         {% for groupref in manureGroup.crop_group_references %}
           {% if groupref == group.reference %}
-            {{groupref}}
-            {% if manureGroup.organic %}
+            {% if manureGroup.organic == true %}
               {% set manureCount = manureCount + 1 %}
             {% else %}
               {% set inorganicCount = inorganicCount + 1 %}
@@ -55,12 +54,6 @@
       {% endfor %}
 
     {% for field in group.fields %}
-
-    <!-- //we are already iterating through the crop groups
-    // itterate through the manuregroups
-    // if the crop group reference is in this manure groups references
-    // if the manure group is organic make organic true
-    // if the manure group is inorganic make inorganic true -->
 
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">

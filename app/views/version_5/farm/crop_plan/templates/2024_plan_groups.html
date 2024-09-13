@@ -7,7 +7,14 @@
       {% endfor %}  
       </p>
     <p>--</p> -->
-  
+
+  <!-- {% for group in data.fertiliserGroupsV5 %}
+    group = {{ group.reference }}<br>
+    crop group refs = {{ group.crop_group_references }}<br>
+    field ref =  {{ group.fields }}<br>
+  {% endfor %} -->
+
+
   <h2 class="govuk-heading-m">
     {{group.crop_reference | nameconverter  }} 
     <span class="nonbold">
@@ -30,55 +37,55 @@
       </tr>
     </thead>
 
-    <tbody class="govuk-table__body">
-    {% for field in group.fields %}
-    {% set hasManure = false %}
-    {% set hasInnorganic = false %}
     {% set manureCount = 0 %}
     {% set inorganicCount = 0 %}
 
-      {% for manureGroup in data.fertiliserGroupsV5 %}
-        {% if manureGroup.organic == true %}
-          {% for manureField in manureGroup.fields %}
-            {% if manureField == field.reference %}
-              {% set hasManure = true %}
-              {% set manureCount = manureCount + 1 %}
-            {% endif %}
-          {% endfor %}
-        {% else %}
-          {% for fertField in manureGroup.fields %}
-            {% if fertField == field.reference %}
-              {% set hasInnorganic = true %}
-              {% set inorganicCount = inorganicCount + 1 %}
-            {% endif %}
-          {% endfor %}
+    
+        {% for manureGroup in data.fertiliserGroupsV5 %}
+          {% if manureGroup.organic == true %}
+            {% set manureCount = manureCount + 1 %}
+          {% else %}
+            {% set inorganicCount = inorganicCount + 1 %}
+          {% endif %}
+        {% if group.reference == manureGroup.reference %}
+          {{group.reference}} & {{manureGroup.reference}}
         {% endif %}
       {% endfor %}
 
-      <tr class="govuk-table__row">
-        <td class="govuk-table__cell">{{field.name}}</td>
 
-        <td class="govuk-table__cell" class="govuk-table__header">
-          {% if hasManure == true %}
-            {{manureCount}}
-          {% else %}
-            None
-          {% endif %}
+    {% for field in group.fields %}
+
+    <!-- //we are already iterating through the crop groups
+    // itterate through the manuregroups
+    // if the crop group reference is in this manure groups references
+    // if the manure group is organic make organic true
+    // if the manure group is inorganic make inorganic true -->
+
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{field.name}}</td>
+
+            <td class="govuk-table__cell" class="govuk-table__header">
+              {% if manureCount == 0 %}
+              None
+            {% else %}
+              {{manureCount}}
+            {% endif %}
         </td>
 
-        <td class="govuk-table__cell" class="govuk-table__header">
-          {% if hasInnorganic == true %}
-            {{inorganicCount}}
-          {% else %}
-            None
-          {% endif %}
-        </td>
+            <td class="govuk-table__cell" class="govuk-table__header">
+                {% if inorganicCount == 0 %}
+                  None
+                {% else %}
+                  {{inorganicCount}}
+                {% endif %}
+            </td>
 
-        <td class="govuk-table__cell">None</td>
-        <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}">View field plan</a></td>
-      
-      </tr> 
-    {% endfor %}
+            <td class="govuk-table__cell">None</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}">View field plan</a></td>
+          
+          </tr> 
+        {% endfor %}
 
   </tbody>
 </table>

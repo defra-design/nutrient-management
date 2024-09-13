@@ -98,12 +98,12 @@ function createCropGroup (reference, year, field_references, current_fields, cro
     return newGroup
 }
 
-function createApplicationGroup (reference, year, crop_group_references, field_references, organic, manure_type, application_date) {
+function createApplicationGroup (reference, year, crop_group_references, fieldreferences, organic, manure_type, application_date) {
     var newGroup = {
         reference: reference,
         year: year,
         crop_group_references: crop_group_references,
-        fields: field_references,
+        fields: fieldreferences,
         organic: organic,
         manure_type: manure_type,
         application_date: application_date

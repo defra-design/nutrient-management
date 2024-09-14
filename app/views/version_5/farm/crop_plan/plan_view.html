@@ -83,16 +83,59 @@
           {% endif %}
         {% endfor %}
 
-        <!-- crops -->
-        {% include "./crops.html" ignore missing %}
-
-        <!-- manures -->
-        {% include "./manures.html" ignore missing %}
-
-        <!-- inorganics -->        
-        {% include "./inorganic.html" ignore missing %}
-
+      <!-- crops -->
+      <div class="govuk-tabs__panel" id="crops">
+        <h2 class="govuk-heading-m non-standard">Crops and fields</h2>
+        <p class="govuk-body"><a href="../../add_crops/crop_group">Add a crop</a></p>
+        <!-- <p class="govuk-body"><a href="">Enter excess rainfall for {{data.oaktree_farm.planning_year}}</a></p> -->
+        <hr class="seperator_five">
+          {% for group in data.cropGroupsV5 %}
+            {% include "./templates/2024_plan_groups.html" ignore missing %}
+          {% endfor %}  
       </div>
+
+      <!-- manures -->
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="organic">
+        <div class="margin-bottom-forty">
+          <h2 class="govuk-heading-m non-standard">Organic material applications</h2>
+          {% if organics == false %}
+            <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned.</p>
+          {% endif %}
+            <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Add an {{data.content.organic_term | lower}} application to one or more fields</a></p>
+        </div>
+        {% if organics == true %}
+          <hr class="seperator_five">
+        {% endif %}
+        <!-- manures -->
+        <div class="margin-bottom-forty">
+          {% if organics == true %}
+            {% include "./templates/applications_tabs.html" ignore missing %}
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- inorganics -->        
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="inorganic">
+        <div class="margin-bottom-forty">
+          <h2 class="govuk-heading-m non-standard">Inorganic fertiliser applications</h2>
+          {% if inorganics == false %}
+            <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned.</p>
+          {% endif %}
+          <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=multi">Add an {{data.content.non_organic_term | lower}} application to one or more fields</a></p>
+        </div>
+      
+        {% if inorganics == true %}
+          <hr class="seperator_five">
+        {% endif %}
+      
+        <div class="margin-bottom-forty">
+          {% if inorganics == true %}
+            {% include "./templates/fertiliser_applications_tabs.html" ignore missing %}
+          {% endif %}
+        </div>       
+      </div>
+
+    </div>
 
 </div>
 

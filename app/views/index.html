@@ -10,243 +10,234 @@
     {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %} -->
   
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-m">
+    <h1 class="govuk-heading-l">
       Prototypes
     </h1>
   </div>
 
-  <!-- MVP -->
   <div class="govuk-grid-column-two-thirds margin-bottom-twenty">
-    <h2 class="govuk-heading-s">Beta version 1</h2>
-    <p class="govuk-body">MVP version.</p>
+
+    <h2 class="govuk-heading-s">September Research</h2>
+    <p class="govuk-body">
+      1. <a href="add_fertiliser_setup?version=version_5" class="govuk-link">Crop Groups and fertilisers</a>
+    </p>
+
+    <p class="govuk-body">
+      2. <a href="field_setup_handler?version=version_5" class="govuk-link">Second crops</a>
+    </p>
+
     <details class="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
-          Proof of concept prototypes
+          All prototypes
         </span>
       </summary>
-        <div class="detail_list">
-          <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-            <li>
-              <a href="mvp/start" class="govuk-link">No farm set up</a>
-            </li>
-            <li>
-              <a href="farm_setup_handler?version=mvp" class="govuk-link">Farm added without fields</a>
-            </li>
-            <li>
-              <a href="field_setup_handler?version=mvp" class="govuk-link">Farm and fields added</a>
-            </li>
-            <li>
-              <a href="crop24_setup_handler?version=mvp" class="govuk-link">2024 crops added</a>
-            </li>
-          </ul>
-        </div>
-      </details> 
-      <hr>
-    </div>
-    
-    <!-- v2 -->
-    <div class="govuk-grid-column-two-thirds margin-bottom-twenty">
-    <h2 class="govuk-heading-s">Beta version 2</h2>
-    <p class="govuk-body">{{data.content.organic_term}} and {{data.content.non_organic_term | lower}} functionality added, plus notification examples.</p>
-     <details class="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          Version 2 prototypes
-        </span>
-      </summary>
-      <div class="detail_list">
-        <h3 class="govuk-heading-s">Organic Material and Inorganic fertiliser applications</h3>
 
-        <p class="govuk-body start-link">
-          <a href="crop24_setup_handler?version=version_2" class="govuk-link">2024 crops added</a>
-        </p>
+      <div class="govuk-details__text">
 
-        <p class="govuk-body start-link">
-          <a href="manure_setup_handler?version=version_2" class="govuk-link">{{data.content.organic_term}} and {{data.content.non_organic_term}} added</a>
-        </p>
-
-        <p class="govuk-body strong">Notifications</p>
-        <p class="govuk-body">(Moved to version 4 prototypes)</p>
-
-        <!-- <p class="govuk-body start-link">
-          <a href="manuredate_handler?notification=false" class="govuk-link">Date notification</a>
-        </p>
-        
-        <p class="govuk-body start-link">
-          <a href="manurecheck_handler?notification=true" class="govuk-link">Check your answers notification</a>
-        </p> -->
-      </details>
-      <hr>
-    </div>
-
-    <!-- <div class="govuk-grid-column-two-thirds margin-bottom-twenty">
-      <h2 class="govuk-heading-s">Beta version 3</h2>
-      <a href="start_setup_handler?version=version_4" class="govuk-link">No farm set up</a>
-    </div> -->
-
-    <div class="govuk-grid-column-two-thirds margin-bottom-twenty">
-      <h2 class="govuk-heading-s">Beta version 3</h2>
-      <p class="govuk-body">Research version to test onboarding journey.</p>
-      <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Version 3 prototypes
-          </span>
-        </summary>
-          <div class="detail_list">
-            <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <!-- V5 -->
+        <h2 class="govuk-heading-s">Beta version 5</h2>
+        <p class="govuk-body">Testing plan view and grass planning.</p>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Version 5 prototypes
+            </span>
+          </summary>
+            <ul class="govuk-list govuk-list--bullet govuk-list--spaced detail_list">
               <li>
-                <a href="start_setup_handler?version=version_3" class="govuk-link">No farm set up</a>
+                <a href="start_setup_handler?version=version_5" class="govuk-link">No farm set up</a>
               </li>
               <li>
-                <a href="farm_setup_handler?version=version_3" class="govuk-link">Farm added without fields</a>
+                <a href="farm_setup_handler?version=version_5" class="govuk-link">Farm added without fields</a>
               </li>
               <li>
-                <a href="field_setup_handler?version=version_3" class="govuk-link">Farm and fields added</a>
+                <a href="field_setup_handler?version=version_5" class="govuk-link">Farm and fields added</a>
               </li>
               <li>
-                <a href="crop24_setup_handler?version=version_3" class="govuk-link">2024 crops added</a>
+                <a href="onecrop_v5_setup_handler?version=version_5" class="govuk-link">1 x 2024 arable crops added</a>
+              </li>
+  
+              <li>
+                <a href="twocrops_v5_setup_handler?version=version_5" class="govuk-link">Second 2024 arable crop added</a>
               </li>
               <li>
-                <a href="manure_setup_handler?version=version_3" class="govuk-link">{{data.content.organic_term}} and {{data.content.non_organic_term}} added</a>
+                <a href="grass_v5_setup_handler?version=version_5" class="govuk-link">Grass added as a crop to 2024 plan</a>
+              </li>
+              <li>
+                <a href="manure_v5_setup_handler?version=version_5" class="govuk-link">{{data.content.organic_term}} and {{data.content.non_organic_term}} added</a>
+              </li>
+              <li>
+                <a href="add_fertiliser_setup?version=version_5" class="govuk-link">Grass, winter wheat and manure added</a>
               </li>
             </ul>
-          </div>
         </details>
-        <hr>
-        </div>
 
-        <div class="govuk-grid-column-two-thirds margin-bottom-twenty">
-          <h2 class="govuk-heading-s">Beta version 4</h2>
-          <p class="govuk-body">Testing plan view and grass planning.</p>
+        <hr class="seperator_four">
+
+        <!-- v5 -->
+        <h2 class="govuk-heading-s">Beta version 4</h2>
+        <p class="govuk-body">Testing plan view and grass planning.</p>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Version 4 prototypes
+            </span>
+          </summary>
+            <ul class="govuk-list govuk-list--bullet govuk-list--spaced detail_list">
+              <li>
+                <a href="start_setup_handler?version=version_4" class="govuk-link">No farm set up</a>
+              </li>
+              <li>
+                <a href="farm_setup_handler?version=version_4" class="govuk-link">Farm added without fields</a>
+              </li>
+              <li>
+                <a href="field_setup_handler?version=version_4" class="govuk-link">Farm and fields added</a>
+              </li>
+              <li>
+                <a href="onecrop_setup_handler?version=version_4" class="govuk-link">1 x 2024 arable crops added</a>
+              </li>
+              <li>
+                <a href="twocrops_setup_handler?version=version_4" class="govuk-link">2 x 2024 arable crops added</a>
+              </li>
+              <li>
+                <a href="manure_setup_handler?version=version_4" class="govuk-link">{{data.content.organic_term}} and {{data.content.non_organic_term}} added</a>
+              </li>
+              <li>
+                <a href="grass_setup_handler?version=version_4" class="govuk-link">Grass added as a crop to 2024 plan</a>
+              </li>
+            </ul>
+
+          
+
+          <h3 class="govuk-heading-s">Notifications</h3>
+          <ul class="govuk-list govuk-list--bullet govuk-list--spaced detail_list">
+            <li>
+              <a href="mockups/notifications/manure_two.html" class="govuk-link">Single message</a>
+            </li>
+            <li>
+              <a href="mockups/notifications/manure_three.html" class="govuk-link">Combination of 2 messages</a>
+            </li>
+
+            <li>
+              <a href="manurecheck_handler?notification=true" class="govuk-link">Check your answers notification</a>
+            </li>
+          </ul>
+        </details>
+
+        <hr class="seperator_four">
+
+        <!-- V3 -->
+        <h2 class="govuk-heading-s">Beta version 3</h2>
+        <p class="govuk-body">Research version to test onboarding journey.</p>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Version 3 prototypes
+            </span>
+          </summary>
+              <ul class="govuk-list govuk-list--bullet govuk-list--spaced detail_list">
+                <li>
+                  <a href="start_setup_handler?version=version_3" class="govuk-link">No farm set up</a>
+                </li>
+                <li>
+                  <a href="farm_setup_handler?version=version_3" class="govuk-link">Farm added without fields</a>
+                </li>
+                <li>
+                  <a href="field_setup_handler?version=version_3" class="govuk-link">Farm and fields added</a>
+                </li>
+                <li>
+                  <a href="crop24_setup_handler?version=version_3" class="govuk-link">2024 crops added</a>
+                </li>
+                <li>
+                  <a href="manure_setup_handler?version=version_3" class="govuk-link">{{data.content.organic_term}} and {{data.content.non_organic_term}} added</a>
+                </li>
+              </ul>
+          </details>
+          
+          <hr class="seperator_four">
+
+          <!-- v2 -->
+          <h2 class="govuk-heading-s">Beta version 2</h2>
+          <p class="govuk-body">{{data.content.organic_term}} and {{data.content.non_organic_term | lower}} functionality added, plus notification examples.</p>
           <details class="govuk-details">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
-                Version 4 prototypes
+                Version 2 prototypes
               </span>
             </summary>
-              <div class="detail_list">
-                <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-                  <li>
-                    <a href="start_setup_handler?version=version_4" class="govuk-link">No farm set up</a>
-                  </li>
-                  <li>
-                    <a href="farm_setup_handler?version=version_4" class="govuk-link">Farm added without fields</a>
-                  </li>
-                  <li>
-                    <a href="field_setup_handler?version=version_4" class="govuk-link">Farm and fields added</a>
-                  </li>
-                  <li>
-                    <a href="onecrop_setup_handler?version=version_4" class="govuk-link">1 x 2024 arable crops added</a>
-                  </li>
-                  <li>
-                    <a href="twocrops_setup_handler?version=version_4" class="govuk-link">2 x 2024 arable crops added</a>
-                  </li>
-                  <li>
-                    <a href="manure_setup_handler?version=version_4" class="govuk-link">{{data.content.organic_term}} and {{data.content.non_organic_term}} added</a>
-                  </li>
-                  <li>
-                    <a href="grass_setup_handler?version=version_4" class="govuk-link">Grass added as a crop to 2024 plan</a>
-                  </li>
-                </ul>
-                </div>
-                <br>
+            <div class="detail_list">
+              <h3 class="govuk-heading-s">Organic Material and Inorganic fertiliser applications</h3>
+              <ul class="govuk-list govuk-list--bullet govuk-list--spaced detail_list">
+                <li><a href="crop24_setup_handler?version=version_2" class="govuk-link">2024 crops added</a></li>
+                <li><a href="manure_setup_handler?version=version_2" class="govuk-link">{{data.content.organic_term}} and {{data.content.non_organic_term}} added</a></li>
+              </ul>
                 <h3 class="govuk-heading-s">Notifications</h3>
+                <p class="govuk-body">(Moved to version 4 prototypes)</p>
+            </div>
+          </details>
 
-                <div class="detail_list">
-                  <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-                  <!-- <li>
-                    <a href="mockups/notifications/manure_one.html" class="govuk-link">Rate of application of slurry is greater than 50 m3/ha</a>
-                  </li> -->
-                  <li>
-                    <a href="mockups/notifications/manure_two.html" class="govuk-link">Single message</a>
-                  </li>
-                  <li>
-                    <a href="mockups/notifications/manure_three.html" class="govuk-link">Combination of 2 messages</a>
-                  </li>
-
-                  <li>
-                    <a href="manurecheck_handler?notification=true" class="govuk-link">Check your answers notification</a>
-                  </li>
-
-                </ul>
-              </div>
-            </details>
-            <hr>
-          </div>
-
-          <div class="govuk-grid-column-two-thirds margin-bottom-twenty">
-            <h2 class="govuk-heading-s">Beta version 5</h2>
-            <p class="govuk-body">Second crops and latest plan view</p>
+          <hr class="seperator_four">
+  
+          <!-- MVP -->
+            <h2 class="govuk-heading-s">Beta version 1</h2>
+            <p class="govuk-body">MVP version.</p>
             <details class="govuk-details">
               <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text">
-                  Version 5 prototypes
+                  Proof of concept prototypes
                 </span>
               </summary>
-                <div class="detail_list">
-                  <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+                  <ul class="govuk-list govuk-list--bullet govuk-list--spaced detail_list">
                     <li>
-                      <a href="start_setup_handler?version=version_5" class="govuk-link">No farm set up</a>
+                      <a href="mvp/start" class="govuk-link">No farm set up</a>
                     </li>
                     <li>
-                      <a href="farm_setup_handler?version=version_5" class="govuk-link">Farm added without fields</a>
+                      <a href="farm_setup_handler?version=mvp" class="govuk-link">Farm added without fields</a>
                     </li>
                     <li>
-                      <a href="field_setup_handler?version=version_5" class="govuk-link">Farm and fields added</a>
+                      <a href="field_setup_handler?version=mvp" class="govuk-link">Farm and fields added</a>
                     </li>
                     <li>
-                      <a href="onecrop_v5_setup_handler?version=version_5" class="govuk-link">1 x 2024 arable crops added</a>
-                    </li>
-
-                    <li>
-                      <a href="twocrops_v5_setup_handler?version=version_5" class="govuk-link">Second 2024 arable crop added</a>
-                    </li>
-                    <li>
-                      <a href="grass_v5_setup_handler?version=version_5" class="govuk-link">Grass added as a crop to 2024 plan</a>
-                    </li>
-                    <li>
-                      <a href="manure_v5_setup_handler?version=version_5" class="govuk-link">{{data.content.organic_term}} and {{data.content.non_organic_term}} added</a>
-                    </li>
-                    <li>
-                      <a href="add_fertiliser_setup?version=version_5" class="govuk-link">Grass, winter wheat and manure added</a>
+                      <a href="crop24_setup_handler?version=mvp" class="govuk-link">2024 crops added</a>
                     </li>
                   </ul>
-                  </div>  
-                  
-              </details>
-              <hr>
-            </div>  
+              </details> 
 
-          <div class="govuk-grid-column-two-thirds margin-bottom-twenty">
-            <h2 class="govuk-heading-s">Mockups and samples</h2>
-            <details class="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Mockups
-                </span>
-              </summary>
-                <div class="detail_list">
-                  <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-                    <li>
-                      <a href="mockups/planning/multi.html" class="govuk-link">Second crops at set up</a>
-                    </li>
-                    <li>
-                      <a href="mockups/planning/application_choice.html" class="govuk-link">Tell users when they are planning a manure application for a single field</a>
-                    </li>
-                    
-                  </ul>
-                </div>  
-              </details>
-              <hr>
+              <hr class="seperator_four">
+
+              <!-- SAMPLES -->
+                <h2 class="govuk-heading-s">Mockups and samples</h2>
+                <details class="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      Mockups
+                    </span>
+                  </summary>
+                      <ul class="govuk-list govuk-list--bullet govuk-list--spaced detail_list">
+                        <li>
+                          <a href="mockups/planning/multi.html" class="govuk-link">Second crops at set up</a>
+                        </li>
+                        <li>
+                          <a href="mockups/planning/application_choice.html" class="govuk-link">Tell users when they are planning a manure application for a single field</a>
+                        </li>
+                        
+                      </ul>
+                    </div>  
+
+                    <p class="govuk-body-s">
+                      <a href="prototypes">Alpha prototypes and more information</a>
+                    </p>
+      
+                  </details>
+
+                  <hr class="seperator_four">
+
+
+              <p id="textp">{{data.content.content_loaded}}</p>
             </div>
 
-        <div class="govuk-grid-column-two-thirds">
-        <p class="govuk-body-s">
-          <a href="prototypes">Alpha prototypes and more information</a>
-        </p>
-        <p id="textp">{{data.content.content_loaded}}</p>
-      </div>
+    </details>
+
 
 {% endblock %}

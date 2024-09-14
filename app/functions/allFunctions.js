@@ -97,20 +97,6 @@ function createCropGroup (reference, year, field_references, current_fields, cro
     return newGroup
 }
 
-function createApplicationGroupV3 (reference, year, crop_group_references, fieldreferences, organic, manure_type, application_date) {
-    var newGroup = {
-        reference: reference + 1,
-        year: year,
-        crop_group_references: crop_group_references,
-        fields: fieldreferences, //remove this
-        organic: organic,
-        manure_type: manure_type,
-        application_date: application_date
-    }
-    console.log(newGroup)
-    return newGroup
-}
-
 function createApplicationGroup (reference, year, crop_group_references, fieldreferences, organic, manure_type, application_date) {
     var newGroup = {
         reference: reference + 1,
@@ -125,6 +111,18 @@ function createApplicationGroup (reference, year, crop_group_references, fieldre
     return newGroup
 }
 
+function createApplicationGroupV3 (reference, year, crop_group_references, organic, manure_type, application_date) {
+    var newGroup = {
+        reference: reference + 1,
+        year: year,
+        crop_group_references: crop_group_references,
+        organic: organic,
+        manure_type: manure_type,
+        application_date: application_date
+    }
+    console.log(newGroup)
+    return newGroup
+}
 
 function getCropByReference (referenceNumber, crops) {
     let cropToReturn

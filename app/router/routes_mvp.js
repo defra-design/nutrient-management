@@ -449,13 +449,9 @@ router.get(/version5_manure_handler/, function (req, res) {
     req.session.data.show_success_message = true
     req.session.data.successMessage = 2
     let cropgroupreferences = []
-    let fieldsRefs = []
     if (req.session.data.manure_fields == 'all') {
         for (var group in req.session.data.cropGroupsV5) {
             cropgroupreferences.push(req.session.data.cropGroupsV5[group].reference)
-            for (var fieldref in req.session.data.cropGroupsV5[group].fields ) {
-                fieldsRefs.push(req.session.data.cropGroupsV5[group].fields[fieldref].reference)
-            }
         }
     } else {
         for (var group in req.session.data.cropGroupsV5) {
@@ -467,7 +463,7 @@ router.get(/version5_manure_handler/, function (req, res) {
             }
         }
     }
-    let applicationGroup = allFunctions.createApplicationGroup(req.session.data.fertiliserGroupsV5.length, 2024, cropgroupreferences, fieldsRefs, true, 'Cattle Farmyard manure - Old', '10 September 2024')
+    let applicationGroup = allFunctions.createApplicationGroupV3 (req.session.data.fertiliserGroupsV5.length, 2024, cropgroupreferences, true, 'Cattle Farmyard manure - Old', '10 September 2024')
     req.session.data.fertiliserGroupsV5.push(applicationGroup)
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
@@ -622,7 +618,7 @@ router.get(/version2_fertiliser_handler/, function (req, res) {
 router.get(/fertiliser_v5_handler/, function (req, res) { 
     req.session.data.show_success_message = true
     req.session.data.successMessage = 3
-    let applicationGroup = allFunctions.createApplicationGroup (req.session.data.fertiliserGroupsV5.length, 2024, [1], [1,2,3,4,5,6,7,8,9,10], false, 'Nitrogen(N)', '1 March 2024')
+    let applicationGroup = allFunctions.createApplicationGroupV3 (req.session.data.fertiliserGroupsV5.length, 2024, [1], false, 'Nitrogen(N)', '1 March 2024')
     req.session.data.fertiliserGroupsV5.push(applicationGroup)
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })

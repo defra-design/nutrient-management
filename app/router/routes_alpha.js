@@ -500,14 +500,6 @@ router.get(/previous_cuts_handler/, function (req, res) {
 })
 
 router.get(/v5_fertiliser_handler/, function (req, res) {
-    if (req.session.data.fertiliser_fields != 'all') {
-        for (let x in req.session.data.cropGroupsV5) {
-            if (req.session.data.fertiliser_fields == req.session.data.cropGroupsV5[x].reference) {
-                req.session.data.fertiliser_fields = req.session.data.cropGroupsV5[x].crop_reference
-                console.log(req.session.data.fertiliser_fields)
-            }
-        }
-    }
     res.redirect('fertiliser_when')
 })
 

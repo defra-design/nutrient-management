@@ -97,17 +97,17 @@ function createCropGroup (reference, year, field_references, current_fields, cro
     return newGroup
 }
 
-function createApplicationGroup (fertiliserGroups, cropGroups, manure_fields, organic, manure_type, application_date) {
+function createApplicationGroup (fertiliserGroups, cropGroups, chosenFields, organic, manure_type, application_date) {
     let field_count = 0
     let cropgroupreferences = []
-    if (manure_fields == 'all') {
+    if (chosenFields == 'all') {
         for (var group in cropGroups) {
             cropgroupreferences.push(cropGroups[group].reference)
             field_count = field_count + cropGroups[group].fields.length
         }
     } else {
-        for (var x in manure_fields) {
-            cropgroupreferences.push(manure_fields[x])
+        for (var x in chosenFields) {
+            cropgroupreferences.push(chosenFields[x])
             field_count = field_count + cropGroups[x].fields.length
         }
     }

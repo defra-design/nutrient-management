@@ -601,7 +601,7 @@ router.get(/version2_fertiliser_handler/, function (req, res) {
 router.get(/fertiliser_v5_handler/, function (req, res) { 
     req.session.data.show_success_message = true
     req.session.data.successMessage = 3
-    let applicationGroup = allFunctions.createApplicationGroup (req.session.data.fertiliserGroupsV5, req.session.data.cropGroupsV5, [1], false, 'Nitrogen(N)', '1 March 2024')
+    let applicationGroup = allFunctions.createApplicationGroup (req.session.data.fertiliserGroupsV5, req.session.data.cropGroupsV5, req.session.data.fertiliser_fields, false, 'Nitrogen(N)', '1 March 2024')
     req.session.data.fertiliserGroupsV5.push(applicationGroup)
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })

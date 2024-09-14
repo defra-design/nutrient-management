@@ -107,22 +107,42 @@ function createApplicationGroup (reference, year, crop_group_references, fieldre
         manure_type: manure_type,
         application_date: application_date
     }
-    console.log(newGroup)
     return newGroup
 }
 
-function createApplicationGroupV3 (reference, year, crop_group_references, organic, manure_type, application_date) {
+function createApplicationGroupV3 (reference, crop_group_references, organic, manure_type, application_date) {
     var newGroup = {
         reference: reference + 1,
-        year: year,
         crop_group_references: crop_group_references,
         organic: organic,
         manure_type: manure_type,
         application_date: application_date
     }
-    console.log(newGroup)
     return newGroup
 }
+
+function createApplicationGroupV4 (fertiliserGroups, cropGroups, manure_fields, organic, manure_type, application_date) {
+    let cropgroupreferences = []
+    if (manure_fields == 'all') {
+        for (var group in cropGroups) {
+            cropgroupreferences.push(cropGroups[group].reference)
+        }
+    } else {
+        for (var x in manure_fields) {
+            cropgroupreferences.push(manure_fields[x])
+        }
+    }
+    console.log('cropgroupreferences = ' + cropgroupreferences)
+    var newGroup = {
+        reference: fertiliserGroups.length + 1,
+        crop_group_references: cropgroupreferences,
+        organic: organic,
+        manure_type: manure_type,
+        application_date: application_date
+    }
+    return newGroup
+}
+
 
 function getCropByReference (referenceNumber, crops) {
     let cropToReturn
@@ -168,6 +188,7 @@ module.exports.farmSetup = farmSetup;
 module.exports.cropSetup = cropSetup;
 module.exports.manureSetup = manureSetup;
 module.exports.createCropGroup = createCropGroup;
+module.exports.createApplicationGroupV4 = createApplicationGroupV4;
 module.exports.createApplicationGroupV3 = createApplicationGroupV3;
 module.exports.getManureFields = getManureFields;
 module.exports.createApplicationGroup = createApplicationGroup;

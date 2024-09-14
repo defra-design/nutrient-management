@@ -3,7 +3,7 @@
     <dt class="govuk-summary-list__key">Which fields would you like to add organic material applications to?</dt>
     <dd class="govuk-summary-list__value">
       {% if data.fertiliser_journey == "multi" %}
-      The Winter Wheat fields
+      The {{data.fertiliser_fields | nameconverter}} fields
       {% else %}
         {{data.chosen_field.name}}
       {% endif %}

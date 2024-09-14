@@ -97,52 +97,30 @@ function createCropGroup (reference, year, field_references, current_fields, cro
     return newGroup
 }
 
-function createApplicationGroup (reference, year, crop_group_references, fieldreferences, organic, manure_type, application_date) {
-    var newGroup = {
-        reference: reference + 1,
-        year: year,
-        crop_group_references: crop_group_references,
-        fields: fieldreferences, //remove this
-        organic: organic,
-        manure_type: manure_type,
-        application_date: application_date
-    }
-    return newGroup
-}
-
-function createApplicationGroupV3 (reference, crop_group_references, organic, manure_type, application_date) {
-    var newGroup = {
-        reference: reference + 1,
-        crop_group_references: crop_group_references,
-        organic: organic,
-        manure_type: manure_type,
-        application_date: application_date
-    }
-    return newGroup
-}
-
-function createApplicationGroupV4 (fertiliserGroups, cropGroups, manure_fields, organic, manure_type, application_date) {
+function createApplicationGroup (fertiliserGroups, cropGroups, manure_fields, organic, manure_type, application_date) {
+    let field_count = 0
     let cropgroupreferences = []
     if (manure_fields == 'all') {
         for (var group in cropGroups) {
             cropgroupreferences.push(cropGroups[group].reference)
+            field_count = field_count + cropGroups[group].fields.length
         }
     } else {
         for (var x in manure_fields) {
             cropgroupreferences.push(manure_fields[x])
+            field_count = field_count + cropGroups[x].fields.length
         }
     }
-    console.log('cropgroupreferences = ' + cropgroupreferences)
     var newGroup = {
         reference: fertiliserGroups.length + 1,
         crop_group_references: cropgroupreferences,
+        field_count: field_count,
         organic: organic,
         manure_type: manure_type,
         application_date: application_date
     }
     return newGroup
 }
-
 
 function getCropByReference (referenceNumber, crops) {
     let cropToReturn
@@ -188,7 +166,5 @@ module.exports.farmSetup = farmSetup;
 module.exports.cropSetup = cropSetup;
 module.exports.manureSetup = manureSetup;
 module.exports.createCropGroup = createCropGroup;
-module.exports.createApplicationGroupV4 = createApplicationGroupV4;
-module.exports.createApplicationGroupV3 = createApplicationGroupV3;
 module.exports.getManureFields = getManureFields;
 module.exports.createApplicationGroup = createApplicationGroup;

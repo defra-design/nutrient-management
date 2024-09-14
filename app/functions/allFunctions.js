@@ -27,7 +27,6 @@ function getMultipleFieldsByReferences (referenceNumbers, currentFields) {
     for (let x in referenceNumbers) {
         for (let y in currentFields) {
             if (currentFields[y].reference == referenceNumbers[x]) {
-                // console.log(currentFields[y].name +  ' ' + referenceNumbers[x] )
                 referenceNumbers[x] = currentFields[y]
             }
         }
@@ -98,24 +97,39 @@ function createCropGroup (reference, year, field_references, current_fields, cro
     return newGroup
 }
 
-function createApplicationGroup (reference, year, crop_group_references, fieldreferences, organic, manure_type, application_date) {
+function createApplicationGroupV3 (reference, year, crop_group_references, fieldreferences, organic, manure_type, application_date) {
     var newGroup = {
-        reference: reference,
+        reference: reference + 1,
         year: year,
         crop_group_references: crop_group_references,
-        fields: fieldreferences,
+        fields: fieldreferences, //remove this
         organic: organic,
         manure_type: manure_type,
         application_date: application_date
     }
+    console.log(newGroup)
     return newGroup
 }
+
+function createApplicationGroup (reference, year, crop_group_references, fieldreferences, organic, manure_type, application_date) {
+    var newGroup = {
+        reference: reference + 1,
+        year: year,
+        crop_group_references: crop_group_references,
+        fields: fieldreferences, //remove this
+        organic: organic,
+        manure_type: manure_type,
+        application_date: application_date
+    }
+    console.log(newGroup)
+    return newGroup
+}
+
 
 function getCropByReference (referenceNumber, crops) {
     let cropToReturn
     for (let crop in crops) {
         if (crops[crop].reference == referenceNumber ) {
-            console.log(cropToReturn.name)
             cropToReturn = crops[crop]
         }
     }
@@ -123,14 +137,12 @@ function getCropByReference (referenceNumber, crops) {
 };
 
 function getManureFields(chosenFields) {
-    console.log(chosenFields)
     let fieldsToReturn = null
     if (chosenFields == 'all') {
         fieldsToReturn = [1,2,3,4,5,6,7,8,9,10]
     } else {
         fieldsToReturn = [1,2,3,4,5]
     }
-    console.log(fieldsToReturn)
     return fieldsToReturn
 };
 
@@ -147,6 +159,7 @@ function getManureFields(chosenFields) {
                   group.fourthCropFields)
   };
 
+
 module.exports.printCropGroup = printCropGroup;
 module.exports.getFieldByReference = getFieldByReference;
 module.exports.getGroupByReference = getGroupByReference;
@@ -157,5 +170,6 @@ module.exports.farmSetup = farmSetup;
 module.exports.cropSetup = cropSetup;
 module.exports.manureSetup = manureSetup;
 module.exports.createCropGroup = createCropGroup;
-module.exports.createApplicationGroup = createApplicationGroup;
+module.exports.createApplicationGroupV3 = createApplicationGroupV3;
 module.exports.getManureFields = getManureFields;
+module.exports.createApplicationGroup = createApplicationGroup;

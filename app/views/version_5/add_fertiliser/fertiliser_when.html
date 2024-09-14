@@ -30,7 +30,7 @@
       <h1 class="govuk-heading-l">
         When are you applying {{data.content.non_organic_term | lower}}
         {% if data.fertiliser_journey == "multi" %}
-          on the Winter Wheat Fields?
+            on these fields?
         {% else %}
           on {{data.chosen_field.name}}?
         {% endif %}
@@ -58,7 +58,7 @@
                   <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
                     Day
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" autocomplete="off">
                 </div>
               </div>
               <div class="govuk-date-input__item">
@@ -66,7 +66,7 @@
                   <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
                     Month
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric" autocomplete="off">
                 </div>
               </div>
               <div class="govuk-date-input__item">
@@ -74,7 +74,7 @@
                   <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
                     Year
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric" autocomplete="off">
                 </div>
               </div>
             </div>

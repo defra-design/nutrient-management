@@ -68,8 +68,8 @@
       {% set organics = false %}
       {% set inorganics = false %}
       {% for group in data.fertiliserGroupsV5 %}
-        {% for field in group.fields %}
-          {% if field == data.chosen_group.reference %}
+        {% for x in group.crop_group_references %}
+          {% if x == data.chosen_group.reference %}
             {% if group.organic == true %}
               {% set organics = true %}
             {% else %}

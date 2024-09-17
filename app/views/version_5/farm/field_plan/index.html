@@ -79,6 +79,26 @@
         {% endfor %}
       {% endfor %}
 
+      {% set appears_in_other_groups = false %}
+      {% set second_crop_reference = null %}
+      {% set second_group_variety = null %}
+      {% set second_group_reference = null %}
+      {% set second_group_name = null %}
+
+      {% for group in data.cropGroupsV5 %}
+        {% if group.reference != data.chosen_group.reference %}
+          {% for field in group.fields %}
+            {% if field.reference == data.chosen_field.reference %}
+              {% set appears_in_other_groups = true %}
+              {% set second_group_reference = group.reference %}
+              {% set second_group_name = group.groupname %}
+              {% set second_group_variety = group.variety %}
+              {% set second_crop_reference = group.crop_reference %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+
       <!-- crops -->
       {% include "./recommendations.html" ignore missing %}
       

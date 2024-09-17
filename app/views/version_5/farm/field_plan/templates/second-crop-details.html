@@ -2,16 +2,24 @@
   <!-- <caption class="govuk-table__caption govuk-table__caption--s">{{data.chosen_crop | nameconverter}}</caption> -->
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Variety</td>
-      <td class="govuk-table__cell">Not entered</td>
+      <td class="govuk-table__cell strong">Variety</td>
+      {% if second_group_variety.length > 0 %}
+        <td class="govuk-table__cell">({{second_group_variety}})</td>
+      {% else %}
+        <td class="govuk-table__cell">Not entered</td>
+      {% endif %}
     </tr>         
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Sowing date</td>
+      <td class="govuk-table__cell strong">Group</td>
+        <td class="govuk-table__cell">{{second_group_name}}</td>
+    </tr>      
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell strong">Sowing date</td>
       <td class="govuk-table__cell">Not entered</td>
     </tr>      
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Estimated yield</td>
-      <td class="govuk-table__cell">4 tonne per hecare</td>
+      <td class="govuk-table__cell strong">Estimated yield</td>
+      <td class="govuk-table__cell">8 tonnes per hectare</td>
     </tr>
   </tbody>
 </table>  

@@ -3,7 +3,7 @@
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Variety</td>
-      {% if data.chosen_group.variety %}
+      {% if data.chosen_group.variety.length > 0 %}
         <td class="govuk-table__cell">{{data.chosen_group.variety}}</td>
       {% else %}
         <td class="govuk-table__cell">Not entered</td>
@@ -11,11 +11,7 @@
     </tr>         
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Group</td>
-      {% if data.chosen_group.group %}
         <td class="govuk-table__cell">{{data.chosen_group.groupname}}</td>
-      {% else %}
-        <td class="govuk-table__cell">Not entered</td>
-      {% endif %}
     </tr>      
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Sowing date</td>

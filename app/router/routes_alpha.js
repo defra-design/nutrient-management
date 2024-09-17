@@ -215,7 +215,7 @@ router.get(/variety_handler/, function (req, res) {
 
 router.get(/groupname_handler/, function (req, res) { 
     var newRef = req.session.data.cropGroupsV5.length + 1
-    if (req.session.data.groupname == null) {
+    if (req.session.data.groupname.length <= 0) {
         req.session.data.groupname = 'Group ' + newRef
     }
     res.redirect('sowdate_question')

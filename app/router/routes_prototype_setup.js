@@ -140,6 +140,17 @@ router.get(/twocrops_v5_setup_handler/, function (req, res) {
     res.redirect('/' + req.query.version + '/start')
 })
 
+router.get(/twocropsandmanures_v5_setup_handler/, function (req, res) { 
+    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
+    req.session.data.all_fields = req.session.data.field_list_mvp
+    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Carrots', 'Nantes', 'Harvest 1'))
+    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(2, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, 'Carotts', 'Nantes', 'Harvest 2'))
+    req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (req.session.data.fertiliserGroupsV5, req.session.data.cropGroupsV5, [1], true, 'Cattle Farmyard manure - Old', '10 September 2024'))
+    req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (req.session.data.fertiliserGroupsV5, req.session.data.cropGroupsV5, [1], false, 'Nitrogen (N)', '1 March 2024'))
+    req.session.data.prototype_version = req.query.version
+    res.redirect('/' + req.query.version + '/start')
+})
+
 router.get(/grass_v5_setup_handler/, function (req, res) { 
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'grass', req.session.data.cropGroupsV5)
     req.session.data.all_fields = req.session.data.field_list_mvp
@@ -153,7 +164,7 @@ router.get(/manure_v5_setup_handler/, function (req, res) {
     req.session.data.all_fields = req.session.data.field_list_mvp
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Group 1'))
     req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (req.session.data.fertiliserGroupsV5, req.session.data.cropGroupsV5, [1], true, 'Cattle Farmyard manure - Old', '10 September 2024'))
-    req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (req.session.data.fertiliserGroupsV5, req.session.data.cropGroupsV5, [1], false, 'Nitrogen (N)', false, '1 March 2024'))
+    req.session.data.fertiliserGroupsV5.push(allFunctions.createApplicationGroup (req.session.data.fertiliserGroupsV5, req.session.data.cropGroupsV5, [1], false, 'Nitrogen (N)', '1 March 2024'))
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
 })

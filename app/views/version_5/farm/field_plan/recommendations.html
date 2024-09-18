@@ -6,13 +6,13 @@
   <h2 class="govuk-heading-m">
     Nutrient recommendations for 
     {{data.chosen_group.crop_reference | nameconverter}}
-    <span class="nonbold">
-      {% if data.chosen_group.variety.length > 0 %}
-        ({{data.chosen_group.variety}}) 
-      {% endif %}
-      - {{data.chosen_group.groupname}}
-    </span>
   </h2>
+  <h3 class="govuk-heading-s">
+    {{data.chosen_group.groupname}}
+    {% if data.chosen_group.variety.length > 0 %}
+      - ({{data.chosen_group.variety}}) 
+    {% endif %}
+  </h3>
   <p class="govuk-body">Amounts are per hectare.</p>
   {% if data.chosen_crop == 'Grass' or data.chosen_crop == 'grass' %}
     {% include "./templates/v4_grass_empty.html" ignore missing %}
@@ -40,7 +40,6 @@
   {% endif %}
 
   <!-- second crop -->
-  
 
   {% if appears_in_other_groups == true %}
     <hr class="seperator_five">

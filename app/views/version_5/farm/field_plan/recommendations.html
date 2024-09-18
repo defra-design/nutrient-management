@@ -9,9 +9,9 @@
   </h2>
   <h3 class="govuk-heading-s">
     {{data.chosen_group.groupname}}
-    {% if data.chosen_group.variety.length > 0 %}
+    <!-- {% if data.chosen_group.variety.length > 0 %}
       - ({{data.chosen_group.variety}}) 
-    {% endif %}
+    {% endif %} -->
   </h3>
   <p class="govuk-body">Amounts are per hectare.</p>
   {% if data.chosen_crop == 'Grass' or data.chosen_crop == 'grass' %}
@@ -46,13 +46,13 @@
     <h2 class="govuk-heading-m">
       Nutrient recommendations for 
       {{second_crop_reference | nameconverter}}
-      <span class="nonbold">
-        {% if second_group_variety.length > 0 %}
-          ({{second_group_variety}}) 
-        {% endif %}
-        - {{second_group_name}}
-      </span>
     </h2>
+    <h3 class="govuk-heading-s">
+      {{second_group_name}}
+      <!-- {% if second_group_variety.length > 0 %}
+          ({{second_group_variety}}) 
+        {% endif %} -->
+    </h3>
     <p class="govuk-body">Amounts are per hectare.</p>
   
     {% if data.chosen_crop == 'Grass' or data.chosen_crop == 'grass' %}

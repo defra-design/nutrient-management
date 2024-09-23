@@ -5,7 +5,7 @@ var content = {
     todays_date : "18 September 2024",
     manure_measurement : "tonnes",
     content_loaded  : "Content loaded",
-    defoliations  : "Cuts and grazes"
+    defoliations  : "Cuts and grazings"
 };
 
 module.exports.content = content;

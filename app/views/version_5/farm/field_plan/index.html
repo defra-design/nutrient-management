@@ -6,7 +6,7 @@
 
 {% block beforeContent %}
 {% include "/templates/signed-in.html" ignore missing %}
-{{ govukBreadcrumbs({
+<!-- {{ govukBreadcrumbs({
   items: [
     {
       text: "Oaktree Lane Farm",
@@ -24,6 +24,11 @@
       text: data.chosen_field.name
     }
   ]
+}) }} -->
+
+{{ govukBackLink({
+  text: "Back to all fields",
+  href: "javascript:window.history.back()"
 }) }}
 
 {% endblock %}

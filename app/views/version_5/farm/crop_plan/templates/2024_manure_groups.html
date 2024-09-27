@@ -1,33 +1,4 @@
-<h2 class="govuk-heading-m">{{group.application_date}} <span class="nonbold">- {{group.manure_type}}</span> </h2>
-<p class="govuk-body"><a href="./change_organic_application">View or change this application</a></p>
-
-<table class="govuk-table big_crop_table_version_three margin-bottom-forty">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Fields included</th>
-      <th scope="col" class="govuk-table__header">Crop</th>
-      <th scope="col" class="govuk-table__header">Alerts</th>
-      <th scope="col" class="govuk-table__header"> </th>
-    </tr>
-  </thead>
-
-  <tbody class="govuk-table__body">
-    {% for crop_group in data.cropGroupsV5 %}
-      {% if crop_group.reference == group.reference %}
-        {% for field in crop_group.fields %}
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">{{field.name}}</td>
-            <td class="govuk-table__cell">{{crop_group.crop_reference | nameconverter}}</td>
-            <td class="govuk-table__cell">None</td>
-          </tr> 
-        {% endfor %}
-      {% endif %}
-    {% endfor %}
-  </tbody>
-</table>
-
-
-<!-- <h2 class="govuk-heading-m">
+<h2 class="govuk-heading-m">
     {{group.crop_reference | nameconverter  }} 
     <span class="nonbold">
       {% if group.variety.length > 0 %}
@@ -93,4 +64,4 @@
         {% endfor %}
 
   </tbody>
-</table> -->
+</table>

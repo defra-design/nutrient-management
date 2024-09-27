@@ -17,7 +17,7 @@
         href: "../plans_records"
       },
       {
-        text: "Harvest year " + data.oaktree_farm.planning_year
+        text: "Farm plan " + data.oaktree_farm.planning_year
       }
     ]
   }) }}
@@ -94,24 +94,21 @@
           {% endfor %}  
       </div>
 
-      <!-- manures -->
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="organic">
-        <div class="margin-bottom-forty">
-          <h2 class="govuk-heading-m non-standard">Organic material applications</h2>
-          {% if organics == false %}
-            <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned.</p>
-          {% endif %}
-            <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Add an {{data.content.organic_term | lower}} application to one or more fields</a></p>
-        </div>
+      <!-- manures v5 -->
+      <div class="govuk-tabs__panel" id="organic">
+        <h2 class="govuk-heading-m non-standard">Organic material applications</h2>
+        {% if organics == false %}
+          <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned.</p>
+        {% endif %}
+          <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Add an {{data.content.organic_term | lower}} application to one or more fields</a></p>
         {% if organics == true %}
           <hr class="seperator_five">
         {% endif %}
-        <!-- manures -->
-        <div class="margin-bottom-forty">
-          {% if organics == true %}
-            {% include "./templates/applications_tabs.html" ignore missing %}
-          {% endif %}
-        </div>
+        {% for group in data.fertiliserGroupsV5 %}
+          {% if group.organic == true %}
+            {% include "./templates/2024_manure_group_v5.html" ignore missing %}
+          {% endif %}  
+        {% endfor %}  
       </div>
 
       <!-- inorganics -->        
@@ -121,26 +118,17 @@
           {% if inorganics == false %}
             <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned.</p>
           {% endif %}
-          <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=multi">Add an {{data.content.non_organic_term | lower}} application to one or more fields</a></p>
-        </div>
-      
-        {% if inorganics == true %}
-          <p class="govuk-body">All amounts are per hectare.</p>
-          <hr class="seperator_five">
-        {% endif %}
-      
-        <div class="margin-bottom-forty">
+            <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=multi">Add an {{data.content.non_organic_term | lower}} application to one or more fields</a></p>
           {% if inorganics == true %}
-            <h2 class="govuk-heading-m">Nutrient totals from inorganic fertiliser for harvest year 2024</h2>
-            <div class="margin-bottom-forty">
-              {% include "./templates/2024_fertiliser_totals.html" ignore missing %}
-            </div>
-            <h2 class="govuk-heading-m">All inorganic fertiliser applications for harvest year 2024</h2>
-            <p class="govuk-body"><a href="#">Sort by field name</a> <span>&nbsp;</span> or <span>&nbsp;</span> <a href="#">sort by application date</a></p>
-            {% include "./templates/2024_fertiliser_table_v6.html" ignore missing %}
+            <hr class="seperator_five">    
           {% endif %}
-        </div>       
+          {% for group in data.fertiliserGroupsV5 %}
+            {% if group.organic == false %}
+              {% include "./templates/fertiliser_applications_tabs_v5.html" ignore missing %}
+            {% endif %}  
+          {% endfor %}  
       </div>
+    </div>
 
     </div>
 

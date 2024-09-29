@@ -97,7 +97,7 @@ function createCropGroup (reference, year, field_references, current_fields, cro
     return newGroup
 }
 
-function createApplicationGroup (fertiliserGroups, cropGroups, chosenFields, organic, manure_type, application_date) {
+function addManureApplication (fertiliserGroups, cropGroups, chosenFields, organic, manure_type, application_date) {
     let field_count = 0
     let cropgroupreferences = []
     if (chosenFields == 'all') {
@@ -117,6 +117,26 @@ function createApplicationGroup (fertiliserGroups, cropGroups, chosenFields, org
         field_count: field_count,
         organic: organic,
         manure_type: manure_type,
+        application_date: application_date
+    }
+    return newGroup
+}
+
+function addFertiliserApplication (fertiliserGroups, allFields, chosenFields, nutrients, rate, application_date) {
+    let fieldObjects = []
+    for (fieldObject in allFields) {
+        for (field in chosenFields) {
+            if (allFields[fieldObject].reference == chosenFields[field]) {
+                
+                fieldObjects.push(allFields[fieldObject])
+            }
+        }
+    }
+    var newGroup = {
+        reference: fertiliserGroups.length + 1,
+        chosenFields: fieldObjects,
+        nutrients: nutrients,
+        rate: rate,
         application_date: application_date
     }
     return newGroup
@@ -167,4 +187,5 @@ module.exports.cropSetup = cropSetup;
 module.exports.manureSetup = manureSetup;
 module.exports.createCropGroup = createCropGroup;
 module.exports.getManureFields = getManureFields;
-module.exports.createApplicationGroup = createApplicationGroup;
+module.exports.addManureApplication = addManureApplication;
+module.exports.addFertiliserApplication = addFertiliserApplication;

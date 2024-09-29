@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-    {% for group in data.fertiliserGroupsV5 %}
+    {% for group in data.allManureApplications %}
       {% if group.organic == false %}
       <tr class="govuk-table__row">
         <td class="govuk-table__cell">{{group.application_date}}</td>
@@ -29,7 +29,7 @@
 </table>
 
 
-    <!-- {% for group in data.fertiliserGroupsV5 %}
+    <!-- {% for group in data.allManureApplications %}
       {% if group.organic == true %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">{{group.application_date}}</td>

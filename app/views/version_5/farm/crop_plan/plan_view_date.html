@@ -70,14 +70,14 @@
         </ul>
 
         {% set organics = false %}
-        {% for group in data.fertiliserGroupsV5 %}
+        {% for group in data.allManureApplications %}
           {% if group.organic == true %}
             {% set organics = true %}
           {% endif %}
         {% endfor %}
 
         {% set inorganics = false %}
-        {% for group in data.fertiliserGroupsV5 %}
+        {% for group in data.allManureApplications %}
           {% if group.organic == false %}
             {% set inorganics = true %}
           {% endif %}

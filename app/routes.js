@@ -164,7 +164,8 @@ router.get('/', function (req, res) {
 
     // version 5
     req.session.data.cropGroupsV5 = []
-    req.session.data.fertiliserGroupsV5 = []
+    req.session.data.allManureApplications = []
+    req.session.data.allFertiliserApplications = []
 
     // notifications
     req.session.data.successMessage = null

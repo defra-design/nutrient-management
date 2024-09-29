@@ -70,14 +70,14 @@
         </ul>
 
         {% set organics = false %}
-        {% for group in data.fertiliserGroupsV5 %}
+        {% for group in data.allManureApplications %}
           {% if group.organic == true %}
             {% set organics = true %}
           {% endif %}
         {% endfor %}
 
         {% set inorganics = false %}
-        {% for group in data.fertiliserGroupsV5 %}
+        {% for group in data.allManureApplications %}
           {% if group.organic == false %}
             {% set inorganics = true %}
           {% endif %}
@@ -104,7 +104,7 @@
         {% if organics == true %}
           <hr class="seperator_five">
         {% endif %}
-        {% for group in data.fertiliserGroupsV5 %}
+        {% for group in data.allManureApplications %}
           {% if group.organic == true %}
             {% include "./templates/2024_manure_group_v6.html" ignore missing %}
           {% endif %}  
@@ -122,7 +122,7 @@
           {% if inorganics == true %}
             <hr class="seperator_five">    
           {% endif %}
-          {% for group in data.fertiliserGroupsV5 %}
+          {% for group in data.allManureApplications %}
             {% if group.organic == false %}
               {% include "./templates/fertiliser_applications_tabs_v6.html" ignore missing %}
             {% endif %}  

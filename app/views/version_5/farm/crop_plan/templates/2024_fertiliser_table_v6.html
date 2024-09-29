@@ -9,6 +9,51 @@
       </tr>
   </thead>
   <tbody class="govuk-table__body">
+    {% for application in data.allFertiliserApplications %}
+      {% for field in application.chosenFields %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{field.name}}</td>
+          <td class="govuk-table__cell"> {{application.application_date}}</td>
+          <td class="govuk-table__cell">{{application.rate}}</td>
+          <td class="govuk-table__cell">
+            {% for item in application.nutrients %}
+              <span class="nutrient-list">{{item}}</span>
+            {% endfor %}
+            <!-- <span class="nutrient-list">56 kg Phosphate (P2O5)</span> -->
+          </td>
+          <td class="govuk-table__cell"><a href="">Change</a></td>
+        </tr>
+      {% endfor %}
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+<!-- TEST
+{% for application in data.allFertiliserApplications %}
+  {{application.reference}}<br>
+  {% for field in application.chosenFields %}
+    {{field.name}}<br>
+  {% endfor %}
+  {{application.nutrients}}<br>
+  {{application.rate}}<br>
+  {{application.application_date}}<br>
+{% endfor %} -->
+
+
+
+<table class="govuk-table big_crop_table_version_three margin-bottom-forty">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Field &#9660;</th>
+      <th scope="col" class="govuk-table__header">Application Date</th>
+        <th scope="col" class="govuk-table__header">Rate (per hectare)</th>
+        <th scope="col" class="govuk-table__header">Nutrients</th>
+        <th scope="col" class="govuk-table__header">Change</th>
+      </tr>
+  </thead>
+  <tbody class="govuk-table__body">
 
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">25 acres</td>
@@ -72,7 +117,7 @@
 
 
     <tr class="govuk-table__row"></tr>
-      <td class="govuk-table__cell">Long</td>
+      <td class="govuk-table__cell">Long field</td>
       <td class="govuk-table__cell">01/09/2023</td>
       <td class="govuk-table__cell">280 kg</td>
       <td class="govuk-table__cell">
@@ -82,7 +127,7 @@
       <td class="govuk-table__cell"><a href="">Change</a></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Long</td>
+      <td class="govuk-table__cell">Long field</td>
       <td class="govuk-table__cell">01/03/2024</td>
       <td class="govuk-table__cell">120 kg</td>
       <td class="govuk-table__cell">
@@ -91,7 +136,7 @@
       <td class="govuk-table__cell"><a href="">Change</a></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Long</td>
+      <td class="govuk-table__cell">Long field</td>
       <td class="govuk-table__cell">22/03/2024</td>
       <td class="govuk-table__cell">200 kg</td>
       <td class="govuk-table__cell">
@@ -100,7 +145,7 @@
       <td class="govuk-table__cell"><a href="">Change</a></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Long</td>
+      <td class="govuk-table__cell">Long field</td>
       <td class="govuk-table__cell">02/04/2024</td>
       <td class="govuk-table__cell">200 kg</td>
       <td class="govuk-table__cell">

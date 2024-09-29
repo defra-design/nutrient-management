@@ -70,14 +70,14 @@
         </ul>
 
         {% set organics = false %}
-        {% for group in data.fertiliserGroupsV5 %}
+        {% for group in data.allManureApplications %}
           {% if group.organic == true %}
             {% set organics = true %}
           {% endif %}
         {% endfor %}
 
         {% set inorganics = false %}
-        {% for group in data.fertiliserGroupsV5 %}
+        {% for group in data.allManureApplications %}
           {% if group.organic == false %}
             {% set inorganics = true %}
           {% endif %}
@@ -125,19 +125,12 @@
         </div>
       
         {% if inorganics == true %}
-          <p class="govuk-body">All amounts are per hectare.</p>
           <hr class="seperator_five">
         {% endif %}
       
         <div class="margin-bottom-forty">
           {% if inorganics == true %}
-            <h2 class="govuk-heading-m">Nutrient totals from inorganic fertiliser for harvest year 2024</h2>
-            <div class="margin-bottom-forty">
-              {% include "./templates/2024_fertiliser_totals.html" ignore missing %}
-            </div>
-            <h2 class="govuk-heading-m">All inorganic fertiliser applications for harvest year 2024</h2>
-            <p class="govuk-body"><a href="plan_view#inorganic">Sort by field name</a> <span>&nbsp;</span> or <span>&nbsp;</span> <a href="plan_view_date#inorganic">sort by application date</a></p>
-            {% include "./templates/2024_fertiliser_table_v6.html" ignore missing %}
+            {% include "./templates/fertiliser_applications_tabs.html" ignore missing %}
           {% endif %}
         </div>       
       </div>

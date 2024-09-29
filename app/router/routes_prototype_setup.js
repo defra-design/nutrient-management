@@ -207,8 +207,7 @@ router.get(/newmanure_setup/, function (req, res) {
     req.session.data.allManureApplications.push(newApplicationGroup_1)
     req.session.data.allManureApplications.push(newApplicationGroup_2)
 
-    let applicationGroup = allFunctions.addFertiliserApplication (req.session.data.allFertiliserApplications, req.session.data.all_fields, [1,2], ['56 kg Potash (K2O)', '56 kg Phosphate (P2O5)'], '288 kg', '20/09/2023')
-    req.session.data.allFertiliserApplications.push(applicationGroup)
+    req.session.data.allFertiliserApplications.push(allFunctions.addFertiliserApplication (req.session.data.allFertiliserApplications, req.session.data.all_fields, [1,2], ['56 kg Potash (K2O)', '56 kg Phosphate (P2O5)'], '288 kg', '20/09/2023'))
 
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')

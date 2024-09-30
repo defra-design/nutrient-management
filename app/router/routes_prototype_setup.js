@@ -187,27 +187,33 @@ router.get(/newmanure_setup/, function (req, res) {
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Group 1'))
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(2, 2024, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Group 2'))
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(3, 2024, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Group 3'))
-    var newApplicationGroup_1 = {
-        reference: req.session.data.allManureApplications.length + 1,
-        crop_group_references: [1,2,3,4,5],
-        field_count: 5,
-        organic: true,
-        manure_type: 'Cattle Farmyard manure - Old',
-        application_date: '10 September 2024'
-    }
-    var newApplicationGroup_2 = {
-        reference: req.session.data.allManureApplications.length + 1,
-        crop_group_references: [1,2,3,4,5],
-        field_count: 5,
-        organic: false,
-        manure_type: 'Nitrogen (N)',
-        application_date: '1 March 2024'
+    // var newApplicationGroup_1 = {
+    //     reference: req.session.data.allManureApplications.length + 1,
+    //     crop_group_references: [1,2,3,4,5],
+    //     field_count: 5,
+    //     organic: true,
+    //     manure_type: 'Cattle Farmyard manure - Old',
+    //     application_date: '10 September 2024'
+    // }
+    // var newApplicationGroup_2 = {
+    //     reference: req.session.data.allManureApplications.length + 1,
+    //     crop_group_references: [1,2,3,4,5],
+    //     field_count: 5,
+    //     organic: false,
+    //     manure_type: 'Nitrogen (N)',
+    //     application_date: '1 March 2024'
+    // }
+
+    // req.session.data.allManureApplications.push(newApplicationGroup_1)
+    // req.session.data.allManureApplications.push(newApplicationGroup_2)
+
+    for (var x in req.session.data.fertiliser_applications_list) {
+        req.session.data.allFertiliserApplications.push(req.session.data.fertiliser_applications_list[x])
     }
 
-    req.session.data.allManureApplications.push(newApplicationGroup_1)
-    req.session.data.allManureApplications.push(newApplicationGroup_2)
+    console.log(req.session.data.allFertiliserApplications)
 
-    req.session.data.allFertiliserApplications.push(allFunctions.addFertiliserApplication (req.session.data.allFertiliserApplications, req.session.data.all_fields, [8,2], ['56 kg Potash (K2O)', '56 kg Phosphate (P2O5)'], '288 kg', '20/09/2023'))
+    // req.session.data.allFertiliserApplications.push(allFunctions.addFertiliserApplication (req.session.data.allFertiliserApplications, req.session.data.all_fields, [8,2], ['56 kg Potash (K2O)', '56 kg Phosphate (P2O5)'], '288 kg', '20/09/2023'))
 
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')

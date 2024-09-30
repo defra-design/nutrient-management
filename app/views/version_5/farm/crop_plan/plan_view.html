@@ -77,11 +77,9 @@
         {% endfor %}
 
         {% set inorganics = false %}
-        {% for group in data.allManureApplications %}
-          {% if group.organic == false %}
-            {% set inorganics = true %}
-          {% endif %}
-        {% endfor %}
+        {% if data.allFertiliserApplications.length > 0 %}
+          {% set inorganics = true %}
+        {% endif %}
 
       <!-- crops -->
       <div class="govuk-tabs__panel" id="crops">

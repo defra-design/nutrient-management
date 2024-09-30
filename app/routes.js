@@ -34,6 +34,9 @@ let tempField = {
     elevation: false
 };
 
+//applications
+const fertiliser_applications_list = require('./data/fertiliser_applications.json');
+
 ///////Plans
 const Plan = require('./functions/plan.js');
 let plan_2023 = Plan.createPlan();
@@ -93,6 +96,9 @@ router.get('/', function (req, res) {
     req.session.data.crop_types = crop_types
     req.session.data.chosen_field = null
     req.session.data.crop_group = null
+
+    //new
+    req.session.data.fertiliser_applications_list = fertiliser_applications_list
 
 
     //plans

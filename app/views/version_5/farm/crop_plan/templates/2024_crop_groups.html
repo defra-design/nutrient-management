@@ -20,48 +20,46 @@
       </tr>
     </thead>
 
-      {% set manureCount = 0 %}
-      {% set inorganicCount = 0 %}
-
-      {% for manureGroup in data.allManureApplications %}
-        {% for groupref in manureGroup.crop_group_references %}
-          {% if groupref == group.reference %}
-            {% if manureGroup.organic == true %}
-              {% set manureCount = manureCount + 1 %}
-            {% else %}
-              {% set inorganicCount = inorganicCount + 1 %}
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-      {% endfor %}
 
     {% for field in group.fields %}
 
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">{{field.name}}</td>
+    {% set manureCount = 0 %}
+    {% set inorganicCount = 0 %}
 
-            <td class="govuk-table__cell" class="govuk-table__header">
-                {% if manureCount == 0 %}
+    {% for manureitem in data.allManureApplications_v2 %}
+      {% if manureitem.fieldref == field.reference %}
+          {% set manureCount = manureCount + 1 %}
+        {% endif %}
+    {% endfor %}
+
+    {% for fertitem in data.allFertiliserApplications %}
+    {% if fertitem.fieldref == field.reference %}
+        {% set inorganicCount = inorganicCount + 1 %}
+      {% endif %}
+    {% endfor %}
+
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell field-name">{{field.name}}</td>
+          <td class="govuk-table__cell" class="govuk-table__header">
+              {% if manureCount == 0 %}
+              None
+            {% else %}
+              {{manureCount}}
+            {% endif %}
+          </td>
+          <td class="govuk-table__cell" class="govuk-table__header">
+              {% if inorganicCount == 0 %}
                 None
               {% else %}
-                {{manureCount}}
+                {{inorganicCount}}
               {% endif %}
-            </td>
-
-            <td class="govuk-table__cell" class="govuk-table__header">
-                {% if inorganicCount == 0 %}
-                  None
-                {% else %}
-                  {{inorganicCount}}
-                {% endif %}
-            </td>
-
-            <td class="govuk-table__cell">None</td>
-            <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}">View field plan</a></td>
-          
-          </tr> 
-        {% endfor %}
+          </td>
+          <td class="govuk-table__cell">None</td>
+          <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}">View field plan</a></td>
+      </tr> 
+    {% endfor %}
 
   </tbody>
 </table>

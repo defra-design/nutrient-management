@@ -5,7 +5,7 @@
 {"reference":4, "name":"Valley", "planStatus":false, "crop": null, "soil": null},
 {"reference":5, "name":"Poplar", "planStatus":false, "crop": null, "soil": null},
 {"reference":6, "name":"Oaks", "planStatus":false, "crop": null, "soil": null},
-{"reference":7, "name":"Narrow field", "planStatus":false, "crop": null, "soil": null},
+{"reference":7, "name":"Narrow land", "planStatus":false, "crop": null, "soil": null},
 {"reference":8, "name":"25 Acres", "planStatus":false, "crop": null, "soil": null},
 {"reference":9, "name":"Shed", "planStatus":false, "crop": null, "soil": null},
 {"reference":10, "name":"Park 1", "planStatus":false, "crop": null, "soil": null},

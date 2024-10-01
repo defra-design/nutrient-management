@@ -2,8 +2,8 @@
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Field &#9660;</th>
-      <th scope="col" class="govuk-table__header">Crop</th>
       <th scope="col" class="govuk-table__header">Application Date</th>
+      <th scope="col" class="govuk-table__header">Crop</th>
         <th scope="col" class="govuk-table__header">Rate (per hectare)</th>
         <th scope="col" class="govuk-table__header">Nutrients</th>
         <th scope="col" class="govuk-table__header"> </th>
@@ -13,8 +13,8 @@
     {% for application in data.allFertiliserApplications %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">{{application.Field}}</td>
-          <td class="govuk-table__cell"> {{application.Crop | nameconverter}}</td>
           <td class="govuk-table__cell"> {{application.date}}</td>
+          <td class="govuk-table__cell"> {{application.Crop | nameconverter}}</td>
 
           <td class="govuk-table__cell">
             {% if application.rate != "0" and application.rate != "" and application.rate != nan %}

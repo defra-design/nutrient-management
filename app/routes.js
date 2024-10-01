@@ -36,6 +36,7 @@ let tempField = {
 
 //applications
 const fertiliser_applications_list = require('./data/fertiliser_applications.json');
+const manure_applications_list = require('./data/manure_applications.json');
 
 ///////Plans
 const Plan = require('./functions/plan.js');
@@ -99,6 +100,7 @@ router.get('/', function (req, res) {
 
     //new
     req.session.data.fertiliser_applications_list = fertiliser_applications_list
+    req.session.data.manure_applications_list = manure_applications_list
 
 
     //plans
@@ -171,6 +173,7 @@ router.get('/', function (req, res) {
     // version 5
     req.session.data.cropGroupsV5 = []
     req.session.data.allManureApplications = []
+    req.session.data.allManureApplications_v2 = []
     req.session.data.allFertiliserApplications = []
 
     // notifications

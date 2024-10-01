@@ -212,7 +212,7 @@ router.get(/newmanure_setup/, function (req, res) {
     }
 
     for (var y in req.session.data.manure_applications_list) {
-        req.session.data.allManureApplications_v2.push(req.session.data.manure_applications_list[x])
+        req.session.data.allManureApplications_v2.push(req.session.data.manure_applications_list[y])
     }
 
     console.log(req.session.data.allFertiliserApplications)

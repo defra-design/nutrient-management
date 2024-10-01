@@ -1,23 +1,34 @@
 <table class="govuk-table recomendation-table data-table">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Date</th>
-      <th scope="col" class="govuk-table__header">Type of organic material</th>
-      <th scope="col" class="govuk-table__header">Number of fields included</span></th>
-      <th scope="col" class="govuk-table__header"></th>
+      <th scope="col" class="govuk-table__header">Field &#9660;</th>
+      <th scope="col" class="govuk-table__header">Crop</th>
+      <th scope="col" class="govuk-table__header">Application Date</th>
+      <th scope="col" class="govuk-table__header">Type of manure</th>
+        <th scope="col" class="govuk-table__header">Rate (per hectare)</th>
+        <th scope="col" class="govuk-table__header"> </th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
 
-    {% for group in data.allManureApplications %}
-      {% if group.organic == true %}
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">{{group.application_date}}</td>
-          <td class="govuk-table__cell">{{group.manure_type}}</td>
-          <td class="govuk-table__cell">{{group.field_count}}</td>
-          <td class="govuk-table__cell"><a href="change_organic_application">Change</a></td>
-        </tr>      
-      {% endif %} 
+    {% for application in data.allManureApplications_v2 %}        
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{application.Field}}</td>
+        <td class="govuk-table__cell"> {{application.Crop | nameconverter}}</td>
+        <td class="govuk-table__cell"> {{application.date}}</td>
+        <td class="govuk-table__cell">{{application.type}}</td>
+
+
+        <td class="govuk-table__cell">
+          {% if application.rate != "0" and application.rate != "" and application.rate != nan %}
+            {{application.rate}} kg
+          {% else %}
+            Not entered
+          {% endif %}
+        </td>
+                  <td class="govuk-table__cell"><a href="">Change</a></td>
+
+      </tr>      
     {% endfor %} 
   </tbody>
 </table>

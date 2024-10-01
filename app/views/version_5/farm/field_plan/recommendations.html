@@ -5,15 +5,16 @@
 
   <h2 class="govuk-heading-m">
     Nutrient recommendations for 
-    {{data.chosen_group.crop_reference | nameconverter}}
+    {{data.chosen_group.crop_reference | nameconverter}} in
+    {{data.chosen_field.name}}
   </h2>
   <h3 class="govuk-heading-s">
-    {{data.chosen_group.groupname}}
+    <!-- {{data.chosen_group.groupname}} -->
     <!-- {% if data.chosen_group.variety.length > 0 %}
       - ({{data.chosen_group.variety}}) 
     {% endif %} -->
   </h3>
-  <p class="govuk-body">Amounts are per hectare.</p>
+  <p class="govuk-body-s">Amounts are per hectare.</p>
   {% if data.chosen_crop == 'Grass' or data.chosen_crop == 'grass' %}
     {% include "./templates/v4_grass_empty.html" ignore missing %}
   {% else %}
@@ -53,7 +54,7 @@
           ({{second_group_variety}}) 
         {% endif %} -->
     </h3>
-    <p class="govuk-body">Amounts are per hectare.</p>
+    <p class="govuk-body-s">Amounts are per hectare.</p>
   
     {% if data.chosen_crop == 'Grass' or data.chosen_crop == 'grass' %}
       <p class="govuk-body-s">These recommendations are for {{data.chosen_field.name}}, harvest year {{data.oaktree_farm.planning_year}}</p>

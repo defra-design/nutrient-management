@@ -16,7 +16,9 @@
       <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned for {{data.chosen_field.name}}.</p>
       <p class="govuk-body"><a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
     {% else %}
+      <p class="govuk-body-s">All amounts are per hectare</p>
       {% include "./templates/applications.html" ignore missing %}
+      <hr class="">
     {% endif %}
   </div>
 

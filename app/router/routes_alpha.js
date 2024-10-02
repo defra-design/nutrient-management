@@ -506,9 +506,26 @@ router.get(/v5_fertiliser_handler/, function (req, res) {
 })
 
 router.get(/manure_fields_v5_handler/, function (req, res) {
+    var new_manure_fields = []
     if (req.session.data.manure_fields == 'specific') {
         res.redirect('manure_fields_two')
+    } else if (req.session.data.manure_fields == 'all') {
+        for (var x in req.session.data.cropGroupsV5) {
+            for (var y in req.session.data.cropGroupsV5[x].fields ) {
+                new_manure_fields.push(req.session.data.cropGroupsV5[x].fields[y].reference)
+                req.session.data.manure_fields = new_manure_fields
+            }
+        }
+        res.redirect('manure_group')
     } else {
+        for (var x in req.session.data.cropGroupsV5) {
+            if (req.session.data.cropGroupsV5[x].reference == req.session.data.manure_fields ) {
+                for (var y in req.session.data.cropGroupsV5[x].fields ) {
+                    new_manure_fields.push(req.session.data.cropGroupsV5[x].fields[y].reference)
+                    req.session.data.manure_fields = new_manure_fields
+                }
+            }
+        }
         res.redirect('manure_group')
     }
 })
@@ -519,15 +536,11 @@ router.get(/version5_manure_handler/, function (req, res) {
     let manureType = req.session.data.manure_type.name
     let manure_fields = req.session.data.manure_fields
     let manureDate = req.session.data.manure_date_day + '/' + req.session.data.manure_date_month + '/' + req.session.data.manure_date_year
-    console.log(manure_fields)
     for (var x in manure_fields) {
-        console.log(x)
         let applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, manure_fields[x], manureDate, manureType)
         req.session.data.allManureApplications_v2.push(applicationGroup)
     }
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
-
-
 
 module.exports = router

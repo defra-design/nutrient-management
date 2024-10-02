@@ -122,11 +122,26 @@ function addManureApplication (fertiliserGroups, cropGroups, chosenFields, organ
     return newGroup
 }
 
-function addManureApplication_v2 () {
+function addManureApplication_v2 (allFields, cropGroups, fieldReference) {
+    let fieldName = null
+    let crop_reference = null
+    for (var x in allFields) {
+        if (allFields[x].reference == fieldReference) {
+            fieldName = allFields[x].name
+            fieldName = allFields[x].name
+        }
+    }
+    for (var y in cropGroups) {
+        for (var z in cropGroups[y].fields) {
+            if (cropGroups[y].fields[z].reference == fieldReference ) {
+                crop_reference = cropGroups[y].crop_reference
+            }
+        }
+    }
     var newApplication = {
-        "Field": "Long Field",
-        "fieldref": 1,
-        "Crop": "Wheat-Winter",
+        "Field": fieldName,
+        "fieldref": fieldReference,
+        "Crop": crop_reference,
         "date": "9/2/2023",
         "type": "Cattle FYM - old",
         "rate": "20",

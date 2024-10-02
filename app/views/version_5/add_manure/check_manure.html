@@ -12,6 +12,10 @@
         All fields in the 2024 plan
       {% elif data.manure_fields == 1 %}
         The Wheat-Winter (Skyfall) fields
+      {% else %}
+        {% for item in data.manure_fields %}
+          {{item | fieldnameconverter}},</br>
+        {% endfor %}
       {% endif %}
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>

@@ -7,7 +7,11 @@
 <div class="govuk-summary-list__row">
   <dt class="govuk-summary-list__key">When do you first plan to spread organic material on the fields?</dt>
   <dd class="govuk-summary-list__value">
-    <p class="govuk-body">30 August 2023</p>
+    <p class="govuk-body">
+        {{data.manure_date_day}}
+        {{data.manure_date_month | convertmonth}}
+        {{data.manure_date_year}} 
+    </p>
   </dd>
   <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
 </div>

@@ -445,14 +445,6 @@ router.get(/version5_manure_update_handler/, function (req, res) {
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 
-router.get(/version5_manure_handler/, function (req, res) { 
-    req.session.data.show_success_message = true
-    req.session.data.successMessage = 2
-    let applicationGroup = allFunctions.addManureApplication (req.session.data.allManureApplications, req.session.data.cropGroupsV5, req.session.data.manure_fields, true, 'Cattle Farmyard manure - Old', '10 September 2024')
-    req.session.data.allManureApplications.push(applicationGroup)
-    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
-})
-
 router.get(/manureagain_handler/, function (req, res) { 
     if (req.session.data.manureagain == "yes") {
         req.session.data.manure_count++

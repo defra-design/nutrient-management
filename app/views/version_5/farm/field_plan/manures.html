@@ -1,33 +1,26 @@
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="manures">
-  <h2 class="govuk-heading-m non-standard">Organic and inorganic material applications</h2>
-  <p class="govuk-body">These are the organic and inorganic material applications for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}</p>
-  {% if organics == true or inorganics == true %}
-    <!-- <p class="govuk-body">These are are the planned organic and inorganic material applications for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p> -->
-    <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add an {{data.content.non_organic_term | lower}} application for {{data.chosen_field.name}}</a></p>
+
+  <h2 class="govuk-heading-m non-standard">{{data.content.organic_term}} applications</h2>
+  {% if organics == true %}
+    <p class="govuk-body">These are the organic material applications for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}</p>
+    <p class="govuk-body-s">All amounts are per hectare.</p>
     <p class="govuk-body"><a href="v2manure_handler?manurejourney=single">Add an {{data.content.organic_term | lower}} application for {{data.chosen_field.name}}</a></p>
-  {% endif %}
-  <hr class="seperator_five">
-
-  <!-- manures -->
-  <div class="margin-bottom-forty">
-    <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
-      
-    {% if organics == false %}
-      <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned for {{data.chosen_field.name}}.</p>
-      <p class="govuk-body"><a href="v2manure_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
-    {% else %}
-      <p class="govuk-body-s">All amounts are per hectare</p>
-      {% include "./templates/applications.html" ignore missing %}
-      <hr class="">
-    {% endif %}
-  </div>
-
-  <!-- fertiliser -->
-  <h2 class="govuk-heading-m">{{data.content.non_organic_term}} applications</h2>
-  {% if inorganics == false %}
-    <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned for {{data.chosen_field.name}}.</p>
-    <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add {{data.content.non_organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
+    {% include "./templates/applications.html" ignore missing %}
   {% else %}
-    {% include "./templates/fertiliser_applications.html" ignore missing %}
+    <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned for {{data.chosen_field.name}} in 2024.</p>
+    <p class="govuk-body"><a href="v2manure_handler?manurejourney=single">Add an {{data.content.organic_term | lower}} application for {{data.chosen_field.name}}</a></p>
+    <hr class="seperator_five">
   {% endif %}
+
+  <h2 class="govuk-heading-m non-standard">{{data.content.non_organic_term}} applications</h2>
+  {% if inorganics == true %}
+    <p class="govuk-body">These are the {{data.content.non_organic_term | lower}} applications for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p>
+    <p class="govuk-body-s">All amounts are per hectare.</p>
+    <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add an {{data.content.non_organic_term | lower}} application for {{data.chosen_field.name}}</a></p>
+    {% include "./templates/fertiliser_applications.html" ignore missing %}
+  {% else %}
+    <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned for {{data.chosen_field.name}} in 2024.</p>
+    <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add {{data.content.non_organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
+  {% endif %}
+
 </div>

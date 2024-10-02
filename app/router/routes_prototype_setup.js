@@ -214,10 +214,6 @@ router.get(/newmanure_setup/, function (req, res) {
     for (var y in req.session.data.manure_applications_list) {
         req.session.data.allManureApplications_v2.push(req.session.data.manure_applications_list[y])
     }
-
-    console.log(req.session.data.allFertiliserApplications)
-    console.log(req.session.data.allManureApplications_v2)
-
     // req.session.data.allFertiliserApplications.push(allFunctions.addFertiliserApplication (req.session.data.allFertiliserApplications, req.session.data.all_fields, [8,2], ['56 kg Potash (K2O)', '56 kg Phosphate (P2O5)'], '288 kg', '20/09/2023'))
 
     req.session.data.prototype_version = req.query.version

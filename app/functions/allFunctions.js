@@ -122,6 +122,33 @@ function addManureApplication (fertiliserGroups, cropGroups, chosenFields, organ
     return newGroup
 }
 
+function addManureApplication_v2 () {
+    var newApplication = {
+        "Field": "Long Field",
+        "fieldref": 1,
+        "Crop": "Wheat-Winter",
+        "date": "9/2/2023",
+        "type": "Cattle FYM - old",
+        "rate": "20",
+        "method": "Discharge spreader",
+        "incorporation": "Mouldboard plough",
+        "Delay": "12-24 hours",
+        "drainage": "3/31/24",
+        "Rainfall": "357",
+        "DM": "25",
+        "Total N": "6",
+        "NH4-N": "0.5",
+        "Uric acid N": "0",
+        "NO3-N": "0.1",
+        "P2O5": "3.2",
+        "K2O": "8",
+        "MgO": "1.8",
+        "SO3": "2.4"
+    }
+    return newApplication
+}
+
+
 function addFertiliserApplication (fertiliserGroups, allFields, chosenFields, nutrients, rate, application_date) {
     let fieldObjects = []
     for (fieldObject in allFields) {
@@ -189,3 +216,4 @@ module.exports.createCropGroup = createCropGroup;
 module.exports.getManureFields = getManureFields;
 module.exports.addManureApplication = addManureApplication;
 module.exports.addFertiliserApplication = addFertiliserApplication;
+module.exports.addManureApplication_v2 = addManureApplication_v2;

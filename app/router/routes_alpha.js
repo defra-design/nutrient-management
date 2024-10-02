@@ -505,4 +505,22 @@ router.get(/v5_fertiliser_handler/, function (req, res) {
     res.redirect('fertiliser_when')
 })
 
+router.get(/manure_fields_v5_handler/, function (req, res) {
+    if (req.session.data.manure_fields == 'specific') {
+        res.redirect('manure_fields_two')
+    } else {
+        res.redirect('manure_group')
+    }
+})
+
+router.get(/version5_manure_handler/, function (req, res) { 
+    req.session.data.show_success_message = true
+    req.session.data.successMessage = 2
+    let applicationGroup = allFunctions.addManureApplication_v2 ()
+    req.session.data.allManureApplications_v2.push(applicationGroup)
+    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+})
+
+
+
 module.exports = router

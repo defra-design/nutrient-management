@@ -517,7 +517,9 @@ router.get(/version5_manure_handler/, function (req, res) {
     req.session.data.show_success_message = true
     req.session.data.successMessage = 2
     let fieldReferences = req.session.data.crop_fields
-    let applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, fieldReferences)
+    let manureType = req.session.data.manure_type.name
+    let manureDate = req.session.data.manure_date_day + '/' + req.session.data.manure_date_month + '/' + req.session.data.manure_date_year
+    let applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, fieldReferences, manureDate, manureType)
     req.session.data.allManureApplications_v2.push(applicationGroup)
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })

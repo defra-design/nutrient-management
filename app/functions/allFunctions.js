@@ -122,7 +122,7 @@ function addManureApplication (fertiliserGroups, cropGroups, chosenFields, organ
     return newGroup
 }
 
-function addManureApplication_v2 (allFields, cropGroups, fieldReference) {
+function addManureApplication_v2 (allFields, cropGroups, fieldReference, manureDate, manureType) {
     let fieldName = null
     let crop_reference = null
     for (var x in allFields) {
@@ -142,8 +142,8 @@ function addManureApplication_v2 (allFields, cropGroups, fieldReference) {
         "Field": fieldName,
         "fieldref": fieldReference,
         "Crop": crop_reference,
-        "date": "9/2/2023",
-        "type": "Cattle FYM - old",
+        "date": manureDate,
+        "type": manureType,
         "rate": "20",
         "method": "Discharge spreader",
         "incorporation": "Mouldboard plough",

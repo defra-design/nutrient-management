@@ -567,7 +567,7 @@ router.get(/version5_manure_handler/, function (req, res) {
 router.get(/fertiliser_v5_handler/, function (req, res) { 
     req.session.data.show_success_message = true
     req.session.data.successMessage = 3
-    let fertiliserDate = '1 March 2024'
+    let fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
     let fertiliser_fields = req.session.data.fertiliser_fields
     for (var x in fertiliser_fields) {
         let applicationGroup = allFunctions.addFertiliserApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, fertiliser_fields[x], fertiliserDate)
@@ -575,5 +575,37 @@ router.get(/fertiliser_v5_handler/, function (req, res) {
     }
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
+
+router.get(/manure_date_handler/, function (req, res) {
+    if (req.session.data.manure_date_day < 1) {
+        req.session.data.manure_date_day = 21
+    }
+    if (req.session.data.manure_date_month < 1) {
+        req.session.data.manure_date_month = 2
+    }
+    if (req.session.data.manure_date_year < 1) {
+        req.session.data.manure_date_year = 2024
+    }
+    if (req.session.data.manure_type.liquid == true) {
+        res.redirect("manure_applied")
+    } else {
+        res.redirect("manure_defaults")
+    }
+})
+
+router.get(/fertiliser_date_handler/, function (req, res) {
+    if (req.session.data.fertiliser_date_day < 1) {
+        req.session.data.fertiliser_date_day = 21
+    }
+    if (req.session.data.fertiliser_date_month < 1) {
+        req.session.data.fertiliser_date_month = 2
+    }
+    if (req.session.data.fertiliser_date_year < 1) {
+        req.session.data.fertiliser_date_year = 2024
+    }
+    res.redirect("fertiliser_amount")
+})
+
+
 
 module.exports = router

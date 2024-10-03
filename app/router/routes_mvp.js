@@ -521,23 +521,6 @@ router.get(/livestock_type_handler/, function (req, res) {
     res.redirect("manure_date")
 })
 
-router.get(/manure_date_handler/, function (req, res) {
-    if (req.session.data.manure_date_day < 1) {
-        req.session.data.manure_date_day = 21
-    }
-    if (req.session.data.manure_date_month < 1) {
-        req.session.data.manure_date_month = 2
-    }
-    if (req.session.data.manure_date_year < 1) {
-        req.session.data.manure_date_year = 2024
-    }
-    if (req.session.data.manure_type.liquid == true) {
-        res.redirect("manure_applied")
-    } else {
-        res.redirect("manure_defaults")
-    }
-})
-
 router.get(/incorporation_handler/, function (req, res) {
     if (req.session.data.incorporation_method == 'not_incorporated') {
         res.redirect("rain_defaults")

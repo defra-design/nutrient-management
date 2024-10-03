@@ -9,7 +9,7 @@
     {{data.chosen_field.name}}
   </h2>
   <h3 class="govuk-heading-s">
-    <!-- {{data.chosen_group.groupname}} -->
+    {{data.chosen_group.groupname}}
     <!-- {% if data.chosen_group.variety.length > 0 %}
       - ({{data.chosen_group.variety}}) 
     {% endif %} -->
@@ -47,6 +47,8 @@
     <h2 class="govuk-heading-m">
       Nutrient recommendations for 
       {{second_crop_reference | nameconverter}}
+      in
+      {{data.chosen_field.name}}
     </h2>
     <h3 class="govuk-heading-s">
       {{second_group_name}}

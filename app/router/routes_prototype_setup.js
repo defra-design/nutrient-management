@@ -219,6 +219,7 @@ router.get(/newmanure_setup/, function (req, res) {
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Group 1'))
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(2, 2024, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Group 2'))
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(3, 2024, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Group 3'))
+    
     for (var x in req.session.data.fertiliser_applications_list) {
         req.session.data.allFertiliserApplications.push(req.session.data.fertiliser_applications_list[x])
     }

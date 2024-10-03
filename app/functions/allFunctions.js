@@ -163,6 +163,40 @@ function addManureApplication_v2 (allFields, cropGroups, fieldReference, manureD
     return newApplication
 }
 
+function addFertiliserApplication_v2 (allFields, cropGroups, fieldReference, fertiliserDate) {
+    let fieldName = null
+    let crop_reference = null
+    for (var x in allFields) {
+        if (allFields[x].reference == fieldReference) {
+            fieldName = allFields[x].name
+            fieldName = allFields[x].name
+        }
+    }
+    for (var y in cropGroups) {
+        for (var z in cropGroups[y].fields) {
+            if (cropGroups[y].fields[z].reference == fieldReference ) {
+                crop_reference = cropGroups[y].crop_reference
+            }
+        }
+    }
+    var newApplication = {
+        "Field": fieldName,
+        "fieldref": fieldReference,
+        "Crop": crop_reference,
+        "date": fertiliserDate,
+        "analysis": "0:20:20:0:0:0",
+        "rate": "280",
+        "nitrogen": "0",
+        "P2O5": "56",
+        "K2O": "56",
+        "MgO": "0",
+        "SO3": "0",
+        "Na2O": "0",
+        "Lime": "0"
+    }
+    return newApplication
+}
+
 
 function addFertiliserApplication (fertiliserGroups, allFields, chosenFields, nutrients, rate, application_date) {
     let fieldObjects = []
@@ -232,3 +266,4 @@ module.exports.getManureFields = getManureFields;
 module.exports.addManureApplication = addManureApplication;
 module.exports.addFertiliserApplication = addFertiliserApplication;
 module.exports.addManureApplication_v2 = addManureApplication_v2;
+module.exports.addFertiliserApplication_v2 = addFertiliserApplication_v2;

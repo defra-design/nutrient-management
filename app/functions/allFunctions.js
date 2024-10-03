@@ -162,10 +162,21 @@ function addManureApplication_v2 (allFields, cropGroups, fieldReference, manureD
     }
     return newApplication
 }
+function convertNutrient (nutrient) {
+    if (nutrient == null || nutrient == '') {
+        nutrient = 0
+    }
+    return nutrient
+}
 
-function addFertiliserApplication_v2 (allFields, cropGroups, fieldReference, fertiliserDate) {
+function addFertiliserApplication_v2 (allFields, cropGroups, fieldReference, fertiliserDate, nitrogen, phosphate, potash, sulphur, lime) {
     let fieldName = null
     let crop_reference = null
+    nitrogen = convertNutrient(nitrogen)
+    phosphate = convertNutrient(phosphate)
+    potash = convertNutrient(potash)
+    sulphur = convertNutrient(sulphur)
+    lime = convertNutrient(lime)
     for (var x in allFields) {
         if (allFields[x].reference == fieldReference) {
             fieldName = allFields[x].name
@@ -186,13 +197,13 @@ function addFertiliserApplication_v2 (allFields, cropGroups, fieldReference, fer
         "date": fertiliserDate,
         "analysis": "0:20:20:0:0:0",
         "rate": "280",
-        "nitrogen": "0",
-        "P2O5": "56",
-        "K2O": "56",
+        "nitrogen": nitrogen,
+        "P2O5": phosphate,
+        "K2O": potash,
         "MgO": "0",
-        "SO3": "0",
+        "SO3": sulphur,
         "Na2O": "0",
-        "Lime": "0"
+        "Lime": lime
     }
     return newApplication
 }

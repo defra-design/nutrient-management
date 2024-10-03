@@ -570,7 +570,17 @@ router.get(/fertiliser_v5_handler/, function (req, res) {
     let fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
     let fertiliser_fields = req.session.data.fertiliser_fields
     for (var x in fertiliser_fields) {
-        let applicationGroup = allFunctions.addFertiliserApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, fertiliser_fields[x], fertiliserDate)
+        let applicationGroup = allFunctions.addFertiliserApplication_v2 (
+            req.session.data.all_fields, 
+            req.session.data.cropGroupsV5, 
+            fertiliser_fields[x], 
+            fertiliserDate, 
+            req.session.data.nitrogen, 
+            req.session.data.phosphate, 
+            req.session.data.potash, 
+            req.session.data.sulphur, 
+            req.session.data.lime 
+        )
         req.session.data.allFertiliserApplications.push(applicationGroup)
     }
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')

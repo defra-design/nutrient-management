@@ -145,7 +145,13 @@ router.get(/twocropsandmanures_v5_setup_handler/, function (req, res) {
     req.session.data.all_fields = req.session.data.field_list_mvp
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Carrots', 'Nantes', 'Harvest 1'))
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(2, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, 'Carotts', 'Nantes', 'Harvest 2'))
-    req.session.data.allManureApplications.push(allFunctions.addManureApplication (req.session.data.allManureApplications, req.session.data.cropGroupsV5, [1], true, 'Cattle Farmyard manure - Old', '10 September 2024'))
+    let manureType = 'Cattle Farmyard manure - Old'
+    let manure_fields = [1,2,3,4,5]
+    let manureDate = '10 September 2024'
+    for (var x in manure_fields) {
+        let applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, manure_fields[x], manureDate, manureType)
+        req.session.data.allManureApplications_v2.push(applicationGroup)
+    }
     req.session.data.allManureApplications.push(allFunctions.addManureApplication (req.session.data.allManureApplications, req.session.data.cropGroupsV5, [1], false, 'Nitrogen (N)', '1 March 2024'))
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
@@ -163,7 +169,13 @@ router.get(/manure_v5_setup_handler/, function (req, res) {
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'fertilisers')
     req.session.data.all_fields = req.session.data.field_list_mvp
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Group 1'))
-    req.session.data.allManureApplications.push(allFunctions.addManureApplication (req.session.data.allManureApplications, req.session.data.cropGroupsV5, [1], true, 'Cattle Farmyard manure - Old', '10 September 2024'))
+    let manureType = 'Cattle Farmyard manure - Old'
+    let manure_fields = [1,2,3,4,5]
+    let manureDate = '10 September 2024'
+    for (var x in manure_fields) {
+        let applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, manure_fields[x], manureDate, manureType)
+        req.session.data.allManureApplications_v2.push(applicationGroup)
+    }
     req.session.data.allManureApplications.push(allFunctions.addManureApplication (req.session.data.allManureApplications, req.session.data.cropGroupsV5, [1], false, 'Nitrogen (N)', '1 March 2024'))
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
@@ -174,8 +186,13 @@ router.get(/add_fertiliser_setup/, function (req, res) {
     req.session.data.all_fields = req.session.data.field_list_mvp
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Group 1'))
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(2, 2024, [11,12,13,14,15,16,17,18,19,20], req.session.data.all_fields, 'grass', null, 'Group 2'))
-    let applicationGroup = allFunctions.addManureApplication (req.session.data.allManureApplications, req.session.data.cropGroupsV5, [1], true, 'Cattle Farmyard manure - Old', '10 September 2024')
-    req.session.data.allManureApplications.push(applicationGroup)
+    let manureType = 'Cattle Farmyard manure - Old'
+    let manure_fields = [1,2,3,4,5]
+    let manureDate = '10 September 2024'
+    for (var x in manure_fields) {
+        let applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, manure_fields[x], manureDate, manureType)
+        req.session.data.allManureApplications_v2.push(applicationGroup)
+    }
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
 })
@@ -192,7 +209,6 @@ router.get(/add_fertiliser_v5_setup/, function (req, res) {
         let applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, manure_fields[x], manureDate, manureType)
         req.session.data.allManureApplications_v2.push(applicationGroup)
     }
-
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
 })
@@ -203,26 +219,6 @@ router.get(/newmanure_setup/, function (req, res) {
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Group 1'))
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(2, 2024, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Group 2'))
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(3, 2024, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Group 3'))
-    // var newApplicationGroup_1 = {
-    //     reference: req.session.data.allManureApplications.length + 1,
-    //     crop_group_references: [1,2,3,4,5],
-    //     field_count: 5,
-    //     organic: true,
-    //     manure_type: 'Cattle Farmyard manure - Old',
-    //     application_date: '10 September 2024'
-    // }
-    // var newApplicationGroup_2 = {
-    //     reference: req.session.data.allManureApplications.length + 1,
-    //     crop_group_references: [1,2,3,4,5],
-    //     field_count: 5,
-    //     organic: false,
-    //     manure_type: 'Nitrogen (N)',
-    //     application_date: '1 March 2024'
-    // }
-
-    // req.session.data.allManureApplications.push(newApplicationGroup_1)
-    // req.session.data.allManureApplications.push(newApplicationGroup_2)
-
     for (var x in req.session.data.fertiliser_applications_list) {
         req.session.data.allFertiliserApplications.push(req.session.data.fertiliser_applications_list[x])
     }
@@ -230,8 +226,6 @@ router.get(/newmanure_setup/, function (req, res) {
     for (var y in req.session.data.manure_applications_list) {
         req.session.data.allManureApplications_v2.push(req.session.data.manure_applications_list[y])
     }
-    // req.session.data.allFertiliserApplications.push(allFunctions.addFertiliserApplication (req.session.data.allFertiliserApplications, req.session.data.all_fields, [8,2], ['56 kg Potash (K2O)', '56 kg Phosphate (P2O5)'], '288 kg', '20/09/2023'))
-
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
 })

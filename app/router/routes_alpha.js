@@ -616,6 +616,14 @@ router.get(/fertiliser_date_handler/, function (req, res) {
     res.redirect("fertiliser_amount")
 })
 
+router.get(/crops_update_handler/, function (req, res) { 
+    req.session.data.show_success_message = true;
+    req.session.data.successMessage = 6;
+    res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+})
+
+
+
 
 
 module.exports = router

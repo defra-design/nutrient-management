@@ -623,19 +623,21 @@ router.get(/crops_update_handler/, function (req, res) {
 })
 
 router.get(/export_handler/, function (req, res) { 
-    req.session.data.show_success_message = true;
     if (req.session.data.export_type == 1) {
-        req.session.data.successMessage = 7;
-    } else if (req.session.data.export_type == 2) {
-        req.session.data.successMessage = 8;
-    } else if (req.session.data.export_type == 3) {
-        req.session.data.successMessage = 9;
-    } else if (req.session.data.export_type == 4) {
-        req.session.data.successMessage = 10;
-    } else if (req.session.data.export_type == 5) {
-        req.session.data.successMessage = 11;
+        res.redirect('export_fields')
+    } else {
+        req.session.data.show_success_message = true;
+        if (req.session.data.export_type == 2) {
+            req.session.data.successMessage = 8;
+        } else if (req.session.data.export_type == 3) {
+            req.session.data.successMessage = 9;
+        } else if (req.session.data.export_type == 4) {
+            req.session.data.successMessage = 10;
+        } else if (req.session.data.export_type == 5) {
+            req.session.data.successMessage = 11;
+        }
+        res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
     }
-    res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 
 

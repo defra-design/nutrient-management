@@ -9,13 +9,15 @@
   </h2>
   <p class="govuk-body"><a href="./change_crop">View or update this group's crop information</a></p>
 
-  <table class="govuk-table big_crop_table_version_three margin-bottom-forty">
+  <table class="govuk-table big_crop_table_version_four margin-bottom-forty">
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Field</th>
-        <th scope="col" class="govuk-table__header">Organic applications</th>
-        <th scope="col" class="govuk-table__header">Inorganic applications</th>
+        <th scope="col" class="govuk-table__header">Planting date</th>
+        <!-- <th scope="col" class="govuk-table__header">Yield per hectare</th> -->
         <th scope="col" class="govuk-table__header">Alerts</th>
+        <!-- <th scope="col" class="govuk-table__header">Crop use</th>
+        <th scope="col" class="govuk-table__header">Straw use</th> -->
         <th scope="col" class="govuk-table__header"> </th>
       </tr>
     </thead>
@@ -42,7 +44,9 @@
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <td class="govuk-table__cell field-name">{{field.name}}</td>
-          <td class="govuk-table__cell" class="govuk-table__header">
+          <td class="govuk-table__cell field-name">Not entered</td>
+          <!-- <td class="govuk-table__cell field-name">8 tonnes</td> -->
+          <!-- <td class="govuk-table__cell" class="govuk-table__header">
               {% if manureCount == 0 %}
               None
             {% else %}
@@ -55,7 +59,7 @@
               {% else %}
                 {{inorganicCount}}
               {% endif %}
-          </td>
+          </td> -->
           <td class="govuk-table__cell">None</td>
           <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}">View field plan and recommendations</a></td>
       </tr> 

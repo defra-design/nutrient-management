@@ -94,6 +94,27 @@
        </div> 
     </div>
 
+    <!-- recommendation table -->
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-m">{{data.chosen_crop | nameconverter}} nutrient recommendations</h2>
+      <p class="govuk-body">These recommendations are per hectare for in Long Field {{data.oaktree_farm.planning_year}}</p>
+      {% if data.plan_2024.multipleFertilisersApplied == true or data.plan_2024.singleFertilisersApplied == true %}
+        {% include "./templates/v4_nutrients_one_fertiliser.html" ignore missing %}
+      {% elif data.plan_2024.multipleManuresApplied == true or data.plan_2024.singleManuresApplied == true %}
+        {% include "./templates/v4_nutrients_one_organic.html" ignore missing %}
+      {% else %}
+        {% include "./templates/v4_nutrients_empty.html" ignore missing %}
+      {% endif %}
+
+    </div>
+    <div class="govuk-grid-column-two-thirds margin-bottom-forty">
+      <div class="govuk-inset-text">
+        Apply no more than 100 kg N/ha at sowing or transplanting then apply <br>
+        N according to crop growth, e.g. up to 60 kg N/ha per month in the south-west and 20 kg N/ha in the north. 
+        Where seedbed SNS exceeds 4 and crops are likely to be harvested in April or later, top-dress N at the start of spring growth allowing for any over-winter losses of N.
+       </div> 
+    </div>
+
     <!-- manures -->
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>

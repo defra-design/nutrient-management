@@ -640,12 +640,26 @@ router.get(/export_handler/, function (req, res) {
     }
 })
 
-
 router.get(/export_field_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 7;
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 
+router.get(/change_cropgroup_handler/, function (req, res) { 
+    req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.cropGroupsV5, req.query.groupref)
+    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)
+    //go through the crops for x
+    for (var crop in req.session.data.crop_types) {
+        if (req.session.data.crop_types[crop].reference == req.session.data.chosen_group.crop_reference ) {
+            console.log(req.session.data.crop_types[crop].type)
+            req.session.data.chosen_crop_group = req.session.data.crop_types[crop].type
+        }
+    }
+    //if the reference == req.session.data.chosen_group.crop
+    //crop type == x.type
+    req.session.data.show_success_message = false    
+    res.redirect('change_crop')
+})
 
 module.exports = router

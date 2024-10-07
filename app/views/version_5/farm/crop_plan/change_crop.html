@@ -32,13 +32,13 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
       <dl class="govuk-summary-list">            
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the crop group?</dt>
-          <dd class="govuk-summary-list__value">Cereal</dd>
+          <dd class="govuk-summary-list__value">{{data.chosen_crop_group}}</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the crop type?</dt>
-          <dd class="govuk-summary-list__value">Winter Wheat</dd>
+          <dd class="govuk-summary-list__value">{{data.chosen_group.crop_reference | nameconverter}}</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 
@@ -49,8 +49,12 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
         </div>
 
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Which fields do you plan to grow Winter Wheat in?</dt>
-          <dd class="govuk-summary-list__value">Field 1, <br> Field 2, <br> Field 3</dd>
+          <dt class="govuk-summary-list__key">Which fields do you plan to grow {{data.chosen_group.crop_reference | nameconverter}} in?</dt>
+          <dd class="govuk-summary-list__value">
+            {% for item in data.chosen_group.fields  %}
+              {{item.name}},<br>
+            {% endfor %}
+          </dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 

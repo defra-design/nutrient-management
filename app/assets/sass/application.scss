@@ -470,3 +470,16 @@ h2.manure-date {
 .field-name {
     width: 14%
 }
+
+.sortable-table {
+    .govuk-table__header {
+        color: #1d70b8;
+        text-decoration: underline;
+        text-decoration-thickness: max(1px, .0625rem);
+        text-underline-offset: 0.1578em;
+        &:hover {
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}

@@ -583,7 +583,11 @@ router.get(/fertiliser_v5_handler/, function (req, res) {
         )
         req.session.data.allFertiliserApplications.push(applicationGroup)
     }
-    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+    let next = '/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view'
+    if (req.session.data.fertiliser_journey == "multi") {
+        next = '/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view'
+    }
+    res.redirect(next)
 })
 
 router.get(/manure_date_handler/, function (req, res) {

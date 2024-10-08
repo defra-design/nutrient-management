@@ -22,7 +22,6 @@
       </tr>
     </thead>
 
-
     {% for field in group.fields %}
 
     {% set manureCount = 0 %}
@@ -40,11 +39,16 @@
       {% endif %}
     {% endfor %}
 
-
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <td class="govuk-table__cell field-name">{{field.name}}</td>
-          <td class="govuk-table__cell field-name">Not entered</td>
+          <td class="govuk-table__cell field-name">
+            {% if group.planting_date == null %}
+              Not entered
+            {% else %}
+            {{group.planting_date}}
+            {% endif %}
+          </td>
           <!-- <td class="govuk-table__cell field-name">8 tonnes</td> -->
           <!-- <td class="govuk-table__cell" class="govuk-table__header">
               {% if manureCount == 0 %}

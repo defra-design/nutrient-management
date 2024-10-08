@@ -619,6 +619,13 @@ router.get(/fertiliser_date_handler/, function (req, res) {
 router.get(/crops_update_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 6;
+    console.log('reference' + req.session.data.chosen_group.reference)
+    for (var x in req.session.data.cropGroupsV5) {
+        if (req.session.data.cropGroupsV5[x].reference == req.session.data.chosen_group.reference ) {
+            req.session.data.cropGroupsV5[x].planting_date = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
+            console.log('date' + req.session.data.cropGroupsV5[x].planting_date)
+        }
+    }
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 

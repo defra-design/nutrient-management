@@ -92,7 +92,8 @@ function createCropGroup (reference, year, field_references, current_fields, cro
         fields: getMultipleFieldsByReferences(field_references, current_fields),
         crop_reference: crop_reference,
         variety: variety, 
-        groupname: group
+        groupname: group,
+        planting_date: null
     }
     return newGroup
 }

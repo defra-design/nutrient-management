@@ -72,7 +72,15 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
       
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Do you have a date for when you planted your Winter Wheat, or when you will plant it?</dt>
-          <dd class="govuk-summary-list__value">No, I'll enter the date later</dd>
+          <dd class="govuk-summary-list__value">Yes, I have a single date for all these fields</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="change_date_question">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the planting date for {{data.chosen_group.crop_reference | nameconverter}} in these fields?</dt>
+          <dd class="govuk-summary-list__value">
+            {{data.new_planting_date_day}}  {{data.new_planting_date_month | convertmonth}} {{data.new_planting_date_year}}
+          </dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="change_date_question">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
       

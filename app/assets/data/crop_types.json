@@ -1,0 +1,12 @@
+[
+    {"type": "grass", "prettyname": "Grass" },
+    {"type": "cereals", "prettyname": "Cereals"},
+    {"type": "forage",  "prettyname": "Forage"},
+    {"type": "arable-other", "prettyname": "Other arable crops"},
+    {"type": "potatoes", "prettyname": "Potatoes"},
+    {"type": "biomass", "prettyname": "Biomass"},
+    {"type": "fruit", "prettyname": "Fruit"},
+    {"type": "other", "prettyname": "Other"},
+    {"type": "leafy", "prettyname": "Leafy"},
+    {"type": "root", "Root": "Beetroot"}
+]

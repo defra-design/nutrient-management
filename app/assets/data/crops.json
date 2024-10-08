@@ -1,6 +1,5 @@
 [
     {"name" : "Grass", "type": "grass" , "reference": "grass", "prettyname": "Grass", "fave":true },
-
     {"name" : "Barley, Spring", "type": "cereals", "reference": "barley-spring" , "prettyname": "Spring Barley", "fave": false },
     {"name" : "Barley, Winter", "type": "cereals", "reference": "barley-Winter" , "prettyname": "Winter Barley", "fave": false },
     {"name" : "Oats, Spring", "type": "cereals", "reference": "oats-Spring" , "prettyname": "Spring Oats", "fave": true },

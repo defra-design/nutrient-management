@@ -561,6 +561,8 @@ router.get(/version5_manure_handler/, function (req, res) {
         let applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, manure_fields[x], manureDate, manureType)
         req.session.data.allManureApplications_v2.push(applicationGroup)
     }
+    manure_fields = null
+    req.session.data.manure_fields = null
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 

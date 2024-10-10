@@ -405,6 +405,8 @@ router.get(/v2manure_handler/, function (req, res) {
     if (req.session.data.manure_journey == 'multi') {
         res.redirect('/' + req.session.data.prototype_version + '/add_manure/manure_fields')
     } else {
+        req.session.data.manure_fields = []
+        req.session.data.manure_fields.push(req.session.data.chosen_field.reference)
         res.redirect('/' + req.session.data.prototype_version + '/add_manure/manure_group')
     }
 })

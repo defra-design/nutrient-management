@@ -20,8 +20,10 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
     
     <!-- {% include "templates/title_span.html" %} -->
     <h1 class="govuk-heading-l">
-      View or update a group's crop information
+      View or update a group of fields crop information
     </h1>
+
+    <p>You can also <a href="">remove this group</a>.</p>
 
     <h2 class="govuk-heading-m">
       Harvest year {{data.oaktree_farm.planning_year}}
@@ -29,7 +31,16 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
 
     <div class="check-answers">
 
-      <dl class="govuk-summary-list">            
+      <dl class="govuk-summary-list">     
+
+        <!-- <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Group name</dt>
+          <dd class="govuk-summary-list__value">
+            {{data.chosen_group.groupname}}
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div> -->
+       
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the crop group?</dt>
           <dd class="govuk-summary-list__value">
@@ -50,7 +61,7 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the variety name (optional)?</dt>
-          <dd class="govuk-summary-list__value">Not entered</dd>
+          <dd class="govuk-summary-list__value">{{data.chosen_group.groupname}}</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 
@@ -95,7 +106,7 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
         </div>
 
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">How do you plan to use the straw?/dt>
+          <dt class="govuk-summary-list__key">How do you plan to use the straw?</dt>
           <dd class="govuk-summary-list__value">Baled</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
@@ -115,7 +126,7 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
 
     <form action="crops_update_handler" method="post" novalidate>
       {{ govukButton({
-        text: "Update this plan"
+        text: "Update this crop group"
       }) }}
     </form>
     <p class="govuk-body">

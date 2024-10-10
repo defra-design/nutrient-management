@@ -5,16 +5,16 @@
 
   <h2 class="govuk-heading-m">
     Nutrient recommendations for 
-    {{data.chosen_group.crop_reference | nameconverter}} in
+    {{data.chosen_group.crop_reference | nameconverter}} 
+    {% if data.chosen_group.variety.length > 0 %}
+      ({{data.chosen_group.variety}}) 
+    {% endif %}
+    in
     {{data.chosen_field.name}}
   </h2>
-  <h3 class="govuk-heading-s">
-    {{data.chosen_group.groupname}}
-    <!-- {% if data.chosen_group.variety.length > 0 %}
-      - ({{data.chosen_group.variety}}) 
-    {% endif %} -->
-  </h3>
+
   <p class="govuk-body-s">Amounts are per hectare.</p>
+
   {% if data.chosen_crop == 'Grass' or data.chosen_crop == 'grass' %}
     {% include "./templates/v4_grass_empty.html" ignore missing %}
   {% else %}
@@ -29,8 +29,43 @@
     {% endif %}
   {% endif %}
 
+  <!-- <h3 class="govuk-heading-s">
+    Phosphate (P2O5) and Potash (K2O) ballance
+  </h3>
+
+  <table class="govuk-table new-recomendation-table data-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Nutrient</th>
+        <th scope="col" class="govuk-table__header">Ballance</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Phosphate (P2O5)</td>
+        <td class="govuk-table__cell">50 kg</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Potash (K2O)</td>
+        <td class="govuk-table__cell">50 kg</td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <div class="margin-bottom-forty">
+    <h3 class="govuk-heading-s">
+      Phosphate (P2O5) and Potash (K2O) ballance
+    </h3>
+    <ul class="govuk-list govuk-list--bullet" id="small-list">
+      <li>Phosphate (P2O5) + 50kg</li>
+      <li>Potash (K2O) + 50kg</li>
+    </ul>
+    <p class="govuk-body-s">These are carried over from the previous year and are included in the total recommendations.</p>
+  </div>
+
   {% if data.chosen_crop != 'Grass' and data.chosen_crop != 'grass' %}
-    <h2 class="govuk-heading-s">Guidance</h2>
+    <h2 class="govuk-heading-m">Guidance</h2>
+    <h3 class="govuk-heading-s">Nitrogen</h3>
     <div class="guidance">
       <p class="govuk-body">
         Apply no more than 100 kg N/ha at sowing or transplanting then apply
@@ -47,15 +82,12 @@
     <h2 class="govuk-heading-m">
       Nutrient recommendations for 
       {{second_crop_reference | nameconverter}}
+      {% if second_group_variety.length > 0 %}
+        ({{second_group_variety}}) 
+      {% endif %}
       in
       {{data.chosen_field.name}}
     </h2>
-    <h3 class="govuk-heading-s">
-      {{second_group_name}}
-      <!-- {% if second_group_variety.length > 0 %}
-          ({{second_group_variety}}) 
-        {% endif %} -->
-    </h3>
     <p class="govuk-body-s">Amounts are per hectare.</p>
   
     {% if data.chosen_crop == 'Grass' or data.chosen_crop == 'grass' %}
@@ -72,12 +104,11 @@
         {% include "./templates/v4_nutrients_empty.html" ignore missing %}
       {% endif %}
     {% endif %}
-    <h2 class="govuk-heading-s">Guidance</h2>
+    <h2 class="govuk-heading-m">Guidance</h2>
+    <h32 class="govuk-heading-s">Nitrogen</h3>
     <div class="guidance">
       <p class="govuk-body">
-        Apply no more than 100 kg N/ha at sowing or transplanting then apply
-        N according to crop growth, e.g. up to 60 kg N/ha per month in the south-west and 20 kg N/ha in the north. 
-        Where seedbed SNS exceeds 4 and crops are likely to be harvested in April or later, top-dress N at the start of spring growth allowing for any over-winter losses of N.
+        Apply no more than 100 kg N/ha at sowing or transplanting then apply N according to crop growth, e.g. up to 60 kg N/ha per month in the south-west and 20 kg N/ha in the north. Where seedbed SNS exceeds 4 and crops are likely to be harvested in April or later, top-dress N at the start of spring growth allowing for any over-winter losses of N.
       </p>
     </div>
   {% endif %}

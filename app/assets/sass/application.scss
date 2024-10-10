@@ -483,3 +483,23 @@ h2.manure-date {
         }
     }
 }
+
+#main-title {
+    margin-bottom: 15px!important;
+}
+
+#summary-header {
+    p:nth-child(1) {
+        margin-bottom: 15px!important;
+    }
+}
+
+#small-list {
+    li {
+        font-size: 17px!important;
+    }
+}
+
+.govuk-body-s {
+    font-size: 17px!important;
+}

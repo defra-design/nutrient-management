@@ -44,8 +44,9 @@
     <div class="govuk-grid-column-full">
 
       <h1 id="main-title" class="govuk-heading-l">{{data.oaktree_farm.name}} plan {{data.oaktree_farm.planning_year}}</h1>
-      <div class="margin-bottom-forty">
-        <p class="govuk-body">Last updated: {{data.content.todays_date}}, there are {{totalFields}} fields in this plan</p>
+      <div id="summary-header" class="margin-bottom-forty">
+        <p class="govuk-body">Last updated {{data.content.todays_date}}. There are {{totalFields}} fields in this plan.</p>
+        <p class="govuk-body">Recommendations are based on an average annual rainfall of 600mm. <a href="">Add excess rainfall</a>.</p>
         <p class="govuk-body"><a href="export">Download, print, or export this plan</a></p>
       </div>
 

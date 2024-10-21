@@ -1,0 +1,338 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">2024 Nutrient application plan for Poplar</h1>
+      <p class="govuk-body">Report date: 21 October 2024</p>
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row margin-bottom-forty">
+
+    <div class="govuk-grid-column-one-third">
+      <p class="govuk-body">Oaktree Lane Farm, <br>
+      Barns Road,
+      Littlehampton, <br>
+      Suffolk, <br>
+      Ip23 4NN</p>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">CPH number: 123456789 <br>
+      Single Business Identifier: 123456789 <br>
+      Annual rainfall: 593mm</p>
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row margin-bottom-forty">
+
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-m">Winter Wheat recommendations (kg/ha)</h2>
+      <p class="govuk-body">Cropped area: 15ha</p>
+
+      <table class="govuk-table govuk-table-small">
+        <!-- <caption class="govuk-table__caption govuk-table__caption--m">Winter Wheat recommendations (kg/ha)</caption> -->
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Nutrient</th>
+            <th scope="col" class="govuk-table__header">Soil index</th>
+            <th scope="col" class="govuk-table__header">Crop need</th>
+            <th scope="col" class="govuk-table__header">From manures</th>
+            <th scope="col" class="govuk-table__header">From fertilisers or lime</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">N</th>
+            <td class="govuk-table__cell">1</td>
+            <td class="govuk-table__cell">220</td>          
+            <td class="govuk-table__cell">10</td>          
+            <td class="govuk-table__cell">210</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">P205</th>
+            <td class="govuk-table__cell">2</td>
+            <td class="govuk-table__cell">60</td>          
+            <td class="govuk-table__cell">64</td>          
+            <td class="govuk-table__cell">0</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">K20</th>
+            <td class="govuk-table__cell">2-</td>
+            <td class="govuk-table__cell">45</td>          
+            <td class="govuk-table__cell">160</td>          
+            <td class="govuk-table__cell">0</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">SO3</th>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell">40</td>          
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell">40</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Lime</th>
+            <td class="govuk-table__cell">6.2</td>
+            <td class="govuk-table__cell">4</td>          
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell">4</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row margin-bottom-forty">
+
+    <div class="govuk-grid-column-full">
+
+      <table class="govuk-table govuk-table-small">
+        <caption class="govuk-table__caption govuk-table__caption--m">Planned fertiliser and lime applications (kg/ha)</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date</th>
+            <th scope="col" class="govuk-table__header">N</th>
+            <th scope="col" class="govuk-table__header">P205</th>
+            <th scope="col" class="govuk-table__header">K20</th>
+            <th scope="col" class="govuk-table__header">SO3</th>
+            <th scope="col" class="govuk-table__header">Lime</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">01/03/2024</th>
+            <td class="govuk-table__cell">40</td>
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell">40</td>          
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">01/04/2024</th>
+            <td class="govuk-table__cell">70</td>
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">01/05/2024</th>
+            <td class="govuk-table__cell">70</td>
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Total</th>
+            <th scope="row" class="govuk-table__header">180</td>
+            <th scope="row" class="govuk-table__header"> </td>          
+            <th scope="row" class="govuk-table__header">40</td>          
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+          </tr>
+        </tbody>
+      </table>
+
+  </div>
+
+</div>
+
+<div class="govuk-grid-row margin-bottom-forty">
+
+  <div class="govuk-grid-column-full">
+
+    <table class="govuk-table govuk-table-small">
+      <caption class="govuk-table__caption govuk-table__caption--m">Cropping details</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Crop</th>
+          <th scope="col" class="govuk-table__header">Yield (t/ha)</th>
+          <th scope="col" class="govuk-table__header">Crop info 1</th>
+          <th scope="col" class="govuk-table__header">Crop info 2</th>
+          <th scope="col" class="govuk-table__header">Defoliation</th>
+          <th scope="col" class="govuk-table__header">Utilisation 1</th>
+          <th scope="col" class="govuk-table__header">Utilisation 2</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Winter Wheat</th>
+          <td class="govuk-table__cell">7.8</td>
+          <td class="govuk-table__cell">Feed</td>          
+          <td class="govuk-table__cell">Straw to be incorporated</td>          
+          <td class="govuk-table__cell"> </td>
+          <td class="govuk-table__cell"> </td>
+          <td class="govuk-table__cell"> </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+<div class="govuk-grid-row margin-bottom-forty">
+
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-m">Soil details</h2>
+  </div>
+
+    <div class="govuk-grid-column-one-half half-table-left">
+
+      <table class="govuk-table govuk-table-small">
+        <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Soil type</th>
+            <td class="govuk-table__cell">Medium</td>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">K releasing clay</th>
+            <td class="govuk-table__cell">No</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Sulphur deficient</th>
+            <td class="govuk-table__cell">Yes</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Last soil analysis</th>
+            <td class="govuk-table__cell">21/02/2023</td>
+          </tr>
+        </tbody>
+      </table>
+
+  </div>
+
+  <div class="govuk-grid-column-one-half half-table-right">
+
+<table class="govuk-table govuk-table-small">
+  <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Starting P balance (kg/ha)</th>
+      <td class="govuk-table__cell">-1</td>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Starting K balance (kg/ha)</th>
+      <td class="govuk-table__cell">+16</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">SNS (kg/ha)</th>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">SNS Index</th>
+      <td class="govuk-table__cell"></td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+</div>
+
+<div class="govuk-grid-row margin-bottom-forty">
+
+  <div class="govuk-grid-column-full">
+
+    <table class="govuk-table govuk-table-small">
+      <caption class="govuk-table__caption govuk-table__caption--m">Planned organic manures</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Date</th>
+          <th scope="col" class="govuk-table__header">Type</th>
+          <th scope="col" class="govuk-table__header">Rate</th>
+          <th scope="col" class="govuk-table__header">Application method</th>
+          <th scope="col" class="govuk-table__header">Incorporation</th>
+          <th scope="col" class="govuk-table__header">Delay to incorporation</th>
+          <th scope="col" class="govuk-table__header">Total N</th>
+          <th scope="col" class="govuk-table__header">Total Phosphate</th>
+          <th scope="col" class="govuk-table__header">Available Phosphate</th>
+          <th scope="col" class="govuk-table__header">Total Potash</th>
+          <th scope="col" class="govuk-table__header">Available Potash</th>
+
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">01/09/2023</th>
+          <td class="govuk-table__cell">Cattle FYM - old</td>
+          <td class="govuk-table__cell">20</td>          
+          <td class="govuk-table__cell">Discharge spreader</td>          
+          <td class="govuk-table__cell">Mouldboard plough</td>
+          <td class="govuk-table__cell">12-24 hours</td>
+          <td class="govuk-table__cell">120kg</td>
+          <td class="govuk-table__cell">64kg</td>
+          <td class="govuk-table__cell">38kg</td>
+          <td class="govuk-table__cell">160kg</td>
+          <td class="govuk-table__cell">144kg</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+<div class="govuk-grid-row margin-bottom-forty">
+
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-m">Recommendations advice</h2>
+    <p class="govuk-body">
+      The N rate may be adjusted based on the grain N% of previous crops over several years. Grain N% at the economic optimum N rate is about 1.9% for feed wheat and 2.1%for breadmaking wheat. 
+    </p>
+    <p class="govuk-body">
+      The N application rate may be adjusted down or up by 30 kg/ha per 0.1% difference in grain N% from these values.
+    </p>
+    <p class="govuk-body">
+      Phosphate may be applied when convenient (see the Fertiliser Manual).
+    </p>
+    <p class="govuk-body">
+      Apply 25-40 kg SO3/ha as a sulphate containing fertiliser applied in early spring before the start of stem extension. Deficiency is likely if whole plant shoots sampled at stemextension stage contain less than 0.2% S in dry matter.
+    </p>
+    <p class="govuk-body">
+      Organic manures can supply some sulphur for crop uptake but probably insufficient to meet a significant crop sulphur requirement.
+    </p>
+    <p class="govuk-body">
+      Lime may not be fully effective for some months. Apply well before growing sensitive crops.
+    </p>
+    <p class="govuk-body">
+      The lime recommendation may be different in mixed grass/arable rotations (see the Fertiliser Manual).
+    </p>
+
+    <p class="govuk-body strong">
+      NVZ warning messages: The planned application(s) may not comply with the following mandatory NVZ Action Programme rules
+    </p>
+      
+
+  </div>
+
+</div>
+
+
+{% endblock %}

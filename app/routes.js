@@ -21,6 +21,7 @@ oaktree_farm.use_mvp_fields = false;
 oaktree_farm.setup = false;
 oaktree_farm.fields_added = false;
 oaktree_farm.plans_added = false;
+oaktree_farm.rainfall = 600;
 
 
 ///////fields

@@ -51,7 +51,7 @@
       {% elif data.sow_option_one == 'different'  %}
         Yes, I sowed the fields on different dates
       {% else %}
-        No, I'll enter the sowing date later
+        No, I'll enter the Planting date later
       {% endif %}
     </dd>
 
@@ -60,7 +60,7 @@
 
   {% if data.sow_option_one != 'no' %}
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">What is the sowing date for {{data.chosen_crop | nameconverter}} in these fields?</dt>
+      <dt class="govuk-summary-list__key">What is the Planting date for {{data.chosen_crop | nameconverter}} in these fields?</dt>
       <dd class="govuk-summary-list__value">10 October 2024</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>      
@@ -150,7 +150,7 @@
         {% elif data.sow_option_two == 'different'  %}
           Yes, I sowed the fields on different dates
         {% else %}
-          No, I'll enter the sowing date later
+          No, I'll enter the Planting date later
         {% endif %}
       </dd>
   
@@ -159,7 +159,7 @@
   
     {% if data.sow_option_two != 'no' %}
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">What is the sowing date for {{data.cover_crop | nameconverter}} in these fields?</dt>
+        <dt class="govuk-summary-list__key">What is the Planting date for {{data.cover_crop | nameconverter}} in these fields?</dt>
         <dd class="govuk-summary-list__value">10 Feb 2025</dd>
         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       </div>      

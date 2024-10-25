@@ -8,7 +8,8 @@ organic_producer,
 latest_update,
 use_mvp_fields,
 setup,
-fields_added
+fields_added,
+rainfall
 
 ) {
     this.name = name,
@@ -20,7 +21,8 @@ fields_added
     this.latest_update = latest_update,
     this.use_mvp_fields = use_mvp_fields,
     this.setup = setup,
-    this.fields_added = fields_added
+    this.fields_added = fields_added,
+    this.rainfall = rainfall
   }
 
 Farm.prototype.printFarm = function () {
@@ -33,7 +35,8 @@ Farm.prototype.printFarm = function () {
                 this.latest_update + ", " +
                 this.use_mvp_fields + ", " +
                 this.setup + ", " +
-                this.fields_added)
+                this.fields_added + ", " +
+                this.rainfall)
 };
 
 Farm.prototype.reset = function () {
@@ -47,6 +50,7 @@ Farm.prototype.reset = function () {
     this.use_mvp_fields = false,
     this.setup = false,
     this.fields_added = false
+    this.rainfall = 600
 };
 
 function createFarm() {

@@ -22,7 +22,6 @@
   
 </div> -->
 
-
 <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__header">
     <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -119,8 +118,15 @@
   <p class="govuk-body"><a href="https://drive.google.com/file/d/1rHCJkrAczVDQwggPKYHEjMuBYN4qdIIB/view?usp=drive_link" target="_blank">View the file</a> (opens in a new window)</p>
 {% endif %}
 
+  <!-- rain updated - 11  -  5 -->
+  {% if data.successMessage == 12 %}
+  <h3 class="govuk-notification-banner__heading">
+    Rainfall for 2024 updated
+  </h3>
+  <p class="govuk-body">This change may have affected your nutrient recommendations.</p>
+{% endif %}
 
-  
+
 
   
   </div>

@@ -346,6 +346,24 @@ tr.right-last {
     }
 }
 
+.big_crop_table_version_three table__cell:last-child, big_crop_table_version_four table__cell:last-child, big_crop_table_version_five table__cell:last-child {
+    padding-right: 0;
+    text-align: right;
+}
+
+.big_crop_table_version_five {
+    font-size: 17px;
+    td {
+        width: 17%
+    }
+    td:last-child {
+        padding-right: 0;
+        text-align: right;
+        width :50%;
+    }
+}
+
+
 .start-link {
     margin-bottom: 30px;
     font-weight: bold;
@@ -512,9 +530,10 @@ h2.manure-date {
     font-size: 17px!important;
 }
 
-.add-button {
+.add-button, .add-button button {
     margin-bottom: 0;
 }
+
 
 .govuk-table-small {
     font-size: 17px;
@@ -527,3 +546,14 @@ h2.manure-date {
 .half-table-right{
     padding-right: 40px;
 }
+
+// .tab-left {
+//     width: 50%;
+//     float: left;
+// }
+
+// .tab-right {
+//     width: 50%;
+//     float: left;
+//     text-align: right;
+// }

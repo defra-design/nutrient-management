@@ -1,21 +1,25 @@
-  <h2 class="govuk-heading-m margin-bottom-ten">
-    {{group.crop_reference | nameconverter  }} 
-    <span class="nonbold">
-      {% if group.variety.length > 0 %}
-        ({{group.variety}})
-      {% endif %}
-    </span>
-  </h2>
-  <p class="margin-bottom-ten">{{group.groupname}}</p>
-  <p class="govuk-body"><a href="change_cropgroup_handler?groupref={{group.reference}}&fieldref={{field.reference}}">View or update this group's crop information</a></p>
-  
-  <!-- <form id="add-button" action="change_cropgroup_handler?groupref={{group.reference}}&fieldref={{field.reference}}" method="post" novalidate="">    
-    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-      Update this crop
-    </button>
-  </form> -->
+  <div class="tab-left">
+    <h2 class="govuk-heading-m margin-bottom-ten">
+      {{group.crop_reference | nameconverter  }} 
+      <span class="nonbold">
+        {% if group.variety.length > 0 %}
+          ({{group.variety}})
+        {% endif %}
+      </span>
+    </h2>
+    <p class="govuk-body">{{group.groupname}}</p>
+    <!-- <p class="govuk-body"><a href="change_cropgroup_handler?groupref={{group.reference}}&fieldref={{field.reference}}">Update this group</a></p> -->
+  </div>
 
-  <table class="govuk-table big_crop_table_version_four margin-bottom-forty">
+  <div class="tab-right">
+    <form class="update-button" action="change_cropgroup_handler?groupref={{group.reference}}&fieldref={{field.reference}}" method="post" novalidate="">    
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Update this group
+      </button>
+    </form>
+  </div>
+
+  <table class="govuk-table big_crop_table_version_five margin-bottom-forty">
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Field</th>
@@ -71,7 +75,7 @@
               {% endif %}
           </td> -->
           <!-- <td class="govuk-table__cell">None</td> -->
-          <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}">View field plan and recommendations</a></td>
+          <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}">Update this field or view recommendations</a></td>
       </tr> 
     {% endfor %}
 

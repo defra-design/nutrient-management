@@ -1,14 +1,14 @@
 <div class="govuk-tabs__panel" id="recs">
 
-  <h2 class="govuk-heading-m non-standard">Nutrient recommendations</h2>
+  <h2 class="govuk-heading-m non-standard">Nutrient and Lime recommendations</h2>
 
   {% if appears_in_other_groups == true %}
     <ul class="govuk-list govuk-list--spaced">
       <li>
-        <a class="govuk-link" href="#cropone">Nutrient recommendations for Carrots in Long Field</a>
+        <a class="govuk-link" href="#cropone">Recommendations for Carrots in Long Field</a>
       </li>
       <li>
-        <a class="govuk-link" href="#croptwo">Nutrient recommendations for Beetroot in Long Field</a>
+        <a class="govuk-link" href="#croptwo">Recommendations for Beetroot in Long Field</a>
       </li>
     </ul>
   {% endif %}
@@ -16,7 +16,7 @@
   <hr class="seperator_five">
 
   <h2 id="cropone" class="govuk-heading-m">
-    Nutrient recommendations for 
+    Nutrient and Lime recommendations for 
     {{data.chosen_group.crop_reference | nameconverter}} 
     {% if data.chosen_group.variety.length > 0 %}
       ({{data.chosen_group.variety}}) 
@@ -64,16 +64,36 @@
     </tbody>
   </table> -->
 
-  <div class="margin-bottom-forty">
-    <h3 class="govuk-heading-s">
-      Phosphate (P2O5) and Potash (K2O) balance
-    </h3>
-    <ul class="govuk-list govuk-list--bullet" id="small-list">
+  <h3 class="govuk-heading-s">
+    Phosphate (P2O5) and Potash (K2O) balance
+  </h3>
+
+  <div id="balance" class="margin-bottom-forty">
+    <table class="govuk-table data-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Nutrient</th>
+          <th scope="col" class="govuk-table__header">Balance from 2023</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Phosphate (P2O5)</td>
+          <td class="govuk-table__cell">+ 50kg</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Potash (K2O)</td>
+          <td class="govuk-table__cell">+ 50kg</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- <ul class="govuk-list govuk-list--bullet" id="small-list">
       <li>Phosphate (P2O5) + 50kg</li>
       <li>Potash (K2O) + 50kg</li>
-    </ul>
-    <p class="govuk-body-s">
-      This is the rolling balance at the start of 2024 and is included <br>in the fertiliser phosphate and potash recommendations.
+    </ul> -->
+    <p class="govuk-body">
+      This is the rolling balance at the start of the year and is included in the <br>fertiliser phosphate and potash recommendations.
     </p>
   </div>
 
@@ -94,7 +114,7 @@
   {% if appears_in_other_groups == true %}
     <hr class="seperator_five">
     <h2 id="croptwo" class="govuk-heading-m">
-      Nutrient recommendations for 
+      Nutrient and Lime recommendations for 
       {{second_crop_reference | nameconverter}}
       {% if second_group_variety.length > 0 %}
         ({{second_group_variety}}) 

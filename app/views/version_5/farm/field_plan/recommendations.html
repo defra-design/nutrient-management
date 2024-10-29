@@ -1,9 +1,21 @@
 <div class="govuk-tabs__panel" id="recs">
 
   <h2 class="govuk-heading-m non-standard">Nutrient recommendations</h2>
+
+  {% if appears_in_other_groups == true %}
+    <ul class="govuk-list govuk-list--spaced">
+      <li>
+        <a class="govuk-link" href="#cropone">Nutrient recommendations for Carrots in Long Field</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="#croptwo">Nutrient recommendations for Beetroot in Long Field</a>
+      </li>
+    </ul>
+  {% endif %}
+
   <hr class="seperator_five">
 
-  <h2 class="govuk-heading-m">
+  <h2 id="cropone" class="govuk-heading-m">
     Nutrient recommendations for 
     {{data.chosen_group.crop_reference | nameconverter}} 
     {% if data.chosen_group.variety.length > 0 %}
@@ -81,7 +93,7 @@
 
   {% if appears_in_other_groups == true %}
     <hr class="seperator_five">
-    <h2 class="govuk-heading-m">
+    <h2 id="croptwo" class="govuk-heading-m">
       Nutrient recommendations for 
       {{second_crop_reference | nameconverter}}
       {% if second_group_variety.length > 0 %}
@@ -107,12 +119,16 @@
       {% endif %}
     {% endif %}
     <h2 class="govuk-heading-m">Guidance</h2>
-    <h32 class="govuk-heading-s">Nitrogen</h3>
+    <h3 class="govuk-heading-s">Nitrogen</h3>
     <div class="guidance">
       <p class="govuk-body">
         Apply no more than 100 kg N/ha at sowing or transplanting then apply N according to crop growth, e.g. up to 60 kg N/ha per month in the south-west and 20 kg N/ha in the north. Where seedbed SNS exceeds 4 and crops are likely to be harvested in April or later, top-dress N at the start of spring growth allowing for any over-winter losses of N.
       </p>
     </div>
+  {% endif %}
+
+  {% if appears_in_other_groups == true %}
+    <p class="govuk-body"><a class="govuk-link" href="#">Back to the top</a></p>
   {% endif %}
 
 </div>

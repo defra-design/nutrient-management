@@ -1,0 +1,226 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back to your 2024 plan",
+    href: "../plan_view"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Help with printing and exporting
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+         <p>To print this information, go to your browser's file menu, choose print, then choose your printer and follow the instructions.</p>
+         <p>To save a copy of this information as a PDF, go to your browser's file menu, choose print, then choose print to PDF and follow the instructions.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">Nmax limits 2024</h1>
+      <p class="govuk-body">Created on 30 October 2024.</p>
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row margin-bottom-forty">
+
+    <div class="govuk-grid-column-one-third">
+      <p class="govuk-body">Oaktree Lane Farm, <br>
+      Barns Road,
+      Littlehampton, <br>
+      Suffolk, <br>
+      Ip23 4NN</p>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">CPH number: 123456789 <br>
+      Single Business Identifier: 123456789 </p>
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row margin-bottom-forty">
+
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-m">Nmax limit for Grass in 2023</h2>
+      <p class="govuk-body">Nmax limit (before adjustments): 300 kg/ha</p>
+      <p class="govuk-body-s">All figures are per hectare</p>
+      
+      <table class="govuk-table govuk-table-small margin-bottom-forty">
+        <!-- <caption class="govuk-table__caption govuk-table__caption--m">Winter Wheat recommendations (kg/ha)</caption> -->
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Field</th>
+            <th scope="col" class="govuk-table__header">Crop area</th>
+            <th scope="col" class="govuk-table__header">Crop yield</th>
+            <th scope="col" class="govuk-table__header">Standard limit</th>
+            <th scope="col" class="govuk-table__header">Soil type</th>
+            <th scope="col" class="govuk-table__header">Yield</th>
+            <th scope="col" class="govuk-table__header">Cut only</th>
+            <th scope="col" class="govuk-table__header">Paper or Straw</th>
+            <th scope="col" class="govuk-table__header">Nitrogen rate</th>
+            <th scope="col" class="govuk-table__header">Total Nitrogen</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Park 1</td>
+            <td class="govuk-table__cell">15.00</td>
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell">300</td>          
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell">300</td>
+            <td class="govuk-table__cell">4,500</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Park 2</td>
+            <td class="govuk-table__cell">19.50</td>
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell">300</td>          
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell">300</td>
+            <td class="govuk-table__cell">5,850</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Low meadow</td>
+            <td class="govuk-table__cell">18.20</td>
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell">300</td>          
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell">300</td>
+            <td class="govuk-table__cell">5,460</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">High meadow</td>
+            <td class="govuk-table__cell">20.20</td>
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell">300</td>          
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell">300</td>
+            <td class="govuk-table__cell">6,060</td>
+          </tr>     
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Total</th>
+            <th scope="col" class="govuk-table__header">72.90</td>
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <th scope="col" class="govuk-table__header">A 21,870</th>
+          </tr>               
+        </tbody>
+      </table>
+
+      <h2 class="govuk-heading-m">Nitrogen applications for Grass in 2023</h2>
+      <p class="govuk-body-s">All figures are per hectare</p>
+
+      <table class="govuk-table govuk-table-small">
+        <!-- <caption class="govuk-table__caption govuk-table__caption--m">Winter Wheat recommendations (kg/ha)</caption> -->
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Field</th>
+            <th scope="col" class="govuk-table__header">Crop area</th>
+            <th scope="col" class="govuk-table__header">Nitrogen rate</th>
+            <th scope="col" class="govuk-table__header">Total Nitrogen</th>
+            <th scope="col" class="govuk-table__header">Nitrogen rate</th>
+            <th scope="col" class="govuk-table__header">Total Nitrogen</th>
+            <th scope="col" class="govuk-table__header">Nitrogen rate</th>
+            <th scope="col" class="govuk-table__header">Total Nitrogen</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Park 1</td>
+            <td class="govuk-table__cell">15.00</td>
+            <td class="govuk-table__cell">140</td>          
+            <td class="govuk-table__cell">2,730</td>          
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell">140</td>
+            <td class="govuk-table__cell">2,730</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Park 2</td>
+            <td class="govuk-table__cell">19.50</td>
+            <td class="govuk-table__cell">140</td>          
+            <td class="govuk-table__cell">2,100</td>          
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell">140</td>
+            <td class="govuk-table__cell">2,100</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Low meadow</td>
+            <td class="govuk-table__cell">18.20</td>
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">High meadow</td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell"> </td>          
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+          </tr>     
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Total</th>
+            <th scope="col" class="govuk-table__header">72.90</td>
+            <td class="govuk-table__cell"> </td>          
+            <th scope="col" class="govuk-table__header">4,830</td>          
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <td class="govuk-table__cell"> </td>
+            <th scope="col" class="govuk-table__header">B 4,830</th>
+          </tr>               
+        </tbody>
+      </table>
+
+      <p class="govuk-body">To comply with the N max limit for this Crop type, the total N (kg) applied in box B must not be greater than the adjusted N max limit in box A</p>
+
+    </div>
+
+  </div>
+
+
+{% endblock %}

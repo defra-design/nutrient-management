@@ -636,21 +636,26 @@ router.get(/crops_update_handler/, function (req, res) {
 })
 
 router.get(/export_handler/, function (req, res) { 
+    var next = ('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
     if (req.session.data.export_type == 1) {
-        res.redirect('export_fields')
+        next = 'export_fields'
     } else {
-        req.session.data.show_success_message = true;
-        if (req.session.data.export_type == 2) {
-            req.session.data.successMessage = 8;
-        } else if (req.session.data.export_type == 3) {
-            req.session.data.successMessage = 9;
-        } else if (req.session.data.export_type == 4) {
-            req.session.data.successMessage = 10;
-        } else if (req.session.data.export_type == 5) {
-            req.session.data.successMessage = 11;
-        }
-        res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+        next = './outputs/nmax'
     }
+    res.redirect(next)
+        // if (req.session.data.export_type == 1) {
+    //     next = 'export_fields'
+    // } else {
+    //     req.session.data.show_success_message = true;
+    //     if (req.session.data.export_type == 2) {
+    //         req.session.data.successMessage = 8;
+    //     } else if (req.session.data.export_type == 3) {
+    //         req.session.data.successMessage = 9;
+    //     } else if (req.session.data.export_type == 4) {
+    //         req.session.data.successMessage = 10;
+    //     } else if (req.session.data.export_type == 5) {
+    //         req.session.data.successMessage = 11;
+    //     }
 })
 
 router.get(/export_field_handler/, function (req, res) { 

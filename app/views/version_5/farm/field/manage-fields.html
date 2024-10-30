@@ -56,7 +56,14 @@
         fields
       </h1>
 
-      <p class="govuk-body"><a href="../../add-field/copy_field">Add another field</a></p>
+      <!-- <p class="govuk-body"><a href="../../add-field/copy_field">Add another field</a></p> -->
+
+      <form class="" action="../../add-field/copy_field" method="post" novalidate="">    
+        <button class="govuk-button" data-module="govuk-button">
+          Add a field
+        </button>
+      </form>
+
 
       {% if data.oaktree_farm.fields_added == true %}
         <table class="govuk-table">

@@ -1,8 +1,8 @@
 <table class="govuk-table sortable-table recomendation-table data-table">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Field &#9660;</th>
-      <th scope="col" class="govuk-table__header">Application Date</th>
+      <th scope="col" class="govuk-table__header">Application Date &#9660;</th>
+      <th scope="col" class="govuk-table__header">Field</th>
       <th scope="col" class="govuk-table__header">Crop</th>
       <th scope="col" class="govuk-table__header">Type of manure</th>
         <th scope="col" class="govuk-table__header">Rate</th>
@@ -13,8 +13,8 @@
 
     {% for application in data.allManureApplications_v2 %}        
       <tr class="govuk-table__row">
-        <td class="govuk-table__cell field-name">{{application.Field}}</td>
         <td class="govuk-table__cell"> {{application.date}}</td>
+        <td class="govuk-table__cell field-name">{{application.Field}}</td>
         <td class="govuk-table__cell"> {{application.Crop | nameconverter}}</td>
         <td class="govuk-table__cell">{{application.type}}</td>
 

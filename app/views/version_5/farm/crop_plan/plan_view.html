@@ -110,10 +110,17 @@
           {% if organics == false %}
             <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned.</p>
           {% endif %} 
-          <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Add an {{data.content.organic_term | lower}} application to one or more fields</a></p>
-          {% if organics == true %}
-            {% include "./templates/2024_manure_totals.html" ignore missing %}
-          {% endif %} 
+
+          <form class="add-button" action="v2manure_handler?manurejourney=multi" method="post" novalidate="">    
+            <button class="govuk-button" data-module="govuk-button">
+              Add an {{data.content.organic_term | lower}} application
+            </button>
+          </form>
+  
+          <!-- <p class="govuk-body"><a href="v2manure_handler?manurejourney=multi">Add an {{data.content.organic_term | lower}} application to one or more fields</a></p> -->
+          <!-- if organics == true
+            include "./templates/2024_manure_totals.html" ignore missing
+          endif  -->
         </div>
         <hr class="seperator_five">
         
@@ -121,7 +128,7 @@
         <div class="margin-bottom-forty">
           <h2 class="govuk-heading-m">All organic material applications for harvest year 2024</h2>
           <p class="govuk-body-s">All amounts are per hectare</p>
-          <!-- <p class="govuk-body"><a href="#">Sort by field name</a> <span>&nbsp;</span> or <span>&nbsp;</span> <a href="#">sort by application date</a></p> -->
+          <p class="govuk-body"><a href="#">Sort by field name</a> <span>&nbsp;</span> or <span>&nbsp;</span> <a href="#">sort by application date</a></p>
           {% include "./templates/2024_applications_table.html" ignore missing %}
         </div>
         {% endif %}
@@ -134,10 +141,19 @@
           {% if inorganics == false %}
             <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned.</p>
           {% endif %}
-          <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=multi">Add an {{data.content.non_organic_term | lower}} application to one or more fields</a></p>
-          {% if inorganics == true %}
-            {% include "./templates/2024_fertiliser_totals.html" ignore missing %}
-          {% endif %}
+
+          <!-- <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=multi">Add an {{data.content.non_organic_term | lower}} application to one or more fields</a></p> -->
+          
+          <form class="add-button" action="v2fertiliser_handler?fertiliserjourney=multi" method="post" novalidate="">    
+            <button class="govuk-button" data-module="govuk-button">
+              Add an {{data.content.non_organic_term | lower}} application
+            </button>
+          </form>
+
+          <!-- if inorganics == true
+            include "./templates/2024_fertiliser_totals.html" ignore missing
+          endif -->
+
         </div>
         <hr class="seperator_five">
 
@@ -145,10 +161,10 @@
           <div class="margin-bottom-forty">
             <h2 class="govuk-heading-m">All inorganic fertiliser applications for harvest year 2024</h2>
             <p class="govuk-body-s">All amounts are per hectare</p>
-            <!-- <p class="govuk-body"><a href="#">Sort by field name</a> <span>&nbsp;</span> or <span>&nbsp;</span> <a href="#">sort by application date</a></p> -->
+            <p class="govuk-body"><a href="#">Sort by field name</a> <span>&nbsp;</span> or <span>&nbsp;</span> <a href="#">sort by application date</a></p>
             {% include "./templates/2024_fertiliser_table.html" ignore missing %}
           </div>
-          <p class="govuk-body"><a href="#inorganic">Back to top</a></p>
+          <p class="govuk-body"><a href="#inorganic">Back to the top</a></p>
         {% endif %}
       </div>
       

@@ -1,8 +1,8 @@
-<table class="govuk-table big_crop_table_version_three sortable-table margin-bottom-forty">
+<table class="govuk-table big_crop_table_version_three margin-bottom-forty">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header field-name">Field &#9660;</th>
-      <th scope="col" class="govuk-table__header">Application Date</th>
+      <th scope="col" class="govuk-table__header">Application Date &#9660;</th>
+      <th scope="col" class="govuk-table__header field-name">Field</th>
       <th scope="col" class="govuk-table__header">Crop</th>
         <!-- <th scope="col" class="govuk-table__header">Rate</th> -->
         <th scope="col" class="govuk-table__header">Nutrients</th>
@@ -12,8 +12,8 @@
   <tbody class="govuk-table__body">
     {% for application in data.allFertiliserApplications %}
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">{{application.Field}}</td>
           <td class="govuk-table__cell"> {{application.date}}</td>
+          <td class="govuk-table__cell">{{application.Field}}</td>
           <td class="govuk-table__cell"> {{application.Crop | nameconverter}}</td>
 
           <!-- <td class="govuk-table__cell">

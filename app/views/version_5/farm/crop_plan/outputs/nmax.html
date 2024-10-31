@@ -1,5 +1,7 @@
 {% extends "layouts/main.html" %}
 
+{% set bodyClasses = "wide" %}
+
 {% block pageTitle %}
   Question – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -58,27 +60,107 @@
 
   </div>
 
-  <div class="govuk-grid-row margin-bottom-forty">
+      <!-- <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-full">
-      <h2 class="govuk-heading-m">Nmax limit for Grass in 2023</h2>
-      <p class="govuk-body">Nmax limit (before adjustments): 300 kg/ha</p>
-      <p class="govuk-body-s">All figures are per hectare</p>
-      
+          <h2 class="govuk-heading-m">Nmax summary for Grass in 2024</h2>            
+            <table class="govuk-table govuk-table-small">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Nmax limit (before adjustments)</th>
+                  <th scope="col" class="govuk-table__header">Total Nmax limit</th>
+                  <th scope="col" class="govuk-table__header">Total Nitrogen (N) applied</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">300kg per hectare</td>
+                  <td class="govuk-table__cell">21,870kg</td>
+                  <td class="govuk-table__cell">4,830kg</td>
+                </tr>
+              </tbody>
+            </table>
+  
+          <p class="govuk-body-s margin-bottom-forty">To comply with the Nmax limit for this Crop type, the total Nitrogen (N) applied must not be greater than the adjusted Nmax limit.</p>
+          </div>
+          </div> -->
+
+          <div class="govuk-grid-row margin-bottom-forty">
+            <div class="govuk-grid-column-full">
+    
+          <!-- <h2 class="govuk-heading-l">Grass</h2>
+          <p class="govuk-body-s">To comply with the Nmax limit for this crop type, the total Nitrogen (N) applied must not be greater than the adjusted Nmax limit.</p> -->
+
+          <h2 class="govuk-heading-l">Grass fields</h2>
+
+                <!-- <h2 class="govuk-heading-m">Nmax limit for Grass fields</h2>-->
+
+
+      <!-- <h3 class="govuk-heading-m">Park 1</h3>
+      <p>19.50 hectare, soil type medium. Standard Nmax limit 300kg per hectare.</p>
       <table class="govuk-table govuk-table-small margin-bottom-forty">
-        <!-- <caption class="govuk-table__caption govuk-table__caption--m">Winter Wheat recommendations (kg/ha)</caption> -->
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Field</th>
-            <th scope="col" class="govuk-table__header">Crop area</th>
-            <th scope="col" class="govuk-table__header">Crop yield</th>
-            <th scope="col" class="govuk-table__header">Standard limit</th>
-            <th scope="col" class="govuk-table__header">Soil type</th>
-            <th scope="col" class="govuk-table__header">Yield</th>
+            <th scope="col" class="govuk-table__header">Crop yield per hectare</th>
+            <th scope="col" class="govuk-table__header">Crop yield adjustment</th>
             <th scope="col" class="govuk-table__header">Cut only</th>
-            <th scope="col" class="govuk-table__header">Paper or Straw</th>
-            <th scope="col" class="govuk-table__header">Nitrogen rate</th>
+            <th scope="col" class="govuk-table__header">Paper sludge or Straw mulch</th>
+            <th scope="col" class="govuk-table__header">Nitrogen rate per hectare</th>
             <th scope="col" class="govuk-table__header">Total Nitrogen</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Not entered</td>
+            <td class="govuk-table__cell">Not entered</td>
+            <td class="govuk-table__cell">No</td>
+            <td class="govuk-table__cell">No</td>
+            <td class="govuk-table__cell">300kg</td>
+            <td class="govuk-table__cell">4,500kg</td>
+          </tr>      
+        </tbody>
+      </table>
+
+      <h3 class="govuk-heading-m">Park 2</h3>
+      <p>19.50 hectare, soil type medium. Standard Nmax limit 300kg per hectare.</p>
+      <table class="govuk-table govuk-table-small margin-bottom-forty">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Crop yield per hectare</th>
+            <th scope="col" class="govuk-table__header">Crop yield adjustment</th>
+            <th scope="col" class="govuk-table__header">Cut only</th>
+            <th scope="col" class="govuk-table__header">Paper sludge or Straw mulch</th>
+            <th scope="col" class="govuk-table__header">Nitrogen rate per hectare</th>
+            <th scope="col" class="govuk-table__header">Total Nitrogen</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Not entered</td>
+            <td class="govuk-table__cell">Not entered</td>
+            <td class="govuk-table__cell">No</td>
+            <td class="govuk-table__cell">No</td>
+            <td class="govuk-table__cell">300kg</td>
+            <td class="govuk-table__cell">4,500kg</td>
+          </tr>      
+        </tbody>
+      </table> -->
+
+
+      
+      <h2 class="govuk-heading-m">Nmax limit for Grass fields</h2>
+      <table class="govuk-table limits-table govuk-table-small margin-bottom-forty">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Field name</th>
+            <th scope="col" class="govuk-table__header">Crop area<br><span class="nonbold">in hectares</span></th>
+            <th scope="col" class="govuk-table__header">Crop yield <br><span class="nonbold">per hectare</span></th>
+            <th scope="col" class="govuk-table__header">Soil type</th>
+            <th scope="col" class="govuk-table__header">Crop yield <br><span class="nonbold">per hectare</span></th>
+            <th scope="col" class="govuk-table__header">Cut only</th>
+            <th scope="col" class="govuk-table__header">Paper or Straw used</th>
+            <th scope="col" class="govuk-table__header">Nitrogen rate <br><span class="nonbold">per hectare</span></th>
+            <th scope="col" class="govuk-table__header">Total Nitrogen </th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
@@ -86,67 +168,61 @@
             <td class="govuk-table__cell">Park 1</td>
             <td class="govuk-table__cell">15.00</td>
             <td class="govuk-table__cell"> </td>          
-            <td class="govuk-table__cell">300</td>          
+            <td class="govuk-table__cell">Medium</td>
             <td class="govuk-table__cell"> </td>
             <td class="govuk-table__cell"> </td>
             <td class="govuk-table__cell"> </td>
-            <td class="govuk-table__cell"> </td>
-            <td class="govuk-table__cell">300</td>
-            <td class="govuk-table__cell">4,500</td>
+            <td class="govuk-table__cell">300kg</td>
+            <td class="govuk-table__cell">4,500kg</td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">Park 2</td>
             <td class="govuk-table__cell">19.50</td>
             <td class="govuk-table__cell"> </td>          
-            <td class="govuk-table__cell">300</td>          
+            <td class="govuk-table__cell">Medium</td>
             <td class="govuk-table__cell"> </td>
             <td class="govuk-table__cell"> </td>
             <td class="govuk-table__cell"> </td>
-            <td class="govuk-table__cell"> </td>
-            <td class="govuk-table__cell">300</td>
-            <td class="govuk-table__cell">5,850</td>
+            <td class="govuk-table__cell">300kg</td>
+            <td class="govuk-table__cell">5,850kg</td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">Low meadow</td>
             <td class="govuk-table__cell">18.20</td>
             <td class="govuk-table__cell"> </td>          
-            <td class="govuk-table__cell">300</td>          
+            <td class="govuk-table__cell">Medium</td>
             <td class="govuk-table__cell"> </td>
             <td class="govuk-table__cell"> </td>
             <td class="govuk-table__cell"> </td>
-            <td class="govuk-table__cell"> </td>
-            <td class="govuk-table__cell">300</td>
-            <td class="govuk-table__cell">5,460</td>
+            <td class="govuk-table__cell">300kg</td>
+            <td class="govuk-table__cell">5,460kg</td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">High meadow</td>
             <td class="govuk-table__cell">20.20</td>
             <td class="govuk-table__cell"> </td>          
-            <td class="govuk-table__cell">300</td>          
+            <td class="govuk-table__cell">Medium</td>
             <td class="govuk-table__cell"> </td>
             <td class="govuk-table__cell"> </td>
             <td class="govuk-table__cell"> </td>
-            <td class="govuk-table__cell"> </td>
-            <td class="govuk-table__cell">300</td>
-            <td class="govuk-table__cell">6,060</td>
+            <td class="govuk-table__cell">300kg</td>
+            <td class="govuk-table__cell">6,060kg</td>
           </tr>     
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Total</th>
             <th scope="col" class="govuk-table__header">72.90</td>
+            <td class="govuk-table__cell"></td>          
             <td class="govuk-table__cell"> </td>          
-            <td class="govuk-table__cell"> </td>          
             <td class="govuk-table__cell"> </td>
             <td class="govuk-table__cell"> </td>
             <td class="govuk-table__cell"> </td>
             <td class="govuk-table__cell"> </td>
-            <td class="govuk-table__cell"> </td>
-            <th scope="col" class="govuk-table__header">A 21,870</th>
+            <th scope="col" class="govuk-table__header">21,870kg</th>
           </tr>               
         </tbody>
-      </table>
+      </table> 
 
-      <h2 class="govuk-heading-m">Nitrogen applications for Grass in 2023</h2>
-      <p class="govuk-body-s">All figures are per hectare</p>
+      <h2 class="govuk-heading-m">Nitrogen applications for Grass fields</h2>
 
       <table class="govuk-table govuk-table-small">
         <!-- <caption class="govuk-table__caption govuk-table__caption--m">Winter Wheat recommendations (kg/ha)</caption> -->
@@ -166,21 +242,21 @@
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">Park 1</td>
             <td class="govuk-table__cell">15.00</td>
-            <td class="govuk-table__cell">140</td>          
-            <td class="govuk-table__cell">2,730</td>          
+            <td class="govuk-table__cell">140kg</td>          
+            <td class="govuk-table__cell">2,730kg</td>          
             <td class="govuk-table__cell"> </td>
             <td class="govuk-table__cell"> </td>
-            <td class="govuk-table__cell">140</td>
-            <td class="govuk-table__cell">2,730</td>
+            <td class="govuk-table__cell">140kg</td>
+            <td class="govuk-table__cell">2,730kg</td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">Park 2</td>
             <td class="govuk-table__cell">19.50</td>
-            <td class="govuk-table__cell">140</td>          
-            <td class="govuk-table__cell">2,100</td>          
+            <td class="govuk-table__cell">140kg</td>          
+            <td class="govuk-table__cell">2,100kg</td>          
             <td class="govuk-table__cell"> </td>
             <td class="govuk-table__cell"> </td>
-            <td class="govuk-table__cell">140</td>
+            <td class="govuk-table__cell">140kg</td>
             <td class="govuk-table__cell">2,100</td>
           </tr>
           <tr class="govuk-table__row">
@@ -207,16 +283,14 @@
             <th scope="col" class="govuk-table__header">Total</th>
             <th scope="col" class="govuk-table__header">72.90</td>
             <td class="govuk-table__cell"> </td>          
-            <th scope="col" class="govuk-table__header">4,830</td>          
+            <th scope="col" class="govuk-table__header">4,830kg</td>          
             <td class="govuk-table__cell"> </td>
             <td class="govuk-table__cell"> </td>
             <td class="govuk-table__cell"> </td>
-            <th scope="col" class="govuk-table__header">B 4,830</th>
+            <th scope="col" class="govuk-table__header">4,830kg</th>
           </tr>               
         </tbody>
       </table>
-
-      <p class="govuk-body">To comply with the N max limit for this Crop type, the total N (kg) applied in box B must not be greater than the adjusted N max limit in box A</p>
 
     </div>
 

@@ -637,12 +637,12 @@ router.get(/crops_update_handler/, function (req, res) {
 
 router.get(/export_handler/, function (req, res) { 
     var next = ('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
-    // if (req.session.data.export_type == 1) {
-    //     next = 'export_fields'
-    // } else {
-    //     next = './outputs/nmax'
-    // }
-    res.redirect('export_fields')
+    if (req.session.data.export_type == 1) {
+        next = 'export_fields'
+    } else {
+        next = './outputs/nmax'
+    }
+    res.redirect(next)
         // if (req.session.data.export_type == 1) {
     //     next = 'export_fields'
     // } else {

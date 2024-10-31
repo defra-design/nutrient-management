@@ -561,6 +561,36 @@ h2.manure-date {
     width: 50%;
 }
 
+.limits-table {
+    th:nth-child(1) {
+        width: 15%;
+    }
+    th:nth-child(2) {
+        width: 11%;
+    }
+    th:nth-child(3) {
+        width: 12%;
+    }
+    th:nth-child(4) {
+        width: 10%;
+    }
+    th:nth-child(5) {
+        width: 12%;
+    }
+    th:nth-child(6) {
+        width: 6%;
+    }
+    th:nth-child(7) {
+        width: 15%;
+    }
+    th:nth-child(8) {
+        width: 14%;
+    }
+    th:nth-child(9) {
+        width: 8%;
+    }
+}
+
 // .tab-left {
 //     width: 50%;
 //     float: left;

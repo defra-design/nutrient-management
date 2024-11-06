@@ -50,12 +50,9 @@
                 <input class="govuk-radios__input" id={{group.reference}} name="fertiliser_fields" type="radio" value={{group.reference}}>
                 <label class="govuk-label govuk-radios__label" for={{group.reference}}>
                   The 
-                  {{group.crop_reference | nameconverter}}
-                  {% if group.variety %}
-                  ({{group.variety}}) 
-                {% endif %}
-                {{group.groupname}} 
-                fields  
+                    {{group.crop_reference | nameconverter}}
+                  fields  
+                    ({{group.groupname | lower}})
                 </label>
               </div>
             {% endfor %} 

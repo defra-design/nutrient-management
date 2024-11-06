@@ -387,11 +387,16 @@ router.get(/addcrops_check_handler/, function (req, res) {
 
 router.get(/crops_V5_check_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
+    let sowdate = null;
     req.session.data.successMessage = 1;
     var newRef = req.session.data.cropGroupsV5.length + 1
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(newRef, 2024, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, req.session.data.variety, req.session.data.groupname))
+    if (req.session.data.sow_date_day != null) {
+        sowdate = req.session.data.sow_date_day + '/' + req.session.data.sow_date_month + '/' + req.session.data.sow_date_year
+    }
+    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(newRef, 2024, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, req.session.data.variety, req.session.data.groupname, sowdate))
     req.session.data.groupname = null;
     req.session.data.variety = null;
+    req.session.data.sow_date_day, req.session.data.sow_date_month, req.session.data.sow_date_year = null;
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 

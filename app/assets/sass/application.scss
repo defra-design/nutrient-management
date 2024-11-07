@@ -235,6 +235,10 @@ hr.medium_seperator {
     margin-bottom: 20px;
 }
 
+.margin-bottom-thirty {
+    margin-bottom: 30px;
+}
+
 .margin-bottom-ten {
     margin-bottom: 10px;
 }
@@ -619,3 +623,17 @@ h2.manure-date {
 //     float: left;
 //     text-align: right;
 // }
+
+
+@media print {
+    .pagebreak { 
+        page-break-before: always; 
+        clear: both;
+    }
+}
+
+#printbreak {
+    height: 10px;
+    background-color: #505a5f;
+    margin-bottom: 40px;
+}

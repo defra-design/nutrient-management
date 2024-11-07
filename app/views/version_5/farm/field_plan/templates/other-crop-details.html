@@ -27,9 +27,15 @@
       <td class="govuk-table__cell strong">Estimated yield</td>
       <td class="govuk-table__cell">8 tonnes per hectare</td>
     </tr>
-    <!-- <tr class="govuk-table__row">
-      <td class="govuk-table__cell strong">Crop use</td>
-      <td class="govuk-table__cell">Milling</td>
-    </tr> -->
+    {% if data.chosen_group.crop_reference == 'Wheat-Winter' %}
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell strong">Crop use</td>
+        <td class="govuk-table__cell">Milling</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell strong">Straw use</td>
+        <td class="govuk-table__cell">Incorporated</td>
+      </tr>
+    {% endif %}
   </tbody>
 </table>  

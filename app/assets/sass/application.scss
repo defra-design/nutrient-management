@@ -627,8 +627,11 @@ h2.manure-date {
 
 @media print {
     .pagebreak { 
-        page-break-before: always; 
+        page-break-after: always; 
         clear: both;
+    }
+    .noprint {
+        display: none;
     }
 }
 

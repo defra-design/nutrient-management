@@ -180,6 +180,9 @@ router.get('/', function (req, res) {
     // notifications
     req.session.data.successMessage = null
 
+    //planviews
+    req.session.data.plan_version = 2
+
     res.render('index')
 })
 

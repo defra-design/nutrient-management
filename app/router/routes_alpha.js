@@ -636,11 +636,12 @@ router.get(/crops_update_handler/, function (req, res) {
 })
 
 router.get(/export_handler/, function (req, res) { 
+    let nmaxAddress = './outputs/nmax_report_v2'
     var next = ('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
     if (req.session.data.export_type == 1) {
         next = 'export_fields'
     } else {
-        next = './outputs/nmax'
+        next = nmaxAddress
     }
     res.redirect(next)
         // if (req.session.data.export_type == 1) {
@@ -657,6 +658,7 @@ router.get(/export_handler/, function (req, res) {
     //         req.session.data.successMessage = 11;
     //     }
 })
+
 
 router.get(/export_field_handler/, function (req, res) { 
     req.session.data.show_success_message = true;

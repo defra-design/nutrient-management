@@ -140,6 +140,22 @@ router.get(/twocrops_v5_setup_handler/, function (req, res) {
     res.redirect('/' + req.query.version + '/start')
 })
 
+router.get(/end_to_end_setup_handler/, function (req, res) { 
+    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
+    let fieldOne = {name: "Long Field",reference: 1, nvz: true,elevation: false};
+    let fieldTwo = {name: "Short Field",reference: 2,nvz: true,elevation: false};
+    req.session.data.all_fields.push(fieldOne)
+    req.session.data.all_fields.push(fieldTwo)
+    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [1,2], req.session.data.all_fields, 'Wheat-Winter', null, 'Crop group 1', '15/09/2023'))
+    let fertiliser_fields = req.session.data.all_fields
+    let applicationOne = allFunctions.addFertiliserApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, 1, '01/03/2023', 41, 0, 0, 0, 0)
+    let applicationTwo = allFunctions.addFertiliserApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, 2, '01/03/2023', 41, 0, 0, 0, 0)
+    req.session.data.allFertiliserApplications.push(applicationOne)
+    req.session.data.allFertiliserApplications.push(applicationTwo)
+    req.session.data.prototype_version = req.query.version
+    res.redirect('/' + req.query.version + '/start')
+})
+
 router.get(/twocropsandmanures_v5_setup_handler/, function (req, res) { 
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
     req.session.data.all_fields = req.session.data.field_list_mvp

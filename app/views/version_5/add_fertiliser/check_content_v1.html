@@ -2,7 +2,20 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Which fields would you like to add an {{data.content.non_organic_term | lower}} application to?</dt>
     <dd class="govuk-summary-list__value">
-    Long field, <br>Short field
+
+      {% if data.fertiliser_journey == "multi" %}
+          {% if data.fertiliser_fields == "all" %}
+            All fields in the 2024 plan
+          {% else %} 
+            {% for x in data.fertiliser_fields %}
+            {{x}}
+              {{x | fieldnameconverter}},
+            {% endfor %}
+          {% endif %}
+      {% else %}
+      {{data.fertiliser_fields | fieldnameconverter}}
+      {% endif %}      
+
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>

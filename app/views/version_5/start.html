@@ -18,7 +18,40 @@
       {{ serviceName }}
     </h1>
 
-    <p>Get nutrient recommendations for your crops, then manage and record your use of manures and fertilisers to align with environmental regulations.</p>
+    <p class="gov-body">This is a free service, provided by Defra, to help farmers plan and record nutrient use on their farms. It gives you guidance only - there is no legal requirement to use it.</p>
+    
+    <p class="gov-body">This service will:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>save you time and money</li>
+      <li>help you comply with environmental regulations</li> 
+      <li>help protect the environment</li>   
+    </ul>
+
+    <h2 class="govuk-heading-m">How it works</h2>
+    <p class="gov-body">The recommendations from this service come from the <a href="https://ahdb.org.uk/nutrient-management-guide-rb209">Nutrient Management Guide (RB209).</a> </p>
+    <p class="gov-body">Your plan will be based on:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the crops you grow</li> 
+      <li>the nutrients in your soil</li>
+      <li>the organic materials and inorganic fertilisers you use and how you apply them</li>
+    </ul>
+
+    <p class="gov-body">You can download your plans as PDFs.</p>
+    <p class="gov-body">This service replaces earlier tools such as PLANET and MANNER. The service will allow you to import your data from PLANET.</p>
+ 
+    <h2 class="govuk-heading-m">Sustainable Farming Incentive (SFI)</h2>
+    <p class="gov-body">In order to apply for <a href="https://www.gov.uk/government/publications/sfi-handbook-for-the-sfi-2023-offer">the NUM1 payment of the SFI</a>, you will need a nutrient plan. This service will create a plan that you can use for this purpose.</p>
+    <p class="gov-body">Please note that you will then need to get the plan checked by a FACTS qualified adviser before applying.
+
+    <h2 class="govuk-heading-m">Your data</h2>
+    <p class="gov-body">We only gather the data required to provide you with the appropriate recommendations.</p>
+    <p class="gov-body">This service will never share your data with any other organisations.</p>
+    <p class="gov-body">In particular, please note that this service does not share data with the <a href="https://www.gov.uk/government/organisations/rural-payments-agency">Rural Payments Agency (RPA).</a></p>
+    <p class="gov-body margin-bottom-forty">This service was developed in conjunction with ADAS and AHDB.</p>
+
+
+
+    <!-- <p>Get nutrient recommendations for your crops, then manage and record your use of manures and fertilisers to align with environmental regulations.</p>
     <p>Planning and recording can:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>save you money</li>
@@ -31,7 +64,7 @@
       <li>the crops you grow</li>
       <li>the nutrients in your soil</li>
       <li>the manures and fertilisers you use and how you apply them</li>
-    </ul>
+    </ul> -->
 
     {% if data.oaktree_farm.setup == true %}
     <form class="form margin-top-forty" action="farm/farms" method="post">

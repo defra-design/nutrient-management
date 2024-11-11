@@ -1,6 +1,8 @@
 var express = require('express')
 var router = express.Router()
 
+var Farm = require('./functions/farm.js');
+
 var allFunctions = require('../functions/allFunctions.js');
 
 //Set the chosen_field OBJECT

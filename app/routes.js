@@ -1,13 +1,14 @@
 const  govukPrototypeKit = require('govuk-prototype-kit')
 const  router = govukPrototypeKit.requests.setupRouter()
 
+var Farm = require('./functions/farm.js');
+
 ///////Misc
 var content = require('./content.js').content;
 var allFunctions = require('./functions/allFunctions.js');
 
 
 ///////Farm
-var Farm = require('./functions/farm.js');
 var oaktree_farm = Farm.createFarm();
 // populate farm
 oaktree_farm.name = 'Oaktree Lane Farm';

@@ -9,28 +9,26 @@ var allFunctions = require('../functions/allFunctions.js');
 router.get(/organic_handler/, function (req, res) { 
     //name
     if (req.session.data.farm_name == "") {
-        req.session.data.farm_name = req.session.data.oaktree_farm.name;
+        req.session.data.farm_name = 'Oaktree Lane Farm';
     }
     //postcode
     if (req.session.data.farm_postcode == "") {
-        req.session.data.farm_postcode = req.session.data.oaktree_farm.postcode;
+        req.session.data.farm_postcode = 'NE46 7LQ';
     }
     //NVZ
-    if (req.session.data.farm_nvz == "none") {
-        req.session.data.farm_nvz = req.session.data.oaktree_farm.nvz;
+    if (req.session.data.farm_nvz == "") {
+        req.session.data.farm_nvz = 'all';
     }
     //elevation
-    if (req.session.data.farm_elevation == "none") {
-        req.session.data.farm_elevation = req.session.data.oaktree_farm.elevation;
+    if (req.session.data.farm_elevation == "") {
+        req.session.data.farm_elevation = 'none';
     }
     //organic
-    if (req.session.data.organic_producer == "") {
-        req.session.data.organic_producer = req.session.data.oaktree_farm.organic_producer;
-    } else if (req.session.data.organic_producer == 'yes')  {
-        req.session.data.organic_producer = true;
-    }  else if (req.session.data.organic_producer == 'no')  {
-        req.session.data.organic_producer = false;
-    }  
+    // if (req.session.data.organic_producer == "" || req.session.data.organic_producer == 'no' ) {
+    //     req.session.data.organic_producer = false;
+    // } else {
+    //     req.session.data.organic_producer = true;
+    // }  
     res.redirect('check');
 })
 

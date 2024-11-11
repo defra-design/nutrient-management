@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
 
-const allFunctions = require('../functions/allFunctions.js');
+var allFunctions = require('../functions/allFunctions.js');
 
 //Set the chosen_field OBJECT
 router.get(/create_plan_handler/, function (req, res) { 
@@ -57,7 +57,7 @@ router.get(/crop_type_handler/, function (req, res) {
 
 //do you plan to spread manure?
 router.get(/manure_if_handler/, function (req, res) { 
-    let next = (req.session.data.manure_if == "yes") ? 'manure_when' : 'check_one'
+    var next = (req.session.data.manure_if == "yes") ? 'manure_when' : 'check_one'
     res.redirect(next)
 })
 
@@ -130,7 +130,7 @@ router.get(/fertiliser_if_handler/, function (req, res) {
 
 //do you plan to spread more fertiliser
 router.get(/fertiliser_again_handler/, function (req, res) { 
-    let next = (req.session.data.fertiliser_again == "yes") ? 'fertiliser_when' : 'check'
+    var next = (req.session.data.fertiliser_again == "yes") ? 'fertiliser_when' : 'check'
     res.redirect(next)
 })
 
@@ -264,12 +264,12 @@ router.get(/add_multi_handler/, function (req, res) {
 
 //add field - grass history - handler
 router.get(/add-grass-handler/, function (req, res) { 
-    let next = (req.session.data.previous_grass == 'yes') ? 'plough' : 'check'
+    var next = (req.session.data.previous_grass == 'yes') ? 'plough' : 'check'
     res.redirect(next)
 })
 
 router.get(/field-cuts-handler/, function (req, res) { 
-    let next = (req.session.data.previous_management == 'grazing') ? 'previous-nitrogen' : 'previous-cuts'
+    var next = (req.session.data.previous_management == 'grazing') ? 'previous-nitrogen' : 'previous-cuts'
     res.redirect(next)
 })
 
@@ -385,7 +385,7 @@ router.get(/v2_check_fertiliser_handler/, function (req, res) {
 
 //change crop plan
 router.get(/crop_change_handler/, function (req, res) { 
-    let next = (req.session.data.change_crop == 'add_fertiliser') ? '../old/plan/fertiliser/fertiliser_when' : '../old/plan/add_manure/manure_fields'
+    var next = (req.session.data.change_crop == 'add_fertiliser') ? '../old/plan/fertiliser/fertiliser_when' : '../old/plan/add_manure/manure_fields'
     res.redirect(next)
 })
 
@@ -492,12 +492,12 @@ router.get(/previous_use_handler/, function (req, res) {
 })
  
 router.get(/another_crop_handler/, function (req, res) { 
-    let next = (req.session.data.second_crop == 'new') ? 'crop_group' : 'second_crop/fields'
+    var next = (req.session.data.second_crop == 'new') ? 'crop_group' : 'second_crop/fields'
     res.redirect(next)
 })
 
 router.get(/previous_cuts_handler/, function (req, res) { 
-    let next = (req.session.data.previous_management == 'grazed') ? 'previous_nitrogen' : 'previous_cuts_two'
+    var next = (req.session.data.previous_management == 'grazed') ? 'previous_nitrogen' : 'previous_cuts_two'
     res.redirect(next)
 })
 
@@ -514,10 +514,10 @@ router.get(/v5_fertiliser_handler/, function (req, res) {
             }
         }
     } else {
-        for (var x in req.session.data.cropGroupsV5) {
-            if (req.session.data.cropGroupsV5[x].reference == req.session.data.fertiliser_fields ) {
-                for (var y in req.session.data.cropGroupsV5[x].fields ) {
-                    new_fertiliser_fields.push(req.session.data.cropGroupsV5[x].fields[y].reference)
+        for (var a in req.session.data.cropGroupsV5) {
+            if (req.session.data.cropGroupsV5[a].reference == req.session.data.fertiliser_fields ) {
+                for (var b in req.session.data.cropGroupsV5[a].fields ) {
+                    new_fertiliser_fields.push(req.session.data.cropGroupsV5[a].fields[b].reference)
                     req.session.data.fertiliser_fields = new_fertiliser_fields
                 }
             }
@@ -539,11 +539,11 @@ router.get(/manure_fields_v5_handler/, function (req, res) {
         }
         res.redirect('manure_group')
     } else {
-        for (var x in req.session.data.cropGroupsV5) {
-            if (req.session.data.cropGroupsV5[x].reference == req.session.data.manure_fields ) {
-                for (var y in req.session.data.cropGroupsV5[x].fields ) {
-                    new_manure_fields.push(req.session.data.cropGroupsV5[x].fields[y].reference)
-                    req.session.data.manure_fields = new_manure_fields
+        for (var a in req.session.data.cropGroupsV5) {
+            if (req.session.data.cropGroupsV5[a].reference == req.session.data.manure_fields ) {
+                for (var b in req.session.data.cropGroupsV5[a].fields ) {
+                    new_manure_fields.push(req.session.data.cropGroupsV5[a].fields[b].reference)
+                    req.session.data.manure_fields = new_manure_fields;
                 }
             }
         }
@@ -554,11 +554,11 @@ router.get(/manure_fields_v5_handler/, function (req, res) {
 router.get(/version5_manure_handler/, function (req, res) { 
     req.session.data.show_success_message = true
     req.session.data.successMessage = 2
-    let manureType = req.session.data.manure_type.name
-    let manure_fields = req.session.data.manure_fields
-    let manureDate = req.session.data.manure_date_day + '/' + req.session.data.manure_date_month + '/' + req.session.data.manure_date_year
+    var manureType = req.session.data.manure_type.name
+    var manure_fields = req.session.data.manure_fields
+    var manureDate = req.session.data.manure_date_day + '/' + req.session.data.manure_date_month + '/' + req.session.data.manure_date_year
     for (var x in manure_fields) {
-        let applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, manure_fields[x], manureDate, manureType)
+        var applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, manure_fields[x], manureDate, manureType)
         req.session.data.allManureApplications_v2.push(applicationGroup)
     }
     manure_fields = null
@@ -569,10 +569,10 @@ router.get(/version5_manure_handler/, function (req, res) {
 router.get(/fertiliser_v5_handler/, function (req, res) { 
     req.session.data.show_success_message = true
     req.session.data.successMessage = 3
-    let fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
-    let fertiliser_fields = req.session.data.fertiliser_fields
+    var fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
+    var fertiliser_fields = req.session.data.fertiliser_fields
     for (var x in fertiliser_fields) {
-        let applicationGroup = allFunctions.addFertiliserApplication_v2 (
+        var applicationGroup = allFunctions.addFertiliserApplication_v2 (
             req.session.data.all_fields, 
             req.session.data.cropGroupsV5, 
             fertiliser_fields[x], 
@@ -585,7 +585,7 @@ router.get(/fertiliser_v5_handler/, function (req, res) {
         )
         req.session.data.allFertiliserApplications.push(applicationGroup)
     }
-    let next = '/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view'
+    var next = '/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view'
     if (req.session.data.fertiliser_journey == "multi") {
         next = '/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view'
     }
@@ -636,7 +636,7 @@ router.get(/crops_update_handler/, function (req, res) {
 })
 
 router.get(/export_handler/, function (req, res) { 
-    let nmaxAddress = './outputs/nmax_report_v2'
+    var nmaxAddress = './outputs/nmax_report_v2'
     var next = ('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
     if (req.session.data.export_type == 1) {
         next = 'export_fields'

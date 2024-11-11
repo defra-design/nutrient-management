@@ -1,14 +1,14 @@
-const govukPrototypeKit = require('govuk-prototype-kit')
-const router = govukPrototypeKit.requests.setupRouter()
+const  govukPrototypeKit = require('govuk-prototype-kit')
+const  router = govukPrototypeKit.requests.setupRouter()
 
 ///////Misc
-const content = require('./content.js').content;
-const allFunctions = require('./functions/allFunctions.js');
+var content = require('./content.js').content;
+var allFunctions = require('./functions/allFunctions.js');
 
 
 ///////Farm
-const Farm = require('./functions/farm.js');
-const oaktree_farm = Farm.createFarm();
+var Farm = require('./functions/farm.js');
+var oaktree_farm = Farm.createFarm();
 // populate farm
 oaktree_farm.name = 'Oaktree Lane Farm';
 oaktree_farm.postcode = "NE46 7LQ";
@@ -25,10 +25,10 @@ oaktree_farm.rainfall = 600;
 
 
 ///////fields
-const field_list_mvp = require('./data/field_list_mvp.json');
-let all_fields = [];
+var  field_list_mvp = require('./data/field_list_mvp.json');
+var all_fields = [];
 
-let tempField = {
+var tempField = {
     name: "Short Field",
     reference: "shortfield",
     nvz: false,
@@ -36,22 +36,22 @@ let tempField = {
 };
 
 //applications
-const fertiliser_applications_list = require('./data/fertiliser_applications.json');
-const manure_applications_list = require('./data/manure_applications.json');
+var  fertiliser_applications_list = require('./data/fertiliser_applications.json');
+var  manure_applications_list = require('./data/manure_applications.json');
 
 ///////Plans
-const Plan = require('./functions/plan.js');
-let plan_2023 = Plan.createPlan();
-let plan_2024 = Plan.createPlan();
+var  Plan = require('./functions/plan.js');
+var plan_2023 = Plan.createPlan();
+var plan_2024 = Plan.createPlan();
 
 
 ///////Crops
-const potato_details = require('./data/potatoes.json');
-const crop_types = require('./data/crops.json');
+var  potato_details = require('./data/potatoes.json');
+var  crop_types = require('./data/crops.json');
 
-const CropGroup = require('./functions/crop_group.js');
+var  CropGroup = require('./functions/crop_group.js');
 // version 5
-// let cropGroupV5_1 = CropGroup.createCropGroup()
+// var cropGroupV5_1 = CropGroup.createCropGroup()
 // cropGroupV5_1.reference = 1
 // cropGroupV5_1.year = 2024
 // cropGroupV5_1.fields = [11,12,13,14,15]
@@ -59,14 +59,14 @@ const CropGroup = require('./functions/crop_group.js');
 // cropGroupV5_1.variety = 'Aurelia'
 
 ///////Manures
-const manure_types_digestate = require('./data/manure_types_digestate.json');
-const manure_types_other = require('./data/manure_types_other.json');
-const manure_types_biosolid = require('./data/manure_types_biosolid.json');
-const manure_types_livestock = require('./data/manure_types_livestock.json');
-const manure_types_livestock_groups = require('./data/manure_types_livestock_groups.json');
+var  manure_types_digestate = require('./data/manure_types_digestate.json');
+var  manure_types_other = require('./data/manure_types_other.json');
+var  manure_types_biosolid = require('./data/manure_types_biosolid.json');
+var  manure_types_livestock = require('./data/manure_types_livestock.json');
+var  manure_types_livestock_groups = require('./data/manure_types_livestock_groups.json');
 
 
-let plan2024 = {
+var plan2024 = {
     harvest_date: "2024",
     crop_added: true,
     manure_added: true,
@@ -187,9 +187,9 @@ router.get('/', function (req, res) {
 })
 
 //import routes
-const routes_prototype_setup = require('./router/routes_prototype_setup.js');
-const routes_alpha = require('./router/routes_alpha.js');
-const routes_mvp = require('./router/routes_mvp.js');
-// const vars = require('./router/vars.js');
+var  routes_prototype_setup = require('./router/routes_prototype_setup.js');
+var  routes_alpha = require('./router/routes_alpha.js');
+var  routes_mvp = require('./router/routes_mvp.js');
+// var  vars = require('./router/vars.js');
 // router.use('/', routes_mvp, routes_alpha, routes_prototype_setup);
 router.use('/', routes_alpha, routes_mvp, routes_prototype_setup);

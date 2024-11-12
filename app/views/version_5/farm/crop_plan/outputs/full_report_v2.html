@@ -8,10 +8,12 @@
 
 {% include "/templates/signed-in.html" ignore missing %}
 
-  {{ govukBackLink({
+  <!-- {{ govukBackLink({
     text: "Back to your 2024 plan",
     href: "../plan_view"
-  }) }}
+  }) }} -->
+  <a href="../plan_view" class="govuk-back-link">Back to your 2024 plan</a>
+
 {% endblock %}
 
 {% block content %}
@@ -30,8 +32,13 @@
         </div>
       </details> -->
       <h2 class="govuk-heading-m">Print or save as a PDF</h2>
-      <p>You can save this page as a PDF using your web browser's print function. Select, 'Save as PDF', (or similar depending on your web browser) when you are asked to choose a printer.</p>
-      <form class="" action="" method="post" novalidate="">    
+      <ol class="govuk-list govuk-list--number">
+        <li>Choose 'Print or save as a PDF',</li>
+        <li>Select, 'Save as PDF', where you are asked to select a printer,</li>
+        <li>Select, 'Print', then choose where to save the PDF.</li>
+      </ol>
+      <!-- <p>To save a PDF using your web browser's print function, select Print or save as a PDF. Select, 'Save as PDF', when you are asked to choose a printer, then choose print. These options may be different depending on your web browser.</p> -->
+        <form class="" action="" method="post" novalidate="">    
         <button onclick="window.print()" class="govuk-button" data-module="govuk-button">
           Print or save as a PDF
         </button>

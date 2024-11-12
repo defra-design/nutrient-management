@@ -16,9 +16,9 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row noprint">
+  <div class="govuk-grid-row noprint margin-bottom-forty">
     <div class="govuk-grid-column-two-thirds">
-      <details class="govuk-details">
+      <!-- <details class="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
             Help with printing and exporting
@@ -28,7 +28,16 @@
          <p>To print this information, go to your browser's file menu, choose print, then choose your printer and follow the instructions.</p>
          <p>To save a copy of this information as a PDF, go to your browser's file menu, choose print, then choose print to PDF and follow the instructions.</p>
         </div>
-      </details>
+      </details> -->
+      <h2 class="govuk-heading-m">Print or save as a PDF</h2>
+      <p>You can save this page as a PDF using your web browser's print function. Select, 'Save as PDF', (or similar depending on your web browser) when you are asked to choose a printer.</p>
+      <form class="" action="" method="post" novalidate="">    
+        <button onclick="window.print()" class="govuk-button" data-module="govuk-button">
+          Print or save as a PDF
+        </button>
+      </form>
+
+      <hr>
     </div>
   </div>
 

@@ -20,7 +20,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-       What do you want to download, print or export from your 2024 plan?
+       What do you want to download, print or export from your 2024 data?
       </h1>
 
       <form class="form" action="export_handler" method="post">
@@ -29,19 +29,28 @@
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="history" name="export_type" type="radio" value="1">
             <label class="govuk-label govuk-radios__label" for="history">
-              Crop and nutrient report
+              Crop and field management report
             </label>
             <div class="govuk-hint govuk-radios__hint">
               Includes all crop information and nutrient applications for one or more fields
             </div>
           </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="worksheet" name="export_type" type="radio" value="2">
+            <label class="govuk-label govuk-radios__label" for="worksheet">
+              Nutrient application worksheet
+            </label>
+            <div class="govuk-hint govuk-radios__hint">
+              Includes planned applications of organic and inorganic material with space to add updates
+            </div>
+          </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="applications" name="export_type" type="radio" value="2">
+          <input class="govuk-radios__input" id="applications" name="export_type" type="radio" value="3">
           <label class="govuk-label govuk-radios__label" for="applications">
             N max report
           </label>
           <div class="govuk-hint govuk-radios__hint">
-            Shows compliance with the N max limit for each crop
+            Demonstrates compliance with the N max limit for each crop
           </div>
         </div>
       </div>

@@ -637,9 +637,12 @@ router.get(/crops_update_handler/, function (req, res) {
 
 router.get(/export_handler/, function (req, res) { 
     var nmaxAddress = './outputs/nmax_report_v2'
+    var workbookAddress = './outputs/workbook'
     var next = ('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
     if (req.session.data.export_type == 1) {
         next = 'export_fields'
+    } else if (req.session.data.export_type == 2) {
+        next = workbookAddress
     } else {
         next = nmaxAddress
     }

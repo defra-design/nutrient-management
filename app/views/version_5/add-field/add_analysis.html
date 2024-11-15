@@ -25,18 +25,18 @@
           <p class="govuk-hint">You can enter your soil analysis later.</p>
           <p class="govuk-hint">You should get a soil analysis every five years, according to the Environment Agency.</p>
 
-      <form action="date" method="post" novalidate="">
+      <form action="analysis_option_handler" method="post" novalidate="">
 
           <div class="govuk-form-group margin-bottom-forty">
             <fieldset class="govuk-fieldset">
               <div class="govuk-radios govuk-radios govuk-radios--inline" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="nitrate" name="nitrate" type="radio" value="yes">
-                  <label class="govuk-label govuk-radios__label" for="nitrate">Yes</label>
+                  <input class="govuk-radios__input" id="analysis" name="soilanalysis" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="analysis">Yes</label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="nitrate-2" name="nitrate" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="nitrate-2">No</label>
+                  <input class="govuk-radios__input" id="analysis-2" name="soilanalysis" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="analysis-2">No</label>
                 </div>
               </div>
             </fieldset>

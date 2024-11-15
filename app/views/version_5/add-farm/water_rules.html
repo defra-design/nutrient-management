@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Farming Rules for Water
+      </h1>
+
+      <p class="govuk-body">
+        All agricultural land in England is subject to the Farming Rules for Water. 
+      </p>
+      <p class="govuk-body">
+        The rules aim to reduce and prevent diffuse water pollution from agricultural sources. 
+      </p>
+      <p class="govuk-body">
+
+        To comply with the rules a land manager must ensure that all applications of organic manure or manufactured fertiliser are 
+        planned so that they don’t exceed the needs of the soil and crop on that land or give rise to a significant risk of agricultural diffuse pollution.
+      </p>
+      <p class="govuk-body">
+
+        Creating a nutrient management plan will help you comply with these rules. 
+      </p>
+      <p class="govuk-body margin-bottom-forty">
+        Further information is available from: <br>
+        <a target="_blank" href="https://www.gov.uk/guidance/rules-for-farmers-and-land-managers">Rules for farmers and land managers</a> (opens in a new window)
+      </p>
+      
+      <form action="rainfall" method="post" novalidate="">
+        <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
+
+  </div>
+
+</div>
+
+{% endblock %}

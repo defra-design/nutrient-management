@@ -22,55 +22,55 @@
       <!-- {% include "templates/title_span.html" %} -->
 
       <h1 class="govuk-heading-l">
-        What is the target dry matter yield for each of these fields, per hectare?
+        Target annual yield per field
       </h1>
 
-      <div id="event-name-hint" class="govuk-hint">
-        Select or enter a total target annual yield per field.
-      </div>
+      <p>Grass Growth Class and Soil Nitrogen Supply are estimated based on {{data.oaktree_farm.name}}'s altitude and annual rainfall.</p>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Field</th>
+            <th scope="col" class="govuk-table__header">Grass Growth Class</th>
+            <th scope="col" class="govuk-table__header">Soil Nitrogen Supply</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Field 1</td>
+            <td class="govuk-table__cell">X</td>
+            <td class="govuk-table__cell">X</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Field 2</td>
+            <td class="govuk-table__cell">X</td>
+            <td class="govuk-table__cell">X</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Field 3</td>
+            <td class="govuk-table__cell">X</td>
+            <td class="govuk-table__cell">X</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="govuk-heading-s margin-bottom-forty">Average estimated achievable yield = 10 - 13 tonnes per hectare</h3>
 
       <form class="form" action="grassyield_handler" method="post">
 
         <div class="govuk-form-group">
           
           <div class="govuk-radios" data-module="govuk-radios">
+            <label class="govuk-label" for="event-name">
+              What is your target yield?
+            </label>
+          
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="ten" name="grass_total_yield" type="radio" value="10 - 13">
               <label class="govuk-label govuk-radios__label" for="ten">
-                10 - 13 tonnes
+                Use the estimated achievable yield of 10 - 13 tonnes per hectare
               </label>
             </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="nine" name="grass_total_yield" type="radio" value="9 - 12">
-              <label class="govuk-label govuk-radios__label" for="nine">
-                9 - 12 tonnes
-              </label>
-            </div>            
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="seven" name="grass_total_yield" type="radio" value="7 - 9">
-              <label class="govuk-label govuk-radios__label" for="seven">
-                7 - 9 tonnes
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="six" name="grass_total_yield" type="radio" value="6 - 8">
-              <label class="govuk-label govuk-radios__label" for="six">
-                6 - 8 tonnes
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="five" name="grass_total_yield" type="radio" value="5 - 7">
-              <label class="govuk-label govuk-radios__label" for="five">
-                5 - 7 tonnes
-              </label> 
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="four" name="grass_total_yield" type="radio" value="4 - 5">
-              <label class="govuk-label govuk-radios__label" for="four">
-                4 - 5 tonnes
-              </label>
-            </div>
-
             <div class="govuk-radios__divider">or</div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="value" name="grass_total_yield" type="radio" value="value" data-aria-controls="conditional-contact">

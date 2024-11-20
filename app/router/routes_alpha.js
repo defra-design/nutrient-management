@@ -697,4 +697,13 @@ router.get(/analysis_option_handler/, function (req, res) {
     res.redirect(next)
 })
 
+
+// add to refactor
+router.get(/weight_type_handler/, function (req, res) { 
+    var next = (req.session.data.yield_type == "dry") ? 'yield_value_dry' : 'yield_value_dry'
+    // if wet and mixed
+    res.redirect(next)
+})
+
+
 module.exports = router

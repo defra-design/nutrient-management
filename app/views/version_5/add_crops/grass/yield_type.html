@@ -20,32 +20,27 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        What is the sward in these fields in 2024?
+        How do you want to enter your target yield for these fields?
       </h1>
 
-      <form class="form" action="management" method="post">
+      <form class="form" action="weight_type_handler" method="post">
 
         <div class="govuk-form-group">
+
             <fieldset class="govuk-fieldset">
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="autumn" name="current_sward" type="radio" value="autumn">
-                  <label class="govuk-label govuk-radios__label" for="autumn">
-                    Autumn sown
+                  <input class="govuk-radios__input" id="dry" name="yield_type" type="radio" value="dry">
+                  <label class="govuk-label govuk-radios__label" for="dry">
+                    Dry weight
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="spring" name="current_sward" type="radio" value="spring">
-                  <label class="govuk-label govuk-radios__label" for="spring">
-                    Spring sown
+                  <input class="govuk-radios__input" id="fresh" name="yield_type" type="radio" value="fresh">
+                  <label class="govuk-label govuk-radios__label" for="fresh">
+                    Fresh cut weight
                   </label>
                 </div>
-                <!-- <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="undersown" name="current_sward" type="radio" value="undersown">
-                  <label class="govuk-label govuk-radios__label" for="undersown">
-                    Undersown
-                  </label>
-                </div> -->
               </div>
             </fieldset>
                       

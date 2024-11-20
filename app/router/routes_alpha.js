@@ -700,10 +700,23 @@ router.get(/analysis_option_handler/, function (req, res) {
 
 // add to refactor
 router.get(/weight_type_handler/, function (req, res) { 
-    var next = (req.session.data.yield_type == "dry") ? 'yield_value_dry' : 'yield_value_dry'
-    // if wet and mixed
+    var next = 'yield_value_dry';
+    if (req.session.data.yield_type == "fresh") {
+        if (req.session.data.grass_management == 'grazinghay' || req.session.data.grass_management == 'grazingsilage' ) {
+            next = 'fresh_yield'
+        } else {
+            next = 'yield_value_fresh'
+        }
+    }
     res.redirect(next)
 })
+
+router.get(/management_handler/, function (req, res) { 
+    var next = (req.session.data.grass_management == "grazinghay" || req.session.data.grass_management == "grazingsilage") ? 'defoliation_order' : 'yield_type'
+    res.redirect(next)
+})
+
+
 
 
 module.exports = router

@@ -726,6 +726,17 @@ router.get(/yield_total_handler/, function (req, res) {
 })
 
 
+router.get(/grass_management_hander/, function (req, res) { 
+    if (req.session.data.grass_management == 'grazing') {
+        req.session.data.content.defoliations = 'grazings'
+    } else if (req.session.data.grass_management == 'hay' || req.session.data.grass_management == 'silage') {
+        req.session.data.content.defoliations = 'cuts'
+    } else  {
+        req.session.data.content.defoliations = 'cuts and grazings'
+    }
+    res.redirect('defoliation')
+})
+
 
 
 module.exports = router

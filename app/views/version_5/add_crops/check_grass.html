@@ -69,43 +69,74 @@
     <dd class="govuk-summary-list__value">{{data.defoliations | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
- 
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What is the cut and grazing sequence?
-    </dt>
-    <dd class="govuk-summary-list__value">
-      {% for item in data.defoliation_order %}
-        {% if item == 'c' %}
-          Cut <br>
-        {% else %}   
-          Graze <br>
-        {% endif %}
-      {% endfor %}
-    </dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
+
+  {% if data.grass_management == 'grazinghay' or data.grass_management == 'grazingsilage' %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">What is the cut and grazing sequence?</dt>
+      <dd class="govuk-summary-list__value">
+        {% set counter = 0 %}
+        {% for item in data.defoliation_order %}
+          {% if item == 'c' %}
+            {% set counter = counter + 1 %}
+            {{counter}}. Cut <br>
+          {% else %}
+          {% set counter = counter + 1 %}
+          {{counter}}. Graze <br>
+          {% endif %}
+        {% endfor %}
+      </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% endif %}
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">How do you want to enter your target yield for these fields?</dt>
-    <dd class="govuk-summary-list__value">Dry weight</dd>
+    <dd class="govuk-summary-list__value">
+      {% if data.yield_type == 'dry' %}
+        Dry weight
+      {% else %}
+        Fresh cut weight
+      {% endif %}
+    </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
   
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What is the total target dry matter yield for each of these fields, per hectare?</dt>
-    <dd class="govuk-summary-list__value">7 - 9 tonnes</dd>
+    <dt class="govuk-summary-list__key">
+      {% if data.yield_type == 'dry' %}
+        What is the total target dry matter yield for each of these fields, per hectare?
+      {% else %}
+        {% if data.grass_total_fresh_yield_figure != '' %}
+          Total fresh weight yield for these fields
+        {% else %}
+          Fresh weight yield for each cut or grazing
+        {% endif %}
+      {% endif %}
+    </dt>
+    <dd class="govuk-summary-list__value">
+      
+      <!-- dry total figure -->
+      <!-- dry range -->
+      {% if data.yield_type == 'dry' %}
+        {% if data.grass_total_yield_figure == '' %}
+          {{data.grass_total_yield}} tonnes
+        {% else %}
+          {{data.grass_total_yield_figure}} tonnes
+        {% endif %}
+      <!-- fresh total -->
+      <!-- fresh per cut -->
+      {% else %}
+        {% if data.grass_total_fresh_yield_figure == '' %}
+          1. {{data.grass_fresh_yield_figure_one}} tonnes<br>
+          2. {{data.grass_fresh_yield_figure_two}} tonnes<br>
+          3. {{data.grass_fresh_yield_figure_three}} tonnes<br>
+          4. {{data.grass_fresh_yield_figure_four}} tonnes<br>
+        {% else %}
+          {{data.grass_total_fresh_yield_figure}} tonnes
+        {% endif %}
+      {% endif %}
+    </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
-
-  <!-- <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key"> What is the current sward in these fields?</dt>
-    <dd class="govuk-summary-list__value">Autumn sown</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div> -->
-
-
-
-
-
 
 </dl>

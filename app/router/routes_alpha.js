@@ -129,11 +129,8 @@ router.get(/nvz_handler/, function (req, res) {
 })
 
 router.get(/cropuse_handler/, function (req, res) { 
-    if (req.session.data.crop_group == 'other') { 
-        res.redirect('another_crop');
-    } else {
-        res.redirect('crop_use');
-    }
+    var next = (req.session.data.crop_group == 'other') ? 'another_crop' : 'crop_use';
+    res.redirect(next);
 })
 
 router.get(/field_name_handler/, function (req, res) { 
@@ -157,11 +154,8 @@ router.get(/sns_handler/, function (req, res) {
 })
 
 router.get(/sns_v3_handler/, function (req, res) { 
-    var next = 'check'
-    if (req.session.data.sns_method == "yes") {
-        next = 'sns/date'
-    }
-    res.redirect(next)
+    var next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'check';
+    res.redirect(next);
 })
 
 router.get(/mineralisation_handler/, function (req, res) { 
@@ -293,11 +287,8 @@ router.get(/mvp_fields_handler/, function (req, res) {
         }    
     }
     // console.log(req.session.data.firstFieldReferences)
-    if (req.session.data.crop_group == 'grass') {
-        res.redirect('grass/current_sward')
-     } else {
-        res.redirect('sowdate_question')
-    }
+    var next = (req.session.data.crop_group == 'grass') ? 'grass/current_sward' : 'sowdate_question';
+    res.redirect(next);
 })
 
 router.get(/v5_fields_handler/, function (req, res) { 
@@ -341,11 +332,8 @@ router.get(/yield_question_handler/, function (req, res) {
 })
 
 router.get(/yield_questiontwo_handler/, function (req, res) { 
-    if (req.session.data.yield_option_two != 'rb209') {
-        res.redirect('yield_value_two')
-    } else {
-        res.redirect('check')
-    }
+    var next = (req.session.data.yield_option_two != 'rb209') ? 'yield_value_two' : 'check';
+    res.redirect(next);
 })
 
 router.get(/yield_handler/, function (req, res) { 
@@ -354,19 +342,13 @@ router.get(/yield_handler/, function (req, res) {
 })
 
 router.get(/sowdate_value_handler/, function (req, res) { 
-    if (req.session.data.sow_option_one != 'no') {
-        res.redirect('sowdate_value')
-    } else {
-        res.redirect('yield_question')
-    }
+    var next = (req.session.data.sow_option_one != 'no') ? 'sowdate_value' : 'yield_question';
+    res.redirect(next);
 })
 
 router.get(/sowdatetwo_value_handler/, function (req, res) { 
-    if (req.session.data.sow_option_two != 'no') {
-        res.redirect('sowdate_value_two')
-    } else {
-        res.redirect('yield_question_two')
-    }
+    var next = (req.session.data.sow_option_two != 'no') ? 'sowdate_value_two' : 'yield_question_two';
+    res.redirect(next);
 })
 
 router.get(/addcrops_check_handler/, function (req, res) { 
@@ -539,11 +521,8 @@ router.get(/incorporation_handler/, function (req, res) {
 })
 
 router.get(/enter_manure_defualts_handler/, function (req, res) {
-    if (req.session.data.edit_manure_defaults === "no") {
-        res.redirect("manure_defaults_update")
-    } else {
-        res.redirect("manure_quantity")
-    }
+    var next = (req.session.data.edit_manure_defaults === "no") ? 'manure_defaults_update' : 'manure_quantity';
+    res.redirect(next);
 })
 
 // router.get(/manuredate_handler/, function (req, res) { 
@@ -760,11 +739,8 @@ router.get(/fertiliser_types_handler/, function (req, res) {
 
 //crop 
 router.get(/crop_group_handler/, function (req, res) { 
-    if (req.session.data.crop_group == "other") {
-        res.redirect('crop_when')
-    } else {
-        res.redirect('crop_type_all')
-    }
+    var next = (req.session.data.crop_group == "other") ? 'crop_when' : 'crop_type_all';
+    res.redirect(next);
 })
 
 router.get(/cropmvp_handler/, function (req, res) { 
@@ -882,11 +858,8 @@ router.get(/show-field-handler/, function (req, res) {
 
 
 router.get(/v2_quantity_handler/, function (req, res) { 
-    if (req.session.data.quantity_type == "area" || req.session.data.quantity_type == "rate") {
-        res.redirect('manure_value')
-    } else {
-        res.redirect('manure_incorporation_method')
-    }
+    var next = (req.session.data.quantity_type == "area" || req.session.data.quantity_type == "rate") ? 'manure_value' : 'manure_incorporation_method';
+    res.redirect(next);
 })
 
 //add another
@@ -954,7 +927,6 @@ router.get(/field_level_plan_v5_handler/, function (req, res) {
     req.session.data.show_success_message = false    
     res.redirect('../field_plan/index')
 })
-
 
 router.get(/mvpfield_plan_handler/, function (req, res) { 
     req.session.data.show_success_message = false
@@ -1330,7 +1302,6 @@ router.get(/grass_management_hander/, function (req, res) {
     }
     res.redirect('defoliation')
 })
-
 
 
 module.exports = router

@@ -248,7 +248,4 @@ router.get('/', function (req, res) {
 //import routes
 var  routes_prototype_setup = require('./router/routes_prototype_setup.js');
 var  routes_alpha = require('./router/routes_alpha.js');
-var  routes_mvp = require('./router/routes_mvp.js');
-// var  vars = require('./router/vars.js');
-// router.use('/', routes_mvp, routes_alpha, routes_prototype_setup);
-router.use('/', routes_alpha, routes_mvp, routes_prototype_setup);
+router.use('/', routes_alpha, routes_prototype_setup);

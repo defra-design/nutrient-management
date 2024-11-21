@@ -10,9 +10,9 @@
     <dt class="govuk-summary-list__key">Which fields would you like to add to this Grass group?</dt>
     <dd class="govuk-summary-list__value">
       {% for field in data.crop_fields %}
-      {{field.name}} <br>
-    {% endfor %}      
-</dd>
+        {{field.name}} <br>
+      {% endfor %}      
+    </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
@@ -24,31 +24,49 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Are you destroying the old grass and re-seeding these fields?</dt>
-    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__value">{{data.reseed | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key"> What is the sward in these fields in 2024?</dt>
-    <dd class="govuk-summary-list__value">Spring sown (April to June)</dd>
+    <dd class="govuk-summary-list__value">
+      {% if data.season_name == 'summer' %}
+        Summer or autumn sown
+      {% else %}
+        Spring sown
+      {% endif %}
+    </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key"> What is the sward?</dt>
-    <dd class="govuk-summary-list__value">Grass</dd>
+    <dd class="govuk-summary-list__value">{{data.sward_type | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">How will these fields be managed?</dt>
-    <dd class="govuk-summary-list__value">Grazing and Hay</dd>
+    <dd class="govuk-summary-list__value">
+      {% if data.grass_management == 'grazing' %}
+        Grazing only
+        {% elif data.grass_management == 'hay' %}
+        Hay only
+      {% elif data.grass_management == 'silage' %}
+        Silage only
+      {% elif data.grass_management == 'grazinghay' %}
+        Grazing and Hay    
+      {% else %}
+      Grazing and Silage (or Haylage)
+    {% endif %}
+    </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">How many cuts and grazings will you have in these fields?</dt>
-    <dd class="govuk-summary-list__value">4</dd>
+    <dd class="govuk-summary-list__value">{{data.defoliations | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
  
@@ -56,10 +74,13 @@
     <dt class="govuk-summary-list__key">What is the cut and grazing sequence?
     </dt>
     <dd class="govuk-summary-list__value">
-     1 - Cut<br>
-     2 - Graze<br>
-     3 - Graze<br>
-     4 - Graze
+      {% for item in data.defoliation_order %}
+        {% if item == 'c' %}
+          Cut <br>
+        {% else %}   
+          Graze <br>
+        {% endif %}
+      {% endfor %}
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>

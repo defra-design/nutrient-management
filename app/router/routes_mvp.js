@@ -305,11 +305,12 @@ router.get(/v5_fields_handler/, function (req, res) {
         req.session.data.crop_fields = [11, 12, 13, 14, 15]
     }
     req.session.data.crop_fields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_fields, req.session.data.all_fields)
-    if (req.session.data.crop_group == 'grass') {
-        res.redirect('grass/current_sward')
-     } else {
-        res.redirect('group_name')
-    }
+    // if (req.session.data.crop_group == 'grass') {
+    //     res.redirect('grass/current_sward')
+    //  } else {
+    //     res.redirect('group_name')
+    // }
+    res.redirect('group_name')
 })
 
 router.get(/cover_handler/, function (req, res) { 

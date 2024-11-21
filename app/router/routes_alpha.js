@@ -218,7 +218,11 @@ router.get(/groupname_handler/, function (req, res) {
     if (req.session.data.groupname.length <= 0) {
         req.session.data.groupname = 'Crop group ' + newRef
     }
-    res.redirect('sowdate_question')
+    if (req.session.data.chosen_crop != 'grass') {
+        res.redirect('sowdate_question')
+    } else {
+        res.redirect('grass/current_sward')
+    }
 })
 
 
@@ -705,7 +709,7 @@ router.get(/weight_type_handler/, function (req, res) {
         if (req.session.data.grass_management == 'grazinghay' || req.session.data.grass_management == 'grazingsilage' ) {
             next = 'fresh_yield'
         } else {
-            next = 'yield_value_fresh'
+            next = 'yield_total'
         }
     }
     res.redirect(next)
@@ -713,6 +717,11 @@ router.get(/weight_type_handler/, function (req, res) {
 
 router.get(/management_handler/, function (req, res) { 
     var next = (req.session.data.grass_management == "grazinghay" || req.session.data.grass_management == "grazingsilage") ? 'defoliation_order' : 'yield_type'
+    res.redirect(next)
+})
+
+router.get(/yield_total_handler/, function (req, res) { 
+    var next = (req.session.data.yield_total == "multi") ? 'fresh_yield' : 'yield_fresh_single'
     res.redirect(next)
 })
 

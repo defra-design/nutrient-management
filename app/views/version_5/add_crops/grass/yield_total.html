@@ -19,28 +19,28 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        How do you want to enter the target yield for these fields?
+        Do you want to enter the target yield as a total per field, or a yield per graze?
       </h1>
 
-      <div id="event-name-hint" class="govuk-hint">
+      <!-- <div id="event-name-hint" class="govuk-hint">
         Target yield will be used to calculate the recommendations.
-      </div>
+      </div> -->
 
-      <form class="form" action="yield_question_two" method="post">
+      <form class="form" action="yield_total_handler" method="post">
 
         <div class="govuk-form-group">
 
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="single" name="yield_option_one" type="radio" value="single">
+                <input class="govuk-radios__input" id="single" name="yield_total" type="radio" value="single">
                 <label class="govuk-label govuk-radios__label" for="single">
-                  Enter a total annual yield per field
+                  Enter a total annual yield, per field
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="different" name="yield_option_one" type="radio" value="different">
-                <label class="govuk-label govuk-radios__label" for="different">
-                  Enter a yield per defoliation
+                <input class="govuk-radios__input" id="multi" name="yield_total" type="radio" value="multi">
+                <label class="govuk-label govuk-radios__label" for="multi">
+                  Enter a yield per graze
                 </label>
               </div>
             </div>

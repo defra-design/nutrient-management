@@ -659,9 +659,4 @@ router.get(/rainfall_update_handler/, function (req, res) {
     res.redirect('plan_view')
 })
 
-router.get(/analysis_option_handler/, function (req, res) { 
-    var next = (req.session.data.soilanalysis == "yes") ? 'date' : 'previous_use'
-    res.redirect(next)
-})
-
 module.exports = router

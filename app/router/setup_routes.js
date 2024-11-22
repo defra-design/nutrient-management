@@ -3,6 +3,26 @@ var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
 
+//yes/no for soil analysis
+router.get(/analysis_option_handler/, function (req, res) { 
+    var next = (req.session.data.soilanalysis == "yes") ? 'date' : 'previous_use'
+    res.redirect(next)
+})
+
+//export the documents
+router.get(/export_handler/, function (req, res) { 
+    if (req.session.data.export_type == 1) {
+        next = 'export_fields'
+    } else if (req.session.data.export_type == 2) {
+        next = './outputs/workbook'
+    } else {
+        next = './outputs/nmax_report_v2'
+    }
+    res.redirect(next)
+})
+
+///////////////////// refactor
+
 // Alert messages
 router.get(/delete_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
@@ -298,33 +318,6 @@ router.get(/another_crop_handler/, function (req, res) {
 router.get(/previous_cuts_handler/, function (req, res) { 
     var next = (req.session.data.previous_management == 'grazed') ? 'previous_nitrogen' : 'previous_cuts_two'
     res.redirect(next)
-})
-
-router.get(/export_handler/, function (req, res) { 
-    var nmaxAddress = './outputs/nmax_report_v2'
-    var workbookAddress = './outputs/workbook'
-    var next = ('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
-    if (req.session.data.export_type == 1) {
-        next = 'export_fields'
-    } else if (req.session.data.export_type == 2) {
-        next = workbookAddress
-    } else {
-        next = nmaxAddress
-    }
-    res.redirect(next)
-        // if (req.session.data.export_type == 1) {
-    //     next = 'export_fields'
-    // } else {
-    //     req.session.data.show_success_message = true;
-    //     if (req.session.data.export_type == 2) {
-    //         req.session.data.successMessage = 8;
-    //     } else if (req.session.data.export_type == 3) {
-    //         req.session.data.successMessage = 9;
-    //     } else if (req.session.data.export_type == 4) {
-    //         req.session.data.successMessage = 10;
-    //     } else if (req.session.data.export_type == 5) {
-    //         req.session.data.successMessage = 11;
-    //     }
 })
 
 

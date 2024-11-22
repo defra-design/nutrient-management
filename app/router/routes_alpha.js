@@ -155,6 +155,12 @@ router.get(/enter_manure_defualts_handler/, function (req, res) {
 //////////////////////////////////
 
 
+
+
+router.get(/fertiliser_when_handler/, function (req, res) { 
+    res.redirect('defoliation')
+})
+
 router.get(/v2fertiliser_handler/, function (req, res) { 
     req.session.data.fertiliser_journey = req.query.fertiliserjourney
     if (req.session.data.fertiliser_journey == 'multi') {

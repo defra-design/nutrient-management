@@ -21,6 +21,12 @@ router.get(/export_handler/, function (req, res) {
     res.redirect(next)
 })
 
+//yes/no for high clover at setup
+router.get(/previous_clover_handler/, function (req, res) { 
+    var next = (req.session.data.previous_clover == "yes") ? 'check' : 'previous_nitrogen'
+    res.redirect(next)
+})
+
 ///////////////////// refactor
 
 // Alert messages

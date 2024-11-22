@@ -3,6 +3,48 @@ var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
 
+//grass
+router.get(/grassyield_handler/, function (req, res) { 
+    if (req.session.data.defoliation_one == null) {
+        req.session.data.defoliation_one = 'Grazing'
+    }
+    if (req.session.data.defoliation_two == null) {
+        req.session.data.defoliation_two = 'Grazing'
+    }
+    if (req.session.data.defoliation_three == null) {
+        req.session.data.defoliation_three = 'Grazing'
+    }
+    if (req.session.data.defoliation_four == null) {
+        req.session.data.defoliation_four = 'Grazing'
+    }
+    if (req.session.data.weight_type == null) {
+        req.session.data.weight_type = 'Fresh cut weight'
+    }
+    res.redirect('/'+ req.session.data.prototype_version + '/add_crops/check')
+})
+
+router.get(/previous_use_handler/, function (req, res) { 
+    if (req.session.data.use_2023 == 'yes') {
+        req.session.data.chosen_crop = 'Grass'
+        res.redirect('previous_use_two')
+    } else {
+        res.redirect('crop_group')
+    }
+})
+ 
+router.get(/another_crop_handler/, function (req, res) { 
+    var next = (req.session.data.second_crop == 'new') ? 'crop_group' : 'second_crop/fields'
+    res.redirect(next)
+})
+
+router.get(/previous_cuts_handler/, function (req, res) { 
+    var next = (req.session.data.previous_management == 'grazed') ? 'previous_nitrogen' : 'previous_cuts_two'
+    res.redirect(next)
+})
+
+//////////////////////////////////////////////// refactor
+
+
 //// ADD CROPS 
 router.get(/mvp_another_crop_handler/, function (req, res) { 
     if (req.session.data.crop_group == 'other') {

@@ -66,11 +66,12 @@
       <li>the manures and fertilisers you use and how you apply them</li>
     </ul> -->
 
-    {% if data.oaktree_farm.setup == true %}
+    <!-- {% if data.oaktree_farm.setup == true %}
     <form class="form margin-top-forty" action="farm/farms" method="post">
       {% else %}
       <form class="form margin-top-forty" action="add-farm/name" method="post">
-    {% endif %}
+    {% endif %} -->
+    <form class="form margin-top-forty" action="farm/farms" method="post">
 
     {{ govukButton({
       text: "Start now"

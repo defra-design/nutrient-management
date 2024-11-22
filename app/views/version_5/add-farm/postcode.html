@@ -12,6 +12,7 @@ Add a farm - farm name – {{ serviceName }}
 }) }}
 {% endblock %}
 
+
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -32,15 +33,20 @@ Add a farm - farm name – {{ serviceName }}
       </div>
       </div>
  -->
-      <h1 class="govuk-heading-l">What is the farm name?</h1>
+      <h1 class="govuk-heading-l">What is {{data.oaktree_farm.name}}'s postcode?</h1>
 
-      <p class="govuk-body">If you have more than one holding, it's best to add a separate farm for each.</p>
+      <!-- <p class="govuk-body">If you have more than one holding, it's best to add a separate farm for each.</p> -->
       
-      <form action="country" method="post" novalidate="" autocomplete="off">      
+      <form action="address" method="post" novalidate="" autocomplete="off">      
 
-        <div class="govuk-form-group">
-          <!-- <label class="govuk-label" for="farm_name">What is the farm name?</label> -->
-          <input class="govuk-input" id="farm_name" name="farm_name" type="text" autocomplete="">
+        <!-- <div class="govuk-form-group margin-bottom-forty govuk-form-group--error"> -->
+          <div class="govuk-form-group">
+          <!-- <label class="govuk-label" for="farm_postcode">What is the farm postcode?</label> -->
+          <!-- <p class="gem-c-error-message govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> We couldn't find this postcode.
+          </p> -->
+
+          <input class="govuk-input govuk-input--width-5" id="farm_postcode" name="farm_postcode" type="text" autocomplete="">
         </div>
 
         <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">

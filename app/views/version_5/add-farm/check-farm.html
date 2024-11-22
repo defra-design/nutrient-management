@@ -19,10 +19,27 @@
     },
     {
       key: {
-        text: "Farm address"
+        text: "Which country is Oaktree Lane Farm in?"
       },
       value: {
-        text: "South Road, Hexham, Northumberland " + data.farm_postcode
+        text: "England"
+      },
+      actions: {
+        items: [
+          {
+            href: "rainfall",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Farm postcode"
+      },
+      value: {
+        text: data.farm_postcode
       },
       actions: {
         items: [
@@ -33,18 +50,17 @@
           }
         ]
       }
-    },
-    {
+    },{
       key: {
-        text: "Which country is Oaktree Lane Farm in?"
+        text: "Farm address"
       },
       value: {
-        text: "England"
+        text: "South Road, Hexham, Northumberland "
       },
       actions: {
         items: [
           {
-            href: "rainfall",
+            href: "address",
             text: "Change",
             visuallyHiddenText: ""
           }

@@ -43,14 +43,14 @@
 
     <div class="govuk-grid-column-full">
 
-      <h1 id="main-title" class="govuk-heading-l">{{data.oaktree_farm.name}} plan {{data.oaktree_farm.planning_year}}</h1>
+      <h1 id="main-title" class="govuk-heading-l">{{data.oaktree_farm.name}} plan 2025</h1>
       <div id="summary-header" class="margin-bottom-forty">
         <p class="govuk-body">Last updated {{data.content.todays_date}}. There are {{totalFields}} fields in this plan.</p>
         
         {% if data.oaktree_farm.rainfall == 600 %}
-          <p class="govuk-body">Average annual rainfall is 554mm. You have not entered any excess winter rainfall. <a href="rainfall">Add excess winter rainfall for 2024</a>.</p>
+          <p class="govuk-body">Average annual rainfall is 554mm. You have not entered any excess winter rainfall. <a href="rainfall">Add excess winter rainfall for 2025</a>.</p>
         {% else %}
-          <p class="govuk-body">Average annual rainfall is 554mm. Excess winter rainfall is 20mm. <a href="rainfall">Update rainfall for 2024</a>.</p>
+          <p class="govuk-body">Average annual rainfall is 554mm. Excess winter rainfall is 20mm. <a href="rainfall">Update rainfall for 2025</a>.</p>
         {% endif %}
 
         <p class="govuk-body"><a href="export">Download, print, or export this plan</a></p>
@@ -99,7 +99,11 @@
 
         <hr class="seperator_five">
           {% for group in data.cropGroupsV5 %}
-            {% include "./templates/2024_crop_groups.html" ignore missing %}
+            {% if group.crop_reference == 'grass' %}
+              {% include "./templates/2024_crop_groups_grass.html" ignore missing %}
+            {% else %}  
+              {% include "./templates/2024_crop_groups.html" ignore missing %}
+            {% endif %}  
           {% endfor %}  
       </div>
 

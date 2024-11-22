@@ -287,5 +287,10 @@ router.get(/foragecrops_check_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 
+router.get(/previous_cuts_handler/, function (req, res) { 
+    var next = (req.session.data.previous_management == 'grazed') ? 'previous_clover' : 'previous_cuts_two'
+    res.redirect(next)
+})
+
 
 module.exports = router

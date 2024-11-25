@@ -508,7 +508,7 @@ router.get(/condition_question_handler/, function (req, res) {
 
 router.get(/v5_fertiliser_handler/, function (req, res) {
     var new_fertiliser_fields = []
-    var next = 'fertiliser_when'
+    var next = 'defoliation'
     if (req.session.data.fertiliser_fields == 'specific') {
         next = 'fertiliser_fields_two'
     } else if (req.session.data.fertiliser_fields == 'all') {

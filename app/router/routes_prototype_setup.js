@@ -155,7 +155,7 @@ router.get(/end_to_end_setup_handler/, function (req, res) {
 })
 
 router.get(/end_to_end_field_handler/, function (req, res) { 
-    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
+    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'fields')
     var fieldOne = {name: "Long Field",reference: 1, nvz: true,elevation: false};
     var fieldTwo = {name: "Short Field",reference: 2,nvz: true,elevation: false};
     req.session.data.all_fields.push(fieldOne)

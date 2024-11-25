@@ -19,7 +19,13 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Which country is {{data.oaktree_farm.name}} in?
+        Which country is 
+        {%if data.farm_name != ""%}
+          {{data.farm_name}}
+        {% else %}
+          Oaktree Lane Farm
+        {% endif %}
+        in?
       </h1>
 
       <!-- <p class="govuk-body">If your</p> -->

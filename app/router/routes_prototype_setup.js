@@ -140,7 +140,6 @@ router.get(/twocrops_v5_setup_handler/, function (req, res) {
     res.redirect('/' + req.query.version + '/start')
 })
 
-//update tp grass
 router.get(/end_to_end_setup_handler/, function (req, res) { 
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
     var fieldOne = {name: "Long Field",reference: 1, nvz: true,elevation: false};
@@ -151,6 +150,16 @@ router.get(/end_to_end_setup_handler/, function (req, res) {
     var fertiliser_fields = req.session.data.all_fields
     var applicationOne = allFunctions.addFertiliserApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, 1, '01/03/2023', 60, 30, 30, 0, 0)
     req.session.data.allFertiliserApplications.push(applicationOne)
+    req.session.data.prototype_version = req.query.version
+    res.redirect('/' + req.query.version + '/start')
+})
+
+router.get(/end_to_end_field_handler/, function (req, res) { 
+    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
+    var fieldOne = {name: "Long Field",reference: 1, nvz: true,elevation: false};
+    var fieldTwo = {name: "Short Field",reference: 2,nvz: true,elevation: false};
+    req.session.data.all_fields.push(fieldOne)
+    req.session.data.all_fields.push(fieldTwo)
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
 })

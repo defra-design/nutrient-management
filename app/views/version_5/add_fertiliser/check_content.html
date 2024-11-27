@@ -16,22 +16,22 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How much of each nutrient do you plan to include in this application (per hectare)?</dt>
+    <dt class="govuk-summary-list__key">How much of each nutrient do you plan to include in this application, per hectare?</dt>
     <dd class="govuk-summary-list__value">
       {% if (data.nitrogen > 0) %}
-        {{data.nitrogen}} kg nitrogen(N)<br>
+        {{data.nitrogen}}kg nitrogen(N)<br>
       {% endif %}
       {% if (data.phosphate > 0) %}
-        {{data.phosphate}} kg phosphate (P2O5)<br>
+        {{data.phosphate}}kg phosphate (P2O5)<br>
       {% endif %}
       {% if (data.potash > 0) %}
-        {{data.potash}} kg potash (K2O)<br>
+        {{data.potash}}kg potash (K2O)<br>
       {% endif %}
       {% if (data.sulphur > 0) %}
-        {{data.sulphur}} kg sulphur (SO3)<br>
+        {{data.sulphur}}kg sulphur (SO3)<br>
       {% endif %}
       {% if (data.lime > 0) %}
-        {{data.lime}} kg lime<br>
+        {{data.lime}}kg lime<br>
       {% endif %}
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>

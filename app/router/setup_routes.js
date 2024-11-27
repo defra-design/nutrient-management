@@ -11,10 +11,15 @@ router.get(/analysis_option_handler/, function (req, res) {
 
 //export the documents
 router.get(/export_handler/, function (req, res) { 
+    // if (req.session.data.export_type == 1) {
+    //     next = 'export_fields'
+    // } else if (req.session.data.export_type == 2) {
+    //     next = './outputs/workbook'
+    // } else {
+    //     next = './outputs/nmax_report_v2'
+    // }
     if (req.session.data.export_type == 1) {
         next = 'export_fields'
-    } else if (req.session.data.export_type == 2) {
-        next = './outputs/workbook'
     } else {
         next = './outputs/nmax_report_v2'
     }

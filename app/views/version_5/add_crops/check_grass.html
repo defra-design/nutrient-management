@@ -23,13 +23,13 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Are you destroying the old grass and re-seeding these fields?</dt>
+    <dt class="govuk-summary-list__key">Are you completely re-seeding these fields?</dt>
     <dd class="govuk-summary-list__value">{{data.reseed | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key"> What is the sward in these fields in 2024?</dt>
+    <dt class="govuk-summary-list__key"> What is the sward in these fields in 2025?</dt>
     <dd class="govuk-summary-list__value">
       {% if data.season_name == 'summer' %}
         Summer or autumn sown
@@ -41,7 +41,7 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key"> What is the sward?</dt>
+    <dt class="govuk-summary-list__key"> What will you be growing on the sward?</dt>
     <dd class="govuk-summary-list__value">{{data.sward_type | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
@@ -72,7 +72,7 @@
 
   {% if data.grass_management == 'grazinghay' or data.grass_management == 'grazingsilage' %}
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">What is the cut and grazing sequence?</dt>
+      <dt class="govuk-summary-list__key">What is the cut and grazing order in these fields?</dt>
       <dd class="govuk-summary-list__value">
         {% set counter = 0 %}
         {% for item in data.defoliation_order %}
@@ -104,7 +104,7 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
       {% if data.yield_type == 'dry' %}
-        What is the total target dry matter yield for each of these fields, per hectare?
+        What is the total target dry matter yield for each of these fields?
       {% else %}
         {% if data.grass_total_fresh_yield_figure != '' %}
           Total fresh weight yield for these fields
@@ -119,20 +119,20 @@
       <!-- dry range -->
       {% if data.yield_type == 'dry' %}
         {% if data.grass_total_yield_figure == '' %}
-          {{data.grass_total_yield}} tonnes
+          {{data.grass_total_yield}} tonnes per hectare
         {% else %}
-          {{data.grass_total_yield_figure}} tonnes
+          {{data.grass_total_yield_figure}} tonnes per hectare
         {% endif %}
       <!-- fresh total -->
       <!-- fresh per cut -->
       {% else %}
         {% if data.grass_total_fresh_yield_figure == '' %}
-          1. {{data.grass_fresh_yield_figure_one}} tonnes<br>
-          2. {{data.grass_fresh_yield_figure_two}} tonnes<br>
-          3. {{data.grass_fresh_yield_figure_three}} tonnes<br>
-          4. {{data.grass_fresh_yield_figure_four}} tonnes<br>
+          1. {{data.grass_fresh_yield_figure_one}} tonnes per hectare<br>
+          2. {{data.grass_fresh_yield_figure_two}} tonnes per hectare<br>
+          3. {{data.grass_fresh_yield_figure_three}} tonnes per hectare<br>
+          4. {{data.grass_fresh_yield_figure_four}} tonnes per hectare<br>
         {% else %}
-          {{data.grass_total_fresh_yield_figure}} tonnes
+          {{data.grass_total_fresh_yield_figure}} tonnes per hectare
         {% endif %}
       {% endif %}
     </dd>

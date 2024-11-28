@@ -44,7 +44,7 @@
         <p class="govuk-body">
           You have not added any farms.
         </p>
-        <form class="form" action="../add-farm/planet" method="post">
+        <form class="form" action="../add-farm/name" method="post">
           {{ govukButton({
             text: "Add a farm"
           }) }}
@@ -86,14 +86,12 @@
         </nav> -->
 
         <hr class="seperator_five">
-        <div>
+        <div class="margin-bottom-forty">
           <h2 class="govuk-heading-m">Add a new farm</h2>
-          <form class="form" action="../add-farm/planet" method="post">
-            {{ govukButton({
-              text: "Add a farm"
-            }) }}
-          </form>
-            <!-- <p class="govuk-body">
+          <p class="govuk-body">
+            <a class="govuk-link" href="../add-farm/planet">Add a farm</a>
+          </p>
+          <!-- <p class="govuk-body">
             <a class="govuk-link" href="./choose_file">Import data from the Planet desktop software</a>
           </p> -->
         </div>

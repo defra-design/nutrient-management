@@ -507,8 +507,20 @@ router.get(/condition_question_handler/, function (req, res) {
 
 
 router.get(/v5_fertiliser_handler/, function (req, res) {
+    var next = 'fertiliser_when'
+    if (req.session.data.fertiliser_fields == 'all') {
+        next = 'defoliation'
+    }
+    for (var group in req.session.data.cropGroupsV5) {
+        if (req.session.data.cropGroupsV5[group].reference == req.session.data.fertiliser_fields ) {
+            if (req.session.data.fertiliser_fields == 'all' || req.session.data.cropGroupsV5[group].crop_reference == 'grass') {
+                console.log(req.session.data.fertiliser_fields)
+                console.log(req.session.data.cropGroupsV5[group].crop_reference)
+                next = 'defoliation'
+            }
+        }
+    }
     var new_fertiliser_fields = []
-    var next = 'defoliation'
     if (req.session.data.fertiliser_fields == 'specific') {
         next = 'fertiliser_fields_two'
     } else if (req.session.data.fertiliser_fields == 'all') {

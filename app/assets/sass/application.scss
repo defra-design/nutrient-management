@@ -654,6 +654,15 @@ h2.manure-date {
     width: 23%
 }
 
+.nmax-new {
+    th:nth-child(1) {
+        width: 15%;
+    }
+    th:nth-child(7) {
+        width: 12%;
+    }
+}
+
 // .recs-table {
 //     margin-bottom: 0;
 // }

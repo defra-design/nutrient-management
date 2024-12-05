@@ -666,3 +666,13 @@ h2.manure-date {
 // .recs-table {
 //     margin-bottom: 0;
 // }
+
+
+.manure-management {
+    th:first-child {
+        width: 40%;
+    }
+    td:last-child {
+        text-align: right;
+    }
+}

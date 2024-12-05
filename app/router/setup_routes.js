@@ -53,6 +53,12 @@ router.get(/field_reset_handler/, function (req, res) {
     res.redirect('/' + req.session.data.prototype_version + '/farm/field/manage-fields');
 })
 
+//manage manure view reset messages
+router.get(/manure_reset_handler/, function (req, res) {
+    req.session.data.show_success_message = false;
+    res.redirect('/' + req.session.data.prototype_version + '/farm/manure/manage-manure');
+})
+
 //add a field view reset messages
 router.get(/field_add_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false;

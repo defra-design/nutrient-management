@@ -558,6 +558,12 @@ router.get(/manure_fields_v5_handler/, function (req, res) {
     } else {
         for (var a in req.session.data.cropGroupsV5) {
             if (req.session.data.cropGroupsV5[a].reference == req.session.data.manure_fields ) {
+                console.log(req.session.data.cropGroupsV5[a].crop_reference)
+                if (req.session.data.cropGroupsV5[a].crop_reference == 'grass') {
+                    req.session.data.grass_applications = true
+                } else {
+                    req.session.data.grass_applications = false
+                }
                 for (var b in req.session.data.cropGroupsV5[a].fields ) {
                     new_manure_fields.push(req.session.data.cropGroupsV5[a].fields[b].reference)
                     req.session.data.manure_fields = new_manure_fields;
@@ -626,6 +632,39 @@ router.get(/manure_date_handler/, function (req, res) {
     }
 })
 
+router.get(/manure_date_v5_handler/, function (req, res) {
+    if (req.session.data.manure_date_day < 1) {
+        req.session.data.manure_date_day = 21
+    }
+    if (req.session.data.manure_date_month < 1) {
+        req.session.data.manure_date_month = 2
+    }
+    if (req.session.data.manure_date_year < 1) {
+        req.session.data.manure_date_year = 2024
+    }
+        // if (req.session.data.manure_type.liquid == true) {
+    //     res.redirect("manure_applied")
+    // } else {
+    //     res.redirect("manure_defaults")
+    // }
+    if (req.session.data.grass_applications == true) {
+        res.redirect("manure_defoliation")
+    } else if (req.session.data.manure_type.liquid == true) {
+        res.redirect("manure_applied")
+    } else {
+        res.redirect("manure_defaults")
+    }
+})
+
+router.get(/manure_defoliation_handler/, function (req, res) {
+    if (req.session.data.manure_type.liquid == true) {
+        res.redirect("manure_applied")
+    } else {
+        res.redirect("manure_defaults")
+    }
+})
+
+
 router.get(/fertiliser_date_handler/, function (req, res) {
     if (req.session.data.fertiliser_date_day < 1) {
         req.session.data.fertiliser_date_day = 21
@@ -651,8 +690,6 @@ router.get(/crops_update_handler/, function (req, res) {
     }
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
-
-
 
 router.get(/change_cropgroup_handler/, function (req, res) { 
     req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.cropGroupsV5, req.query.groupref)

@@ -558,7 +558,7 @@ router.get(/manure_fields_v5_handler/, function (req, res) {
     } else {
         for (var a in req.session.data.cropGroupsV5) {
             if (req.session.data.cropGroupsV5[a].reference == req.session.data.manure_fields ) {
-                console.log(req.session.data.cropGroupsV5[a].crop_reference)
+                // console.log(req.session.data.cropGroupsV5[a].crop_reference)
                 if (req.session.data.cropGroupsV5[a].crop_reference == 'grass') {
                     req.session.data.grass_applications = true
                 } else {

@@ -25,7 +25,7 @@
   {% set cropname = 'Grass' %}
   {% include "./templates/recs.html" ignore missing %}
   {% include "./templates/grass.html" ignore missing %}
-  {% include "./templates/manure.html" ignore missing %}
+  {% include "./templates/manure_grass.html" ignore missing %}
   {% include "./templates/soil.html" ignore missing %}
   {% include "./templates/guidance.html" ignore missing %}
 
@@ -35,10 +35,9 @@
   {% set fieldname = 'Short Field' %}
   {% set cropname = 'Winter Wheat' %}
   {% include "./templates/recs.html" ignore missing %}
-  {% include "./templates/grass.html" ignore missing %}
-  {% include "./templates/manure.html" ignore missing %}
+  {% include "./templates/arable.html" ignore missing %}
+  {% include "./templates/manure_arable.html" ignore missing %}
   {% include "./templates/soil.html" ignore missing %}
   {% include "./templates/guidance.html" ignore missing %}
-
 
 {% endblock %}

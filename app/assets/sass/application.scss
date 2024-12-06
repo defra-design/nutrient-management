@@ -546,11 +546,17 @@ h2.manure-date {
 }
 
 .half-table-left {
-    padding-right: 40px;
+    padding-right: 25px;
+    th {
+        width: 60%;
+    }
 }
 
 .half-table-right{
-    padding-right: 40px;
+    padding-left: 25px;
+    th {
+        width: 85%;
+    }
 }
 
 .report-planned-table {

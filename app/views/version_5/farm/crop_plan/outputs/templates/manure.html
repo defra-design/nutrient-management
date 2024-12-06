@@ -1,282 +1,61 @@
-<div class="govuk-grid-row">
-
-  <div class="govuk-grid-column-full">
-    <h2 class="govuk-heading-l margin-bottom-twenty">{{fieldname}}</h2>
-    <div class="govuk-grid-row margin-bottom-ten">
-      <div class="govuk-grid-column-one-third">
-        <p class="govuk-body">Cropped area: 15 hectares</p>
-      </div>
-      <div class="govuk-grid-column-two-thirds">
-        <p class="govuk-body">Annual rainfall: 600mm</p>
-      </div>
-    </div>    
-  </div>  
-  </div>  
-
-  <div class="govuk-grid-row margin-bottom-forty">
-
-    <div class="govuk-grid-column-full">
-      <h2 class="govuk-heading-m">Grass recommendations for {{fieldname}} (per hectare)</h2>
-      <!-- <p class="govuk-body">Cropped area: 15 hectares<br>
-      Annual rainfall: 593mm</p> -->
-      
-      <table class="recs-table govuk-table govuk-table-small">
-        <!-- <caption class="govuk-table__caption govuk-table__caption--m">Grass recommendations (kg/ha)</caption> -->
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Nutrient</th>
-            <th scope="col" class="govuk-table__header">Soil index</th>
-            <th scope="col" class="govuk-table__header">Crop need</th>
-            <th scope="col" class="govuk-table__header">From manures</th>
-            <th scope="col" class="govuk-table__header">From fertilisers or lime</th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Nitrogen (N)</th>
-            <td class="govuk-table__cell">1</td>
-            <td class="govuk-table__cell">153kg</td>          
-            <td class="govuk-table__cell">0</td>          
-            <td class="govuk-table__cell">210kg</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Phosphate (P2O5)</th>
-            <td class="govuk-table__cell">2</td>
-            <td class="govuk-table__cell">70kg</td>          
-            <td class="govuk-table__cell">0</td>          
-            <td class="govuk-table__cell">0</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Potash (K2O)</th>
-            <td class="govuk-table__cell">2-</td>
-            <td class="govuk-table__cell">200kg</td>          
-            <td class="govuk-table__cell">0</td>          
-            <td class="govuk-table__cell">0</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Sulphur (SO3)</th>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">40kg</td>          
-            <td class="govuk-table__cell">-</td>          
-            <td class="govuk-table__cell">40kg</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Lime</th>
-            <td class="govuk-table__cell">6.2</td>
-            <td class="govuk-table__cell">4 tonnes</td>          
-            <td class="govuk-table__cell">-</td>          
-            <td class="govuk-table__cell">6 tonnes</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="govuk-grid-row margin-bottom-forty">
-    <div class="govuk-grid-column-full">
-      <table class="govuk-table govuk-table-small">
-        <caption class="govuk-table__caption govuk-table__caption--m">Grass details for {{fieldname}}</caption>
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <!-- <th scope="col" class="govuk-table__header">Crop</th> -->
-            <th scope="col" class="govuk-table__header">Sward</th>
-            <th scope="col" class="govuk-table__header">Management</th>
-            <th scope="col" class="govuk-table__header">Yield Measurement</th>
-            <th scope="col" class="govuk-table__header">Yield</th>
-            <!-- <th scope="col" class="govuk-table__header">Yield (per hectare)</th> -->
-            <!-- <th scope="col" class="govuk-table__header">Crop info 1</th>
-            <th scope="col" class="govuk-table__header">Crop info 2</th> -->
-            <!-- <th scope="col" class="govuk-table__header">Defoliation</th>
-            <th scope="col" class="govuk-table__header">Utilisation 1</th>
-            <th scope="col" class="govuk-table__header">Utilisation 2</th> -->
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <!-- <td class="govuk-table__cell">Grass</th> -->
-              <td class="govuk-table__cell">Grass only</th>
-              <td class="govuk-table__cell">Cut, Graze, Graze, Graze</th>
-                <td class="govuk-table__cell">Total dry matter yield</th>
-                  <td class="govuk-table__cell">10 to 13 tonnes per hectare</th>
-            <!-- <td class="govuk-table__cell">8.5 tonnes</td> -->
-            <!-- <td class="govuk-table__cell">Milling</td>          
-            <td class="govuk-table__cell">Straw to be incorporated</td>           -->
-            <!-- <td class="govuk-table__cell"> </td>
-            <td class="govuk-table__cell"> </td>
-            <td class="govuk-table__cell"> </td> -->
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="govuk-grid-row margin-bottom-forty">
-
-    <div class="govuk-grid-column-full">
-
-      <table class="govuk-table govuk-table-small">
-        <caption class="govuk-table__caption govuk-table__caption--m">Fertiliser and lime applications for {{fieldname}} (per hectare)</caption>
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Date</th>
-            <th scope="col" class="govuk-table__header">For cut or graze</th>
-            <th scope="col" class="govuk-table__header">Nitrogen (N)</th>
-            <th scope="col" class="govuk-table__header">Phosphate (P2O5)</th>
-            <th scope="col" class="govuk-table__header">Potash (K2O)</th>
-            <th scope="col" class="govuk-table__header">Sulphur (SO3)</th>
-            <th scope="col" class="govuk-table__header">Lime</th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">01/03/2025</th>
-            <td class="govuk-table__cell">One</th>
-            <td class="govuk-table__cell">41kg</td>
-            <td class="govuk-table__cell">0</td>          
-            <td class="govuk-table__cell">0</td>          
-            <td class="govuk-table__cell">0</td>
-            <td class="govuk-table__cell">0</td>
-          </tr>
-        </tbody>
-      </table>
-
-  </div>
-
-</div>
-
 <div class="govuk-grid-row margin-bottom-forty">
   <div class="govuk-grid-column-full">
-    <table class="govuk-table govuk-table-small report-planned-table">
-      <caption class="govuk-table__caption govuk-table__caption--m">Organic manure applications</caption>
+    <table class="govuk-table govuk-table-small">
+      <caption class="govuk-table__caption govuk-table__caption--m">Fertiliser and lime applications for {{fieldname}} (per hectare)</caption>
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Date</th>
-          <th scope="col" class="govuk-table__header">Type</th>
-          <th scope="col" class="govuk-table__header">Total Nitrogen</th>
-          <th scope="col" class="govuk-table__header">Total Phosphate</th>
-          <th scope="col" class="govuk-table__header">Available Phosphate</th>
-          <th scope="col" class="govuk-table__header">Total Potash</th>
-          <th scope="col" class="govuk-table__header">Available Potash</th>
-
+          <th scope="col" class="govuk-table__header">For cut or graze</th>
+          <th scope="col" class="govuk-table__header">Nitrogen (N)</th>
+          <th scope="col" class="govuk-table__header">Phosphate (P2O5)</th>
+          <th scope="col" class="govuk-table__header">Potash (K2O)</th>
+          <th scope="col" class="govuk-table__header">Sulphur (SO3)</th>
+          <th scope="col" class="govuk-table__header">Lime</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">01/09/2023</th>
-          <td class="govuk-table__cell">Cattle FYM - old</td>
-          <td class="govuk-table__cell">120kg</td>
-          <td class="govuk-table__cell">64kg</td>
-          <td class="govuk-table__cell">38kg</td>
-          <td class="govuk-table__cell">160kg</td>
-          <td class="govuk-table__cell">144kg</td>
+          <td class="govuk-table__cell">01/03/2025</th>
+          <td class="govuk-table__cell">One</th>
+          <td class="govuk-table__cell">41kg</td>
+          <td class="govuk-table__cell">0</td>          
+          <td class="govuk-table__cell">0</td>          
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
         </tr>
       </tbody>
     </table>
-    <p class="table-information govuk-table__cell govuk-body-s">Applied by Discharge Spreader at 20 tonnes per hectare. Incorporated by Mouldboard plough with 12-24 hours delay.</p>
-  </div>
+</div>
 </div>
 
 <div class="govuk-grid-row margin-bottom-forty">
+<div class="govuk-grid-column-full">
+  <table class="govuk-table govuk-table-small report-planned-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">Organic manure applications</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Date</th>
+        <th scope="col" class="govuk-table__header">Type</th>
+        <th scope="col" class="govuk-table__header">Total Nitrogen</th>
+        <th scope="col" class="govuk-table__header">Total Phosphate</th>
+        <th scope="col" class="govuk-table__header">Available Phosphate</th>
+        <th scope="col" class="govuk-table__header">Total Potash</th>
+        <th scope="col" class="govuk-table__header">Available Potash</th>
 
-  <div class="govuk-grid-column-full">
-    <h2 class="govuk-heading-m">Soil details for {{fieldname}}</h2>
-  </div>
-
-    <div class="govuk-grid-column-one-half half-table-left">
-
-      <table class="govuk-table govuk-table-small">
-        <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Soil type</th>
-            <td class="govuk-table__cell">Medium</td>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Potash (K) releasing clay</th>
-            <td class="govuk-table__cell">No</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Sulphur deficient</th>
-            <td class="govuk-table__cell">Yes</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Last soil analysis</th>
-            <td class="govuk-table__cell">21/02/2023</td>
-          </tr>
-        </tbody>
-      </table>
-
-  </div>
-
-  <div class="govuk-grid-column-one-half half-table-right">
-
-<table class="govuk-table govuk-table-small">
-  <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Starting P balance (kg/ha)</th>
-      <td class="govuk-table__cell">-1</td>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Starting K balance (kg/ha)</th>
-      <td class="govuk-table__cell">+16</td>
-    </tr>
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">SNS (per hectare)</th>
-      <td class="govuk-table__cell"></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">SNS Index</th>
-      <td class="govuk-table__cell"></td>
-    </tr>
-  </tbody>
-</table>
-
-  </div>
-
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">01/09/2023</th>
+        <td class="govuk-table__cell">Cattle FYM - old</td>
+        <td class="govuk-table__cell">120kg</td>
+        <td class="govuk-table__cell">64kg</td>
+        <td class="govuk-table__cell">38kg</td>
+        <td class="govuk-table__cell">160kg</td>
+        <td class="govuk-table__cell">144kg</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="table-information govuk-table__cell govuk-body-s">Applied by Discharge Spreader at 20 tonnes per hectare. Incorporated by Mouldboard plough with 12-24 hours delay.</p>
 </div>
-
-<div class="govuk-grid-row margin-bottom-forty pagebreak">
-
-  <div class="govuk-grid-column-full">
-    <h2 class="govuk-heading-m">Guidance for {{fieldname}}</h2>
-    
-    <h2 class="govuk-heading-s">Nitrogen (N)</h2>
-    <p class="govuk-body">
-      The N rate may be adjusted based on the grain N% of previous crops over several years. Grain N% at the economic optimum N rate is about 1.9% for feed wheat and 2.1%for breadmaking wheat. 
-    </p>
-    <p class="govuk-body">
-      The N application rate may be adjusted down or up by 30 kg/ha per 0.1% difference in grain N% from these values.
-    </p>
-    <h2 class="govuk-heading-s">Phosphate (P2O5)</h2>
-    <p class="govuk-body">
-      Phosphate may be applied when convenient (see the Fertiliser Manual).
-    </p>
-    <h2 class="govuk-heading-s">Sulphur (SO3)</h2>
-    <p class="govuk-body">
-      Apply 25-40 kg SO3/ha as a sulphate containing fertiliser applied in early spring before the start of stem extension. Deficiency is likely if whole plant shoots sampled at stemextension stage contain less than 0.2% S in dry matter.
-    </p>
-    <p class="govuk-body">
-      Organic manures can supply some sulphur for crop uptake but probably insufficient to meet a significant crop sulphur requirement.
-    </p>
-    <h2 class="govuk-heading-s">Lime</h2>
-    <p class="govuk-body">
-      Lime may not be fully effective for some months. Apply well before growing sensitive crops.
-    </p>
-    <p class="govuk-body">
-      The lime recommendation may be different in mixed grass/arable rotations (see the Fertiliser Manual).
-    </p>
-    <!-- <p class="govuk-body strong">
-      There are no NVZ warning messages for this field
-    </p> -->
-
-    <!-- <h2 class="govuk-heading-m">Non-spreading dates</h2> -->
-
-
-  </div>
-
 </div>

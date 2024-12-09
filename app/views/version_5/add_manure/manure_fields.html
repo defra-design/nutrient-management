@@ -27,12 +27,12 @@
 
         <div class="govuk-form-group">
           <div class="govuk-radios" data-module="govuk-radios">
-            <!-- <div class="govuk-radios__item">
+            <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="all" name="manure_fields" type="radio" value="all">
               <label class="govuk-label govuk-radios__label" for="all">
                 All fields in the 2024 plan
               </label>
-            </div> -->
+            </div>
             {% for group in data.cropGroupsV5 %}
               <!-- {{group.crop_reference}} 
               {% if group.variety %}

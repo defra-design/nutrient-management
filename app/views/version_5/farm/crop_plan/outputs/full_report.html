@@ -23,6 +23,7 @@
 
   {% set fieldname = 'Long Field' %}
   {% set cropname = 'Grass' %}
+  {% include "./templates/management_grass.html" ignore missing %}
   {% include "./templates/recs.html" ignore missing %}
   {% include "./templates/grass.html" ignore missing %}
   {% include "./templates/manure_grass.html" ignore missing %}
@@ -34,6 +35,7 @@
   <div class="margin-bottom-forty">&nbsp;</div>
   {% set fieldname = 'Short Field' %}
   {% set cropname = 'Winter Wheat' %}
+  {% include "./templates/management_arable.html" ignore missing %}
   {% include "./templates/recs.html" ignore missing %}
   {% include "./templates/arable.html" ignore missing %}
   {% include "./templates/manure_arable.html" ignore missing %}

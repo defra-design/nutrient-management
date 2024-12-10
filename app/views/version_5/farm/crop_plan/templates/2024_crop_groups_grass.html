@@ -19,12 +19,14 @@
     </form>
   </div>
 
-  <table class="govuk-table big_crop_table_version_five margin-bottom-forty">
+  <table class="govuk-table govuk-table-small margin-bottom-forty">
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Field</th>
-        <th scope="col" class="long-title govuk-table__header">Total yield (per hectare)</th>
-        <th scope="col" class="long-title govuk-table__header">Cut and grazing order</th>
+        <!-- <th scope="col" class="govuk-table__header">Sward</th> -->
+        <th scope="col" class="govuk-table__header">Management</th>
+        <th scope="col" class="govuk-table__header">Total annual target yield<br>(per hectare)</th>
+        <th scope="col" class="govuk-table__header">Unit</th>
         <!-- <th scope="col" class="govuk-table__header">Alerts</th> -->
         <!-- <th scope="col" class="govuk-table__header">Crop use</th>
         <th scope="col" class="govuk-table__header">Straw use</th> -->
@@ -52,8 +54,11 @@
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <td class="govuk-table__cell field-name">{{field.name}}</td>
-          <td class="govuk-table__cell field-name">10 to 13 tonnes</td>
-          <td class="govuk-table__cell field-name">Cut, Graze, Graze, Graze</td>
+          <!-- <td class="govuk-table__cell">Grass</td> -->
+          <td class="govuk-table__cell">Cut, Graze, Graze, Graze</td>
+          <td class="govuk-table__cell">10 to 13 tonnes</td>
+          <td class="govuk-table__cell">Dry weight</td>
+          <!-- <td class="govuk-table__cell">Total dry matter</td> -->
           <!-- <td class="govuk-table__cell" class="govuk-table__header">
               {% if manureCount == 0 %}
               None

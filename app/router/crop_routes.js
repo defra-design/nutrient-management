@@ -318,7 +318,6 @@ router.get(/yield_total_handler/, function (req, res) {
     res.redirect(next)
 })
 
-
 router.get(/grass_management_hander/, function (req, res) { 
     if (req.session.data.grass_management == 'grazing') {
         req.session.data.content.defoliations = 'grazings'
@@ -329,5 +328,11 @@ router.get(/grass_management_hander/, function (req, res) {
     }
     res.redirect('defoliation')
 })
+
+router.get(/season_handler/, function (req, res) { 
+    var next = (req.session.data.reseed == "yes") ? 'season' : 'sward_type'
+    res.redirect(next)
+})
+
 
 module.exports = router

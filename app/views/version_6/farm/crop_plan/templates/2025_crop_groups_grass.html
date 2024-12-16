@@ -1,4 +1,4 @@
-  <div class="tab-left margin-bottom-forty">
+  <div class="tab-left margin-bottom-thirty">
     <h2 class="govuk-heading-m margin-bottom-ten">
       {{group.crop | nameconverter}} <span class="govuk-body nonbold"> - Crop group {{group.reference}}</span>
     </h2>
@@ -23,9 +23,9 @@
       </tr>
     </thead>
     <tbody class="govuk-table__body">
-    {% for fieldref in data.chosen_farm.field_references %}
-      {% for field in data.chosen_farm_fields %}
-        {% if fieldref == field.reference %}
+      {% for fieldref in group.fields %}
+        {% for field in data.chosen_farm_fields %}
+          {% if fieldref == field.reference %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell field-name">{{field.name}}</td>
             <td class="govuk-table__cell">Cut, Graze, Graze, Graze</td>

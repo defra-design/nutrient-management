@@ -22,21 +22,22 @@
       </tr>
     </thead>
     <tbody class="govuk-table__body">
-      {% for fieldref in data.chosen_farm.field_references %}
+      <!-- group has a list of field references search the list of fields and return its details -->
+      {% for fieldref in group.fields %}
         {% for field in data.chosen_farm_fields %}
           {% if fieldref == field.reference %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell field-name">{{field.name}}</td>
-              <td class="govuk-table__cell field-name">
-                {% if group.planting_date == null %}
-                  Not entered
-                {% else %}
-                  {{group.planting_date}}
-                {% endif %}
-              </td>
-              <td class="govuk-table__cell field-name">8.5 tonnes</td>
-              <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}">Update field or view recommendations</a></td>
-            </tr> 
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell field-name">{{field.name}}</td>
+            <td class="govuk-table__cell field-name">
+              {% if group.planting_date == null %}
+                Not entered
+              {% else %}
+                {{group.planting_date}}
+              {% endif %}
+            </td>
+            <td class="govuk-table__cell field-name">8.5 tonnes</td>
+            <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}">Update field or view recommendations</a></td>
+          </tr> 
           {% endif %}
         {% endfor %}
       {% endfor %}

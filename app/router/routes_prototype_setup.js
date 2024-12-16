@@ -255,5 +255,11 @@ router.get(/newmanure_setup/, function (req, res) {
     res.redirect('/' + req.query.version + '/start')
 })
 
+//2025
+router.get(/new_setup_handler/, function (req, res) { 
+    req.session.data.prototype_version = req.query.version
+    res.redirect('/' + req.query.version + '/farm/crop_plan/plan_view')
+})
+
 module.exports = router
 

@@ -692,19 +692,6 @@ router.get(/fertiliser_date_handler/, function (req, res) {
     res.redirect("fertiliser_amount")
 })
 
-router.get(/crops_update_handler/, function (req, res) { 
-    req.session.data.show_success_message = true;
-    req.session.data.successMessage = 6;
-    // console.log('reference' + req.session.data.chosen_group.reference)
-    for (var x in req.session.data.cropGroupsV5) {
-        if (req.session.data.cropGroupsV5[x].reference == req.session.data.chosen_group.reference ) {
-            req.session.data.cropGroupsV5[x].planting_date = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
-            // console.log('date' + req.session.data.cropGroupsV5[x].planting_date)
-        }
-    }
-    res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
-})
-
 router.get(/change_cropgroup_handler/, function (req, res) { 
     req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.cropGroupsV5, req.query.groupref)
     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)
@@ -724,6 +711,7 @@ router.get(/change_cropgroup_handler/, function (req, res) {
 ///2025
 router.get(/change_cropgroup_v6_handler/, function (req, res) { 
     req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.chosen_farm_crop_groups, req.query.groupref)
+    console.log(req.session.data.chosen_group)
     req.session.data.show_success_message = false    
     res.redirect('change_crop')
 })
@@ -734,5 +722,31 @@ router.get(/rainfall_update_handler/, function (req, res) {
     req.session.data.oaktree_farm.rainfall = req.session.data.rainfall
     res.redirect('plan_view')
 })
+
+router.get(/update_variety/, function (req, res) {
+    req.session.data.chosen_crop_group.variety = req.session.data.new_variety
+    req.session.data.show_success_message = true  
+    res.redirect('../change_crop')
+})
+
+router.get(/crops_update_handler/, function (req, res) { 
+    req.session.data.show_success_message = true;
+    req.session.data.successMessage = 6;
+    // console.log('reference' + req.session.data.chosen_group.reference)
+    //variety update
+    if (req.session.data.new_variety != '' && req.session.data.new_variety != null) {
+        req.session.data.chosen_group.variety = req.session.data.new_variety
+    }
+    for (var x in req.session.data.cropGroupsV5) {
+        if (req.session.data.cropGroupsV5[x].reference == req.session.data.chosen_group.reference ) {
+            req.session.data.cropGroupsV5[x].planting_date = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
+            // console.log('date' + req.session.data.cropGroupsV5[x].planting_date)
+        }
+    }
+    req.session.data.new_variety = null
+    res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+})
+
+
 
 module.exports = router

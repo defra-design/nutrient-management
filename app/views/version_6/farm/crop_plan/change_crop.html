@@ -22,6 +22,8 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
       Update crop group {{data.chosen_group.reference}} for harvest year 2025
     </h1>
 
+    <p class="govuk-body margin-bottom-forty">Changes here will be applied to all of these fields. To change a single field, go back and select it.</p>
+
     <div class="check-answers">
 
       <dl class="govuk-summary-list">     
@@ -45,8 +47,22 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the variety name (optional)?</dt>
-          <dd class="govuk-summary-list__value">Not entered</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          <dd class="govuk-summary-list__value">
+
+            
+
+            {% if data.new_variety == '' or data.new_variety == null %}
+              {% if data.chosen_group.variety == '' or data.chosen_group.variety == null %}
+                Not entered
+              {% else %}
+                {{data.chosen_group.variety}}            
+              {% endif %}            
+            {% else %}
+              {{data.new_variety}}
+            {% endif %}
+
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="updates/variety">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 
         <div class="govuk-summary-list__row">

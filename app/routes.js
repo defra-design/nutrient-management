@@ -1,6 +1,19 @@
 const  govukPrototypeKit = require('govuk-prototype-kit')
 const  router = govukPrototypeKit.requests.setupRouter()
 
+
+//2025
+var betahouse = require('./data/betahouse_farm_details.json');
+var betahouse_fields = require('./data/betahouse_field_list.json');
+// for (var field in betahouse.field_references) {
+//   for (var fielddata in betahouse_fields) {
+//     if (betahouse.field_references[field] == betahouse_fields[fielddata].reference) {
+//       console.log(betahouse_fields[fielddata])
+//     }
+//   }
+// }
+//
+
 function Farm (
 name,
 postcode,
@@ -237,10 +250,14 @@ router.get('/', function (req, res) {
     req.session.data.allFertiliserApplications = []
 
     // notifications
-    req.session.data.successMessage = null
+    betahousesuccessMessage = null
 
     //planviews
     req.session.data.plan_version = 2
+
+    //2025
+    req.session.data.betahouse = betahouse
+    req.session.data.chosen_farm = betahouse
 
     res.render('index')
 })

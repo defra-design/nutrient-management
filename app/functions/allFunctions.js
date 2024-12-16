@@ -1,3 +1,7 @@
+function field_count(field_references) {
+    return field_references.length;
+  }
+
 function getFieldByReference (currentFarmFields, referenceNumber) {
     for (let field in currentFarmFields) {
       if (currentFarmFields[field].reference == referenceNumber) {
@@ -279,3 +283,5 @@ module.exports.addManureApplication = addManureApplication;
 module.exports.addFertiliserApplication = addFertiliserApplication;
 module.exports.addManureApplication_v2 = addManureApplication_v2;
 module.exports.addFertiliserApplication_v2 = addFertiliserApplication_v2;
+
+module.exports.field_count = field_count;

@@ -1,0 +1,22 @@
+[
+{"reference":1, "name":"Long Field"},
+{"reference":2, "name":"Barn Field"},
+{"reference":3, "name":"Orchard"},
+{"reference":4, "name":"Valley"},
+{"reference":5, "name":"Poplar"},
+{"reference":6, "name":"Oaks"},
+{"reference":7, "name":"Narrow land"},
+{"reference":8, "name":"25 Acres"},
+{"reference":9, "name":"Shed"},
+{"reference":10, "name":"Park 1"},
+{"reference":11, "name":"Park 2"},
+{"reference":12, "name":"Barns"},
+{"reference":13, "name":"Red well"},
+{"reference":14, "name":"Hops 1"},
+{"reference":15, "name":"Hops 2"},
+{"reference":16, "name":"Hops 3"},
+{"reference":17, "name":"Short Field"},
+{"reference":18, "name":"Low meadow"},
+{"reference":19, "name":"High meadow"},
+{"reference":20, "name":"High barns"}
+]

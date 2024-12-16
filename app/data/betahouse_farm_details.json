@@ -1,0 +1,9 @@
+{
+    "name": "Beta House Farm",
+    "postcode" : "NE1 1HH",
+    "first_year": 2024,
+    "nvz": "some",
+    "elevation": "none",
+    "rainfall": "600mm",
+    "field_references" : [1,2,3]
+}

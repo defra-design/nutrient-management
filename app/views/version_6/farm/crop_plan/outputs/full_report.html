@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  2025 Nutrient applications
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  <!-- {{ govukBackLink({
+    text: "Back to your 2025 plan",
+    href: "../plan_view"
+  }) }} -->
+  <a href="../plan_view" class="noprint govuk-back-link">Back to your 2025 plan</a>
+
+{% endblock %}
+
+{% block content %}
+
+  {% include "./templates/print.html" ignore missing %}
+  {% include "./templates/farm.html" ignore missing %}
+
+  {% set fieldname = 'Long Field' %}
+  {% set cropname = 'Grass' %}
+  {% include "./templates/management_grass.html" ignore missing %}
+  {% include "./templates/recs.html" ignore missing %}
+  {% include "./templates/grass.html" ignore missing %}
+  {% include "./templates/manure_grass.html" ignore missing %}
+  {% include "./templates/soil.html" ignore missing %}
+  {% include "./templates/guidance.html" ignore missing %}
+
+
+  <div id="printbreak"></div>
+  <div class="margin-bottom-forty">&nbsp;</div>
+  {% set fieldname = 'Short Field' %}
+  {% set cropname = 'Winter Wheat' %}
+  {% include "./templates/management_arable.html" ignore missing %}
+  {% include "./templates/recs.html" ignore missing %}
+  {% include "./templates/arable.html" ignore missing %}
+  {% include "./templates/manure_arable.html" ignore missing %}
+  {% include "./templates/soil.html" ignore missing %}
+  {% include "./templates/guidance.html" ignore missing %}
+
+{% endblock %}

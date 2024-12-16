@@ -1,0 +1,167 @@
+<div class="govuk-tabs__panel" id="recs">
+
+  <h2 class="govuk-heading-m non-standard">Nutrient and Lime recommendations</h2>
+
+  {% if appears_in_other_groups == true %}
+    <ul class="govuk-list govuk-list--spaced">
+      <li>
+        <a class="govuk-link" href="#cropone">Recommendations for Carrots in Long Field</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="#croptwo">Recommendations for Beetroot in Long Field</a>
+      </li>
+    </ul>
+  {% endif %}
+
+  <hr class="seperator_five">
+
+  <h2 id="cropone" class="govuk-heading-m">
+    Nutrient and Lime recommendations for 
+    {{data.chosen_group.crop | nameconverter}} 
+    {% if data.chosen_group.variety.length > 0 %}
+      ({{data.chosen_group.variety}}) 
+    {% endif %}
+    in
+    {{data.chosen_field.name}}
+  </h2>
+
+  <p class="govuk-body-s">Amounts are per hectare.</p>
+  {% if data.chosen_group.crop == 'grass' %}
+    {% if organics == true %}
+      {% include "./templates/v6_grass_one_application.html" ignore missing %}
+    {% else %}
+      {% include "./templates/v6_grass_empty.html" ignore missing %}
+    {% endif %}
+  {% else %}
+    {% if organics == true and inorganics == true %}
+      {% include "./templates/v4_nutrients_both.html" ignore missing %}
+    {% elif organics == true and inorganics == false %}
+      {% include "./templates/v4_nutrients_one_organic.html" ignore missing %}
+    {% elif organics == false and inorganics == true %}
+      {% include "./templates/v6_nutrients_one_fertiliser.html" ignore missing %}
+    {% else %}
+      {% include "./templates/v6_nutrients_empty.html" ignore missing %}
+    {% endif %}
+  {% endif %}
+
+  <!-- <h3 class="govuk-heading-s">
+    Phosphate (P2O5) and Potash (K2O) balance
+  </h3>
+
+  <table class="govuk-table new-recomendation-table data-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Nutrient</th>
+        <th scope="col" class="govuk-table__header">balance</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Phosphate (P2O5)</td>
+        <td class="govuk-table__cell">50 kg</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Potash (K2O)</td>
+        <td class="govuk-table__cell">50 kg</td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <h3 class="govuk-heading-s">
+    Phosphate (P2O5) and Potash (K2O) balance
+  </h3>
+
+  <div id="balance" class="margin-bottom-forty">
+    <table class="govuk-table data-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Nutrient</th>
+          <th scope="col" class="govuk-table__header">Balance from 2024</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Phosphate (P2O5)</td>
+          <!-- <td class="govuk-table__cell">+ 50kg</td> -->
+          <td class="govuk-table__cell">0</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Potash (K2O)</td>
+          <!-- <td class="govuk-table__cell">+ 50kg</td> -->
+          <td class="govuk-table__cell">0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- <ul class="govuk-list govuk-list--bullet" id="small-list">
+      <li>Phosphate (P2O5) + 50kg</li>
+      <li>Potash (K2O) + 50kg</li>
+    </ul> -->
+    <p class="govuk-body">
+      This is the rolling balance at the start of the year and is included in the <br>fertiliser phosphate and potash recommendations.
+    </p>
+  </div>
+
+  {% if data.chosen_crop != 'Grass' and data.chosen_crop != 'grass' %}
+    <h2 class="govuk-heading-m">Guidance</h2>
+    <h3 class="govuk-heading-s">Nitrogen</h3>
+    <div class="guidance">
+      <p class="govuk-body">
+        Apply no more than 100 kg N/ha at sowing or transplanting then apply
+        N according to crop growth, e.g. up to 60 kg N/ha per month in the south-west and 20 kg N/ha in the north. 
+        Where seedbed SNS exceeds 4 and crops are likely to be harvested in April or later, top-dress N at the start of spring growth allowing for any over-winter losses of N.
+      </p>
+    </div>
+  {% endif %}
+
+  <!-- second crop -->
+
+  {% if appears_in_other_groups == true %}
+    <hr class="seperator_five">
+    <h2 id="croptwo" class="govuk-heading-m">
+      Nutrient and Lime recommendations for 
+      {{second_crop | nameconverter}}
+      {% if second_group_variety.length > 0 %}
+        ({{second_group_variety}}) 
+      {% endif %}
+      in
+      {{data.chosen_field.name}}
+    </h2>
+    <p class="govuk-body-s">Amounts are per hectare.</p>
+  
+    {% if data.chosen_crop == 'Grass' or data.chosen_crop == 'grass' %}
+      <p class="govuk-body-s">These recommendations are for {{data.chosen_field.name}}, harvest year {{data.oaktree_farm.planning_year}}</p>
+      {% include "./templates/v4_grass_empty.html" ignore missing %}
+    {% else %}
+      {% if organics == true and inorganics == true %}
+        {% include "./templates/v4_nutrients_both.html" ignore missing %}
+      {% elif organics == true and inorganics == false %}
+        {% include "./templates/v4_nutrients_one_organic.html" ignore missing %}
+      {% elif organics == false and inorganics == true %}
+        {% include "./templates/v4_nutrients_one_fertiliser.html" ignore missing %}
+      {% else %}
+        {% include "./templates/v4_nutrients_empty.html" ignore missing %}
+      {% endif %}
+    {% endif %}
+    <h2 class="govuk-heading-m">Guidance</h2>
+    <h3 class="govuk-heading-s">Nitrogen</h3>
+    <div class="guidance">
+      <p class="govuk-body">
+        Apply no more than 100 kg N/ha at sowing or transplanting then apply N according to crop growth, e.g. up to 60 kg N/ha per month in the south-west and 20 kg N/ha in the north. Where seedbed SNS exceeds 4 and crops are likely to be harvested in April or later, top-dress N at the start of spring growth allowing for any over-winter losses of N.
+      </p>
+    </div>
+  {% endif %}
+
+  {% if appears_in_other_groups == true or data.chosen_group.crop == 'grass' %}
+    <p class="govuk-body"><a class="govuk-link" href="#">Back to the top</a></p>
+  {% endif %}
+
+</div>
+
+
+<!-- TESTS IMPORTANT
+<p>group = {{data.chosen_group.reference}}</p>
+<p>field = {{data.chosen_field.name}}</p>
+
+<p>appears_in_other_groups? = {{appears_in_other_groups}}</p>
+<p>reference? = {{second_crop}}</p> -->

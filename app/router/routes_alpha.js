@@ -418,6 +418,20 @@ router.get(/field_level_plan_v5_handler/, function (req, res) {
     res.redirect('../field_plan/index')
 })
 
+///2025
+router.get(/field_level_plan_v6_handler/, function (req, res) { 
+    req.session.data.chosen_group = req.query.fieldref
+    req.session.data.chosen_field = req.query.groupref
+    console.log(req.session.data.chosen_group)
+    console.log(req.session.data.chosen_field)
+    //group.reference 
+    req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.chosen_farm_crop_groups, req.query.groupref)
+    //field reference
+    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.chosen_farm_fields, req.query.fieldref)    
+    req.session.data.show_success_message = false    
+    res.redirect('../field_plan/index')
+})
+
 router.get(/mvpfield_plan_handler/, function (req, res) { 
     req.session.data.show_success_message = false
     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field.reference)

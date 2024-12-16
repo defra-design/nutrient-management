@@ -1,19 +1,10 @@
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="crops">
-  <h2 class="govuk-heading-m non-standard">Crop details for {{data.chosen_field.name}} in 2025</h2>
-    <!-- <p class="govuk-body">These are are the planned crops for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p> -->
- 
+  <h2 class="govuk-heading-m non-standard">Crop details for {{data.chosen_field.name}} in 2025</h2> 
   <hr class="seperator_five">
 
   <div class="tabs-thirds margin-bottom-forty">
     <h2 class="govuk-heading-m">
       {{data.chosen_group.crop | nameconverter}} 
-      <!-- <span class="nonbold">
-        {% if data.chosen_group.variety.length %}
-          ({{data.chosen_group.variety}})
-        {% endif %}
-        - {{data.chosen_group.groupname}}
-        details
-      </span> -->
     </h2>
     {% if data.chosen_group.crop != 'Grass' and data.chosen_group.crop != 'grass' %}
       {% include "./templates/other-crop-details.html" ignore missing %}
@@ -22,21 +13,6 @@
     {% endif %}
     <p class="govuk-body"><a href="#">Change the {{data.chosen_group.crop | nameconverter}} details for {{data.chosen_field.name}} </a></p>
   </div>
-
-  <!-- second crop -->
-  <!-- {% set appears_in_other_groups = false %}
-  {% set second_crop_reference = null %} -->
-
-  <!-- {% for group in data.cropGroupsV5 %}
-    {% if group.reference != data.chosen_group.reference %}
-      {% for field in group.fields %}
-        {% if field.reference == data.chosen_field.reference %}
-          {% set appears_in_other_groups = true %}
-          {% set second_crop_reference = group.crop %}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-  {% endfor %} -->
 
   {% if appears_in_other_groups == true %}
     <hr class="seperator_five">
@@ -58,13 +34,6 @@
       {% endif %}
       <p class="govuk-body"><a href="#">Change the {{second_crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
     </div>
-{% endif %}
+  {% endif %}
 
 </div>
-
-  <!-- TESTS IMPORTANT
-  <p>group = {{data.chosen_group.reference}}</p>
-  <p>field = {{data.chosen_field.name}}</p>
-
-  <p>appears_in_other_groups? = {{appears_in_other_groups}}</p>
-  <p>reference? = {{second_crop_reference}}</p> -->

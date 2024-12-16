@@ -5,6 +5,7 @@ const  router = govukPrototypeKit.requests.setupRouter()
 //2025
 var betahouse = require('./data/betahouse_farm_details.json');
 var betahouse_fields = require('./data/betahouse_field_list.json');
+let betahouse_crop_groups = require('./data/betahouse_crop_groups.json');
 // for (var field in betahouse.field_references) {
 //   for (var fielddata in betahouse_fields) {
 //     if (betahouse.field_references[field] == betahouse_fields[fielddata].reference) {
@@ -257,7 +258,13 @@ router.get('/', function (req, res) {
 
     //2025
     req.session.data.betahouse = betahouse
+    req.session.data.betahouse_crop_groups = betahouse_crop_groups
+    req.session.data.betahouse_fields = betahouse_fields
+
     req.session.data.chosen_farm = betahouse
+    req.session.data.chosen_farm_crop_groups = betahouse_crop_groups
+    req.session.data.chosen_farm_fields = betahouse_fields
+
 
     res.render('index')
 })

@@ -1,0 +1,19 @@
+[
+    {
+        "reference": 1,
+        "crop": "grass",
+        "fields": [1, 2, 3]
+    },
+    {
+        "reference": 2,
+        "crop": "winter-wheat",
+        "fields": [2]
+
+    },
+    {
+        "reference": 3,
+        "crop": "carrots",
+        "fields": [3]
+
+    }
+]

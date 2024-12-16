@@ -422,8 +422,8 @@ router.get(/field_level_plan_v5_handler/, function (req, res) {
 router.get(/field_level_plan_v6_handler/, function (req, res) { 
     req.session.data.chosen_group = req.query.fieldref
     req.session.data.chosen_field = req.query.groupref
-    console.log(req.session.data.chosen_group)
-    console.log(req.session.data.chosen_field)
+    // console.log(req.session.data.chosen_group)
+    // console.log(req.session.data.chosen_field)
     //group.reference 
     req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.chosen_farm_crop_groups, req.query.groupref)
     //field reference
@@ -711,7 +711,7 @@ router.get(/change_cropgroup_handler/, function (req, res) {
 ///2025
 router.get(/change_cropgroup_v6_handler/, function (req, res) { 
     req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.chosen_farm_crop_groups, req.query.groupref)
-    console.log(req.session.data.chosen_group)
+    // console.log(req.session.data.chosen_group)
     req.session.data.show_success_message = false    
     res.redirect('change_crop')
 })
@@ -733,10 +733,16 @@ router.get(/crops_update_handler/, function (req, res) {
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 6;
     // console.log('reference' + req.session.data.chosen_group.reference)
+    // console.log(req.session.data.chosen_group)
+    
     //variety update
-    if (req.session.data.new_variety != '' && req.session.data.new_variety != null) {
-        req.session.data.chosen_group.variety = req.session.data.new_variety
+    for (var y in req.session.data.chosen_farm_crop_groups) {
+        if (req.session.data.chosen_farm_crop_groups[y].reference == req.session.data.chosen_group.reference) {
+            req.session.data.chosen_farm_crop_groups[y].variety = req.session.data.new_variety
+        }
     }
+    
+    //planting date update
     for (var x in req.session.data.cropGroupsV5) {
         if (req.session.data.cropGroupsV5[x].reference == req.session.data.chosen_group.reference ) {
             req.session.data.cropGroupsV5[x].planting_date = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year

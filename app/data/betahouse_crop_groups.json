@@ -3,12 +3,14 @@
         "reference": 1,
         "crop": "Carrots",
         "variety": null,
+        "planting_date": null,
         "fields": [1,2,3]
     },
     {
         "reference": 2,
         "crop": "Wheat-Winter",
         "variety": null,
+        "planting_date": "21/06/2025",
         "fields": [4,5,6]
 
     },
@@ -16,6 +18,7 @@
         "reference": 3,
         "crop": "grass",
         "variety": null,
+        "planting_date": null,
         "fields": [7,8,9]
 
     }

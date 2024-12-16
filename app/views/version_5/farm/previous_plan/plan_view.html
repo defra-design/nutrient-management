@@ -17,7 +17,7 @@
         href: "../plans_records"
       },
       {
-        text: "Harvest year 2025"
+        text: "Harvest year 2024"
       }
     ]
   }) }}
@@ -43,17 +43,11 @@
 
     <div class="govuk-grid-column-full">
 
-      <h1 id="main-title" class="govuk-heading-l">{{data.oaktree_farm.name}} plan 2025</h1>
+      <h1 id="main-title" class="govuk-heading-l">{{data.oaktree_farm.name}} plan 2024</h1>
       <div id="summary-header" class="margin-bottom-forty">
-        <p class="govuk-body">Last updated {{data.content.todays_date}}. There are {{totalFields}} fields in this plan.</p>
-        
-        {% if data.oaktree_farm.rainfall == 600 %}
-          <p class="govuk-body">Average annual rainfall is 554mm. You have not entered any excess winter rainfall. <a href="rainfall">Add excess winter rainfall for 2025</a>.</p>
-        {% else %}
-          <p class="govuk-body">Average annual rainfall is 554mm. Excess winter rainfall is 20mm. <a href="rainfall">Update rainfall for 2025</a>.</p>
-        {% endif %}
-
-        <p class="govuk-body"><a href="export">Download, print, or export this plan</a></p>
+        <p class="govuk-body">Last updated {{data.content.todays_date}}. There are 2 fields in this plan.</p>
+        <p class="govuk-body">Rainfall category is moderate. <a href="">Update rainfall</a></p>
+        <p class="govuk-body"><a href="">Download, print, or export this plan</a></p>
       </div>
 
       <div class="govuk-tabs" data-module="govuk-tabs">
@@ -93,19 +87,13 @@
 
         <form class="add-button" action="../../add_crops/crop_group" method="post" novalidate="">    
           <button class="govuk-button" data-module="govuk-button">
-            Add a crop group
+            Add a new crop
           </button>
         </form>
 
         <hr class="seperator_five">
-          {% for group in data.cropGroupsV5 %}
-            {% if group.crop_reference == 'grass' %}
-              {% include "./templates/2024_crop_groups_grass.html" ignore missing %}
-            {% else %}  
-              {% include "./templates/2024_crop_groups.html" ignore missing %}
-            {% endif %}  
-          {% endfor %}  
-      </div>
+        {% include "./templates/previous_crop_groups_grass.html" ignore missing %}
+        </div>
 
       <!-- manures -->
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="organic">

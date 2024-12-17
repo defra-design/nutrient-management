@@ -712,7 +712,7 @@ router.get(/change_cropgroup_handler/, function (req, res) {
 router.get(/change_cropgroup_v6_handler/, function (req, res) { 
     req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.chosen_farm_crop_groups, req.query.groupref)
     // console.log(req.session.data.chosen_group)
-    req.session.data.show_success_message = false    
+    req.session.data.show_success_message = false
     res.redirect('change_crop')
 })
 
@@ -724,8 +724,8 @@ router.get(/rainfall_update_handler/, function (req, res) {
 })
 
 router.get(/update_variety/, function (req, res) {
-    req.session.data.chosen_crop_group.variety = req.session.data.new_variety
-    req.session.data.show_success_message = true  
+    // req.session.data.chosen_crop_group.variety = req.session.data.new_variety
+    // req.session.data.show_success_message = true  
     res.redirect('../change_crop')
 })
 

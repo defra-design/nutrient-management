@@ -48,9 +48,9 @@
         <p class="govuk-body">Last updated {{data.content.todays_date}}. There are {{totalFields}} fields in this plan.</p>
         
         {% if data.oaktree_farm.rainfall == 600 %}
-          <p class="govuk-body">Average annual rainfall is 554mm. You have not entered any excess winter rainfall. <a href="rainfall">Add excess winter rainfall for 2025</a>.</p>
+          <p class="govuk-body">Rainfall category is moderate <a href="rainfall">Update excess winter rainfall</a>.</p>
         {% else %}
-          <p class="govuk-body">Average annual rainfall is 554mm. Excess winter rainfall is 20mm. <a href="rainfall">Update rainfall for 2025</a>.</p>
+        <p class="govuk-body">Rainfall category is moderate <a href="rainfall">Update excess winter rainfall</a>.</p>
         {% endif %}
 
         <p class="govuk-body"><a href="export">Download, print, or export this plan</a></p>

@@ -2,7 +2,7 @@
     {
         "reference": 1,
         "crop": "Carrots",
-        "variety": null,
+        "variety": "Suttons",
         "planting_date": null,
         "fields": [1,2,3]
     },

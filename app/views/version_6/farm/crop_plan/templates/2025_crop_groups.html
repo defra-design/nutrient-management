@@ -1,0 +1,52 @@
+<div class="tab-left margin-bottom-thirty">
+  <h2 class="govuk-heading-m margin-bottom-ten">
+    {{group.crop | nameconverter}} <span class="govuk-body nonbold"> - Crop group {{group.reference}}</span>
+  </h2>
+</div>
+
+<div class="tab-right">
+  <form class="update-button" action="#" method="post" novalidate="">    
+    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Update this group
+    </button>
+  </form>
+</div>
+
+<table class="govuk-table govuk-table-small margin-bottom-forty">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Field</th>
+      <th scope="col" class="govuk-table__header">Planting date</th>
+      <th scope="col" class="govuk-table__header">Target yield<br>(per hectare)</th>
+      <th scope="col" class="govuk-table__header">Variety</th>
+      <th scope="col" class="govuk-table__header"> </th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    {% for fieldref in group.fields %}
+      {% for field in data.chosen_farm_fields %}
+        {% if fieldref == field.reference %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell field-name">{{field.name}}</td>
+          <td class="govuk-table__cell">
+            {% if group.planting_date == null %}
+              Not entered
+            {% else %}
+              {{group.planting_date}}
+            {% endif %}
+          </td>
+          <td class="govuk-table__cell">10 to 13 tonnes</td>
+          <td class="govuk-table__cell">
+            {% if group.variety == null %}
+              Not entered
+            {% else %}
+              {{group.variety}}
+            {% endif %}
+          </td>
+          <td class="govuk-table__cell"><a href="field_level_plan_v6_handler?groupref={{group.reference}}&fieldref={{field.reference}}">Update field or view recommendations</a></td>
+        </tr> 
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+</tbody>
+</table>

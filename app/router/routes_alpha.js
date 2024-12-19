@@ -768,12 +768,11 @@ router.get(/crop_group_update_handler/, function (req, res) {
     if (req.session.data.update_type == 'date') {
         //planting date update
         var tempDate = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
-        for (var fieldRef in req.session.data.chosen_group.fields) {
-            for (var farmField in req.session.data.chosen_farm_fields) {
-                if (req.session.data.chosen_group.fields[fieldRef] == req.session.data.chosen_farm_fields[farmField].reference) {
-                    req.session.data.chosen_farm_fields[farmField].planting_date = tempDate
-                }
+        for (var groupRef in req.session.data.chosen_farm_crop_groups) {
+            if (req.session.data.chosen_farm_crop_groups[groupRef].reference == req.session.data.chosen_group.reference) {
+                req.session.data.chosen_farm_crop_groups[groupRef].date = tempDate
             }
+            console.log('here ' + req.session.data.chosen_farm_crop_groups[groupRef].date)
         }
     }
     //reset temp vars

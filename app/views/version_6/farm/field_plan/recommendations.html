@@ -18,8 +18,8 @@
   <h2 id="cropone" class="govuk-heading-m">
     Nutrient and Lime recommendations for 
     {{data.chosen_group.crop | nameconverter}} 
-    {% if data.chosen_group.variety.length > 0 %}
-      ({{data.chosen_group.variety}}) 
+    {% if data.chosen_field.variety.length > 0 %}
+      ({{data.chosen_field.variety}}) 
     {% endif %}
     in
     {{data.chosen_field.name}}

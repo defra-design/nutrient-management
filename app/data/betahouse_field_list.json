@@ -1,7 +1,7 @@
 [
-  {"reference":1, "name":"Long Field", "variety": null, "planting_date" : null},
-  {"reference":2, "name":"Barn Field", "variety": null, "planting_date" : null},
-  {"reference":3, "name":"Orchard", "variety": null, "planting_date" : null},
+  {"reference":1, "name":"Long Field", "variety": "Suttons", "planting_date" : null},
+  {"reference":2, "name":"Barn Field", "variety": "Suttons", "planting_date" : null},
+  {"reference":3, "name":"Orchard", "variety": "Suttons", "planting_date" : null},
   {"reference":4, "name":"Valley", "variety": null, "planting_date" : "01/05/0224"},
   {"reference":5, "name":"Poplar", "variety": null, "planting_date" : "01/05/0224"},
   {"reference":6, "name":"Oaks", "variety": null, "planting_date" : "01/05/0224"},

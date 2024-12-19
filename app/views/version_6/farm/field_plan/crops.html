@@ -7,7 +7,7 @@
       {{data.chosen_group.crop | nameconverter}} 
     </h2>
     {% if data.chosen_group.crop != 'Grass' and data.chosen_group.crop != 'grass' %}
-      {% include "./templates/other-crop-details.html" ignore missing %}
+      {% include "./templates/crop-details.html" ignore missing %}
     {% else %}
       {% include "./templates/grass-details.html" ignore missing %}
     {% endif %}

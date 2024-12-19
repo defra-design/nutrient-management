@@ -52,7 +52,6 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the variety name (optional)?</dt>
           <dd class="govuk-summary-list__value">
-
             {% if data.new_variety == '' or data.new_variety == null %}
               {% if data.chosen_group.variety == '' or data.chosen_group.variety == null %}
                 Not entered
@@ -62,9 +61,8 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
             {% else %}
               {{data.new_variety}}
             {% endif %}
-
           </dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="updates/variety">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="update_question_handler?update_type=variety">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 
         <div class="govuk-summary-list__row">
@@ -90,7 +88,7 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Do you have a date for when you planted your {{data.chosen_group.crop | nameconverter}}, or when you will plant it?</dt>
           <dd class="govuk-summary-list__value">No, I'll enter the date later</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="change_date_question">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="update_question_handler?update_type={{date}}">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
       
         <div class="govuk-summary-list__row">
@@ -98,12 +96,6 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
           <dd class="govuk-summary-list__value">Use the RB209 figure of 8 tonnes per hectare for all these fields</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
-
-        <!-- <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">What is the expected yield for Winter Wheat per hectare in these fields?</dt>
-          <dd class="govuk-summary-list__value">8 tonnes per hectare</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-        </div> -->
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">How do you plan to use the crop?</dt>
@@ -133,7 +125,7 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
     <p class="govuk-body margin-bottom-forty">You can also <a href="">remove this crop group</a>.</p>
 
 
-    <form action="crops_update_handler" method="post" novalidate>
+    <form action="crop_group_update_handler" method="post" novalidate>
       {{ govukButton({
         text: "Update this crop group"
       }) }}

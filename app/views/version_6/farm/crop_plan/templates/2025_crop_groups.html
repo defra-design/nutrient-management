@@ -5,7 +5,7 @@
 </div>
 
 <div class="tab-right">
-  <form class="update-button" action="group_level_plan_v6_handler" method="post" novalidate="">
+  <form class="update-button" action="group_level_plan_v6_handler?groupref={{group.reference}}" method="post" novalidate="">
     <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
       Update this group
     </button>
@@ -29,18 +29,18 @@
         <tr class="govuk-table__row">
           <td class="govuk-table__cell field-name">{{field.name}}</td>
           <td class="govuk-table__cell">
-            {% if field.planting_date == null %}
+            {% if group.planting_date == null %}
               Not entered
             {% else %}
-              {{field.planting_date}}
+              {{group.planting_date}}
             {% endif %}
           </td>
           <td class="govuk-table__cell">10 to 13 tonnes</td>
           <td class="govuk-table__cell">
-            {% if field.variety == null %}
+            {% if group.variety == null %}
               Not entered
             {% else %}
-              {{field.variety}}
+              {{group.variety}}
             {% endif %}
           </td>
           <td class="govuk-table__cell"><a href="field_level_plan_v6_handler?groupref={{group.reference}}&fieldref={{field.reference}}">Update field or view recommendations</a></td>

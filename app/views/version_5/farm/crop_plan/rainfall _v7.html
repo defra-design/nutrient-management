@@ -1,0 +1,181 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Excess winter rainfall – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+          Excess winter rainfall for 
+          {%if data.farm_postcode != ""%}
+            {{data.farm_postcode}}
+          {% else %}
+            NE46 7LQ
+          {% endif %}  
+        </h1>
+
+        <p class="govuk-body">
+          Rainfall is used to estimate soil nitrogen supply. Your rainfall category has been estimated from your average annual rainfall.
+        </p>
+
+        <p class="govuk-body">
+          If rainfall on {{data.oaktree_farm.name}} has been higher or lower than normal, you can update it for the current year. 
+        </p>
+
+        <p class="govuk-body margin-bottom-forty">
+          AHDB publish excess winter rainfall data each season. <a target="_blank" href="https://ahdb.org.uk/knowledge-library/how-to-use-excess-winter-rainfall-data-to-plan-nitrogen-applications">View the AHDB excess winter rainfall data.</a> (Opens in a new window) 
+        </p>
+
+
+        <table class="govuk-table margin-bottom-forty">
+          <!-- <caption class="govuk-table__caption govuk-table__caption--l">Rainfall for {{data.farm_postcode}}</caption> -->
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Rainfall category</th>
+              <th scope="col" class="govuk-table__header">Excess winter rainfall</th>
+              <th scope="col" class="govuk-table__header">Annual rainfall</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Low</td>
+              <td class="govuk-table__cell">Less than 150mm</td>
+              <td class="govuk-table__cell">200mm or more</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Moderate</td>
+              <td class="govuk-table__cell">150mm to 260mm</td>
+              <td class="govuk-table__cell">600mm to 700mm</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">High</td>
+              <td class="govuk-table__cell">250mm or more</td>
+              <td class="govuk-table__cell">700mm or more</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>What is your rainfall category?</p>
+        <form action="check_rain" method="post" novalidate="">      
+
+          <div class="govuk-form-group">
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="ten" name="grass_total_yield" type="radio" value="10 - 13">
+                <label class="govuk-label govuk-radios__label" for="ten">
+                  High - more than 250mm
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nine" name="grass_total_yield" type="radio" value="9 - 12">
+                <label class="govuk-label govuk-radios__label" for="nine">
+                  Moderate - 150mm to 250mm
+                </label>
+              </div>            
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="seven" name="grass_total_yield" type="radio" value="7 - 9">
+                <label class="govuk-label govuk-radios__label" for="seven">
+                  Low - Less than 150mm
+                </label>
+              </div>
+             
+              <div class="govuk-radios__divider">or</div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="value" name="grass_total_yield" type="radio" value="value" data-aria-controls="conditional-contact">
+                <label class="govuk-label govuk-radios__label" for="value">
+                  Enter a value
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="weight">
+                    Excess winter rainfall
+                  </label>
+                  <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="grass_total_yield_figure" name="grass_total_yield_figure" type="text" spellcheck="false">
+                    <div class="govuk-input__suffix" aria-hidden="true">mm</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+            <!-- <div class="govuk-form-group">
+              <label class="govuk-label" for="event-name">
+                What is the total rainfall for {{data.oaktree_farm.name}} in 2024?
+              </label>        
+              <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="rainfall" value="554" type="text" spellcheck="false">
+                <div class="govuk-input__suffix" aria-hidden="true">mm</div>
+              </div>
+            </div> -->
+  
+          <!-- <div class="govuk-form-group margin-bottom-forty">
+            <label class="govuk-label" for="event-name">
+              What is the excess winter rainfall for 2025?
+            </label>        
+            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="rainfall" type="text" spellcheck="false">
+              <div class="govuk-input__suffix" aria-hidden="true">mm</div>
+            </div>
+          </div>
+   -->
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <button class="govuk-button" data-module="govuk-button">Continue</button>
+            </fieldset>
+          </div>
+  
+          <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
+  
+            </div>
+        </div>
+      </form>
+
+        <!-- <div class="text-group">
+          <h3 class="govuk-heading-s">Average annual rainfall for {{data.farm_postcode}}</h3>
+          <p class="govuk-body">600mm</p>
+          <p class="govuk-body"><a href="rainfall-manual">Change</a></p>
+        </div>
+
+        <div class="text-group">
+          <h3 class="govuk-heading-s">Excess winter rainfall</h3>
+          <p class="govuk-body">0mm</p>
+          <p class="govuk-body"><a href="rainfall-manual">Change</a></p>
+        </div>
+
+        <div class="text-group">
+          <h3 class="govuk-heading-s">Rainfall category</h3>
+          <p class="govuk-body">Moderate</p>
+        </div> -->
+  
+
+        <!-- <p class="govuk-body">
+          Rainfall is used to estimate soil nitrogen supply. Your rainfall range has been estimated from your average annual rainfall of 600mm. 
+        </p> -->
+
+        <!-- <p class="govuk-body">
+          <a target="_blank" href="https://ahdb.org.uk/knowledge-library/how-to-use-excess-winter-rainfall-data-to-plan-nitrogen-applications">View the AHDB excess winter rainfall map</a> (Opens in a new window)
+        </p> -->
+
+
+        <!-- <p class="govuk-body"><a target="_blank" href="https://ahdb.org.uk/knowledge-library/how-to-use-excess-winter-rainfall-data-to-plan-nitrogen-applications">View AHDB's maps showing excess winter rainfall in the UK</a>. (Opens in a new window)</p> -->
+        <!-- <p class="govuk-body">Select the excess winter rainfall range for {{data.oaktree_farm.name}} in 2025, or enter the excess winter rainfall value.</p> -->
+
+        <!-- <p><a target='_blank' href="https://ahdb.org.uk/knowledge-library/how-to-use-excess-winter-rainfall-data-to-plan-nitrogen-applications"> Link</a></p> -->
+      
+  </div>
+
+{% endblock %}

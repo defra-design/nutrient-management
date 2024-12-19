@@ -778,7 +778,9 @@ router.get(/crop_group_update_handler/, function (req, res) {
     }
     //reset temp vars
     req.session.data.new_variety = null
-    req.session.data.new_planting_date_day, req.session.data.new_planting_date_month, req.session.data.new_planting_date_year = null
+    req.session.data.new_planting_date_day = null
+    req.session.data.new_planting_date_month = null
+    req.session.data.new_planting_date_year = null
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 

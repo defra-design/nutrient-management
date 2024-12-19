@@ -87,8 +87,18 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
       
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Do you have a date for when you planted your {{data.chosen_group.crop | nameconverter}}, or when you will plant it?</dt>
-          <dd class="govuk-summary-list__value">No, I'll enter the date later</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="update_question_handler?update_type={{date}}">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          <dd class="govuk-summary-list__value">
+            {% if data.new_planting_date_day == '' or data.new_planting_date_day == null %}
+              {% if data.chosen_group.planting_date == '' or data.chosen_group.planting_date == null %}
+                No, I'll enter the date later
+              {% else %}
+                {{data.chosen_group.planting_date}}            
+              {% endif %}            
+            {% else %}
+              {{data.new_planting_date_day}} / {{data.new_planting_date_month}} / {{data.new_planting_date_year}}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="update_question_handler?update_type=date">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
       
         <div class="govuk-summary-list__row">

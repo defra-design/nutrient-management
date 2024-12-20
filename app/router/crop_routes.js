@@ -330,7 +330,7 @@ router.get(/grass_management_hander/, function (req, res) {
 })
 
 router.get(/season_handler/, function (req, res) { 
-    var next = (req.session.data.reseed == "yes") ? 'season' : 'sward_type'
+    var next = (req.session.data.reseed == "yes") ? 'season' : 'sowdate_question'
     res.redirect(next)
 })
 

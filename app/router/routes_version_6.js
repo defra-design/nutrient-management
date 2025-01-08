@@ -20,6 +20,12 @@ router.get(/add_farms_v6_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version +'/farm/hub');
 })
 
+//add a field view reset messages
+router.get(/field_add_reset_v6_handler/, function (req, res) { 
+    req.session.data.show_success_message = false;
+    res.redirect('/'+ req.session.data.prototype_version + '/add-field/name');
+})
+
 //PLAN
 router.get(/rainfall_update_v6_handler/, function (req, res) { 
     req.session.data.show_success_message = true   

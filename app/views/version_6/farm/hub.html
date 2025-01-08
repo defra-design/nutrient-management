@@ -42,7 +42,7 @@
           <h3 class="govuk-notification-banner__heading">
             You have added {{data.chosen_farm.name}}
           </h3>
-          <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_add_reset_handler">Add fields for {{data.chosen_farm.name}}</a> </p>
+          <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_add_reset_v6_handler">Add fields for {{data.chosen_farm.name}}</a> </p>
         {% elif data.chosen_farm.latest_update == 'updated' %}
 
         {% endif %}
@@ -69,7 +69,7 @@
         </li>
       </ul>
       {% else %}
-        <p>To start creating plans and records, <a href="field_add_reset_handler">add your fields</a></p>
+        <p>To start creating plans and records, <a href="field_add_reset_v6_handler">add your fields</a></p>
       {% endif %}
     </div>
 

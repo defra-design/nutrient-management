@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        In which years was {{data.temp_field_name}} used for grass? 
+      </h1>
+
+      <form class="form" action="previous_cuts" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <div id="waste-hint" class="govuk-hint">
+              Select all that apply.
+            </div>
+            
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="2024" name="waste" type="checkbox" value="2024">
+                <label class="govuk-label govuk-checkboxes__label" for="2024">
+                 2024
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="2023" name="waste" type="checkbox" value="2023">
+                <label class="govuk-label govuk-checkboxes__label" for="2023">
+                  2023
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="2022" name="waste" type="checkbox" value="2022">
+                <label class="govuk-label govuk-checkboxes__label" for="2022">
+                  2022
+                </label>
+              </div>
+            </div>
+
+            <div id="crop_use_or" class="govuk-checkboxes__divider">or</div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="" name="" type="checkbox" value="">
+              <label class="govuk-label govuk-checkboxes__label" for="">
+                Select all
+              </label>
+            </div>
+
+          </fieldset>
+        </div>
+                    
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

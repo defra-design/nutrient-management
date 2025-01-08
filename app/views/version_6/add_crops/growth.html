@@ -1,0 +1,79 @@
+Milling{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  {% if data.manure_spreads == 0 %}
+    {% set manure_count = "first" %}
+  {% else %}
+    {% set manure_count = "Continue" %}
+  {% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <!-- {% include "templates/title_span.html" %} -->
+
+      <h1 class="govuk-heading-l">
+        What is the length of growing season for {{data.chosen_crop | nameconverter}}?
+      </h1>
+
+      <form class="form" action="check" method="post">
+
+        <div class="govuk-form-group">
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="season_1" name="season" type="radio" value="Less than 60 days">
+                <label class="govuk-label govuk-radios__label" for="season_1">
+                  Less than 60 days
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="season_2" name="season" type="radio" value="60 - 90 days">
+                <label class="govuk-label govuk-radios__label" for="season_2">
+                  60 - 90 days 
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="season_3" name="season" type="radio" value="90 - 120 days ">
+                <label class="govuk-label govuk-radios__label" for="season_3">
+                  90 - 120 days 
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="season_4" name="season" type="radio" value="More than 120 days">
+                <label class="govuk-label govuk-radios__label" for="season_4">
+                  More than 120 days 
+                </label>
+              </div>
+          </fieldset>
+        </div>
+      </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

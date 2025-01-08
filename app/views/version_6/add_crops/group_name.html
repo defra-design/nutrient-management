@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/templates/signed-in.html" ignore missing %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="groupname_handler" method="post" autocomplete="off">
+
+        <!-- <div class="govuk-form-group">
+          <input class="govuk-input" id="variety" name="variety" type="text">
+        </div> -->
+
+        <div class="govuk-form-group">
+      <h1 class="govuk-heading-l">
+          What would you like to call this crop group (optional)?
+      </h1>
+      <input class="govuk-input" id="groupname" name="groupname" type="text">
+  </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}
+
+

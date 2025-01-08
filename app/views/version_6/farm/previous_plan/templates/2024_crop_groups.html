@@ -12,21 +12,19 @@
   </div>
 
   <div class="tab-right">
-    <form class="update-button" action="group_level_plan_v6_handler" method="post" novalidate="">    
+    <form class="update-button" action="change_cropgroup_handler?groupref={{group.reference}}&fieldref={{field.reference}}" method="post" novalidate="">    
       <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
         Update this group
       </button>
     </form>
   </div>
 
-  <table class="govuk-table govuk-table-small margin-bottom-forty">
+  <table class="govuk-table big_crop_table_version_five margin-bottom-forty">
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Field</th>
-        <!-- <th scope="col" class="govuk-table__header">Sward</th> -->
-        <th scope="col" class="govuk-table__header">Management</th>
-        <th scope="col" class="govuk-table__header">Total annual target yield<br>(per hectare)</th>
-        <th scope="col" class="govuk-table__header">Unit</th>
+        <th scope="col" class="govuk-table__header">Planting date</th>
+        <th scope="col" class="govuk-table__header">Target yield<br>(per hectare)</th>
         <!-- <th scope="col" class="govuk-table__header">Alerts</th> -->
         <!-- <th scope="col" class="govuk-table__header">Crop use</th>
         <th scope="col" class="govuk-table__header">Straw use</th> -->
@@ -54,11 +52,14 @@
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <td class="govuk-table__cell field-name">{{field.name}}</td>
-          <!-- <td class="govuk-table__cell">Grass</td> -->
-          <td class="govuk-table__cell">Cut, Graze, Graze, Graze</td>
-          <td class="govuk-table__cell">10 to 13 tonnes</td>
-          <td class="govuk-table__cell">Dry weight</td>
-          <!-- <td class="govuk-table__cell">Total dry matter</td> -->
+          <td class="govuk-table__cell field-name">
+            {% if group.planting_date == null %}
+              Not entered
+            {% else %}
+            {{group.planting_date}}
+            {% endif %}
+          </td>
+          <td class="govuk-table__cell field-name">8.5 tonnes</td>
           <!-- <td class="govuk-table__cell" class="govuk-table__header">
               {% if manureCount == 0 %}
               None
@@ -75,7 +76,7 @@
           </td> -->
           <!-- <td class="govuk-table__cell">None</td> -->
           <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}">Update field or view recommendations</a></td>
-        </tr> 
+      </tr> 
     {% endfor %}
 
   </tbody>

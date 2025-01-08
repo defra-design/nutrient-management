@@ -1,0 +1,96 @@
+<dl class="govuk-summary-list margin-bottom-forty">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Which fields would you like to add an {{data.content.non_organic_term | lower}} application to?</dt>
+    <dd class="govuk-summary-list__value">
+
+      {% if data.fertiliser_journey == "multi" %}
+          {% if data.fertiliser_fields == "all" %}
+            All fields in the 2025 plan
+          {% else %} 
+            {% for x in data.fertiliser_fields %}
+            {{x}}
+              {{x | fieldnameconverter}},
+            {% endfor %}
+          {% endif %}
+      {% else %}
+      {{data.fertiliser_fields | fieldnameconverter}}
+      {% endif %}      
+
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How much of each nutrient do you plan to include in this application (per hectare)?</dt>
+    <dd class="govuk-summary-list__value">
+      {% if (data.nitrogen > 0) %}
+        {{data.nitrogen}} kg Nitrogen(N)<br>
+      {% endif %}
+      {% if (data.phosphate > 0) %}
+        {{data.phosphate}} kg Phosphate (P2O5)<br>
+      {% endif %}
+      {% if (data.potash > 0) %}
+        {{data.potash}} kg Potash (K2O)<br>
+      {% endif %}
+      {% if (data.sulphur > 0) %}
+        {{data.sulphur}} kg Sulphur (SO3)<br>
+      {% endif %}
+      {% if (data.lime > 0) %}
+        {{data.lime}} kg Lime<br>
+      {% endif %}
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">When do you plan to spread inorganic fertiliser?</dt>
+    <dd class="govuk-summary-list__value">{{data.fertiliser_date_day}} {{data.fertiliser_date_month | convertmonth}} {{data.fertiliser_date_year}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <!-- <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Do you plan to spread more inorganic fertiliser on
+      {% if data.fertiliser_journey == "multi" %}
+        The Winter Wheat fields?
+      {% else %}
+        {{data.chosen_field.name}}?
+      {% endif %}
+    </dt>
+      {% if data.fertiliser_count != 0 %}
+        <dd class="govuk-summary-list__value">Yes</dd>
+      {% else %}
+        <dd class="govuk-summary-list__value">No</dd>
+      {% endif %}
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div> -->
+
+  <!-- {% if data.fertiliser_count != 0 %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">When do you plan to spread inorganic fertiliser?</dt>
+      <dd class="govuk-summary-list__value">Mid April to early May</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">How much of each nutrient do you plan to include in this application?</dt>
+      <dd class="govuk-summary-list__value">10kg Nitrogen(N)	</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Do you plan to spread more inorganic fertiliser on
+        {% if data.fertiliser_journey == "multi" %}
+          The Winter Wheat fields?
+        {% else %}
+          {{data.chosen_field.name}}?
+        {% endif %}
+      </dt>
+      <dd class="govuk-summary-list__value">No</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>  
+
+  {% endif %} -->
+
+</dl>

@@ -17,7 +17,7 @@
 
 {% block content %}
 
-  <h1 class="govuk-heading-l">{{data.oaktree_farm.name}}</h1>
+  <h1 class="govuk-heading-l">{{data.chosen_farm.name}}</h1>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -28,7 +28,7 @@
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Address</td>
-          <td class="govuk-table__cell">South Road, Hexham, Northumberland {{data.oaktree_farm.postcode}}</td>
+          <td class="govuk-table__cell">South Road, Hexham, Northumberland {{data.chosen_farm.postcode}}</td>
         </tr>      
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Average annual rainfall</td>
@@ -36,22 +36,22 @@
         </tr>      
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">How many fields at Oaktree Lane Farm are in a Nitrate Vulnerable Zone (NVZ)?</td>
-          <td class="govuk-table__cell">{{data.oaktree_farm.nvz | convert_all_some_none}}</td>
+          <td class="govuk-table__cell">{{data.chosen_farm.nvz | convert_all_some_none}}</td>
         </tr>      
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">How many fields at Oaktree Lane Farm are above 300 metres?</td>
-          <td class="govuk-table__cell">{{data.oaktree_farm.elevation | convert_all_some_none}}</td>
+          <td class="govuk-table__cell">{{data.chosen_farm.elevation | convert_all_some_none}}</td>
         </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Are you a registered organic producer?</td>
-          <td class="govuk-table__cell">{{data.oaktree_farm.organic_producer | convert_true_false}}</td>
+          <td class="govuk-table__cell">{{data.chosen_farm.organic_producer | convert_true_false}}</td>
         </tr>
       </tbody>
     </table>   
 
     <p class="govuk-body"><a href="update">Update farm information</a></p>
       
-    <p class="govuk-body margin-bottom-forty"><a href="remove">Remove Oaktree Lane Farm</a></p>
+    <p class="govuk-body margin-bottom-forty"><a href="remove">Remove {{data.chosen_farm.name}}</a></p>
 
 
 <hr class="big_seperator">

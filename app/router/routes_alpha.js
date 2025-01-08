@@ -755,7 +755,7 @@ router.get(/update_question_handler/, function (req, res) {
 router.get(/crop_group_update_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 6;
-    // console.log('reference' + req.session.data.chosen_group.reference)
+    console.log('reference ' + req.session.data.chosen_group.reference)
     // console.log(req.session.data.chosen_group)
     if (req.session.data.update_type == 'variety') {
         //variety update
@@ -770,9 +770,9 @@ router.get(/crop_group_update_handler/, function (req, res) {
         var tempDate = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
         for (var groupRef in req.session.data.chosen_farm_crop_groups) {
             if (req.session.data.chosen_farm_crop_groups[groupRef].reference == req.session.data.chosen_group.reference) {
-                req.session.data.chosen_farm_crop_groups[groupRef].date = tempDate
+                req.session.data.chosen_farm_crop_groups[groupRef].planting_date = tempDate
+                console.log('Date ' + req.session.data.chosen_farm_crop_groups[groupRef].planting_date)
             }
-            console.log('here ' + req.session.data.chosen_farm_crop_groups[groupRef].date)
         }
     }
     //reset temp vars

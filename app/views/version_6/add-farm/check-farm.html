@@ -1,0 +1,140 @@
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Farm name"
+      },
+      value: {
+        text: data.farm_name
+      },
+      actions: {
+        items: [
+          {
+            href: "name",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Which country is Oaktree Lane Farm in?"
+      },
+      value: {
+        text: "England"
+      },
+      actions: {
+        items: [
+          {
+            href: "rainfall",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Farm address"
+      },
+      value: {
+        text: "South Road, Hexham, Northumberland " + data.farm_postcode
+      },
+      actions: {
+        items: [
+          {
+            href: "address",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Average annual rainfall"
+      },
+      value: {
+        text: "600mm"
+      },
+      actions: {
+        items: [
+          {
+            href: "rainfall",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "How many fields at Oaktree Lane Farm are in a Nitrate Vulnerable Zone (NVZ)?"
+      },
+      value: {
+        text: data.farm_nvz | convert_all_some_none + " of the fields are in an NVZ"
+      },
+      actions: {
+        items: [
+          {
+            href: "nvz",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "How many fields at Oaktree Lane Farm are above 300 metres?"
+      },
+      value: {
+        text: data.farm_elevation | convert_all_some_none + " of the fields are above 300m"
+      },
+      actions: {
+        items: [
+          {
+            href: "elevation",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Are you a registered organic producer?"
+      },
+      value: {
+        text: data.organic_producer | convert_true_false
+      },
+      actions: {
+        items: [
+          {
+            href: "organic",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "What is your last harvest year?"
+      },
+      value: {
+        text: "2024"
+      },
+      actions: {
+        items: [
+          {
+            href: " ",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    }
+  ]
+}) }}

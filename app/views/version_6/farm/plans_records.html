@@ -1,0 +1,114 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/templates/signed-in.html" ignore missing %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Oaktree Lane Farm",
+        href: "hub_reset_handler"
+      },
+      {
+        text: "Planning and recording"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-l">Planning and recording</h1>
+
+<div class="govuk-grid-row">
+  <div id="all-plans-table" class="govuk-grid-column-two-thirds">
+
+        <table class="govuk-table">
+          <!-- <caption class="govuk-table__caption govuk-table__caption--m">Plans</caption> -->
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Harvest year</th>
+              <!-- <th scope="col" class="govuk-table__header">Status</th> -->
+              <th scope="col" class="govuk-table__header">Last modified</th>
+              <th scope="col" class="govuk-table__header"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">  
+
+            {% set cropcount = 0 %}
+            {% for x in data.cropGroupsV5 %}
+              {% set cropcount = cropcount + 1 %}
+            {% endfor %}
+
+            {% if cropcount != 0  %}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">2026</td>
+              <!-- <td class="govuk-table__cell">Status</td> -->
+              <td class="govuk-table__cell">-</td>
+              <td class="govuk-table__cell"><a href="2025-prompt">Start a 2026 plan</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">2025</td>
+              <!-- <td class="govuk-table__cell">Status</td> -->
+              <td class="govuk-table__cell">{{data.content.todays_date}}</td>
+              <td class="govuk-table__cell"><a href="crop_plan_year_handler?harvest_date=2024">View or edit the 2025 plan</a></td>
+            </tr>
+            {% else %}  
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">2025</td>
+              <!-- <td class="govuk-table__cell">Status</td> -->
+              <td class="govuk-table__cell">-</td>
+              <td class="govuk-table__cell"><a href="planning_year_handler?year=2024">Start a 2025 plan</a></td>
+            </tr>
+            {% endif %}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">2024</td>
+              <!-- <td class="govuk-table__cell">Status</td> -->
+              <td class="govuk-table__cell">{{data.content.todays_date}}</td>
+              <!-- <td class="govuk-table__cell"><a href="crop_plan_year_handler?harvest_date=2023">View or edit the 2023 plan</a></td> -->
+              <td class="govuk-table__cell"><a href="previous_plan/plan_view.html">Update the crop details for 2024</a></td>
+            </tr>
+            <!-- <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">2023</td>
+              <td class="govuk-table__cell">-</td>
+              <td class="govuk-table__cell"><a href="">Enter details for 2023</a></td>
+            </tr> -->
+          </tbody>
+        </table>     
+
+    <!-- <p class="govuk-body"><a href="#">View all previous plans</a></p> -->
+    <!-- <hr class="big_seperator"> -->
+
+  </div>
+</div>
+
+<!-- <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <table class="govuk-table record-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Records</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Harvest year</th>
+          <th scope="col" class="govuk-table__header">Last modified</th>
+          <th scope="col" class="govuk-table__header"> </th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">2023</td>
+          <td class="govuk-table__cell">10 November  2023</td>
+          <td class="govuk-table__cell"><a href="">View or edit</a></td>
+        </tr>
+      </tbody>
+    </table>        
+
+    <p class="govuk-body"><a href="#">View all previous records</a></p>
+
+  </div>
+</div> -->
+
+{% endblock %}

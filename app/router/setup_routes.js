@@ -29,12 +29,6 @@ router.get(/delete_handler/, function (req, res) {
     res.redirect('/' + req.session.data.prototype_version + '/farm/farms');
 })
 
-//farm view reset messages
-router.get(/hub_reset_handler/, function (req, res) { 
-    req.session.data.show_success_message = false;
-    res.redirect('/' + req.session.data.prototype_version + '/farm/hub');
-})
-
 //manage fields view reset messages
 router.get(/field_reset_handler/, function (req, res) {
     req.session.data.show_success_message = false;
@@ -80,17 +74,6 @@ router.get(/organicadjustment_handler/, function (req, res) {
     } else {
         res.redirect('/add-field/check')
     }
-})
-
-
-router.get(/crop_nitrogen_handler/, function (req, res) { 
-    var next = (req.session.data.crop_nitrogen == "yes") ? 'shoots' : 'nitrogen_mineralisation'
-    res.redirect(next)
-})
-
-router.get(/mineral_handler/, function (req, res) { 
-    var next = (req.session.data.nitrogen_mineralisation == "no") ? 'sns_index' : 'organic_adjustment'
-    res.redirect(next)
 })
 
 router.get(/field_update_handler/, function (req, res) { 

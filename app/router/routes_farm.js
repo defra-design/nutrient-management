@@ -3,8 +3,10 @@ var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
 
+//Handlers
+
 //set defaults for farm details
-router.get(/set_farm_defaults/, function (req, res) { 
+router.get(/set_farm_defaults_handler/, function (req, res) { 
     //name
     if (req.session.data.farm_name == "") {
         req.session.data.farm_name = 'Oaktree Lane Farm';
@@ -46,5 +48,14 @@ router.get(/add_farm_handler/, function (req, res) {
     // console.log(req.session.data.oaktree_farm)
     res.redirect('/'+ req.session.data.prototype_version +'/farm/hub');
 })
+
+//Routers
+
+router.get(/hub_reset_router/, function (req, res) { 
+    req.session.data.show_success_message = false;
+    res.redirect('/' + req.session.data.prototype_version + '/farm/hub');
+})
+
+
 
 module.exports = router

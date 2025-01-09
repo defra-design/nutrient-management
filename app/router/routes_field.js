@@ -149,5 +149,16 @@ router.get(/gaiheight_router/, function (req, res) {
     res.redirect(next)
 })
 
+router.get(/crop_nitrogen_router/, function (req, res) { 
+    var next = (req.session.data.crop_nitrogen == "yes") ? 'shoots' : 'nitrogen_mineralisation'
+    res.redirect(next)
+})
+
+router.get(/mineral_router/, function (req, res) { 
+    var next = (req.session.data.nitrogen_mineralisation == "no") ? 'sns_index' : 'organic_adjustment'
+    res.redirect(next)
+})
+
+
 
 module.exports = router

@@ -24,9 +24,7 @@
         <th scope="col" class="govuk-table__header">Field</th>
         <th scope="col" class="govuk-table__header">Planting date</th>
         <th scope="col" class="govuk-table__header">Target yield<br>(per hectare)</th>
-        <!-- <th scope="col" class="govuk-table__header">Alerts</th> -->
-        <!-- <th scope="col" class="govuk-table__header">Crop use</th>
-        <th scope="col" class="govuk-table__header">Straw use</th> -->
+        <th scope="col" class="govuk-table__header">Variety</th>
         <th scope="col" class="govuk-table__header"> </th>
       </tr>
     </thead>
@@ -59,21 +57,11 @@
             {% endif %}
           </td>
           <td class="govuk-table__cell field-name">8.5 tonnes</td>
-          <!-- <td class="govuk-table__cell" class="govuk-table__header">
-              {% if manureCount == 0 %}
-              None
-            {% else %}
-              {{manureCount}}
-            {% endif %}
-          </td>
           <td class="govuk-table__cell" class="govuk-table__header">
-              {% if inorganicCount == 0 %}
-                None
-              {% else %}
-                {{inorganicCount}}
-              {% endif %}
-          </td> -->
-          <!-- <td class="govuk-table__cell">None</td> -->
+            {% if group.variety.length > 0 %}
+            {{group.variety}}
+          {% endif %}          
+        </td>
           <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}">Update field or view recommendations</a></td>
       </tr> 
     {% endfor %}

@@ -279,4 +279,5 @@ var  crop_routes = require('./router/crop_routes.js');
 var  routes_six = require('./router/routes_version_6.js');
 
 var  routes_farm = require('./router/routes_farm.js');
-router.use('/', routes_farm, routes_alpha, routes_six, setup_routes, crop_routes, routes_prototype_setup);
+var  routes_field = require('./router/routes_field.js');
+router.use('/', routes_farm, routes_field, routes_alpha, routes_six, setup_routes, crop_routes, routes_prototype_setup);

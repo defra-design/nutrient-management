@@ -774,6 +774,14 @@ router.get(/crop_group_update_v7_handler/, function (req, res) {
             }
         }
     }
+    if (req.session.data.update_type == 'variety') {
+        //variety update
+        for (var groupRef in req.session.data.cropGroupsV5) {
+            if (req.session.data.cropGroupsV5[groupRef].reference == req.session.data.chosen_group.reference) {
+                req.session.data.cropGroupsV5[groupRef].variety = req.session.data.new_variety
+            }
+        }
+    }
     //reset temp vars
     req.session.data.new_variety = null
     req.session.data.new_planting_date_day = null

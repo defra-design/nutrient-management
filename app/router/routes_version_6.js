@@ -34,4 +34,18 @@ router.get(/rainfall_update_v6_handler/, function (req, res) {
     res.redirect('../plan_view')
 })
 
+//// FIELD 
+router.get(/add_field_v6_handler/, function (req, res) { 
+    req.session.data.chosen_farm.latest_update = 'field_added';
+    req.session.data.chosen_farm.fields_added = true;
+    req.session.data.show_success_message = true;
+    req.session.data.all_fields.push(req.session.data.tempField);
+
+    req.session.data.plan_2023.setup = true;
+    req.session.data.plan_2023.firstCropReference = 'Wheat-Winter';
+    req.session.data.plan_2023.firstFieldReferences.push(req.session.data.tempField.reference);
+    req.session.data.plan_2023.firstFields = req.session.data.all_fields;
+    res.redirect('/'+ req.session.data.prototype_version +'/farm/field/manage-fields');
+})
+
 module.exports = router

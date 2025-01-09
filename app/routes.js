@@ -275,9 +275,9 @@ router.get('/', function (req, res) {
 var  routes_prototype_setup = require('./router/routes_prototype_setup.js');
 var  routes_alpha = require('./router/routes_alpha.js');
 var  setup_routes = require('./router/setup_routes.js');
-var  crop_routes = require('./router/crop_routes.js');
 var  routes_six = require('./router/routes_version_6.js');
 
 var  routes_farm = require('./router/routes_farm.js');
 var  routes_field = require('./router/routes_field.js');
-router.use('/', routes_farm, routes_field, routes_alpha, routes_six, setup_routes, crop_routes, routes_prototype_setup);
+var  routes_crop = require('./router/routes_crop.js');
+router.use('/', routes_farm, routes_field, routes_crop, routes_alpha, routes_six, setup_routes, routes_prototype_setup);

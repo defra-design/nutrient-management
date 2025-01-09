@@ -367,7 +367,7 @@ router.get(/v2_quantity_handler/, function (req, res) {
 })
 
 //add another
-router.get(/v2_another_crop_handler/, function (req, res) { 
+router.get(/v2_another_crop_router/, function (req, res) { 
     if (req.session.data.another_crop == "yes") {
         res.redirect('crops_grass')
     } else {
@@ -511,15 +511,6 @@ router.get(/planning_year_handler/, function (req, res) {
         next = '/add_crops/create_next'
     }
     res.redirect('/'+ req.session.data.prototype_version + next)
-})
-
-router.get(/v4_plancopy_handler/, function (req, res) { 
-    // if (req.session.data.plan_copy == 'new') {
-    //     res.redirect('crop_group')
-    // } else {
-    //     res.redirect('check')
-    // }
-    res.redirect('crop_group')
 })
 
 router.get(/condition_question_handler/, function (req, res) { 

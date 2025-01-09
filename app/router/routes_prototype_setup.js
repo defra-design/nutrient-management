@@ -256,10 +256,11 @@ router.get(/newmanure_setup/, function (req, res) {
 })
 
 router.get(/plan_setup/, function (req, res) { 
+    // function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, group, date) {
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'fertilisers')
     req.session.data.all_fields = req.session.data.field_list_mvp
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Crop group 1', null))
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(2, 2024, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 2', null))
+    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(2, 2024, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 2', "12/03/2025"))
     req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(3, 2024, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', null))
     
     for (var x in req.session.data.fertiliser_applications_list) {

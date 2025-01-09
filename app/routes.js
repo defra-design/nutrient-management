@@ -260,13 +260,13 @@ router.get('/', function (req, res) {
     req.session.data.betahouse = betahouse
     req.session.data.betahouse_crop_groups = betahouse_crop_groups
     req.session.data.betahouse_fields = betahouse_fields
+    
 
     req.session.data.new_variety = null
 
     req.session.data.chosen_farm = betahouse
     req.session.data.chosen_farm_crop_groups = betahouse_crop_groups
     req.session.data.chosen_farm_fields = betahouse_fields
-
 
     res.render('index')
 })

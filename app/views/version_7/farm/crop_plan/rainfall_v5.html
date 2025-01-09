@@ -1,0 +1,106 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Excess winter rainfall – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+          Rainfall for 
+          {%if data.farm_postcode != ""%}
+            {{data.farm_postcode}}
+          {% else %}
+            NE46 7LQ
+          {% endif %}  
+        </h1>
+
+        <p class="govuk-body">
+          Rainfall is used to estimate soil nitrogen supply. Your rainfall category has been estimated from your average annual rainfall.
+        </p>
+
+        <p class="govuk-body">
+          If rainfall on {{data.oaktree_farm.name}} has been higher or lower than normal, you can update it for the current year. 
+        </p>
+
+        <p class="govuk-body">
+          AHDB publish excess winter rainfall data each season. <a target="_blank" href="https://ahdb.org.uk/knowledge-library/how-to-use-excess-winter-rainfall-data-to-plan-nitrogen-applications">View the AHDB excess winter rainfall data.</a> (Opens in a new window) 
+        </p>
+
+
+        <table class="govuk-table">
+          <!-- <caption class="govuk-table__caption govuk-table__caption--l">Rainfall for {{data.farm_postcode}}</caption> -->
+          <thead class="govuk-table__head">
+            <!-- <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Month you apply</th>
+              <th scope="col" class="govuk-table__header">Rate for vehicles</th>
+            </tr> -->
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Excess winter rainfall 2025</th>
+              <td class="govuk-table__cell">0mm</td>
+              <td class="govuk-table__cell"><a>Change</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Average annual rainfall</th>
+              <td class="govuk-table__cell">600mm</td>
+              <td class="govuk-table__cell"><a>Change</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Rainfall category</th>
+              <td class="govuk-table__header">Moderate</td>
+              <td class="govuk-table__cell"> </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="text-group">
+          <h3 class="govuk-heading-s">Average annual rainfall for {{data.farm_postcode}}</h3>
+          <p class="govuk-body">600mm</p>
+          <p class="govuk-body"><a href="rainfall-manual">Change</a></p>
+        </div>
+
+        <div class="text-group">
+          <h3 class="govuk-heading-s">Excess winter rainfall</h3>
+          <p class="govuk-body">0mm</p>
+          <p class="govuk-body"><a href="rainfall-manual">Change</a></p>
+        </div>
+
+        <div class="text-group">
+          <h3 class="govuk-heading-s">Rainfall category</h3>
+          <p class="govuk-body">Moderate</p>
+        </div>
+  
+
+        <p class="govuk-body">
+          Rainfall is used to estimate soil nitrogen supply. Your rainfall range has been estimated from your average annual rainfall of 600mm. 
+        </p>
+
+        <!-- <p class="govuk-body">
+          <a target="_blank" href="https://ahdb.org.uk/knowledge-library/how-to-use-excess-winter-rainfall-data-to-plan-nitrogen-applications">View the AHDB excess winter rainfall map</a> (Opens in a new window)
+        </p>
+
+
+        <p class="govuk-body"><a target="_blank" href="https://ahdb.org.uk/knowledge-library/how-to-use-excess-winter-rainfall-data-to-plan-nitrogen-applications">View AHDB's maps showing excess winter rainfall in the UK</a>. (Opens in a new window)</p>
+        <p class="govuk-body">Select the excess winter rainfall range for {{data.oaktree_farm.name}} in 2025, or enter the excess winter rainfall value.</p>
+
+        <!-- <p><a target='_blank' href="https://ahdb.org.uk/knowledge-library/how-to-use-excess-winter-rainfall-data-to-plan-nitrogen-applications"> Link</a></p> -->
+      
+  </div>
+
+{% endblock %}

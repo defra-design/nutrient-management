@@ -40,7 +40,7 @@
             </h2>
           </div>
           <div class="govuk-notification-banner__content">
-            {% if data.oaktree_farm.latest_update == 'field_added' %}
+            {% if data.chosen_farm.latest_update == 'field_added' %}
               <h3 class="govuk-notification-banner__heading">
                 You have added {{data.temp_field_name}}
               </h3>
@@ -52,7 +52,7 @@
       {% endif %}
   
       <h1 class="govuk-heading-l">
-        {{ data.oaktree_farm.name }} 
+        {{ data.chosen_farm.name }} 
         fields
       </h1>
 
@@ -65,7 +65,7 @@
       </form>
  -->
 
-      {% if data.oaktree_farm.fields_added == true %}
+      {% if data.chosen_farm.fields_added == true %}
         <table class="govuk-table">
           <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
           <thead class="govuk-table__head">

@@ -1,0 +1,133 @@
+      <!-- {% if data.show_manure_notification == true %}
+      <h3 class="govuk-notification-banner__heading">
+        {{data.content.organic_term}} application added to the Winter Wheat fields in this plan.
+      </h3>
+      <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
+      {% else %}
+        {% if data.show_fertiliser_notification == true %}
+          <h3 class="govuk-notification-banner__heading">
+            {{data.content.non_organic_term}} application added to the Winter Wheat fields in this plan.
+          </h3>
+          <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
+        {% else %}
+          <h3 class="govuk-notification-banner__heading">
+            Crops added for 2025
+          </h3>
+          <p class="govuk-body">Select a field to see its nutrient recommendations.</p>
+        {% endif %}
+      {% endif %}
+    </h3>
+  </div>
+
+  
+</div> -->
+
+<div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+  
+    <!-- crops added - 1 -->
+    {% if data.successMessage == 1 %}
+      <h3 class="govuk-notification-banner__heading">
+        Crops added for 2025
+      </h3>
+      <p class="govuk-body">Select a field to see its nutrient recommendations.</p>
+    {% endif %}
+
+    <!-- manure added - 2 -->
+    {% if data.successMessage == 2 %}
+      <h3 class="govuk-notification-banner__heading"> 
+        {{data.content.organic_term}} application added to fields in this plan.
+      </h3>
+      <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
+    {% endif %}
+    
+    <!-- fertiliser added - 3 -->
+    {% if data.successMessage == 3 %}
+      <h3 class="govuk-notification-banner__heading">
+        {{data.content.non_organic_term}} application added to fields in this plan.
+      </h3>
+      <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
+    {% endif %}
+
+    <!-- manure updated - 4 -->
+    {% if data.successMessage == 4 %}
+      <h3 class="govuk-notification-banner__heading">
+        {{data.content.organic_term}} application updated.
+      </h3>
+      <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
+    {% endif %}
+    
+    <!-- fertiliser updated - 5 -->
+    {% if data.successMessage == 5 %}
+      <h3 class="govuk-notification-banner__heading">
+        {{data.content.non_organic_term}} updated.
+      </h3>
+      <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
+    {% endif %}
+
+    <!-- crops updated - 6 -->
+    {% if data.successMessage == 6 %}
+    <h3 class="govuk-notification-banner__heading">
+      Crop plan updated
+    </h3>
+    <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
+  {% endif %}
+
+  <!-- crops updated - 7  - 1 -->
+  {% if data.successMessage == 7 %}
+    <h3 class="govuk-notification-banner__heading">
+      Confirmed field history for Barns created
+    </h3>
+    <p class="govuk-body"><a href="https://drive.google.com/file/d/1KxqlyA-BJ2KyP_cWxJZ9MqJy-wG9n2EX/view?usp=drive_link" target="_blank">View the file</a> (opens in a new window)</p>
+  {% endif %}
+
+    <!-- crops updated - 8  -  2 -->
+    {% if data.successMessage == 8 %}
+    <h3 class="govuk-notification-banner__heading">
+      Summary nutrient application plan for 2025 created
+    </h3>
+    <p class="govuk-body"><a href="https://drive.google.com/file/d/1kIMiFUt--rxZ8Ad3ve2ezeDkwQ7dAw1A/view?usp=drive_link" target="_blank">View the file</a> (opens in a new window)</p>
+  {% endif %}
+
+  <!-- crops updated - 9  -  3 -->
+  {% if data.successMessage == 9 %}
+  <h3 class="govuk-notification-banner__heading">
+    Detailed nutrient application plan for 2025 created
+  </h3>
+  <p class="govuk-body"><a href="https://drive.google.com/file/d/1LjmAotsvFJLTotFuCbIkDUj3Alt3BYs1/view?usp=drive_link" target="_blank">View the file</a> (opens in a new window)</p>
+{% endif %}
+
+  <!-- crops updated - 10  -  4 -->
+  {% if data.successMessage == 10 %}
+  <h3 class="govuk-notification-banner__heading">
+    Recommendations for Harvest year 2025 created
+  </h3>
+  <p class="govuk-body"><a href="https://drive.google.com/file/d/12WiLr_QXpDIgsfuEUWJmNEAnzFm2smsn/view?usp=drive_link" target="_blank">View the file</a> (opens in a new window)</p>
+{% endif %}
+
+  <!-- crops updated - 11  -  5 -->
+  {% if data.successMessage == 11 %}
+  <h3 class="govuk-notification-banner__heading">
+    Planned nutrients for Harvest year 2025 created
+  </h3>
+  <p class="govuk-body"><a href="https://drive.google.com/file/d/1rHCJkrAczVDQwggPKYHEjMuBYN4qdIIB/view?usp=drive_link" target="_blank">View the file</a> (opens in a new window)</p>
+{% endif %}
+
+  <!-- rain updated - 11  -  5 -->
+  {% if data.successMessage == 12 %}
+  <h3 class="govuk-notification-banner__heading">
+    Rainfall for 2025 updated
+  </h3>
+  <p class="govuk-body">This may change your nutrient recommendations for 2025. Select a field to see its recommendations.</p>
+{% endif %}
+
+
+
+  
+  </div>
+</div>

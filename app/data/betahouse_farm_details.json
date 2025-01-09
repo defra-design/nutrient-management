@@ -5,5 +5,7 @@
     "nvz": "some",
     "elevation": "none",
     "rainfall": "600mm",
-    "field_references" : [1,2,3,4,5,6,7.8,9]
+    "field_references" : [1,2,3,4,5,6,7.8,9],
+    "fields_added" : false,
+    "plans_added" : false
 }

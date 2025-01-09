@@ -1,0 +1,271 @@
+<h2 class="govuk-heading-s">
+   Recommendations 1 -
+  {% if data.defoliation_one == null %}
+    Cut 
+    <!-- <span class="govuk-body amounts-label">Recommendations per hectare</span> -->
+  {% else %}
+    {{data.defoliation_one | capitalize}}
+  {% endif %}
+</h2>
+<table class="govuk-table new-recomendation-table sortable-table data-table margin-bottom-forty">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Nutrient</th>
+      <th scope="col" class="govuk-table__header">Index / pH</th>
+      <th scope="col" class="govuk-table__header">Total crop need</th>
+      <th scope="col" class="govuk-table__header">Supply from manures</th>
+      <th scope="col" class="govuk-table__header">Fertiliser or Lime recommendation</th>
+      <th scope="col" class="govuk-table__header">Fertiliser or Lime applied</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Nitrogen (N)</td>
+      <td class="govuk-table__cell">2</td>
+      <td class="govuk-table__cell">40kg</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">60kg</td>
+    </tr>      
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Phosphate (P2O5)</td>
+      <td class="govuk-table__cell">2</td>
+      <td class="govuk-table__cell">20kg</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">30kg</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Potash (K2O)</td>
+      <td class="govuk-table__cell">2-</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">30kg</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Sulphur (SO3)</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">25kg</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">30kg</td>
+    </tr>
+    <!-- <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Sodium (Na2O)</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td> -->
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Magnesium (MgO)</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Lime</td>
+      <td class="govuk-table__cell">6.5</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="govuk-heading-s">
+  Recommendations 2 -
+  {% if data.defoliation_two == null %}
+    Grazing 
+    <!-- <span class="govuk-body amounts-label">Recommendations per hectare</span> -->
+  {% else %}
+    {{data.defoliation_two | capitalize}}
+  {% endif %}
+</h2>
+<table class="govuk-table new-recomendation-table data-table margin-bottom-forty">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Nutrient</th>
+      <th scope="col" class="govuk-table__header">Index / pH</th>
+      <th scope="col" class="govuk-table__header">Crop need</th>
+      <th scope="col" class="govuk-table__header">{{data.content.organic_term}}</th>
+      <th scope="col" class="govuk-table__header">{{data.content.non_organic_term}}</th>
+      <th scope="col" class="govuk-table__header">Remaining need</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Nitrogen (N)</td>
+      <td class="govuk-table__cell">2</td>
+      <td class="govuk-table__cell">30kg</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>      
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Phosphate (P2O5)</td>
+      <td class="govuk-table__cell">2</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Potash (K2O)</td>
+      <td class="govuk-table__cell">2-</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Sulphur (SO3)</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Lime</td>
+      <td class="govuk-table__cell">6.5</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="govuk-heading-s">
+  Recommendations 3 -
+  {% if data.defoliation_three == null %}
+  Grazing 
+  <!-- <span class="govuk-body amounts-label">Recommendations per hectare</span> -->
+  {% else %}
+    {{data.defoliation_three | capitalize}}
+  {% endif %}
+</h2>
+<table class="govuk-table new-recomendation-table data-table margin-bottom-forty">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Nutrient</th>
+      <th scope="col" class="govuk-table__header">Index / pH</th>
+      <th scope="col" class="govuk-table__header">Crop need</th>
+      <th scope="col" class="govuk-table__header">{{data.content.organic_term}}</th>
+      <th scope="col" class="govuk-table__header">{{data.content.non_organic_term}}</th>
+      <th scope="col" class="govuk-table__header">Remaining need</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Nitrogen (N)</td>
+      <td class="govuk-table__cell">2</td>
+      <td class="govuk-table__cell">30kg</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>      
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Phosphate (P2O5)</td>
+      <td class="govuk-table__cell">2</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Potash (K2O)</td>
+      <td class="govuk-table__cell">2-</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Sulphur (SO3)</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Lime</td>
+      <td class="govuk-table__cell">6.5</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="govuk-heading-s">
+  Recommendations 4 -
+  {% if data.defoliation_four == null %}
+  Grazing 
+  <!-- <span class="govuk-body amounts-label">Recommendations per hectare</span> -->
+  {% else %}
+    {{data.defoliation_four | capitalize}}
+  {% endif %}
+</h2>
+<table class="govuk-table new-recomendation-table data-table margin-bottom-forty">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Nutrient</th>
+      <th scope="col" class="govuk-table__header">Index / pH</th>
+      <th scope="col" class="govuk-table__header">Crop need</th>
+      <th scope="col" class="govuk-table__header">{{data.content.organic_term}}</th>
+      <th scope="col" class="govuk-table__header">{{data.content.non_organic_term}}</th>
+      <th scope="col" class="govuk-table__header">Remaining need</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Nitrogen (N)</td>
+      <td class="govuk-table__cell">2</td>
+      <td class="govuk-table__cell">30kg</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>      
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Phosphate (P2O5)</td>
+      <td class="govuk-table__cell">2</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Potash (K2O)</td>
+      <td class="govuk-table__cell">2-</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Sulphur (SO3)</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Lime</td>
+      <td class="govuk-table__cell">6.5</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+  </tbody>
+</table>

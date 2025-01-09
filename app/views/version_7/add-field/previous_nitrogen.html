@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+       How much nitrogen (N) has been applied to {{data.temp_field_name}}  each year on average?
+      </h1>
+
+      <div id="event-name-hint" class="govuk-hint">
+        Include nitrogen from organic and inorganic material.
+      </div>    
+
+      <form class="form" action="check" method="post">
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="high" name="grass_management" type="radio" value="high">
+                    <label class="govuk-label govuk-radios__label" for="high">
+                      Over 250kg per hectare
+                    </label>
+                  </div>    
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="mid" name="grass_management" type="radio" value="mid">
+                    <label class="govuk-label govuk-radios__label" for="mid">
+                      100kg to 250kg per hectare
+                    </label>
+                  </div>     
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="low" name="grass_management" type="radio" value="low">
+                    <label class="govuk-label govuk-radios__label" for="low">
+                      Up to 100kg per hectare
+                    </label>
+                  </div>         
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="none" name="grass_management" type="radio" value="none">
+                    <label class="govuk-label govuk-radios__label" for="none">
+                      None
+                    </label>
+                  </div>         
+                </div>
+              </fieldset>
+                      
+        </div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

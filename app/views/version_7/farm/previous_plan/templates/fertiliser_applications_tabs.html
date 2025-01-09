@@ -1,0 +1,25 @@
+<table class="govuk-table recomendation-table data-table">
+  <!-- <caption class="govuk-table__caption govuk-table__caption--m">Nutrient recommendations</caption> -->
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Date</th>
+      <th scope="col" class="govuk-table__header">Type of application</th>
+      <th scope="col" class="govuk-table__header">Number of Fields included</th>
+      <th scope="col" class="govuk-table__header"></th>
+    </tr>
+  </thead>
+
+    <tbody class="govuk-table__body">
+      {% for group in data.allManureApplications %}
+        {% if group.organic == false %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{group.application_date}}</td>
+            <td class="govuk-table__cell">{{group.manure_type}}</td>
+            <td class="govuk-table__cell">{{group.field_count}}</td>
+            <td class="govuk-table__cell"><a href="./change_inorganic_application">Change</a></td>
+          </tr>      
+        {% endif %} 
+      {% endfor %} 
+    </tbody>
+  
+</table>

@@ -1,0 +1,83 @@
+  <div class="tab-left">
+    <h2 class="govuk-heading-m margin-bottom-ten">
+      {{group.crop_reference | nameconverter  }} 
+      <span class="nonbold">
+        {% if group.variety.length > 0 %}
+          ({{group.variety}})
+        {% endif %}
+      </span>
+    </h2>
+    <p class="govuk-body">{{group.groupname}}</p>
+    <!-- <p class="govuk-body"><a href="change_cropgroup_handler?groupref={{group.reference}}&fieldref={{field.reference}}">Update this group</a></p> -->
+  </div>
+
+  <div class="tab-right">
+    <form class="update-button" action="change_cropgroup_handler?groupref={{group.reference}}&fieldref={{field.reference}}" method="post" novalidate="">    
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Update this group
+      </button>
+    </form>
+  </div>
+
+  <table class="govuk-table big_crop_table_version_five margin-bottom-forty">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Field</th>
+        <th scope="col" class="govuk-table__header">Planting date</th>
+        <th scope="col" class="govuk-table__header">Target yield<br>(per hectare)</th>
+        <!-- <th scope="col" class="govuk-table__header">Alerts</th> -->
+        <!-- <th scope="col" class="govuk-table__header">Crop use</th>
+        <th scope="col" class="govuk-table__header">Straw use</th> -->
+        <th scope="col" class="govuk-table__header"> </th>
+      </tr>
+    </thead>
+
+    {% for field in group.fields %}
+
+    {% set manureCount = 0 %}
+    {% set inorganicCount = 0 %}
+
+    {% for manureitem in data.allManureApplications_v2 %}
+      {% if manureitem.fieldref == field.reference %}
+          {% set manureCount = manureCount + 1 %}
+        {% endif %}
+    {% endfor %}
+
+    {% for fertitem in data.allFertiliserApplications %}
+    {% if fertitem.fieldref == field.reference %}
+        {% set inorganicCount = inorganicCount + 1 %}
+      {% endif %}
+    {% endfor %}
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell field-name">{{field.name}}</td>
+          <td class="govuk-table__cell field-name">
+            {% if group.planting_date == null %}
+              Not entered
+            {% else %}
+            {{group.planting_date}}
+            {% endif %}
+          </td>
+          <td class="govuk-table__cell field-name">8.5 tonnes</td>
+          <!-- <td class="govuk-table__cell" class="govuk-table__header">
+              {% if manureCount == 0 %}
+              None
+            {% else %}
+              {{manureCount}}
+            {% endif %}
+          </td>
+          <td class="govuk-table__cell" class="govuk-table__header">
+              {% if inorganicCount == 0 %}
+                None
+              {% else %}
+                {{inorganicCount}}
+              {% endif %}
+          </td> -->
+          <!-- <td class="govuk-table__cell">None</td> -->
+          <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}">Update field or view recommendations</a></td>
+      </tr> 
+    {% endfor %}
+
+  </tbody>
+</table>

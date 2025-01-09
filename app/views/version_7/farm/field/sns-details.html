@@ -1,0 +1,159 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/templates/signed-in.html" ignore missing %}
+  {{ govukBreadcrumbs({
+    items: [
+    {
+      text: "All farms",
+      href: "/version_2/farms.html"
+    },
+    {
+      text: "Oaktree Lane Farm",
+      href: "/version_2/hub.html"
+    },
+    {
+        text: "Fields",
+        href: "field_reset_handler"
+    },
+    {
+        text: data.chosen_field,
+        href: "field_details_reset_handler"
+    },
+    {
+        text: 'Soil analysis'
+    }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Soil Nitrogen Supply (SNS) analysis for {{data.chosen_field}}</h1>
+
+    <h2 class="govuk-heading-m plan_title"></h2>
+
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+  
+        <tr class="govuk-table__row">
+           <td class="govuk-table__cell">
+            Date sample taken
+          </td>
+          <td class="govuk-table__cell">
+            21 May 2023
+          </td>
+        </tr>
+          
+          <tr class="govuk-table__row">
+             <td class="govuk-table__cell">
+              Current crop group
+            </td>
+            <td class="govuk-table__cell">
+              Arable cereals
+            </td>
+          </tr>
+        
+          <tr class="govuk-table__row">
+             <td class="govuk-table__cell">
+              Current crop type
+            </td>
+            <td class="govuk-table__cell">
+              Winter Wheat
+            </td>
+          </tr>
+        
+          <tr class="govuk-table__row">
+             <td class="govuk-table__cell">
+              Kilograms of soil mineral nitrogen at 0-30cm
+            </td>
+            <td class="govuk-table__cell">
+              40kg
+            </td>
+          </tr>
+        
+          <tr class="govuk-table__row">
+             <td class="govuk-table__cell">
+              Kilograms of soil mineral nitrogen at 30-60cm
+            </td>
+            <td class="govuk-table__cell">
+              15kg
+            </td>
+          </tr>
+        
+          <tr class="govuk-table__row">
+             <td class="govuk-table__cell">
+              Kilograms of soil mineral nitrogen at 60-90cm (optional)
+            </td>
+            <td class="govuk-table__cell">
+              5kg
+            </td>
+          </tr>
+                
+          <tr class="govuk-table__row">
+             <td class="govuk-table__cell">
+              Number of shoots per square metre
+            </td>
+            <td class="govuk-table__cell">
+              500
+            </td>
+          </tr>
+        
+          <tr class="govuk-table__row">
+             <td class="govuk-table__cell">
+             Season measured
+            </td>
+            <td class="govuk-table__cell">
+              Autumn
+            </td>
+          </tr>
+                        
+          <tr class="govuk-table__row">
+             <td class="govuk-table__cell">
+              Percentage of organic matter
+            </td>
+            <td class="govuk-table__cell">
+             5%
+            </td>
+          </tr>
+        
+          <tr class="govuk-table__row">
+             <td class="govuk-table__cell">
+              Soil Nitrogen Supply Index
+            </td>
+            <td class="govuk-table__cell">
+             2 (85kg per hectare)
+            </td>
+          </tr>
+
+    </tbody>
+  </table>   
+
+  <p class="govuk-body"><a href="">Change this soil Nitrogen Supply (SNS) analysis</a></p>
+
+  <!-- <div class="govuk-grid-column-one-third">
+
+    <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+      <h2 class="govuk-heading-s" id="subsection-title">
+        Edit soil analysis
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list font-size-17">
+          <li>
+            <a href="">Change this soil analysis</a>
+          </li>
+
+    </aside>
+
+  </div> -->
+</div> 
+
+</div> 
+
+{% endblock %}

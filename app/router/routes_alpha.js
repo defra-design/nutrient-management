@@ -752,7 +752,20 @@ router.get(/update_question_handler/, function (req, res) {
     res.redirect(next)
 })
 
-router.get(/crop_group_update_handler/, function (req, res) { 
+router.get(/group_level_plan_v7_handler/, function (req, res) { 
+    req.session.data.chosen_group = req.query.groupref
+    //group.reference
+    req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.cropGroupsV5, req.query.groupref)
+    req.session.data.show_success_message = false    
+    console.log(req.session.data.chosen_group)
+    res.redirect('change_crop')
+})
+
+router.get(/crop_group_update_v7_handler/, function (req, res) { 
+    res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+})
+
+router.get(/crop_group_update_v6_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 6;
     console.log('reference ' + req.session.data.chosen_group.reference)

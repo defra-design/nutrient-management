@@ -18,30 +18,20 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
     
-    <!-- {% include "templates/title_span.html" %} -->
     <h1 class="govuk-heading-l">
-      View or update a group of fields crop information
+      Update crop group {{data.chosen_group.reference}} for harvest year 2025
     </h1>
 
-    <p>You can also <a href="">remove this crop group</a>.</p>
-
-    <h2 class="govuk-heading-m">
-      Harvest year {{data.oaktree_farm.planning_year}}
-    </h2>
+    <div class="govuk-inset-text margin-bottom-forty">
+      <p class="govuk-body">
+        Changes here will be applied to all of these fields. To change a single field select it from your crop plan. <a href="plan_view">View the 2025 crop plan</a>.
+      </p>
+    </div>
 
     <div class="check-answers">
 
       <dl class="govuk-summary-list">     
-
         <!-- <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Group name</dt>
-          <dd class="govuk-summary-list__value">
-            {{data.chosen_group.groupname}}
-          </dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-        </div> -->
-       
-        <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the crop group?</dt>
           <dd class="govuk-summary-list__value">
             {% if data.chosen_crop_group == "arable-other" %}
@@ -52,7 +42,7 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
           </dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
-
+ -->
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the crop type?</dt>
           <dd class="govuk-summary-list__value">{{data.chosen_group.crop_reference | nameconverter}}</dd>
@@ -61,15 +51,26 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the variety name (optional)?</dt>
-          <dd class="govuk-summary-list__value">{{data.chosen_group.groupname}}</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          <dd class="govuk-summary-list__value">
+            {% if data.new_variety == '' or data.new_variety == null %}
+              {% if data.chosen_group.variety == '' or data.chosen_group.variety == null %}
+                Not entered
+              {% else %}
+                {{data.chosen_group.variety}}            
+              {% endif %}            
+            {% else %}
+              {{data.new_variety}}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="update_question_handler?update_type=variety">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Which fields do you plan to grow {{data.chosen_group.crop_reference | nameconverter}} in?</dt>
           <dd class="govuk-summary-list__value">
-            {% for item in data.chosen_group.fields  %}
-              {{item.name}},<br>
+
+            {% for field in data.chosen_group.fields %}
+            {{field.name}}<br>
             {% endfor %}
           </dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
@@ -77,14 +78,24 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What would you like to call this crop group (optional)?</dt>
-          <dd class="govuk-summary-list__value">Not entered</dd>
+          <dd class="govuk-summary-list__value">Crop group {{data.chosen_group.reference}}</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
       
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Do you have a date for when you planted your Winter Wheat, or when you will plant it?</dt>
-          <dd class="govuk-summary-list__value">No, I'll enter the date later</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="change_date_question">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          <dt class="govuk-summary-list__key">Do you have a date for when you planted your {{data.chosen_group.crop_reference | nameconverter}}, or when you will plant it?</dt>
+          <dd class="govuk-summary-list__value">
+            {% if data.new_planting_date_day == '' or data.new_planting_date_day == null %}
+              {% if data.chosen_group.planting_date == '' or data.chosen_group.planting_date == null %}
+                No, I'll enter the date later
+              {% else %}
+                {{data.chosen_group.planting_date}}            
+              {% endif %}            
+            {% else %}
+              {{data.new_planting_date_day}}/{{data.new_planting_date_month}}/{{data.new_planting_date_year}}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="update_question_handler?update_type=date">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
       
         <div class="govuk-summary-list__row">
@@ -93,23 +104,18 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">What is the expected yield for Winter Wheat per hectare in these fields?</dt>
-          <dd class="govuk-summary-list__value">8 tonnes per hectare</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">How do you plan to use the crop?</dt>
-          <dd class="govuk-summary-list__value">Milling</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">How do you plan to use the straw?</dt>
-          <dd class="govuk-summary-list__value">Baled</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-        </div>
+        {% if data.chosen_group.crop_reference == 'Wheat-Winter' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">How do you plan to use the crop?</dt>
+            <dd class="govuk-summary-list__value">Milling</dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">How do you plan to use the straw?</dt>
+              <dd class="govuk-summary-list__value">Baled</dd>
+              <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+            </div>
+        {% endif %}
 
       </dl>    
     </div>
@@ -124,7 +130,10 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
     </div>
     {% endif %}
 
-    <form action="crops_update_handler" method="post" novalidate>
+    <p class="govuk-body margin-bottom-forty">You can also <a href="">remove this crop group</a>.</p>
+
+
+    <form action="crop_group_update_v6_handler" method="post" novalidate>
       {{ govukButton({
         text: "Update this crop group"
       }) }}

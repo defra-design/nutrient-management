@@ -762,6 +762,8 @@ router.get(/group_level_plan_v7_handler/, function (req, res) {
 })
 
 router.get(/crop_group_update_v7_handler/, function (req, res) { 
+    req.session.data.show_success_message = true;
+    req.session.data.successMessage = 6;
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 

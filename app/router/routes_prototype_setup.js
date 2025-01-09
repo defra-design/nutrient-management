@@ -255,6 +255,25 @@ router.get(/newmanure_setup/, function (req, res) {
     res.redirect('/' + req.query.version + '/start')
 })
 
+router.get(/plan_setup/, function (req, res) { 
+    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'fertilisers')
+    req.session.data.all_fields = req.session.data.field_list_mvp
+    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Crop group 1', null))
+    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(2, 2024, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 2', null))
+    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(3, 2024, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', null))
+    
+    for (var x in req.session.data.fertiliser_applications_list) {
+        req.session.data.allFertiliserApplications.push(req.session.data.fertiliser_applications_list[x])
+    }
+
+    for (var y in req.session.data.manure_applications_list) {
+        req.session.data.allManureApplications_v2.push(req.session.data.manure_applications_list[y])
+    }
+    req.session.data.prototype_version = req.query.version
+    res.redirect('/' + req.query.version + '/farm/crop_plan/plan_view')
+})
+
+
 //2025
 router.get(/new_setup_handler/, function (req, res) { 
     req.session.data.prototype_version = req.query.version

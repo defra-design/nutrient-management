@@ -1,13 +1,12 @@
-  <div class="tab-left">
-    <h2 class="govuk-heading-m margin-bottom-ten">
-      {{group.crop_reference | nameconverter  }} 
-      <span class="nonbold">
+<div class="tab-left margin-bottom-thirty">
+  <h2 class="govuk-heading-m margin-bottom-ten">
+      {{group.crop_reference | nameconverter }} <span class="govuk-body nonbold">- Crop group {{group.reference}}</span>
+      <!-- <span class="nonbold">
         {% if group.variety.length > 0 %}
           ({{group.variety}})
         {% endif %}
-      </span>
+      </span> -->
     </h2>
-    <p class="govuk-body">{{group.groupname}}</p>
     <!-- <p class="govuk-body"><a href="change_cropgroup_handler?groupref={{group.reference}}&fieldref={{field.reference}}">Update this group</a></p> -->
   </div>
 

@@ -22,15 +22,6 @@ router.get(/grassyield_handler/, function (req, res) {
     }
     res.redirect('/'+ req.session.data.prototype_version + '/add_crops/check')
 })
-
-router.get(/previous_use_handler/, function (req, res) { 
-    if (req.session.data.use_2023 == 'yes') {
-        req.session.data.chosen_crop = 'Grass'
-        res.redirect('previous_use_two')
-    } else {
-        res.redirect('crop_group')
-    }
-})
  
 router.get(/another_crop_handler/, function (req, res) { 
     var next = (req.session.data.second_crop == 'new') ? 'crop_group' : 'second_crop/fields'

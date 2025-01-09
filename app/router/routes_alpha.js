@@ -764,6 +764,21 @@ router.get(/group_level_plan_v7_handler/, function (req, res) {
 router.get(/crop_group_update_v7_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 6;
+    if (req.session.data.update_type == 'date') {
+        //planting date update
+        var tempDate = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
+        for (var groupRef in req.session.data.cropGroupsV5) {
+            if (req.session.data.cropGroupsV5[groupRef].reference == req.session.data.chosen_group.reference) {
+                req.session.data.cropGroupsV5[groupRef].planting_date = tempDate
+                console.log('Date ' + req.session.data.chosen_farm_crop_groups[groupRef].planting_date)
+            }
+        }
+    }
+    //reset temp vars
+    req.session.data.new_variety = null
+    req.session.data.new_planting_date_day = null
+    req.session.data.new_planting_date_month = null
+    req.session.data.new_planting_date_year = null
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 

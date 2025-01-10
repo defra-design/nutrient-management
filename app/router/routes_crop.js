@@ -5,6 +5,114 @@ var allFunctions = require('../functions/allFunctions.js');
 
 //Handlers
 
+router.get(/update_question_handler/, function (req, res) {
+    req.session.data.update_type = req.query.update_type
+    console.log(req.session.data.update_type)
+    var next
+    if (req.query.update_type == 'variety') {
+        next = 'variety'
+    }
+    if (req.query.update_type == 'date') {
+        next = 'date/date_question'
+    }
+    res.redirect(next)
+})
+
+router.get(/group_level_plan_v7_handler/, function (req, res) { 
+    req.session.data.chosen_group = req.query.groupref
+    //group.reference
+    req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.cropGroupsV5, req.query.groupref)
+    req.session.data.show_success_message = false    
+    console.log(req.session.data.chosen_group)
+    res.redirect('update/crop/change_crop')
+})
+
+router.get(/crop_group_update_v7_handler/, function (req, res) { 
+    req.session.data.show_success_message = true;
+    req.session.data.successMessage = 6;
+    if (req.session.data.update_type == 'date') {
+        //planting date update
+        var tempDate = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
+        for (var groupRef in req.session.data.cropGroupsV5) {
+            if (req.session.data.cropGroupsV5[groupRef].reference == req.session.data.chosen_group.reference) {
+                req.session.data.cropGroupsV5[groupRef].planting_date = tempDate
+                console.log('Date ' + req.session.data.chosen_farm_crop_groups[groupRef].planting_date)
+            }
+        }
+    }
+    if (req.session.data.update_type == 'variety') {
+        //variety update
+        for (var groupRef in req.session.data.cropGroupsV5) {
+            if (req.session.data.cropGroupsV5[groupRef].reference == req.session.data.chosen_group.reference) {
+                req.session.data.cropGroupsV5[groupRef].variety = req.session.data.new_variety
+            }
+        }
+    }
+    //reset temp vars
+    req.session.data.new_variety = null
+    req.session.data.new_planting_date_day = null
+    req.session.data.new_planting_date_month = null
+    req.session.data.new_planting_date_year = null
+    res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+})
+
+router.get(/crop_group_update_v6_handler/, function (req, res) { 
+    req.session.data.show_success_message = true;
+    req.session.data.successMessage = 6;
+    console.log('reference ' + req.session.data.chosen_group.reference)
+    // console.log(req.session.data.chosen_group)
+    if (req.session.data.update_type == 'variety') {
+        //variety update
+        for (var groupRef in req.session.data.chosen_farm_crop_groups) {
+            if (req.session.data.chosen_farm_crop_groups[groupRef].reference == req.session.data.chosen_group.reference) {
+                req.session.data.chosen_farm_crop_groups[groupRef].variety = req.session.data.new_variety
+            }
+        }
+    }
+    if (req.session.data.update_type == 'date') {
+        //planting date update
+        var tempDate = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
+        for (var groupRef in req.session.data.chosen_farm_crop_groups) {
+            if (req.session.data.chosen_farm_crop_groups[groupRef].reference == req.session.data.chosen_group.reference) {
+                req.session.data.chosen_farm_crop_groups[groupRef].planting_date = tempDate
+                console.log('Date ' + req.session.data.chosen_farm_crop_groups[groupRef].planting_date)
+            }
+        }
+    }
+    //reset temp vars
+    req.session.data.new_variety = null
+    req.session.data.new_planting_date_day = null
+    req.session.data.new_planting_date_month = null
+    req.session.data.new_planting_date_year = null
+    res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+})
+
+router.get(/cropfield_update_handler/, function (req, res) { 
+    req.session.data.show_success_message = true;
+    req.session.data.successMessage = 6;
+    // console.log('reference' + req.session.data.chosen_group.reference)
+    // console.log(req.session.data.chosen_group)
+    
+    //variety update
+    for (var x in req.session.data.chosen_farm_fields) {
+        if (data.chosen_field.reference == req.session.data.chosen_farm_fields[x].reference) {
+            req.session.data.chosen_farm_fields[x].variety = ""
+        }
+    }
+    
+    //planting date update
+    for (var x in req.session.data.cropGroupsV5) {
+        if (req.session.data.cropGroupsV5[x].reference == req.session.data.chosen_group.reference ) {
+            req.session.data.cropGroupsV5[x].planting_date = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
+            // console.log('date' + req.session.data.cropGroupsV5[x].planting_date)
+        }
+    }
+    //reset temp vars
+    req.session.data.new_variety = null
+    req.session.data.new_planting_date_day, req.session.data.new_planting_date_month, req.session.data.new_planting_date_year = null
+    res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+})
+
 router.get(/cover_handler/, function (req, res) { 
     req.session.data.crop_group_2024.secondCropFields = []
     for (var x in req.session.data.cover_fields) {

@@ -18,34 +18,46 @@
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
     <h1 class="govuk-heading-l">
-      Change an organic manure application
+      Update an organic material application for harvest year 2025
     </h1>
+
+    <div class="govuk-inset-text margin-bottom-forty">
+      <p class="govuk-body">
+        Changes here will be applied to this organic material application for all of these fields. 
+        <!-- To change a single application select it from your crop plan. <a href="../../plan_view">View the 2025 crop plan </a>-->
+      </p>
+    </div>
 
     <div class="check-answers">
       <dl class="govuk-summary-list margin-bottom-forty">
 
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Fields included in this application</dt>
+          <dt class="govuk-summary-list__key">
+            Which fields would you like to plan an organic material application for?
+          </dt>
           <dd class="govuk-summary-list__value">
-            Long Field<br>
-            Barn Field<br>
-            Orchard<br>
-            Valley<br>
-            Poplar<br>
+            Poplar
           </dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
       
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Organic material</dt>
-          <dd class="govuk-summary-list__value">{{data.manure_type.name}}</dd>
+          <dt class="govuk-summary-list__key">
+            What type of organic material do you plan to use in this application?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data.manure_type.name}}</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
         
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">When do you plan to spread organic manure</dt>
+          <dt class="govuk-summary-list__key">When do you first plan to spread organic material on the fields?</dt>
           <dd class="govuk-summary-list__value">
-          <p class="govuk-body">30 August 2025</p>
+            <p class="govuk-body">
+                {{data.manure_date_day}}
+                {{data.manure_date_month | convertmonth}}
+                {{data.manure_date_year}} 
+            </p>
           </dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
@@ -58,18 +70,18 @@
         
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">How would you like to calculate the amount of manure used?</dt>
-          <dd class="govuk-summary-list__value">Use the standard application rate of 40 tonnes per hectare</dd>
+          <dd class="govuk-summary-list__value">Use the standard application rate of 30 tonnes per hectare</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
         
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Incorporation method</dt>
+          <dt class="govuk-summary-list__key">How will the manure be incorporated?</dt>
           <dd class="govuk-summary-list__value">Discs</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
         
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Number of days before incorporation</dt>
+          <dt class="govuk-summary-list__key">How many days will there be before the manure is incorporated?</dt>
           <dd class="govuk-summary-list__value">1 to 2 days</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
@@ -108,14 +120,49 @@
           <dt class="govuk-summary-list__key">Topsoil moisture</dt>
           <dd class="govuk-summary-list__value">Moist</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-        </div>      
+        </div>
+        
+        <!-- <div class="govuk-summary-list__row">
+          
+          <dt class="govuk-summary-list__key">Do you want to add this {{data.content.organic_term | lower}} to 
+            {% if data.manure_journey == 'multi' %}
+              these fields
+            {% else %}
+              {{data.chosen_field.name}}
+            {% endif %}
+            again, in the same way? 
+          </dt>
       
-      </dl>    
-    </div>
+          {% if data.manure_count == 0 %}
+            <dd class="govuk-summary-list__value">No</dd>
+          {% else %}
+            <dd class="govuk-summary-list__value">Yes</dd>
+          {% endif %}
+      
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div> -->
+      
+        {% if data.manure_count != 0 %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">When will you next apply {{data.manure_type}} to these fields?</dt>
+            <dd class="govuk-summary-list__value">30 August 2024</dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          </div>
+          {% endif %}
+      
+      </dl>    </div>
 
-    <form action="version5_manure_update_handler" method="post" novalidate>
+    <!-- <br> -->
+    <!-- <h2 class="govuk-heading-m">
+      These values are based on your {{data.content.organic_term | lower }} choices
+    </h2>
+    <div class="check-answers">
+      {% include "./check_manure_values.html" ignore missing %}
+    </div> -->
+
+    <form action="version5_manure_handler" method="post" novalidate>
       {{ govukButton({
-        text: "Update"
+        text: "Add to plan"
       }) }}
     </form>
     <p class="govuk-body">

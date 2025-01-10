@@ -494,7 +494,7 @@ router.get(/fertiliser_type_handler_v2/, function (req, res) {
 router.get(/field-select-handler/, function (req, res) { 
     req.session.data.show_success_message = false
     req.session.data.chosen_field = req.query.chosen_field
-    res.redirect('field-details')
+    res.redirect('/'+ req.session.data.prototype_version + '/farm/field/field-details')
 })
 
 //update soil

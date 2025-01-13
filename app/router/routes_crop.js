@@ -24,7 +24,12 @@ router.get(/group_level_plan_v7_handler/, function (req, res) {
     req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.cropGroupsV5, req.query.groupref)
     req.session.data.show_success_message = false    
     console.log(req.session.data.chosen_group)
-    res.redirect('update/crop/change_crop')
+    var next = 'update/crop/change_crop'
+    console.log(req.session.data.chosen_group.crop_reference)
+    if (req.session.data.chosen_group.crop_reference == 'grass') {
+        next = 'update/grass/change_grass'
+    }
+    res.redirect(next)
 })
 
 router.get(/crop_group_update_v7_handler/, function (req, res) { 

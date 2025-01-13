@@ -20,17 +20,13 @@
 
       <h1 class="govuk-heading-l">
         Do you have a date for when you planted your
-        <!-- {% if data.crop_group == 'potatoes' %}
-          planted
-        {% else %}
-          sown
-        {% endif %} -->
-        {{data.chosen_crop | nameconverter}}, or when you will plant it?
+        {{data.chosen_group.crop_reference | nameconverter}}
+        or when you will plant it?
       </h1>
 
       <p>You can add or change a planting date later.</p>
 
-      <form class="form" action="sowdate_value_router" method="post">
+      <form class="form" action="date_value" method="post">
 
         <div class="govuk-form-group">
 

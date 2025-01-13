@@ -27,7 +27,7 @@ router.get(/group_level_plan_v7_handler/, function (req, res) {
     var next = 'update/crop/change_crop'
     console.log(req.session.data.chosen_group.crop_reference)
     if (req.session.data.chosen_group.crop_reference == 'grass') {
-        next = 'update/grass/change_grass'
+        next = 'update/grass/change_crop'
     }
     res.redirect(next)
 })
@@ -186,7 +186,7 @@ router.get(/groupname_handler/, function (req, res) {
         req.session.data.groupname = 'Crop group ' + newRef
     }
     if (req.session.data.chosen_crop != 'grass') {
-        res.redirect('sowdate_question')
+        res.redirect('variety')
     } else {
         res.redirect('grass/current_sward')
     }
@@ -205,7 +205,7 @@ router.get(/mvp_crop_handler/, function (req, res) {
             req.session.data.chosen_crop = 'Winter Wheat'
         }
     }
-    res.redirect('variety')
+    res.redirect('fields')
 })
 
 //potatoes
@@ -226,7 +226,7 @@ router.get(/variety_handler/, function (req, res) {
         }
         req.session.data.chosen_crop = req.session.data.variety + " potato"
     } 
-    res.redirect('fields')
+    res.redirect('sowdate_question')
 })
 
 
@@ -315,7 +315,19 @@ router.get(/yield_handler/, function (req, res) {
 })
 
 router.get(/sowdate_value_router/, function (req, res) { 
-    var next = (req.session.data.sow_option_one != 'no') ? 'sowdate_value' : 'yield_question';
+    if (req.session.data.crop_group != 'grass') {
+        if (req.session.data.sow_option_one != 'no') {
+            next = 'sowdate_value'
+        } else {
+            next = 'yield_question'
+        }
+    } else {
+        if (req.session.data.sow_option_one != 'no') {
+            next = 'sowdate_value'
+        } else {
+            next = 'sward_type'
+        }
+    }
     res.redirect(next);
 })
 

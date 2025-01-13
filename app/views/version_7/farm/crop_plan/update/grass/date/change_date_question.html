@@ -25,12 +25,12 @@
         {% else %}
           sown
         {% endif %} -->
-        {{data.chosen_crop | nameconverter}}, or when you will plant it?
+        {{data.chosen_group.crop_reference | nameconverter}}, or when you will plant it?
       </h1>
 
       <p>You can add or change a planting date later.</p>
 
-      <form class="form" action="sowdate_value_router" method="post">
+      <form class="form" action="change_date_value" method="post">
 
         <div class="govuk-form-group">
 

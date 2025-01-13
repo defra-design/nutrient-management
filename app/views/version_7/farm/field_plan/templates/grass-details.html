@@ -9,6 +9,28 @@
       {% endif %}
     </tr>    -->
     <tr class="govuk-table__row">
+      <td class="govuk-table__cell strong">Group</td>
+        <td class="govuk-table__cell">{{data.chosen_group.groupname}}</td>
+    </tr>      
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell strong">Sward</td>
+        <td class="govuk-table__cell">Spring sown (April to June)</td>
+    </tr>  
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell strong">Planting date</td>
+        <td class="govuk-table__cell">
+          {% if data.chosen_group.planting_date == null %}
+            Not entered
+          {% else %}
+            {{data.chosen_group.planting_date}}
+        {% endif %}
+      </td>
+    </tr>   
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell strong">Sward type</td>
+        <td class="govuk-table__cell">Grass</td>
+    </tr>                 
+    <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Management</td>
       <td class="govuk-table__cell">Grazing and Hay</td>
     </tr>         

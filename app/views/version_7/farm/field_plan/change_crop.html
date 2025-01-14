@@ -1,0 +1,128 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+View or update a group's crop information – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    
+    <h1 class="govuk-heading-l">
+      Update the {{data.chosen_group.crop | nameconverter}} details for {{data.chosen_field.name}} 
+    </h1>
+
+    <div class="govuk-inset-text margin-bottom-forty">
+      <p class="govuk-body">
+        Changes here will be applied to {{data.chosen_field.name}} only. To change multiple fields at once you can <a href="../crop_plan/change_crop">update this crop group</a>.
+      </p>
+    </div>
+
+    <div class="check-answers">
+
+      <dl class="govuk-summary-list">     
+        <!-- <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the crop group?</dt>
+          <dd class="govuk-summary-list__value">
+            {% if data.chosen_crop_group == "arable-other" %}
+            Arable, other
+            {% else %}
+            {{data.chosen_crop_group | capitalize}}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+ -->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the crop type?</dt>
+          <dd class="govuk-summary-list__value">{{data.chosen_group.crop_reference | nameconverter}}</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the variety name (optional)?</dt>
+          <dd class="govuk-summary-list__value">   
+            {% if  data.new_variety != null %}
+              {{data.new_variety}}
+            {% else %}
+              {% if data.chosen_group.variety.length > 0 %}
+                {{data.chosen_group.variety}}
+              {% else %}
+                Not entered
+              {% endif %}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="updates/variety">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Do you have a date for when you planted your {{data.chosen_group.crop | nameconverter}}, or when you will plant it?</dt>
+          <dd class="govuk-summary-list__value">
+            {% if data.chosen_group.planting_date == null %}
+              Not entered
+            {% else %}
+              {{data.chosen_group.planting_date}}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="change_date_question">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How do you want to enter the expected yield?</dt>
+          <dd class="govuk-summary-list__value">8 tonnes per hectare</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+
+        {% if data.chosen_group.crop == 'Wheat-Winter' %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">How do you plan to use the crop?</dt>
+            <dd class="govuk-summary-list__value">Milling</dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">How do you plan to use the straw?</dt>
+            <dd class="govuk-summary-list__value">Baled</dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          </div>
+
+        {% endif %}
+
+      </dl>    
+    </div>
+    
+    {% if data.plan_type == 'previous' %}
+    <br>
+    <h2 class="govuk-heading-m">
+      {{data.content.organic_term | capitalize }}
+    </h2>
+    <div class="check-answers">
+      {% include "./add_manure/check_manure.html" %}
+    </div>
+    {% endif %}
+
+    <p class="govuk-body margin-bottom-forty">You can also <a href="">remove {{data.chosen_group.crop_reference | nameconverter}} from {{data.chosen_field.name}} in 2025</a>.</p>
+
+
+    <form action="cropfield_update_handler" method="post" novalidate>
+      {{ govukButton({
+        text: "Update this field"
+      }) }}
+    </form>
+    <p class="govuk-body">
+      <a href="field_plan">Cancel</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

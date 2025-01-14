@@ -92,7 +92,7 @@ router.get(/crop_group_update_v6_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 
-router.get(/cropfield_update_handler/, function (req, res) { 
+router.get(/cropfield_update_handler/, function (req, res) {
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 6;
     // console.log('reference' + req.session.data.chosen_group.reference)

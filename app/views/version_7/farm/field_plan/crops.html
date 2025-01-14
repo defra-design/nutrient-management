@@ -20,7 +20,7 @@
     {% else %}
       {% include "./templates/grass-details.html" ignore missing %}
     {% endif %}
-    <p class="govuk-body"><a href="#">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
+    <p class="govuk-body"><a href="change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
     <p class="govuk-body"><a href="field-select-handler?chosen_field={{data.chosen_field.name}}">View field and soil analysis information for {{data.chosen_field.name}}</a></p>
   </div>
 
@@ -57,7 +57,7 @@
       {% else %}
         {% include "./templates/grass-details.html" ignore missing %}
       {% endif %}
-      <p class="govuk-body"><a href="#">Change the {{second_crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
+      <p class="govuk-body"><a href="change_crop">Change the {{second_crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
     </div>
 {% endif %}
 

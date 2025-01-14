@@ -99,22 +99,21 @@ router.get(/cropfield_update_handler/, function (req, res) {
     // console.log(req.session.data.chosen_group)
     
     //variety update
-    for (var x in req.session.data.chosen_farm_fields) {
-        if (data.chosen_field.reference == req.session.data.chosen_farm_fields[x].reference) {
-            req.session.data.chosen_farm_fields[x].variety = ""
-        }
-    }
-    
-    //planting date update
-    for (var x in req.session.data.cropGroupsV5) {
-        if (req.session.data.cropGroupsV5[x].reference == req.session.data.chosen_group.reference ) {
-            req.session.data.cropGroupsV5[x].planting_date = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
-            // console.log('date' + req.session.data.cropGroupsV5[x].planting_date)
-        }
-    }
-    //reset temp vars
-    req.session.data.new_variety = null
-    req.session.data.new_planting_date_day, req.session.data.new_planting_date_month, req.session.data.new_planting_date_year = null
+    // for (var x in req.session.data.chosen_farm_fields) {
+    //     if (data.chosen_field.reference == req.session.data.chosen_farm_fields[x].reference) {
+    //         req.session.data.chosen_farm_fields[x].variety = ""
+    //     }
+    // }
+    // //planting date update
+    // for (var x in req.session.data.cropGroupsV5) {
+    //     if (req.session.data.cropGroupsV5[x].reference == req.session.data.chosen_group.reference ) {
+    //         req.session.data.cropGroupsV5[x].planting_date = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
+    //         // console.log('date' + req.session.data.cropGroupsV5[x].planting_date)
+    //     }
+    // }
+    // //reset temp vars
+    // req.session.data.new_variety = null
+    // req.session.data.new_planting_date_day, req.session.data.new_planting_date_month, req.session.data.new_planting_date_year = null
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 

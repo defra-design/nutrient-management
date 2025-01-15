@@ -46,12 +46,25 @@ Excess winter rainfall – {{ serviceName }}
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Excess winter rainfall</th>
-              <td class="govuk-table__cell">0mm</td>
+              <td class="govuk-table__cell">
+                {% if data.oaktree_farm.ewr == null %}
+                Not entered
+                {% else %}
+                  {% if data.excess_rain == 'high' %}
+                    High (250mm or more)
+                  {% elif data.excess_rain == 'moderate' %}
+                    Moderate (150mm to 250mm)
+                  {% elif data.excess_rain == 'low' %}
+                    Low (less than 150mm)
+                  {% endif %}
+              {% endif %}
+      
+              </td>
             </tr>
-            <tr class="govuk-table__row">
+            <!-- <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Rainfall category</th>
               <td class="govuk-table__header">Moderate</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
 

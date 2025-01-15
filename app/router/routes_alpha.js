@@ -719,8 +719,8 @@ router.get(/change_cropgroup_v6_handler/, function (req, res) {
 router.get(/rainfall_update_handler/, function (req, res) { 
     req.session.data.show_success_message = true   
     req.session.data.successMessage = 12;
-    req.session.data.oaktree_farm.rainfall = req.session.data.rainfall
-    res.redirect('plan_view')
+    req.session.data.oaktree_farm.ewr = req.session.data.excess_rain
+    res.redirect('../../plan_view')
 })
 
 router.get(/update_variety/, function (req, res) {

@@ -34,7 +34,15 @@
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the excess winter rainfall for {{data.oaktree_farm.name}}?</dt>
-          <dd class="govuk-summary-list__value">Moderate - 150mm to 250mm</dd>
+          <dd class="govuk-summary-list__value">
+            {% if data.excess_rain == 'high' %}
+              High - 250mm or more
+            {% elif data.excess_rain == 'moderate' %}
+              Moderate - 150mm to 250mm
+            {% elif data.excess_rain == 'low' %}
+              Low - Less than 150mm
+            {% endif %}
+          </dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>    
       </dl>

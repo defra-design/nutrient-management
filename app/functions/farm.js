@@ -9,7 +9,8 @@ latest_update,
 use_mvp_fields,
 setup,
 fields_added,
-rainfall
+rainfall,
+ewr
 
 ) {
     this.name = name,
@@ -23,6 +24,7 @@ rainfall
     this.setup = setup,
     this.fields_added = fields_added,
     this.rainfall = rainfall
+    this.ewr = ewr
   }
 
 Farm.prototype.printFarm = function () {
@@ -36,7 +38,8 @@ Farm.prototype.printFarm = function () {
                 this.use_mvp_fields + ", " +
                 this.setup + ", " +
                 this.fields_added + ", " +
-                this.rainfall)
+                this.rainfall + ", " +
+                this.ewr)
 };
 
 Farm.prototype.reset = function () {
@@ -51,6 +54,7 @@ Farm.prototype.reset = function () {
     this.setup = false,
     this.fields_added = false
     this.rainfall = 600
+    this.ewr = null
 };
 
 function createFarm() {

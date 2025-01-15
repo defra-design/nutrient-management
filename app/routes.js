@@ -6,6 +6,7 @@ const  router = govukPrototypeKit.requests.setupRouter()
 var betahouse = require('./data/betahouse_farm_details.json');
 var betahouse_fields = require('./data/betahouse_field_list.json');
 let betahouse_crop_groups = require('./data/betahouse_crop_groups.json');
+let farm = require('./functions/farm.js');
 // for (var field in betahouse.field_references) {
 //   for (var fielddata in betahouse_fields) {
 //     if (betahouse.field_references[field] == betahouse_fields[fielddata].reference) {
@@ -15,73 +16,13 @@ let betahouse_crop_groups = require('./data/betahouse_crop_groups.json');
 // }
 //
 
-function Farm (
-name,
-postcode,
-planning_year,
-nvz,
-elevation,
-organic_producer,
-latest_update,
-use_mvp_fields,
-setup,
-fields_added,
-rainfall
-
-) {
-    this.name = name,
-    this.postcode = postcode,
-    this.planning_year = planning_year,
-    this.nvz = nvz,
-    this.elevation = elevation,
-    this.organic_producer = organic_producer,
-    this.latest_update = latest_update,
-    this.use_mvp_fields = use_mvp_fields,
-    this.setup = setup,
-    this.fields_added = fields_added,
-    this.rainfall = rainfall
-  }
-
-Farm.prototype.printFarm = function () {
-  console.log(  this.name + ", " +
-                this.postcode + ", " +
-                this.planning_year + ", " +
-                this.nvz + ", " +
-                this.elevation + ", " +
-                this.organic_producer + ", " +
-                this.latest_update + ", " +
-                this.use_mvp_fields + ", " +
-                this.setup + ", " +
-                this.fields_added + ", " +
-                this.rainfall)
-};
-
-Farm.prototype.reset = function () {
-    this.name = null,
-    this.postcode = null,
-    this.planning_year = 2023,
-    this.nvz = false,
-    this.elevation = false,
-    this.organic_producer = false,
-    this.latest_update = null,
-    this.use_mvp_fields = false,
-    this.setup = false,
-    this.fields_added = false
-    this.rainfall = 600
-};
-
-function createFarm() {
-  return new Farm();
-}
-
-
 ///////Misc
 var content = require('./content.js').content;
 var allFunctions = require('./functions/allFunctions.js');
 
 
 ///////Farm
-var oaktree_farm = createFarm();
+var oaktree_farm = farm.createFarm();
 // populate farm
 oaktree_farm.name = 'Oaktree Lane Farm';
 oaktree_farm.postcode = "NE46 7LQ";
@@ -95,6 +36,7 @@ oaktree_farm.setup = false;
 oaktree_farm.fields_added = false;
 oaktree_farm.plans_added = false;
 oaktree_farm.rainfall = 600;
+oaktree_farm.ewr = null;
 
 
 ///////fields
@@ -261,7 +203,6 @@ router.get('/', function (req, res) {
     req.session.data.betahouse_crop_groups = betahouse_crop_groups
     req.session.data.betahouse_fields = betahouse_fields
     
-
     req.session.data.new_variety = null
 
     req.session.data.chosen_farm = betahouse

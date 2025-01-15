@@ -21,12 +21,7 @@ Excess winter rainfall – {{ serviceName }}
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-l">
-          Rainfall category for 
-          {%if data.farm_postcode != ""%}
-            {{data.farm_name}}
-          {% else %}
-            NE46 7LQ
-          {% endif %}  
+          Rainfall category for {{data.oaktree_farm.name}}
         </h1>  
 
         <p class="govuk-body">Rainfall categories are estimated from the average annual rainfall, or excess winter rainfall when entered.</p>

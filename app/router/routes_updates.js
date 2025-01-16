@@ -13,9 +13,9 @@ router.get(/manure_update_handler/, function (req, res) {
 })
 
 router.get(/manure_update_v6_handler/, function (req, res) {
-    req.session.data.update_type = req.query.update_type
-    console.log(req.session.data.update_type)
-    var next = 'update/manure/fields'
+    req.session.data.show_success_message = true;
+    req.session.data.successMessage = 13;
+    var next = '../../plan_view'
     res.redirect(next)
 })
 

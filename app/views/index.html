@@ -18,7 +18,7 @@
       <div class="govuk-details__text">
       </div>
       </details> -->
-
+  
 
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
@@ -28,9 +28,28 @@
     <p id="textp">{{data.content.content_loaded}}</p>
 
     <div class="margin-bottom-forty">
+      <h2 class="govuk-heading-s">January research prototypes</h2>
+      <p class="govuk-body">
+        <a href="start_setup_handler?version=version_7" class="govuk-link">No farm set up</a>
+      </p>  
+      <p class="govuk-body">
+        <a href="end_to_end_setup_handler?version=version_7" class="govuk-link">Grass plan setup</a>
+      </p>  
+    </div>
+
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          All other prototypes
+        </span>
+      </summary>
+    
+  
+
+
+    <div class="margin-bottom-forty">
       <!-- <p class="govuk-body"><a href="new_setup_handler?version=version_6">Version 6 Plan</a></p> -->
       <!-- actualy version 7 -->
-
       <h2 class="govuk-heading-s">Version 6</h2>
       <p class="govuk-body">
         <a href="start_setup_handler?version=version_7" class="govuk-link">No farm set up</a>
@@ -262,5 +281,9 @@
                 <hr class="seperator_four">
               
 </div>
+
+</details>
+
 </div>
+
 {% endblock %}

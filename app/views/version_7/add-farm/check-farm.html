@@ -107,12 +107,12 @@
         text: "Are you a registered organic producer?"
       },
       value: {
-        text: data.organic_producer | convert_true_false
+        text: data.organic_producer | capitalize
       },
       actions: {
         items: [
           {
-            href: "organic",
+            href: "organic_producer",
             text: "Change",
             visuallyHiddenText: ""
           }

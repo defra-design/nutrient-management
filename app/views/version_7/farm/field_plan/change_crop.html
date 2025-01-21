@@ -24,7 +24,7 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
 
     <div class="govuk-inset-text margin-bottom-forty">
       <p class="govuk-body">
-        Changes here will be applied to {{data.chosen_field.name}} only. To change multiple fields at once you can <a href="../crop_plan/change_crop">update this crop group</a>.
+        Changes here will be applied to {{data.chosen_field.name}} only. To change multiple fields at once you can <a href="../crop_plan/update/crop/change_crop">update this crop group</a>.
       </p>
     </div>
 
@@ -49,24 +49,26 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">What is the variety name (optional)?</dt>
-          <dd class="govuk-summary-list__value">   
-            {% if  data.new_variety != null %}
-              {{data.new_variety}}
-            {% else %}
-              {% if data.chosen_group.variety.length > 0 %}
-                {{data.chosen_group.variety}}
+        {% if data.chosen_group.crop_reference != 'grass' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">What is the variety name (optional)?</dt>
+            <dd class="govuk-summary-list__value">   
+              {% if  data.new_variety != null %}
+                {{data.new_variety}}
               {% else %}
-                Not entered
+                {% if data.chosen_group.variety.length > 0 %}
+                  {{data.chosen_group.variety}}
+                {% else %}
+                  Not entered
+                {% endif %}
               {% endif %}
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="updates/variety">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-        </div>
-      
+            </dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="updates/crop/variety">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          </div>
+        {% endif %}
+
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Do you have a date for when you planted your {{data.chosen_group.crop | nameconverter}}, or when you will plant it?</dt>
+          <dt class="govuk-summary-list__key">Do you have a date for when you planted your {{data.chosen_group.crop_reference | nameconverter}}, or when you will plant it?</dt>
           <dd class="govuk-summary-list__value">
             {% if data.chosen_group.planting_date == null %}
               Not entered
@@ -74,7 +76,7 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
               {{data.chosen_group.planting_date}}
             {% endif %}
           </dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="change_date_question">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="updates/crop/date/change_date_value">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
       
         <div class="govuk-summary-list__row">

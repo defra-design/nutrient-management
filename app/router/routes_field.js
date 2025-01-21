@@ -29,6 +29,12 @@ router.get(/set_tempField_data/, function (req, res) {
     if (req.session.data.soiltype == null || req.session.data.soiltype == "" ) {
         req.session.data.soiltype = 'Medium'
     }
+    if (req.session.data.field_nvz == null || req.session.data.field_nvz == "" ) {
+        req.session.data.field_nvz = 'Yes'
+    }
+    if (req.session.data.field_alt == null || req.session.data.field_alt == "" ) {
+        req.session.data.field_alt = 'No'
+    }
     res.redirect('check');
 })
 
@@ -44,6 +50,8 @@ router.get(/add_field_handler/, function (req, res) {
     req.session.data.cropped_area = null
     req.session.data.non_spreading_area = null
     req.session.data.soiltype = null
+    req.session.data.field_nvz = null
+    req.session.data.field_alt = null
     res.redirect('/'+ req.session.data.prototype_version +'/farm/field/manage-fields');
 })
 

@@ -17,7 +17,7 @@
     Field area
   </dt>
   <dd class="govuk-summary-list__value">
-    19.5 hectares
+    {{data.total_area}} hectares
   </dd>
   <dd class="govuk-summary-list__actions">
     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"></span></a>
@@ -29,7 +29,7 @@
     Cropped area
   </dt>
   <dd class="govuk-summary-list__value">
-    19 hectares
+    {{data.cropped_area}} hectares
   </dd>
   <dd class="govuk-summary-list__actions">
     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"></span></a>
@@ -41,13 +41,12 @@
     Manure non-spreading area
   </dt>
   <dd class="govuk-summary-list__value">
-    0.5 hectares
+    {{data.non_spreading_area}} hectares
   </dd>
   <dd class="govuk-summary-list__actions">
     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"></span></a>
   </dd>
 </div>
-
 
 <!-- NVZ and Elevation -->
 {% if data.oaktree_farm.nvz == "some" %}

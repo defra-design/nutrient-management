@@ -16,17 +16,30 @@ router.get(/set_field_name_handler/, function (req, res) {
     res.redirect('./area');
 })
 
+router.get(/set_tempField_data/, function (req, res) { 
+    if (req.session.data.total_area == null || req.session.data.total_area == "" ) {
+        req.session.data.total_area = '19'
+    }
+    if (req.session.data.cropped_area == null || req.session.data.cropped_area == "" ) {
+        req.session.data.cropped_area = '17'
+    }
+    if (req.session.data.non_spreading_area == null || req.session.data.non_spreading_area == "" ) {
+        req.session.data.non_spreading_area = '2'
+    }
+    res.redirect('check');
+})
+
+
 //add field
 router.get(/add_field_handler/, function (req, res) { 
     req.session.data.oaktree_farm.latest_update = 'field_added';
     req.session.data.oaktree_farm.fields_added = true;
     req.session.data.show_success_message = true;
     req.session.data.all_fields.push(req.session.data.tempField);
-
-    req.session.data.plan_2023.setup = true;
-    req.session.data.plan_2023.firstCropReference = 'Wheat-Winter';
-    req.session.data.plan_2023.firstFieldReferences.push(req.session.data.tempField.reference);
-    req.session.data.plan_2023.firstFields = req.session.data.all_fields;
+    //reset temp vars
+    req.session.data.total_area = null
+    req.session.data.cropped_area = null
+    req.session.data.non_spreading_area = null
     res.redirect('/'+ req.session.data.prototype_version +'/farm/field/manage-fields');
 })
 
@@ -110,7 +123,7 @@ router.get(/sns_router/, function (req, res) {
 })
 
 router.get(/sns_v3_router/, function (req, res) { 
-    var next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'check';
+    var next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'set_tempField_data';
     res.redirect(next);
 })
 

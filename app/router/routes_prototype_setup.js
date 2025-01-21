@@ -126,7 +126,7 @@ router.get(/twoveg_setup_handler/, function (req, res) {
 router.get(/onecrop_v5_setup_handler/, function (req, res) { 
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
     req.session.data.all_fields = req.session.data.field_list_mvp
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', null))
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
 })
@@ -134,8 +134,8 @@ router.get(/onecrop_v5_setup_handler/, function (req, res) {
 router.get(/twocrops_v5_setup_handler/, function (req, res) { 
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
     req.session.data.all_fields = req.session.data.field_list_mvp
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Carrots', null, 'Crop group 1', null))
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(2, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, 'Beetroot', null, 'Crop group 2', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Carrots', null, 'Crop group 1', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(2, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, 'Beetroot', null, 'Crop group 2', null))
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
 })
@@ -146,9 +146,9 @@ router.get(/end_to_end_setup_handler/, function (req, res) {
     var fieldTwo = {name: "Short Field",reference: 2,nvz: true,elevation: false};
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [1,2], req.session.data.all_fields, 'grass', null, 'Crop group 1', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2], req.session.data.all_fields, 'grass', null, 'Crop group 1', null))
     var fertiliser_fields = req.session.data.all_fields
-    var applicationOne = allFunctions.addFertiliserApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, 1, '01/03/2023', 60, 30, 30, 0, 0)
+    var applicationOne = allFunctions.addFertiliserApplication_v2 (req.session.data.all_fields, req.session.data.allCropGroups, 1, '01/03/2023', 60, 30, 30, 0, 0)
     req.session.data.allFertiliserApplications.push(applicationOne)
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
@@ -167,24 +167,24 @@ router.get(/end_to_end_field_handler/, function (req, res) {
 router.get(/twocropsandmanures_v5_setup_handler/, function (req, res) { 
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
     req.session.data.all_fields = req.session.data.field_list_mvp
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Carrots', 'Nantes', 'Harvest 1', null))
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(2, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, 'Carotts', 'Nantes', 'Harvest 2', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Carrots', 'Nantes', 'Harvest 1', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(2, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, 'Carotts', 'Nantes', 'Harvest 2', null))
     var manureType = 'Cattle Farmyard manure - Old'
     var manure_fields = [1,2,3,4,5]
     var manureDate = '10 September 2024'
     for (var x in manure_fields) {
-        var applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, manure_fields[x], manureDate, manureType)
+        var applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.allCropGroups, manure_fields[x], manureDate, manureType)
         req.session.data.allManureApplications_v2.push(applicationGroup)
     }
-    req.session.data.allManureApplications.push(allFunctions.addManureApplication (req.session.data.allManureApplications, req.session.data.cropGroupsV5, [1], false, 'Nitrogen (N)', '1 March 2024'))
+    req.session.data.allManureApplications.push(allFunctions.addManureApplication (req.session.data.allManureApplications, req.session.data.allCropGroups, [1], false, 'Nitrogen (N)', '1 March 2024'))
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
 })
 
 router.get(/grass_v5_setup_handler/, function (req, res) { 
-    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'grass', req.session.data.cropGroupsV5)
+    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'grass', req.session.data.allCropGroups)
     req.session.data.all_fields = req.session.data.field_list_mvp
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'grass', null, 'Crop group 1', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'grass', null, 'Crop group 1', null))
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
 })
@@ -192,15 +192,15 @@ router.get(/grass_v5_setup_handler/, function (req, res) {
 router.get(/manure_v5_setup_handler/, function (req, res) { 
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'fertilisers')
     req.session.data.all_fields = req.session.data.field_list_mvp
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', null))
     var manureType = 'Cattle Farmyard manure - Old'
     var manure_fields = [1,2,3,4,5]
     var manureDate = '10 September 2024'
     for (var x in manure_fields) {
-        var applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, manure_fields[x], manureDate, manureType)
+        var applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.allCropGroups, manure_fields[x], manureDate, manureType)
         req.session.data.allManureApplications_v2.push(applicationGroup)
     }
-    req.session.data.allManureApplications.push(allFunctions.addManureApplication (req.session.data.allManureApplications, req.session.data.cropGroupsV5, [1], false, 'Nitrogen (N)', '1 March 2024'))
+    req.session.data.allManureApplications.push(allFunctions.addManureApplication (req.session.data.allManureApplications, req.session.data.allCropGroups, [1], false, 'Nitrogen (N)', '1 March 2024'))
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
 })
@@ -208,13 +208,13 @@ router.get(/manure_v5_setup_handler/, function (req, res) {
 router.get(/add_fertiliser_setup/, function (req, res) { 
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'manures')
     req.session.data.all_fields = req.session.data.field_list_mvp
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', null))
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(2, 2024, [11,12,13,14,15,16,17,18,19,20], req.session.data.all_fields, 'grass', null, 'Crop group 2', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(2, 2024, [11,12,13,14,15,16,17,18,19,20], req.session.data.all_fields, 'grass', null, 'Crop group 2', null))
     var manureType = 'Cattle Farmyard manure - Old'
     var manure_fields = [1,2,3,4,5]
     var manureDate = '10 September 2024'
     for (var x in manure_fields) {
-        var applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, manure_fields[x], manureDate, manureType)
+        var applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.allCropGroups, manure_fields[x], manureDate, manureType)
         req.session.data.allManureApplications_v2.push(applicationGroup)
     }
     req.session.data.prototype_version = req.query.version
@@ -224,13 +224,13 @@ router.get(/add_fertiliser_setup/, function (req, res) {
 router.get(/add_fertiliser_v5_setup/, function (req, res) { 
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'manures')
     req.session.data.all_fields = req.session.data.field_list_mvp
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', null))
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(2, 2024, [11,12,13,14,15,16,17,18,19,20], req.session.data.all_fields, 'grass', null, 'Crop group 2', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(2, 2024, [11,12,13,14,15,16,17,18,19,20], req.session.data.all_fields, 'grass', null, 'Crop group 2', null))
     var manureType = 'Cattle Farmyard manure - Old'
     var manure_fields = [1,2,3,4,5]
     var manureDate = '10 September 2024'
     for (var x in manure_fields) {
-        var applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.cropGroupsV5, manure_fields[x], manureDate, manureType)
+        var applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.allCropGroups, manure_fields[x], manureDate, manureType)
         req.session.data.allManureApplications_v2.push(applicationGroup)
     }
     req.session.data.prototype_version = req.query.version
@@ -240,9 +240,9 @@ router.get(/add_fertiliser_v5_setup/, function (req, res) {
 router.get(/newmanure_setup/, function (req, res) { 
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'fertilisers')
     req.session.data.all_fields = req.session.data.field_list_mvp
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Crop group 1', null))
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(2, 2024, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 2', null))
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(3, 2024, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(1, 2024, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Crop group 1', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(2, 2024, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 2', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(3, 2024, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', null))
     
     for (var x in req.session.data.fertiliser_applications_list) {
         req.session.data.allFertiliserApplications.push(req.session.data.fertiliser_applications_list[x])
@@ -259,9 +259,9 @@ router.get(/plan_setup/, function (req, res) {
     // function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, group, date) {
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'fertilisers')
     req.session.data.all_fields = req.session.data.field_list_mvp
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(1, 2024, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Crop group 1', null))
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(2, 2024, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 2', "12/03/2025"))
-    req.session.data.cropGroupsV5.push(allFunctions.createCropGroup(3, 2024, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(1, 2024, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Crop group 1', null))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(2, 2024, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 2', "12/03/2025"))
+    req.session.data.allCropGroups.push(allFunctions.createCropGroup(3, 2024, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', null))
     
     for (var x in req.session.data.fertiliser_applications_list) {
         req.session.data.allFertiliserApplications.push(req.session.data.fertiliser_applications_list[x])

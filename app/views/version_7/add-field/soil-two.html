@@ -20,7 +20,7 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-      {% if data.soiltype == "clay" or data.soiltype == "shallow" %}
+      {% if data.soiltype == "Deep clay" or data.soiltype == "Shallow" %}
         <h1 class="govuk-heading-l">About the soil in {{data.temp_field_name}}</h1>
       {% else %}
         <h1 class="govuk-heading-l">Is sulphur(S) deficiency expected in the soil?</h1>
@@ -28,7 +28,7 @@
 
       <form action="add_analysis" method="post" novalidate="">
 
-        {% if data.soiltype == "clay" or data.soiltype == "shallow" %}
+        {% if data.soiltype == "Deep clay" or data.soiltype == "Shallow" %}
 
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
@@ -48,11 +48,11 @@
 
         {% endif %}
 
-        {% if data.soiltype == "clay" %}
+        {% if data.soiltype == "Deep clay" %}
 
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
-              <label class="govuk-label" for="potassium">Is the soil a potash releasing clay?</label>
+              <label class="govuk-label" for="potassium">Is the soil a potash releasing Deep clay?</label>
               <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
                 <div class="govuk-radios__item margin-bottom-none">
                   <input class="govuk-radios__input" id="potassium" name="potassium" type="radio" value="yes">
@@ -66,7 +66,7 @@
             </fieldset>
           </div>
 
-        {% elif data.soiltype == "shallow" %}
+        {% elif data.soiltype == "Shallow" %}
 
           <div class="govuk-form-group margin-bottom-forty">
             <fieldset class="govuk-fieldset">

@@ -16,7 +16,7 @@ router.get(/set_field_name_handler/, function (req, res) {
     res.redirect('./area');
 })
 
-router.get(/set_tempField_data/, function (req, res) { 
+router.get(/set_tempField_data_handler/, function (req, res) { 
     if (req.session.data.total_area == null || req.session.data.total_area == "" ) {
         req.session.data.total_area = '19'
     }
@@ -35,7 +35,8 @@ router.get(/set_tempField_data/, function (req, res) {
     if (req.session.data.field_alt == null || req.session.data.field_alt == "" ) {
         req.session.data.field_alt = 'No'
     }
-    res.redirect('check');
+    var next = '/'+ req.session.data.prototype_version +'/add-field/check'
+    res.redirect(next);
 })
 
 
@@ -45,6 +46,7 @@ router.get(/add_field_handler/, function (req, res) {
     req.session.data.oaktree_farm.fields_added = true;
     req.session.data.show_success_message = true;
     req.session.data.all_fields.push(req.session.data.tempField);
+    console.log(req.session.data.tempField)
     //reset temp vars
     req.session.data.total_area = null
     req.session.data.cropped_area = null
@@ -135,7 +137,7 @@ router.get(/sns_router/, function (req, res) {
 })
 
 router.get(/sns_v3_router/, function (req, res) { 
-    var next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'set_tempField_data';
+    var next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'set_tempField_data_handler';
     res.redirect(next);
 })
 

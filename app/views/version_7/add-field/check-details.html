@@ -55,7 +55,7 @@
       Is this field within an NVZ?
     </dt>
     <dd class="govuk-summary-list__value">
-      {{data.field_nvz}}
+      {{data.field_nvz | capitalize}} 
     </dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"></span></a>
@@ -69,7 +69,7 @@
       Is this field above 300 meters?
     </dt>
     <dd class="govuk-summary-list__value">
-      {{data.field_alt}}
+      {{data.field_alt | capitalize}}
     </dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"></span></a>
@@ -91,18 +91,33 @@
   </dd>
 </div>
 
+{% if data.soiltype == "Deep Clay" %}
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Does {{data.temp_field_name}} contain potash releasing clay?
+    </dt>
+    <dd class="govuk-summary-list__value">
+      No
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"></span></a>
+    </dd>
+  </div>
+{% endif %}
+
 <div class="govuk-summary-list__row">
   <dt class="govuk-summary-list__key">
-    Does {{data.temp_field_name}} contain potash releasing clay?
+    Do you want to add a soil analysis for {{data.temp_field_name}}?
   </dt>
   <dd class="govuk-summary-list__value">
-    No
+    {{data.soilanalysis | capitalize}}
   </dd>
   <dd class="govuk-summary-list__actions">
     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"></span></a>
   </dd>
 </div>
-  
+
+{% if data.soilanalysis == "yes" %}
 <div class="govuk-summary-list__row">
   <dt class="govuk-summary-list__key">
     When was the soil analysis sample taken?
@@ -116,7 +131,7 @@
 </div>
 
 <!-- values -->
-  <!-- {% if data.add_values == "add_values_index" %} -->
+  {% if data.add_values == "add_values_index" %}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">
         How would you like to enter your values?
@@ -165,7 +180,7 @@
       </dd>
     </div>
     
-  <!-- {% else %}
+  {% else %}
   
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
@@ -215,5 +230,20 @@
     </dd>
   </div>
 
-  {% endif %} -->
+  {% endif %}
+  
+  {% endif %}
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Has {{data.temp_field_name}} been used for grass in any of the the last 3 years?
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{data.use_2023 | capitalize}}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"></span></a>
+    </dd>
+  </div>
+  
   

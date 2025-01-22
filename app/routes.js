@@ -46,8 +46,17 @@ var all_fields = [];
 var tempField = {
     name: "Short Field",
     reference: "shortfield",
+    // total_area: 10,
+    // crop_area: 8,
+    // non_spread_area: 2,
     nvz: false,
     elevation: false
+    // soil: 'Medium',
+    // sulphur: true,
+    // analysis :false,
+    // grass: true,
+    // crop: 'winter-wheat',
+    // sns: false
 };
 
 //applications

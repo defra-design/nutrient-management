@@ -20,10 +20,17 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l">Do you want to add a soil analysis for {{data.temp_field_name}}?</h1>
-          <p class="govuk-hint">You should get a soil analysis at least every five years.</p>
-          <p class="govuk-hint">We need a soil analysis from the last five years to give the most accurate recommendations. Without this, any recommendations we give will be based on the RB209 default values instead.
-          <p class="govuk-hint">You can enter your soil analysis later.</p>
+      <h1 class="govuk-heading-l">
+        Do you want to add a soil analysis for {{data.temp_field_name}}?
+      </h1>
+        
+      <p class="govuk-body">
+        You should sample the soil from your fields every 3 to 4 years.
+      </p>
+
+      <p class="govuk-body">
+        If you do not enter a soil analysis, or if your most recent soil analysis is more than 5 years old, any recommendations we give will be based on the target soil pH and nutrient indices for your crop, which may not be accurate for your soil or crop.
+      </p>
 
       <form action="analysis_option_router" method="post" novalidate="">
 

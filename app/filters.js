@@ -38,6 +38,33 @@ addFilter('nameconverter', function (crop_name) {
     return crop_name
 })
 
+addFilter('cropgroupconverter', function (group_name) {
+    if (group_name == 'cereals') {
+        group_name = 'Arable cereals';
+    } else if (group_name == 'arable-other') {
+        group_name = 'Other arable crops';
+    } else if (group_name == 'potatoes') {
+        group_name = 'Potatoes';
+    } else if (group_name == 'biomass') {
+        group_name = 'Biomass crops';
+    } else if (group_name == 'forage') {
+        group_name = 'Forage crops';
+    } else if (group_name == 'root') {
+        group_name = 'Root vegetables';
+    } else if (group_name == 'leafy') {
+        group_name = 'Leafy vegetables';
+    } else if (group_name == 'bulbs') {
+        group_name = 'Bulbs and bulb flowers';
+    } else if (group_name == 'herbs') {
+        group_name = 'Herbs';
+    } else if (group_name == 'fruit') {
+        group_name = 'Fruit, vines and hops';
+    } else if (group_name == 'other') {
+        group_name = 'Other crops';
+    }
+    return group_name
+})
+
 addFilter('fieldnameconverter', function (field_reference) {
     let field_name = ''
     for (var x in fields) {

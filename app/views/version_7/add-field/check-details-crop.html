@@ -3,7 +3,7 @@
   What was the crop group in 2024?
 </dt>
 <dd class="govuk-summary-list__value">
-  Arable cereals
+  {{data.crop_group | cropgroupconverter }}
 </dd>
 <dd class="govuk-summary-list__actions">
   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"></span></a>
@@ -15,7 +15,7 @@
   What was the crop type in 2024?
 </dt>
 <dd class="govuk-summary-list__value">
-  Winter Wheat
+  {{data.chosen_crop | nameconverter }}
 </dd>
 <dd class="govuk-summary-list__actions">
   <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"></span></a>

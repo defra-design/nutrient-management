@@ -103,10 +103,19 @@ router.get(/previous_group_router/, function (req, res) {
     }
     if (req.session.data.crop_group == 'other') {
         req.session.data.chosen_crop = 'Other'
+        next = 'crop_type_all'
     } 
     if (req.session.data.crop_group == 'grass') {
         req.session.data.chosen_crop = 'Grass'
         next = 'previous-grass'
+    } 
+    if (req.session.data.crop_group == 'herbs') {
+        req.session.data.chosen_crop = 'Herbs'
+        next = 'sns'
+    } 
+    if (req.session.data.crop_group == 'other') {
+        req.session.data.chosen_crop = 'Other'
+        next = 'sns'
     } 
     res.redirect(next)
 })

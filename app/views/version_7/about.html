@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      About this service
+    </h1>
+
+    <p class="gov-body">
+      The first step is to set up your farm. The farm will contain your fields, and the fields will have the crops and nutrients applied to them. If you have more than one holding, it's best to add a separate farm for each one.     
+    </p>
+    <p class="gov-body">
+      You will get better recommendations if you have a recent soil analysis. You will be asked to enter the data from the analysis as you progress through the service.     
+    </p>
+    <h2 class="govuk-heading-m">
+      PLANET users    
+    </h2>
+    <p class="gov-body">
+      If you used PLANET to make nutrient plans before, you can use this data to set up your farm.     
+    </p>
+    
+    <!-- <p class="gov-body">This service will:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>save you time and money</li>
+      <li>help you comply with environmental regulations</li> 
+      <li>help protect the environment</li>   
+    </ul> -->
+
+    <form class="form margin-top-forty" action="farm/farms" method="post">
+
+    {{ govukButton({
+      text: "Next"
+    }) }}
+
+  </form>
+
+</div>
+</div>
+
+
+{% endblock %}

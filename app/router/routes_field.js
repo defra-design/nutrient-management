@@ -35,6 +35,18 @@ router.get(/set_tempField_data_handler/, function (req, res) {
     if (req.session.data.field_alt == null || req.session.data.field_alt == "" ) {
         req.session.data.field_alt = 'No'
     }
+    if (req.session.data.soilanalysis == null || req.session.data.soilanalysis == "" ) {
+        req.session.data.soilanalysis = 'yes'
+    }
+    if (req.session.data.ph_value == null || req.session.data.ph_value == "" ) {
+        req.session.data.ph_value = 2
+        req.session.data.phosphorus_index = 1
+        req.session.data.potassium_index = 2
+        req.session.data.magnesium_index = 1
+    }
+    // if (req.session.data.soilanalysis == null || req.session.data.soilanalysis == "" ) {
+    //     req.session.data.soilanalysis = 'yes'
+    // }
     var next = '/'+ req.session.data.prototype_version +'/add-field/check'
     res.redirect(next);
 })
@@ -48,6 +60,7 @@ router.get(/add_field_handler/, function (req, res) {
     req.session.data.all_fields.push(req.session.data.tempField);
     console.log(req.session.data.tempField)
     //reset temp vars
+    req.session.data.chosen_crop = null
     req.session.data.total_area = null
     req.session.data.cropped_area = null
     req.session.data.non_spreading_area = null

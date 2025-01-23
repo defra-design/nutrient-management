@@ -147,8 +147,7 @@ router.get(/end_to_end_setup_handler/, function (req, res) {
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
     req.session.data.allCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2], req.session.data.all_fields, 'grass', null, 'Crop group 1', null))
-    var fertiliser_fields = req.session.data.all_fields
-    var applicationOne = allFunctions.addFertiliserApplication_v2 (req.session.data.all_fields, req.session.data.allCropGroups, 1, '01/03/2023', 60, 30, 30, 0, 0)
+    var applicationOne = allFunctions.addFertiliserApplication_v2 (req.session.data.all_fields, req.session.data.allCropGroups, 1, '01/03/2023', 60, 30, 30, 0, 0, 1)
     req.session.data.allFertiliserApplications.push(applicationOne)
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')

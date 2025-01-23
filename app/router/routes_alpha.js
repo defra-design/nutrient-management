@@ -4,9 +4,8 @@ var router = express.Router()
 var allFunctions = require('../functions/allFunctions.js');
 
 router.get(/fertiliser_update_handler/, function (req, res) { 
-    for (var value in req.query.applicationdata){
-        console.log(req.query.applicationdata[value])
-    }
+    req.session.data.application_ref = req.query.applicationref
+    console.log(req.query.applicationref)
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/update/fertiliser/update')
 })
 
@@ -615,7 +614,11 @@ router.get(/fertiliser_v5_handler/, function (req, res) {
     req.session.data.successMessage = 3
     var fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
     var fertiliser_fields = req.session.data.fertiliser_fields
+    var ref
     for (var x in fertiliser_fields) {
+        for (var appl in req.session.data.allFertiliserApplications) {
+            ref = req.session.data.allFertiliserApplications[appl].ref +1
+        }
         var applicationGroup = allFunctions.addFertiliserApplication_v2 (
             req.session.data.all_fields, 
             req.session.data.allCropGroups, 
@@ -625,7 +628,8 @@ router.get(/fertiliser_v5_handler/, function (req, res) {
             req.session.data.phosphate, 
             req.session.data.potash, 
             req.session.data.sulphur, 
-            req.session.data.lime 
+            req.session.data.lime,
+            ref
         )
         req.session.data.allFertiliserApplications.push(applicationGroup)
     }

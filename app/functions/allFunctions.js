@@ -174,7 +174,7 @@ function convertNutrient (nutrient) {
     return nutrient
 }
 
-function addFertiliserApplication_v2 (allFields, cropGroups, fieldReference, fertiliserDate, nitrogen, phosphate, potash, sulphur, lime) {
+function addFertiliserApplication_v2 (allFields, cropGroups, fieldReference, fertiliserDate, nitrogen, phosphate, potash, sulphur, lime, ref) {
     let fieldName = null
     let crop_reference = null
     nitrogen = convertNutrient(nitrogen)
@@ -184,7 +184,6 @@ function addFertiliserApplication_v2 (allFields, cropGroups, fieldReference, fer
     lime = convertNutrient(lime)
     for (var x in allFields) {
         if (allFields[x].reference == fieldReference) {
-            fieldName = allFields[x].name
             fieldName = allFields[x].name
         }
     }
@@ -196,9 +195,9 @@ function addFertiliserApplication_v2 (allFields, cropGroups, fieldReference, fer
         }
     }
     var newApplication = {
-        "Field": fieldName,
+        "field": fieldName,
         "fieldref": fieldReference,
-        "Crop": crop_reference,
+        "crop": crop_reference,
         "date": fertiliserDate,
         "analysis": "0:20:20:0:0:0",
         "rate": "280",
@@ -208,7 +207,8 @@ function addFertiliserApplication_v2 (allFields, cropGroups, fieldReference, fer
         "MgO": "0",
         "SO3": sulphur,
         "Na2O": "0",
-        "Lime": lime
+        "Lime": lime,
+        "ref": ref
     }
     return newApplication
 }

@@ -1,71 +1,48 @@
 var express = require('express')
 var router = express.Router()
 
+let nextURL
+
 var allFunctions = require('../functions/allFunctions.js');
 
-router.get(/fertiliser_update_handler/, function (req, res) { 
+//cb functions
+const getApplicationByReference = function (req, res, next) {
     req.session.data.application_ref = req.query.applicationref
-    console.log(req.query.applicationref)
-    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/update/fertiliser/update')
-})  
+    // console.log('Application Ref = ' + req.session.data.application_ref)
+    next()
+}
 
-//// ADD MANURES 
-router.get(/v2manure_handler/, function (req, res) { 
+const setManureJourney = function (req, res, next) {
     req.session.data.manure_journey = req.query.manurejourney
+    // console.log('manure journey = ' + req.session.data.manure_journey)
     if (req.session.data.manure_journey == 'multi') {
-        res.redirect('/' + req.session.data.prototype_version + '/add_manure/manure_fields')
+        nextURL = '/' + req.session.data.prototype_version + '/add_manure/manure_fields'
     } else {
         req.session.data.manure_fields = []
         req.session.data.manure_fields.push(req.session.data.chosen_field.reference)
-        res.redirect('/' + req.session.data.prototype_version + '/add_manure/manure_group')
+        nextURL = '/' + req.session.data.prototype_version + '/add_manure/manure_group'
     }
-})
+    next()
+}
 
-router.get(/v3manure_journey_handler/, function (req, res) { 
-    req.session.data.manure_journey = req.query.manurejourney
-    res.redirect('/' + req.session.data.prototype_version + '/add_manure/application_choice')
-})
-
-router.get(/v3manure_choice_handler/, function (req, res) { 
-    if (req.session.data.manure_journey == 'multi') {
-        res.redirect('/' + req.session.data.prototype_version + '/add_manure/manure_fields')
-    } else {
-        res.redirect('/' + req.session.data.prototype_version + '/add_manure/manure_group')
-    }
-})
-
-router.get(/add_manure_handler/, function (req, res) { 
+const showSuccessMessage = function (req, res, next) {
     req.session.data.show_success_message = true
-    res.redirect('/' + req.session.data.prototype_version + '/farm//crop_plan/plan_view')
+    next()
+}
+
+//routers
+router.get(/plan_manure_application_handler/, setManureJourney, function (req, res) { 
+    res.redirect(nextURL)
 })
 
-router.get(/version2_manure_handler/, function (req, res) { 
-    req.session.data.show_success_message = true
-    req.session.data.successMessage = 2
-    if (req.session.data.manure_journey == 'multi') {
-        req.session.data.plan_2024.multipleManuresApplied = true
-        res.redirect('/' + req.session.data.prototype_version + '/farm//crop_plan/plan_view')
-    } else {
-        req.session.data.plan_2024.singleManuresApplied = true
-        res.redirect('/' + req.session.data.prototype_version + '/farm/field_plan/index')
-    }
-})
+router.get(/fertiliser_change_router/, getApplicationByReference, function (req, res) { 
+    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/update/fertiliser/update')
+})  
 
-router.get(/version5_manure_update_handler/, function (req, res) { 
-    req.session.data.show_success_message = true
+router.get(/version5_manure_update_handler/, showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 4
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
-
-router.get(/manureagain_handler/, function (req, res) { 
-    if (req.session.data.manureagain == "yes") {
-        req.session.data.manure_count++
-        // console.log(req.session.data.manure_count)
-        res.redirect('manure_date')
-    } else {
-        res.redirect('check')
-    }
-})   
 
 router.get(/manurecheck_handler/, function (req, res) { 
     if (req.query.notification == 'true') {

@@ -3,7 +3,14 @@ var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
 
-//becomes manures after refactor
+router.get(/fertiliser_update_handler/, function (req, res) { 
+    for (var value in req.query.applicationdata){
+        console.log(req.query.applicationdata[value])
+    }
+    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/update/fertiliser/update')
+})
+
+
 
 //// ADD MANURES 
 router.get(/v2manure_handler/, function (req, res) { 

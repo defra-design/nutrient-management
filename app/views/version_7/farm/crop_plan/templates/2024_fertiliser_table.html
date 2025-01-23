@@ -13,8 +13,8 @@
     {% for application in data.allFertiliserApplications %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell"> {{application.date}}</td>
-          <td class="govuk-table__cell">{{application.Field}}</td>
-          <td class="govuk-table__cell"> {{application.Crop | nameconverter}}</td>
+          <td class="govuk-table__cell">{{application.field}}</td>
+          <td class="govuk-table__cell"> {{application.crop | nameconverter}}</td>
 
           <!-- <td class="govuk-table__cell">
             {% if application.rate != "0" and application.rate != "" and application.rate != nan %}
@@ -54,7 +54,7 @@
             {% endif %}
 
           </td>
-          <td class="govuk-table__cell"><a href="../../farm/crop_plan/update/fertiliser/update">Change</a></td>
+          <td class="govuk-table__cell"><a href="fertiliser_update_handler?applicationdata={{application.ref}}">Change</a></td>
         </tr>
       {% endfor %}
   </tbody>

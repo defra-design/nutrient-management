@@ -1,6 +1,6 @@
 [
     {
-        "Field": "Poplar",
+        "field": "Poplar",
         "fieldref": 5,
         "Crop": "Wheat-Winter",
         "date": "09/02/2023",
@@ -22,7 +22,7 @@
         "SO3": "2.4"
     },
     {
-        "Field": "Valley",
+        "field": "Valley",
         "fieldref": 4,
         "Crop": "Wheat-Winter",
         "date": "09/02/2023",

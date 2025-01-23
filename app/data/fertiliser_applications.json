@@ -1,8 +1,9 @@
 [
     {
-        "Field": "25 acres",
+        "ref": 1,
+        "field": "25 acres",
         "fieldref": "8",
-        "Crop": "Beans-Winter",
+        "crop": "Beans-Winter",
         "date": "20/09/2023",
         "analysis": "0:20:20:0:0:0",
         "rate": "280",
@@ -15,9 +16,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Barns",
+        "ref": 2,
+        "field": "Barns",
         "fieldref": "12",
-        "Crop": "Beans-Winter",
+        "crop": "Beans-Winter",
         "date": "20/09/2023",
         "analysis": "0:20:20:0:0:0",
         "rate": "280",
@@ -30,9 +32,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Hops 1",
+        "ref": 3,
+        "field": "Hops 1",
         "fieldref": "14",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "01/09/2023",
         "analysis": "0:20:20:0:0:0",
         "rate": "280",
@@ -45,9 +48,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Hops 1",
+        "ref": 4,
+        "field": "Hops 1",
         "fieldref": "14",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "01/03/2024",
         "analysis": "34:0:0:0:0:0",
         "rate": "120",
@@ -60,9 +64,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Hops 1",
+        "ref": 5,
+        "field": "Hops 1",
         "fieldref": "14",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "22/03/2024",
         "analysis": "34:0:0:0:0:0",
         "rate": "200",
@@ -75,9 +80,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Hops 1",
+        "ref": 6,
+        "field": "Hops 1",
         "fieldref": "14",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "2/04/2024",
         "analysis": "34:0:0:0:0:0",
         "rate": "200",
@@ -90,9 +96,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Long field",
+        "ref": 7,
+        "field": "Long field",
         "fieldref": "1",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "01/09/2023",
         "analysis": "0:20:20:0:0:0",
         "rate": "280",
@@ -105,9 +112,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Long field",
+        "ref": 8,
+        "field": "Long field",
         "fieldref": "1",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "01/03/2024",
         "analysis": "34:0:0:0:0:0",
         "rate": "120",
@@ -120,9 +128,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Long field",
+        "ref": 9,
+        "field": "Long field",
         "fieldref": "1",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "22/03/2024",
         "analysis": "34:0:0:0:0:0",
         "rate": "200",
@@ -135,9 +144,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Long field",
+        "ref": 10,
+        "field": "Long field",
         "fieldref": "1",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "2/04/2024",
         "analysis": "34:0:0:0:0:0",
         "rate": "200",
@@ -150,9 +160,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Narrow land",
+        "ref": 11,
+        "field": "Narrow land",
         "fieldref": "7",
-        "Crop": "Beans-Winter",
+        "crop": "Beans-Winter",
         "date": "12/09/2023",
         "analysis": "",
         "rate": "",
@@ -165,9 +176,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Narrow land",
+        "ref": 12,
+        "field": "Narrow land",
         "fieldref": "7",
-        "Crop": "Beans-Winter",
+        "crop": "Beans-Winter",
         "date": "01/03/2024",
         "analysis": "",
         "rate": "",
@@ -180,9 +192,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Narrow land",
+        "ref": 13,
+        "field": "Narrow land",
         "fieldref": "7",
-        "Crop": "Beans-Winter",
+        "crop": "Beans-Winter",
         "date": "2/04/2024",
         "analysis": "",
         "rate": "",
@@ -195,9 +208,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Narrow land",
+        "ref": 14,
+        "field": "Narrow land",
         "fieldref": "7",
-        "Crop": "Beans-Winter",
+        "crop": "Beans-Winter",
         "date": "26/04/2024",
         "analysis": "",
         "rate": "",
@@ -210,9 +224,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Oaks",
+        "ref": 15,
+        "field": "Oaks",
         "fieldref": "6",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "12/09/2023",
         "analysis": "",
         "rate": "",
@@ -225,9 +240,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Oaks",
+        "ref": 16,
+        "field": "Oaks",
         "fieldref": "6",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "01/03/2024",
         "analysis": "",
         "nitrogen": "40",
@@ -240,9 +256,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Oaks",
+        "ref": 17,
+        "field": "Oaks",
         "fieldref": "6",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "2/04/2024",
         "analysis": "",
         "nitrogen": "70",
@@ -255,9 +272,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Oaks",
+        "ref": 18,
+        "field": "Oaks",
         "fieldref": "6",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "26/04/2024",
         "analysis": "",
         "nitrogen": "70",
@@ -269,9 +287,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Park 1",
+        "ref": 19,
+        "field": "Park 1",
         "fieldref": "10",
-        "Crop": "grass",
+        "crop": "grass",
         "Defoliation": "Defoliation 1",
         "date": "03/01/24",
         "analysis": "",
@@ -284,9 +303,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Park 1",
+        "ref": 20,
+        "field": "Park 1",
         "fieldref": "10",
-        "Crop": "grass",
+        "crop": "grass",
         "Defoliation": "Defoliation 2",
         "date": "05/09/24",
         "analysis": "",
@@ -299,9 +319,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Park 1",
+        "ref": 21,
+        "field": "Park 1",
         "fieldref": "10",
-        "Crop": "grass",
+        "crop": "grass",
         "Defoliation": "Defoliation 3",
         "date": "06/15/24",
         "analysis": "",
@@ -314,9 +335,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Park 2",
+        "ref": 22,
+        "field": "Park 2",
         "fieldref": "11",
-        "Crop": "grass",
+        "crop": "grass",
         "Defoliation": "Defoliation 1",
         "date": "03/01/24",
         "analysis": "",
@@ -329,9 +351,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Park 2",
+        "ref": 23,
+        "field": "Park 2",
         "fieldref": "11",
-        "Crop": "grass",
+        "crop": "grass",
         "Defoliation": "Defoliation 2",
         "date": "05/09/24",
         "analysis": "",
@@ -344,9 +367,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Park 2",
+        "ref": 24,
+        "field": "Park 2",
         "fieldref": "11",
-        "Crop": "grass",
+        "crop": "grass",
         "Defoliation": "Defoliation 3",
         "date": "06/15/24",
         "analysis": "",
@@ -359,9 +383,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Poplar",
+        "ref": 25,
+        "field": "Poplar",
         "fieldref": "5",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "01/03/2024",
         "analysis": "",
         "nitrogen": "40",
@@ -373,9 +398,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Poplar",
+        "ref": 26,
+        "field": "Poplar",
         "fieldref": "5",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "01/04/2024",
         "analysis": "",
         "nitrogen": "70",
@@ -387,9 +413,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Poplar",
+        "ref": 27,
+        "field": "Poplar",
         "fieldref": "5",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "01/05/2024",
         "analysis": "",
         "nitrogen": "70",
@@ -402,9 +429,10 @@
     },
     
     {
-        "Field": "Valley",
+        "ref": 28,
+        "field": "Valley",
         "fieldref": "4",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "03/01/2024",
         "analysis": "",
         "nitrogen": "40",
@@ -416,9 +444,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Valley",
+        "ref": 29,
+        "field": "Valley",
         "fieldref": "4",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "01/04/2024",
         "analysis": "",
         "nitrogen": "70",
@@ -430,9 +459,10 @@
         "Lime": "0"
     },
     {
-        "Field": "Valley",
+        "ref": 30,
+        "field": "Valley",
         "fieldref": "4",
-        "Crop": "Wheat-Winter",
+        "crop": "Wheat-Winter",
         "date": "01/05/2024",
         "analysis": "",
         "nitrogen": "70",

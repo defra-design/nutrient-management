@@ -1,6 +1,7 @@
 const  govukPrototypeKit = require('govuk-prototype-kit')
 const  router = govukPrototypeKit.requests.setupRouter()
 
+
 //2025
 var betahouse = require('./data/betahouse_farm_details.json');
 var betahouse_fields = require('./data/betahouse_field_list.json');
@@ -19,12 +20,6 @@ let farm = require('./functions/farm.js');
 var content = require('./content.js').content;
 var allFunctions = require('./functions/allFunctions.js');
 
-
-const loadContent = function (req, res, next) {
-req.session.data.content = content
-next()
-}
-    
 
 ///////Farm
 var oaktree_farm = farm.createFarm();
@@ -104,11 +99,11 @@ var plan2024 = {
     updated: '10 November 2023' 
 };
 
-//index route, loads data in application
-router.get('/', 
-    loadContent, 
-    function (req, res) { 
 
+
+//index route, loads data in application
+router.get('/', function (req, res) { 
+    req.session.data.content = content
     req.session.data.prototypeVersion = 'mvp'
 
     //create oaktree farm
@@ -222,6 +217,7 @@ router.get('/',
     req.session.data.chosen_farm = betahouse
     req.session.data.chosen_farm_crop_groups = betahouse_crop_groups
     req.session.data.chosen_farm_fields = betahouse_fields
+
     res.render('index')
 })
 

@@ -610,7 +610,6 @@ router.get(/version5_manure_handler/, function (req, res) {
 
 //set fertiliser
 router.get(/fertiliser_v5_handler/, function (req, res) { 
-    allFunctions.showSucess(3)
     req.session.data.show_success_message = true
     req.session.data.successMessage = 3
     var fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year

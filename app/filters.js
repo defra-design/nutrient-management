@@ -9,7 +9,7 @@ const addFilter = govukPrototypeKit.views.addFilter
 // const allFunctions = require('../functions/allFunctions.js');
 
 const crop_types = require('./data/crops.json');
-const fields = require('./data/field_list_mvp');
+const fields = require('./data/complete_field_list');
 
 // addFilter('uppercase', function (content) {
 //   return content.toUpperCase()

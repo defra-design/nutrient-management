@@ -99,14 +99,14 @@ router.get(/manuretype_handler/, function (req, res) {
             }
         }
     }
-    var next = "manure_date"
+    var next = "manure_defoliation"
     if (req.session.data.manure_group_id == "livestock") {
         next = "livestock_type"
         if (req.session.data.manure_type == "dirty_water" ||
             req.session.data.manure_type == "horse_fym" || 
             req.session.data.manure_type == "goat_fym" ||
             req.session.data.manure_type == "poultry") {
-            next = "manure_date"
+            next = "manure_defoliation"
             //get object
             for (var a in req.session.data.manure_types_livestock ) {
                 if (req.session.data.manure_types_livestock[a].type == req.session.data.manure_type) {
@@ -126,7 +126,7 @@ router.get(/livestock_type_handler/, function (req, res) {
             req.session.data.manure_type = req.session.data.manure_types_livestock[x]
         }
     }
-    res.redirect("manure_date")
+    res.redirect("manure_defoliation")
 })
 
 router.get(/incorporation_handler/, function (req, res) {
@@ -661,9 +661,7 @@ router.get(/manure_date_v5_handler/, function (req, res) {
     // } else {
     //     res.redirect("manure_defaults")
     // }
-    if (req.session.data.grass_applications == true) {
-        res.redirect("manure_defoliation")
-    } else if (req.session.data.manure_type.liquid == true) {
+    if (req.session.data.manure_type.liquid == true) {
         res.redirect("manure_applied")
     } else {
         res.redirect("manure_defaults")

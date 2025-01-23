@@ -28,6 +28,8 @@
       </p>
     </div>
 
+    <p class="gov-body margin-bottom-forty">You can also <a href="">remove this application</a> from these fields.</p>
+
     <div class="check-answers">
       <dl class="govuk-summary-list margin-bottom-forty">
 
@@ -151,14 +153,6 @@
           {% endif %}
       
       </dl>    </div>
-
-    <!-- <br> -->
-    <!-- <h2 class="govuk-heading-m">
-      These values are based on your {{data.content.organic_term | lower }} choices
-    </h2>
-    <div class="check-answers">
-      {% include "./check_manure_values.html" ignore missing %}
-    </div> -->
 
     <form action="manure_update_v6_handler" method="post" novalidate>
       {{ govukButton({

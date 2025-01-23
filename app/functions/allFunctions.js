@@ -167,12 +167,19 @@ function addManureApplication_v2 (allFields, cropGroups, fieldReference, manureD
     }
     return newApplication
 }
+
 function convertNutrient (nutrient) {
     if (nutrient == null || nutrient == '') {
         nutrient = 0
     }
     return nutrient
 }
+
+function showSucess (message) {
+    req.session.data.show_success_message = true
+    req.session.data.successMessage = 3
+}
+
 
 function addFertiliserApplication_v2 (allFields, cropGroups, fieldReference, fertiliserDate, nitrogen, phosphate, potash, sulphur, lime, ref) {
     let fieldName = null

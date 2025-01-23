@@ -7,9 +7,7 @@ router.get(/fertiliser_update_handler/, function (req, res) {
     req.session.data.application_ref = req.query.applicationref
     console.log(req.query.applicationref)
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/update/fertiliser/update')
-})
-
-
+})  
 
 //// ADD MANURES 
 router.get(/v2manure_handler/, function (req, res) { 
@@ -609,7 +607,10 @@ router.get(/version5_manure_handler/, function (req, res) {
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 
+
+//set fertiliser
 router.get(/fertiliser_v5_handler/, function (req, res) { 
+    allFunctions.showSucess(3)
     req.session.data.show_success_message = true
     req.session.data.successMessage = 3
     var fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
@@ -737,6 +738,5 @@ router.get(/update_variety/, function (req, res) {
     // req.session.data.show_success_message = true  
     res.redirect('../change_crop')
 })
-
 
 module.exports = router

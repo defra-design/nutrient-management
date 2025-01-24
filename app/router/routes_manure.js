@@ -35,7 +35,6 @@ const hideSuccessMessage = function (req, res, next) {
     next()
 }
 
-
 const setManureGroup = function (req, res, next) {
     if (req.session.data.manure_group_id == "livestock") {
         req.session.data.manure_types = req.session.data.manure_types_livestock
@@ -91,6 +90,34 @@ router.get(/manuretype_handler/, function (req, res) {
             }
         }
     }
+    var next = "manure_date"
+    if (req.session.data.manure_group_id == "livestock") {
+        next = "livestock_type"
+        if (req.session.data.manure_type == "dirty_water" ||
+            req.session.data.manure_type == "horse_fym" || 
+            req.session.data.manure_type == "goat_fym" ||
+            req.session.data.manure_type == "poultry") {
+            next = "manure_date"
+            //get object
+            for (var a in req.session.data.manure_types_livestock ) {
+                if (req.session.data.manure_types_livestock[a].type == req.session.data.manure_type) {
+                    req.session.data.manure_type = req.session.data.manure_types_livestock[a]
+                }
+            }
+        }
+    }
+    res.redirect(next)
+})
+
+router.get(/manuretype_v7_handler/, function (req, res) {
+    //get object
+    if (req.session.data.manure_group_id != 'livestock') {
+        for (var x in req.session.data.manure_types ) {
+            if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
+                req.session.data.manure_type = req.session.data.manure_types[x]
+            }
+        }
+    }
     var next = "manure_defoliation"
     if (req.session.data.manure_group_id == "livestock") {
         next = "livestock_type"
@@ -107,8 +134,9 @@ router.get(/manuretype_handler/, function (req, res) {
             }
         }
     }
-    res.redirect(next)
+    res.redirect('manure_date')
 })
+
 
 router.get(/livestock_type_handler/, function (req, res) {
     // console.log(req.session.data.manure_type)
@@ -118,15 +146,21 @@ router.get(/livestock_type_handler/, function (req, res) {
             req.session.data.manure_type = req.session.data.manure_types_livestock[x]
         }
     }
+    res.redirect("manure_date")
+})
+
+router.get(/livestock_type_v7_handler/, function (req, res) {
+    for (var x in req.session.data.manure_types_livestock) {
+        if (req.session.data.manure_types_livestock[x].name == req.session.data.manure_type) {
+            req.session.data.manure_type = req.session.data.manure_types_livestock[x]
+        }
+    }
     res.redirect("manure_defoliation")
 })
 
 router.get(/incorporation_handler/, function (req, res) {
-    if (req.session.data.incorporation_method == 'not_incorporated') {
-        res.redirect("rain_defaults")
-    } else {
-        res.redirect("manure_delay")
-    }
+    var next = (req.session.data.incorporation_method == "not_incorporated") ? 'rain_defaults' : 'manure_delay'
+    res.redirect(next)
 })
 
 router.get(/enter_manure_defualts_handler/, function (req, res) {
@@ -134,19 +168,9 @@ router.get(/enter_manure_defualts_handler/, function (req, res) {
     res.redirect(next);
 })
 
-// router.get(/manuredate_handler/, function (req, res) { 
-//     if (req.session.data.manure_count == 0) {
-//         res.redirect('manure_group')
-//     } else {
-//         res.redirect('manure_again')
-//     }
-// })
-
-//////////////////////////////////
-//////// ADD FERTILISERS /////////
-//////////////////////////////////
 
 
+////FERTILISERS
 
 
 router.get(/fertiliser_when_handler/, function (req, res) { 
@@ -207,15 +231,6 @@ router.get(/create_plan_handler/, function (req, res) {
         res.redirect('create')
     }
 })
-
-// router.get(/view_plan_handler/, function (req, res) { 
-//     for ( var y in req.session.data.field_details ) {
-//         if(req.session.data.field_details[y].reference === req.query.chosen_field) {
-//             req.session.data.chosen_field = req.session.data.field_details[y]
-//         }
-//     }
-//     res.redirect('/old/create/plan')
-// })
 
 //how do you want to create your plan? 
 router.get(/plan-type-handler/, function (req, res) { 
@@ -297,7 +312,6 @@ router.get(/recs_status_handler/, function (req, res) {
 })
 
 //FERTILISER
-////////////
 
 //do you plan to spread fertiliser?
 router.get(/fertiliser_if_handler/, function (req, res) { 

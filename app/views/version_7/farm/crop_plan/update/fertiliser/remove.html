@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Remove an inorganic fertiliser application</h1>
+
+      <p class="gov-body">This will remove all data about this application from these fields:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+         Long field
+        </li>
+      </ul>
+        
+      <p class="gov-body">Are you sure you want to continue?</p>
+
+      <form action="fertiliser_remove_router" method="post" novalidate="">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="changedName">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="changedName-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="">Cancel</a></p>
+
+    </div>
+
+  </div>
+
+{% endblock %}

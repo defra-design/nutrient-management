@@ -50,6 +50,13 @@ const setManureGroup = function (req, res, next) {
 }
 
 //routers
+
+
+router.get(/fertiliser_remove_router/, showSuccessMessage, function (req, res) { 
+    req.session.data.successMessage = 15
+    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+})
+
 router.get(/plan_manure_application_handler/, setManureJourney, function (req, res) { 
     res.redirect(nextURL)
 })

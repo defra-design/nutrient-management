@@ -19,45 +19,71 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <h1 class="govuk-heading-l">
-        Which fields would you like to update this inorganic fertiliser application for?
-      </h1>
+      <!-- <span class="govuk-caption-l">
+        Nutrient application plan 2023 to 2024
+      </span> -->
 
-      <p class="gov-body">These fields all have an application on 01 March 2025 using the same nutrients:</p>
-      <ul class="govuk-list">
-        <li>60kg Nitrogen (N)</li>
-        <li>30kg Phosphate (P2O5)</li>
-        <li>30kg Potash (K2O)</li>
-      </ul>
-      
+
+      <!-- go through the crop allCropGroups
+      go throuhg their fields
+      if they havent been listed list them
+ -->
+      <h1 class="govuk-heading-l">
+        Which fields do you want to add or edit this inorganic fertiliser application for?
+      </h1>
 
       <form class="form" action="update" method="post">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
             <div id="waste-hint" class="govuk-hint">
-              Select all that apply
+              Select all that apply.
             </div>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+              <!-- {% for field in data.all_fields %}
+              {% set isPlanned = false %}
+              {% for thisField in data.plan_2024.firstFields %} 
+                {% if thisField.reference == field.reference %}
+                  {% set isPlanned = true %}
+                {% endif %}
+              {% endfor %} 
+              {% if isPlanned == true %}
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id={{field.reference}} name="manure_fields" type="checkbox" value={{field.reference}}>
+                  <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                    {{field.name}} 
+                  </label>
+                </div>
+              {% else %}
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="field_one" name="field" type="checkbox" value="field_one">
-                <label class="govuk-label govuk-checkboxes__label" for=field_one>
-                  Long Field
+                <input class="govuk-checkboxes__input" id={{field.reference}} name="manure_fields" type="checkbox" value={{field.reference}}>
+                <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                  {{field.name}}
                 </label>
               </div>
+              {% endif %}
+            {% endfor %}    -->
+
+            {% for group in data.allCropGroups %}
+              {% for field in group.fields %}
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="field_two" name="field" type="checkbox" value="field_two" >
-                <label class="govuk-label govuk-checkboxes__label" for="field_two">
-                  Short Field
+                <input class="govuk-checkboxes__input" id={{field.reference}} name="fertiliser_fields" type="checkbox" value={{field.reference}}>
+                <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                  {{field.name}} 
                 </label>
               </div>
-              <div class="govuk-checkboxes__divider">or</div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="field_three" name="field" type="checkbox" value="field_three">
-                <label class="govuk-label govuk-checkboxes__label" for="field_three">
-                  Update all these fields
-                </label>
-              </div>
+              {% endfor %} 
+            {% endfor %} 
+
+            <div class="govuk-checkboxes__divider">or</div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="" name="" type="checkbox" value="">
+              <label class="govuk-label govuk-checkboxes__label" for="">
+                All fields with the same inorganic fertiliser application
+              </label>
+            </div>
+
             </div>
           </fieldset>
         </div>

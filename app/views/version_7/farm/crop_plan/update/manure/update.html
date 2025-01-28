@@ -21,12 +21,14 @@
       Update an organic material application for harvest year 2025
     </h1>
 
-    <div class="govuk-inset-text margin-bottom-forty">
+    <!-- <div class="govuk-inset-text margin-bottom-forty">
       <p class="govuk-body">
         Changes here will be applied to this organic material application for all of these fields. 
-        <!-- To change a single application select it from your crop plan. <a href="../../plan_view">View the 2025 crop plan </a>-->
       </p>
-    </div>
+    </div> -->
+    
+  {{ localmanuretype }}
+  {% set localmanuretype = 'Cattle farmyard manure - old' %}
 
     <p class="gov-body margin-bottom-forty">You can also <a href="">remove this application</a> from these fields.</p>
 
@@ -35,7 +37,7 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Which fields would you like to plan an organic material application for?
+            Which fields do you want to add or edit this organic manure application for?
           </dt>
           <dd class="govuk-summary-list__value">
             Poplar
@@ -48,12 +50,12 @@
             What type of organic material do you plan to use in this application?
           </dt>
           <dd class="govuk-summary-list__value">
-            {{data.manure_type.name}}</dd>
+            {{localmanuretype}}</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
         
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">When do you first plan to spread organic material on the fields?</dt>
+          <dt class="govuk-summary-list__key">When do you plan to spread organic material on the fields?</dt>
           <dd class="govuk-summary-list__value">
             <p class="govuk-body">
                 {{data.manure_date_day}}
@@ -65,7 +67,7 @@
         </div>
         
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Do you want to use the default nutrient values for {{data.manure_group.name}}?</dt>
+          <dt class="govuk-summary-list__key">Do you want to use the default nutrient values for {{localmanuretype}}?</dt>
           <dd class="govuk-summary-list__value">Yes</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>

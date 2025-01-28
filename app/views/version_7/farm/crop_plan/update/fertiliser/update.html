@@ -21,28 +21,37 @@
       Update an inorganic fertiliser application for harvest year 2025
     </h1>
 
-    <!-- <div class="govuk-inset-text">
-      <p class="govuk-body">
-        Changes here will be applied to this inorganic fertiliser application for all of these fields.  -->
-        <!-- To change a single application select it from your crop plan. <a href="../../plan_view">View the 2025 crop plan </a>-->
-      <!-- </p>
-    </div> -->
+    <!-- <div class="govuk-inset-text"> -->
+      <!-- <p class="govuk-body">
+        Changes here will be applied to this inorganic fertiliser application for these fields only.
+      </p> -->
+      <!-- <p class="govuk-body">
+        You can change the fields you want to update this application for, or add this application to new fields.
+      </p> -->
+    <!-- </div>  -->
 
-    <p class="gov-body margin-bottom-forty">You can also <a href="">remove this application</a>.</p>
+    <p class="gov-body margin-bottom-forty">You can also <a href="remove">remove this application from these fields.</a>.</p>
 
-    <div class="check-answers">
+    <div class="check-answers wide-values">
       <dl class="govuk-summary-list">
-        <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">Which fields would you like to add this {{data.content.non_organic_term | lower}} application to?</dt>
+            <dt class="govuk-summary-list__key">Which fields do you want to add or edit this inorganic fertiliser application for?</dt>
             <dd class="govuk-summary-list__value">
             Long field
+            </dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="fields">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Is this application for the same cut or grazing in all the selected grass fields?</dt>
+            <dd class="govuk-summary-list__value">
+            Yes
             </dd>
             <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
           </div>
         
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">Which cut or grazing is this application for?</dt>
+            <dt class="govuk-summary-list__key">In the grass fields, which cut or grazing is this application for?</dt>
             <dd class="govuk-summary-list__value">
             One
             </dd>
@@ -60,13 +69,11 @@
           </div>
         
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">When do you plan to spread inorganic fertiliser?</dt>
+            <dt class="govuk-summary-list__key">When do you plan to spread inorganic fertiliser on these fields?</dt>
             <dd class="govuk-summary-list__value">01 March 2025</dd>
             <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
           </div>
-                
-        </dl>
-        
+                        
       </dl>    
     </div>
 

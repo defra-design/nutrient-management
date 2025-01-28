@@ -12,9 +12,8 @@ router.get(/export_handler/, function (req, res) {
     // } else {
     //     next = './outputs/nmax_report_v2'
     // }
-    if (req.session.data.export_type == 1) {
-        next = 'export_fields'
-    } else {
+    var next = 'export_fields'
+    if (req.session.data.export_type == 3) {
         next = './outputs/nmax_report_v2'
     }
     res.redirect(next)

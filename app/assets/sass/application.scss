@@ -697,4 +697,37 @@ h2.manure-date {
     }
 }
 
+.new_nmax_table {
+    td:nth-child(1), th:nth-child(1)  {
+        width: 15%;
+    }
+    td:nth-child(2) {
+        width: 12%;
+    }
+    td:nth-child(3) {
+        width: 10%;
+    }
+    td:nth-child(4) {
+        width: 8%;
+    }
+    td:nth-child(5) {
+        width: 10%;
+    }
+    td:nth-child(6) {
+        width: 8%;
+    }
+    td:nth-child(7) {
+        width: 10%;
+    }
+    td:nth-child(8) {
+        width: 10%;
+    }
+}
+
+.new_nmax_rates_table {
+    td:nth-child(1), th:nth-child(1)  {
+        width: 17%;
+    }
+}
+
  

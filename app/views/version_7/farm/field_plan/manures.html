@@ -7,7 +7,7 @@
     <p class="govuk-body-s">All amounts are per hectare.</p>
     {% include "./templates/applications.html" ignore missing %}
   {% else %}
-    <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned for {{data.chosen_field.name}} in 2025.</p>
+    <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p>
     <p class="govuk-body"><a href="plan_manure_application_handler?manurejourney=single">Add an {{data.content.organic_term | lower}} application for {{data.chosen_field.name}}</a></p>
     <hr class="seperator_five">
   {% endif %}
@@ -19,7 +19,7 @@
     <p class="govuk-body-s">All amounts are per hectare.</p>
     {% include "./templates/fertiliser_applications.html" ignore missing %}
   {% else %}
-    <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned for {{data.chosen_field.name}} in 2025.</p>
+    <p class="govuk-body">You have no {{data.content.non_organic_term | lower}} applications planned for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p>
     <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add {{data.content.non_organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
   {% endif %}
 

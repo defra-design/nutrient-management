@@ -155,7 +155,7 @@ router.get('/', loadContent, loadControlVars, function (req, res) {
     req.session.data.all_fields = all_fields
 
     // version 5
-    req.session.data.allCropGroups = []
+    req.session.data.currentCropGroups = []
     req.session.data.allManureApplications = []
     req.session.data.allManureApplications_v2 = []
     req.session.data.allFertiliserApplications = []

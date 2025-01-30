@@ -34,7 +34,7 @@
         {% include "./templates/success_message.html" ignore missing %}
       {% endif %}
 
-      {% for group in data.allCropGroups %}
+      {% for group in data.currentCropGroups %}
         {% for field in group.fields %}
         {% set totalFields = totalFields + 1 %}
         {% endfor %}

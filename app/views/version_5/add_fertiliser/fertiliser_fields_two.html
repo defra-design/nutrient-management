@@ -24,7 +24,7 @@
       </span> -->
 
 
-      <!-- go through the crop allCropGroups
+      <!-- go through the crop currentCropGroups
       go throuhg their fields
       if they havent been listed list them
  -->
@@ -65,7 +65,7 @@
               {% endif %}
             {% endfor %}    -->
 
-            {% for group in data.allCropGroups %}
+            {% for group in data.currentCropGroups %}
               {% for field in group.fields %}
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id={{field.reference}} name="fertiliser_fields" type="checkbox" value={{field.reference}}>

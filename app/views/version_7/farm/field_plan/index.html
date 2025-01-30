@@ -101,7 +101,7 @@
       {% set second_group_reference = null %}
       {% set second_group_name = null %}
 
-      {% for group in data.allCropGroups %}
+      {% for group in data.currentCropGroups %}
         {% if group.reference != data.chosen_group.reference %}
           {% for field in group.fields %}
             {% if field.reference == data.chosen_field.reference %}

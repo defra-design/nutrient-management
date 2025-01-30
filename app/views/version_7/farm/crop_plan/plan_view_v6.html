@@ -34,7 +34,7 @@
         {% include "./templates/success_message.html" ignore missing %}
       {% endif %}
 
-      {% for group in data.allCropGroups %}
+      {% for group in data.currentCropGroups %}
         {% for field in group.fields %}
         {% set totalFields = totalFields + 1 %}
         {% endfor %}
@@ -89,7 +89,7 @@
         <p class="govuk-body"><a href="../../add_crops/crop_group">Add a crop</a></p>
         <!-- <p class="govuk-body"><a href="">Enter excess rainfall for {{data.oaktree_farm.planning_year}}</a></p> -->
         <hr class="seperator_five">
-          {% for group in data.allCropGroups %}
+          {% for group in data.currentCropGroups %}
             {% include "./templates/2024_crop_groups.html" ignore missing %}
           {% endfor %}  
       </div>

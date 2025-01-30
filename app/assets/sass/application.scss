@@ -634,6 +634,23 @@ h2.manure-date {
 //     text-align: right;
 // }
 
+.govuk-phase-banner {
+    padding-top :15px;
+    padding-bottom :15px;
+    height: 28px;
+}
+
+.span_left {
+    text-align: left;
+    float: left;
+    width: 48%
+}
+.span_right {
+    float: right;
+    text-align: right;
+    width: 40%
+}
+
 
 @media print {
     .pagebreak { 

@@ -4,6 +4,11 @@ var router = express.Router()
 var allFunctions = require('../functions/allFunctions.js');
 
 
+const showSuccessMessage = function (req, res, next) {
+    req.session.data.show_success_message = true;
+    next()
+}    
+    
 //Handlers
 
 //set defaults for farm details
@@ -53,10 +58,10 @@ router.get(/set_tempField_data_handler/, function (req, res) {
 
 
 //add field
-router.get(/add_field_handler/, function (req, res) { 
+router.get(/add_field_handler/, showSuccessMessage, function (req, res) { 
+    sucessmessage = true
     req.session.data.oaktree_farm.latest_update = 'field_added';
     req.session.data.oaktree_farm.fields_added = true;
-    req.session.data.show_success_message = true;
     req.session.data.all_fields.push(req.session.data.tempField);
     console.log(req.session.data.tempField)
     //reset temp vars

@@ -156,6 +156,7 @@ router.get('/', loadContent, loadControlVars, function (req, res) {
 
     // version 5
     req.session.data.currentCropGroups = []
+    req.session.data.previousCropGroups = []
     req.session.data.allManureApplications = []
     req.session.data.allManureApplications_v2 = []
     req.session.data.allFertiliserApplications = []

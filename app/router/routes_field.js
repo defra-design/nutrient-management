@@ -3,12 +3,11 @@ var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
 
+// const showSuccessMessage = function (req, res, next) {
+//     req.session.data.show_success_message = true;
+//     next()
+// }    
 
-const showSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = true;
-    next()
-}    
-    
 //Handlers
 
 //set defaults for farm details
@@ -58,12 +57,19 @@ router.get(/set_tempField_data_handler/, function (req, res) {
 
 
 //add field
-router.get(/add_field_handler/, showSuccessMessage, function (req, res) { 
-    sucessmessage = true
+router.get(/add_field_handler/, function (req, res) { 
+    var sowdate = null;
     req.session.data.oaktree_farm.latest_update = 'field_added';
     req.session.data.oaktree_farm.fields_added = true;
+    req.session.data.show_success_message = true;
     req.session.data.all_fields.push(req.session.data.tempField);
+    var newRef = req.session.data.currentCropGroups.length + 1
+    if (req.session.data.sow_date_day != null) {
+        sowdate = req.session.data.sow_date_day + '/' + req.session.data.sow_date_month + '/' + req.session.data.sow_date_year
+    }
+    req.session.data.previousCropGroups.push(allFunctions.createCropGroup(newRef, 2024, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, req.session.data.variety, req.session.data.groupname, sowdate))
     console.log(req.session.data.tempField)
+    console.log(req.session.data.previousCropGroups)
     //reset temp vars
     req.session.data.chosen_crop = null
     req.session.data.total_area = null

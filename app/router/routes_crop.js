@@ -143,8 +143,8 @@ router.get(/v5_fields_handler/, function (req, res) {
 })
 
 router.get(/crops_V5_check_handler/, function (req, res) { 
-    req.session.data.show_success_message = true;
     var sowdate = null;
+    req.session.data.show_success_message = true;
     req.session.data.successMessage = 1;
     var newRef = req.session.data.currentCropGroups.length + 1
     if (req.session.data.sow_date_day != null) {

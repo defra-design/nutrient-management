@@ -506,15 +506,6 @@ router.get(/add_soil_handler/, showSuccessMessage, function (req, res) {
     res.redirect('../field/field-details')
 })
 
-router.get(/planning_year_handler/, function (req, res) { 
-    var next = '/add_crops/crop_group'
-    req.session.data.oaktree_farm.planning_year = req.query.year
-    if (req.session.data.prototype_version == 'version_3' || req.session.data.prototype_version == 'version_4') {
-        next = '/add_crops/create_next'
-    }
-    res.redirect('/'+ req.session.data.prototype_version + next)
-})
-
 router.get(/condition_question_handler/, function (req, res) { 
     req.session.data.condition_question = req.query.question
     res.redirect('condition_question')

@@ -5,6 +5,18 @@ var allFunctions = require('../functions/allFunctions.js');
 
 //Handlers
 
+router.get(/planning_year_handler/, function (req, res) { 
+    var next = '/add_crops/crop_group'
+    req.session.data.oaktree_farm.planning_year = req.query.year
+    if (req.session.data.prototype_version == 'version_3' || req.session.data.prototype_version == 'version_4') {
+        next = '/add_crops/create_next'
+    }
+    if (req.query.year == '2024') {
+        next = '/farm/crop_plan/plan_view'
+    }
+    res.redirect('/'+ req.session.data.prototype_version + next)
+})
+
 //set defaults for farm details
 router.get(/set_farm_defaults_handler/, function (req, res) { 
     //name

@@ -52,7 +52,7 @@
 
       <h2 class="govuk-heading-s">Main crop details</h2>
       {% if data.chosen_crop != 'Grass' and data.chosen_crop != 'grass' %}
-        {% include "./templates/other-crop-details.html" ignore missing %}
+        {% include "./templates/arable_crop_details.html" ignore missing %}
       {% else %}
         {% include "./templates/grass-details.html" ignore missing %}
       {% endif %}

@@ -3,6 +3,18 @@ var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
 
+//cb functions
+const showSuccessMessage = function (req, res, next) {
+    req.session.data.show_success_message = true
+    next()
+}
+
+const hideSuccessMessage = function (req, res, next) {
+    req.session.data.show_success_message = false
+    next()
+}
+
+
 //Handlers
 
 router.get(/update_question_handler/, function (req, res) {
@@ -14,20 +26,6 @@ router.get(/update_question_handler/, function (req, res) {
     }
     if (req.query.update_type == 'date') {
         next = 'date/date_question'
-    }
-    res.redirect(next)
-})
-
-router.get(/group_level_plan_v7_handler/, function (req, res) { 
-    req.session.data.chosen_group = req.query.groupref
-    //group.reference
-    req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.currentCropGroups, req.query.groupref)
-    req.session.data.show_success_message = false    
-    console.log(req.session.data.chosen_group)
-    var next = 'update/crop/change_crop'
-    console.log(req.session.data.chosen_group.crop_reference)
-    if (req.session.data.chosen_group.crop_reference == 'grass') {
-        next = 'update/grass/change_crop'
     }
     res.redirect(next)
 })

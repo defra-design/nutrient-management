@@ -49,7 +49,7 @@
       {% if data.crop_group == 'potatoes' %}
         {% include "./templates/potato-crop-details.html" ignore missing %}
       {% elif data.crop_group == 'other' %}
-      {% include "./templates/other-crop-details.html" ignore missing %}
+      {% include "./templates/arable_crop_details.html" ignore missing %}
       {% else %}
         {% include "./templates/main-crop-details.html" ignore missing %}
       {% endif %}

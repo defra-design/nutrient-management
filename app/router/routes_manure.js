@@ -6,6 +6,16 @@ let nextURL
 var allFunctions = require('../functions/allFunctions.js');
 
 //cb functions
+const showSuccessMessage = function (req, res, next) {
+    req.session.data.show_success_message = true
+    next()
+}
+
+const hideSuccessMessage = function (req, res, next) {
+    req.session.data.show_success_message = false
+    next()
+}
+
 const getApplicationByReference = function (req, res, next) {
     req.session.data.application_ref = req.query.applicationref
     // console.log('Application Ref = ' + req.session.data.application_ref)
@@ -22,16 +32,6 @@ const setManureJourney = function (req, res, next) {
         req.session.data.manure_fields.push(req.session.data.chosen_field.reference)
         nextURL = '/' + req.session.data.prototype_version + '/add_manure/manure_group'
     }
-    next()
-}
-
-const showSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = true
-    next()
-}
-
-const hideSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = false
     next()
 }
 
@@ -411,24 +411,6 @@ router.get(/field_level_plan_handler/, hideSuccessMessage, function (req, res) {
     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field)
     // console.log(req.session.data.chosen_field)
     req.session.data.chosen_crop = req.query.chosencrop
-    res.redirect('../field_plan/index')
-})
-
-router.get(/field_level_plan_v5_handler/, hideSuccessMessage, function (req, res) { 
-    req.session.data.chosen_group = req.query.fieldref
-    req.session.data.chosen_field = req.query.groupref
-    req.session.data.chosen_year = req.query.year
-    // console.log(req.session.data.chosen_group)
-    // console.log(req.session.data.chosen_field)
-    //group.reference 
-    if (req.session.data.chosen_year == 2024) {
-        req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.previousCropGroups, req.query.groupref)
-    } else {
-        req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.currentCropGroups, req.query.groupref)
-    }
-    
-    //field reference
-    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)    
     res.redirect('../field_plan/index')
 })
 

@@ -16,7 +16,7 @@
       </span> -->
     </h2>
     {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' %}
-      {% include "./templates/other-crop-details.html" ignore missing %}
+      {% include "./templates/arable_crop_details.html" ignore missing %}
     {% else %}
       {% include "./templates/grass-details.html" ignore missing %}
     {% endif %}

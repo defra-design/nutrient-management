@@ -10,11 +10,19 @@
     </tr>    -->
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Group</td>
-        <td class="govuk-table__cell">{{data.chosen_group.groupname}}</td>
+        <td class="govuk-table__cell">
+          {{data.chosen_group.groupname}}
+        </td>
     </tr>      
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Sward</td>
-        <td class="govuk-table__cell">Spring sown (April to June)</td>
+        <td class="govuk-table__cell">
+          {% if data.chosen_year == 2025 %}
+            Spring sown (April to June)
+          {% else %}
+            Not entered
+          {% endif %}
+        </td>
     </tr>  
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Planting date</td>
@@ -28,24 +36,46 @@
     </tr>   
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Sward type</td>
-        <td class="govuk-table__cell">Grass</td>
+        <td class="govuk-table__cell">
+          {% if data.chosen_year == 2024 %}
+            Not entered
+          {% else %}
+            Grass
+          {% endif %}
+        </td>
     </tr>                 
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Management</td>
-      <td class="govuk-table__cell">Grazing and hay</td>
+      <td class="govuk-table__cell">
+        {% if data.chosen_year == 2024 %}
+          Not entered
+        {% else %}
+          Grazing and hay
+        {% endif %}
+      </td>
     </tr>         
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Cuts and grazings</td>
       <td class="govuk-table__cell">
-        1. Cut</br>
-        2. Graze</br>
-        3. Graze</br>
-        4. Graze
+        {% if data.chosen_year == 2024 %}
+          Not entered
+        {% else %}
+          1. Cut</br>
+          2. Graze</br>
+          3. Graze</br>
+          4. Graze
+        {% endif %}
       </td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Total annual target dry matter yield</td>
-      <td class="govuk-table__cell">10 to 13 tonnes per hectare</td>
+      <td class="govuk-table__cell">
+        {% if data.chosen_year == 2024 %}
+          Not entered
+        {% else %}
+          {{data.chosen_group.yield}} tonnes per hectare
+        {% endif %}
+      </td>
     </tr>      
   </tbody>
 </table>  

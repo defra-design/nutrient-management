@@ -71,6 +71,8 @@ var oaktree_farm = farm.createFarm();
 
 // populate the farm
 oaktree_farm.name = 'Oaktree Lane Farm';
+oaktree_farm.setup = false;
+
 oaktree_farm.postcode = "NE46 7LQ";
 oaktree_farm.planning_year = 2023;
 oaktree_farm.nvz = "some";
@@ -78,7 +80,6 @@ oaktree_farm.elevation =  "some";
 oaktree_farm.organic_producer = false;
 oaktree_farm.latest_update = null;
 oaktree_farm.use_mvp_fields = false;
-oaktree_farm.setup = false;
 oaktree_farm.fields_added = false;
 oaktree_farm.plans_added = false;
 oaktree_farm.rainfall = 600;

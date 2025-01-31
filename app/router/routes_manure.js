@@ -417,10 +417,16 @@ router.get(/field_level_plan_handler/, hideSuccessMessage, function (req, res) {
 router.get(/field_level_plan_v5_handler/, hideSuccessMessage, function (req, res) { 
     req.session.data.chosen_group = req.query.fieldref
     req.session.data.chosen_field = req.query.groupref
+    req.session.data.chosen_year = req.query.year
     // console.log(req.session.data.chosen_group)
     // console.log(req.session.data.chosen_field)
     //group.reference 
-    req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.currentCropGroups, req.query.groupref)
+    if (req.session.data.chosen_year == 2024) {
+        req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.previousCropGroups, req.query.groupref)
+    } else {
+        req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.currentCropGroups, req.query.groupref)
+    }
+    
     //field reference
     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)    
     res.redirect('../field_plan/index')

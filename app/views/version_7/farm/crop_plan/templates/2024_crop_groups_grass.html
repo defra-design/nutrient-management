@@ -54,7 +54,13 @@
         <tr class="govuk-table__row">
           <td class="govuk-table__cell field-name">{{field.name}}</td>
           <!-- <td class="govuk-table__cell">Grass</td> -->
-          <td class="govuk-table__cell">Cut, Graze, Graze, Graze</td>
+          <td class="govuk-table__cell">
+            {% if group.year == 2024 %}
+              Not entered
+            {% else %}
+              Cut, Graze, Graze, Graze
+            {% endif %}
+          </td>
           <td class="govuk-table__cell field-name">
             {% if group.yield == null %}
               Not entered
@@ -62,7 +68,13 @@
               {{group.yield}} tonnes
             {% endif %}
           </td>
-          <td class="govuk-table__cell">Dry weight</td>
+          <td class="govuk-table__cell">
+            {% if group.yield == null %}
+              Not entered
+            {% else %}
+              Dry weight
+            {% endif %}
+          </td>
           <!-- <td class="govuk-table__cell">Total dry matter</td> -->
           <!-- <td class="govuk-table__cell" class="govuk-table__header">
               {% if manureCount == 0 %}

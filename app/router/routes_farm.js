@@ -63,6 +63,15 @@ router.get(/add_farm_handler/, function (req, res) {
 
 //Routers
 
+router.get(/start_router/, function (req, res) { 
+    var next = 'about'
+    if (req.session.data.showinfo == false) {
+        next = '/farm/farms'
+    }
+    res.redirect('/' + req.session.data.prototype_version + next);
+})
+
+
 router.get(/hub_reset_router/, function (req, res) { 
     req.session.data.show_success_message = false;
     res.redirect('/' + req.session.data.prototype_version + '/farm/hub');

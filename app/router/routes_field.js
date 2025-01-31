@@ -67,7 +67,7 @@ router.get(/add_field_handler/, function (req, res) {
     if (req.session.data.sow_date_day != null) {
         sowdate = req.session.data.sow_date_day + '/' + req.session.data.sow_date_month + '/' + req.session.data.sow_date_year
     }
-    req.session.data.previousCropGroups.push(allFunctions.createCropGroup(newRef, 2024, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, req.session.data.variety, req.session.data.groupname, sowdate))
+    req.session.data.previousCropGroups.push(allFunctions.createCropGroup(newRef, 2024, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, req.session.data.variety, req.session.data.groupname, '0', sowdate))
     console.log(req.session.data.tempField)
     console.log(req.session.data.previousCropGroups)
     //reset temp vars

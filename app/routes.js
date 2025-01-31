@@ -164,6 +164,8 @@ router.get('/', loadContent, loadControlVars, function (req, res) {
     //planviews
     req.session.data.plan_version = 2
 
+    req.session.data.showinfo = false
+
     res.render('index')
 })
 

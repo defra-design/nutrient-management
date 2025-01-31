@@ -150,7 +150,7 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     if (req.session.data.sow_date_day != null) {
         sowdate = req.session.data.sow_date_day + '/' + req.session.data.sow_date_month + '/' + req.session.data.sow_date_year
     }
-    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(newRef, 2024, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, req.session.data.variety, req.session.data.groupname, sowdate))
+    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(newRef, 2024, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, req.session.data.variety, req.session.data.groupname, '0', sowdate))
     req.session.data.groupname = null;
     req.session.data.variety = null;
     req.session.data.sow_date_day = null;

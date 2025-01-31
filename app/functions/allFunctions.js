@@ -89,7 +89,7 @@ function manureSetup (planYear, multipleManures, singleManures, multipleFertilis
     planYear.singleFertilisersApplied = singleFertilisers
 };
 
-function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, group, date) {
+function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, group, yield, date) {
     var newGroup = {
         reference: reference,
         year: year,
@@ -97,6 +97,7 @@ function createCropGroup (reference, year, field_references, current_fields, cro
         crop_reference: crop_reference,
         variety: variety, 
         groupname: group,
+        yield: yield,
         planting_date: date
     }
     return newGroup

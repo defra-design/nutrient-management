@@ -26,7 +26,11 @@
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Estimated yield</td>
       <td class="govuk-table__cell">
-        8 tonnes per hectare
+        {% if group.yield == null %}
+          Not entered
+        {% else %}
+          {{group.yield}} tonnes
+        {% endif %}
       </td>
     </tr>
     {% if data.chosen_group.crop_reference == 'Wheat-Winter' %}

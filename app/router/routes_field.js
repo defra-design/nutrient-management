@@ -94,6 +94,12 @@ router.get(/copy_name_handler/, function (req, res) {
 
 //Routers
 
+
+router.get(/split_field_router/, function (req, res) { 
+    var next = (req.session.data.splitmerge == "split") ? './split/number' : './merge/fields'
+    res.redirect(next)
+})
+
 router.get(/analysis_option_router/, function (req, res) { 
     var next = (req.session.data.soilanalysis == "yes") ? 'date' : 'previous_use'
     res.redirect(next)

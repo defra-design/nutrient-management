@@ -1,12 +1,21 @@
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="crops">
-  <h2 class="govuk-heading-m non-standard">Crop details for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}</h2>
-    <!-- <p class="govuk-body">These are are the planned crops for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p> -->
- 
+  <h2 class="govuk-heading-m non-standard">
+    Crop details for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}
+  </h2>
+
+  {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' %}
+    <p class="govuk-body"><a href="updates/crop/change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
+  {% else %}
+    <p class="govuk-body"><a href="updates/grass/change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
+  {% endif %}
+  <p class="govuk-body"><a href="../../farm/field/split_merge">Split this field, or merge it with others</a></p>
+  <p class="govuk-body"><a href="field-select-handler?chosen_field={{data.chosen_field.name}}">View field and soil analysis information for {{data.chosen_field.name}}</a></p>
+
   <hr class="seperator_five">
 
   <div class="tabs-thirds margin-bottom-forty">
     <h2 class="govuk-heading-m">
-      {{data.chosen_group.crop_reference | nameconverter}} 
+      {{data.chosen_group.crop_reference | nameconverter}}
       <!-- <span class="nonbold">
         {% if data.chosen_group.variety.length %}
           ({{data.chosen_group.variety}})
@@ -17,12 +26,9 @@
     </h2>
     {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' %}
       {% include "./templates/arable_crop_details.html" ignore missing %}
-      <p class="govuk-body"><a href="updates/crop/change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
     {% else %}
       {% include "./templates/grass-details.html" ignore missing %}
-      <p class="govuk-body"><a href="updates/grass/change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
     {% endif %}
-    <p class="govuk-body"><a href="field-select-handler?chosen_field={{data.chosen_field.name}}">View field and soil analysis information for {{data.chosen_field.name}}</a></p>
   </div>
 
   <!-- second crop -->

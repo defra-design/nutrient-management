@@ -315,7 +315,7 @@ router.get(/recs_status_handler/, function (req, res) {
         }
     }
     req.session.data.farm_details.plan_status = "recommendations"
-    res.redirect('/old/create/recs')
+    res.redirect('/alpha/create/recs')
 })
 
 //FERTILISER
@@ -391,10 +391,10 @@ router.get(/v2_another_crop_router/, function (req, res) {
 router.get(/v2_plan_handler/, function (req, res) { 
     if (req.session.data.v2_plan_type == 'new') {
         req.session.data.plan_type = 'new'
-        res.redirect('old/v2/old/plan/crops')
+        res.redirect('old/v2/alpha/plan/crops')
     } else {
         req.session.data.plan_type = 'previous'
-        res.redirect('old/v2/old/plan/check')
+        res.redirect('old/v2/alpha/plan/check')
     }
 })
 

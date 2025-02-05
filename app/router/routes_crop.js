@@ -483,7 +483,7 @@ router.get(/weight_type_router/, function (req, res) {
 
 //old - change crop plan
 router.get(/crop_change_handler/, function (req, res) { 
-    var next = (req.session.data.change_crop == 'add_fertiliser') ? '../old/plan/fertiliser/fertiliser_when' : '../old/plan/add_manure/manure_fields'
+    var next = (req.session.data.change_crop == 'add_fertiliser') ? '../alpha/plan/fertiliser/fertiliser_when' : '../alpha/plan/add_manure/manure_fields'
     res.redirect(next)
 })
 

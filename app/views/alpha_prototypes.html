@@ -2,6 +2,14 @@
 
 {% set pageName="Home" %}
 
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -10,107 +18,38 @@
 
     <h1 class="govuk-heading-l">Alpha prototypes and tests</h1>
     
-    <h2 class="govuk-heading-s">Tests v1</h2>
-    <ul class="govuk-list govuk-list--spaced margin-bottom-forty">
-      <li><a href="/alpha/plan/table">Table examples</a></li>
-      <li><a href="/alpha/tests_v1/hub">Hub example</a></li>
-    </ul>
-
-    <h2 class="govuk-heading-s">Prototypes</h2>
-    <ul class="govuk-list govuk-list--spaced margin-bottom-forty">
-      <li><a href="/alpha/prototype_1/hub">Version 1</a></li>
-      <li><a href="/alpha/prototype_2/hub">Version 2</a></li>
-    </ul>
-
-    <h2 class="govuk-heading-s">Prototype 4</h2>
-    <ul class="govuk-list govuk-list--spaced margin-bottom-forty">
-      <li><a href="/alpha/v2/hub">Version 4</a></li>
-    </ul>
-
-
-    <!-- <h2 class="govuk-heading-m">Prototype V2</h2>
-    <p class="govuk-body"><a href="v2/hub" class="govuk-link">Latest prototype (Including manures and fertilisers)</a> (version 2.1)</p>
-
-    <p class="govuk-body">What's included:</p>
-    <ul class="govuk-list ">
-      <li>new structure with planning focused on crop first</li>
-      <li>clear separation between plans and records</li>
-      <li>potential forecasting / multiple plans for a given year</li>
-      <li>using 'favourites' for crops and manures</li>
-    </ul>	
-
-    <hr> 
-    <br>
-    <h2 class="govuk-heading-m">Previous prototypes (V1)</h2>
-
-    <p class="govuk-body"><span class="strong">Create a plan</span></p>
-    <p class="govuk-body">(Version 1.3) - Last updated: Mid December 2023</p>
-
-    <p class="govuk-body">What's included</p>
-    <ul class="govuk-list ">
+    <!-- <h2 class="govuk-heading-s">Version 4</h2>
+    <ul class="govuk-list margin-bottom-forty">
       <li>latest Grass planning</li>
       <li>latest Arable planning</li>
       <li>adding a crop from 'favourites' to multiple fields</li>
       <li>using a manure from 'favourites' (grass planning)</li>
       <li>add a field</li>
-    </ul>	
+      <li><a href="/alpha/prototype_4/hub">View version 4</a></li>
+    </ul> -->
 
-    <p class="govuk-body"><a href="/alpha/prototype_2/hub" class="govuk-link">Create a plan</a> (version 1.3)</p>
+    <!-- <h2 class="govuk-heading-s">Version 3 - December 2023</h2>
+    <ul class="govuk-list margin-bottom-forty">
+      <li>New structure with planning focused on crop first</li>
+      <li>Separation between plans and records</li>
+      <li>Potential forecasting / multiple plans for a given year</li>
+      <li>Using 'favourites' for crops and manures</li>
+      <li><a href="/alpha/prototype_3/hub">View version 3</a></li>
+    </ul> -->
 
-    <hr> 
-    <br>
-    <p class="govuk-body"><span class="strong">Add a farm (data upload or manual entry)</span></p>
-    <p class="govuk-body">Last updated: December 2023</p>
-  
-    <p class="govuk-body">
-      <a href="old/prototype_3/farms" class="govuk-link">View prototype</a>
-      (version 1.3)
-    </p>
-
-    <hr> 
-    <br>
-  <p class="govuk-body"><span class="strong">View a plan </span> </p>
-  <p class="govuk-body">Created end October 2023</p>
-
-	<p class="govuk-body">
-		<a href="/alpha/prototype_1/hub.html" class="govuk-link">View plan</a>
-    (version 1.2)
-	</p>	
-
-  <p class="govuk-body">
-		<a href="/alpha/prototype_1/plan_2.html" class="govuk-link">View plan </a>
-    (version 1.1)
-	</p>	 -->
-
-  <!-- <div id="move-text">
-    <p class="govuk-body-s">
-      <a href="/alpha/prototype_2/hub.html" class="govuk-link">Manage this Prototype</a>
-    </p>	
-  </div> -->
-  
-<!-- 
-  <h2 class="govuk-heading-m">Tests</h2>
-  <p class="govuk-body">October 2023</p>
-
-  <p class="govuk-body">
-		<a href="tests" class="govuk-link">Tests</a>
-	</p>	 -->
-
-
-    <!-- <h2 class="govuk-heading-m">Displaying and editing basic data</h2>
-
-    <ul class="govuk-list">
-      <li><a href="/field/table">Table examples</a></li>
-      <li><a href="/field/add-field">Add a field example</a></li>
+    <h2 class="govuk-heading-s">Version 2 - November 2023</h2>
+    <ul class="govuk-list margin-bottom-forty">
+      <li>End-to-end test with basic journey. Has little detail, intended to show an overall journey idea. Introduced planning by group.</li>
+      <li><a href="/alpha/prototype_1/hub">View version 2</a></li>
     </ul>
 
-    <h2 class="govuk-heading-m">Generating recommendations</h2>
-
-    <ul class="govuk-list">
-      <li><a href="/alpha/plan/table">Nutrient recommendation table examples</a></li>
-      <li><a href="/alpha/plan/add-nitrogen">Update plan data example</a></li>
+    <h2 class="govuk-heading-s">Version 1 - October 2023</h2>
+    <ul class="govuk-list margin-bottom-forty">
+      <li>Table examples plus a basic hub setup to show the idea.</li>
+      <li><a href="/alpha/plan/table">Table example</a></li>
+      <li><a href="/alpha/tests_v1/hub">Hub example</a></li>
     </ul>
- -->
+  
   </div>
 
 </div>

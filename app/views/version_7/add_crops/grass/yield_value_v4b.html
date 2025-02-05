@@ -1,0 +1,103 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Target yield for these fields</h2>
+
+      <p class="govuk-body">To give nitrogen (N) recommendations for these fields you need to provide a target annual yield.</p>
+
+        <p class="govuk-body">
+          <a href="">Get help with grass yield</a>
+        </p>
+      
+      <h2 class="govuk-heading-s">How do you want to enter the target annual dry matter yield for these fields?</h2>
+      <!-- <h2 class="govuk-heading-s">What is the total target annual dry matter yield for Long Field, per hectare?</h2> -->
+      
+      <form class="form" action="../check" method="post">
+        <div class="govuk-form-group">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="thirteen" name="grass_total_yield" type="radio" value="more than 13 tonnes">
+              <label class="govuk-label govuk-radios__label" for="thirteen">
+                Enter the same yield for each field
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="ten" name="grass_total_yield" type="radio" value="10 to 13">
+              <label class="govuk-label govuk-radios__label" for="ten">
+                Enter a different yield for each field
+              </label>
+            </div>
+            <!-- <div class="govuk-radios__divider">or</div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="fresh" name="grass_total_yield" type="radio" value="fresh">
+              <label class="govuk-label govuk-radios__label" for="fresh">
+                Enter a yield in fresh cut weight
+              </label>
+            </div> -->
+          </div>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+        </form>
+
+      <!-- poor / average / high -->
+
+      <!-- <p class="govuk-body">How do you want to enter your target annual yield?</p>
+
+      <form class="form" action="weight_type_router" method="post">
+
+        <div class="govuk-form-group">
+
+            <fieldset class="govuk-fieldset">
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="dry" name="yield_type" type="radio" value="dry">
+                  <label class="govuk-label govuk-radios__label" for="dry">
+                    Dry weight
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="fresh" name="yield_type" type="radio" value="fresh">
+                  <label class="govuk-label govuk-radios__label" for="fresh">
+                    Fresh cut weight
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+                      
+        </div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form> -->
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

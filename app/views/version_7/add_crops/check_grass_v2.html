@@ -45,7 +45,7 @@
     <dd class="govuk-summary-list__value">No, I'll enter the date later</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
-
+  
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key"> What will you be growing on the sward?</dt>
     <dd class="govuk-summary-list__value">{{data.sward_type | capitalize}}</dd>
@@ -95,15 +95,91 @@
     </div>
   {% endif %}
 
-  <!-- Yield -->
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      What is the total target dry matter yield for each of these fields?
-    </dt>
+    <dt class="govuk-summary-list__key">How do you want to enter your target yield for for each of these fields?</dt>
     <dd class="govuk-summary-list__value">
-      10 tonnes per hectare
+      {% if data.yield_type == 'dry' %}
+        Dry weight
+      {% else %}
+        Fresh cut weight
+      {% endif %}
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+
+
+  <!-- Yield -->
+
+  <!-- dry total figure and dry total range -->
+  {% if data.yield_type == 'dry' %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        What is the total target dry matter yield for each of these fields?
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {% if data.grass_total_yield_figure == '' or data.grass_total_yield_figure == null %}
+          {{data.grass_total_yield}} tonnes per hectare
+        {% else %}
+          {{data.grass_total_yield_figure}} tonnes per hectare
+        {% endif %}        
+      </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% else %}
+  <!-- fresh -->
+  <!-- fresh total -->
+    {% if data.grass_total_fresh_yield_figure != '' and data.grass_total_fresh_yield_figure != null %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Total fresh weight target yield for each of these fields
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data.grass_total_fresh_yield_figure}}
+        </dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      </div>
+    {% else %}
+      <!-- fresh multi -->
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Target yield for cut or grazing 1 (Cut)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data.grass_fresh_yield_figure_one}} tonnes per hectare
+        </dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Target yield for cut or grazing 2 (Graze)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data.grass_fresh_yield_figure_two}} tonnes per hectare
+        </dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Target yield for cut or grazing 3 (Graze)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data.grass_fresh_yield_figure_three}} tonnes per hectare
+        </dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Target yield for cut or grazing 4 (Graze)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data.grass_fresh_yield_figure_four}} tonnes per hectare
+        </dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      </div>
+    {% endif %}
+  {% endif %}
+
+  <!-- end of yield -->
+
 
 </dl>

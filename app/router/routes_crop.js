@@ -464,7 +464,7 @@ router.get(/yield_total_router/, function (req, res) {
 
 //current v5, v7
 router.get(/management_grass_router/, function (req, res) { 
-    var next = (req.session.data.grass_management == "grazinghay" || req.session.data.grass_management == "grazingsilage") ? 'defoliation_order' : 'yield_type'
+    var next = (req.session.data.grass_management == "grazinghay" || req.session.data.grass_management == "grazingsilage") ? 'defoliation_order' : 'yield_value_v4'
     res.redirect(next)
 })
 

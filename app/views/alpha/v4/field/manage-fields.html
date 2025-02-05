@@ -10,7 +10,7 @@
     items: [
       {
         text: "Home",
-        href: "//alpha/prototype_2/hub"
+        href: "../hub"
       },
       {
         text: "Create a " + data.content.harvest_year + " nutrient application plan"
@@ -21,10 +21,12 @@
 {% endblock %}
 
 {% block content %}
+{{ plan_status }}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      {% if data.show_new_field == true %}
         <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
           <div class="govuk-notification-banner__header">
             <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -38,47 +40,80 @@
             <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub">View Oaktree Lane Farm</a> </p> -->
           </div>
         </div>
+      {% endif %}
 
       <h1 class="govuk-heading-l">
-        Manage Oaktree Lane Farm fields
+        Oaktree Lane Farm fields
       </h1>
 
       </div>
-      <div class="govuk-grid-column-full">
+      <div class="govuk-grid-column-two-thirds">
 
-      <table class="govuk-table">
+      <table class="govuk-table field-table">
         <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Field name</th>
+            <th scope="col" class="govuk-table__header">Soil analysis added</th>
             <th scope="col" class="govuk-table__header"> </th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
+          {% if data.show_new_field == true %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">New Field</td>
+              <td class="govuk-table__cell">22 January 2024</td>
               <td class="govuk-table__cell">
-                <a href="#">Manage details</a>
+                <a href="field-select-handler?chosen_field=newfield">Change field details</a>
               </td>
             </tr>
+          {% endif %}
 
-          {% for field in data.field_details %}
+          {% for field in data.field_details_v4 %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">{{field.name}}</td>
-            <td class="govuk-table__cell">
-                <a href="#">Manage details</a>
-            </td>
-          </tr>
+              <td class="govuk-table__cell">14 January 2024</td>
+              <td class="govuk-table__cell">
+                <a href="field-select-handler?chosen_field={{field.name}}">Change field details</a>
+              </td>
+            </tr>
           {% endfor %}   
 
         </tbody>
-      </table>       
+      </table>    
       
-      <p class="govuk-body">
-        <a href="">Add a new field</a>
-      </p>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-s" id="subsection-title">
+          Update fields and soil analysis
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list font-size-17">
+            <li>
+              <a href="../alpha/soil/fields">Add new soil analysis for a single field</a>
+            </li>
+            <li>
+              <a href="">Add new soil analysis for multiple fields</a>
+            </li>
+            <li>
+              <a href="../add-field/add">Add a new field</a>
+            </li>
+            <!-- <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li> -->
+          </ul>
+        </nav>
+      </aside>
 
     </div>
+
+
+
   </div>
 
 {% endblock %}

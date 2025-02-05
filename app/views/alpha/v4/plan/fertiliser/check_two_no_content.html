@@ -1,0 +1,21 @@
+  {{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Do you plan to spread " + data.content.non_organic_term | lower + "?"
+      },
+      value: {
+        text: "No"
+      },
+      actions: {
+        items: [
+          {
+            href: "",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    }
+  ]
+  }) }}

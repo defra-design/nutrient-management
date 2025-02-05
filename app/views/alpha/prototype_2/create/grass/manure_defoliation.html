@@ -1,0 +1,207 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% include "templates/title_span.html" %}
+      <h1 class="govuk-heading-l">
+        When do you plan to apply {{data.content.organic_term | lower}} in Long Field?
+      </h1>
+
+      <form class="form" action="manure_when" method="post">
+
+        <!-- <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">
+            <legend class="govuk-fieldset__legend">
+              Will you apply organic manure after the graze?
+            </legend>
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_one-1" name="defoliation_order_one" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_one-1">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_one-2" name="defoliation_order_one" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_one-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div> -->
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <div id="waste-hint" class="govuk-hint">
+              Select all that apply.
+            </div>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="before" name="manure-def" type="checkbox" value="before">
+                <label class="govuk-label govuk-checkboxes__label" for="before">
+                  Before the first graze
+                </label>
+              </div>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="before-1" name="manure-def" type="checkbox" value="before-1">
+                  <label class="govuk-label govuk-checkboxes__label" for="before-1">
+                    Before the first silage cut
+                  </label>
+                </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="after" name="manure-def" type="checkbox" value="after">
+                <label class="govuk-label govuk-checkboxes__label" for="after">
+                  After the first silage cut
+                </label>
+              </div>
+              <!-- <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-3" name="manure-def" type="checkbox" value="farm">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                  Farm or agricultural waste
+                </label>
+              </div>
+            </div> -->
+          </fieldset>
+        </div>
+
+        <!-- <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">
+            <legend class="govuk-fieldset__legend">
+              Will you apply organic manure after the silage cut?
+            </legend>
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_two-1" name="defoliation_order_two" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_two-1">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_two-2" name="defoliation_order_two" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_two-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div> -->
+
+        <!-- <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">
+            <legend class="govuk-fieldset__legend">
+              Third defoliation
+            </legend>
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_three-1" name="defoliation_order_three" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_three-1">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_three-2" name="defoliation_order_three" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_three-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div> -->
+
+        <!-- <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">
+            <legend class="govuk-fieldset__legend">
+              Fourth defoliation
+            </legend>
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_four-1" name="defoliation_order_four" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_four-1">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_four-2" name="defoliation_order_four" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_four-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div> -->
+
+        <!-- <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">
+            <legend class="govuk-fieldset__legend">
+              Fifth defoliation
+            </legend>
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_five-1" name="defoliation_order_five" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_five-1">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_five-2" name="defoliation_order_five" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_five-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div> -->
+
+        <!-- <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">
+            <legend class="govuk-fieldset__legend">
+              Sixth defoliation
+            </legend>
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_six-1" name="defoliation_order_six" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_six-1">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_six-2" name="defoliation_order_six" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_six-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div> -->
+                    
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

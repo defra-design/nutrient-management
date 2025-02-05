@@ -20,7 +20,6 @@ const  CropGroup = require('./functions/crop_group.js');
 const content = require('./content.js').content;
 var  Plan = require('./functions/plan.js');
 
-
 const loadContent = function (req, res, next) {
 req.session.data.content = content
 req.session.data.manure_types_digestate = manure_types_digestate
@@ -85,7 +84,7 @@ oaktree_farm.plans_added = false;
 oaktree_farm.rainfall = 600;
 oaktree_farm.ewr = null;
 
-/// create ields
+/// create fields
 let all_fields = [];
 
 var tempField = {

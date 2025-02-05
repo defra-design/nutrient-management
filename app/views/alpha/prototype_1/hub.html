@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+{{data.farm_details.name}} – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<!-- <h1 class="govuk-heading-xl">{{data.farm_details.name}}</h1> -->
+<h1 class="govuk-heading-xl">Oaktree Lane Farm</h1>
+
+<div class="status-header">
+  <p class="govuk-table__body">Current year planning status</p>
+  <h2 class="govuk-heading-m">You have created a nutrient application plan.</h2>
+  <p class="govuk-body">
+    <a href="plan.html" class="govuk-link">View or edit your current nutrient application plan</a>
+  </p>
+</div>  
+
+<hr class="medium_seperator">
+
+<div>
+  <h2 class="govuk-heading-m">Update farm data</h2>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link" href="#">Update farm details</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="#">Update field details</a>
+      <li>
+        <a class="govuk-link" href="#">Add soil analysis</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="#">Update livestock data</a>
+      </a>
+      <li>
+        <a class="govuk-link" href="#">Manage manure</a>
+      </li>
+  </uli>
+</div>
+
+<hr class="medium_seperator">
+
+<div>
+  <h2 class="govuk-heading-m">View previous plans and records</h2>
+  <p class="govuk-body">
+    <a class="govuk-link" href="#">View all previous plans and records</a>
+  </p>
+</div>
+
+{% endblock %}

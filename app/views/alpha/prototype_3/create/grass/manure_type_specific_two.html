@@ -1,0 +1,136 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% include "templates/title_span.html" %}
+      <h1 class="govuk-heading-l">
+        What type of Pig slurry will you apply in this application?
+      </h1>
+
+      <form class="form" action="/alpha/create/check_one" method="post">
+
+        <div class="govuk-form-group">
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="ig_solids" name="manure_type" type="radio" value="pig_solids">
+                <label class="govuk-label govuk-radios__label" for="ig_solids">
+                  Separated solids                
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="pig_liquid" name="manure_type" type="radio" value="pig_liquid">
+                <label class="govuk-label govuk-radios__label" for="pig_liquid">
+                  Separated liquid
+                </label>
+              </div>
+
+          </div>
+          </fieldset>
+        </div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+    
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}
+
+
+
+
+
+
+
+<!-- Cattle farmyard manure (FYM)
+  Cattle FYM - fresh
+  Cattle FYM - old	
+
+Pig farmyard manure (FYM)
+  Pig FYM - fresh	
+  Pig FYM - old	
+
+Sheep farmyard manure (FYM)
+  Sheep FYM - fresh	
+  Sheep FYM - old
+
+Duck farmyard manure (FYM)
+  Duck FYM - fresh	
+  Duck FYM - old	
+
+Layer manure	
+
+Broiler / Turkey litter	
+
+Horse Farmyard manure (FYM)	
+
+Goat Farmyard manure (FYM)	
+
+Cattle slurry	
+  Cattle slurry, strainer box liquid
+  Cattle slurry, weeping wall liquid
+  Cattle slurry, mechanically separated liquid
+  Cattle slurry, separated solids
+
+Pig slurry	
+  Pig slurry, separated solids
+  Pig slurry, separated liquid
+
+Dirty water	
+
+Biosolids
+  Biosolids liquid digested	
+  Brosolids, digested cake	
+  Biosolids, thermally dried	
+  Brosolids, lime stabilised	
+  Biosolids, composted	
+
+Green
+Green compost	
+Green / Food compost	
+
+Digestate
+  Digestate (whole), food-based
+  Digestate (whole), pig slurry-based
+  Digestate (whole), cattle slurry-based
+
+Paper crumble
+  Paper crumble, chemically / physically treated
+  Paper crumble, biologically treated
+
+Waste food
+  Waste food, general	
+  Waste food, dairy	
+  Waste food, soft drinks	
+  Waste food, brewing	
+
+Mushroom compost	
+
+Water treatment cake
+
+Straw mulch	 -->
+
+

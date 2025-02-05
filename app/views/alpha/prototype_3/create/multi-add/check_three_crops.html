@@ -1,0 +1,48 @@
+
+{% set crop_name = "nul" %}
+{% for crop in data.crop_types %}
+  {% if crop.reference == data.chosen_crop %}
+    {% set crop_name = crop.prettyname %}
+  {% endif %}
+{% endfor %}
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Which crop do you plan to use?
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{crop_name}}
+    </dd>
+      <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="">
+          Change<span class="govuk-visually-hidden"> Question 1</span>
+          </a>
+      </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Which fields do you plan to grow {{crop_name}} in?
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+      {% for x in data.chosen_fields %}
+        {% if x == 'small' %}
+          Small Field <br>
+        {% elif x == 'big' %}
+          Big Field  <br>
+        {% elif x == 'long' %}
+          Long Field
+      {% endif %}
+
+      {% endfor %}
+
+    </dd>
+      <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="">
+          Change<span class="govuk-visually-hidden"> Question 1</span>
+          </a>
+      </dd>
+  </div>
+</dl>

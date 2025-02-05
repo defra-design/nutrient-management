@@ -410,6 +410,7 @@ router.get(/add_multi_handler/, function (req, res) {
         }
     }
     req.session.data.chosen_fields = []
+    req.session.data.alpha_planning = 1 // recs
     res.redirect('../fields')
 })
 

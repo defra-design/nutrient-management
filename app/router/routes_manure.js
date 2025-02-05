@@ -49,7 +49,7 @@ const setManureGroup = function (req, res, next) {
     next()
 }
 
-// handlers
+// Handlers //
 
 //ALPHA //set the status to recommendations
 router.get(/recs_status_handler/, function (req, res) { 
@@ -58,7 +58,7 @@ router.get(/recs_status_handler/, function (req, res) {
 })
 
 
-//routers
+// Routers //
 
 //ALPHA // do you plan to spread fertiliser?
 router.get(/fertiliser_if_router/, function (req, res) { 

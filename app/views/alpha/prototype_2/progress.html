@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Import data from PLANET desktop software
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        What you can import
+      </h2>
+
+      <p class="govuk-body">
+        You can only import data from a a valid PLANET v3.3 farm file. 
+      </p>
+
+      <div class="govuk-inset-text">
+        It can take up to 5 minutes to import a file, depending on it's size
+      </div>
+
+      <h2 class="govuk-heading-m">
+        How to import a PLANET v3.3 farm file
+      </h2>
+
+      <ul class="govuk-list govuk-list--spaced">
+        <li>1. Select the 'Choose file' button<br>
+        <li>2. Find and select your PLANET farm file. 
+        <li>By default your PLANET file will be saved under 'Documents', 'Planet', and then 'Data'.
+        It will have the name you have given it and a '.mdb' file extension.</li>
+        <li>3. Select 'Upload file'.   
+      </ul>
+
+      <form class="form" action="file_check" method="post">
+
+        <div class="govuk-form-group">
+         
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="file-upload-1">
+                Upload a file
+              </label>
+              <input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+            </div>
+            
+          </fieldset>
+        </div>
+        {{ govukButton({
+          text: "Upload file"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

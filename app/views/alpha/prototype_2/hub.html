@@ -1,20 +1,43 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+  {{data.farm_details.name}}  
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Current farms",
+        href: "/alpha/prototype_2/farms"
+      },
+      {
+        text: data.farm_details.name
+      }
+    ]
+  }) }}
+
 {% endblock %}
 
 {% block content %}
 
-<h1 class="govuk-heading-xl">Oaktree Lane Farm
-</h1>
+<h1 class="govuk-heading-xl">{{data.farm_details.name}}</h1>
+<!-- <h1 class="govuk-heading-xl">{{data.farm_details.plan_status}}</h1> -->
 
 <div class="status-header">
   <p class="govuk-table__body">Planning status</p>
-  <h2 class="govuk-heading-m">Plan started for 2024</h2>
+  {% if data.farm_details.plan_status == "none" %}
+  <h2 class="govuk-heading-m">No nutrient application plan for {{data.content.harvest_year}}</h2>
   <p class="govuk-body">
-    <a href="create/fields.html" class="govuk-link">View or edit nutrient application plan</a>
+    <a href="/alpha/create/fields" class="govuk-link">Create a nutrient application plan</a>
   </p>
+{% else %}
+  <h2 class="govuk-heading-m">Plan started for {{data.content.harvest_year}}</h2>
+  <p class="govuk-body">
+    <a href="/alpha/create/fields" class="govuk-link">View or edit nutrient application plan</a>
+  </p>
+{% endif %}
 </div>  
 
 <hr class="medium_seperator">
@@ -26,9 +49,9 @@
         <a class="govuk-link" href="#">Update farm details</a>
       </li>
       <li>
-        <a class="govuk-link" href="manage-fields">Manage field details</a>
+        <a class="govuk-link" href="#">Manage field details</a>
       <li>
-        <a class="govuk-link" href="#">Add soil analysis</a>
+        <a class="govuk-link" href="#">Add soil analysis results</a>
       </li>
       <li>
         <a class="govuk-link" href="#">Update livestock data</a>
@@ -36,9 +59,6 @@
       <li>
         <a class="govuk-link" href="#">Manage manure</a>
       </li>
-      <!-- <li>
-        <a class="govuk-link" href="#">Manage commonly used crops, manures and fertilisers</a>
-      </li> -->
   </uli>
 </div>
 

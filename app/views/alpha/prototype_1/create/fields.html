@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "//alpha/prototype_0/hub"
+      },
+      {
+        text: "Create a 2024 nutrient application plan"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+{{ plan_status }}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Create a nutrient application plan for 2024
+      </h1>
+
+      <p class="govuk-body">
+        <a href="multi-add/crops.html">Create a plan for multiple fields</a>
+      </p>
+      </div>
+      <div class="govuk-grid-column-full">
+
+      <table class="govuk-table">
+        <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Field name</th>
+            <th scope="col" class="govuk-table__header">Planning status</th>
+            <th scope="col" class="govuk-table__header">Crop</th>
+            <th scope="col" class="govuk-table__header">Action</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+          {% set fieldList = ['Long Field', 'Short Field', 'Big Field'] %}
+
+          {% for field in fieldList %}
+          {% set plan_status = "No plan" %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                {{field}}
+              </td>
+              <td class="govuk-table__cell">
+                <strong class="govuk-tag govuk-prototype-kit-manage-prototype-govuk-tag govuk-prototype-kit-manage-prototype-task-list__tag">
+                  {{plan_status}}
+              </strong>
+            </td>
+            <td class="govuk-table__cell">
+                Winter Wheat
+            </td>
+            <td class="govuk-table__cell">
+                <a href="create">Create plan</a>
+            </td>
+          </tr>
+          {% endfor %}   
+
+        </tbody>
+      </table>        
+
+    </div>
+  </div>
+
+{% endblock %}
+
+

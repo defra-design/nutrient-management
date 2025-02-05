@@ -32,7 +32,7 @@
       </h1>
 
       <p class="govuk-body">
-        <a href="multi-add/crops.html">Create a plan for multiple fields</a>
+        <a href="multi-add/crops">Create a plan for multiple fields</a>
       </p>
       </div>
       <div class="govuk-grid-column-full">
@@ -56,7 +56,7 @@
               {% set plan_status = "No plan" %}
             {% elif data.alpha_planning == 1 %}
               {% set plan_status = "Recommendations" %}
-              {% elif data.alpha_planning == 3 %}
+            {% elif data.alpha_planning == 3 %}
               {% set plan_status = "Crop added" %}
             {% else %}
               {% set plan_status = "Plan created" %}
@@ -76,7 +76,7 @@
             </td>
             <td class="govuk-table__cell">
               {% if data.alpha_planning == 0 %}
-                <a href="">Create plan</a>
+                <a href="create">Create plan</a>
               {% elif data.alpha_planning == 1 %}
                 <a href="recs">View recommendations</a>
               {% elif data.alpha_planning == 3 %}

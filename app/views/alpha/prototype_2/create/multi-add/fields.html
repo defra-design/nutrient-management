@@ -45,11 +45,13 @@
             </div>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
 
-            {% for field in data.field_details %}
+              {% set field_details = ['Long field', 'Short field', 'Big field'] %}
+
+            {% for field in field_details %}
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id={{field.reference}} name="chosen_fields" type="checkbox" value={{field.reference}}>
-                <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
-                  {{field.name}}
+                <input class="govuk-checkboxes__input" id={{field}} name="chosen_fields" type="checkbox" value={{field}}>
+                <label class="govuk-label govuk-checkboxes__label" for={{field}}>
+                  {{field}}
                 </label>
               </div>
             {% endfor %}

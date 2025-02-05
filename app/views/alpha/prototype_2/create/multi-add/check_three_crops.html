@@ -26,18 +26,11 @@
       Which fields do you plan to grow {{crop_name}} in?
     </dt>
     <dd class="govuk-summary-list__value">
-
-      {% for x in data.chosen_fields %}
-        {% if x == 'small' %}
-          Small Field <br>
-        {% elif x == 'big' %}
-          Big Field  <br>
-        {% elif x == 'long' %}
-          Long Field
-      {% endif %}
-
+      {% set field_details = ['Long field', 'Short field', 'Big field'] %}
+      {% for field in field_details %}
+          <p>{{field}}</p>
       {% endfor %}
-
+      <br>
     </dd>
       <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="">

@@ -384,12 +384,6 @@ router.get(/addcrops_check_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 
-//old 
-router.get(/crop_group_handler/, function (req, res) { 
-    var next = (req.session.data.crop_group == "other") ? 'crop_when' : 'crop_type_all';
-    res.redirect(next);
-})
-
 // old
 router.get(/grass_use_handler/, function (req, res) { 
     res.redirect('arable_length')

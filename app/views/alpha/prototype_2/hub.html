@@ -11,15 +11,15 @@
 
 <div class="status-header">
   <p class="govuk-table__body">Planning status</p>
-  {% if data.alpha_planning == "none" %}
+  {% if data.alpha_planning == 0 %}
     <h2 class="govuk-heading-m">No nutrient application plan for 2024</h2>
     <p class="govuk-body">
-      <a href="/create /fields.html" class="govuk-link">Create a nutrient application plan</a>
+      <a href="./create/fields.html" class="govuk-link">Create a nutrient application plan</a>
     </p>
   {% else %}
   <h2 class="govuk-heading-m">Plan started for 2024</h2>
   <p class="govuk-body">
-    <a href="/create /fields.html" class="govuk-link">View or edit nutrient application plan</a>
+    <a href="./create/fields.html" class="govuk-link">View or edit nutrient application plan</a>
   </p>
 {% endif %}
 </div>  

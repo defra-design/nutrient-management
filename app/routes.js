@@ -122,6 +122,9 @@ router.get('/', loadContent, loadControlVars, function (req, res) {
     {"reference":"2", "name":"Barn Field", "planStatus":false, "crop": null, "soil": null},
     {"reference":"3", "name":"Orchard", "planStatus":false, "crop": null, "soil": null}]
 
+    //set Alpha planning status
+    req.session.data.alpha_planning = false
+
     //manures
     req.session.data.plan_2024.multipleManuresApplied = false
     req.session.data.plan_2024.singleManuresApplied = false

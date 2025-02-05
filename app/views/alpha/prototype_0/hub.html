@@ -14,12 +14,12 @@
   {% if data.farm_details.plan_status == "none" %}
   <h2 class="govuk-heading-m">No nutrient application plan for {{data.content.harvest_year}}</h2>
   <p class="govuk-body">
-    <a href="/old/create/fields.html" class="govuk-link">Create a nutrient application plan</a>
+    <a href="create/fields.html" class="govuk-link">Create a nutrient application plan</a>
   </p>
 {% else %}
   <h2 class="govuk-heading-m">Plan started for {{data.content.harvest_year}}</h2>
   <p class="govuk-body">
-    <a href="/old/create/fields.html" class="govuk-link">View or edit nutrient application plan</a>
+    <a href="create/fields.html" class="govuk-link">View or edit nutrient application plan</a>
   </p>
 {% endif %}
 </div>  

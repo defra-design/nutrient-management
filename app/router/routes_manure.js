@@ -239,20 +239,6 @@ router.get(/create_plan_handler/, function (req, res) {
     }
 })
 
-//how do you want to create your plan? 
-router.get(/plan-type-handler/, function (req, res) { 
-    if (req.session.data.plan_type == "previous") {
-        req.session.data.crop_group = "Arable cereals"
-        req.session.data.chosen_crop = "Wheat-Winter"
-        res.redirect('check_last_year')
-    } else if (req.session.data.plan_type == "other") {
-        res.redirect('other_plan')
-    } else {
-        //new
-    res.redirect('use')
-    }
-})
-
 //grass or arable?
 router.get(/crop_type_handler/, function (req, res) { 
     if (req.session.data.field_use == "arable") {

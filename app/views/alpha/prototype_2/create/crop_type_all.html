@@ -16,19 +16,21 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% include "templates/title_span.html" %}
+            <span class="govuk-caption-l">
+        Nutrient application plan 2023 to 2024
+      </span>
       <h1 class="govuk-heading-l">
-        Which crop type do you plan to use in {{data.chosen_field.name}}?
+        Which crop type do you plan to use in  Long Field?
       </h1>
 
-      <form class="form" action="chosen_crop_handler" method="post">
+      <form class="form" action="crop_when" method="post">
 
         <div class="govuk-form-group">
 
             <div class="govuk-radios" data-module="govuk-radios">
 
               {% for crop in data.crop_types %}
-                {% if crop.type == data.crop_group %}
+                {% if crop.type == 'cereals' %}
                   <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id={{crop.reference}} name="chosen_crop" type="radio" value={{crop.reference}}>
                     <label class="govuk-label govuk-radios__label" for={{crop.reference}}>

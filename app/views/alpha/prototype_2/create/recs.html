@@ -15,9 +15,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     
-    {% include "templates/title_span.html" %}
+          <span class="govuk-caption-l">
+        Nutrient application plan 2023 to 2024
+      </span>
     <h1 class="govuk-heading-l">
-      {{data.content.non_organic_term}} recommendations<br> for {{data.chosen_field.name}}
+      {{data.content.non_organic_term}} recommendations<br> for  Long Field
     </h1>
     
     {% if data.field_use == 'arable' %}

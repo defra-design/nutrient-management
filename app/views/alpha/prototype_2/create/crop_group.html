@@ -16,12 +16,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% include "templates/title_span.html" %}
+            <span class="govuk-caption-l">
+        Nutrient application plan 2023 to 2024
+      </span>
       <h1 class="govuk-heading-l">
-        Which crop group do you plan to use in {{data.chosen_field.name}}?
+        Which crop group do you plan to use in  Long Field?
       </h1>
 
-      <form class="form" action="crop_group_handler" method="post">
+      <form class="form" action="crop_type_all" method="post">
 
         <div class="govuk-form-group">
             {% include "./crop_group_content" %}

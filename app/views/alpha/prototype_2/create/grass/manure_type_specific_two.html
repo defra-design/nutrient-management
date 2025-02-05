@@ -16,12 +16,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% include "templates/title_span.html" %}
+            <span class="govuk-caption-l">
+        Nutrient application plan 2023 to 2024
+      </span>
       <h1 class="govuk-heading-l">
         What type of Pig slurry will you apply in this application?
       </h1>
 
-      <form class="form" action="/alpha/create/check_one" method="post">
+      <form class="form" action="create/check_one" method="post">
 
         <div class="govuk-form-group">
             <div class="govuk-radios" data-module="govuk-radios">

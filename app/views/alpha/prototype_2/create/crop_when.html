@@ -22,27 +22,17 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      {% include "templates/title_span.html" %}
+            <span class="govuk-caption-l">
+        Nutrient application plan 2023 to 2024
+      </span>
 
       <h1 class="govuk-heading-l">
-        {% set crop_name = "nul" %}
-        {% for crop in data.crop_types %}
-          {% if crop.reference == data.chosen_crop %}
-            {% set crop_name = crop.prettyname %}
-          {% endif %}
-        {% endfor %}
-        When do you plan to sow {{ crop_name }} in {{data.chosen_field.name}}?
+        When do you plan to sow Winter Wheat in Long Field?
       </h1>
 
       <form class="form" action="yield" method="post">
 
         <div class="govuk-form-group">
-          <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                When was your passport issued?
-              </h1>
-            </legend> -->
             <div id="passport-issued-hint" class="govuk-hint">
               Enter an estimated date, for example, 27 3 2023
             </div>

@@ -10,10 +10,10 @@
     items: [
       {
         text: "Home",
-        href: "//alpha/prototype_2/hub"
+        href: "//alpha/prototype_0/hub"
       },
       {
-        text: "Create a " + data.content.harvest_year + " nutrient application plan"
+        text: "Create a 2024 nutrient application plan"
       }
     ]
   }) }}
@@ -28,7 +28,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Create a nutrient application plan for {{data.content.harvest_year}}
+        Create a nutrient application plan for 2024
       </h1>
 
       <p class="govuk-body">
@@ -49,46 +49,24 @@
         </thead>
         <tbody class="govuk-table__body">
 
-          {% for field in data.field_details %}
-            {% if field.planStatus == false %}
-              {% set plan_status = "No plan" %}
-            {% elif field.planStatus == "recommendations" %}
-              {% set plan_status = "Recommendations" %}
-              {% elif field.planStatus == "crop_added" %}
-              {% set plan_status = "Crop added" %}
-            {% else %}
-              {% set plan_status = "Plan created" %}
-            {% endif %}
+          {% set fieldList = ['Long Field', 'Short Field', 'Big Field'] %}
 
-            {% for crop in data.crop_types %}
-              {% if crop.reference == field.crop %}
-                {% set crop_name = crop.prettyname  %}
-              {% endif %}
-            {% endfor %}
-
-            
+          {% for field in fieldList %}
+          {% set plan_status = "No plan" %}
             <tr class="govuk-table__row">
-              <!-- <td class="govuk-table__cell"><a href="start_plan">{{field.name}}</a></td> -->
-              <td class="govuk-table__cell">{{field.name}}</td>
-              <!-- "contact-change-handler/?contactType=daytimeTelephone" -->
+              <td class="govuk-table__cell">
+                {{field}}
+              </td>
               <td class="govuk-table__cell">
                 <strong class="govuk-tag govuk-prototype-kit-manage-prototype-govuk-tag govuk-prototype-kit-manage-prototype-task-list__tag">
                   {{plan_status}}
               </strong>
             </td>
             <td class="govuk-table__cell">
-                {{field.crop | nameconverter}}
+                Winter Wheat
             </td>
             <td class="govuk-table__cell">
-              {% if field.planStatus == false %}
-                <a href="">Create plan</a>
-              {% elif field.planStatus == "recommendations" %}
-                <a href="recs">View recommendations</a>
-              {% elif field.planStatus == "crop_added" %}
-                <a href="">Continue plan</a>
-              {% else %}
-                <a href="">View or update plan</a>
-            {% endif %}
+                <a href="create">Create plan</a>
             </td>
           </tr>
           {% endfor %}   

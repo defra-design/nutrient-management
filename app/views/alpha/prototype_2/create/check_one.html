@@ -15,14 +15,16 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
     
-    {% include "templates/title_span.html" %}
+          <span class="govuk-caption-l">
+        Nutrient application plan 2023 to 2024
+      </span>
     <h1 class="govuk-heading-l">
-      Check crop and {{data.content.organic_term | lower }} details for {{data.chosen_field.name}}
+      Check crop and {{data.content.organic_term | lower }} details for  Long Field
     </h1>
 
     
     <h2 class="govuk-heading-m">
-      Crop plan for {{data.chosen_field.name}}
+      Crop plan for  Long Field
     </h2>   
     <div class="check-answers">
       {% if data.field_use == "arable" %}
@@ -34,7 +36,7 @@
 
     <br>
     <h2 class="govuk-heading-m">
-      {{data.content.organic_term}} plan for {{data.chosen_field.name}}
+      {{data.content.organic_term}} plan for  Long Field
     </h2>
     <div class="check-answers">
       {% include "./check_one_organic.html" ignore missing %}

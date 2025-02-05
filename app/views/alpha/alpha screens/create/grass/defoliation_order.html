@@ -1,0 +1,183 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% include "templates/title_span.html" %}
+      <h1 class="govuk-heading-l">
+        Grazes and silage cuts for {{data.chosen_field.name}}
+      </h1>
+
+      <form class="form" action="manure_if" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">
+            <legend class="govuk-fieldset__legend">
+              <span class="strong">What will the first graze or silage cut be?</span>
+            </legend>
+            <!-- <div id="defoliation_order-hint" class="govuk-hint">
+              This includes changing your last name or spelling your name differently.
+            </div> -->
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_one-1" name="defoliation_order_one" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_one-1">
+                  Grazing
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_one-2" name="defoliation_order_one" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_one-2">
+                  Silage cut
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">
+            <legend class="govuk-fieldset__legend">
+              <span class="strong">What will the second graze or silage cut be?</strong>
+            </legend>
+            <!-- <div id="defoliation_order-hint" class="govuk-hint">
+              This includes changing your last name or spelling your name differently.
+            </div> -->
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_two-1" name="defoliation_order_two" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_two-1">
+                  Grazing
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_two-2" name="defoliation_order_two" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_two-2">
+                  Silage cut
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">
+            <legend class="govuk-fieldset__legend">
+              Third defoliation
+            </legend>
+
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_three-1" name="defoliation_order_three" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_three-1">
+                  Grazing
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_three-2" name="defoliation_order_three" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_three-2">
+                  Silage
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div> -->
+
+        <!-- <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">
+            <legend class="govuk-fieldset__legend">
+              Fourth defoliation
+            </legend>
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_four-1" name="defoliation_order_four" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_four-1">
+                  Grazing
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_four-2" name="defoliation_order_four" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_four-2">
+                  Silage
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div> -->
+
+        <!-- <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">
+            <legend class="govuk-fieldset__legend">
+              Fifth defoliation
+            </legend>
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_five-1" name="defoliation_order_five" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_five-1">
+                  Grazing
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_five-2" name="defoliation_order_five" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_five-2">
+                  Silage
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div> -->
+
+        <!-- <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">
+            <legend class="govuk-fieldset__legend">
+              Sixth defoliation
+            </legend>
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_six-1" name="defoliation_order_six" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_six-1">
+                  Grazing
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="defoliation_order_six-2" name="defoliation_order_six" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="defoliation_order_six-2">
+                  Silage
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div> -->
+
+
+
+        
+
+                    
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

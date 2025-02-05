@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Manure
+      </h1>
+
+      <form class="form" action="type" method="post">
+
+        <div class="govuk-form-group">
+            <label class="govuk-label" for="event-name">
+              Area spread
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="event-name" name="eventName" type="text">
+          </div>
+  
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="event-name">
+              Manure quantitiy
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="event-name" name="eventName" type="text">
+          </div>
+  
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="event-name">
+              Application rate
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="event-name" name="eventName" type="text">
+          </div>
+  
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="event-name">
+              Application method
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="event-name" name="eventName" type="text">
+          </div>
+  
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="event-name">
+              Method of incorporation
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="event-name" name="eventName" type="text">
+          </div>
+          
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="event-name">
+              Delay to incorporation
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="event-name" name="eventName" type="text">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="event-name">
+              End of Drainage
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="event-name" name="eventName" type="text">
+          </div>
+
+  
+          {{ govukButton({
+          text: "Continue to Field 2"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

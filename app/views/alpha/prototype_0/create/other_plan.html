@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- <h1 class="govuk-heading-l">
+        Which crop group do you plan to use in {{data.chosen_field.name}} in {{data.content.harvest_year}}?
+      </h1> -->
+
+      <form class="form" action="create" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <p class="govuk-body">
+                This journey is not complete, go back and choose 'Start with last year's plan' or 'Enter crop and nutrient data manually'
+              </p>
+            </legend>
+        {{ govukButton({
+          text: "Back to plan type"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+  
+  <!-- <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p> -->
+
+{% endblock %}

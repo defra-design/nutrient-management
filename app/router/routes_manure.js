@@ -49,8 +49,22 @@ const setManureGroup = function (req, res, next) {
     next()
 }
 
+// handlers
+
+//ALPHA //set the status to recommendations
+router.get(/recs_status_handler/, function (req, res) { 
+    req.session.data.alpha_planning = 1
+    res.redirect('recs')
+})
+
+
 //routers
 
+//ALPHA // do you plan to spread fertiliser?
+router.get(/fertiliser_if_router/, function (req, res) { 
+    let next = req.session.data.fertiliser_if === "yes" ? (req.session.data.chosen_crop == 'grass' ? './grass/inorganic_defoliation' : 'fertiliser_when') : 'check_two';
+    res.redirect(next)
+})
 
 router.get(/fertiliser_remove_router/, showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 15
@@ -279,28 +293,7 @@ router.get(/manure_counter_updater/, function (req, res) {
 
 // update the status of the plan for chosen_field to nul, recs, full
 
-//set the status to recommendations
-router.get(/recs_status_handler/, function (req, res) { 
-    req.session.data.alpha_planning = 1
-    res.redirect('recs')
-})
-
 //FERTILISER
-
-//do you plan to spread fertiliser?
-router.get(/fertiliser_if_handler/, function (req, res) { 
-
-    if (req.session.data.fertiliser_if == "yes") {
-        if( req.session.data.chosen_crop == 'grass') {
-            res.redirect('./grass/inorganic_defoliation')
-
-        } else {
-            res.redirect('fertiliser_when')
-        }
-    } else {
-        res.redirect('check_two')
-    }
-})
 
 //manure application loops
 router.get(/fertiliser_counter_updater/, function (req, res) { 

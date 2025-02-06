@@ -249,13 +249,13 @@ router.get(/v4_plancopy_router/, function (req, res) {
     res.redirect('crop_group')
 })
 
-// old add second crops 
+// ALPHA // add second crops 
 router.get(/another_crop_router/, function (req, res) { 
     var next = (req.session.data.second_crop == 'new') ? 'crop_group' : 'second_crop/fields'
     res.redirect(next)
 })
 
-// old add second crops 
+// BETA // add second crops 
 router.get(/mvp_another_crop_router/, function (req, res) { 
     if (req.session.data.crop_group == 'other') {
         if (req.session.data.other_selected == 'yes') {

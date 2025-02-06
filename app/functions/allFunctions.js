@@ -58,20 +58,20 @@ function basicSetup (farm, mvpFields, manure, fertiliser) {
 };
 
 // allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, fertilisers)
-function farmSetup (farm, plan2023, plan2024, stage) {
+function farmSetup (farm, alphaPlan2023, alphaPlan2024, stage) {
     farm.setup = true
     if (stage == "fields" || stage == "crops" || stage == "grass" || stage == "manures" || stage == "fertilisers") {
         farm.fields_added = true
-        plan2023.setup = true
+        alphaPlan2023.setup = true
     }
     if (stage == "crops" || stage == "grass" || stage == "manures" || stage == "fertilisers") {
-        plan2024.setup = true
+        alphaPlan2024.setup = true
     }
     if (stage == "manures" || stage == "fertilisers") {
-        plan2024.multipleManuresApplied = true
+        alphaPlan2024.multipleManuresApplied = true
     }
     if (stage == "fertilisers") {
-        plan2024.multipleFertilisersApplied = true
+        alphaPlan2024.multipleFertilisersApplied = true
     }
 };
 

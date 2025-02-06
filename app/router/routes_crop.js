@@ -417,15 +417,15 @@ router.get(/add_multi_handler/, function (req, res) {
 //old - add crop
 router.get(/v2_check_handler/, function (req, res) { 
     if (req.session.data.plan_type == 'previous') {
-        req.session.data.plan2025.plan_update = 'previous_created'
-        req.session.data.plan2025.crop_added = true
-        req.session.data.plan2025.manure_added = true
-        req.session.data.plan2025.fertiliser_added = true
+        req.session.data.alphaPlan2025.plan_update = 'previous_created'
+        req.session.data.alphaPlan2025.crop_added = true
+        req.session.data.alphaPlan2025.manure_added = true
+        req.session.data.alphaPlan2025.fertiliser_added = true
     } else {
-        req.session.data.plan2025.plan_status = 'crop_added';
-        req.session.data.plan2025.crop_added = true
+        req.session.data.alphaPlan2025.plan_status = 'crop_added';
+        req.session.data.alphaPlan2025.crop_added = true
     }
-    req.session.data.chosen_plan = req.session.data.plan2025
+    req.session.data.chosen_plan = req.session.data.alphaPlan2025
     res.redirect('old/v2/crop_plan/index')
 })
 

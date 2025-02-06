@@ -406,9 +406,9 @@ router.get(/v2_manure_check_handler/, hideSuccessMessage, function (req, res) {
 
 //add fertiliser
 router.get(/v2_check_fertiliser_handler/, function (req, res) { 
-    req.session.data.plan2025.fertiliser_added = true
-    req.session.data.plan2025.plan_update = 'fertiliser_added'
-    req.session.data.chosen_plan = req.session.data.plan2025
+    req.session.data.alphaPlan2025.fertiliser_added = true
+    req.session.data.alphaPlan2025.plan_update = 'fertiliser_added'
+    req.session.data.chosen_plan = req.session.data.alphaPlan2025
     res.redirect('old/v2/crop_plan/index')
 })
 

@@ -345,10 +345,10 @@ router.get(/v2_another_crop_router/, function (req, res) {
 router.get(/v2_plan_handler/, function (req, res) { 
     if (req.session.data.v2_plan_type == 'new') {
         req.session.data.plan_type = 'new'
-        res.redirect('old/v2/alpha/plan/crops')
+        res.redirect('alpha/prototype_3/alpha/plan/crops')
     } else {
         req.session.data.plan_type = 'previous'
-        res.redirect('old/v2/alpha/plan/check')
+        res.redirect('alpha/prototype_3/alpha/plan/check')
     }
 })
 
@@ -396,20 +396,20 @@ router.get(/mvpfield_plan_handler/, hideSuccessMessage, function (req, res) {
     res.redirect('../field_plan/index')
 })
 
-//add manure
-router.get(/v2_manure_check_handler/, hideSuccessMessage, function (req, res) { 
-    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field.reference)
-    req.session.data.chosen_crop = req.query.chosencrop
-    req.session.data.cover_crop = req.query.covercrop
-    res.redirect('old/v2/crop_plan/index')
+// ALPHA // add manure
+router.get(/alpha_manure_check_handler/, hideSuccessMessage, function (req, res) { 
+    // req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field.reference)
+    // req.session.data.chosen_crop = req.query.chosencrop
+    // req.session.data.cover_crop = req.query.covercrop
+    res.redirect('alpha/prototype_3/crop_plan/index')
 })
 
-//add fertiliser
-router.get(/v2_check_fertiliser_handler/, function (req, res) { 
+// ALPHA // add fertiliser
+router.get(/alpha_check_fertiliser_handler/, function (req, res) { 
     req.session.data.alphaPlan2025.fertiliser_added = true
     req.session.data.alphaPlan2025.plan_update = 'fertiliser_added'
     req.session.data.chosen_plan = req.session.data.alphaPlan2025
-    res.redirect('old/v2/crop_plan/index')
+    res.redirect('../../crop_plan/index')
 })
 
 //show the right fertilisers

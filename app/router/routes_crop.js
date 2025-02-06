@@ -426,7 +426,7 @@ router.get(/v2_check_handler/, function (req, res) {
         req.session.data.alphaPlan2025.crop_added = true
     }
     req.session.data.chosen_plan = req.session.data.alphaPlan2025
-    res.redirect('old/v2/crop_plan/index')
+    res.redirect('alpha/prototype_3/crop_plan/index')
 })
 
 
@@ -478,7 +478,7 @@ router.get(/weight_type_router/, function (req, res) {
 
 //old - change crop plan
 router.get(/crop_change_handler/, function (req, res) { 
-    var next = (req.session.data.change_crop == 'add_fertiliser') ? '../alpha/plan/fertiliser/fertiliser_when' : '../alpha/plan/add_manure/manure_fields'
+    var next = (req.session.data.change_crop == 'add_fertiliser') ? '../plan/fertiliser/fertiliser_when' : '../plan/manure/manure_fields'
     res.redirect(next)
 })
 

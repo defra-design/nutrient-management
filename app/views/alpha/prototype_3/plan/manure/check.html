@@ -32,7 +32,8 @@
       {% include "./check_manure_values.html" ignore missing %}
     </div>
 
-    <form action="/v4_manure_check_handler/" method="post" novalidate>
+    <form action="/alpha/prototype_3/crop_plan/index" method="post" novalidate>
+      <!-- <form action="/alpha_manure_check_handler/" method="post" novalidate>  -->
       {{ govukButton({
         text: "Add to plan"
       }) }}

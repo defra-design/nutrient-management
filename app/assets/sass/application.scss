@@ -754,16 +754,19 @@ h2.manure-date {
     th:nth-child(1)  {
         width: 17%;
     }
-    th:nth-child(2)  {
-        width: 13%;
-    }
     th:nth-child(3)  {
         width: 13%;
     }
-    th:nth-child(6)    {
+    th:nth-child(4)  {
+        width: 13%;
+    }
+    // th:nth-child(5), th:nth-child(6)  {
+    //     width: 18%;
+    // }
+    th:nth-child(7)    {
         width: 14%;
     }
-    th:nth-child(7)    {
+    th:nth-child(8)    {
         width: 11%;
     }
 }

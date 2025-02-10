@@ -24,7 +24,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Are these new swards or existing swards in these fields?</dt>
-    <dd class="govuk-summary-list__value">{{data.reseed | capitalize}}</dd>
+    <dd class="govuk-summary-list__value">{{data.reseed | capitalize}} swards</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
@@ -42,9 +42,33 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Do you have a date for when you planted your Grass, or when you will plant it?</dt>
-    <dd class="govuk-summary-list__value">No, I'll enter the date later</dd>
+    <dd class="govuk-summary-list__value">
+      {% if data.sow_option_one == 'single' %}
+        Yes, I have a single date for all these fields
+      {% elif data.sow_option_one == 'different' %}
+        Yes, I have different dates for each of these fields
+      {% else %}
+        No, I'll enter the date later
+      {% endif %}
+    </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+
+  {% if data.sow_option_one != 'no' %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        {% if data.sow_option_one == 'single' %}
+          What is the planting date for Grass in these fields?
+        {% else %}
+          What is the planting date for Grass in Long Field?
+        {% endif %}
+      </dt>
+      <dd class="govuk-summary-list__value">
+          {{data.sow_date_day}} / {{data.sow_date_month}} / {{data.sow_date_year}}
+      </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% endif %}
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key"> What will you be growing in the sward?</dt>
@@ -101,7 +125,7 @@
       What is the total target dry matter yield for Long field?
     </dt>
     <dd class="govuk-summary-list__value">
-      10 tonnes per hectare
+      {{data.grass_total_yield}} tonnes per hectare
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>

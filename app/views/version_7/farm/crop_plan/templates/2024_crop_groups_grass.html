@@ -18,17 +18,13 @@
     </form>
   </div>
 
-  <table class="govuk-table govuk-table-small margin-bottom-forty">
+  <table class="group_table govuk-table govuk-table-small margin-bottom-forty">
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Field</th>
-        <!-- <th scope="col" class="govuk-table__header">Sward</th> -->
+        <th scope="col" class="govuk-table__header">Sowing date</th>
+        <th scope="col" class="govuk-table__header">Target yield (per hectare)</th>
         <th scope="col" class="govuk-table__header">Management</th>
-        <th scope="col" class="govuk-table__header">Total annual target yield<br>(per hectare)</th>
-        <th scope="col" class="govuk-table__header">Units</th>
-        <!-- <th scope="col" class="govuk-table__header">Alerts</th> -->
-        <!-- <th scope="col" class="govuk-table__header">Crop use</th>
-        <th scope="col" class="govuk-table__header">Straw use</th> -->
         <th scope="col" class="govuk-table__header"> </th>
       </tr>
     </thead>
@@ -53,14 +49,8 @@
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <td class="govuk-table__cell field-name">{{field.name}}</td>
-          <!-- <td class="govuk-table__cell">Grass</td> -->
-          <td class="govuk-table__cell">
-            <!-- {% if group.year == 2024 %}
-              Not entered
-            {% else %}
-              Cut, Graze, Graze, Graze
-            {% endif %} -->
-            Cut, Graze, Graze, Graze
+          <td class="govuk-table__cell field-name">
+            Not entered
           </td>
           <td class="govuk-table__cell field-name">
             {% if group.yield == null %}
@@ -70,28 +60,13 @@
             {% endif %}
           </td>
           <td class="govuk-table__cell">
-            {% if group.yield == null %}
+            Cut, Graze, Graze, Graze
+            <!-- {% if group.year == 2024 %}
               Not entered
             {% else %}
-              Dry weight
-            {% endif %}
+              Cut, Graze, Graze, Graze
+            {% endif %} -->
           </td>
-          <!-- <td class="govuk-table__cell">Total dry matter</td> -->
-          <!-- <td class="govuk-table__cell" class="govuk-table__header">
-              {% if manureCount == 0 %}
-              None
-            {% else %}
-              {{manureCount}}
-            {% endif %}
-          </td>
-          <td class="govuk-table__cell" class="govuk-table__header">
-              {% if inorganicCount == 0 %}
-                None
-              {% else %}
-                {{inorganicCount}}
-              {% endif %}
-          </td> -->
-          <!-- <td class="govuk-table__cell">None</td> -->
           <td class="grass-link govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}&year={{group.year}}">Update field or view recommendations</a></td>
         </tr> 
     {% endfor %}

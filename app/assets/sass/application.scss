@@ -771,4 +771,22 @@ h2.manure-date {
     }
 }
 
+.group_table {
+    th:nth-child(1)  {
+        width: 16%;
+    }
+    th:nth-child(2)  {
+        width: 15%;
+    }
+    th:nth-child(3)  {
+        width: 15%;
+    }
+    th:nth-child(4)  {
+        width: 22%;
+    }
+    th:nth-child(5), td:nth-child(5)  {
+        width: 36%;
+        text-align: right;
+    }
+}
  

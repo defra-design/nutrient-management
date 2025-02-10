@@ -64,7 +64,7 @@
         {% endif %}
       </dt>
       <dd class="govuk-summary-list__value">
-          {{data.sow_date_day}} / {{data.sow_date_month}} / {{data.sow_date_year}}
+          {{data.sow_date_day}} {{data.sow_date_month | convertmonth}}  {{data.sow_date_year}}
       </dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>

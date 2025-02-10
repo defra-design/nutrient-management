@@ -14,6 +14,13 @@ const hideSuccessMessage = function (req, res, next) {
     next()
 }
 
+const default_grass_values = function (req, res, next) {
+    // if (req.session.data.crop_fields == null || req.session.data.crop_fields == []) {
+    //     req.session.data.crop_fields = ['Long Field', 'Short Field']
+    // }
+    next()
+}
+
 
 //handlers
 
@@ -314,6 +321,11 @@ router.get(/yield_question_router/, function (req, res) {
     }
     res.redirect(next)
 })
+
+router.get(/v7_grass_yield_handler/, default_grass_values, function (req, res) { 
+    res.redirect('../check');
+})
+
 
 // current v1-7
 router.get(/yield_questiontwo_router/, function (req, res) { 

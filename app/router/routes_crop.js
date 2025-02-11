@@ -165,6 +165,7 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     }
     if (req.session.data.chosen_crop == 'grass') {
         yield = req.session.data.grass_total_yield
+        console.log('yield ' + yield)
     }
     req.session.data.currentCropGroups.push(allFunctions.createCropGroup(newRef, 2024, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, req.session.data.variety, req.session.data.groupname, yield, sowdate))
     req.session.data.groupname = null;

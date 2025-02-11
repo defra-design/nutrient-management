@@ -9,8 +9,8 @@ router.get(/end_to_end_setup_handler/, function (req, res) {
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2], req.session.data.all_fields, 'grass', null, 'Crop group 1', null, null))
-    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(1, 2025, [1,2], req.session.data.all_fields, 'grass', null, 'Crop group 1', '10 to 13', null))
-    var applicationOne = allFunctions.addFertiliserApplication_v2 (req.session.data.all_fields, req.session.data.currentCropGroups, 1, '01/03/2023', 60, 30, 30, 0, 0, 1)
+    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(1, 2025, [1,2], req.session.data.all_fields, 'grass', null, 'Crop group 1', '11', null))
+    var applicationOne = allFunctions.addFertiliserApplication_v2 (req.session.data.all_fields, req.session.data.currentCropGroups, 1, '01/03/2024', 60, 30, 30, 0, 0, 1)
     req.session.data.allFertiliserApplications.push(applicationOne)
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
@@ -68,7 +68,7 @@ router.get(/grass_v5_setup_handler/, function (req, res) {
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'grass', req.session.data.currentCropGroups)
     req.session.data.all_fields = req.session.data.complete_field_list
     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'grass', null, 'Crop group 1', null, null))
-    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(1, 2025, [1,2,3,4,5], req.session.data.all_fields, 'grass', null, 'Crop group 1', '10 to 13', null))
+    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(1, 2025, [1,2,3,4,5], req.session.data.all_fields, 'grass', null, 'Crop group 1', '11', null))
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
 })
@@ -94,7 +94,7 @@ router.get(/add_fertiliser_setup/, function (req, res) {
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'manures')
     req.session.data.all_fields = req.session.data.complete_field_list
     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', '8', null))
-    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(2, 2025, [11,12,13,14,15,16,17,18,19,20], req.session.data.all_fields, 'grass', null, 'Crop group 2', '10 to 13', null))
+    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(2, 2025, [11,12,13,14,15,16,17,18,19,20], req.session.data.all_fields, 'grass', null, 'Crop group 2', '11', null))
     var manureType = 'Cattle Farmyard manure - Old'
     var manure_fields = [1,2,3,4,5]
     var manureDate = '10 September 2024'
@@ -112,7 +112,7 @@ router.get(/add_fertiliser_v5_setup/, function (req, res) {
     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, 'Wheat-Winter', null, 'Crop group 1', null, null))
     req.session.data.currentCropGroups.push(allFunctions.createCropGroup(1, 2025, [1,2,3,4,5,6,7,8,9,10], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', '8', null))
     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(2, 2024, [11,12,13,14,15,16,17,18,19,20], req.session.data.all_fields, 'grass', null, 'Crop group 2', null, null))
-    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(2, 2025, [11,12,13,14,15,16,17,18,19,20], req.session.data.all_fields, 'grass', null, 'Crop group 2', '10 to 13', null))
+    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(2, 2025, [11,12,13,14,15,16,17,18,19,20], req.session.data.all_fields, 'grass', null, 'Crop group 2', '10', null))
     var manureType = 'Cattle Farmyard manure - Old'
     var manure_fields = [1,2,3,4,5]
     var manureDate = '10 September 2024'
@@ -132,7 +132,7 @@ router.get(/newmanure_setup/, function (req, res) {
     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(2, 2024, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', null, 'Crop group 2', null, null))
     req.session.data.currentCropGroups.push(allFunctions.createCropGroup(2, 2025, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 2', '8', null))
     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(3, 2024, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', null, null))
-    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(3, 2025, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', '10 to 13', null))
+    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(3, 2025, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', '11', null))
     for (var x in req.session.data.all_fertiliser_applications) {
         req.session.data.allFertiliserApplications.push(req.session.data.all_fertiliser_applications[x])
     }
@@ -152,7 +152,7 @@ router.get(/plan_setup/, function (req, res) {
     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(2, 2024, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', null, 'Crop group 2', null, null))
     req.session.data.currentCropGroups.push(allFunctions.createCropGroup(2, 2025, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 2', '10 to 13', "12/03/2025"))
     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(3, 2024, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', null, null))
-    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(3, 2025, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', '10 to 13', null))
+    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(3, 2025, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', '12', null))
     for (var x in req.session.data.all_fertiliser_applications) {
         req.session.data.allFertiliserApplications.push(req.session.data.all_fertiliser_applications[x])
     }

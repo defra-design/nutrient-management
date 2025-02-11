@@ -453,7 +453,7 @@ router.get(/v2_check_handler/, function (req, res) {
 
 //current v5, v7
 router.get(/season_router/, function (req, res) { 
-    var next = (req.session.data.reseed == "yes") ? 'season' : 'sowdate_question'
+    var next = (req.session.data.reseed == "yes" || req.session.data.reseed == "new" ) ? 'season' : 'sowdate_question'
     res.redirect(next)
 })
 

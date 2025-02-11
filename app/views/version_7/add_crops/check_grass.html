@@ -41,7 +41,7 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Do you have a date for when you planted your Grass, or when you will plant it?</dt>
+    <dt class="govuk-summary-list__key">Do you have a date for when you sowed your Grass, or when you will sow it?</dt>
     <dd class="govuk-summary-list__value">
       {% if data.sow_option_one == 'single' %}
         Yes, I have a single date for all these fields
@@ -58,9 +58,9 @@
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">
         {% if data.sow_option_one == 'single' %}
-          What is the planting date for Grass in these fields?
+          What is the sowing date for Grass in these fields?
         {% else %}
-          What is the planting date for Grass in Long Field?
+          What is the sowing date for Grass in Long Field?
         {% endif %}
       </dt>
       <dd class="govuk-summary-list__value">

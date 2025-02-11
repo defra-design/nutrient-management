@@ -29,20 +29,14 @@
 
       <h1 class="govuk-heading-l">
         {% if data.sow_option_one == "single" %}
-        What is the planting date for {{data.chosen_crop | nameconverter}} in these fields?
+        What is the sowing date for {{data.chosen_crop | nameconverter}} in these fields?
       {% else %}
-        What is the planting date for {{data.chosen_crop | nameconverter}} in {{data.crop_fields[0].name | nameconverter}}?
+        What is the sowing date for {{data.chosen_crop | nameconverter}} in {{data.crop_fields[0].name | nameconverter}}?
       {% endif %}
       </h1>
       <form class="form" action="sward_type" method="post">
 
         <div class="govuk-form-group">
-          <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="sow_date_hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                When was your passport issued?
-              </h1>
-            </legend> -->
             <div id="sow_date_hint" class="govuk-hint">
               For example, 27 3 2023
             </div>

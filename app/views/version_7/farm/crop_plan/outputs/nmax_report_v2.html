@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Oaktree lane farm - Nmax limits 2025
+  Oaktree lane farm - N-Max limits 2025
 {% endblock %}
 {% block beforeContent %}
 
@@ -34,7 +34,7 @@
 <div class="govuk-grid-row">
 
   <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-xl">Nmax limits for {{data.oaktree_farm.name}} 2025</h1>
+    <h1 class="govuk-heading-xl">N-Max limits for {{data.oaktree_farm.name}} 2025</h1>
     <p class="govuk-body">Created on 29 January 2025</p>
   </div>
 
@@ -61,7 +61,7 @@
     <div class="govuk-grid-column-full">
 
     <div class="govuk-inset-text margin-bottom-forty">
-      <p class="govuk-body margin-bottom-forty">To comply with the Nmax limit for each crop type the total nitrogen (N) applied<br> in fertiliser and crop available nitrogen from organic manures must not be greater<br> than the adjusted Nmax limit.</p>
+      <p class="govuk-body margin-bottom-forty">To comply with the N-Max limit for each crop type the total nitrogen (N) applied<br> in fertiliser and crop available nitrogen from organic manures must not be greater<br> than the adjusted N-Max limit.</p>
     </div>
 
   <div class="margin-bottom-forty">
@@ -69,7 +69,7 @@
     {% set fieldName = 'Long Meadow field' %}
     <h3 class="govuk-heading-m">Nitrogen applications for Winter Wheat fields</h3>
     {% include "./templates/max/nitrogen_applications.html" ignore missing %}
-    <p>Winter Wheat fields are Nmax compliant, based on field records.</p>
+    <p>Winter Wheat fields are N-Max compliant, based on field records.</p>
   </div>
   
   <div id="printbreak"></div>
@@ -80,7 +80,7 @@
     {% set fieldName = 'Short field' %}
     <h3 class="govuk-heading-m">Nitrogen applications for Grass fields</h3>
     {% include "./templates/max/nitrogen_applications.html" ignore missing %}
-    <p class="govuk-body">Grass fields are Nmax compliant, based on field records.</p>
+    <p class="govuk-body">Grass fields are N-Max compliant, based on field records.</p>
   </div>
 
 

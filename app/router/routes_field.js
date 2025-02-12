@@ -81,6 +81,11 @@ router.get(/add_field_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version +'/farm/field/manage-fields');
 })
 
+router.get(/add_sns_handler/, function (req, res) { 
+    req.session.data.show_success_message = true;
+    res.redirect('/'+ req.session.data.prototype_version +'/farm/field_plan/index');
+})
+
 router.get(/copy_name_handler/, function (req, res) { 
     // req.session.data.tempField.name = (req.session.data.temp_field_name == '') ? 'New Field' : req.session.data.temp_field_name
     req.session.data.tempField.reference = req.session.data.all_fields.length + 1
@@ -90,7 +95,6 @@ router.get(/copy_name_handler/, function (req, res) {
     req.session.data.tempField.name = req.session.data.temp_field_name
     res.redirect('./copy-field-check')
 })
-
 
 //Routers
 

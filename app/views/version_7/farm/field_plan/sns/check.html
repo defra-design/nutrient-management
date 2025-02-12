@@ -20,33 +20,22 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-l">
-        Check your answers
+        Add soil mineral nitrogen analysis results for {{data.chosen_field.name}}
       </h1>
 
       <div class="check-answers">
         <!-- <h2 class="govuk-heading-m">Field details</h2> -->
 
         <dl class="govuk-summary-list">
-
-          {% include "./check-details.html" ignore missing %}
-          
-          {% if data.chosen_crop == 'Grass' %}
-            {% include "./check-details-grass.html" ignore missing %}
-          {% else %}
-            {% include "./check-details-crop.html" ignore missing %}
-          {% endif %}
-
-          {% if data.sns_method == 'yes'%}
-            {% include "./check-details-sns.html" ignore missing %}
-          {% endif %}
+          {% include "./check-details-sns.html" ignore missing %}
         </dl>
       </div>
       <br>
 
-      <form action="add_field_handler" method="post" novalidate>
+      <form action="add_sns_handler" method="post" novalidate>
 
         <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Add this field
+          Add these analysis results
         </button>
   
       </form>

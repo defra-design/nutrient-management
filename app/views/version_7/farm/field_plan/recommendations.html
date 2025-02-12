@@ -2,9 +2,9 @@
 
   <h2 class="govuk-heading-m non-standard">Nutrient and Lime recommendations</h2>
 
-  {% include "/templates/recommendations.html" ignore missing %}
+  {% include "/templates/beta_disclaimer.html" ignore missing %}
   
-  {% if appears_in_other_groups == true %}
+  <!-- {% if appears_in_other_groups == true %}
     <ul class="govuk-list govuk-list--spaced">
       <li>
         <a class="govuk-link" href="#cropone">Recommendations for Carrots in Long Field</a>
@@ -13,7 +13,7 @@
         <a class="govuk-link" href="#croptwo">Recommendations for Beetroot in Long Field</a>
       </li>
     </ul>
-  {% endif %}
+  {% endif %} -->
 
   <hr class="seperator_five">
 
@@ -107,7 +107,7 @@
   {% if data.chosen_crop != 'Grass' and data.chosen_crop != 'grass' %}
     <h2 class="govuk-heading-m">Guidance</h2>
     <h3 class="govuk-heading-s">Nitrogen</h3>
-    <div class="guidance">
+    <div class="guidance margin-bottom-forty">
       <p class="govuk-body">
         Apply no more than 100 kg N/ha at sowing or transplanting then apply
         N according to crop growth, e.g. up to 60 kg N/ha per month in the south-west and 20 kg N/ha in the north. 
@@ -116,9 +116,8 @@
     </div>
   {% endif %}
 
-  <!-- second crop -->
 
-  {% if appears_in_other_groups == true %}
+  <!-- {% if appears_in_other_groups == true %}
     <hr class="seperator_five">
     <h2 id="croptwo" class="govuk-heading-m">
       Nutrient and Lime recommendations for 
@@ -156,7 +155,14 @@
 
   {% if appears_in_other_groups == true or data.chosen_group.crop_reference == 'grass' %}
     <p class="govuk-body"><a class="govuk-link" href="#">Back to the top</a></p>
-  {% endif %}
+  {% endif %} -->
+
+  {% include "/templates/recommendations.html" ignore missing %}
+
+  {% if data.chosen_group.crop_reference == 'grass' %}
+  <p class="govuk-body"><a class="govuk-link" href="#">Back to the top</a></p>
+{% endif %}
+
 
 </div>
 

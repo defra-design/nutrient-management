@@ -145,11 +145,11 @@ router.get(/previous_group_router/, function (req, res) {
     } 
     if (req.session.data.crop_group == 'herbs') {
         req.session.data.chosen_crop = 'Herbs'
-        next = 'sns'
+        next = 'check'
     } 
     if (req.session.data.crop_group == 'other') {
         req.session.data.chosen_crop = 'Other'
-        next = 'sns'
+        next = 'check'
     } 
     res.redirect(next)
 })

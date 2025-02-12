@@ -75,12 +75,17 @@
   <div id="printbreak"></div>
   <div class="pagebreak">&nbsp;</div>
 
-  <div>
+  <div class="margin-bottom-forty">
     {% include "./templates/max/grass_limits.html" ignore missing %}
     {% set fieldName = 'Short field' %}
     <h3 class="govuk-heading-m">Nitrogen applications for Grass fields</h3>
     {% include "./templates/max/nitrogen_applications.html" ignore missing %}
     <p class="govuk-body">Grass fields are N-Max compliant, based on field records.</p>
+  </div>
+
+  <hr>
+  <div class="disclaimers">
+    {% include "/templates/beta_disclaimer.html" ignore missing %} 
   </div>
 
 

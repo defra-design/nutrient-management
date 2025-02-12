@@ -35,7 +35,14 @@
       <h3 class="govuk-notification-banner__heading">
         Crops added for {{data.oaktree_farm.planning_year}}
       </h3>
-      <p class="govuk-body">Select a field to see its nutrient recommendations.</p>
+      <p class="govuk-body">Select a field to see its nutrient recommendations, or to add soil mineral nitrogen analysis results.</p>
+    {% endif %}
+
+    {% if data.successMessage == X %}
+    <h3 class="govuk-notification-banner__heading">
+      Grass added for {{data.oaktree_farm.planning_year}}
+    </h3>
+    <p class="govuk-body">Select a field to see its nutrient recommendations.</p>
     {% endif %}
 
     <!-- manure added - 2 -->

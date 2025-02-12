@@ -32,8 +32,9 @@ router.get(/field_level_plan_v5_handler/, hideSuccessMessage, function (req, res
     req.session.data.chosen_group = req.query.fieldref
     req.session.data.chosen_field = req.query.groupref
     req.session.data.chosen_year = req.query.year
-    // console.log(req.session.data.chosen_group)
-    // console.log(req.session.data.chosen_field)
+    console.log(req.session.data.chosen_group)
+    console.log(req.session.data.chosen_field)
+    console.log(req.session.data.chosen_year)
     //group.reference 
     if (req.session.data.chosen_year == 2024) {
         req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.previousCropGroups, req.query.groupref)

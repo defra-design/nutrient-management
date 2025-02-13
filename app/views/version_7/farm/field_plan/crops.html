@@ -5,7 +5,7 @@
 
   <!-- <p class="govuk-body"><a href="../../farm/field/split_merge">Split this field, or merge it with others</a></p> -->
   
-  {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' %}
+  {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' and data.chosen_group.sns != true %}
     <p class="govuk-body"><a href="sns/date">Add a soil mineral nitrogen analysis result for {{data.chosen_group.crop_reference | nameconverter}}</a></p>
   {% endif %}
 
@@ -31,43 +31,7 @@
   {% endif %}
 
   {% if data.chosen_group.sns == true  %}
-    <hr class="seperator_five">
-    <h2 class="govuk-heading-m">Soil Nitrogen Supply (SNS) analysis for {{data.chosen_field.name}}</h2>
-
-    <div class="tabs-thirds margin-bottom-forty">
-      <table class="govuk-table">
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Date sample taken</th>
-            <td class="govuk-table__cell">21 May 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Kilograms of soil mineral nitrogen at 0-30cm</th>
-            <td class="govuk-table__cell">40kg</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Kilograms of soil mineral nitrogen at 30-60cm</th>
-            <td class="govuk-table__cell">15kg</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Kilograms of soil mineral nitrogen at 60-90cm (optional)</th>
-            <td class="govuk-table__cell">5kg</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Number of shoots per square metre</th>
-            <td class="govuk-table__cell">500</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Percentage of organic matter</th>
-            <td class="govuk-table__cell">5%</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Soil Nitrogen Supply Index</th>
-            <td class="govuk-table__cell">285kg per hectare</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    {% include "./templates/sns_details.html" ignore missing %}
   {% endif %}
 
 </div>

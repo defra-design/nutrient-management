@@ -120,11 +120,16 @@ router.get(/start_router/, function (req, res) {
     res.redirect('/' + req.session.data.prototype_version + next);
 })
 
-
 router.get(/hub_reset_router/, function (req, res) { 
     req.session.data.show_success_message = false;
     res.redirect('/' + req.session.data.prototype_version + '/farm/hub');
 })
+
+router.get(/plan_view_reset_router/, function (req, res) { 
+    req.session.data.show_success_message = false;
+    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view');
+})
+
 
 
 

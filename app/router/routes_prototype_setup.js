@@ -125,7 +125,7 @@ router.get(/add_fertiliser_v5_setup/, function (req, res) {
 })
 
 router.get(/newmanure_setup/, function (req, res) { 
-    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'fertilisers')
+    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2024, req.session.data.plan_2024, 'fertilisers')
     req.session.data.all_fields = req.session.data.complete_field_list
     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(1, 2024, [8, 12], req.session.data.all_fields, 'Beans-Winter', null, 'Crop group 1', null, null))
     req.session.data.currentCropGroups.push(allFunctions.createCropGroup(1, 2025, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Crop group 1', '5', null))
@@ -145,8 +145,9 @@ router.get(/newmanure_setup/, function (req, res) {
 
 router.get(/plan_setup/, function (req, res) { 
     // function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, group, yield, date) {
-    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'fertilisers')
+    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2024, req.session.data.plan_2024, 'fertilisers')
     req.session.data.all_fields = req.session.data.complete_field_list
+    req.session.data.oaktree_farm.planning_year = '2025'
     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(1, 2024, [8, 12], req.session.data.all_fields, 'Beans-Winter', null, 'Crop group 1', null, null))
     req.session.data.currentCropGroups.push(allFunctions.createCropGroup(1, 2025, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Crop group 1', null, null))
     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(2, 2024, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', null, 'Crop group 2', null, null))

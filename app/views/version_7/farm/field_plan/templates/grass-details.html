@@ -1,13 +1,11 @@
 <table class="govuk-table">
   <tbody class="govuk-table__body">
-    <!-- <tr class="govuk-table__row">
-      <td class="govuk-table__cell strong">Variety</td>
-      {% if data.chosen_group.variety == null or data.chosen_group.variety == '' %}
-        <td class="govuk-table__cell">Not entered</td>
-      {% else %}
-        <td class="govuk-table__cell">{{data.chosen_group.variety}}</td>
-      {% endif %}
-    </tr>    -->
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell strong">Crop</td>
+        <td class="govuk-table__cell">
+          {{data.chosen_group.crop_reference | nameconverter}}
+        </td>
+    </tr>      
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Group</td>
         <td class="govuk-table__cell">

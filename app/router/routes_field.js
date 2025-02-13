@@ -84,7 +84,7 @@ router.get(/add_field_handler/, function (req, res) {
 router.get(/add_sns_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 17;
-
+    req.session.data.chosen_group.sns = true;
     res.redirect('/'+ req.session.data.prototype_version +'/farm/field_plan/index');
 })
 

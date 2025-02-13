@@ -1,13 +1,8 @@
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="crops">
   <h2 class="govuk-heading-m non-standard">
-    Crop details for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}
+    Crop, field and soil details for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}
   </h2>
 
-  {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' %}
-    <p class="govuk-body"><a href="updates/crop/change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
-  {% else %}
-    <p class="govuk-body"><a href="updates/grass/change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
-  {% endif %}
   <!-- <p class="govuk-body"><a href="../../farm/field/split_merge">Split this field, or merge it with others</a></p> -->
   
   {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' %}
@@ -20,13 +15,7 @@
 
   <div class="tabs-thirds margin-bottom-forty">
     <h2 class="govuk-heading-m">
-      <!-- <span class="nonbold">
-        {% if data.chosen_group.variety.length %}
-          ({{data.chosen_group.variety}})
-        {% endif %}
-        - {{data.chosen_group.groupname}}
-        details
-      </span> -->
+      Crop details for {{data.chosen_field.name}}
     </h2>
     {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' %}
       {% include "./templates/arable_crop_details.html" ignore missing %}
@@ -35,46 +24,51 @@
     {% endif %}
   </div>
 
-  <!-- second crop -->
-  <!-- {% set appears_in_other_groups = false %}
-  {% set second_crop_reference = null %} -->
+  {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' %}
+    <p class="govuk-body"><a href="updates/crop/change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
+  {% else %}
+    <p class="govuk-body"><a href="updates/grass/change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
+  {% endif %}
 
-  <!-- {% for group in data.currentCropGroups %}
-    {% if group.reference != data.chosen_group.reference %}
-      {% for field in group.fields %}
-        {% if field.reference == data.chosen_field.reference %}
-          {% set appears_in_other_groups = true %}
-          {% set second_crop_reference = group.crop_reference %}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-  {% endfor %} -->
-
-  {% if appears_in_other_groups == true %}
+  {% if data.chosen_group.sns == true  %}
     <hr class="seperator_five">
+    <h2 class="govuk-heading-m">Soil Nitrogen Supply (SNS) analysis for {{data.chosen_field.name}}</h2>
+
     <div class="tabs-thirds margin-bottom-forty">
-      <h2 class="govuk-heading-m">
-        {{second_crop_reference | nameconverter}} 
-        <span class="nonbold">
-          {% if second_group_variety.length > 0 %}
-            ({{second_group_variety}})
-          {% endif %}
-            - {{second_group_name}}
-          details
-        </span>
-      </h2>
-      {% if data.second_crop_reference != 'Grass' and data.second_crop_reference != 'grass' %}
-        {% include "./templates/second-crop-details.html" ignore missing %}
-      {% else %}
-        {% include "./templates/grass-details.html" ignore missing %}
-      {% endif %}
-      <p class="govuk-body"><a href="change_crop">Change the {{second_crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Date sample taken</th>
+            <td class="govuk-table__cell">21 May 2023</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Kilograms of soil mineral nitrogen at 0-30cm</th>
+            <td class="govuk-table__cell">40kg</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Kilograms of soil mineral nitrogen at 30-60cm</th>
+            <td class="govuk-table__cell">15kg</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Kilograms of soil mineral nitrogen at 60-90cm (optional)</th>
+            <td class="govuk-table__cell">5kg</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Number of shoots per square metre</th>
+            <td class="govuk-table__cell">500</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Percentage of organic matter</th>
+            <td class="govuk-table__cell">5%</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Soil Nitrogen Supply Index</th>
+            <td class="govuk-table__cell">285kg per hectare</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-{% endif %}
-
-<!-- <h2 class="govuk-heading-m non-standard">Field and soil details for {{data.chosen_field.name}}</h2>
-<hr class="seperator_five"> -->
-
+  {% endif %}
 
 </div>
 

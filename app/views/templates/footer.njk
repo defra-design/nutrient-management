@@ -1,0 +1,17 @@
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "/legal",
+         text: "Terms of use"
+       },
+       {
+         href: "/",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}

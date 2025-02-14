@@ -36,16 +36,8 @@
       Check the release schedule to see what features have been added to the test version of the service.
     </p>
 
-    <h2 class="govuk-heading-m">
-      Moving your data to the live service
-    </h2>
-    
     <p class="govuk-body">
-      If you wish to take your farm data and plans from the testing version to the live version, please email our team at <a href="">helpdesk@rsk-bsl.co.uk</a>.
-    </p>
-
-    <p class="govuk-body">
-      We will migrate your data for you when the service launches, and then your plans will be suitable for regulatory use.
+      View the <a href="legal">terms of use</a>.
     </p>
 
     <h2 class="govuk-heading-m">
@@ -62,7 +54,7 @@
     <ul class="govuk-list govuk-list--bullet">
       <li>technical issues</li>
       <li>login issues</li>
-      <li>lservice outages</li>
+      <li>service outages</li>
     </ul>
 
     <p class="gov-body">
@@ -86,26 +78,22 @@
     </p>
 
     <h2 class="govuk-heading-m">
-      More information
+      Moving your data to the live service
     </h2>
-
-    <p class="gov-body">
-      The Nutrient Management Plan is intended to be used alongside 
+    
+    <p class="govuk-body">
+      If you wish to take your farm data and plans from the testing version to the live version, please email our team at <a href="">helpdesk@rsk-bsl.co.uk</a>.
     </p>
 
-    <p class="gov-body">
-      For advice about nutrient planning in general, start with <a href="https://www.triedandtested.org.uk" target="_blank">Tried and Tested</a>\ (opens in a new window).
-    </p>
-
-    <p class="gov-body">
-      For more information on RB209, visit <a href="https://ahdb.org.uk/knowledge-library/rb209-section-1-principles-of-nutrient-management-and-fertiliser-use" target="_blank">Nutrient management guide (RB209) section 1</a> (external link).
+    <p class="govuk-body">
+      We will migrate your data for you when the service launches, and then your plans will be suitable for regulatory use.
     </p>
 
     <h2 class="govuk-heading-m">
       Giving feedback about this service
     </h2>
 
-    <p class="gov-body margin-bottom-forty">
+    <p class="gov-body">
       If you would like to give us feedback about this service, then please email: <a href="">nmpt@defra.gov.uk</a>.
     </p>
 
@@ -113,8 +101,43 @@
       Your feedback will help us improve this service.  
     </p>
 
+    <h2 class="govuk-heading-m">
+      More information
+    </h2>
+
+    <p class="gov-body">
+      The Nutrient Management Plan is intended to be used alongside RB209
+    </p>
+
+    <p class="gov-body">
+      For advice about nutrient planning in general, start with <a href="https://www.triedandtested.org.uk" target="_blank">Tried and Tested</a> (opens in a new window).
+    </p>
+
+    <p class="gov-body">
+      For more information on RB209, visit <a href="https://ahdb.org.uk/knowledge-library/rb209-section-1-principles-of-nutrient-management-and-fertiliser-use" target="_blank">Nutrient management guide (RB209) section 1</a> (opens in a new window).
+    </p>
+    <div class="margin-bottom-forty">&nbsp;</div>
+
 </div>
 </div>
 
 
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "/version_7/legal",
+         text: "Terms of use"
+       },
+       {
+         href: "/",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
 {% endblock %}

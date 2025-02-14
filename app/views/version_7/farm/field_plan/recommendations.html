@@ -1,9 +1,11 @@
 <div class="govuk-tabs__panel" id="recs">
 
   <h2 class="govuk-heading-m non-standard">Nutrient and Lime recommendations</h2>
-
-  <h2 class="govuk-heading-m">Private beta disclaimer</h2>
-{% include "/templates/beta_disclaimer.html" ignore missing %}
+  
+  <div class="tabs-thirds margin-bottom-forty">
+    <h2 class="govuk-heading-s">Private beta disclaimer</h2>
+    {% include "/templates/beta_disclaimer.html" ignore missing %}
+  </div>
   
   <!-- {% if appears_in_other_groups == true %}
     <ul class="govuk-list govuk-list--spaced">
@@ -46,6 +48,8 @@
       {% include "./templates/v5_nutrients_empty.html" ignore missing %}
     {% endif %}
   {% endif %}
+  <p class="govuk-body-s margin-bottom-forty">Source AHDB Nutrient Management Guide (RB209).</p>
+
 
   <!-- <h3 class="govuk-heading-s">
     Phosphate (P2O5) and Potash (K2O) balance
@@ -158,7 +162,12 @@
     <p class="govuk-body"><a class="govuk-link" href="#">Back to the top</a></p>
   {% endif %} -->
 
-  {% include "/templates/recommendations.html" ignore missing %}
+  <hr class="seperator_five">
+
+  <div class="tabs-thirds margin-bottom-forty">
+    <h2 class="govuk-heading-s">About recommendations, guidance, and advice</h2>
+    {% include "/templates/recommendations.html" ignore missing %}
+  </div>
 
   {% if data.chosen_group.crop_reference == 'grass' %}
   <p class="govuk-body"><a class="govuk-link" href="#">Back to the top</a></p>

@@ -721,7 +721,7 @@ h2.manure-date {
 
 ////NMAX TABLE 964
 
-.new_nmax_table {
+.new_nmax_table, .new_nmax_rates_table {
     margin-bottom: 40px;
     font-size: 17px;
     .total_row {
@@ -760,7 +760,20 @@ h2.manure-date {
     .col_9 {
         width: 100px;
     }
-
+}
+.new_nmax_rates_table {
+    th {
+        margin-right: 5px;
+    }
+    .col_1 {
+        width: 122px;
+    }
+    .col_2 {
+        width: 45px;
+    }
+    .col_7, .col_8 {
+        width: 100px;
+    }
 }
 
 //////

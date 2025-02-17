@@ -17,6 +17,7 @@ router.get(/end_to_end_setup_handler/, function (req, res) {
 })
 
 router.get(/onecrop_v5_setup_handler/, function (req, res) { 
+    req.session.data.showinfo = false
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
     req.session.data.all_fields = req.session.data.complete_field_list
     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', null, 'Crop group 1', null, null, false))
@@ -25,14 +26,14 @@ router.get(/onecrop_v5_setup_handler/, function (req, res) {
     res.redirect('/' + req.query.version + '/start')
 })
 
-router.get(/onecrop_v5_setup_handler/, function (req, res) { 
-    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
-    req.session.data.all_fields = req.session.data.complete_field_list
-    req.session.data.previousCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', null, 'Crop group 1', null, null, false))
-    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(1, 2025, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', '8', null, false))
-    req.session.data.prototype_version = req.query.version
-    res.redirect('/' + req.query.version + '/start')
-})
+// router.get(/onecrop_v5_setup_handler/, function (req, res) { 
+//     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
+//     req.session.data.all_fields = req.session.data.complete_field_list
+//     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', null, 'Crop group 1', null, null, false))
+//     req.session.data.currentCropGroups.push(allFunctions.createCropGroup(1, 2025, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', '8', null, false))
+//     req.session.data.prototype_version = req.query.version
+//     res.redirect('/' + req.query.version + '/start')
+// })
 
 router.get(/twocrops_v5_setup_handler/, function (req, res) { 
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')

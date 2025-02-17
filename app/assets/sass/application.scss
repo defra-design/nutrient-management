@@ -718,64 +718,52 @@ h2.manure-date {
     }
 }
 
+
+////NMAX TABLE 964
+
 .new_nmax_table {
     margin-bottom: 40px;
     font-size: 17px;
+    .total_row {
+        background-color: #f3f2f1;
+        font-weight: bold;
+    }    
 }
-.field_name_td {
-    width: 16%;
-}
-.field_area_td {
-    width: 7%;
-}
-.field_croparea_td  {
-    width: 9%;
-}
-.soil_adjustment_td {
-    width: 12%;
-}
-.grass_only_td {
-    width: 24%;
-}
-.paper_adjustment_grass_td {
-    width: 22%;
-}
-.paper_adjustment_td {
-    width: 12%;
-}
-.yield_adjustment_td {
-    width: 11%;
-}
-.wheat_adjustment_td {
-    width: 11%;
-}
-.nrate_td {
-    width: 12%;
-}
-.nlimit_td {
-    width: 12%;
+.new_nmax_table_crop {
+    th {
+        margin-right: 5px;
+    }
+    .col_1 {
+        width: 122px;
+    }
+    .col_2 {
+        width: 45px;
+    }
+    .col_3 {
+        width: 52px;
+    }
+    .col_4 {
+        width: 94px;
+    }
+    .col_5 {
+        width: 94px;
+    }
+    .col_6 {
+        width: 70px;
+    }
+    .col_7{
+        width: 120px;
+    }
+    .col_8 {
+        width: 100px;
+    }
+    .col_9 {
+        width: 100px;
+    }
+
 }
 
-//applications
-.inorganioc_rate_td {
-    width: 12%;
-}
-.inorganioc_total_td {
-    width: 12%;
-}
-.organic_available_rate_td {
-    width: 15%;
-}
-.organic_available_total_td {
-    width: 16%;
-}
-.total_row {
-    background-color: #f3f2f1;
-}
-
-.new_nmax_rates_table {
-    font-size: 17px;
-}
+//////
 
 .group_table {
     th:nth-child(1)  {
@@ -801,3 +789,9 @@ h2.manure-date {
     margin-bottom: 20px;
 }
  
+
+.nmax_header {
+    h1 {
+        margin-bottom :20px;
+    }
+}

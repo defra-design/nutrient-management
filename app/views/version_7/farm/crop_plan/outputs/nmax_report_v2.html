@@ -15,7 +15,6 @@
 
 <div class="govuk-grid-row noprint margin-bottom-forty">
   <div class="govuk-grid-column-two-thirds">
-
     <h2 class="govuk-heading-m">Print or save as a PDF</h2>
     <ol class="govuk-list govuk-list--number">
       <li>To save as a PDF choose 'Print or save as a PDF',</li>
@@ -32,16 +31,13 @@
 </div>
 
 <div class="govuk-grid-row">
-
-  <div class="govuk-grid-column-full">
+  <div class="govuk-grid-column-full nmax_header">
     <h1 class="govuk-heading-xl">N-max limits for {{data.oaktree_farm.name}} 2025</h1>
-    <p class="govuk-body">Created on 29 January 2025</p>
+    <p class="govuk-body">Created on 17 February 2025</p>
   </div>
-
 </div>
 
-<div class="govuk-grid-row">
-
+<div class="govuk-grid-row margin-bottom-twenty">
   <div class="govuk-grid-column-one-third">
     <p class="govuk-body">Oaktree Lane Farm, <br>
       24 South Road<br> 
@@ -49,48 +45,48 @@
       Northumberland<br> 
       NE46 7LQ</p>
   </div>
-
   <div class="govuk-grid-column-two-thirds">
-    <p class="govuk-body">CPH number: 123456789 <br>
-    Single Business Identifier: 123456789 </p>
+    <p class="govuk-body">CPH number: 123456789<br>
+    Single Business Identifier: 123456789</p>
+  </div>
+</div>
+
+<div class="margin-bottom-forty">
+  <h2 class="govuk-heading-m">Private beta disclaimer</h2>
+  {% include "/templates/beta_disclaimer.html" ignore missing %} 
+</div>
+
+
+<div class="govuk-grid-row margin-bottom-thirty">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-m">About N-max limits</h2>
+    <p class="govuk-body margin-bottom-forty">To comply with the N-max limit for each crop type the total nitrogen (N) applied<br> in fertiliser and crop available nitrogen from organic manures must not be greater<br> than the adjusted N-max limit.</p>
+
+    <div class="margin-bottom-forty">
+      {% include "./templates/max/crop_limits.html" ignore missing %} 
+      <h3 class="govuk-heading-m">Nitrogen applications for Winter Wheat fields</h3>
+      {% include "./templates/max/nitrogen_applications_wheat.html" ignore missing %}
+      <p>Nitrogen applications to Winter Wheat <span class="strong">comply</span> with the N-max limit, based on field records.</p>
+    </div>
+
+    <div id="printbreak"></div>
+    <div class="pagebreak">&nbsp;</div>
+
+    <div class="margin-bottom-forty">
+      {% include "./templates/max/grass_limits.html" ignore missing %}
+      {% set fieldName = 'Short field' %}
+      <h3 class="govuk-heading-m">Nitrogen applications for Grass fields</h3>
+      {% include "./templates/max/nitrogen_applications_grass.html" ignore missing %}
+      <p>Nitrogen applications to Winter Wheat <span class="strong">do not comply</span> with the N-max limit, based on field records.</p>
+    </div>
+
+    <hr class="margin-bottom-forty">
+    <h2 class="govuk-heading-s">About recommendations, guidance, and advice</h2>
+    {% include "/templates/recommendations.html" ignore missing %}
+  
   </div>
 
 </div>
-
-  <div class="govuk-grid-row margin-bottom-forty">
-    <div class="govuk-grid-column-full">
-
-    <div class="govuk-inset-text margin-bottom-forty">
-      <p class="govuk-body margin-bottom-forty">To comply with the N-max limit for each crop type the total nitrogen (N) applied<br> in fertiliser and crop available nitrogen from organic manures must not be greater<br> than the adjusted N-max limit.</p>
-    </div>
-
-  <div class="margin-bottom-forty">
-    {% include "./templates/max/crop_limits.html" ignore missing %} 
-    {% set fieldName = 'Long Meadow field' %}
-    <h3 class="govuk-heading-m">Nitrogen applications for Winter Wheat fields</h3>
-    {% include "./templates/max/nitrogen_applications.html" ignore missing %}
-    <p>Nitrogen applications to Winter Wheat comply with the N-max limit, based on field records.</p>
-  </div>
-  
-  <div id="printbreak"></div>
-  <div class="pagebreak">&nbsp;</div>
-
-  <div class="margin-bottom-forty">
-    {% include "./templates/max/grass_limits.html" ignore missing %}
-    {% set fieldName = 'Short field' %}
-    <h3 class="govuk-heading-m">Nitrogen applications for Grass fields</h3>
-    {% include "./templates/max/nitrogen_applications.html" ignore missing %}
-    <p>Nitrogen applications to Grass comply with the N-max limit, based on field records.</p>
-  </div>
-
-  <hr>
-  <div class="disclaimers">
-    <h2 class="govuk-heading-m">Private beta disclaimer</h2>
-{% include "/templates/beta_disclaimer.html" ignore missing %} 
-  </div>
-
-
-  </div>
 
 
 {% endblock %}

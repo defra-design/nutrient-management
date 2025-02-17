@@ -113,7 +113,7 @@ router.get(/add_farm_handler/, function (req, res) {
 //Routers
 
 router.get(/start_router/, function (req, res) { 
-    var next = '/about'
+    var next = '/disclaimer'
     if (req.session.data.showinfo == false) {
         next = '/farm/farms'
     }

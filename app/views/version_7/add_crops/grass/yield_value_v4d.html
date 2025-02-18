@@ -19,47 +19,47 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Target yield for {{data.crop_fields[0].name}}</h2>
+      <h1 class="govuk-heading-l">Target yield for {{data.crop_fields[1].name}}</h2>
 
       <p class="govuk-body">To give nitrogen (N) recommendations for these fields you need to enter a target annual dry matter yield.</p>
 
-        <h2 class="govuk-heading-m">Grass growth class for {{data.crop_fields[0].name}}</h2>
+        <h2 class="govuk-heading-m">Grass growth class for {{data.crop_fields[1].name}}</h2>
 
-        <p class="govuk-body">Based on the data entered the grass growth class for {{data.crop_fields[0].name}} is <span class="strong">Average</span>.</p>
+        <p class="govuk-body">Based on the data entered the grass growth class for {{data.crop_fields[1].name}} is <span class="strong">Poor</span>.</p>
 
-        <p class="govuk-body">Total annual dry matter yield for {{data.crop_fields[0].name}} should be within the following range, based on this grass growth class.</p>
+        <p class="govuk-body">Total annual dry matter yield for {{data.crop_fields[1].name}} should be within the following range, based on this grass growth class.</p>
         
         <p class="govuk-body">
           <a href="">Get help with grass yield</a>
         </p>
       
-      <h2 class="govuk-heading-s">What is the total target annual dry matter yield for {{data.crop_fields[0].name}}, per hectare?</h2>
+      <h2 class="govuk-heading-s">What is the total target annual dry matter yield for {{data.crop_fields[1].name}}, per hectare?</h2>
       
-      <form class="form" action="yield_value_v4d" method="post">
+      <form class="form" action="v7_grass_yield_handler" method="post">
         <div class="govuk-form-group">
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="14" name="grass_total_yield" type="radio" value="14">
               <label class="govuk-label govuk-radios__label" for="14">
-                12 tonnes
+                5 tonnes
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="13" name="grass_total_yield" type="radio" value="13">
               <label class="govuk-label govuk-radios__label" for="13">
-                11 tonnes
+                4 tonnes
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="12" name="grass_total_yield" type="radio" value="12">
               <label class="govuk-label govuk-radios__label" for="12">
-                10 tonnes
+                3 tonnes
               </label>
             </div>            
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="11" name="grass_total_yield" type="radio" value="11">
               <label class="govuk-label govuk-radios__label" for="11">
-                9 tonnes
+                2 tonnes
               </label>
             </div>
             <!-- <div class="govuk-radios__divider">or</div>

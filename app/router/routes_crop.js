@@ -48,7 +48,6 @@ router.get(/crop_group_update_v7_handler/, function (req, res) {
         for (var groupRef in req.session.data.currentCropGroups) {
             if (req.session.data.currentCropGroups[groupRef].reference == req.session.data.chosen_group.reference) {
                 req.session.data.currentCropGroups[groupRef].planting_date = tempDate
-                console.log('Date ' + req.session.data.chosen_farm_crop_groups[groupRef].planting_date)
             }
         }
     }

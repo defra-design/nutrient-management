@@ -5,14 +5,27 @@
     </h2>
   </div>
   <div class="govuk-notification-banner__content">
+    {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' %}
+      <p class="govuk-notification-banner__heading">
+      Recommendations not available
+      </p>
+      <p class="govuk-body">
+        You need to add 2023 crop details, or Soil Mineral Nitrogen supply (SNS) analysis results to create recommendations for this field.
+      </p>
+      <p class="govuk-body">
+        <a class="govuk-notification-banner__link" href="#crops">Add 2023 crop details or 2024 SNS analysis results</a>.
+      </p>
+    {% else %}
     <p class="govuk-notification-banner__heading">
-     Recommendations not available
-    </p>
-    <p class="govuk-body">
-      You need to add 2023 crop details, or Soil Mineral Nitrogen supply (SNS) analysis results to create recommendations for this field.
-    </p>
-    <p class="govuk-body">
-      <a class="govuk-notification-banner__link" href="#crops">Add 2023 crop details or 2024 SNS analysis results</a>.
-    </p>
+      Recommendations not available
+      </p>
+      <p class="govuk-body">
+        You need to add 2023 crop details to create recommendations for this field.
+      </p>
+      <p class="govuk-body">
+        <a class="govuk-notification-banner__link" href="#crops">Add 2023 crop details</a>.
+      </p>
+    {% endif %}
   </div>
 </div>
+

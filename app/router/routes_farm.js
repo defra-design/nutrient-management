@@ -29,6 +29,7 @@ router.get(/planning_year_handler/, function (req, res) {
 })
 
 router.get(/field_level_plan_v5_handler/, hideSuccessMessage, function (req, res) { 
+    req.session.data.oaktree_farm.planning_year = req.query.year
     req.session.data.chosen_group = req.query.fieldref
     req.session.data.chosen_field = req.query.groupref
     req.session.data.chosen_year = req.query.year

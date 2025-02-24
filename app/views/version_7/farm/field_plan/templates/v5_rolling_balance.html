@@ -1,0 +1,42 @@
+
+<h3 class="govuk-heading-s">
+  Phosphate (P2O5) and Potash (K2O) balance
+</h3>
+
+<div id="balance" class="margin-bottom-forty">
+  <table class="govuk-table data-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Nutrient</th>
+        <th scope="col" class="govuk-table__header">Balance from 2024</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Phosphate (P2O5)</td>
+        <td class="govuk-table__cell">
+            {% if data.oaktree_farm.planning_year == 2024 %}
+              Not available
+            {% else %}
+            0
+            {% endif %}
+        </td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Potash (K2O)</td>
+        <td class="govuk-table__cell">
+          {% if data.oaktree_farm.planning_year == 2024 %}
+            Not available
+          {% else %}
+            0
+          {% endif %}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="govuk-body">
+    This is the rolling balance at the start of the year and is included in the <br>fertiliser phosphate and potash recommendations.
+  </p>
+</div>
+

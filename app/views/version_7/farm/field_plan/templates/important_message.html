@@ -10,20 +10,29 @@
       Recommendations not available
       </p>
       <p class="govuk-body">
-        You need to add 2023 crop details, or Soil Mineral Nitrogen supply (SNS) analysis results to create recommendations for this field.
+        You need to add the crop details for 2023, or Soil Mineral Nitrogen supply (SNS) analysis results to create recommendations for this field.
       </p>
       <p class="govuk-body">
-        <a class="govuk-notification-banner__link" href="#crops">Add 2023 crop details or 2024 SNS analysis results</a>.
+        <a class="govuk-notification-banner__link" href="sns/date">Add SNS analysis results for this crop</a>.
       </p>
+      <p class="govuk-body">
+        <a class="govuk-notification-banner__link" href="">Add 2023 crop details</a>.
+      </p>
+
     {% else %}
+
     <p class="govuk-notification-banner__heading">
       Recommendations not available
       </p>
       <p class="govuk-body">
-        You need to add 2023 crop details to create recommendations for this field.
+        To create recommendations for this field you need to add: 
       </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>grass management details for 2024</li>
+        <li>crop details for 2023</li>
+      </ul>
       <p class="govuk-body">
-        <a class="govuk-notification-banner__link" href="#crops">Add 2023 crop details</a>.
+        <a class="govuk-notification-banner__link" href="#crops">Add 2023 and 2024 crop details</a>.
       </p>
     {% endif %}
   </div>

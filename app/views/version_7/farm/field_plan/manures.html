@@ -1,7 +1,7 @@
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="manures">
 
   <h2 class="govuk-heading-m non-standard">{{data.content.organic_term}} applications</h2>
-  {% if organics == true %}
+  {% if organics == true and data.oaktree_farm.planning_year != 2024 %}
     <p class="govuk-body">These are the organic material applications for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}</p>
     <p class="govuk-body"><a href="plan_manure_application_handler?manurejourney=single">Add an {{data.content.organic_term | lower}} application for {{data.chosen_field.name}}</a></p>
     <p class="govuk-body-s">All amounts are per hectare.</p>
@@ -13,7 +13,7 @@
   {% endif %}
 
   <h2 class="govuk-heading-m non-standard">{{data.content.non_organic_term}} applications</h2>
-  {% if inorganics == true %}
+  {% if inorganics == true and data.oaktree_farm.planning_year != 2024 %}
     <p class="govuk-body">These are the {{data.content.non_organic_term | lower}} applications for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p>
     <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add an {{data.content.non_organic_term | lower}} application for {{data.chosen_field.name}}</a></p>
     <p class="govuk-body-s">All amounts are per hectare.</p>

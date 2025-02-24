@@ -29,24 +29,24 @@
       </tr>
     </thead>
 
-    {% for field in group.fields %}
+    <tbody class="govuk-table__body">
+      {% for field in group.fields %}
 
-    {% set manureCount = 0 %}
-    {% set inorganicCount = 0 %}
+      {% set manureCount = 0 %}
+      {% set inorganicCount = 0 %}
 
-    {% for manureitem in data.allManureApplications_v2 %}
-      {% if manureitem.fieldref == field.reference %}
-          {% set manureCount = manureCount + 1 %}
+      {% for manureitem in data.allManureApplications_v2 %}
+        {% if manureitem.fieldref == field.reference %}
+            {% set manureCount = manureCount + 1 %}
+          {% endif %}
+      {% endfor %}
+
+      {% for fertitem in data.allFertiliserApplications %}
+      {% if fertitem.fieldref == field.reference %}
+          {% set inorganicCount = inorganicCount + 1 %}
         {% endif %}
-    {% endfor %}
+      {% endfor %}
 
-    {% for fertitem in data.allFertiliserApplications %}
-    {% if fertitem.fieldref == field.reference %}
-        {% set inorganicCount = inorganicCount + 1 %}
-      {% endif %}
-    {% endfor %}
-
-      <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <td class="govuk-table__cell field-name">{{field.name}}</td>
           <td class="govuk-table__cell field-name">

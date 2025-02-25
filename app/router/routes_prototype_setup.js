@@ -145,6 +145,7 @@ router.get(/newmanure_setup/, function (req, res) {
     res.redirect('/' + req.query.version + '/start')
 })
 
+//full setup
 router.get(/plan_setup/, function (req, res) { 
     req.session.data.showinfo = false
     // function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, group, yield, date) {
@@ -292,6 +293,7 @@ router.get(/twoveg_setup_handler/, function (req, res) {
     res.redirect('/' + req.query.version + '/start')
 })
 
+//Farm and fields added
 router.get(/end_to_end_field_handler/, function (req, res) { 
     req.session.data.showinfo = false
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'fields')
@@ -302,6 +304,17 @@ router.get(/end_to_end_field_handler/, function (req, res) {
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')
 })
+
+router.get(/field_v7_setup/, function (req, res) { 
+    req.session.data.showinfo = false
+    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2024, req.session.data.plan_2024, 'fields')
+    req.session.data.all_fields = req.session.data.complete_field_list
+    req.session.data.oaktree_farm.planning_year = '2025'
+    req.session.data.previousCropGroups.push(allFunctions.createCropGroup(1, 2024, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', null, 'Crop group 1', null, null, false))
+    req.session.data.prototype_version = req.query.version
+    res.redirect('/' + req.query.version + '/start')
+})
+
 
 //2025
 router.get(/new_setup_handler/, function (req, res) { 

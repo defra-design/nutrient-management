@@ -6,7 +6,6 @@
   <!-- <p class="govuk-body"><a href="../../farm/field/split_merge">Split this field, or merge it with others</a></p> -->
   
   {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' and data.chosen_group.sns != true %}
-    <p class="govuk-body"><a href="sns/date">Add a soil mineral nitrogen analysis result for {{data.chosen_group.crop_reference | nameconverter}}</a></p>
   {% endif %}
 
   <p class="govuk-body"><a href="field-select-handler?chosen_field={{data.chosen_field.name}}">View field and soil analysis information for {{data.chosen_field.name}}</a></p>
@@ -32,7 +31,8 @@
 
   {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' %}
     <p class="govuk-body"><a href="updates/crop/change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
-  {% else %}
+    <p class="govuk-body"><a href="sns/date">Add a soil mineral nitrogen analysis result for {{data.chosen_group.crop_reference | nameconverter}}</a></p>
+    {% else %}
     <p class="govuk-body"><a href="updates/grass/change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
   {% endif %}
 

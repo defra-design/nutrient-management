@@ -474,9 +474,25 @@ router.get(/yield_total_router/, function (req, res) {
     res.redirect(next)
 })
 
-//current v5, v7
+//current v5, v7 'Defoliation'
 router.get(/management_grass_router/, function (req, res) { 
-    var next = (req.session.data.grass_management == "grazinghay" || req.session.data.grass_management == "grazingsilage") ? 'defoliation_order' : 'yield_value_v4'
+    var next = '../check'
+    if (req.session.data.grass_management == "grazinghay" || req.session.data.grass_management == "grazingsilage") {
+        next = 'defoliation_order'
+    } else {
+        if (req.session.data.sward_type == 'grass') {
+            next = 'yield_value_v5'
+        }
+    }
+    res.redirect(next)
+})
+
+//current v7 defoliation order
+router.get(/def_sequence_handler/, function (req, res) { 
+    var next = '../check'
+    if (req.session.data.sward_type == 'grass') {
+            next = 'yield_value_v5'
+        }
     res.redirect(next)
 })
 

@@ -496,6 +496,12 @@ router.get(/def_sequence_handler/, function (req, res) {
     res.redirect(next)
 })
 
+//current v7 enter multi yields
+router.get(/yield_loop_handler/, function (req, res) { 
+    var next = (req.session.data.crop_fields[1] == null) ? '../check' : 'yield_value_v5a'
+    res.redirect(next)
+})
+
 //current v5, v7
 router.get(/weight_type_router/, function (req, res) { 
     var next = 'yield_value_dry';

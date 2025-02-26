@@ -129,23 +129,22 @@
 } -->
 
    {% if data.sward_type == 'grass' %}
-   {{data.sward_type}}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">
-        What is the total target dry matter yield for {{data.crop_fields[0].name}}?
+        What is the total annual target dry matter yield for  {{data.crop_fields[0].name}}?
       </dt>
       <dd class="govuk-summary-list__value">
-        10 tonnes per hectare
+        {{data.grass_total_yield_one}} per hectare
       </dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
 
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">
-        What is the total target dry matter yield for {{data.crop_fields[1].name}}?
+        What is the total annual target dry matter yield for {{data.crop_fields[1].name}}?
       </dt>
       <dd class="govuk-summary-list__value">
-        5 tonnes per hectare
+        {{data.grass_total_yield_two}} per hectare
       </dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>

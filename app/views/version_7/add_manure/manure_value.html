@@ -18,14 +18,19 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        {% if data.quantity_type == "area"  %}
-          Enter the area and quantity for Long field
-        {% else %}
+      {% if data.quantity_type == "area"  %}
+        <h1 class="govuk-heading-l">
+            Enter the area and quantity for Long field
+        </h1>
+      {% else %}
+        <h1 class="govuk-heading-l">
           Enter the application rate
-        {% endif %}
-      </h1>
-
+        </h1>
+        <!-- <p class="govuk-hint">
+          Enter a value between 1 and 250 tonnes per hectare
+        </p>   -->
+      {% endif %}
+      
       {% if data.quantity_type == "area"  %}
       <table class="govuk-table margin-bottom-forty">
         <caption class="govuk-table__caption govuk-table__caption--m">Sizes entered at set up</caption>

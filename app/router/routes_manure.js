@@ -146,7 +146,8 @@ router.get(/manuretype_v7_handler/, function (req, res) {
             req.session.data.manure_type == "horse_fym" || 
             req.session.data.manure_type == "goat_fym" ||
             req.session.data.manure_type == "poultry") {
-            next = "manure_defoliation"
+            next = "manure_date"
+            // next = "manure_defoliation"
             //get object
             for (var a in req.session.data.manure_types_livestock ) {
                 if (req.session.data.manure_types_livestock[a].type == req.session.data.manure_type) {
@@ -155,7 +156,7 @@ router.get(/manuretype_v7_handler/, function (req, res) {
             }
         }
     }
-    res.redirect('manure_date')
+    res.redirect(next)
 })
 
 
@@ -176,7 +177,8 @@ router.get(/livestock_type_v7_handler/, function (req, res) {
             req.session.data.manure_type = req.session.data.manure_types_livestock[x]
         }
     }
-    res.redirect("manure_defoliation")
+    res.redirect("manure_date")
+    // res.redirect("manure_defoliation")
 })
 
 router.get(/incorporation_handler/, function (req, res) {

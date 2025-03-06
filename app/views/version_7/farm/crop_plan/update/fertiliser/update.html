@@ -21,61 +21,64 @@
       Update an inorganic fertiliser application for harvest year 2025
     </h1>
 
-    <!-- <div class="govuk-inset-text"> -->
-      <!-- <p class="govuk-body">
-        Changes here will be applied to this inorganic fertiliser application for these fields only.
-      </p> -->
-      <!-- <p class="govuk-body">
-        You can change the fields you want to update this application for, or add this application to new fields.
-      </p> -->
-    <!-- </div>  -->
-
-    <p class="gov-body margin-bottom-forty">You can also <a href="remove">remove this application from these fields.</a>.</p>
-
     <div class="check-answers wide-values">
       <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">Which fields do you want to add or edit this inorganic fertiliser application for?</dt>
-            <dd class="govuk-summary-list__value">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Which fields do you want to edit this inorganic fertiliser application for?</dt>
+          <dd class="govuk-summary-list__value">
             Long field
-            </dd>
-            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="fields">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-          </div>
+          <!-- <br>
+            Valley
+          <br>          
+            Poplar
+          <br> -->
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="fields">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">Is this application for the same cut or grazing in all the selected grass fields?</dt>
-            <dd class="govuk-summary-list__value">
-            Yes
-            </dd>
-            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-          </div>
-        
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">In the grass fields, which cut or grazing is this application for?</dt>
-            <dd class="govuk-summary-list__value">
-            One
-            </dd>
-            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-          </div>
-        
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">How much of each nutrient do you plan to include in this application, per hectare?</dt>
-            <dd class="govuk-summary-list__value">
-              60kg Nitrogen (N)<br>
-              30kg Phosphate (P2O5)<br>
-              30kg Potash (K2O)<br>
-            </dd>
-            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-          </div>
-        
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">When do you plan to spread inorganic fertiliser on these fields?</dt>
-            <dd class="govuk-summary-list__value">01 March 2025</dd>
-            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-          </div>
-                        
+        <!-- <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Is this application for the same cut or grazing in all the selected grass fields?</dt>
+          <dd class="govuk-summary-list__value">
+          Yes
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div> -->
+      
+        <!-- <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">In the grass fields, which cut or grazing is this application for?</dt>
+          <dd class="govuk-summary-list__value">
+          One (Grazing)
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+ -->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Which cut or grazing is this application for?</dt>
+          <dd class="govuk-summary-list__value">
+          One (Grazing)
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How much of each nutrient do you plan to include in this application, per hectare?</dt>
+          <dd class="govuk-summary-list__value">
+            60kg Nitrogen (N)<br>
+            30kg Phosphate (P2O5)<br>
+            30kg Potash (K2O)<br>
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">When do you plan to spread inorganic fertiliser on these fields?</dt>
+          <dd class="govuk-summary-list__value">01 March 2025</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>           
       </dl>    
     </div>
+
+    <p class="gov-body margin-bottom-forty">You can also <a href="remove">remove this application from Long field</a>.</p>
 
     <form action="fertiliser_update_v6_handler" method="post" novalidate>
       {{ govukButton({

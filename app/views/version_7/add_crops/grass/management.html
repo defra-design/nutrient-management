@@ -23,13 +23,16 @@
        How will these fields be managed?
       </h1>
 
+      <p class="govuk-hint">Select one of these optionss from RB209 (Nutrient Management Guide).</p>
+
+
       <form class="form" action="grass_management_router" method="post">
 
         <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
                 <div class="govuk-radios" data-module="govuk-radios">
 
-                  {% if data.sward_type != 'redclover' and data.sward_type != 'lucerne' %}
+                  {% if data.sward_type != 'red clover' and data.sward_type != 'lucerne' %}
                     <div class="govuk-radios__item">
                       <input class="govuk-radios__input" id="grazing" name="grass_management" type="radio" value="grazing">
                       <label class="govuk-label govuk-radios__label" for="grazing">
@@ -45,7 +48,7 @@
                     </label>
                   </div>    
 
-                  {% if data.sward_type != 'redclover' and data.sward_type != 'lucerne' %}
+                  {% if data.sward_type != 'red clover' and data.sward_type != 'lucerne' %}
                   <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id="hay" name="grass_management" type="radio" value="hay">
                     <label class="govuk-label govuk-radios__label" for="hay">
@@ -54,7 +57,7 @@
                   </div>    
                 {% endif %}
 
-                  {% if data.sward_type != 'redclover' and data.sward_type != 'lucerne' %}
+                  {% if data.sward_type != 'red clover' and data.sward_type != 'lucerne' %}
                   <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id="grazinghay" name="grass_management" type="radio" value="grazinghay">
                     <label class="govuk-label govuk-radios__label" for="grazinghay">

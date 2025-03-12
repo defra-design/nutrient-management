@@ -157,15 +157,16 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     var sowdate = null;
     var yield = null;
     req.session.data.show_success_message = true;
-    req.session.data.successMessage = 1;
     var newRef = req.session.data.currentCropGroups.length + 1
     if (req.session.data.sow_date_day != null) {
         sowdate = req.session.data.sow_date_day + '/' + req.session.data.sow_date_month + '/' + req.session.data.sow_date_year
     }
     if (req.session.data.chosen_crop == 'grass') {
         yield = req.session.data.grass_total_yield
-        console.log('yield ' + yield)
+        // console.log('yield ' + yield)
+        req.session.data.successMessage = 16
     } else {
+        req.session.data.successMessage = 11
         yield = '8 tonnes'
     }
     req.session.data.currentCropGroups.push(allFunctions.createCropGroup(newRef, 2025, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, req.session.data.variety, req.session.data.groupname, yield, sowdate))

@@ -38,7 +38,7 @@
       <p class="govuk-body">Select a field to see its nutrient recommendations, or to add soil mineral nitrogen analysis results.</p>
     {% endif %}
 
-    {% if data.successMessage == X %}
+    {% if data.successMessage == 16 %}
     <h3 class="govuk-notification-banner__heading">
       Grass added for {{data.oaktree_farm.planning_year}}
     </h3>
@@ -156,6 +156,8 @@
   </h3>
   <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
 {% endif %}
+
+  <!-- 16 is grass already used -->
 
 
 

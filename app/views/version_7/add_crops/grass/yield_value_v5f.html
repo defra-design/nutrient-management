@@ -19,54 +19,46 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Total annual target dry matter yield for {{data.crop_fields[1].name}}</h2>
+        <h1 class="govuk-heading-l">
+            Target dry matter yield
+        </h1>
 
-      <div id="ggc">
-        <p class="govuk-body strong">Grass growth class for {{data.crop_fields[1].name}}:</p>
-        <h2 class="govuk-heading-m">Average.</h2>
-        <p class="govuk-body">Based on rainfall, soil type and altitude.</p>
-      </div>
+        <p class="govuk-body">This is needed to give Nitrogen (N) recommendations for grass.</p>
+               
+        <h2 class="govuk-heading-m padding-top-0">Grass growth class</h2>
+        <div class="text_group">
+            <p class="govuk-body">These fields all have a grass growth class of:</p>
+            <p class="govuk-body strong">Good</p>
+            <p class="govuk-body">based on rainfall, soil type and altitude.</p>
+        </div>
+  
 
-      <p class="govuk-body">Nitrogen (N) recommendations will be based on Total annual target dry matter yield. The total yield should be within the following range, based on the field's grass growth class.</p>
+        <h2 class="govuk-heading-m padding-top-0">Target yield</h2>
+        <div class="text_group">
+            <p class="govuk-body">The yield for these fields should be between:</p>
+            <p class="govuk-body strong">9 and 12 tonnes per hectare</p>
+            <p class="govuk-body">based on their grass growth class.</p>
+          </div>
+  
+        <p class="govuk-body"><a href="">Get help with grass yield</a> (opens in a new window)</p>
 
-      <p class="govuk-body"><a href="">Get help with grass yield</a> (opens in a new window)</p>
-        
-      <p class="govuk-body strong break_link">What is the total annual target dry matter yield for {{data.crop_fields[1].name}}, per hectare?</p>
+        <p class="govuk-body strong break_link">Do these fields have the same target yield for 2025?</p>
 
-      <form class="form" action="../check" method="post">
+      <form class="form" action="yield_value_v5e" method="post">
         <div class="govuk-form-group">
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="14" name="grass_total_yield_two" type="radio" value="14">
+              <input class="govuk-radios__input" id="14" name="grass_total_yield" type="radio" value="14">
               <label class="govuk-label govuk-radios__label" for="14">
-                12 tonnes
+                Yes, enter the same target yield for each field
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="13" name="grass_total_yield_two" type="radio" value="13">
+              <input class="govuk-radios__input" id="13" name="grass_total_yield" type="radio" value="13">
               <label class="govuk-label govuk-radios__label" for="13">
-                11 tonnes
+                No, enter a different target yield for each field
               </label>
             </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="12" name="grass_total_yield_two" type="radio" value="12">
-              <label class="govuk-label govuk-radios__label" for="12">
-                10 tonnes
-              </label>
-            </div>            
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="11" name="grass_total_yield_two" type="radio" value="11">
-              <label class="govuk-label govuk-radios__label" for="11">
-                9 tonnes
-              </label>
-            </div>
-            <!-- <div class="govuk-radios__divider">or</div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="fresh" name="grass_total_yield_two" type="radio" value="fresh">
-              <label class="govuk-label govuk-radios__label" for="fresh">
-                Enter a yield in fresh cut weight
-              </label>
-            </div> -->
           </div>
         </div>
 

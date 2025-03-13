@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Target dry matter yield</h2>
+
+      <div id="ggc">
+        <p class="govuk-body strong">Grass growth class for these fields is:</p>
+        <h2 class="govuk-heading-m">Good</h2>
+        <p class="govuk-body">based on rainfall, soil type and altitude.</p>
+      </div>
+
+      <p class="govuk-body">Nitrogen (N) recommendations will be based on Total annual target dry matter yield. The total yield should be within the following range, based on the field's grass growth class.</p>
+      
+      <p class="govuk-body"><a href="">Get help with grass yield</a> (opens in a new window)</p>
+     
+      <div id="ggc">
+        <p class="govuk-body strong">The total annual target dry mater yield for these fields should be between:</p>
+        <h2 class="govuk-heading-m">9 and 12 tonnes per hectare</h2>
+        <p class="govuk-body">based on rainfall, soil type and altitude.</p>
+      </div>
+
+      <p class="govuk-body strong break_link">Do you want to enter the same target yield for these fields?</p>
+
+      <form class="form" action="yield_value_v5c" method="post">
+        <div class="govuk-form-group">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="14" name="grass_total_yield" type="radio" value="14">
+              <label class="govuk-label govuk-radios__label" for="14">
+                Yes, use the same target yield for these fields
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="13" name="grass_total_yield" type="radio" value="13">
+              <label class="govuk-label govuk-radios__label" for="13">
+                No, use a different target yield for each field
+              </label>
+            </div>
+          </div>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+        </form>
+
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

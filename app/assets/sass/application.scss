@@ -875,3 +875,31 @@ h2.manure-date {
 h2.govuk-heading-m .padding-top-0 {
     padding-top: 0;
 }
+
+#manure_cya {
+    .govuk-summary-list__row {
+        dt:nth-child(1) {
+            width: 33%;
+        }
+        dd:last-child {
+            width: 10%;
+        }
+    }
+}
+
+#nutrient_list {
+    .nutrient_row {
+        display: block;
+        width: 100%;
+        clear: both;
+        padding-bottom: 5px;
+        &:last-child {
+            padding-bottom: 10px;
+        }
+        .figure {
+            float: right;
+            width: 30%;
+            padding-right: 5px;
+        }
+    }
+}

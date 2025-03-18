@@ -76,7 +76,7 @@ router.get(/plan_manure_application_handler/, setManureJourney, function (req, r
 })
 
 router.get(/fertiliser_change_router/, getApplicationByReference, function (req, res) { 
-    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/update/fertiliser/update')
+    res.redirect('/' + req.session.data.prototype_version + '/update/fertiliser/update')
 })  
 
 router.get(/version5_manure_update_handler/, showSuccessMessage, function (req, res) { 

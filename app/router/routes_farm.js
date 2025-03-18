@@ -59,10 +59,10 @@ router.get(/group_level_plan_v7_handler/, function (req, res) {
     }
     req.session.data.show_success_message = false    
     console.log(req.session.data.chosen_group)
-    var next = 'update/crop/change_crop'
+    var next = '../../update/crop/change_crop'
     console.log(req.session.data.chosen_group.crop_reference)
     if (req.session.data.chosen_group.crop_reference == 'grass') {
-        next = 'update/grass/change_crop'
+        next = '../../update/grass/change_crop'
     }
     res.redirect(next)
 })

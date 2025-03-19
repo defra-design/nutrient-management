@@ -179,6 +179,15 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 
+
+router.get(/copyplan_handler/, function (req, res) { 
+    req.session.data.show_success_message = true;
+    req.session.data.successMessage = 17
+    req.session.data.oaktree_farm.planning_year = 2026
+    res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+})
+
+
 //current v7 - grass
 router.get(/grassyield_handler/, function (req, res) { 
     if (req.session.data.defoliation_one == null) {
@@ -256,12 +265,11 @@ router.get(/variety_handler/, function (req, res) {
 
 // current
 router.get(/v4_plancopy_router/, function (req, res) { 
-    // if (req.session.data.plan_copy == 'new') {
-    //     res.redirect('crop_group')
-    // } else {
-    //     res.redirect('check')
-    // }
-    res.redirect('crop_group')
+    var next = 'crop_group'
+    if (req.session.data.plan_copy == 'previous') {
+        next = './copy/copy_year'
+    }
+    res.redirect(next)
 })
 
 // ALPHA // add second crops 

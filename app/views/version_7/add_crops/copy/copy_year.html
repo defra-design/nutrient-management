@@ -19,25 +19,23 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Would you like to start with a copy of a plan from a previous year?
+        Which plan would you like to copy for 2026?
       </h1>
 
-      <p class="govuk-hint">Crop and field plans will be copied. The sowing dates will be updated for harvest year 2026. These can be changed later.</p>
-
-      <form class="form" action="v4_plancopy_router" method="post">
+      <form class="form" action="copy_items" method="post">
 
         <div class="govuk-form-group">
-            <div class="govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="previous" name="plan_copy" type="radio" value="previous">
                 <label class="govuk-label govuk-radios__label" for="previous">
-                  Yes
+                  2025
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="new" name="plan_copy" type="radio" value="new">
                 <label class="govuk-label govuk-radios__label" for="new">
-                  No
+                  2024
                 </label>
               </div>
             </div>

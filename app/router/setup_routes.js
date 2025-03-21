@@ -14,7 +14,7 @@ router.get(/export_handler/, function (req, res) {
     // }
     var next = 'export_fields'
     if (req.session.data.export_type == 3) {
-        next = './outputs/nmax_report_v2'
+        next = 'export_crops'
     }
     res.redirect(next)
 })

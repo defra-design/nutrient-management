@@ -22,14 +22,14 @@
       
       <form action="check" method="post" novalidate="">
 
-        <h1 class="govuk-heading-l">Values for dairy cow (over 9000 litres milk yield)</h1>
-                
+        <h1 class="govuk-heading-l">About {{data.chosen_livestock.name}}</h1>
+    
         <div class="govuk-form-group">
           <label class="govuk-label" for="total_area">
-            What is the average number for the year?
+            What is the average number of this {{data.livestock_group}} type for the year?
           </label>
           <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="total_area" name="total_area" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">cows</div>
+            <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div>
           </div>
         </div>
 
@@ -42,8 +42,7 @@
           </div>
         </div>
 
-        <h2 class="govuk-heading-s">Total nitrogen (N) produced by this {{data.livestock_group}} type </h2>
-
+        {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
         <div class="govuk-form-group margin-bottom-forty">
           <label class="govuk-label" for="non_spreading_area">
             Nitrogen (N) standard per year
@@ -52,12 +51,17 @@
             <div class="govuk-input__suffix" aria-hidden="true">kg</div>
           </div>
         </div>
+        {% else %}
+          <p class="govuk-body strong">Nitrogen (N) standard per year:</p>
+          <p class="govuk-body margin-bottom-forty">83kg per year</p>
+        {% endif %}
 
-        <p class="govuk-button govuk-button--secondary">
+        <!-- <p class="govuk-button govuk-button--secondary">
           Calculate total Nitrogen (N)
-        </p>
+        </p> -->
 
-        <p class="govuk-body strong  margin-bottom-forty">1,1800kg per year</p>
+        <!-- <h2 class="govuk-heading-s">Total nitrogen (N) produced by this {{data.livestock_group}} type: </h2>
+        <p class="govuk-body margin-bottom-forty">1,1800kg per year</p> -->
 
         <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
           Continue

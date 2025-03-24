@@ -28,18 +28,17 @@
 
       <p class="govuk-hint">Select all that apply.</p>
 
-      <form class="form" action="values" method="post">
+      <form class="form" action="get_livestock_reference" method="post">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               {% for animal in data.livestock_types %}
                 {% if animal.type == data.livestock_group %}
-
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="{{animal.reference}}" name="{{animal.reference}}" type="checkbox" value="{{animal.reference}}">
+                  <input class="govuk-checkboxes__input" id="{{animal.reference}}" name="livestock_reference" type="checkbox" value="{{animal.reference}}">
                   <label class="govuk-label govuk-checkboxes__label" for="{{animal.reference}}">
-                    {{animal.name}}
+                    {{animal.rate}} {{animal.name}}
                   </label>
                 </div>
                 {% endif %}

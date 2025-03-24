@@ -9,6 +9,7 @@ latest_update,
 use_mvp_fields,
 setup,
 fields_added,
+livestock_added,
 rainfall,
 ewr
 
@@ -23,6 +24,7 @@ ewr
     this.use_mvp_fields = use_mvp_fields,
     this.setup = setup,
     this.fields_added = fields_added,
+    this.livestock_added = livestock_added,
     this.rainfall = rainfall
     this.ewr = ewr
   }
@@ -38,6 +40,7 @@ Farm.prototype.printFarm = function () {
                 this.use_mvp_fields + ", " +
                 this.setup + ", " +
                 this.fields_added + ", " +
+                this.livestock_added + ", " +
                 this.rainfall + ", " +
                 this.ewr)
 };
@@ -53,6 +56,7 @@ Farm.prototype.reset = function () {
     this.use_mvp_fields = false,
     this.setup = false,
     this.fields_added = false
+    this.livestock_added = false
     this.rainfall = 600
     this.ewr = null
 };

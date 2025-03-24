@@ -903,3 +903,9 @@ h2.govuk-heading-m .padding-top-0 {
         }
     }
 }
+
+#nmax_summary {
+    .govuk-table__header:nth-child(1) {
+        width: 20%;
+    }
+}

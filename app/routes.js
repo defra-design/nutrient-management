@@ -12,6 +12,7 @@ const  manure_types_livestock = require('./data/manure_types_livestock.json');
 const  manure_types_livestock_groups = require('./data/manure_types_livestock_groups.json');
 const  potato_details = require('./data/potatoes.json');
 const  crop_types = require('./data/crops.json');
+const  livestock_types = require('./data/livestock.json');
 
 const allFunctions = require('./functions/allFunctions.js');
 const farm = require('./functions/farm.js');
@@ -30,6 +31,7 @@ req.session.data.manure_types_livestock_groups = manure_types_livestock_groups
 req.session.data.complete_field_list = complete_field_list
 req.session.data.potato_details = potato_details
 req.session.data.crop_types = crop_types
+req.session.data.livestock_types = livestock_types
 req.session.data.all_fertiliser_applications = all_fertiliser_applications
 req.session.data.manure_applications_list = manure_applications_list
 req.session.data.plan_2023 = plan_2023;

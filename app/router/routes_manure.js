@@ -175,14 +175,14 @@ router.get(/manuretype_export_handler/, function (req, res) {
             }
         }
     }
-    var next = "quantity"
+    var next = "date"
     if (req.session.data.manure_group_id == "livestock") {
         next = "livestock_type"
         if (req.session.data.manure_type == "dirty_water" ||
             req.session.data.manure_type == "horse_fym" || 
             req.session.data.manure_type == "goat_fym" ||
             req.session.data.manure_type == "poultry") {
-            next = "quantity"
+            next = "date"
             // next = "manure_defoliation"
             //get object
             for (var a in req.session.data.manure_types_livestock ) {
@@ -223,7 +223,7 @@ router.get(/livestock_type_export_handler/, function (req, res) {
             req.session.data.manure_type = req.session.data.manure_types_livestock[x]
         }
     }
-    res.redirect("quantity")
+    res.redirect("date")
     // res.redirect("manure_defoliation")
 })
 

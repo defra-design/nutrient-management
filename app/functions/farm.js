@@ -10,6 +10,7 @@ use_mvp_fields,
 setup,
 fields_added,
 livestock_added,
+export_added,
 rainfall,
 ewr
 
@@ -25,6 +26,7 @@ ewr
     this.setup = setup,
     this.fields_added = fields_added,
     this.livestock_added = livestock_added,
+    this.export_added = export_added,
     this.rainfall = rainfall
     this.ewr = ewr
   }
@@ -41,6 +43,7 @@ Farm.prototype.printFarm = function () {
                 this.setup + ", " +
                 this.fields_added + ", " +
                 this.livestock_added + ", " +
+                this.export_added + ", " +
                 this.rainfall + ", " +
                 this.ewr)
 };
@@ -57,6 +60,7 @@ Farm.prototype.reset = function () {
     this.setup = false,
     this.fields_added = false
     this.livestock_added = false
+    this.export_added = false
     this.rainfall = 600
     this.ewr = null
 };

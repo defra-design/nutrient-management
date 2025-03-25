@@ -1,30 +1,36 @@
 <dl class="govuk-summary-list">
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What type of livestock would you like to add?</dt>
-    <dd class="govuk-summary-list__value">{{data.crop_group | capitalize}}</dd>
+    <dt class="govuk-summary-list__key"> Do you want to add an import or an export?</dt>
+    <dd class="govuk-summary-list__value">{{data.import_export | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What type of {{data.groupname}} would you like to add?</dt>
+    <dt class="govuk-summary-list__key">What type of organic manure are you {{data.import_export}}ing?</dt>
     <dd class="govuk-summary-list__value">{{data.chosen_crop | nameconverter}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What is the average number for the year?</dt>
-    <dd class="govuk-summary-list__value"></dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What is the occupancy? (optional)</dt>
+    <dt class="govuk-summary-list__key">What type of {{ data.manure_group_id | convert_manure_group_id }} are you {{data.import_export}}ing?</dt>
     <dd class="govuk-summary-list__value">{{data.groupname}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Total nitrogen (N) produced by this cattle type</dt>
+    <dt class="govuk-summary-list__key">When did you export this manure?</dt>
+    <dd class="govuk-summary-list__value"></dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How much {{ data.manure_group_id | convert_manure_group_id }} are you {{data.import_export}}ing? </dt>
+    <dd class="govuk-summary-list__value"></dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What is the total N content of this {{ data.manure_group_id | convert_manure_group_id }}?</dt>
     <dd class="govuk-summary-list__value"></dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>

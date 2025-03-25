@@ -413,6 +413,13 @@ router.get(/livestockcheck_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version + '/farm/livestock/manage_livestock')
 })
 
+router.get(/exportcheck_handler/, function (req, res) { 
+    req.session.data.oaktree_farm.export_added = true;
+    res.redirect('/'+ req.session.data.prototype_version + '/farm/exports/manage_exports')
+})
+
+
+
 
 // old v2,3,4
 router.get(/addcrops_check_handler/, function (req, res) { 

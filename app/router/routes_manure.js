@@ -166,6 +166,35 @@ router.get(/manuretype_v7_handler/, function (req, res) {
     res.redirect(next)
 })
 
+router.get(/manuretype_export_handler/, function (req, res) {
+    //get object
+    if (req.session.data.manure_group_id != 'livestock') {
+        for (var x in req.session.data.manure_types ) {
+            if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
+                req.session.data.manure_type = req.session.data.manure_types[x]
+            }
+        }
+    }
+    var next = "quantity"
+    if (req.session.data.manure_group_id == "livestock") {
+        next = "livestock_type"
+        if (req.session.data.manure_type == "dirty_water" ||
+            req.session.data.manure_type == "horse_fym" || 
+            req.session.data.manure_type == "goat_fym" ||
+            req.session.data.manure_type == "poultry") {
+            next = "quantity"
+            // next = "manure_defoliation"
+            //get object
+            for (var a in req.session.data.manure_types_livestock ) {
+                if (req.session.data.manure_types_livestock[a].type == req.session.data.manure_type) {
+                    req.session.data.manure_type = req.session.data.manure_types_livestock[a]
+                }
+            }
+        }
+    }
+    res.redirect(next)
+})
+
 
 router.get(/livestock_type_handler/, function (req, res) {
     // console.log(req.session.data.manure_type)
@@ -187,6 +216,17 @@ router.get(/livestock_type_v7_handler/, function (req, res) {
     res.redirect("manure_date")
     // res.redirect("manure_defoliation")
 })
+
+router.get(/livestock_type_export_handler/, function (req, res) {
+    for (var x in req.session.data.manure_types_livestock) {
+        if (req.session.data.manure_types_livestock[x].name == req.session.data.manure_type) {
+            req.session.data.manure_type = req.session.data.manure_types_livestock[x]
+        }
+    }
+    res.redirect("quantity")
+    // res.redirect("manure_defoliation")
+})
+
 
 router.get(/incorporation_handler/, function (req, res) {
     var next = (req.session.data.incorporation_method == "not_incorporated") ? 'rain_defaults' : 'manure_delay'

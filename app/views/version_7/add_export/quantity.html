@@ -20,16 +20,16 @@
 
     <div class="govuk-grid-column-two-thirds">
       
-      <form action="check" method="post" novalidate="">
+      <form action="receiver" method="post" novalidate="">
 
-        <h1 class="govuk-heading-l">About {{data.chosen_livestock.name}}</h1>
+        <h1 class="govuk-heading-l">About {{data.manure_type.name}}</h1>
     
         <div class="govuk-form-group">
           <label class="govuk-label" for="total_area">
             Quantity
           </label>
           <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="total_area" name="total_area" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div>
+            <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
           </div>
         </div>
 
@@ -38,7 +38,7 @@
             Total N content
           </label>
           <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="cropped_area" name="cropped_area" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">%</div>
+            <div class="govuk-input__suffix" aria-hidden="true">kg per tonne</div>
           </div>
         </div>
 

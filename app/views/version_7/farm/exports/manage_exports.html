@@ -18,7 +18,7 @@
         href: "hub_reset_router"
       },
       {
-        text: "Manage livestock details"
+        text: "Manage import or export details"
       }
     ]
   }) }}
@@ -53,14 +53,14 @@
   
       <h1 class="govuk-heading-l">
         {{ data.oaktree_farm.name }} 
-        livestock information 2025
+        import and export of organic manures 2025
       </h1>
       
-      {% if data.oaktree_farm.livestock_added == true %}
+      {% if data.oaktree_farm.imports_and_exports_added == true %}
 
-      <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+      <form class="" action="../../add_export/export_type" method="post" novalidate="">    
         <button class="govuk-button" data-module="govuk-button">
-          Add a livestock group
+          Add import or export details
         </button>
       </form>
 
@@ -73,7 +73,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
   
-      {% if data.oaktree_farm.livestock_added == true %}
+      {% if data.oaktree_farm.imports or exports_added == true %}
 
         <h2 class="govuk-heading-m">Cattle</h2>
 
@@ -140,11 +140,11 @@
         
         {% else %}
 
-          <p class="govuk-body">You have not added any livestock information.</p>
+          <p class="govuk-body">You have not added any import or export information.</p>
 
-          <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+          <form class="" action="../../add_export/export_type" method="post" novalidate="">    
             <button class="govuk-button" data-module="govuk-button">
-              Add a livestock group
+              Add import or export details
             </button>
           </form>
     

@@ -257,6 +257,9 @@ hr.medium_seperator {
 
 .margin-bottom-none {
     margin-bottom: 0;
+    .govuk-button {
+        margin-bottom: 0;
+    }
 }
 
 .margin-bottom-five {

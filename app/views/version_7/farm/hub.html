@@ -95,26 +95,33 @@
 
     <hr class="seperator_five">
 
-    <!-- <div>
+    <div>
       <h2 class="govuk-heading-m">Livestock and manure details</h2>
       <ul class="menu-list govuk-list">
-        {% if data.oaktree_farm.livestock_added == true %}
-          <ul class="menu-list govuk-list">
-            <li>
-              <a class="govuk-link" href="livestock/manage_livestock">Update livestock details</a>
-            </li>
-          </uli>
-        {% else %}
-          <li>
-            <a class="govuk-link" href="livestock/manage_livestock">Add livestock details</a>
-          </li>
-        {% endif %}
-
+        <!-- livestock -->
         <li>
-          <a class="govuk-link" href="exports/manage_exports">Add imports or exports of manures</a>
+          <a class="govuk-link" href="livestock/manage_livestock">
+            {% if data.oaktree_farm.livestock_added == true %}
+              Update 
+            {% else %}
+              Add
+            {% endif %}
+            livestock details
+          </a>
+        </li> 
+        <!-- manure -->
+        <li>
+          <a class="govuk-link" href="exports/manage_exports">
+            {% if data.oaktree_farm.exports_added == true %}
+              Update 
+            {% else %}
+                Add
+            {% endif %}
+            imports or exports of manures
+          </a>
         </li>
       </ul>
-    <hr class="seperator_five"> -->
+    <hr class="seperator_five">
     
 
     <p><a href="">Download all {{data.oaktree_farm.name}}'s data as a csv file</a> </p>

@@ -53,14 +53,14 @@
   
       <h1 class="govuk-heading-l">
         {{ data.oaktree_farm.name }} 
-        livestock information 2025
+        Imports and exports information
       </h1>
       
       {% if data.oaktree_farm.livestock_added == true %}
 
-      <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+      <form class="" action="../../add_export/export_type" method="post" novalidate="">    
         <button class="govuk-button" data-module="govuk-button">
-          Add a livestock group
+          Add an import or export
         </button>
       </form>
 
@@ -80,11 +80,11 @@
         
       {% else %}
 
-          <p class="govuk-body">You have not added any livestock information.</p>
+          <p class="govuk-body">You have not added any imports and exports information.</p>
 
-          <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+          <form class="" action="../../add_export/export_type" method="post" novalidate="">    
             <button class="govuk-button" data-module="govuk-button">
-              Add a livestock group
+              Add an import or export
             </button>
           </form>
     

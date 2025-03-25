@@ -22,7 +22,14 @@
       
       <form action="check" method="post" novalidate="">
 
-        <h1 class="govuk-heading-l">Who are you {{data.import_export}}ing this {{data.manure_type.name}} to?</h1>
+        <h1 class="govuk-heading-l">
+          {% if data.import_export == 'export' %}
+            Who are you exporting this {{data.manure_type.name}} to?
+          {% else %}
+            Who are you importing this {{data.manure_type.name}} from?
+          {% endif %}
+
+        </h1>
     
         <div class="govuk-form-group">
           <input class="govuk-input" id="event-name" name="eventName" type="text">

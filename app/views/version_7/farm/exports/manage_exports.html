@@ -1,0 +1,157 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "All farms",
+        href: "../farms" 
+      },
+      {
+        text: "Oaktree Lane Farm",
+        href: "hub_reset_router"
+      },
+      {
+        text: "Manage livestock details"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+{{ plan_status }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if data.show_success_message == true %}
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+          aria-labelledby="govuk-notification-banner-title"
+          data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            {% if data.oaktree_farm.latest_update == 'field_added' %}
+              <h3 class="govuk-notification-banner__heading">
+                You have added {{data.temp_field_name}}
+              </h3>
+              <p class="govuk-body"><a class="govuk-notification-banner__link" href="../../add-field/copy_field">Add another field</a>, or</p>  
+              <p class="govuk-body"><a class="govuk-notification-banner__link" href="../plans_records">View, create or update a nutrient management plan</a></p>  
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+  
+      <h1 class="govuk-heading-l">
+        {{ data.oaktree_farm.name }} 
+        livestock information 2025
+      </h1>
+      
+      {% if data.oaktree_farm.livestock_added == true %}
+
+      <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+        <button class="govuk-button" data-module="govuk-button">
+          Add a livestock group
+        </button>
+      </form>
+
+      {% endif %}
+
+
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+  
+      {% if data.oaktree_farm.livestock_added == true %}
+
+        <h2 class="govuk-heading-m">Cattle</h2>
+
+        <table class="govuk-table data-table">
+          <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Type</th>
+              <th scope="col" class="govuk-table__header">Average for 2025</th>
+              <th scope="col" class="govuk-table__header">Occupancy %</th>
+              <th scope="col" class="govuk-table__header">Nitrogen (N) standard kg per year</th>
+              <th scope="col" class="govuk-table__header">Total nitrogen (N) kg per year</th>
+              <th scope="col" class="govuk-table__header">Action</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">1 Beef suckler, 25 months and over (500kg and over)</td>
+              <td class="govuk-table__cell">5</td>
+              <td class="govuk-table__cell"> </td>
+              <td class="govuk-table__cell">8.4</td>
+              <td class="govuk-table__cell">17</td>
+              <td class="govuk-table__cell">
+                <a href="">Change</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <p class="govuk-body"><a href="">Add cattle type</a></p>
+
+        <hr>
+
+        <h2 class="govuk-heading-m">Pigs</h2>
+
+        <table class="govuk-table data-table">
+          <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Type</th>
+              <th scope="col" class="govuk-table__header">Average for 2025</th>
+              <th scope="col" class="govuk-table__header">Occupancy %</th>
+              <th scope="col" class="govuk-table__header">Nitrogen (N) standard kg per year</th>
+              <th scope="col" class="govuk-table__header">Total nitrogen (N) kg per year</th>
+              <th scope="col" class="govuk-table__header">Action</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">1 Sow place with litter, up to 7kg (with synth amino)</td>
+              <td class="govuk-table__cell">5</td>
+              <td class="govuk-table__cell"> </td>
+              <td class="govuk-table__cell">8.4</td>
+              <td class="govuk-table__cell">17</td>
+              <td class="govuk-table__cell">
+                <a href="">Change</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="govuk-body"><a href="">Add pig type</a></p>
+
+        <hr>
+        
+        {% else %}
+
+          <p class="govuk-body">You have not added any livestock information.</p>
+
+          <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+            <button class="govuk-button" data-module="govuk-button">
+              Add a livestock group
+            </button>
+          </form>
+    
+        {% endif %}
+      
+    </div>
+
+  </div>
+
+{% endblock %}

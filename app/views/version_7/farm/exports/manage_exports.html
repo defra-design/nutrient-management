@@ -91,9 +91,9 @@
       <div class="govuk-grid-column-full">
 
       {% if data.oaktree_farm.exports_added == true %}
-
-        {% include "./export_tables.html" ignore missing %}
-
+        <hr class="seperator_five">
+        {% include "./import_table.html" ignore missing %}
+        {% include "./export_table.html" ignore missing %}
       {% else %}
 
           <p class="govuk-body">You have not added any import or export information.</p>

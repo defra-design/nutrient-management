@@ -77,12 +77,6 @@ router.get(/organicadjustment_handler/, function (req, res) {
     }
 })
 
-router.get(/field_update_handler/, function (req, res) { 
-    req.session.data.show_success_message = true
-    req.session.data.oaktree_farm.latest_update = 'field_updated'
-    res.redirect('/' + req.session.data.prototype_version + '/farm/field/field-details')
-})
-
 //add field - grass history - handler
 router.get(/add-grass-handler/, function (req, res) { 
     var next = (req.session.data.previous_grass == 'yes') ? 'plough' : 'check'

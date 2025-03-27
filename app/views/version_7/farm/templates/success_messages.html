@@ -30,3 +30,23 @@
         </div>
     </div>
 {% endif %}
+
+<!-- field added -->
+{% if data.successMessage == 3 %}
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+        </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+                You have added {{data.temp_field_name}}
+            </h3>
+            <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_copy_reset_handler">Add another field</a>, or</p>  
+            <p class="govuk-body"><a class="govuk-notification-banner__link" href="../plans_records">View, create or update a nutrient management plan</a></p>  
+        </div>
+    </div>
+{% endif %}
+
+

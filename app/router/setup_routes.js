@@ -42,6 +42,12 @@ router.get(/field_add_reset_handler/, function (req, res) {
 })
 
 //add a field view reset messages
+router.get(/field_copy_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false;
+    res.redirect('/'+ req.session.data.prototype_version + '/add-field/copy_field');
+})
+
+//field details view reset messages
 router.get(/field_details_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false;
     res.redirect('/'+ req.session.data.prototype_version +'/farm/field/field-details');
@@ -69,12 +75,6 @@ router.get(/organicadjustment_handler/, function (req, res) {
     } else {
         res.redirect('/add-field/check')
     }
-})
-
-router.get(/field_update_handler/, function (req, res) { 
-    req.session.data.show_success_message = true
-    req.session.data.oaktree_farm.latest_update = 'field_updated'
-    res.redirect('/' + req.session.data.prototype_version + '/farm/field/field-details')
 })
 
 //add field - grass history - handler

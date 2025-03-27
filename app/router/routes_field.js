@@ -3,10 +3,17 @@ var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
 
-// const showSuccessMessage = function (req, res, next) {
-//     req.session.data.show_success_message = true;
-//     next()
-// }    
+//cb functions
+const showSuccessMessage = function (req, res, next) {
+    req.session.data.show_success_message = true
+    next()
+}
+
+const hideSuccessMessage = function (req, res, next) {
+    req.session.data.show_success_message = false
+    next()
+}
+
 
 //Handlers
 
@@ -57,11 +64,12 @@ router.get(/set_tempField_data_handler/, function (req, res) {
 
 
 //add field
-router.get(/add_field_handler/, function (req, res) { 
+router.get(/add_field_handler/, showSuccessMessage, function (req, res) { 
+    req.session.data.successMessage = 3 //field added
+
     var sowdate = null;
     req.session.data.oaktree_farm.latest_update = 'field_added';
     req.session.data.oaktree_farm.fields_added = true;
-    req.session.data.show_success_message = true;
     req.session.data.all_fields.push(req.session.data.tempField);
     var newRef = req.session.data.currentCropGroups.length + 1
     if (req.session.data.sow_date_day != null) {
@@ -97,6 +105,19 @@ router.get(/copy_name_handler/, function (req, res) {
     req.session.data.tempField.name = req.session.data.temp_field_name
     res.redirect('./copy-field-check')
 })
+
+router.get(/field_update_handler/, showSuccessMessage, function (req, res) { 
+    req.session.data.successMessage = 4 //field updated
+    req.session.data.oaktree_farm.latest_update = 'field_updated'
+    res.redirect('/' + req.session.data.prototype_version + '/farm/field/field-details')
+})
+
+router.get(/soil_update_handler/, showSuccessMessage, function (req, res) { 
+    req.session.data.successMessage = 5 //soil updated
+    req.session.data.oaktree_farm.latest_update = 'field_updated'
+    res.redirect('/' + req.session.data.prototype_version + '/farm/field/field-details')
+})
+
 
 //Routers
 

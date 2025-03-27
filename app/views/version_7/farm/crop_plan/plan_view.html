@@ -128,13 +128,13 @@
             <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned.</p>
           {% endif %} 
 
-          <form class="add-button" action="plan_manure_application_handler?manurejourney=multi" method="post" novalidate="">    
+          <form class="add-button" action="plan_manure_application_router?manurejourney=multi" method="post" novalidate="">    
             <button class="govuk-button" data-module="govuk-button">
               Add an {{data.content.organic_term | lower}} application
             </button>
           </form>
   
-          <!-- <p class="govuk-body"><a href="plan_manure_application_handler?manurejourney=multi">Add an {{data.content.organic_term | lower}} application to one or more fields</a></p> -->
+          <!-- <p class="govuk-body"><a href="plan_manure_application_router?manurejourney=multi">Add an {{data.content.organic_term | lower}} application to one or more fields</a></p> -->
           <!-- if organics == true
             include "./templates/2024_manure_totals.html" ignore missing
           endif  -->

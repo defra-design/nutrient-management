@@ -58,9 +58,9 @@
       <h2 class="govuk-heading-s">{{data.content.organic_term}} applications</h2>
       {% if data.plan_2024.singleManuresApplied == false and data.plan_2024.multipleManuresApplied == false %}
         <p class="govuk-body">You have no {{data.content.organic_term | lower}} applications planned for this field.</p>
-        <p class="govuk-body"><a href="plan_manure_application_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
+        <p class="govuk-body"><a href="plan_manure_application_router?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a></p>
       {% else %}
-        <p class="govuk-body"><a href="plan_manure_application_handler?manurejourney=single">Add another {{data.content.organic_term | lower}} application for {{data.chosen_field.name}}</a></p>
+        <p class="govuk-body"><a href="plan_manure_application_router?manurejourney=single">Add another {{data.content.organic_term | lower}} application for {{data.chosen_field.name}}</a></p>
         {% include "./templates/applications.html" ignore missing %}
       {% endif %}
     </div>

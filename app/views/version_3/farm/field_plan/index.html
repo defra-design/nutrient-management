@@ -57,9 +57,9 @@
       <h2 class="govuk-heading-m">Applications of organic material and inorganic fertiliser</h2>
       <p class="govuk-body">
         {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singleManuresApplied == false %}
-          <a href="plan_manure_application_handler?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosen_field.name}}</a>
+          <a href="plan_manure_application_router?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosen_field.name}}</a>
         {% else %}
-          <a href="plan_manure_application_handler?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosen_field.name}}</a>
+          <a href="plan_manure_application_router?manurejourney=single">Plan or edit an application of {{data.content.organic_term | lower}} to {{data.chosen_field.name}}</a>
         {% endif %}
       </p>
       <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Plan or edit an application of {{data.content.non_organic_term | lower}} to {{data.chosen_field.name}}</a></p>
@@ -97,7 +97,7 @@
     <div class="govuk-grid-column-full margin-bottom-forty">
       <h2 class="govuk-heading-m">{{data.content.organic_term}} applications</h2>
       {% if data.plan_2024.multipleManuresApplied == false and data.plan_2024.singleManuresApplied == false %}
-        <p>You have no {{data.content.organic_term | lower}} applications planned for this field. <a href="plan_manure_application_handler?manurejourney=single"> <br><a href="plan_manure_application_handler?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a></a></p>
+        <p>You have no {{data.content.organic_term | lower}} applications planned for this field. <a href="plan_manure_application_router?manurejourney=single"> <br><a href="plan_manure_application_router?manurejourney=single">Add {{data.content.organic_term | lower}} applications for {{data.chosen_field.name}}</a></a></p>
       {% else %}
         {% include "./templates/applications.html" ignore missing %}
       {% endif %}

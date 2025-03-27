@@ -20,23 +20,8 @@
     <!-- <h1 class="govuk-heading-xl">Plan and record nutrient applications</h1> -->
 
     {% if data.show_success_message == true %}
-      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
-        aria-labelledby="govuk-notification-banner-title"
-        data-module="govuk-notification-banner">
-        <div class="govuk-notification-banner__header">
-          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-            Success
-          </h2>
-        </div>
-        <div class="govuk-notification-banner__content">
-            <h3 class="govuk-notification-banner__heading">
-              You have removed {{data.oaktree_farm.name}}.
-            </h3>
-            <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_add_reset_handler">Add fields for {{data.oaktree_farm.name}}</a> </p> -->
-        </div>
-      </div>
+      {% include "./templates/success_messages" ignore missing %}
     {% endif %}
-
 
     <h2 class="govuk-heading-l">Your farms</h2>
 

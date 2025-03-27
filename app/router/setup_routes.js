@@ -22,11 +22,6 @@ router.get(/export_handler/, function (req, res) {
 ///////////////////// refactor
 
 // Alert messages
-router.get(/delete_handler/, function (req, res) { 
-    req.session.data.show_success_message = true;
-    req.session.data.oaktree_farm.setup = false;
-    res.redirect('/' + req.session.data.prototype_version + '/farm/farms');
-})
 
 //manage fields view reset messages
 router.get(/field_reset_handler/, function (req, res) {
@@ -57,6 +52,7 @@ router.get(/planview_reset_handler/, function (req, res) {
     req.session.data.show_success_message = false;
     res.redirect('../crop_plan/plan_view');
 })
+
 
 //// FIELD 
 

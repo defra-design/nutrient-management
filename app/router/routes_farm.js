@@ -95,21 +95,26 @@ router.get(/set_farm_defaults_handler/, function (req, res) {
 })
 
 //creates a farm
-router.get(/add_farm_handler/, function (req, res) { 
-    //name
+router.get(/add_farm_handler/, showSuccessMessage, function (req, res) { 
+    req.session.data.successMessage = 1 //farm added
+
     req.session.data.oaktree_farm.name = req.session.data.farm_name;
-    //postcode
     req.session.data.oaktree_farm.postcode = req.session.data.farm_postcode;
-    //NVZ
     req.session.data.oaktree_farm.nvz = req.session.data.farm_nvz;
     req.session.data.oaktree_farm.elevation = req.session.data.farm_elevation;
     req.session.data.oaktree_farm.organic_producer = req.session.data.organic_producer;
     req.session.data.oaktree_farm.setup = true;
-    req.session.data.oaktree_farm.latest_update = 'added';
-    req.session.data.show_success_message = true;
-    // console.log(req.session.data.oaktree_farm)
+    req.session.data.oaktree_farm.latest_update = 'added'; //remove this
     res.redirect('/'+ req.session.data.prototype_version +'/farm/hub');
 })
+
+//removes a farm
+router.get(/delete_handler/, showSuccessMessage, function (req, res) { 
+    req.session.data.successMessage = 2 //farm removed
+    req.session.data.oaktree_farm.setup = false;
+    res.redirect('/' + req.session.data.prototype_version + '/farm/farms');
+})
+
 
 //Routers
 
@@ -126,10 +131,19 @@ router.get(/hub_reset_router/, function (req, res) {
     res.redirect('/' + req.session.data.prototype_version + '/farm/hub');
 })
 
+
+//hide success message
 router.get(/plan_view_reset_router/, function (req, res) { 
     req.session.data.show_success_message = false;
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view');
 })
+
+//hub reset messages
+router.get(/farmsview_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false;
+    res.redirect('/' + req.session.data.prototype_version + '/farm/farms');
+})
+
 
 
 

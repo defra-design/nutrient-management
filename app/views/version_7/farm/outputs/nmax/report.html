@@ -44,9 +44,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full nmax_header">
 
-      <h1 class="govuk-heading-xl">Livestock manure N farm loading {{data.oaktree_farm.name}} </h1>
+      <h1 class="govuk-heading-xl">N-max limits for {{data.oaktree_farm.name}} </h1>
       <h2 class="govuk-heading-l">Harvest year 2025</h2>
-      <p class="govuk-body">Created on 31 March 2025</p>
+      <p class="govuk-body">Created on 17 February 2025</p>
       
     </div>
   </div>
@@ -62,15 +62,13 @@
       
     <div class="govuk-grid-column-two-thirds">
       <p class="govuk-body">CPH number: 123456789<br>
-        Single Business Identifier: 123456789<br>
-      </p>
-      <p class="govuk-body">
-        Derogated farm: No
-      </p>
-          
+      Single Business Identifier: 123456789</p>
     </div>
 
   </div>
+
+  <hr class="seperator_five">
+
 
   <!-- <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
@@ -83,72 +81,68 @@
   </div> -->
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-forty">
+    <div class="govuk-grid-column-two-thirds">
 
-      <h2 class="govuk-heading-m">
-        Farm area and livestock manure total N capacity
-      </h2>
-      {% include "./templates/loading/capacity.html" ignore missing %}
+      <h2 class="govuk-heading-l">Summary</h2>
+      {% include "./templates/summary.html" ignore missing %} 
 
     </div>
   </div>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-forty">
+    <div class="govuk-grid-column-full">
 
-      <h2 class="govuk-heading-m">
-        Livestock manure total N loading
-      </h2>
-      {% include "./templates/loading/total.html" ignore missing %}
-
-    </div>
-  </div>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-forty">
-
-      <h2 class="govuk-heading-m">
-        Compliance with NVZ Livestock Manure N Farm Limit
-      </h2>
-      {% include "./templates/loading/compliance.html" ignore missing %}
-
-    </div>
-  </div>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-forty">
-
-      <h2 class="govuk-heading-m">
-        Grazing livestock numbers and manure total N production (home-produced manures)
-      </h2>
-      {% include "./templates/loading/livestock.html" ignore missing %}
-
-    </div>
-  </div>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-forty">
-
-      <h2 class="govuk-heading-m">
-        Pigs and poultry livestock numbers and manure total N production (home-produced manures)
-      </h2>
-      {% include "./templates/loading/pigs.html" ignore missing %}
-
+      <p class="govuk-body margin-bottom-none">
+        To comply with the N-max limit for each crop type the total nitrogen (N) applied in fertiliser and crop available nitrogen from organic manures must not be greater than the adjusted N-max limit.
+      </p>
+    
     </div>
   </div>
 
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-  
-      <hr class="margin-bottom-forty">
-      <h2 class="govuk-heading-s">
-        About recommendations, guidance, and advice
-      </h2>
-      {% include "/templates/recommendations.html" ignore missing %}
 
+      <hr class="seperator_five">
+      <div class="margin-bottom-forty">
+        {% include "./templates/crop_limits.html" ignore missing %} 
+        <h3 class="govuk-heading-m">Nitrogen applications for Winter Wheat fields</h3>
+        {% include "./templates/nitrogen_applications_wheat.html" ignore missing %}
+      </div>
+
+      <div id="printbreak"></div>
+      <div class="pagebreak">&nbsp;</div>
+
+      <div class="margin-bottom-forty">
+        {% include "./templates/grass_limits.html" ignore missing %}
+        {% set fieldName = 'Short field' %}
+        <h3 class="govuk-heading-m">Nitrogen applications for Grass fields</h3>
+        {% include "./templates/nitrogen_applications_grass.html" ignore missing %}
+      </div>
+
+      <div id="printbreak"></div>
+      <div class="pagebreak">&nbsp;</div>
+
+      <div class="margin-bottom-forty">
+        {% include "./templates/group_1_limits.html" ignore missing %}
+        {% set fieldName = 'Short field' %}
+        <h3 class="govuk-heading-m">Nitrogen applications for low nitrogen (N) vegetables</h3>
+        {% include "./templates/nitrogen_applications_group.html" ignore missing %}
+      </div>
+
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+    
+        <hr class="margin-bottom-forty">
+        <h2 class="govuk-heading-s">About recommendations, guidance, and advice</h2>
+        {% include "/templates/recommendations.html" ignore missing %}
+
+    </div>
   </div>
-</div>
+
   
 
 

@@ -9,7 +9,7 @@
 
 {% include "/templates/signed-in.html" ignore missing %}
 
-<a href="../plan_view" class="noprint govuk-back-link">Back to your 2025 plan</a>
+<a href="plan_view_reset_router" class="noprint govuk-back-link">Back to your 2025 plan</a>
 
 {% endblock %}
 
@@ -44,7 +44,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full nmax_header">
 
-      <h1 class="govuk-heading-xl">Livestock manure N farm loading {{data.oaktree_farm.name}} </h1>
+      <h1 class="govuk-heading-xl">{{data.oaktree_farm.name}} <br>Livestock manure N farm loading</h1>
       <h2 class="govuk-heading-l">Harvest year 2025</h2>
       <p class="govuk-body">Created on 31 March 2025</p>
       
@@ -83,29 +83,7 @@
   </div> -->
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-forty">
-
-      <h2 class="govuk-heading-m">
-        Farm area and livestock manure total N capacity
-      </h2>
-      {% include "./templates/capacity.html" ignore missing %}
-
-    </div>
-  </div>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-forty">
-
-      <h2 class="govuk-heading-m">
-        Livestock manure total N loading
-      </h2>
-      {% include "./templates/total.html" ignore missing %}
-
-    </div>
-  </div>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-forty">
+    <div class="govuk-grid-column-full margin-bottom-thirty">
 
       <h2 class="govuk-heading-m">
         Compliance with NVZ Livestock Manure N Farm Limit
@@ -116,27 +94,60 @@
   </div>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-forty">
+    <div class="govuk-grid-column-full margin-bottom-thirty">
 
       <h2 class="govuk-heading-m">
-        Grazing livestock numbers and manure total N production (home-produced manures)
+        Farm area and livestock manure total N capacity
       </h2>
-      {% include "./templates/livestock.html" ignore missing %}
+      {% include "./templates/farm_area.html" ignore missing %}
 
     </div>
   </div>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-forty">
+    <div class="govuk-grid-column-full margin-bottom-thirty">
 
       <h2 class="govuk-heading-m">
-        Pigs and poultry livestock numbers and manure total N production (home-produced manures)
+        Livestock manure total N loading
       </h2>
-      {% include "./templates/pigs.html" ignore missing %}
+      {% include "./templates/livestock_manure.html" ignore missing %}
 
     </div>
   </div>
 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full margin-bottom-thirty">
+
+      <h2 class="govuk-heading-m">
+        Grazing livestock numbers and manure total N production (home-produced manures)
+      </h2>
+      <!-- <p>Total livestock manure nitrogen (N) production: 3,944kg</p> -->
+      {% include "./templates/grazing_livestock.html" ignore missing %}
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full margin-bottom-thirty">
+
+      <h2 class="govuk-heading-m">
+        Pigs and poultry livestock numbers and manure total N production (home-produced manures)
+      </h2>
+      {% include "./templates/pigs_none.html" ignore missing %}
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full margin-bottom-ten">
+
+      <h2 class="govuk-heading-m">
+        Imports and exports of livestock manure
+      </h2>
+      {% include "./templates/imports.html" ignore missing %}
+      <p class="govuk-body">Contingency plan available to be used if an agreement to send the manure off the farm fails: No</p>
+    </div>
+  </div>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">

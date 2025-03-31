@@ -1,0 +1,101 @@
+
+  {% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Planning
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification">
+            Select your first crop group and type for 2024.
+            You can then add the crop to one or more fields to create your plan.
+          </p>
+          <p class="govuk-notification">
+            You can create as many crop groups as you need to, for example you can group crops by how tHay will be treated
+          </p>
+        </div>
+      </div>
+ -->
+
+      <!-- {% include "templates/title_span.html" %} -->
+      <h1 class="govuk-heading-l">
+        Which crops would you like to create a 2025 N-max report for?
+      </h1>
+
+      <p class="govuk-hint">Select all that apply.</p>
+
+      <!-- <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Help with planning crop groups
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>Select your first crop for 2024, you can then select the fields where you will grow it. Crops are grouped by type and variety. You can create as many crop groups as you need to.</p>
+        </div>
+      </details> -->
+
+      {% set cropGroups = data.currentCropGroups %}
+  
+      {% if data.oaktree_farm.planning_year == '2024' %}
+        {% set cropGroups = data.previousCropGroups %}
+      {% endif %}
+
+      <form class="form" action="../outputs/nmax/" method="post">
+
+        <div class="govuk-form-group">
+
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">          
+            {% for group in cropGroups %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id={{group.crop_reference}} name="nmax_crop" type="checkbox" value={{group.crop_reference}}>
+                <label class="govuk-label govuk-checkboxes__label" for={{group.crop_reference}}>
+                  {{group.crop_reference | nameconverter }}
+                </label>
+              </div>
+          {% endfor %}  
+          <div class="govuk-checkboxes__divider">or</div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="all" name="nmax_crop" type="checkbox" value="all">
+            <label class="govuk-label govuk-checkboxes__label" for="all">
+              Select all
+            </label>
+          </div>
+        </div>
+      </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+  
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}
+

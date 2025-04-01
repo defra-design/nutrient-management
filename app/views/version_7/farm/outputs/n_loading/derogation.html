@@ -26,19 +26,19 @@
         Does {{data.farm.name}} have a derogation?
       </p> -->
 
-      <form class="form" action="checklist" method="post">
+      <form class="form" action="derogation_handler" method="post">
       
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
             <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                <input class="govuk-radios__input" id="changedName" name="derogation" type="radio" value="yes" {% if data.oaktree_farm.derogation == true %} checked="yes" {% endif %}>
                 <label class="govuk-label govuk-radios__label" for="changedName">
                   Yes
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                <input class="govuk-radios__input" id="changedName-2" name="derogation" type="radio" value="no" {% if data.oaktree_farm.derogation == false %} checked="yes" {% endif %}>
                 <label class="govuk-label govuk-radios__label" for="changedName-2">
                   No
                 </label>

@@ -19,6 +19,30 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      {% if data.show_error == true %}
+        <div class="govuk-error-summary" data-module="govuk-error-summary">
+          <div role="alert">
+            <h2 class="govuk-error-summary__title">
+              There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+              <ul class="govuk-list govuk-error-summary__list">
+                {% if data.oaktree_farm.livestock_added == false %}
+                  <li>
+                    <a href="#">Livestock for 2025 must be completed</a>
+                  </li>
+                {% endif %}
+                {% if data.oaktree_farm.exports_added == false %}
+                  <li>
+                    <a href="#">Any imports or exports for 2025 must be completed</a>
+                  </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
       <h1 class="govuk-heading-l">
        Create a 2025 livestock manure <br><span>N-loading</span> report
       </h1>
@@ -73,7 +97,8 @@
           </li>
         </ul>
       </div>
-      <form class="form" action="index" method="post">
+
+      <form class="form" action="n_loading_submit_router" method="post">
 
       {{ govukButton({
         text: "Create report"

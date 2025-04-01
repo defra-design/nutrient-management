@@ -226,18 +226,6 @@ router.get(/manuretype_handler/, function (req, res) {
     res.redirect(next)
 })
 
-
-router.get(/manuretype_export_handler/, function (req, res) {
-    //get object
-    for (var x in req.session.data.manure_types ) {
-        if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
-            req.session.data.manure_type = req.session.data.manure_types[x]
-        }
-    }
-    res.redirect('date')
-})
-
-
 router.get(/livestock_type_handler/, function (req, res) {
     // console.log(req.session.data.manure_type)
     //get object

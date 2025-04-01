@@ -3,8 +3,13 @@ var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
 
+const hide_error = function (req, res, next) {
+    req.session.data.show_error = false
+    next()
+}
+
 //export the documents
-router.get(/output_router/, function (req, res) { 
+router.get(/output_router/, hide_error, function (req, res) { 
     // if (req.session.data.export_type == 1) {
     //     next = 'export_fields'
     // } else if (req.session.data.export_type == 2) {
@@ -12,6 +17,7 @@ router.get(/output_router/, function (req, res) {
     // } else {
     //     next = './outputs/nmax_report_v2'
     // }
+    
     var next = 'export_fields'
     if (req.session.data.export_type == 3) {
         next = 'export_crops'
@@ -35,7 +41,7 @@ router.get(/derogation_router/, function (req, res) {
     res.redirect('checklist');
 })
 
-router.get(/export_type_router/, function (req, res) {
+router.get(/export_type_router/, hide_error, function (req, res) {
     var next = 'manure_group'
     if (req.session.data.import_export == 'none') {
         req.session.data.oaktree_farm.exports_added = true
@@ -44,8 +50,6 @@ router.get(/export_type_router/, function (req, res) {
     res.redirect(next);
 })
 
-
-//not new dont refactor
 router.get(/get_manure_type_handler/, function (req, res) {
     //get object
     for (var x in req.session.data.manure_types ) {
@@ -55,6 +59,18 @@ router.get(/get_manure_type_handler/, function (req, res) {
     }
     res.redirect('date')
 })
+
+
+router.get(/n_loading_submit_router/, function (req, res) {
+    var next = 'index'
+    if (req.session.data.oaktree_farm.livestock_added == false || req.session.data.oaktree_farm.exports_added == false) {
+        next = 'checklist'
+        console.log('herereer')
+        req.session.data.show_error = true
+    }
+    res.redirect(next)
+})
+
 
 
 module.exports = router

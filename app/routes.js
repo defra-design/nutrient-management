@@ -40,6 +40,7 @@ req.session.data.plan_2023.reset();
 req.session.data.plan_2024.reset();
 req.session.data.plan_2023.year = 2023;
 req.session.data.plan_2024.year = 2024;
+req.session.data.show_error = false
 next()
 }
 

@@ -15,6 +15,8 @@ router.get(/export_handler/, function (req, res) {
     var next = 'export_fields'
     if (req.session.data.export_type == 3) {
         next = 'export_crops'
+    } else if (req.session.data.export_type == 4) {
+        next = './n_loading/derogation'
     }
     res.redirect(next)
 })

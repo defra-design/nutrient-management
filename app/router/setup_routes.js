@@ -16,10 +16,34 @@ router.get(/export_handler/, function (req, res) {
     if (req.session.data.export_type == 3) {
         next = 'export_crops'
     } else if (req.session.data.export_type == 4) {
-        next = './n_loading/derogation'
+        if (req.session.data.oaktree_farm.derogation == null) {
+            next = './n_loading/derogation'
+        } else {
+            next = './n_loading/checklist'
+        }
     }
     res.redirect(next)
 })
+
+//set the farm derogation
+router.get(/derogation_handler/, function (req, res) {
+    if (req.session.data.derogation == 'no') {
+        req.session.data.oaktree_farm.derogation = false
+    } else {
+        req.session.data.oaktree_farm.derogation = true
+    }
+    res.redirect('checklist');
+})
+
+router.get(/exportmanure_handler/, function (req, res) {
+    var next = 'manure_group'
+    if (req.session.data.import_export == 'none') {
+        req.session.data.oaktree_farm.exports_added = true
+        next = '/' + req.session.data.prototype_version + '/farm/outputs/n_loading/checklist'
+    }
+    res.redirect(next);
+})
+
 
 ///////////////////// refactor
 

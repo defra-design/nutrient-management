@@ -20,7 +20,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-       Create an N Loading report for 2025
+       Create a 2025 livestock manure <br><span>N-loading</span> report
       </h1>
 
       <div class="margin-bottom-thirty">
@@ -31,13 +31,11 @@
                 Add farm size
               </a>
             </div>
-            <div class="govuk-task-list__status" id="prepare-application-1-status">
-              Completed
-            </div>
+            <div class="govuk-task-list__status" id="prepare-application-1-status">Completed</div>
           </li>
           <li class="govuk-task-list__item govuk-task-list__item--with-link">
             <div class="govuk-task-list__name-and-hint">
-              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="before-you-start-2-status">
+              <a class="govuk-link govuk-task-list__link" href="derogation" aria-describedby="before-you-start-2-status">
                 Add derogation
               </a>
             </div>
@@ -52,21 +50,25 @@
               </a>
             </div>
             <div class="govuk-task-list__status" id="before-you-start-2-status">
-              <strong class="govuk-tag govuk-tag--blue">
-                Incomplete
-              </strong>
+              {% if data.oaktree_farm.livestock_added == false %}
+                <strong class="govuk-tag govuk-tag--blue">Incomplete</strong>
+              {% else %}
+                Completed
+              {% endif %}
             </div>
           </li>
           <li class="govuk-task-list__item govuk-task-list__item--with-link">
             <div class="govuk-task-list__name-and-hint">
-              <a class="govuk-link govuk-task-list__link" href="../../../add_export/export_type"prepare-application-1-status">
+              <a class="govuk-link govuk-task-list__link" href="../../../add_export/export_type_none"prepare-application-1-status">
                 Add imports and exports for 2025
               </a>
             </div>
             <div class="govuk-task-list__status" id="before-you-start-2-status">
-              <strong class="govuk-tag govuk-tag--blue">
-                Incomplete
-              </strong>
+              {% if data.oaktree_farm.exports_added == false %}
+                <strong class="govuk-tag govuk-tag--blue">Incomplete</strong>
+              {% else %}
+                Completed
+              {% endif %}
             </div>
           </li>
         </ul>
@@ -74,7 +76,7 @@
       <form class="form" action="index" method="post">
 
       {{ govukButton({
-        text: "Continue"
+        text: "Create report"
       }) }}
 
     </form>

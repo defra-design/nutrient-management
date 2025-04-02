@@ -25,19 +25,19 @@
         <h1 class="govuk-heading-l">About {{data.chosen_livestock.name}}</h1>
     
         <div class="govuk-form-group">
-          <label class="govuk-label" for="total_area">
-            What is the average number of this {{data.livestock_group}} type for the year?
+          <label class="govuk-label" for="livestock_number">
+            What is the average number of this {{data.livestock_group}} type for {{data.oaktree_farm.planning_year}}?
           </label>
-          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="total_area" name="total_area" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <!-- <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div> -->
           </div>
         </div>
 
         <div class="govuk-form-group">
-          <label class="govuk-label" for="cropped_area">
+          <label class="govuk-label" for="livestock_occupancy">
             What is the occupancy? (optional)
           </label>
-          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="cropped_area" name="cropped_area" type="text" spellcheck="false" autocomplete="off">
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="livestock_occupancy" name="livestock_occupancy" type="text" spellcheck="false" autocomplete="off">
             <div class="govuk-input__suffix" aria-hidden="true">%</div>
           </div>
         </div>

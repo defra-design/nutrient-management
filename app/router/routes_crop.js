@@ -409,6 +409,7 @@ router.get(/cropmvp_handler/, function (req, res) {
 
 
 router.get(/livestockcheck_handler/, function (req, res) { 
+    req.session.data.show_success_message = true;
     req.session.data.oaktree_farm.livestock_added = true;
     res.redirect('/'+ req.session.data.prototype_version + '/farm/livestock/manage_livestock')
 })

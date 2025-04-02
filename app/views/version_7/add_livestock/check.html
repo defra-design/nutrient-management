@@ -24,7 +24,7 @@
     </h1>
 
     <h2 class="govuk-heading-m">
-      Harvest year 2025
+      Add livestock details for {{data.oaktree_farm.planning_year}}
     </h2>
 
     <div class="check-answers">
@@ -33,7 +33,7 @@
     
     <form action="livestockcheck_handler" method="post" novalidate>
       {{ govukButton({
-        text: "Create plan"
+        text: "Add livestock"
       }) }}
     </form>
     <p class="govuk-body">

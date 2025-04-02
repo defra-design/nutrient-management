@@ -8,6 +8,11 @@ const hide_error = function (req, res, next) {
     next()
 }
 
+const hideSuccessMessage = function (req, res, next) {
+    req.session.data.show_success_message = false
+    next()
+}
+
 //export the documents
 router.get(/output_router/, hide_error, function (req, res) { 
     // if (req.session.data.export_type == 1) {
@@ -69,6 +74,11 @@ router.get(/n_loading_submit_router/, function (req, res) {
         req.session.data.show_error = true
     }
     res.redirect(next)
+})
+
+router.get(/livestock_year_handler/, hideSuccessMessage, function (req, res) { 
+    req.session.data.oaktree_farm.planning_year = req.query.harvest_date
+    res.redirect('../../add_livestock/livestock_group')
 })
 
 

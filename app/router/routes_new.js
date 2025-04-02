@@ -77,7 +77,11 @@ router.get(/n_loading_submit_router/, function (req, res) {
 
 router.get(/livestock_year_handler/, hideSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.planning_year = req.query.harvest_date
-    res.redirect('../../add_livestock/livestock_group')
+    if (req.session.data.oaktree_farm.livestock_added == true) {
+        res.redirect('manage_livestock')
+    } else {
+        res.redirect('../../add_livestock/livestock_group')
+    }
 })
 
 //refactored - update

@@ -70,7 +70,6 @@ router.get(/n_loading_submit_router/, function (req, res) {
     var next = 'index'
     if (req.session.data.oaktree_farm.livestock_added == false || req.session.data.oaktree_farm.exports_added == false) {
         next = 'checklist'
-        console.log('herereer')
         req.session.data.show_error = true
     }
     res.redirect(next)

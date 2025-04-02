@@ -81,6 +81,14 @@ router.get(/livestock_year_handler/, hideSuccessMessage, function (req, res) {
     res.redirect('../../add_livestock/livestock_group')
 })
 
+//refactored - update
+router.get(/exportcheck_handler/, function (req, res) { 
+    req.session.data.show_success_message = true;
+    req.session.data.oaktree_farm.exports_added = true;
+    res.redirect('/'+ req.session.data.prototype_version + '/farm/exports/manage_exports')
+})
+
+
 
 
 module.exports = router

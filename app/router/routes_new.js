@@ -88,7 +88,10 @@ router.get(/exportcheck_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version + '/farm/exports/manage_exports')
 })
 
-
-
+//refactored - update
+router.get(/output_year_handler/, function (req, res) { 
+    req.session.data.oaktree_farm.planning_year = req.session.data.output_year
+    res.redirect('export')
+})
 
 module.exports = router

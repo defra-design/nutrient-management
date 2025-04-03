@@ -29,12 +29,12 @@
               <ul class="govuk-list govuk-error-summary__list">
                 {% if data.oaktree_farm.livestock_added == false %}
                   <li>
-                    <a href="#">Livestock for 2025 must be completed</a>
+                    <a href="#">Livestock for {{data.oaktree_farm.planning_year}} must be completed</a>
                   </li>
                 {% endif %}
                 {% if data.oaktree_farm.exports_added == false %}
                   <li>
-                    <a href="#">Any imports or exports for 2025 must be completed</a>
+                    <a href="#">Any imports or exports for {{data.oaktree_farm.planning_year}} must be completed</a>
                   </li>
                 {% endif %}
               </ul>
@@ -44,7 +44,7 @@
       {% endif %}
 
       <h1 class="govuk-heading-l">
-       Create a 2025 livestock manure <br><span>N-loading</span> report
+       Create a {{data.oaktree_farm.planning_year}} livestock manure <br><span>N-loading</span> report
       </h1>
 
       <div class="margin-bottom-thirty">
@@ -70,7 +70,7 @@
           <li class="govuk-task-list__item govuk-task-list__item--with-link">
             <div class="govuk-task-list__name-and-hint">
               <a class="govuk-link govuk-task-list__link" href="../../../add_livestock/livestock_group" aria-describedby="prepare-application-1-status">
-                Add livestock numbers for 2025
+                Add livestock numbers for {{data.oaktree_farm.planning_year}}
               </a>
             </div>
             <div class="govuk-task-list__status" id="before-you-start-2-status">
@@ -84,7 +84,7 @@
           <li class="govuk-task-list__item govuk-task-list__item--with-link">
             <div class="govuk-task-list__name-and-hint">
               <a class="govuk-link govuk-task-list__link" href="../../../add_export/export_type_none"prepare-application-1-status">
-                Add imports and exports for 2025
+                Add imports and exports for {{data.oaktree_farm.planning_year}}
               </a>
             </div>
             <div class="govuk-task-list__status" id="before-you-start-2-status">

@@ -14,24 +14,12 @@ const hideSuccessMessage = function (req, res, next) {
 }
 
 //export the documents
-router.get(/output_router/, hide_error, function (req, res) { 
-    // if (req.session.data.export_type == 1) {
-    //     next = 'export_fields'
-    // } else if (req.session.data.export_type == 2) {
-    //     next = './outputs/workbook'
-    // } else {
-    //     next = './outputs/nmax_report_v2'
-    // }
-    
+router.get(/output_router/, hide_error, function (req, res) {     
     var next = 'export_fields'
     if (req.session.data.export_type == 3) {
         next = 'export_crops'
     } else if (req.session.data.export_type == 4) {
-        if (req.session.data.oaktree_farm.derogation == null) {
-            next = './n_loading/derogation'
-        } else {
-            next = './n_loading/checklist'
-        }
+        next = './n_loading/checklist'
     }
     res.redirect(next)
 })

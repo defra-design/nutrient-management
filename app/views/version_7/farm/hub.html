@@ -38,6 +38,8 @@
         
       </div>
 
+      <hr class="seperator_thirty">
+
       <div>
         {% if data.oaktree_farm.fields_added == true  %}
         <h2 class="govuk-heading-m">Planning and recording</h2>
@@ -51,7 +53,19 @@
         {% endif %}
       </div>
 
-      <hr class="seperator_five">
+      <hr class="seperator_thirty">
+      <div>
+
+      <h2 class="govuk-heading-m">Reports and outputs</h2>
+      <ul class="menu-list govuk-list">
+        <li>
+          <a class="govuk-link" href="plans_records">Save or print a report</a>
+        </li>
+      </ul>
+    </div>
+
+    <hr class="seperator_thirty">
+
 
       <div>
         <h2 class="govuk-heading-m">Farm and field details</h2>
@@ -71,7 +85,7 @@
         </uli>
       </div>
 
-      <hr class="seperator_five">
+      <hr class="seperator_thirty">
 
     <div>
       <h2 class="govuk-heading-m">Livestock and manure details</h2>
@@ -93,11 +107,11 @@
             {% else %}
                 Add
             {% endif %}
-            imports or exports of manures
+            manure imports and exports
           </a>
         </li>
       </ul>
-      <hr class="seperator_five">
+      <hr class="seperator_thirty">
       
       <p><a href="">Download all {{data.oaktree_farm.name}}'s data as a csv file</a> </p>
 

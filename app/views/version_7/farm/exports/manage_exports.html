@@ -18,7 +18,7 @@
         href: "hub_reset_router"
       },
       {
-        text: "Manage exports details"
+        text: "Manure imports and exports " + data.oaktree_farm.planning_year
       }
     ]
   }) }}
@@ -36,7 +36,7 @@
   
       <h1 class="govuk-heading-l">
         {{ data.oaktree_farm.name }} 
-        import or export information
+        manure imports and exports {{data.oaktree_farm.planning_year}}
       </h1>
       
       <!-- <table class="govuk-table">
@@ -60,18 +60,18 @@
       {% if data.oaktree_farm.exports_added == true %}
 
       <table class="govuk-table">
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Total imported manure</th>
-            <th scope="col" class="govuk-table__header">Total exported manure</th>
-            <th scope="col" class="govuk-table__header">Net total</th>
-          </tr>
-        </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Total imported manure</th>
             <td scope="col" class="govuk-table__cell">280kg</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Total exported manure</th>
             <td scope="col" class="govuk-table__cell">90kg</td>
-            <td scope="col" class="govuk-table__header">+ 190kg</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Net total</th>
+            <th scope="col" class="govuk-table__cell">+ 190kg</th>
           </tr>
         </tbody>
       </table>

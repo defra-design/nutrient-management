@@ -84,6 +84,15 @@ router.get(/livestock_year_handler/, hideSuccessMessage, function (req, res) {
     }
 })
 
+router.get(/export_year_handler/, hideSuccessMessage, function (req, res) { 
+    req.session.data.oaktree_farm.planning_year = req.query.harvest_date
+    if (req.session.data.oaktree_farm.exports_added == true) {
+        res.redirect('manage_exports')
+    } else {
+        res.redirect('../../add_export/export_type')
+    }
+})
+
 //refactored - update
 router.get(/exportcheck_handler/, function (req, res) { 
     req.session.data.show_success_message = true;

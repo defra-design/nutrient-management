@@ -19,7 +19,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% if data.show_error == true %}
+      {% include "./message.html" %}
+
+      <!-- {% if data.show_error == true %}
         <div class="govuk-error-summary" data-module="govuk-error-summary">
           <div role="alert">
             <h2 class="govuk-error-summary__title">
@@ -29,10 +31,10 @@
               <ul class="govuk-list govuk-error-summary__list">
                 {% if data.oaktree_farm.livestock_added == false %}
                   <li>
-                    <a href="#">Livestock for {{data.oaktree_farm.planning_year}} must be completed</a>
+                    <a href="#">Livestock numbers for {{data.oaktree_farm.planning_year}} must be completed</a>
                   </li>
                 {% endif %}
-                {% if data.oaktree_farm.exports_added == false %}
+                 {% if data.oaktree_farm.exports_added == false %}
                   <li>
                     <a href="#">Any imports or exports for {{data.oaktree_farm.planning_year}} must be completed</a>
                   </li>
@@ -41,27 +43,27 @@
             </div>
           </div>
         </div>
-      {% endif %}
+      {% endif %} -->
 
       <h1 class="govuk-heading-l">
        Create a {{data.oaktree_farm.planning_year}} livestock manure <br><span>N-loading</span> report
       </h1>
 
-      <h2 class="govuk-heading-m">
+      <!-- <h2 class="govuk-heading-m">
         Check your answers
-       </h2> 
+       </h2>  -->
 
       <div class="check-answers">
         {% include "./check_content.html" %}
       </div>
 
-      <h2 class="govuk-heading-s">
+      <!-- <h2 class="govuk-heading-s">
         Information required to create a livestock manure N-loading report
-       </h2> 
+       </h2>  -->
 
-      <div class="margin-bottom-thirty">
+      <!-- <div class="margin-bottom-thirty">
         <ul class="govuk-task-list">
-          <!-- <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
             <div class="govuk-task-list__name-and-hint">
               <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="before-you-start-2-status">
                 Add farm size
@@ -78,7 +80,7 @@
             <div class="govuk-task-list__status" id="prepare-application-1-status">
               Completed
             </div>
-          </li> -->
+          </li>
           <li class="govuk-task-list__item govuk-task-list__item--with-link">
             <div class="govuk-task-list__name-and-hint">
               <a class="govuk-link govuk-task-list__link" href="../../../add_livestock/livestock_group" aria-describedby="prepare-application-1-status">
@@ -108,13 +110,15 @@
             </div>
           </li>
         </ul>
-      </div>
+      </div> -->
 
       <form class="form" action="n_loading_submit_router" method="post">
 
       {{ govukButton({
         text: "Create report"
       }) }}
+
+      
 
     </form>
 

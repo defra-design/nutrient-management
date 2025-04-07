@@ -11,6 +11,7 @@ setup,
 fields_added,
 livestock_added,
 exports_added,
+imports_added,
 rainfall,
 derogation,
 ewr
@@ -28,6 +29,7 @@ ewr
     this.fields_added = fields_added,
     this.livestock_added = livestock_added,
     this.exports_added = exports_added,
+    this.imports_added = imports_added,
     this.rainfall = rainfall
     this.derogation = derogation
     this.ewr = ewr
@@ -46,6 +48,7 @@ Farm.prototype.printFarm = function () {
                 this.fields_added + ", " +
                 this.livestock_added + ", " +
                 this.exports_added + ", " +
+                this.imports_added + ", " +
                 this.rainfall + ", " +
                 this.derogation + ", " +
                 this.ewr)
@@ -64,6 +67,7 @@ Farm.prototype.reset = function () {
     this.fields_added = false
     this.livestock_added = false
     this.exports_added = false
+    this.imports_added = false
     this.rainfall = 600
     this.derogation = null
     this.ewr = null

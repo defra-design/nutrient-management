@@ -61,31 +61,44 @@
       </table> -->
 
 
-      {% if data.oaktree_farm.exports_added == true %}
-
-      <table class="govuk-table">
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Total imported manure</th>
-            <td scope="col" class="govuk-table__cell">280kg</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Total exported manure</th>
-            <td scope="col" class="govuk-table__cell">90kg</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Net total</th>
-            <th scope="col" class="govuk-table__cell">+ 190kg</th>
-          </tr>
-        </tbody>
-      </table>
-      <form class="" action="../../add_export/export_type" method="post" novalidate="">    
-        <button class="govuk-button" data-module="govuk-button">
-          Add an import or export
-        </button>
-      </form>
-      
-      <p><a href="../outputs/export">Save or print a report</a></p>
+      {% if data.oaktree_farm.exports_added == true or data.oaktree_farm.imports_added == true %}
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Total imported manure</th>
+              {% if data.oaktree_farm.imports_added == true %}
+                <td scope="col" class="govuk-table__cell">280kg</td>
+              {% else %}
+                <td scope="col" class="govuk-table__cell">0</td>
+              {% endif %}
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Total exported manure</th>
+              {% if data.oaktree_farm.exports_added == true %}
+                <td scope="col" class="govuk-table__cell">90kg</td>
+              {% else %}
+                <td scope="col" class="govuk-table__cell">0</td>
+              {% endif %}
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Net total</th>
+              {% if data.oaktree_farm.exports_added == true and data.oaktree_farm.imports_added == true %}
+                <th scope="col" class="govuk-table__cell">+ 190kg</th>
+              {% elif data.oaktree_farm.exports_added == true and data.oaktree_farm.imports_added == false %}
+                <th scope="col" class="govuk-table__cell">- 90kg</th>
+              {% else %}
+                <th scope="col" class="govuk-table__cell">+ 280kg</th>
+              {% endif %}
+            </tr>
+          </tbody>
+        </table>
+        <form class="" action="../../add_export/export_type" method="post" novalidate="">    
+          <button class="govuk-button" data-module="govuk-button">
+            Add an import or export
+          </button>
+        </form>
+        
+        <p><a href="../outputs/export">Save or print a report</a></p>
 
       {% endif %}
       
@@ -96,13 +109,17 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-      {% if data.oaktree_farm.exports_added == true %}
+      {% if data.oaktree_farm.exports_added == true or data.oaktree_farm.imports_added == true %}
         <hr class="seperator_forty">
-        {% include "./import_table.html" ignore missing %}
-        {% include "./export_table.html" ignore missing %}
+        {% if data.oaktree_farm.imports_added == true %}
+          {% include "./import_table.html" ignore missing %}
+        {% endif %}
+        {% if data.oaktree_farm.exports_added == true %}
+          {% include "./export_table.html" ignore missing %}
+        {% endif %}
       {% else %}
 
-          <p class="govuk-body">You have not added any import or export information.</p>
+      <p class="govuk-body">You have not added any import or export information.</p>
 
           <form class="" action="../../add_export/export_type" method="post" novalidate="">    
             <button class="govuk-button" data-module="govuk-button">

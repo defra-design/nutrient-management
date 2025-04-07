@@ -24,7 +24,7 @@
 
 {% else %}
 
-  {% if data.oaktree_farm.livestock_added == false and data.oaktree_farm.exports_added == false %}
+  {% if data.oaktree_farm.livestock_added == false or data.oaktree_farm.exports_added == false %}
 
     <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
       <div class="govuk-notification-banner__header">
@@ -37,12 +37,21 @@
           Information incomplete
         </p>
         <p class="govuk-body">
-          To create the report you need to add:
+          To create the report you must add:
         </p>
         <ul class="govuk-list govuk-list--bullet">
-          <li>Does {{data.oaktree_farm.name}} have derogation for 2025?</li>
-          <li>Livestock numbers for 2025</li>
-          <li>Any imports or exports of livestock manure for 2025</li>
+          {% if data.oaktree_farm.livestock_added == false %}
+            <li>Livestock numbers for 2025</li>
+          {% endif %}
+
+          {% if data.oaktree_farm.exports_added == false %}
+            <li>Any imports or exports of livestock manure for 2025</li>
+          {% endif %}
+
+          {% if data.oaktree_farm.derogation == null %}
+            <li>If {{data.oaktree_farm.name}} has a derogation for 2025</li>
+          {% endif %}
+
         </ul>
       </div>
     </div>

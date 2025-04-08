@@ -1,4 +1,6 @@
 
+{% set livestock_count = 0 %}
+
 {% set cattle_added = false %}
 {% set pig_added = false %}
 {% set poultry_added = false %}
@@ -8,103 +10,28 @@
 {% for livestock_type in data.livestock_2025 %}
   {% if livestock_type.type == 'cattle' %}
     {% set cattle_added = true %}
+    {% set livestock_count = livestock_count + 1 %}
   {% endif %}
 
   {% if livestock_type.type == 'pig' %}
     {% set pig_added = true %}
+    {% set livestock_count = livestock_count + 1 %}
   {% endif %}
 
   {% if livestock_type.type == 'sheep' %}
     {% set sheep_added = true %}
+    {% set livestock_count = livestock_count + 1 %}
   {% endif %}
 
   {% if livestock_type.type == 'other' %}
     {% set other_added = true %}
+    {% set livestock_count = livestock_count + 1 %}
   {% endif %}
 
 {% endfor %}
 
-{% if cattle_added == true %}
-{% set livestock_type = 'cattle' %}
-  {% include "./livestock_table_template.html" ignore missing %}
-  <hr class="seperator_forty">
+{% if livestock_count == 1 %}
+  {% include "./templates/livestock_lists.html" ignore missing %}
+{% else %}
+  {% include "./templates/livestock_tabs.html" ignore missing %}
 {% endif %}
-
-{% if pig_added == true %}
-{% set livestock_type = 'pig' %}
-  {% include "./livestock_table_template.html" ignore missing %}
-  <hr class="seperator_forty">
-{% endif %}
-
-{% if poultry_added == true %}
-{% set livestock_type = 'poultry' %}
-  {% include "./livestock_table_template.html" ignore missing %}
-  <hr class="seperator_forty">
-{% endif %}
-
-{% if sheep_added == true %}
-{% set livestock_type = 'sheep' %}
-  {% include "./livestock_table_template.html" ignore missing %}
-  <hr class="seperator_forty">
-{% endif %}
-
-{% if other_added == true %}
-{% set livestock_type = 'other' %}
-  {% include "./livestock_table_template.html" ignore missing %}
-  <hr class="seperator_forty">
-{% endif %}
-
-
-
-<div class="govuk-tabs" data-module="govuk-tabs">
-  <h2 class="govuk-tabs__title">
-    Contents
-  </h2>
-  <ul class="govuk-tabs__list">
-    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-      <a class="govuk-tabs__tab" href="#cattle">
-        Cattle
-      </a>
-    </li>
-    <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#pigs">
-        Pigs
-      </a>
-    </li>
-    <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#poultry">
-        Poultry
-      </a>
-    </li>
-    <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#sheep">
-        Sheep
-      </a>
-    </li>
-    <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#other">
-        Other
-      </a>
-    </li>
-  </ul>
-  <div class="govuk-tabs__panel" id="cattle">
-    <h2 class="govuk-heading-l">Cattle</h2>
-  </div>
-
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="pigs">
-    <h2 class="govuk-heading-l">Pigs</h2>
-  </div>
-
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="poultry">
-    <h2 class="govuk-heading-l">Poultry</h2>
-  </div>
-
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="sheep">
-    <h2 class="govuk-heading-l">Sheep</h2>
-  </div>
-
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="other">
-    <h2 class="govuk-heading-l">Other</h2>
-  </div>
-  
-</div>

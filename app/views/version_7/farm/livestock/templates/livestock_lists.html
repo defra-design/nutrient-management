@@ -1,0 +1,29 @@
+{% if cattle_added == true %}
+{% set livestock_type = 'cattle' %}
+  {% include "./livestock_table_template.html" ignore missing %}
+  <hr class="seperator_forty">
+{% endif %}
+
+{% if pig_added == true %}
+{% set livestock_type = 'pig' %}
+  {% include "./livestock_table_template.html" ignore missing %}
+  <hr class="seperator_forty">
+{% endif %}
+
+{% if poultry_added == true %}
+{% set livestock_type = 'poultry' %}
+  {% include "./livestock_table_template.html" ignore missing %}
+  <hr class="seperator_forty">
+{% endif %}
+
+{% if sheep_added == true %}
+{% set livestock_type = 'sheep' %}
+  {% include "./livestock_table_template.html" ignore missing %}
+  <hr class="seperator_forty">
+{% endif %}
+
+{% if other_added == true %}
+{% set livestock_type = 'other' %}
+  {% include "./livestock_table_template.html" ignore missing %}
+  <hr class="seperator_forty">
+{% endif %}

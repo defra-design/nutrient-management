@@ -1,36 +1,36 @@
-  <div class="margin-bottom-thirty">     
-      <table class="govuk-table data-table">
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Type</th>
-            <th scope="col" class="govuk-table__header">Average for 2025</th>
-            <th scope="col" class="govuk-table__header">Occupancy %</th>
-            <th scope="col" class="govuk-table__header">Nitrogen (N) standard per year</th>
-            <th scope="col" class="govuk-table__header">Total nitrogen (N) per year</th>
-            <th scope="col" class="govuk-table__header"> </th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          {% for item in data.livestock_2025 %}
-            {% if item.type == livestock_type %}
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">{{item.rate}} {{item.name | capitalize}}</td>
-                <td class="govuk-table__cell">5</td>
-                <td class="govuk-table__cell">-</td>
-                <td class="govuk-table__cell">8.4 kg</td>
-                <td class="govuk-table__cell">17 kg</td>
-                <td class="govuk-table__cell">
-                  <a href="">Change</a>
-                </td>
-              </tr>
-            {% endif %}
-          {% endfor %}
-        </tbody>
-      </table>
+  <div class="margin-bottom-thirty">   
     {% if livestock_type == 'other' %}
-        <p class="govuk-body"><a href="">Add {{livestock_type}} livestock type</a></p>
+      <p class="govuk-body"><a href="">Add {{livestock_type}} livestock type</a></p>
     {% else %}
         <p class="govuk-body"><a href="">Add {{livestock_type}} type</a></p>
     {% endif %}
 
+    <table class="govuk-table data-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Type</th>
+          <th scope="col" class="govuk-table__header">Average for 2025</th>
+          <th scope="col" class="govuk-table__header">Occupancy %</th>
+          <th scope="col" class="govuk-table__header">Nitrogen (N) standard per year</th>
+          <th scope="col" class="govuk-table__header">Total nitrogen (N) per year</th>
+          <th scope="col" class="govuk-table__header"> </th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for item in data.livestock_2025 %}
+          {% if item.type == livestock_type %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">{{item.rate}} {{item.name | capitalize}}</td>
+              <td class="govuk-table__cell">5</td>
+              <td class="govuk-table__cell">-</td>
+              <td class="govuk-table__cell">8.4 kg</td>
+              <td class="govuk-table__cell">17 kg</td>
+              <td class="govuk-table__cell">
+                <a href="">Change</a>
+              </td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
   </div>

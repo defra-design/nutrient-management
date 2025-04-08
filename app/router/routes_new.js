@@ -109,7 +109,8 @@ router.get(/livestockcheck_handler/, function (req, res) {
 router.get(/get_livestock_reference/, function (req, res) {
     console.log('get livestock reference ' + req.session.data.livestock_reference)
     for (var reference in req.session.data.livestock_types ) {
-        if (reference == req.session.data.livestock_reference) {
+        if (req.session.data.livestock_types[reference].reference == req.session.data.livestock_reference) {
+            console.log('found ' + req.session.data.livestock_types[reference])
             req.session.data.chosen_livestock = req.session.data.livestock_types[reference]
         }
     }

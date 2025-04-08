@@ -153,6 +153,14 @@ router.get(/plan_setup/, function (req, res) {
     req.session.data.all_fields = req.session.data.complete_field_list
     req.session.data.oaktree_farm.planning_year = '2025'
     req.session.data.oaktree_farm.livestock_added = true
+    req.session.data.livestock_2025.push(req.session.data.livestock_types[1])
+    req.session.data.livestock_2025.push(req.session.data.livestock_types[2])
+    req.session.data.livestock_2025.push(req.session.data.livestock_types[3])
+    req.session.data.livestock_2025.push(req.session.data.livestock_types[3])
+    req.session.data.livestock_2025.push(req.session.data.livestock_types[13])
+    req.session.data.livestock_2025.push(req.session.data.livestock_types[21])
+    req.session.data.livestock_2025.push(req.session.data.livestock_types[12])
+    req.session.data.livestock_2025.push(req.session.data.livestock_types[35])
     req.session.data.oaktree_farm.exports_added = true
     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(1, 2024, [8, 12], req.session.data.all_fields, 'Beans-Winter', null, 'Crop group 1', null, null, false))
     req.session.data.currentCropGroups.push(allFunctions.createCropGroup(1, 2025, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Crop group 1', null, null, true))

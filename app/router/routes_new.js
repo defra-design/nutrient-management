@@ -106,4 +106,15 @@ router.get(/livestockcheck_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version + '/farm/livestock/manage_livestock')
 })
 
+router.get(/get_livestock_reference/, function (req, res) {
+    console.log('get livestock reference ' + req.session.data.livestock_reference)
+    for (var reference in req.session.data.livestock_types ) {
+        if (reference == req.session.data.livestock_reference) {
+            req.session.data.chosen_livestock = req.session.data.livestock_types[reference]
+        }
+    }
+    var next = 'values'
+    res.redirect(next)
+})
+
 module.exports = router

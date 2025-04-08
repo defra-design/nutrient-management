@@ -118,4 +118,10 @@ router.get(/get_livestock_reference/, function (req, res) {
     res.redirect(next)
 })
 
+router.get(/add_livestock_handler/, function (req, res) {
+    req.session.data.livestock_reference = req.query.livestock_reference
+    res.redirect('/version_7/add_livestock/livestock_type')
+})
+
+
 module.exports = router

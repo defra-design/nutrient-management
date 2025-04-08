@@ -40,17 +40,13 @@
       </h1>
       
       {% if data.oaktree_farm.livestock_added == true %}
-
-      <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
-        <button class="govuk-button" data-module="govuk-button">
-          Add a livestock type
-        </button>
-      </form>
-
-      <p><a href="../outputs/export">Save or print a report</a></p>
-
+        <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+          <button class="govuk-button" data-module="govuk-button">
+            Add a livestock type
+          </button>
+        </form>
+        <p><a href="../outputs/export">Save or print a report</a></p>
       {% endif %}
-
 
       </div>
     </div>
@@ -59,24 +55,18 @@
       <div class="govuk-grid-column-full">
   
       {% if data.oaktree_farm.livestock_added == true %}
-
-      {% include "./livestock_tables.html" ignore missing %}
-
-        
+        <hr class="seperator_forty">
+          {% include "./livestock_tables.html" ignore missing %}
       {% else %}
-
-          <p class="govuk-body">You have not added any livestock information.</p>
-
-          <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
-            <button class="govuk-button" data-module="govuk-button">
-              Add a livestock type
-            </button>
-          </form>
-    
-        {% endif %}
+        <p class="govuk-body">You have not added any livestock information.</p>
+        <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+          <button class="govuk-button" data-module="govuk-button">
+            Add a livestock type
+          </button>
+        </form>
+      {% endif %}
       
     </div>
-
   </div>
 
 {% endblock %}

@@ -98,4 +98,12 @@ router.get(/output_year_handler/, function (req, res) {
     res.redirect('export')
 })
 
+router.get(/livestockcheck_handler/, function (req, res) { 
+    req.session.data.livestock_2025.push(req.session.data.chosen_livestock)
+    console.log(req.session.data.livestock_2025)
+    req.session.data.show_success_message = true;
+    req.session.data.oaktree_farm.livestock_added = true;
+    res.redirect('/'+ req.session.data.prototype_version + '/farm/livestock/manage_livestock')
+})
+
 module.exports = router

@@ -24,7 +24,7 @@ const default_grass_values = function (req, res, next) {
 router.get(/get_livestock_reference/, function (req, res) {
     console.log('get livestock reference ' + req.session.data.livestock_reference)
     for (var reference in req.session.data.livestock_types ) {
-        if (reference == req.session.data.livestock_reference[0]) {
+        if (reference == req.session.data.livestock_reference) {
             req.session.data.chosen_livestock = req.session.data.livestock_types[reference]
         }
     }
@@ -391,7 +391,6 @@ router.get(/sowdatetwo_value_router/, function (req, res) {
     res.redirect(next);
 })
 
-
 // current v1-7
 router.get(/cropmvp_handler/, function (req, res) { 
     if (req.session.data.crop_group == 'grass') { 
@@ -406,15 +405,6 @@ router.get(/cropmvp_handler/, function (req, res) {
         res.redirect('crop_type_all')
     }
 })
-
-
-router.get(/livestockcheck_handler/, function (req, res) { 
-    req.session.data.show_success_message = true;
-    req.session.data.oaktree_farm.livestock_added = true;
-    res.redirect('/'+ req.session.data.prototype_version + '/farm/livestock/manage_livestock')
-})
-
-
 
 // old v2,3,4
 router.get(/addcrops_check_handler/, function (req, res) { 

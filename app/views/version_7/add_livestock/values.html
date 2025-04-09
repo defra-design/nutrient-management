@@ -25,7 +25,7 @@
         <h1 class="govuk-heading-l">{{data.chosen_livestock.rate}} {{data.chosen_livestock.name | capitalize}}</h1>
         
         {% if data.livestock_group != 'pig' or data.livestock_group != 'poultry' %}
-          <h2 class="govuk-heading-m">Standard figures</h2>
+          <h2 class="govuk-heading-s">Standard nutrient values</h2>
           <div class="govuk-body margin-bottom-thirty">
             <p class="govuk-body">Nitrogen (N) standard per year: 83kg</p>
             {% if data.oaktree_farm.derogation == true %}
@@ -34,7 +34,7 @@
           </div>
         {% endif %}
 
-        <h2 class="govuk-heading-m">Average for the year</h2>
+        <h2 class="govuk-heading-s">Average numbers</h2>
         <div class="govuk-form-group">
           <label class="govuk-label" for="livestock_number">
             What is the average number of this {{data.livestock_type}} for {{data.oaktree_farm.planning_year}}?

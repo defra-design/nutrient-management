@@ -1,4 +1,11 @@
 <dl class="govuk-summary-list">
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Does {{data.oaktree_farm.name}} have a derogation for {{data.oaktree_farm.planning_year}}?</dt>
+    <dd class="govuk-summary-list__value">{{data.oaktree_farm.derogation | convert_true_false}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">What type of livestock would you like to add?</dt>
     <dd class="govuk-summary-list__value">{{data.livestock_group | capitalize}}</dd>
@@ -31,7 +38,9 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Nitrogen (N) standard per year:</dt>
-    <dd class="govuk-summary-list__value">83kg per year</dd>
+    <dd class="govuk-summary-list__value">
+      83kg per year
+    </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
@@ -40,4 +49,23 @@
     <dd class="govuk-summary-list__value">1,1800kg per year</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+
+  {% if data.oaktree_farm.derogation == true %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Phosphate (P2O5) standard</dt>
+      <dd class="govuk-summary-list__value">
+        83kg per year
+      </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Total Phosphate (P2O5)</dt>
+      <dd class="govuk-summary-list__value">
+        1,1800kg per year
+      </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% endif %}
+
 </dl>

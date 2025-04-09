@@ -103,6 +103,9 @@ router.get(/livestockcheck_handler/, function (req, res) {
     console.log(req.session.data.livestock_2025)
     req.session.data.show_success_message = true;
     req.session.data.oaktree_farm.livestock_added = true;
+    req.session.data.livestock_number = null
+    req.session.data.nitrogen_standard = null
+    req.session.data.livestock_occupancy = null
     res.redirect('/'+ req.session.data.prototype_version + '/farm/livestock/manage_livestock')
 })
 
@@ -121,6 +124,16 @@ router.get(/get_livestock_reference/, function (req, res) {
 router.get(/add_livestock_handler/, function (req, res) {
     req.session.data.livestock_reference = req.query.livestock_reference
     res.redirect('/version_7/add_livestock/livestock_type')
+})
+
+router.get(/livestock_values_handler/, function (req, res) {
+    if (req.session.data.livestock_number == null || req.session.data.livestock_number == '') {
+        req.session.data.livestock_number = 10
+    }
+    if (req.session.data.nitrogen_standard == null  || req.session.data.nitrogen_standard == '') {
+        req.session.data.nitrogen_standard = 83
+    }
+    res.redirect('check')
 })
 
 

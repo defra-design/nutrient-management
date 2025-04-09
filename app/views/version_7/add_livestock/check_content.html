@@ -27,10 +27,10 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">What is the occupancy? (optional)</dt>
     <dd class="govuk-summary-list__value">
-      {% if data.livestock_occupancy != null %}
-        {{data.livestock_occupancy}}%
-      {% else %}
+      {% if data.livestock_occupancy == null or data.livestock_occupancy == '' %}
         Not entered
+      {% else %}
+        {{data.livestock_occupancy}}%
       {% endif %}
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
@@ -41,13 +41,22 @@
     <dd class="govuk-summary-list__value">
       83kg per year
     </dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    {% else %}
+      <dd class="govuk-summary-list__actions"> </dd>
+    {% endif %}
+
   </div>
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Total nitrogen (N) produced by this cattle type</dt>
     <dd class="govuk-summary-list__value">1,1800kg per year</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    {% if data.livestock_group == 'pig' and data.livestock_group == 'poultry' %}
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      {% else %}
+      <dd class="govuk-summary-list__actions"> </dd>
+    {% endif %}
   </div>
 
   {% if data.oaktree_farm.derogation == true %}
@@ -56,7 +65,7 @@
       <dd class="govuk-summary-list__value">
         83kg per year
       </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      <dd class="govuk-summary-list__actions"> </dd>
     </div>
 
     <div class="govuk-summary-list__row">
@@ -64,7 +73,7 @@
       <dd class="govuk-summary-list__value">
         1,1800kg per year
       </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      <dd class="govuk-summary-list__actions"> </dd>
     </div>
   {% endif %}
 

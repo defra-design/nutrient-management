@@ -35,11 +35,15 @@
       {% endif %}
       
       <h1 class="govuk-heading-l">
-        {{ data.oaktree_farm.name }} 
-        livestock information {{data.oaktree_farm.planning_year}}
+        {{ data.oaktree_farm.name }} livestock information {{data.oaktree_farm.planning_year}}
       </h1>
       
       {% if data.oaktree_farm.livestock_added == true %}
+
+      <div>
+        {% include "./templates/derogation.html" ignore missing %}
+      </div>
+
         <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
           <button class="govuk-button" data-module="govuk-button">
             Add a livestock type
@@ -55,7 +59,6 @@
       <div class="govuk-grid-column-full">
   
       {% if data.oaktree_farm.livestock_added == true %}
-        <hr class="seperator_forty">
           {% include "./livestock_tables.html" ignore missing %}
       {% else %}
         <p class="govuk-body">You have not added any livestock information.</p>

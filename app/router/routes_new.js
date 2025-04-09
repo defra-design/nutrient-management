@@ -31,7 +31,7 @@ router.get(/derogation_router/, function (req, res) {
     } else {
         req.session.data.oaktree_farm.derogation = true
     }
-    res.redirect('checklist');
+    res.redirect('livestock_group');
 })
 
 router.get(/export_type_router/, hide_error, function (req, res) {
@@ -68,7 +68,7 @@ router.get(/livestock_year_handler/, hideSuccessMessage, function (req, res) {
     if (req.session.data.oaktree_farm.livestock_added == true) {
         res.redirect('manage_livestock')
     } else {
-        res.redirect('../../add_livestock/livestock_group')
+        res.redirect('../../add_livestock/derogation')
     }
 })
 

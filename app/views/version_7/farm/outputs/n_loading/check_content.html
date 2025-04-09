@@ -11,7 +11,7 @@
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
-  <div class="govuk-summary-list__row">
+  <!-- <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Does {{data.oaktree_farm.name}} have derogation for {{data.oaktree_farm.planning_year}}?</dt>
     {% if data.oaktree_farm.derogation == null %}
       <dd class="govuk-summary-list__value">Not entered</dd>
@@ -20,16 +20,16 @@
       <dd class="govuk-summary-list__value">{{data.oaktree_farm.derogation | convert_true_false}}</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="derogation">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     {% endif %}
-  </div>
+  </div> -->
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Livestock numbers for {{data.oaktree_farm.planning_year}}</dt>
     {% if data.oaktree_farm.livestock_added == true %}
       <dd class="govuk-summary-list__value">Added</dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="../../../add_livestock/livestock_group">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="../../livestock/manage_livestock">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     {% else %}
       <dd class="govuk-summary-list__value">Not entered</dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="../../../add_livestock/livestock_group">Add<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="../../../add_livestock/derogation">Add<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     {% endif %}
   </div>
 

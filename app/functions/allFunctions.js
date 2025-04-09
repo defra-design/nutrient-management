@@ -104,6 +104,14 @@ function createCropGroup (reference, year, field_references, current_fields, cro
     return newGroup
 }
 
+function createLivestockItem (reference, amount) {
+    var newItem = {
+        reference: reference,
+        amount: amount
+    }
+    return newItem
+}
+
 function addManureApplication (fertiliserGroups, cropGroups, chosenFields, organic, manure_type, application_date) {
     let field_count = 0
     let cropgroupreferences = []
@@ -292,5 +300,6 @@ module.exports.addManureApplication = addManureApplication;
 module.exports.addFertiliserApplication = addFertiliserApplication;
 module.exports.addManureApplication_v2 = addManureApplication_v2;
 module.exports.addFertiliserApplication_v2 = addFertiliserApplication_v2;
+module.exports.createLivestockItem = createLivestockItem;
 
 module.exports.field_count = field_count;

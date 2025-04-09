@@ -24,7 +24,7 @@
 
         <h1 class="govuk-heading-l">{{data.chosen_livestock.rate}} {{data.chosen_livestock.name | capitalize}}</h1>
         
-        {% if data.livestock_group != 'pig' or data.livestock_group != 'poultry' %}
+        {% if data.livestock_group != 'pig' and data.livestock_group != 'poultry' %}
           <h2 class="govuk-heading-s">Standard nutrient values</h2>
           <div class="govuk-body margin-bottom-thirty">
             <p class="govuk-body">Nitrogen (N) standard per year: 83kg</p>
@@ -32,12 +32,12 @@
               <p class="govuk-body">Phosphate (P2O5) standard per year: 83kg</p>
             {% endif %}
           </div>
+          <h2 class="govuk-heading-s">Average numbers</h2>
         {% endif %}
 
-        <h2 class="govuk-heading-s">Average numbers</h2>
         <div class="govuk-form-group">
           <label class="govuk-label" for="livestock_number">
-            What is the average number of this {{data.livestock_type}} for {{data.oaktree_farm.planning_year}}?
+            What is the average number for {{data.oaktree_farm.planning_year}}?
           </label>
           <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
             <!-- <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div> -->
@@ -54,11 +54,19 @@
         </div>
 
         {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="non_spreading_area">
+            What is the Nitrogen (N) standard per year?
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="non_spreading_area" name="non_spreading_area" value="83" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">kg</div>
+          </div>
+        </div>
         <div class="govuk-form-group margin-bottom-forty">
           <label class="govuk-label" for="non_spreading_area">
-            Nitrogen (N) standard per year
+            What is the Phosphate (P2O5) standard per year
           </label>
-          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="non_spreading_area" name="non_spreading_area" type="text" spellcheck="false" autocomplete="off">
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="non_spreading_area" name="non_spreading_area" value="83" type="text" spellcheck="false" autocomplete="off">
             <div class="govuk-input__suffix" aria-hidden="true">kg</div>
           </div>
         </div>

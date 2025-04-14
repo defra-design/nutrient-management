@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers 1 – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "rain_defaults"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <h1 class="govuk-heading-xl">
+      Results
+    </h1>
+   <p class="govuk-body"><a href="">Export or print these results</a></p>
+   <p class="govuk-body margin-bottom-forty"><a href="fields">Pre-plan another manure application</a></p>
+   </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+   <div class="govuk-tabs" data-module="govuk-tabs">
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#nutrients">
+          Nutrients
+        </a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#costs">
+          Costs
+        </a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#answers">
+          Your answers
+        </a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="nutrients">
+      <!-- <h2 class="govuk-heading-l">Nutrients</h2> -->
+        {% include "./templates/nitrogen_table.html ignore missing" %}
+        {% include "./templates/nutrient_table.html ignore missing" %}  
+    </div>
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="costs">
+      <h2 class="govuk-heading-l">Costs</h2>
+    </div>
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers">
+      <h2 class="govuk-heading-l">Your answers</h2>
+      <div class="check-answers">
+        {% include "./check_manure.html" %}
+      </div>  
+    </div>
+
+  </div>
+</div>
+{% endblock %}

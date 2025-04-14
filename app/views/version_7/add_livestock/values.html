@@ -37,10 +37,11 @@
               <div class="govuk-input__suffix" aria-hidden="true">kg</div>
             </div>
           </div>
-          {% if data.oaktree_farm.derogation == true %}
-            <p class="govuk-body">Phosphate (P2O5) standard per year: 83kg</p>
-          {% endif %}
         {% endif %}
+        {% if data.oaktree_farm.derogation == true %}
+          <p class="govuk-body">Phosphate (P2O5) standard per year: 83kg</p>
+        {% endif %}
+
 
         <h2 class="govuk-heading-s">Average number of livestock</h2>
 

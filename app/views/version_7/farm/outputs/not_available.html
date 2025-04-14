@@ -18,22 +18,43 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        You have not entered any field or crop infomation for 2024
-      </h1>
+      <!-- <div>
+        <h1 class="govuk-heading-l">
+          You have not entered any field or crop infomation for 2024
+        </h1>
+        <p class="govuk-body">A crop and field management report is not available. You need to add your fields, then your crop information.</p>
+        <form class="form" action="../../add-field/name" method="post">
+          {{ govukButton({
+            text: "Add fields"
+          }) }}
+        </form>
+      </div> -->
 
-      <p class="govuk-body">A crop and field management report is not available. You need to add your fields, then your crop information.</p>
+      <!-- <div>
+        <h1 class="govuk-heading-l">
+          You have not entered any crop information for 2024
+        </h1>
+        <p class="govuk-body">A crop and field management report is not available. You need to add your crop information, then information about any organic or inorganioc material applied.</p>
+        <form class="form" action="../../add_crops/crop_group" method="post">
+          {{ govukButton({
+            text: "Add crops for 2024"
+          }) }}
+        </form>
+      </div> -->
 
-      <form class="form" action="../../add-field/name" method="post">
-      
-        {{ govukButton({
-          text: "Add fields"
-        }) }}
-
-      </form>
+      <div>
+        <h1 class="govuk-heading-l">
+          You have not entered any livestock information for {{data.oaktree_farm.planning_year}}
+        </h1>
+        <p class="govuk-body">An N-loading report is not available. You need to add your livestock information. You also need to enter details about any organic manure imports or exports.</p>
+        <form class="form" action="../../add_livestock/derogation" method="post">
+          {{ govukButton({
+            text: "Add livestock for 2024"
+          }) }}
+        </form>
+      </div>
 
     </div>
-    
   </div>
 
   <p class="govuk-body">

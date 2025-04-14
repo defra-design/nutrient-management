@@ -17,23 +17,20 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-l">
-        You have not entered any crop information for 2024
-      </h1>
-
-      <p class="govuk-body">A crop and field management report is not available. You need to add your crop information, then information about any organic or inorganioc material applied.</p>
-
-      <form class="form" action="../../add_crops/crop_group" method="post">
       
-        {{ govukButton({
-          text: "Add crops for 2024"
-        }) }}
-
-      </form>
+      <div>
+        <h1 class="govuk-heading-l">
+          You have not entered any crop information for 2024
+        </h1>
+        <p class="govuk-body">A crop and field management report is not available. You need to add your crop information, then information about any organic or inorganioc material applied.</p>
+        <form class="form" action="../../add_crops/crop_group" method="post">
+          {{ govukButton({
+            text: "Add crops for 2024"
+          }) }}
+        </form>
+      </div>
 
     </div>
-    
   </div>
 
   <p class="govuk-body">

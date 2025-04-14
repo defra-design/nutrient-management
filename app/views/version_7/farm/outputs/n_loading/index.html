@@ -127,16 +127,43 @@
     </div>
   </div>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-thirty">
+  <!-- show the right livestock -->
+  {% for livestock_type in data.livestock_2025 %}
 
-      <h2 class="govuk-heading-m">
-        Pigs and poultry livestock numbers and manure total N production (home-produced manures)
-      </h2>
-      {% include "./templates/pigs_none.html" ignore missing %}
+    {% if livestock_type.type == 'cattle' %}
+      {% set cattle_added = true %}
+    {% endif %}
 
+    {% if livestock_type.type == 'pig' %}
+      {% set pig_added = true %}
+    {% endif %}
+
+    {% if livestock_type.type == 'poultry' %}
+      {% set poultry_added = true %}
+    {% endif %}
+
+    {% if livestock_type.type == 'sheep' %}
+      {% set sheep_added = true %}
+    {% endif %}
+
+    {% if livestock_type.type == 'other' %}
+      {% set other_added = true %}
+    {% endif %}
+
+  {% endfor %}
+
+
+  {% if pig_added == true %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full margin-bottom-thirty">
+        <h2 class="govuk-heading-m">
+          Pigs and poultry livestock numbers and manure total N production (home-produced manures)
+        </h2>
+        {% include "./templates/pigs_none.html" ignore missing %}
+      </div>
     </div>
-  </div>
+  {% endif %}
+
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
@@ -144,8 +171,12 @@
       <h2 class="govuk-heading-m">
         Imports and exports of livestock manure
       </h2>
-      {% include "./templates/imports.html" ignore missing %}
-      <p class="govuk-body">Contingency plan available to be used if an agreement to send the manure off the farm fails: No</p>
+      {% if data.oaktree_farm.exports_added == true %}
+        {% include "./templates/imports.html" ignore missing %}
+        <p class="govuk-body">Contingency plan available to be used if an agreement to send the manure off the farm fails: No</p>
+      {% else %}
+        <p class="govuk-body">None</p>
+      {% endif %}
     </div>
   </div>
 

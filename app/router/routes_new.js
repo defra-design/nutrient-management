@@ -19,7 +19,12 @@ router.get(/output_router/, hide_error, function (req, res) {
     if (req.session.data.export_type == 3) {
         next = 'export_crops'
     } else if (req.session.data.export_type == 4) {
-        next = './n_loading/checklist'
+        if (req.session.data.oaktree_farm.livestock_added == true) {
+            next = './n_loading'
+
+        } else {
+            next = './not_available'
+        }
     }
     res.redirect(next)
 })

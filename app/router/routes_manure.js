@@ -168,6 +168,7 @@ router.get(/manuregroup_handler/, setManureGroup, function (req, res) {
     res.redirect("manure_type")
 })
 
+
 router.get(/enter_manure_defualts_handler/, function (req, res) {
     var next = (req.session.data.edit_manure_defaults === "no") ? 'manure_defaults_update' : 'manure_quantity';
     res.redirect(next);

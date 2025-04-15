@@ -36,8 +36,8 @@
         </a>
       </li>
       <li class="govuk-tabs__list-item">
-        <a class="govuk-tabs__tab" href="#costs">
-          Costs
+        <a class="govuk-tabs__tab" href="#Value">
+          Value
         </a>
       </li>
       <li class="govuk-tabs__list-item">
@@ -53,8 +53,8 @@
         {% include "./templates/nutrient_table.html ignore missing" %}  
     </div>
 
-    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="costs">
-      <h2 class="govuk-heading-l">Costs</h2>
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="Value">
+      {% include "./templates/manure_value_table.html ignore missing" %}
     </div>
 
     <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers">

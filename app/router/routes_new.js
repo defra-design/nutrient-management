@@ -160,5 +160,10 @@ router.get(/manner_results_handler/, showSuccessMessage, function (req, res) {
     res.redirect('results')
 })
 
+router.get(/manner_change_handler/, showSuccessMessage, function (req, res) {
+    req.session.data.successMessage = 3 //chnaged
+    res.redirect('results')
+})
+
 
 module.exports = router

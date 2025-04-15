@@ -1,15 +1,24 @@
 <div class="two_thirds">
   <dl class="govuk-summary-list margin-bottom-forty">
+
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Which field would you like use?</dt>
       <dd class="govuk-summary-list__value">
         {{data.chosen_field | fieldnameconverter}}    
       </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="fields_two">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Which crop type would you like to use?</dt>
+      <dd class="govuk-summary-list__value">
+        {{data.chosen_crop}}    
+      </dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
     
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">What type of organic material would you like use?</dt>
+      <dt class="govuk-summary-list__key">What type of organic material would you like to use?</dt>
       <dd class="govuk-summary-list__value">{{data.manure_type.name}}</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>  
@@ -31,10 +40,14 @@
       <dd class="govuk-summary-list__value">Yes</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>  
-    
+
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">How would you like to enter the application rate for your Straw mulch?</dt>
-      <dd class="govuk-summary-list__value">Use the standard application rate of 30 tonnes per hectare</dd>
+      <dt class="govuk-summary-list__key">How would you like to enter the application rate for your {{data.manure_type.name}}?</dt>
+        {% if data.manure_type.liquid == true %}
+          <dd class="govuk-summary-list__value">Use a typical application rate of 20 tonnes per hectare</dd>
+        {% else %}
+          <dd class="govuk-summary-list__value">Use a typical application rate of 20 tonnes per hectare</dd>
+        {% endif %}
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
     
@@ -45,49 +58,7 @@
         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       </div>
     {% endif %}
-    
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">How will the manure be incorporated?</dt>
-      <dd class="govuk-summary-list__value">Not incorporated</dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
-    
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Autumn crop Nitrogen uptake</dt>
-      <dd class="govuk-summary-list__value">10kg per hectare</dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
-    
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">End of soil drainage</dt>
-      <dd class="govuk-summary-list__value">31 March 2025</dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
-    
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Rainfall within 6 hours of application</dt>
-      <dd class="govuk-summary-list__value">0</dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
-    
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Total rainfall since application</dt>
-      <dd class="govuk-summary-list__value">328mm</dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
-    
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Windspeed at application</dt>
-      <dd class="govuk-summary-list__value">Calm/gentle (0 - 3 Beaufort scale)</dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
-    
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Topsoil moisture</dt>
-      <dd class="govuk-summary-list__value">Moist</dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
-    
+        
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">How will the manure be incorporated?</dt>
       <dd class="govuk-summary-list__value">Discs</dd>
@@ -101,7 +72,7 @@
     </div>
     
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Autumn crop Nitrogen uptake</dt>
+      <dt class="govuk-summary-list__key">Autumn crop nitrogen(N) uptake</dt>
       <dd class="govuk-summary-list__value">10kg per hectare</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>

@@ -7,13 +7,17 @@
   <div class="govuk-notification-banner__content">
     {% if data.successMessage == 1 %}
       <h3 class="govuk-notification-banner__heading">
-        Manure value calculated
+        Manure nutrients and value calculated
       </h3>
-    {% else %}
+      {% elif data.successMessage == 2 %}
       <h3 class="govuk-notification-banner__heading">
         Manure value updated
       </h3>
-    {% endif %}
-    <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="../outputs/export">Save or print a report</a></p>   -->
+    {% else %}
+    <h3 class="govuk-notification-banner__heading">
+      Manure nutrients and value updated
+    </h3>
+  {% endif %}
+  <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="../outputs/export">Save or print a report</a></p>   -->
   </div>
 </div>

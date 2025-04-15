@@ -43,7 +43,7 @@
 
             {% for field in data.all_fields %}
             <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id={{field.reference}} name="manner_field" type="radio" value={{field.reference}}>
+                <input class="govuk-radios__input" id={{field.reference}} name="chosen_field" type="radio" value={{field.reference}}>
                 <label class="govuk-label govuk-radios__label" for={{field.reference}}>
                     {{field.name}} 
                 </label>
@@ -51,7 +51,7 @@
             {% endfor %} 
             <div class="govuk-radios__divider">or</div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="create_new" name="manner_field" type="radio" value="create_new">
+              <input class="govuk-radios__input" id="create_new" name="chosen_field" type="radio" value="create_new">
               <label class="govuk-label govuk-radios__label" for="create_new">
                 Add a temporary field
               </label>

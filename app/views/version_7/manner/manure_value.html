@@ -20,7 +20,7 @@
 
       {% if data.quantity_type == "area"  %}
         <h1 class="govuk-heading-l">
-            Enter the area and quantity for Long field
+            Enter the area and quantity for {{data.chosen_field | fieldnameconverter}}
         </h1>
       {% else %}
         <h1 class="govuk-heading-l">

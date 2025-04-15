@@ -1,0 +1,19 @@
+<div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    {% if data.successMessage == 1 %}
+      <h3 class="govuk-notification-banner__heading">
+        Manure value calculated
+      </h3>
+    {% else %}
+      <h3 class="govuk-notification-banner__heading">
+        Manure value updated
+      </h3>
+    {% endif %}
+    <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="../outputs/export">Save or print a report</a></p>   -->
+  </div>
+</div>

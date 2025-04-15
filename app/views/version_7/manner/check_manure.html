@@ -1,22 +1,14 @@
 <dl class="govuk-summary-list margin-bottom-forty">
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Which fields would you like to plan organic material applications for?</dt>
+    <dt class="govuk-summary-list__key">Which field would you like use?</dt>
     <!-- {% if data.manure_journey == 'multi' %}
       <dd class="govuk-summary-list__value">The winter wheat fields</dd>
     {% else %}
       <dd class="govuk-summary-list__value">{{data.chosen_field.name}}</dd>
     {% endif %} -->
     <dd class="govuk-summary-list__value">
-      {% if data.manure_fields == 'all' %}
-        All fields in the 2024 plan
-      {% elif data.manure_fields == 1 %}
-        The Wheat-Winter (Skyfall) fields
-      {% else %}
-        {% for item in data.manure_fields %}
-          {{item | fieldnameconverter}},</br>
-        {% endfor %}
-      {% endif %}
+      {{data.chosen_field | fieldnameconverter}}    
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>

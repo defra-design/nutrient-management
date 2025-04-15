@@ -8,6 +8,11 @@ const hide_error = function (req, res, next) {
     next()
 }
 
+const showSuccessMessage = function (req, res, next) {
+    req.session.data.show_success_message = true
+    next()
+}
+
 const hideSuccessMessage = function (req, res, next) {
     req.session.data.show_success_message = false
     next()
@@ -139,6 +144,20 @@ router.get(/livestock_values_handler/, function (req, res) {
         req.session.data.nitrogen_standard = 83
     }
     res.redirect('check')
+})
+
+router.get(/manner_values_router/, showSuccessMessage, function (req, res) {
+    req.session.data.successMessage = 2 //recalculation
+    res.redirect('results#value')
+})
+
+router.get(/manner_reset_handler/, function (req, res) {
+    res.redirect('fields')
+})
+
+router.get(/manner_results_handler/, showSuccessMessage, function (req, res) {
+    req.session.data.successMessage = 1 //done
+    res.redirect('results')
 })
 
 

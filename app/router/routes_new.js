@@ -16,14 +16,27 @@ const hideSuccessMessage = function (req, res, next) {
 //export the documents
 router.get(/output_router/, hide_error, function (req, res) {     
     var next = 'export_fields'
+    console.log(req.session.data.all_fields.length)
+    console.log(req.session.data.export_type)
+    if (req.session.data.export_type == 1) {
+        if (req.session.data.all_fields.length === 0) {
+            next = 'not_available_management'
+        } else {
+            next = 'export_fields'
+        }
+    }
     if (req.session.data.export_type == 3) {
-        next = 'export_crops'
-    } else if (req.session.data.export_type == 4) {
+        if (req.session.data.all_fields.length === 0) {
+            next = 'not_available_max'
+        } else {
+            next = 'export_crops'
+        }
+    }
+    if (req.session.data.export_type == 4) {
         if (req.session.data.oaktree_farm.livestock_added == true) {
             next = './n_loading'
-
         } else {
-            next = './not_available'
+            next = 'not_available_loading'
         }
     }
     res.redirect(next)

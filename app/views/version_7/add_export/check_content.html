@@ -1,4 +1,4 @@
-<dl class="govuk-summary-list">
+<dl class="govuk-summary-list nutrient_list">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key"> Do you want to add an import or an export?</dt>
     <dd class="govuk-summary-list__value">{{data.import_export | capitalize}}</dd>
@@ -7,33 +7,50 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">What type of organic manure are you {{data.import_export}}ing?</dt>
-    <dd class="govuk-summary-list__value">{{data.chosen_crop | nameconverter}}</dd>
+    <dd class="govuk-summary-list__value">{{data.manure_type.name}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What type of {{ data.manure_group_id | convert_manure_group_id }} are you {{data.import_export}}ing?</dt>
-    <dd class="govuk-summary-list__value">{{data.groupname}}</dd>
+    <dt class="govuk-summary-list__key">When did you {{data.import_export}} this manure?</dt>
+    <dd class="govuk-summary-list__value">{{data.exported_day}}/{{data.exported_month}}/{{data.exported_year}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">When did you export this manure?</dt>
+    <dt class="govuk-summary-list__key">How much {{data.manure_type.name}} are you {{data.import_export}}ing? </dt>
+    <dd class="govuk-summary-list__value">{{data.export_total}} tonnes</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <!-- <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What is the total nitrogen (N) content of this {{data.manure_type.name}}?</dt>
     <dd class="govuk-summary-list__value"></dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How much {{ data.manure_group_id | convert_manure_group_id }} are you {{data.import_export}}ing? </dt>
+    <dt class="govuk-summary-list__key">What is the total Phosphate (P2O5) content of this {{data.manure_type.name}}?</dt>
     <dd class="govuk-summary-list__value"></dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div> -->
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Nutrient values</dt>
+    <dd class="govuk-summary-list__value nutrient_values">
+      <span class="nutrient_value">Dry Matter content: <span>25%</span></span>
+      <span class="nutrient_value">Total Nitrogen: <span>6kg</span></span>
+      <span class="nutrient_value">Ammonium-N:	<span>0.5kg</span></span>
+      <span class="nutrient_value">Uric acid-N:	<span>0kg</span></span>
+      <span class="nutrient_value">Nitrate-N:	<span>0.1kg</span></span>
+      <span class="nutrient_value">Total phosphate (P205):	<span>3.2kg</span></span>
+      <span class="nutrient_value">Total potassium (K20):	<span>8kg</span></span>
+      <span class="nutrient_value">Total sulphur (SO3):	<span>2.4kg</span></span>
+      <span class="nutrient_value">Total magnesium oxide (Mg0):	<span>1.8kg</span></span>
+    </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What is the total N content of this {{ data.manure_group_id | convert_manure_group_id }}?</dt>
-    <dd class="govuk-summary-list__value"></dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">

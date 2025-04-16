@@ -107,6 +107,13 @@ router.get(/exportcheck_handler/, function (req, res) {
     } else {
         req.session.data.oaktree_farm.imports_added = true;
     }
+    //reset defaults
+    req.session.data.manure_type.name = null
+    req.session.data.exported_day = null
+    req.session.data.exported_month = null
+    req.session.data.exported_year = null
+    req.session.data.export_total = null
+
     res.redirect('/'+ req.session.data.prototype_version + '/farm/exports/manage_exports')
 })
 
@@ -154,5 +161,24 @@ router.get(/livestock_values_handler/, function (req, res) {
     res.redirect('check')
 })
 
+router.get(/set_export_defaults_handler/, function (req, res) {
+    console
+    req.session.data.manure_type.name
+    req.session.data.exported_day
+    req.session.data.export_total
+
+    if (req.session.data.manure_type.name == null) {
+        req.session.data.manure_type.name = "Pig farmyard manure - Fresh"
+    }
+    if (req.session.data.exported_day == null) {
+        req.session.data.exported_day = 16
+        req.session.data.exported_month = 4
+        req.session.data.exported_year = 2025
+    }
+    if (req.session.data.export_total == null) {
+        req.session.data.export_total = 10
+    }
+    res.redirect('check')
+})
 
 module.exports = router

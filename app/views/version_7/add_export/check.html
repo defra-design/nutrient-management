@@ -27,10 +27,31 @@
       Harvest year 2025
     </h2>
 
-    <div class="check-answers">
+    <div class="check-answers margin-bottom-forty">
         {% include "./check_content.html" %}
     </div>
+
+    <div class="margin-bottom-forty">
+      <h2 class="govuk-heading-m">
+        Total nitrogen (N) and phosphate (P205) in this {{data.import_export | capitalize}}
+      </h2>
+      <table class="govuk-table">
+        <tbody>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Total nitrogen (N)</th>
+            <td class="govuk-table__cell">60kg</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Total phosphate (P205)</th>
+            <td class="govuk-table__cell">32kg</td>
+          </tr>
+        </tbody>
+      </table>  
+    </div>
+
     
+
+
     <form action="exportcheck_handler" method="post" novalidate>
       {{ govukButton({
         text: "Add " + data.import_export

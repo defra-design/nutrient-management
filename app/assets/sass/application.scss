@@ -1003,3 +1003,26 @@ width: 35%
 .livestock-type {
     width: 25%;
 }
+
+.nutrient_list {
+    vertical-align: text-top;
+}
+
+.check-answers .nutrient_list dd.govuk-summary-list__value {
+    width: 72%;
+    padding: 0;
+}
+
+.nutrient_values {
+    padding-top: 10px!important;
+}
+
+.nutrient_value {
+    float: left;
+    width: 100%;
+    span {
+        width: 20%;
+        float: right;
+        padding-bottom: 5px;
+    }
+}

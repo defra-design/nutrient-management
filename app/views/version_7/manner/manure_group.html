@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        What type of {{data.content.organic_term | lower}} would you like use?
+      </h1>
+
+      <form class="form" action="manuregroup_handler" method="post">
+
+        <div class="govuk-form-group">
+          <div class="govuk-radios" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="livestock" name="manure_group_id" type="radio" value="livestock">
+              <label class="govuk-label govuk-radios__label" for="livestock">
+                Livestock manure
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="biosolids" name="manure_group_id" type="radio" value="biosolids">
+              <label class="govuk-label govuk-radios__label" for="biosolids">
+                Biosolids
+              </label>
+            </div>
+            
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="digestate" name="manure_group_id" type="radio" value="digestate">
+              <label class="govuk-label govuk-radios__label" for="digestate">
+                Digestate
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="other" name="manure_group_id" type="radio" value="other">
+              <label class="govuk-label govuk-radios__label" for="other">
+                Another type of organic material
+              </label>
+            </div>
+
+          </div>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

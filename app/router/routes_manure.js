@@ -87,6 +87,7 @@ router.get(/manure_fields_v5_handler/, function (req, res) {
     }
 })
 
+
 router.get(/manuretype_v7_handler/, function (req, res) {
     //get object
     for (var x in req.session.data.manure_types ) {
@@ -95,6 +96,16 @@ router.get(/manuretype_v7_handler/, function (req, res) {
         }
     }
     res.redirect('manure_defoliation')
+})
+
+router.get(/manuretype_manner_handler/, function (req, res) {
+    //get object
+    for (var x in req.session.data.manure_types ) {
+        if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
+            req.session.data.manure_type = req.session.data.manure_types[x]
+        }
+    }
+    res.redirect('manure_date')
 })
 
 router.get(/manure_date_v5_handler/, function (req, res) {
@@ -156,6 +167,7 @@ router.get(/plan_manure_application_router/, setManureJourney, function (req, re
 router.get(/manuregroup_handler/, setManureGroup, function (req, res) { 
     res.redirect("manure_type")
 })
+
 
 router.get(/enter_manure_defualts_handler/, function (req, res) {
     var next = (req.session.data.edit_manure_defaults === "no") ? 'manure_defaults_update' : 'manure_quantity';

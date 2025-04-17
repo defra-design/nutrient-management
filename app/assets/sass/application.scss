@@ -1004,6 +1004,30 @@ width: 35%
     width: 25%;
 }
 
+.manner_table {
+    .govuk-table__cell {
+        width: 50%
+    }
+}
+
+.left_col {
+    width: 45%;
+    float: left;
+}
+
+.right_col {
+    width: 45%;
+    float: left;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+.two_thirds {
+    width: 75%
+}
+
 .nutrient_list {
     vertical-align: text-top;
 }

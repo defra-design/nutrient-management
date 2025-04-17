@@ -1,0 +1,124 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Which crop type would you like to use?
+      </h1>
+
+      <p class="govuk-hint">Select one option.</p>
+
+      <form class="form" action="manure_group" method="post">
+
+        <div class="govuk-form-group">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="grass" name="chosen_crop" type="radio" value="Grass">
+              <label class="govuk-label govuk-radios__label" for="grass">
+                Grass
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="winter-cereal-early" name="chosen_crop" type="radio" value="Winter cereal, early sown">
+              <label class="govuk-label govuk-radios__label" for="winter-cereal-early">
+                Winter cereal (early sown)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="winter-cereal-late" name="chosen_crop" type="radio" value="Winter cereal, late sown">
+              <label class="govuk-label govuk-radios__label" for="winter-cereal-late">
+                Winter cereal (late sown)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="spring-cereal-oilseed" name="chosen_crop" type="radio" value="Spring cereal or oilseed rape">
+              <label class="govuk-label govuk-radios__label" for="spring-cereal-oilseed">
+                Spring cereal
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="winter-oilseed-early" name="chosen_crop" type="radio" value="Winter oilseed rape, early established">
+              <label class="govuk-label govuk-radios__label" for="winter-oilseed-early">
+                Winter oilseed rape (early established)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="winter-oilseed-late" name="chosen_crop" type="radio" value="Winter oilseed rape, late established">
+              <label class="govuk-label govuk-radios__label" for="winter-oilseed-late">
+                Winter oilseed rape (late established)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="oilseed" name="chosen_crop" type="radio" value="Spring cereal or oilseed rape">
+              <label class="govuk-label govuk-radios__label" for="oilseed">
+                Oilseed rape
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="potatoes" name="chosen_crop" type="radio" value="Potatoes">
+              <label class="govuk-label govuk-radios__label" for="potatoes">
+                Potatoes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="maize" name="chosen_crop" type="radio" value="Maize">
+              <label class="govuk-label govuk-radios__label" for="maize">
+                Maize
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sugar-beet" name="chosen_crop" type="radio" value="Sugar beet">
+              <label class="govuk-label govuk-radios__label" for="sugar-beet">
+                Sugar beet
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="other" name="chosen_crop" type="radio" value="Other">
+              <label class="govuk-label govuk-radios__label" for="other">
+                Other
+              </label>
+            </div>
+          </div>
+        </div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+    
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+</div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    

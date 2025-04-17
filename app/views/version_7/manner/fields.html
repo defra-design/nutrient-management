@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <!-- <span class="govuk-caption-l">
+        Nutrient application plan 2023 to 2024
+      </span> -->
+
+
+      <!-- go through the crop currentCropGroups
+      go throuhg their fields
+      if they havent been listed list them -->
+
+      <h1 class="govuk-heading-l">
+        Which field would you like use?
+      </h1>
+
+      <form class="form" action="crop" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <div id="waste-hint" class="govuk-hint">
+              Select all that apply.
+            </div>
+            <div class="govuk-radios" data-module="govuk-radios">
+
+            {% for field in data.all_fields %}
+            <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id={{field.reference}} name="chosen_field" type="radio" value={{field.reference}}>
+                <label class="govuk-label govuk-radios__label" for={{field.reference}}>
+                    {{field.name}} 
+                </label>
+            </div>
+            {% endfor %} 
+            <div class="govuk-radios__divider">or</div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="create_new" name="chosen_field" type="radio" value="create_new">
+              <label class="govuk-label govuk-radios__label" for="create_new">
+                Add a temporary field
+              </label>
+            </div>
+
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>    
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

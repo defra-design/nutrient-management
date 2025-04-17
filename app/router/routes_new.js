@@ -58,7 +58,7 @@ router.get(/derogation_router/, function (req, res) {
 })
 
 router.get(/export_type_router/, hide_error, function (req, res) {
-    var next = 'manure_group'
+    var next = 'manure_type'
     if (req.session.data.import_export == 'none') {
         req.session.data.oaktree_farm.exports_added = true
         next = '/' + req.session.data.prototype_version + '/farm/outputs/n_loading/checklist'
@@ -186,10 +186,10 @@ router.get(/manner_change_handler/, showSuccessMessage, function (req, res) {
 })
 
 router.get(/set_export_defaults_handler/, function (req, res) {
-    console
-    req.session.data.manure_type.name
-    req.session.data.exported_day
-    req.session.data.export_total
+    console.log(
+        req.session.data.manure_type.name + " " +
+        req.session.data.exported_day + " " +
+        req.session.data.export_total)
 
     if (req.session.data.manure_type.name == null) {
         req.session.data.manure_type.name = "Pig farmyard manure - Fresh"

@@ -1,0 +1,198 @@
+{% extends "layouts/main.html" %}
+
+{% set bodyClasses = "landscape" %}
+
+{% block pageTitle %}
+  Oaktree lane farm - N-max limits 2025
+{% endblock %}
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+<a href="hub_reset_router" class="noprint govuk-back-link">{{data.oaktree_farm.name}}</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row noprint">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-m">Print or save as a PDF</h2>
+      <ol class="govuk-list govuk-list--number">
+        <li>To save as a PDF choose 'Print or save as a PDF',</li>
+        <li>Select, 'Save as PDF', where you are asked to select a printer,</li>
+        <li>Select, 'Print', then choose where to save the PDF.</li>
+      </ol>
+      <form class="" action="" method="post" novalidate="">    
+        <button onclick="window.print()" class="govuk-button" data-module="govuk-button">
+          Print or save as a PDF
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row noprint margin-bottom-thirty">
+    <div class="govuk-grid-column-full">
+
+      <hr>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full nmax_header">
+
+      <h1 class="govuk-heading-xl">{{data.oaktree_farm.name}} <br>Livestock manure N loading limit for 2025</h1>
+      <p class="govuk-body strong">Derogated farm: No</p>
+      <p class="govuk-body">Created on 31 March 2025</p>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row margin-bottom-twenty">
+    <div class="govuk-grid-column-one-third">
+      <p class="govuk-body">Oaktree Lane Farm, <br>
+        24 South Road<br> 
+        Hexham<br>  
+        Northumberland<br> 
+        NE46 7LQ</p>
+    </div>
+      
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">CPH number: 123456789<br>
+        Single Business Identifier: 123456789<br>
+      </p>
+          
+    </div>
+
+  </div>
+
+  <!-- <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h2 class="govuk-heading-m">Private beta disclaimer</h2>
+      {% include "/templates/beta_disclaimer.html" ignore missing %} 
+      <hr class="seperator_forty">
+
+    </div>
+  </div> -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full margin-bottom-thirty">
+
+      <h2 class="govuk-heading-m">
+        Compliance with NVZ Livestock Manure nitrogen (N) Farm Limit
+      </h2>
+      {% include "./templates/compliance.html" ignore missing %}
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full margin-bottom-thirty">
+
+      <h2 class="govuk-heading-m">
+        Farm area and livestock manure total N capacity
+      </h2>
+      {% include "./templates/farm_area.html" ignore missing %}
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full margin-bottom-thirty">
+
+      <h2 class="govuk-heading-m">
+        Livestock manure total N loading
+      </h2>
+      {% include "./templates/livestock_manure.html" ignore missing %}
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full margin-bottom-thirty">
+
+      <h2 class="govuk-heading-m">
+        Grazing livestock numbers and manure total nitrogen (N) production (home-produced manures)
+      </h2>
+      <!-- <p>Total livestock manure nitrogen (N) production: 3,944kg</p> -->
+      {% include "./templates/grazing_livestock.html" ignore missing %}
+
+    </div>
+  </div>
+
+  <!-- show the right livestock -->
+  {% for livestock_type in data.livestock_2025 %}
+
+    {% if livestock_type.type == 'cattle' %}
+      {% set cattle_added = true %}
+    {% endif %}
+
+    {% if livestock_type.type == 'pig' %}
+      {% set pig_added = true %}
+    {% endif %}
+
+    {% if livestock_type.type == 'poultry' %}
+      {% set poultry_added = true %}
+    {% endif %}
+
+    {% if livestock_type.type == 'sheep' %}
+      {% set sheep_added = true %}
+    {% endif %}
+
+    {% if livestock_type.type == 'other' %}
+      {% set other_added = true %}
+    {% endif %}
+
+  {% endfor %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full margin-bottom-thirty">
+        <h2 class="govuk-heading-m">
+          Pigs and poultry livestock numbers and manure total nitrogen (N) production (home-produced manures)
+        </h2>
+        {% include "./templates/pigs.html" ignore missing %}
+      </div>
+    </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full margin-bottom-ten">
+
+      <h2 class="govuk-heading-m">
+        Imports of livestock manure
+      </h2>
+        {% include "./templates/imports.html" ignore missing %}
+        <!-- <p class="govuk-body">None</p> -->
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full margin-bottom-ten">
+
+      <h2 class="govuk-heading-m">
+        Exports of livestock manure
+      </h2>
+        {% include "./templates/exports.html" ignore missing %}
+        <p class="govuk-body">Contingency plan available to be used if an agreement to send the manure off the farm fails: Yes.</p>
+        <!-- <p class="govuk-body">None</p> -->
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+  
+      <hr class="margin-bottom-forty">
+      <h2 class="govuk-heading-s">
+        About recommendations, guidance, and advice
+      </h2>
+      {% include "/templates/recommendations.html" ignore missing %}
+
+  </div>
+</div>
+  
+
+
+{% endblock %}

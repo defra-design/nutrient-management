@@ -44,10 +44,10 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full nmax_header">
 
-      <h1 class="govuk-heading-xl">{{data.oaktree_farm.name}} <br>Livestock manure N-loading report</h1>
-      <h2 class="govuk-heading-l">Harvest year 2025</h2>
+      <h1 class="govuk-heading-xl">{{data.oaktree_farm.name}} <br>Livestock manure N loading limit for 2025</h1>
+      <p class="govuk-body strong">Derogated farm: No</p>
       <p class="govuk-body">Created on 31 March 2025</p>
-      
+
     </div>
   </div>
 
@@ -63,9 +63,6 @@
     <div class="govuk-grid-column-two-thirds">
       <p class="govuk-body">CPH number: 123456789<br>
         Single Business Identifier: 123456789<br>
-      </p>
-      <p class="govuk-body">
-        Derogated farm: No
       </p>
           
     </div>
@@ -86,7 +83,7 @@
     <div class="govuk-grid-column-full margin-bottom-thirty">
 
       <h2 class="govuk-heading-m">
-        Compliance with NVZ Livestock Manure N Farm Limit
+        Compliance with NVZ Livestock Manure nitrogen (N) Farm Limit
       </h2>
       {% include "./templates/compliance.html" ignore missing %}
 
@@ -119,7 +116,7 @@
     <div class="govuk-grid-column-full margin-bottom-thirty">
 
       <h2 class="govuk-heading-m">
-        Grazing livestock numbers and manure total N production (home-produced manures)
+        Grazing livestock numbers and manure total nitrogen (N) production (home-produced manures)
       </h2>
       <!-- <p>Total livestock manure nitrogen (N) production: 3,944kg</p> -->
       {% include "./templates/grazing_livestock.html" ignore missing %}
@@ -152,31 +149,35 @@
 
   {% endfor %}
 
-
-  {% if pig_added == true %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full margin-bottom-thirty">
         <h2 class="govuk-heading-m">
-          Pigs and poultry livestock numbers and manure total N production (home-produced manures)
+          Pigs and poultry livestock numbers and manure total nitrogen (N) production (home-produced manures)
         </h2>
-        {% include "./templates/pigs_none.html" ignore missing %}
+        {% include "./templates/pigs.html" ignore missing %}
       </div>
     </div>
-  {% endif %}
-
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
 
       <h2 class="govuk-heading-m">
-        Imports and exports of livestock manure
+        Imports of livestock manure
       </h2>
-      {% if data.oaktree_farm.exports_added == true %}
         {% include "./templates/imports.html" ignore missing %}
-        <p class="govuk-body">Contingency plan available to be used if an agreement to send the manure off the farm fails: No</p>
-      {% else %}
-        <p class="govuk-body">None</p>
-      {% endif %}
+        <!-- <p class="govuk-body">None</p> -->
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full margin-bottom-ten">
+
+      <h2 class="govuk-heading-m">
+        Exports of livestock manure
+      </h2>
+        {% include "./templates/exports.html" ignore missing %}
+        <p class="govuk-body">Contingency plan available to be used if an agreement to send the manure off the farm fails: Yes.</p>
+        <!-- <p class="govuk-body">None</p> -->
     </div>
   </div>
 

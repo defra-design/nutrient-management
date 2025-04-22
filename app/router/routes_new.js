@@ -39,7 +39,7 @@ router.get(/output_router/, hide_error, function (req, res) {
     }
     if (req.session.data.export_type == 4) {
         if (req.session.data.oaktree_farm.livestock_added == true) {
-            next = './n_loading'
+            next = './n_loading/report_no_derogation'
         } else {
             next = 'not_available_loading'
         }

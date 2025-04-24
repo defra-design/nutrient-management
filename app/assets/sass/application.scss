@@ -1050,3 +1050,19 @@ width: 35%
         padding-bottom: 5px;
     }
 }
+
+#header-group {
+    h1 {
+        margin-bottom: 0!important;
+    }
+    overflow: auto;
+    span {
+        width: 100%;
+        clear: both;
+        float: left
+    }
+    .title {
+        margin-top: 0;
+        padding-top: 0;
+    }
+}

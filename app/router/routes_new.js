@@ -202,7 +202,7 @@ router.get(/set_export_defaults_handler/, function (req, res) {
     if (req.session.data.export_total == null) {
         req.session.data.export_total = 10
     }
-    res.redirect('check')
+    res.redirect('comments')
 })
 
 module.exports = router

@@ -35,7 +35,6 @@
         {% if data.oaktree_farm.fields_added == true %}
           <p class="govuk-body">{{data.all_fields.length}} fields, 40 hectares in total.</p>
         {% endif %}
-        
       </div>
 
       <hr class="seperator_thirty">
@@ -57,18 +56,6 @@
       </div>
 
       <hr class="seperator_thirty">
-      <div>
-
-      <h2 class="govuk-heading-m">Reports and outputs</h2>
-      <ul class="menu-list govuk-list">
-        <li>
-          <a class="govuk-link" href="outputs/years">Save or print a report</a>
-        </li>
-      </ul>
-    </div>
-
-    <hr class="seperator_thirty">
-
 
       <div>
         <h2 class="govuk-heading-m">Farm and field details</h2>
@@ -91,7 +78,7 @@
       <hr class="seperator_thirty">
 
     <div>
-      <h2 class="govuk-heading-m">Livestock and manure details</h2>
+      <h2 class="govuk-heading-m">Livestock details</h2>
       <ul class="menu-list govuk-list">
         <li>
           <a class="govuk-link" href="livestock/livestock_years">
@@ -103,6 +90,14 @@
             livestock numbers
           </a>
         </li> 
+      </ul>
+    </div>
+
+    <hr class="seperator_thirty">
+
+    <div>
+      <h2 class="govuk-heading-m">Organic manure details</h2>
+      <ul class="menu-list govuk-list">
         <li>
           <a class="govuk-link" href="exports/export_years">
             {% if data.oaktree_farm.exports_added == true %}
@@ -110,15 +105,28 @@
             {% else %}
                 Add
             {% endif %}
-            livestock manure imports and exports
+              organic manure imports and exports
           </a>
         </li>
       </ul>
-      <hr class="seperator_thirty">
-      
-      <p><a href="">Download all {{data.oaktree_farm.name}}'s data as a csv file</a> </p>
-
     </div>
+
+    <hr class="seperator_thirty">
+
+    <div>
+      <h2 class="govuk-heading-m">Reports and outputs</h2>
+      <ul class="menu-list govuk-list">
+        <li>
+          <a class="govuk-link" href="outputs/years">Save or print a report</a>
+        </li>
+      </ul>
+      <p><a href="">Download all {{data.oaktree_farm.name}}'s data as a csv file</a> </p>
+    </div>
+
+    <hr class="seperator_thirty">
+
+
   </div>
+</div>
 
 {% endblock %}

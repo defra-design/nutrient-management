@@ -1,0 +1,143 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form action="livestock_values_handler" method="post" novalidate="">
+
+        <h1 class="govuk-heading-l">How many 1 Sow place with litter, up to 7kg (with synth, amino acids) did you have each month</h1>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="livestock_number">
+            What is the number for January?
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <!-- <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div> -->
+          </div>
+        </div>
+
+        <button type="" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add this value to all months
+        </button>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="livestock_number">
+            What is the number for February?
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <!-- <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div> -->
+          </div>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="livestock_number">
+            What is the number for March?
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <!-- <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div> -->
+          </div>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="livestock_number">
+            What is the number for April?
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <!-- <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div> -->
+          </div>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="livestock_number">
+            What is the number for May?
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <!-- <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div> -->
+          </div>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="livestock_number">
+            What is the number for June?
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <!-- <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div> -->
+          </div>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="livestock_number">
+            What is the number for July?
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <!-- <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div> -->
+          </div>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="livestock_number">
+            What is the number for August?
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <!-- <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div> -->
+          </div>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="livestock_number">
+            What is the number for September?
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <!-- <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div> -->
+          </div>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="livestock_number">
+            What is the number for October?
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <!-- <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div> -->
+          </div>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="livestock_number">
+            What is the number for November?
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <!-- <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div> -->
+          </div>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="livestock_number">
+            What is the number for December?
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <!-- <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div> -->
+          </div>
+        </div>
+
+
+
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/mvp/hub">Cancel</a></p>
+
+    </div>
+
+  </div>
+
+{% endblock %}

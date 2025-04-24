@@ -21,7 +21,9 @@
 
 {% block content %}
 
-  <h1 class="govuk-heading-l">Livestock manure imports and exports</h1>
+  <h1 class="govuk-heading-l">Organic manure imports and exports</h1>
+  <p class="govuk-hint">Imports and exports are grouped from 1 January to 31 December each year.</p>
+  <p><a href="">Add another year</a></p>
 
 <div class="govuk-grid-row">
   <div id="all-plans-table" class="govuk-grid-column-two-thirds">
@@ -29,13 +31,13 @@
       <table class="govuk-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Harvest year</th>
+            <th scope="col" class="govuk-table__header">Calendar year</th>
             <th scope="col" class="govuk-table__header">Last modified</th>
             <th scope="col" class="govuk-table__header"> </th>
           </tr>
         </thead>
         <tbody class="govuk-table__body"> 
-          {% if data.oaktree_farm.exports_added == true %} 
+          <!-- {% if data.oaktree_farm.exports_added == true %} 
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">2026</td>
               <td class="govuk-table__cell">{{data.content.todays_date}}</td>
@@ -47,7 +49,7 @@
               <td class="govuk-table__cell">-</td>
               <td class="govuk-table__cell"><a href="export_year_handler?harvest_date=2026">Add 2026 imports or exports</a></td>
             </tr>
-          {% endif %}
+          {% endif %} -->
           {% if data.oaktree_farm.exports_added == true %} 
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">2025</td>
@@ -65,21 +67,14 @@
                   <!-- <td class="govuk-table__cell"><a href="crop_plan_year_handler?">Add 2025 livestock</a></td> -->
               </tr>
             {% endif %}
-            {% if data.oaktree_farm.exports_added == true %}   
-              <th scope="row" class="govuk-table__header">2024</td>
-                <td class="govuk-table__cell">{{data.content.todays_date}}</td>
-                <!-- <td class="govuk-table__cell">{{data.content.todays_date}}</td> -->
-                <td class="govuk-table__cell"><a href="export_year_handler?harvest_date=2024">Update 2024 imports or exports</a></td>
-              </tr>
-            {% else %}  
               <th scope="row" class="govuk-table__header">2024</td>
                 <td class="govuk-table__cell">-</td>
                 <!-- <td class="govuk-table__cell">{{data.content.todays_date}}</td> -->
-                <td class="govuk-table__cell"><a href="export_year_handler?harvest_date=2024">Add 2024 imports or exports</a></td>
+                <td class="govuk-table__cell"><a href="">Add 2024 imports or exports</a></td>
               </tr>
-            {% endif %}  
           </tbody>
       </table>     
+
 
   </div>
 </div>

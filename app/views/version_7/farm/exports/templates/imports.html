@@ -1,16 +1,12 @@
 {% if data.oaktree_farm.imports_added == true %}
-  <form class="" action="../../add_export/export_type" method="post" novalidate="">    
-    <button class="govuk-button" data-module="govuk-button">
-      Add an import
-    </button>
-  </form>
-  <hr class="seperator_forty">
+<a class="govuk-button" href="export_type_handler?export_type=import">
+  Add an import
+</a>
+<hr class="seperator_forty">
   {% include "./import_table.html" ignore missing %}
 {% else %}
   <p class="govuk-body">You have not added any imports.</p>
-  <form class="" action="../../add_export/export_type" method="post" novalidate="">    
-    <button class="govuk-button" data-module="govuk-button">
-      Add an import
-    </button>
-  </form>
+  <a class="govuk-button" href="export_type_handler?export_type=import">
+    Add an import
+</a>
 {% endif %}

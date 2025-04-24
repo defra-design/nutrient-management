@@ -66,6 +66,15 @@ router.get(/export_type_router/, hide_error, function (req, res) {
     res.redirect(next);
 })
 
+router.get(/export_type_handler/, hideSuccessMessage, function (req, res) { 
+    if (req.query.export_type == 'export') {
+        req.session.data.import_export = 'export'
+    } else {
+        req.session.data.import_export = 'import'
+    }
+    res.redirect('/version_7/add_export/manure_group')
+})
+
 router.get(/get_manure_type_handler/, function (req, res) {
     //get object
     for (var x in req.session.data.manure_types ) {
@@ -204,5 +213,6 @@ router.get(/set_export_defaults_handler/, function (req, res) {
     }
     res.redirect('comments')
 })
+
 
 module.exports = router

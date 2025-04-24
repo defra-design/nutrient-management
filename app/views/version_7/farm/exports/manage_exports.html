@@ -31,106 +31,48 @@
 {% block content %}
 {{ plan_status }}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<!-- success -->
+{% if data.show_success_message == true %}
+  {% include "./templates/success_message.html" ignore missing %}
+{% endif %}
 
-      {% if data.show_success_message == true %}
-        {% include "./success_message.html" ignore missing %}
-      {% endif %}
-  
-      <h1 class="govuk-heading-l">
-        {{ data.oaktree_farm.name }} 
-        livestock manure imports and exports {{data.oaktree_farm.planning_year}}
-      </h1>
-      
-      <!-- <table class="govuk-table">
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Area of farm land in an NNVZ</th>
-            <td class="govuk-table__cell">220 hectares</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Area of farm land not in an NNVZ</th>
-            <td class="govuk-table__cell">0</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Total area of farmland</th>
-            <th scope="row" class="govuk-table__header">220 hectares</th>
-          </tr>
-        </tbody>
-      </table> -->
-
-
-      {% if data.oaktree_farm.exports_added == true or data.oaktree_farm.imports_added == true %}
-        <table class="govuk-table">
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Total imported manure</th>
-              {% if data.oaktree_farm.imports_added == true %}
-                <td scope="col" class="govuk-table__cell">280kg</td>
-              {% else %}
-                <td scope="col" class="govuk-table__cell">0</td>
-              {% endif %}
-            </tr>
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Total exported manure</th>
-              {% if data.oaktree_farm.exports_added == true %}
-                <td scope="col" class="govuk-table__cell">90kg</td>
-              {% else %}
-                <td scope="col" class="govuk-table__cell">0</td>
-              {% endif %}
-            </tr>
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Net total</th>
-              {% if data.oaktree_farm.exports_added == true and data.oaktree_farm.imports_added == true %}
-                <th scope="col" class="govuk-table__cell">+ 190kg</th>
-              {% elif data.oaktree_farm.exports_added == true and data.oaktree_farm.imports_added == false %}
-                <th scope="col" class="govuk-table__cell">- 90kg</th>
-              {% else %}
-                <th scope="col" class="govuk-table__cell">+ 280kg</th>
-              {% endif %}
-            </tr>
-          </tbody>
-        </table>
-        <form class="" action="../../add_export/export_type" method="post" novalidate="">    
-          <button class="govuk-button" data-module="govuk-button">
-            Add an import or export
-          </button>
-        </form>
-        
-        <p><a href="../outputs/export">Save or print a report</a></p>
-
-      {% endif %}
-      
-
-      </div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div id="header-group" class="margin-bottom-forty">
+      <span class="name govuk-caption-xl">{{ data.oaktree_farm.name }}</span>
+      <h1 class="govuk-heading-l" id="header">Organic manure imports and exports {{data.oaktree_farm.planning_year}}</h1>
     </div>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-
-      {% if data.oaktree_farm.exports_added == true or data.oaktree_farm.imports_added == true %}
-        <hr class="seperator_forty">
-        {% if data.oaktree_farm.imports_added == true %}
-          {% include "./import_table.html" ignore missing %}
-        {% endif %}
-        {% if data.oaktree_farm.exports_added == true %}
-          {% include "./export_table.html" ignore missing %}
-        {% endif %}
-      {% else %}
-
-      <p class="govuk-body">You have not added any import or export information.</p>
-
-          <form class="" action="../../add_export/export_type" method="post" novalidate="">    
-            <button class="govuk-button" data-module="govuk-button">
-              Add an import or export
-            </button>
-          </form>
-    
-        {% endif %}
-      
-    </div>
-
   </div>
+</div>
+
+<!-- totals -->
+{% include "./templates/totals.html" ignore missing %}
+
+<!-- imports and exports -->
+<div class="govuk-tabs" data-module="govuk-tabs">
+
+  <h2 class="govuk-tabs__title">Contents</h2>
+
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#imports">Imports</a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#exports">Exports</a>
+    </li>
+  </ul>
+
+  <div class="govuk-tabs__panel" id="imports">
+    <h2 class="govuk-heading-m non-standard">Imports</h2>
+    {% include "./templates/imports.html" ignore missing %}
+  </div>
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="exports">
+    <h2 class="govuk-heading-m non-standard">Exports</h2>
+    {% include "./templates/exports.html" ignore missing %}
+  </div>
+  
+</div>
+
 
 {% endblock %}

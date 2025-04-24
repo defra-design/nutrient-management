@@ -58,12 +58,30 @@ router.get(/derogation_router/, function (req, res) {
 })
 
 router.get(/export_type_router/, hide_error, function (req, res) {
-    var next = 'manure_type'
+    var next = 'manure_group'
     if (req.session.data.import_export == 'none') {
         req.session.data.oaktree_farm.exports_added = true
         next = '/' + req.session.data.prototype_version + '/farm/outputs/n_loading/checklist'
     }
     res.redirect(next);
+})
+
+router.get(/change_export_handler/, hide_error, function (req, res) {
+    if (req.query.export_type == 'export') {
+        req.session.data.import_export = 'export'
+    } else {
+        req.session.data.import_export = 'import'
+    }
+    res.redirect('/version_7/update/exports/update')
+})
+
+router.get(/export_type_handler/, hideSuccessMessage, function (req, res) { 
+    if (req.query.export_type == 'export') {
+        req.session.data.import_export = 'export'
+    } else {
+        req.session.data.import_export = 'import'
+    }
+    res.redirect('/version_7/add_export/manure_group')
 })
 
 router.get(/get_manure_type_handler/, function (req, res) {
@@ -203,6 +221,13 @@ router.get(/set_export_defaults_handler/, function (req, res) {
         req.session.data.export_total = 10
     }
     res.redirect('comments')
+})
+
+router.get(/export_update_handler/, function (req, res) {
+    req.session.data.show_success_message = true;
+    req.session.data.successMessage = 2;
+    var next = '/' + req.session.data.prototype_version + '/farm/exports/manage_exports'
+    res.redirect(next)
 })
 
 module.exports = router

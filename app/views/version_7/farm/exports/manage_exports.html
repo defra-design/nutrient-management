@@ -46,7 +46,9 @@
 </div>
 
 <!-- totals -->
-{% include "./templates/totals.html" ignore missing %}
+{% if data.oaktree_farm.imports_added == true or data.oaktree_farm.imports_added == true %}
+  {% include "./templates/totals.html" ignore missing %}
+{% endif %}
 
 <!-- imports and exports -->
 <div class="govuk-tabs" data-module="govuk-tabs">

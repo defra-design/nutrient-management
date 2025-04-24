@@ -2,7 +2,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h2 class="govuk-heading-m">Totals</h2>
+      <h2 class="govuk-heading-m">Total imports and exports for {{data.oaktree_farm.planning_year}}</h2>
 
   {% if data.oaktree_farm.exports_added == true or data.oaktree_farm.imports_added == true %}
   <table class="govuk-table">
@@ -36,7 +36,7 @@
     </tbody>
   </table>
   
-  <p><a href="../outputs/export">Save or print a report</a></p>
+  <p class="govuk-body margin-bottom-forty"><a href="../outputs/export">Save or print a report</a></p>
 {% endif %}
 
 

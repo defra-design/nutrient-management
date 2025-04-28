@@ -23,11 +23,15 @@
       <form action="manure_defaults" method="post" novalidate="">
 
         <!-- <h1 class="govuk-heading-l">About {{data.manure_type.name}}</h1> -->
-        <h1 class="govuk-heading-l">What is the {{data.import_export}} quantity?</h1>
+        <h1 class="govuk-heading-l">How much did you {{data.import_export}}?</h1>
 
         <div class="govuk-form-group">
           <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="export_total" name="export_total" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+            {% if data.manure_type.liquid != true %}
+              <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+            {% else %}
+              <div class="govuk-input__suffix" aria-hidden="true">cubic meters</div>
+            {% endif %}
           </div>
         </div>
 

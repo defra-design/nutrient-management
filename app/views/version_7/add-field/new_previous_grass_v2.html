@@ -1,0 +1,284 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l">
+        Previous field management
+      </h1>
+
+      <p class="govuk-body strong">SNS index for light sands or shallow soils over sandstone - all rainfall areas.</p>
+      
+      <!-- <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Type of ley</th>
+              <th scope="col" class="govuk-table__header">SNS Index year 1</th>
+              <th scope="col" class="govuk-table__header">SNS Index year 2</th>
+              <th scope="col" class="govuk-table__header">SNS Index year 3</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">2 or more cuts annually receiving little or no manure</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">1-2 year leys, low N</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">1-2 year leys, 1 or more cuts</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">1-2 year leys, high N, grazed</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+            </tr>
+          </tbody>
+        </table> -->
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Type of ley</th>
+              <th scope="col" class="govuk-table__header">SNS Index year 1</th>
+              <th scope="col" class="govuk-table__header">SNS Index year 2</th>
+              <th scope="col" class="govuk-table__header">SNS Index year 3</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">All leys with 2 or more cuts annually receiving little or no manure</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">1-2 year leys, low N</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">1-2 year leys, 1 or more cuts</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">3-5 year leys, low N, 1 or more cuts</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">1-2 year leys, high N, grazed</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">3-5 year leys, low N, grazed</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">3-5 year leys, high N, 1 cut then grazed</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">3-5 year leys, high N, grazed</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+              <td class="govuk-table__cell">0</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+  
+
+
+      <p class="govuk-body strong">
+        How has the field been typically managed?
+      </p>
+
+      <p>Choose one option.</p>
+
+      <!-- <form class="form" action="add-grass-handler" method="post"> -->
+        <form class="form" action="previous-clover" method="post">
+          
+          <!-- <div>
+            <div class="govuk-form-group">
+              <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+                
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="yes">
+                    Grazed only, with less than 250kg nitrogen (N) per hectare
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="yes">
+                    Grazed only, with more than 250kg nitrogen (N) per hectare
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="yes">
+                    1 or more cuts, with less than 250kg nitrogen (N) per hectare
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="yes">
+                    2 or more cuts, with less than 100kg nitrogen (N) per hectare
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="yes">
+                    1 cut and grazed, with more than 250kg nitrogen (N) per hectare
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div> -->
+
+          <!-- <div>
+            <div class="govuk-form-group">
+              <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="yes">
+                    2 or more cuts annually receiving little or no manure
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="yes">
+                    1-2 year leys, low N 
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="yes">
+                    1-2 year leys, 1 or more cuts 
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="yes">
+                    1-2 year leys, high N, grazed
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+ -->
+        <div>
+          <div class="govuk-form-group">
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="yes">
+                  All leys with 2 or more cuts annually receiving little or no manure
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="yes">
+                  1-2 year leys, low N
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="yes">
+                  1-2 year leys, 1 or more cuts
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="yes">
+                  3-5 year leys, low N, 1 or more cuts
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="yes">
+                  1-2 year leys, high N, grazed
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="yes">
+                  3-5 year leys, low N, grazed
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="yes">
+                  3-5 year leys, high N, 1 cut then grazed
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="yes" name="previous_grass" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="yes">
+                  3-5 year leys, high N, grazed
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

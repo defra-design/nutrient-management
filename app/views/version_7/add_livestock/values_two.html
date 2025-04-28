@@ -43,17 +43,6 @@
         {% endif %}
 
 
-        <h2 class="govuk-heading-s">Average number of livestock</h2>
-
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="livestock_number">
-            What is the average number for {{data.oaktree_farm.planning_year}}?
-          </label>
-          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
-            <!-- <div class="govuk-input__suffix" aria-hidden="true">{{data.livestock_group}}</div> -->
-          </div>
-        </div>
-
         {% if data.livestock_group != 'cattle' %}
           <div class="govuk-form-group">
             <label class="govuk-label" for="livestock_occupancy">
@@ -66,13 +55,6 @@
         {% endif %}
 
         <div class="margin-bottom-forty"></div>
-
-        <!-- <p class="govuk-button govuk-button--secondary">
-          Calculate total Nitrogen (N)
-        </p> -->
-
-        <!-- <h2 class="govuk-heading-s">Total nitrogen (N) produced by this {{data.livestock_group}} type: </h2>
-        <p class="govuk-body margin-bottom-forty">1,1800kg per year</p> -->
 
         <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
           Continue

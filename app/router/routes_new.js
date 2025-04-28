@@ -165,7 +165,7 @@ router.get(/get_livestock_reference/, function (req, res) {
             req.session.data.chosen_livestock = req.session.data.livestock_types[reference]
         }
     }
-    var next = 'values'
+    var next = 'how_to_enter'
     res.redirect(next)
 })
 
@@ -229,5 +229,11 @@ router.get(/export_update_handler/, function (req, res) {
     var next = '/' + req.session.data.prototype_version + '/farm/exports/manage_exports'
     res.redirect(next)
 })
+
+router.get(/livestock_entry_handler/, function (req, res) {
+    var next = (req.session.data.livestock_entry == 'average') ? 'values' : 'livestock_numbers'
+    res.redirect(next)
+})
+
 
 module.exports = router

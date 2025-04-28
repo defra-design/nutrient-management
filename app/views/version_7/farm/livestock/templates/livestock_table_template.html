@@ -1,6 +1,6 @@
   <div class="margin-bottom-thirty">   
     {% if livestock_type == 'other' %}
-      <p class="govuk-body"><a href="add_livestock_handler?livestock_type={{livestock_type}}">Add {{livestock_type}} livestock type</a></p>
+      <p class="govuk-body"><a href="add_livestock_handler?livestock_type={{livestock_type}}">Add goats, deer or horses</a></p>
     {% else %}
         <p class="govuk-body"><a href="add_livestock_handler?livestock_type={{livestock_type}}">Add {{livestock_type}} type</a></p>
     {% endif %}
@@ -37,6 +37,16 @@
             </tr>
           {% endif %}
         {% endfor %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell strong">Totals</td>
+          <td class="govuk-table__cell">-</td>
+          <td class="govuk-table__cell">-</td>
+          <td class="govuk-table__cell">-</td>
+          <td class="govuk-table__cell strong">Figure</td>
+          <td class="govuk-table__cell">-</td>
+          <td class="govuk-table__cell strong">Figure</td>
+          <td class="govuk-table__cell"> </td>
+        </tr>
       </tbody>
     </table>
   </div>

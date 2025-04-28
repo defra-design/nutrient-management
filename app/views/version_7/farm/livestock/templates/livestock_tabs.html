@@ -38,7 +38,7 @@
     {% if other_added == true %}
       <li class="govuk-tabs__list-item">
         <a class="govuk-tabs__tab" href="#other">
-          Other
+          Goats, Deer and Horses
         </a>
       </li>
     {% endif %}
@@ -49,7 +49,7 @@
     <div class="govuk-tabs__panel" id="cattle">
       <h2 class="govuk-heading-l">Cattle</h2>
         {% set livestock_type = 'cattle' %}
-        {% include "./cattle_table_template.html" ignore missing %}
+        {% include "./livestock_cattle_table_template.html" ignore missing %}
     </div>
   {% endif %}
 
@@ -79,7 +79,7 @@
 
   {% if other_added == true %}
     <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="other">
-      <h2 class="govuk-heading-l">Other</h2>
+      <h2 class="govuk-heading-l">Goats, Deer and Horses</h2>
         {% set livestock_type = 'other' %}
         {% include "./livestock_table_template.html" ignore missing %}
     </div>

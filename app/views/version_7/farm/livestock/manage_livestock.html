@@ -45,6 +45,9 @@
             <span class="name govuk-caption-xl">{{ data.oaktree_farm.name }}</span>
             <h1 class="govuk-heading-l" id="header">Livestock numbers {{ data.oaktree_farm.planning_year }}</h1>
           </div>
+
+          <p class="govuk-body">Last updated 19 April 2025.</p>
+          <p class="govuk-body margin-bottom-thirty">{{data.oaktree_farm.name}} does not have a derogation for {{data.oaktree_farm.planning_year}} . <a href="">Add derogation</a>.</p>
             
         </div>
       </div>
@@ -60,7 +63,7 @@
             Add a livestock type
           </button>
         </form>
-        <p><a href="../outputs/export">Save or print a report</a></p>
+        <p class="govuk-body margin-bottom-forty"><a href="../outputs/export">Save or print a report</a></p>
       {% endif %}
 
       </div>

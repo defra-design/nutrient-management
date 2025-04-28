@@ -19,6 +19,16 @@
   </div>
 
   <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How do you want to enter the livestock numbers?</dt>
+    {% if data.livestock_entry != 'average' %}
+      <dd class="govuk-summary-list__value">Enter the number per month</dd>
+    {% else %}
+      <dd class="govuk-summary-list__value">Enter the average number for the calendar year</dd>
+    {% endif %}
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">What is the average number for the year?</dt>
     <dd class="govuk-summary-list__value">{{data.livestock_number}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>

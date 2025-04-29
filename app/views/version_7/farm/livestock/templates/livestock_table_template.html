@@ -17,8 +17,12 @@
 
         <th scope="col" class="govuk-table__header"><span class="no_wrap">Nitrogen (N)</span> standard</th>
         <th scope="col" class="govuk-table__header">Total <span class="no_wrap">nitrogen (N)</span></th>
-        <th scope="col" class="govuk-table__header">Phosphate (P2O5) standard</th>
-        <th scope="col" class="govuk-table__header">Total Phosphate (P2O5)</th>
+        
+        {% if data.oaktree_farm.derogation == true %}
+          <th scope="col" class="govuk-table__header">Phosphate (P2O5) standard</th>
+          <th scope="col" class="govuk-table__header">Total Phosphate (P2O5)</th>
+        {% endif %}
+        
         <th scope="col" class="govuk-table__header"> </th>
       </tr>
     </thead>
@@ -41,8 +45,12 @@
   
             <td class="govuk-table__cell">{{animal.nitrogen}} kg</td>
             <td class="govuk-table__cell">{{animal_total}} kg</td>
-            <td class="govuk-table__cell">8.4 kg</td>
-            <td class="govuk-table__cell">17 kg</td>
+            
+            {% if data.oaktree_farm.derogation == true %}
+              <td class="govuk-table__cell">8.4 kg</td>
+              <td class="govuk-table__cell">17 kg</td>
+            {% endif %}
+
             <td class="govuk-table__cell">
               <a href="">Change</a>
             </td>
@@ -60,7 +68,9 @@
         <td class="govuk-table__cell">-</td>
         <td class="govuk-table__cell strong">{{total_n}} kg</td>
         <td class="govuk-table__cell">-</td>
-        <td class="govuk-table__cell strong">Figure</td>
+
+        <!-- <td class="govuk-table__cell strong">Figure</td> -->
+        
         <td class="govuk-table__cell"> </td>
       </tr>
     </tbody>

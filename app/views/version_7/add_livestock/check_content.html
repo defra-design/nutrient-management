@@ -61,9 +61,11 @@
 
   </div>
 
+  {% set total_n = data.chosen_livestock.nitrogen * data.livestock_number %}
+
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Total nitrogen (N) produced by this cattle type</dt>
-    <dd class="govuk-summary-list__value">100kg per year</dd>
+    <dd class="govuk-summary-list__value">{{total_n}}kg per year</dd>
     {% if data.livestock_group == 'pig' and data.livestock_group == 'poultry' %}
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       {% else %}

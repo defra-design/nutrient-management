@@ -20,15 +20,16 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-       What kind of report do you want to save or print from your {{data.oaktree_farm.planning_year}} data?
+       What kind of report do you want to save or print from your {{data.oaktree_farm.planning_year}} livestock data?
       </h1>
 
-      <p class="govuk-body">Available reports are based on data entered for {{data.oaktree_farm.name}}.</p>
-
+      <p class="govuk-body">Available reports are based on data entered for {{data.oaktree_farm.planning_year}}.</p>
+      <p class="govuk-body margin-bottom-forty"><a href="years">Save a different report</a></p>
+      
       <form class="form" action="output_router" method="post">
-      <div class="govuk-form-group">
+      <div class="govuk-form-group margin-bottom-thirty">
         <div class="govuk-radios govuk-radios" data-module="govuk-radios">
-          <div class="govuk-radios__item">
+          <!-- <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="history" name="export_type" type="radio" value="1">
             <label class="govuk-label govuk-radios__label" for="history">
               Crop and field management report
@@ -36,7 +37,7 @@
             <div class="govuk-hint govuk-radios__hint">
               Crop, field and nutrient applications, for one or more fields.
             </div>
-          </div>
+          </div> -->
           <!-- <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="worksheet" name="export_type" type="radio" value="2">
             <label class="govuk-label govuk-radios__label" for="worksheet">
@@ -46,7 +47,7 @@
               Planned applications of organic and inorganic material, with space to add updates.
             </div>
           </div> -->
-        <div class="govuk-radios__item">
+        <!-- <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="applications" name="export_type" type="radio" value="3">
           <label class="govuk-label govuk-radios__label" for="applications">
             N-max report
@@ -54,18 +55,19 @@
           <div class="govuk-hint govuk-radios__hint">
             Demonstrate compliance with the N-max limit for each crop.
           </div>
-        </div>
+        </div> -->
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="applications" name="export_type" type="radio" value="4">
-          <label class="govuk-label govuk-radios__label" for="applications">
-            N loading limit report for {{data.oaktree_farm.planning_year}} 
+          <input class="govuk-radios__input" id="n-load" name="export_type" type="radio" value="4">
+          <label class="govuk-label govuk-radios__label" for="n-load">
+            N loading limit report for {{data.oaktree_farm.planning_year}}
           </label>
           <div class="govuk-hint govuk-radios__hint">
             Demonstrate compliance with the N loading limit for the farm.
           </div>
         </div>
+
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="numbers" name="export_type" type="radio" value="5">
+          <input class="govuk-radios__input" id="numbers" name="export_type" type="radio" value="6">
           <label class="govuk-label govuk-radios__label" for="numbers">
             Livestock numbers for {{data.oaktree_farm.planning_year}}
           </label>
@@ -73,6 +75,7 @@
             Includes all livestock numbers for the year.
           </div>
         </div>
+        
       </div>
     </fieldset>
     </div>

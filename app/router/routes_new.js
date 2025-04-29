@@ -237,7 +237,8 @@ router.get(/export_update_handler/, function (req, res) {
 
 router.get(/livestock_entry_handler/, function (req, res) {
     var next = (req.session.data.livestock_entry == 'average') ? 'values' : 'livestock_numbers'
-    res.redirect(next)
+    //blocked for now
+    res.redirect('values')
 })
 
 

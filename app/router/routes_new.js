@@ -147,8 +147,11 @@ router.get(/output_year_handler/, function (req, res) {
 })
 
 router.get(/livestockcheck_handler/, function (req, res) { 
+    if (req.session.data.livestock_number != null && req.session.data.livestock_number != '') {
+        req.session.data.chosen_livestock.total = req.session.data.livestock_number
+    }
     req.session.data.livestock_2025.push(req.session.data.chosen_livestock)
-    console.log(req.session.data.livestock_2025)
+    console.log(req.session.data.chosen_livestock)
     req.session.data.show_success_message = true;
     req.session.data.oaktree_farm.livestock_added = true;
     req.session.data.livestock_number = null

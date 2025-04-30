@@ -10,8 +10,8 @@ use_mvp_fields,
 setup,
 fields_added,
 livestock_added,
-exports_added,
-imports_added,
+manure_exports,
+manure_imports,
 rainfall,
 derogation,
 ewr
@@ -28,8 +28,8 @@ ewr
     this.setup = setup,
     this.fields_added = fields_added,
     this.livestock_added = livestock_added,
-    this.exports_added = exports_added,
-    this.imports_added = imports_added,
+    this.manure_exports = manure_exports,
+    this.manure_imports = manure_imports,
     this.rainfall = rainfall
     this.derogation = derogation
     this.ewr = ewr
@@ -47,8 +47,8 @@ Farm.prototype.printFarm = function () {
                 this.setup + ", " +
                 this.fields_added + ", " +
                 this.livestock_added + ", " +
-                this.exports_added + ", " +
-                this.imports_added + ", " +
+                this.manure_exports + ", " +
+                this.manure_imports + ", " +
                 this.rainfall + ", " +
                 this.derogation + ", " +
                 this.ewr)
@@ -66,8 +66,8 @@ Farm.prototype.reset = function () {
     this.setup = false,
     this.fields_added = false
     this.livestock_added = false
-    this.exports_added = false
-    this.imports_added = false
+    this.manure_exports = false
+    this.manure_imports = false
     this.rainfall = 600
     this.derogation = null
     this.ewr = null

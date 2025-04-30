@@ -12,7 +12,7 @@
               <a class="nolink" href="#">Livestock numbers for {{data.oaktree_farm.planning_year}} must be completed</a>
             </li>
           {% endif %}
-            {% if data.oaktree_farm.exports_added == false %}
+            {% if data.oaktree_farm.manure_exports == false %}
             <li>
               <a class="nolink" href="#">Any imports or exports for {{data.oaktree_farm.planning_year}} must be completed</a>
             </li>
@@ -24,7 +24,7 @@
 
 {% else %}
 
-  {% if data.oaktree_farm.livestock_added == false or data.oaktree_farm.exports_added == false %}
+  {% if data.oaktree_farm.livestock_added == false or data.oaktree_farm.manure_exports == false %}
 
     <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
       <div class="govuk-notification-banner__header">
@@ -44,7 +44,7 @@
             <li>Livestock numbers for 2025</li>
           {% endif %}
 
-          {% if data.oaktree_farm.exports_added == false %}
+          {% if data.oaktree_farm.manure_exports == false %}
             <li>Any imports or exports of livestock manure for 2025</li>
           {% endif %}
 

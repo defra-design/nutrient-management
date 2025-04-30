@@ -62,7 +62,7 @@ router.get(/derogation_router/, function (req, res) {
 router.get(/export_type_router/, hide_error, function (req, res) {
     var next = 'manure_group'
     if (req.session.data.import_export == 'none') {
-        req.session.data.oaktree_farm.exports_added = true
+        req.session.data.oaktree_farm.manure_exports = true
         next = '/' + req.session.data.prototype_version + '/farm/outputs/n_loading/checklist'
     }
     res.redirect(next);
@@ -99,7 +99,7 @@ router.get(/get_manure_type_handler/, function (req, res) {
 
 router.get(/n_loading_submit_router/, function (req, res) {
     var next = 'report_no_derogation'
-    if (req.session.data.oaktree_farm.livestock_added == false || req.session.data.oaktree_farm.exports_added == false) {
+    if (req.session.data.oaktree_farm.livestock_added == false || req.session.data.oaktree_farm.manure_exports == false) {
         next = 'checklist'
         req.session.data.show_error = true
     }
@@ -117,7 +117,7 @@ router.get(/livestock_year_handler/, hideSuccessMessage, function (req, res) {
 
 router.get(/export_year_handler/, hideSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.planning_year = req.query.harvest_date
-    if (req.session.data.oaktree_farm.exports_added == true) {
+    if (req.session.data.oaktree_farm.manure_exports == true) {
         res.redirect('manage_exports')
     } else {
         res.redirect('../../add_export/export_type')
@@ -128,9 +128,9 @@ router.get(/export_year_handler/, hideSuccessMessage, function (req, res) {
 router.get(/exportcheck_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
     if (req.session.data.import_export == 'export') {
-        req.session.data.oaktree_farm.exports_added = true;
+        req.session.data.oaktree_farm.manure_exports = true;
     } else {
-        req.session.data.oaktree_farm.imports_added = true;
+        req.session.data.oaktree_farm.manure_imports = true;
     }
     //reset defaults
     req.session.data.manure_type.name = null

@@ -37,14 +37,14 @@ router.get(/output_router/, hide_error, function (req, res) {
             next = 'export_crops'
         }
     }
-    if (req.session.data.export_type == 4) {
+    if (req.session.data.export_type == 4 ) {
         next = './n_loading/checklist'
     }
     if (req.session.data.export_type == 5) {
-        next = 'export'
+        next = 'not_available_livestock'
     }
     if (req.session.data.export_type == 6) {
-        next = 'export_livestock'
+        next = 'not_available_imports'
     }
     res.redirect(next)
 })

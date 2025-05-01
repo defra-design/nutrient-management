@@ -99,7 +99,11 @@ router.get(/get_manure_type_handler/, function (req, res) {
 
 router.get(/n_loading_submit_router/, function (req, res) {
     var next = 'report_no_derogation'
-    if (req.session.data.oaktree_farm.livestock_added == false || req.session.data.oaktree_farm.manure_exports == false) {
+    if (req.session.data.oaktree_farm.manure_imports == null && req.session.data.oaktree_farm.manure_exports == null) {
+        next = 'checklist'
+        req.session.data.show_error = true
+    }
+    if (req.session.data.oaktree_farm.livestock_added == false) {
         next = 'checklist'
         req.session.data.show_error = true
     }

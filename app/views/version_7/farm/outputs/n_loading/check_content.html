@@ -35,7 +35,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Imports and exports of livestock manure for {{data.oaktree_farm.planning_year}}</dt>
-    {% if data.oaktree_farm.manure_exports == true %}
+    {% if data.oaktree_farm.manure_imports == true or data.oaktree_farm.manure_exports == true %}
       <dd class="govuk-summary-list__value">Added</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="../../../add_export/export_type_none">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     {% else %}

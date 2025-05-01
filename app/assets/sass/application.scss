@@ -1059,7 +1059,9 @@ width: 35%
     // ::-webkit-scrollbar {
     //     display: none;
     // }
-    overflow: hidden;
+    overflow:visible;
+    height: auto;
+    scrollbar-width: 0px;
     h1 {
         margin-bottom: 0!important;
     }

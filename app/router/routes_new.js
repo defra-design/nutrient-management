@@ -245,5 +245,15 @@ router.get(/livestock_entry_handler/, function (req, res) {
     res.redirect('values')
 })
 
+router.get(/grass_years_handler/, function (req, res) {
+    for (var item in req.session.data.grass_years ) {
+        if (req.session.data.grass_years[item] == '2024') {
+            console.log("2024")
+        }
+    }
+    res.redirect('previous_lay')
+    // res.redirect('previous_cuts')
+})
+
 
 module.exports = router

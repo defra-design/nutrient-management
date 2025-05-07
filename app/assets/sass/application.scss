@@ -1042,16 +1042,16 @@ width: 35%
 }
 
 .nutrient_values {
+    padding: 0;
     padding-top: 10px!important;
-}
-
-.nutrient_value {
-    float: left;
-    width: 100%;
-    span {
-        width: 20%;
-        float: right;
-        padding-bottom: 5px;
+    li {
+        list-style-type: none;
+        padding: 0 0 10px 0;
+        width: 100%;
+        span {
+            float: right;
+            text-align: right;
+        }
     }
 }
 
@@ -1079,4 +1079,17 @@ width: 35%
 
 .nolink {
     text-decoration: none;
+}
+
+#manner-answers {
+    width: 90%;
+    .govuk-summary-list__key {
+        width: 45%;
+    }
+    .govuk-summary-list__value {
+        width: 40%;
+    }
+    .govuk-summary-list__actions {
+        width: 15%;
+    }
 }

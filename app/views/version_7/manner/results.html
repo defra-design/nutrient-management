@@ -22,18 +22,20 @@
 
 {% block content %}
 
-<div class="govuk-grid-row">
+<div class="govuk-grid-row margin-bottom-forty">
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
     {% if data.show_success_message == true %}
       {% include "./success_message.html" ignore missing %}
     {% endif %}
 
-    <h1 class="govuk-heading-xl">
+    <h1 class="govuk-heading-xl margin-bottom-forty">
+      <!-- Calculate manure application cost and losses  -->
       Results
     </h1>
+   <p class="govuk-body"><a href="">Add another application to this calculation</a></p>
    <p class="govuk-body"><a href="">Export or print these results</a></p>
-   <p class="govuk-body margin-bottom-forty"><a href="fields">Clear this data and start a new calculation</a></p>
+   <p class="govuk-body"><a href="fields">Start a new calculation</a></p>
    </div>
 </div>
 
@@ -49,18 +51,18 @@
       </li>
       <li class="govuk-tabs__list-item">
         <a class="govuk-tabs__tab" href="#value">
-          Value
+          Manure value
         </a>
       </li>
       <li class="govuk-tabs__list-item">
         <a class="govuk-tabs__tab" href="#answers">
-          Your answers
+          Application details
         </a>
       </li>
     </ul>
 
     <div class="govuk-tabs__panel" id="nutrients">
-      <!-- <h2 class="govuk-heading-l">Nutrients</h2> -->
+      <h2 class="govuk-heading-l">Nutrients</h2>
         {% include "./templates/nitrogen_table.html ignore missing" %}
         {% include "./templates/nutrient_table.html ignore missing" %}  
     </div>
@@ -71,7 +73,7 @@
     </div>
 
     <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers">
-      <h2 class="govuk-heading-l">Your answers</h2>
+      <h2 class="govuk-heading-l">Application details</h2>
       <div class="check-answers">
         {% include "./templates/answers.html ignore missing" %}
       </div>  

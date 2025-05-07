@@ -246,14 +246,13 @@ router.get(/livestock_entry_handler/, function (req, res) {
 })
 
 router.get(/grass_years_handler/, function (req, res) {
-    for (var item in req.session.data.grass_years ) {
+    let next = 'previous_lay'
+    for (var item in req.session.data.grass_years) {
         if (req.session.data.grass_years[item] == '2024') {
-            console.log("2024")
+            next = 'previous_cuts'
         }
     }
-    res.redirect('previous_lay')
-    // res.redirect('previous_cuts')
+    res.redirect(next)
 })
-
 
 module.exports = router

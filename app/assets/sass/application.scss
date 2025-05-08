@@ -729,16 +729,17 @@ h2.manure-date {
     }
 }
 
+.total_row {
+    background-color: #f3f2f1;
+    font-weight: bold;
+}
+
 
 ////NMAX TABLE 964
 
 .new_nmax_table, .new_nmax_rates_table, .new_nmax_table_grass, .new_nmax_rates_table_grass {
     margin-bottom: 40px;
     font-size: 17px;
-    .total_row {
-        background-color: #f3f2f1;
-        font-weight: bold;
-    }    
 }
 .new_nmax_table_crop {
     th {

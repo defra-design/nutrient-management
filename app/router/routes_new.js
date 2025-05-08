@@ -103,7 +103,7 @@ router.get(/n_loading_submit_router/, function (req, res) {
         next = 'checklist'
         req.session.data.show_error = true
     }
-    if (req.session.data.oaktree_farm.livestock_added == false) {
+    if (req.session.data.oaktree_farm.livestock_added == false || req.session.data.oaktree_farm.manure_exports == false) {
         next = 'checklist'
         req.session.data.show_error = true
     }

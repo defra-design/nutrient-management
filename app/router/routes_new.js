@@ -96,7 +96,6 @@ router.get(/get_manure_type_handler/, function (req, res) {
     res.redirect('date')
 })
 
-
 router.get(/n_loading_submit_router/, function (req, res) {
     var next = 'report_no_derogation'
     if (req.session.data.oaktree_farm.manure_imports == null && req.session.data.oaktree_farm.manure_exports == null) {
@@ -198,13 +197,17 @@ router.get(/manner_values_router/, showSuccessMessage, function (req, res) {
     res.redirect('results#value')
 })
 
-router.get(/manner_reset_handler/, function (req, res) {
-    res.redirect('fields')
-})
-
 router.get(/manner_results_handler/, showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 1 //done
     res.redirect('results')
+})
+
+router.get(/manner_results_reset/, hideSuccessMessage, function (req, res) {
+    res.redirect('/' + req.session.data.prototype_version + '/manner/results')
+})
+
+router.get(/manner_fields_reset/, function (req, res) {
+    res.redirect('fields')
 })
 
 router.get(/manner_change_handler/, showSuccessMessage, function (req, res) {

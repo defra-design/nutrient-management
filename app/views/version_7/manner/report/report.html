@@ -9,7 +9,7 @@
 
 {% include "/templates/signed-in.html" ignore missing %}
 
-<a href="hub_reset_router" class="noprint govuk-back-link">{{data.oaktree_farm.name}}</a>
+<a href="manner_results_reset" class="noprint govuk-back-link">Results</a>
 
 {% endblock %}
 
@@ -35,9 +35,7 @@
 
   <div class="govuk-grid-row noprint margin-bottom-thirty">
     <div class="govuk-grid-column-full">
-
       <hr>
-
     </div>
   </div>
 
@@ -71,7 +69,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
       <h2 class="govuk-heading-m">
-        Farm and field details
+        Long Field details
       </h2>
         {% include "./templates/farm_details.html" ignore missing %}
     </div>
@@ -85,6 +83,7 @@
         {% include "./templates/application_details.html" ignore missing %}
     </div>
   </div>
+  
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
@@ -109,7 +108,7 @@
       <h2 class="govuk-heading-m">
         Potential financial value of all manure applications <br>£450 per hectare
       </h2>
-        {% include "./templates/farm_details.html" ignore missing %}
+        {% include "./templates/value.html" ignore missing %}
     </div>
   </div>
 

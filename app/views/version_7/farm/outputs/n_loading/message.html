@@ -1,5 +1,4 @@
 {% if data.show_error == true %}
-
   <div class="govuk-error-summary" data-module="govuk-error-summary">
     <div role="alert">
       <h2 class="govuk-error-summary__title">
@@ -24,7 +23,12 @@
 
 {% else %}
 
-  {% if data.oaktree_farm.livestock_added == false or data.oaktree_farm.manure_exports == false %}
+  {% 
+  if (data.oaktree_farm.manure_imports == null or data.oaktree_farm.manure_imports == false) and
+  (data.oaktree_farm.manure_exports == null or data.oaktree_farm.manure_exports == false)
+  %}
+
+
 
     <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
       <div class="govuk-notification-banner__header">

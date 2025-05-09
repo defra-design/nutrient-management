@@ -40,19 +40,17 @@
       <hr class="seperator_thirty">
 
       <div>
-        {% if data.oaktree_farm.fields_added == true  %}
         <h2 class="govuk-heading-m">Planning and recording</h2>
+        {% if data.oaktree_farm.fields_added == true  %}
         <ul class="menu-list govuk-list">
           <li>
             <a class="govuk-link" href="plans_records">View, create or update a plan</a>
           </li>
-          <!-- <li>
-            <a class="govuk-link" href="../manner/fields">Calculate manure application cost and losses</a> (MANNER-NPK)
-          </li> -->
         </ul>
         {% else %}
           <p>To start creating plans and records, <a href="field_add_reset_handler">add your fields</a></p>
         {% endif %}
+        <p><a class="govuk-link" href="../manner/fields">Calculate manure application cost and losses</a> (MANNER-NPK)</p>
       </div>
 
       <hr class="seperator_thirty">

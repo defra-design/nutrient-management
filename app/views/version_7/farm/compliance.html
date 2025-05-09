@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "All farms",
+        href: "farmsview_reset_handler" 
+      },
+      {
+        text: "Oaktree Lane Farm",
+        href: "hub_reset_router"
+      },
+      {
+        text: "Compliance 2025"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+{{ plan_status }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="name govuk-caption-xl">{{ data.oaktree_farm.name }}</span>
+    <h1 class="govuk-heading-l" id="header">NVZ Compliance 2025</h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div id="all-plans-table" class="govuk-grid-column-two-thirds">
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">NVZ Rule</th>
+            <th scope="col" class="govuk-table__header">Compliant</th>
+            <th scope="col" class="govuk-table__header"> </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">N-max</td>
+            <td class="govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell">
+              <a href="./outputs/nmax/index">View details</a>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">N loading</td>
+            <td class="govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell">
+              <a href="./outputs/n_loading/checklist">View details</a>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Manure storage</td>
+            <td class="govuk-table__cell">Information not entered</td>
+            <td class="govuk-table__cell">
+              <!-- <a href="./outputs/not_available_storage">View details</a> -->
+              <a href="./outputs/n_loading/checklist">View details</a>
+            </td>
+          </tr>
+    </tbody>
+      </table>      
+    </div>
+  </div>
+
+{% endblock %}

@@ -216,6 +216,20 @@ router.get(/manner_results_handler/, showSuccessMessage, function (req, res) {
     res.redirect('results')
 })
 
+router.get(/manner_remove_application/, showSuccessMessage, function (req, res) {
+    req.session.data.successMessage = 4 //application removed
+    if (req.query.application == 1) {
+        req.session.data.manner_application_one = false
+    }
+    if (req.query.application == 2) {
+        req.session.data.manner_application_two = false
+    }
+    if (req.query.application == 3) {
+        req.session.data.manner_application_three = false
+    }
+    res.redirect('/' + req.session.data.prototype_version + '/manner/results')
+})
+
 router.get(/manner_results_reset/, hideSuccessMessage, function (req, res) {
     res.redirect('/' + req.session.data.prototype_version + '/manner/results')
 })
@@ -225,7 +239,7 @@ router.get(/manner_fields_reset/, hideSuccessMessage, function (req, res) {
 })
 
 router.get(/manner_change_handler/, showSuccessMessage, function (req, res) {
-    req.session.data.successMessage = 3 //chnaged
+    req.session.data.successMessage = 3 //changed
     res.redirect('results')
 })
 

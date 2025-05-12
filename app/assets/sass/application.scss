@@ -1010,9 +1010,10 @@ width: 35%
 }
 
 .manner_table {
-    .govuk-table__cell {
-        width: 50%
+    th:first-child {
+        width: 27%
     }
+    font-size: 17px;
 }
 
 .left_col {

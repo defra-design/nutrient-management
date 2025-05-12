@@ -1,6 +1,6 @@
 
 
-{% macro values(value_1, value_2, value_3, total) %}
+<!-- {% macro values(value_1, value_2, value_3, total) %}
     {% if total == null%}
         {% set total = value_1 + value_2 + value_3 %}
     {% endif %}
@@ -16,6 +16,28 @@
     {% else %}
         <td class="govuk-table__cell">£{{total}}</td>
     {% endif %}
+{% endmacro %} -->
+
+{% macro values(value_1, value_2, value_3, measurement, total) %}
+{% set count = 0 %}
+    {% if (data.manner_applications | length) >= 1 %}
+        <td class="govuk-table__cell">£{{value_1}}</td>
+        {% set count = count + value_1 %}
+    {% endif %}
+    {% if (data.manner_applications | length) >= 2 %}
+        <td class="govuk-table__cell">£{{value_2}}</td>
+        {% set count = count + value_2 %}
+    {% endif %}
+    {% if (data.manner_applications | length) == 3 %}
+        <td class="govuk-table__cell">£{{value_3}}</td>
+        {% set count = count + value_3 %}
+    {% endif %}
+    {% if total == null %}
+        {% set total = count %}
+    {% endif %}
+    {% if (data.manner_applications | length) >= 2 %}
+        <td class="govuk-table__cell">£{{total}}</td>
+    {% endif %}
 {% endmacro %}
 
 
@@ -25,18 +47,18 @@
         <thead class="govuk-table__head">
             <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header"></th>
-                {% if data.manner_application_three == true %}
+                {% if (data.manner_applications | length) >= 1 %}
                     <th scope="col" class="govuk-table__header">Application 1</th>
+                {% endif %}
+                {% if (data.manner_applications | length) >= 2 %}
                     <th scope="col" class="govuk-table__header">Application 2</th>
+                {% endif %}
+                {% if (data.manner_applications | length) == 3 %}
                     <th scope="col" class="govuk-table__header">Application 3</th>
+                {% endif %}
+                {% if (data.manner_applications | length) >= 2 %}
                     <th scope="col" class="govuk-table__header">Total</th>
-                {% elif data.manner_application_two == true  %}
-                    <th scope="col" class="govuk-table__header">Application 1</th>
-                    <th scope="col" class="govuk-table__header">Application 2</th>
-                    <th scope="col" class="govuk-table__header">Total</th>
-                {% else %}
-                <th scope="col" class="govuk-table__header">Total</th>
-            {% endif %}
+                {% endif %}
         </thead>    
         <tbody class="govuk-table__body">
             <tr class="govuk-table__row">

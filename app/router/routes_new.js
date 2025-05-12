@@ -206,32 +206,35 @@ router.get(/manner_values_router/, showSuccessMessage, function (req, res) {
 
 router.get(/manner_results_handler/, showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 1 //done
-    if (req.session.data.manner_application_one == false) {
-        req.session.data.manner_application_one = true
-    } else if (req.session.data.manner_application_two == false) {
-        req.session.data.manner_application_two = true
-    } else {
-        req.session.data.manner_application_three = true
-    }
+    let tempApplication = {date:'01/01/2025'}
+    req.session.data.manner_applications.push(tempApplication)
     res.redirect('results')
 })
 
 router.get(/manner_remove_application/, showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 4 //application removed
     if (req.query.application == 1) {
-        req.session.data.manner_application_one = false
+        req.session.data.manner_applications.shift()
     }
     if (req.query.application == 2) {
-        req.session.data.manner_application_two = false
+        if (req.session.data.manner_applications.length == 2) {
+            req.session.data.manner_applications.pop()
+        } else {
+            req.session.data.manner_applications.shift()
+        }
     }
     if (req.query.application == 3) {
-        req.session.data.manner_application_three = false
+        req.session.data.manner_applications.pop()
     }
     res.redirect('/' + req.session.data.prototype_version + '/manner/results')
 })
 
 router.get(/manner_results_reset/, hideSuccessMessage, function (req, res) {
     res.redirect('/' + req.session.data.prototype_version + '/manner/results')
+})
+
+router.get(/manner_manure_group_reset/, hideSuccessMessage, function (req, res) {
+    res.redirect('/' + req.session.data.prototype_version + '/manner/manure_group')
 })
 
 router.get(/manner_fields_reset/, hideSuccessMessage, function (req, res) {

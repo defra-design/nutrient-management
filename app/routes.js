@@ -65,9 +65,12 @@ const loadControlVars = function (req, res, next) {
     req.session.data.crop_count = 0
     req.session.data.manure_spreads = 0
     req.session.data.fertiliser_spreads = 0
-    req.session.data.manner_application_one = false
-    req.session.data.manner_application_two = false
-    req.session.data.manner_application_three = false
+    req.session.data.manner_applications = []
+    // req.session.data.manner_application_one = {date:'01/01/2025'}
+    // req.session.data.manner_application_two = {date:'02/02/2025'}
+    // req.session.data.manner_application_three = {date:'03/03/2025'}
+    // req.session.data.manner_applications.push(req.session.data.manner_application_one, req.session.data.manner_application_two, req.session.data.manner_application_three)
+    console.log(req.session.data.manner_applications)
     next()
 }
 

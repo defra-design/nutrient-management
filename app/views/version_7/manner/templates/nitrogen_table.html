@@ -1,16 +1,16 @@
 {% macro application_headers() %}
 <tr class="govuk-table__row">
     <th scope="col" class="govuk-table__header">
-    {% if data.manner_application_one == true %}
+    {% if (data.manner_applications | length) >= 1 %}
         <th scope="col" class="govuk-table__header">Application 1</th>
     {% endif %}
-    {% if data.manner_application_two == true %}
+    {% if (data.manner_applications | length) >= 2 %}
         <th scope="col" class="govuk-table__header">Application 2</th>
     {% endif %}
-    {% if data.manner_application_three == true %}
+    {% if (data.manner_applications | length) == 3 %}
         <th scope="col" class="govuk-table__header">Application 3</th>
     {% endif %}
-    {% if (data.manner_application_one == true and data.manner_application_two == true) or (data.manner_application_two == true and data.manner_application_three == true) or (data.manner_application_one == true and data.manner_application_three == true) %}
+    {% if (data.manner_applications | length) >= 2 %}
         <th scope="col" class="govuk-table__header">Total</th>
     {% endif %}
 </tr>
@@ -18,27 +18,24 @@
 
 {% macro application_values(value_1, value_2, value_3, measurement, total) %}
 {% set count = 0 %}
-    {% if data.manner_application_one == true %}
+    {% if (data.manner_applications | length) >= 1 %}
         <td class="govuk-table__cell">{{value_1}}{{measurement}}</td>
         {% set count = count + value_1 %}
     {% endif %}
-    {% if data.manner_application_two == true %}
+    {% if (data.manner_applications | length) >= 2 %}
         <td class="govuk-table__cell">{{value_2}}{{measurement}}</td>
         {% set count = count + value_2 %}
     {% endif %}
-    {% if data.manner_application_three == true %}
+    {% if (data.manner_applications | length) == 3 %}
         <td class="govuk-table__cell">{{value_3}}{{measurement}}</td>
         {% set count = count + value_3 %}
     {% endif %}
-
     {% if total == null %}
         {% set total = count %}
     {% endif %}
-
-    {% if (data.manner_application_one == true and data.manner_application_two == true) or (data.manner_application_two == true and data.manner_application_three == true) or (data.manner_application_one == true and data.manner_application_three == true) %}
+    {% if (data.manner_applications | length) >= 2 %}
         <td class="govuk-table__cell">{{total}}{{measurement}}</td>
     {% endif %}
-
 {% endmacro %}
 
 

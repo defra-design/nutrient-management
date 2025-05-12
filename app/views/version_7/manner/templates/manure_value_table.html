@@ -23,23 +23,23 @@
 <div class="margin-bottom-forty">
     <table class="govuk-table margin-bottom-forty">
         <thead class="govuk-table__head">
-            {% if data.manner_application_three == true %}
+            <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header"></th>
-                <th scope="col" class="govuk-table__header">Application 1</th>
-                <th scope="col" class="govuk-table__header">Application 2</th>
-                <th scope="col" class="govuk-table__header">Application 3</th>
+                {% if data.manner_application_three == true %}
+                    <th scope="col" class="govuk-table__header">Application 1</th>
+                    <th scope="col" class="govuk-table__header">Application 2</th>
+                    <th scope="col" class="govuk-table__header">Application 3</th>
+                    <th scope="col" class="govuk-table__header">Total</th>
+                {% elif data.manner_application_two == true  %}
+                    <th scope="col" class="govuk-table__header">Application 1</th>
+                    <th scope="col" class="govuk-table__header">Application 2</th>
+                    <th scope="col" class="govuk-table__header">Total</th>
+                {% else %}
                 <th scope="col" class="govuk-table__header">Total</th>
-            {% elif data.manner_application_two == true  %}
-                <th scope="col" class="govuk-table__header"></th>
-                <th scope="col" class="govuk-table__header">Application 1</th>
-                <th scope="col" class="govuk-table__header">Application 2</th>
-                <th scope="col" class="govuk-table__header">Total</th>
-            {% else %}
-            <th scope="col" class="govuk-table__header">Application 1</th>
             {% endif %}
         </thead>    
         <tbody class="govuk-table__body">
-            <tr class="govuk-table__row"></tr>
+            <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Crop available N (per hectare)</th>
                  {{ values(13, 13, 13 ) }}
             </tr>

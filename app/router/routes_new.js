@@ -206,6 +206,13 @@ router.get(/manner_values_router/, showSuccessMessage, function (req, res) {
 
 router.get(/manner_results_handler/, showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 1 //done
+    if (req.session.data.manner_application_one == false) {
+        req.session.data.manner_application_one = true
+    } else if (req.session.data.manner_application_two == false) {
+        req.session.data.manner_application_two = true
+    } else {
+        req.session.data.manner_application_three = true
+    }
     res.redirect('results')
 })
 
@@ -213,7 +220,7 @@ router.get(/manner_results_reset/, hideSuccessMessage, function (req, res) {
     res.redirect('/' + req.session.data.prototype_version + '/manner/results')
 })
 
-router.get(/manner_fields_reset/, function (req, res) {
+router.get(/manner_fields_reset/, hideSuccessMessage, function (req, res) {
     res.redirect('fields')
 })
 

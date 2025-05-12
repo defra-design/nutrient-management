@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Check your answers 1 – {{ serviceName }} – GOV.UK Prototype Kit
+  Results – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -33,7 +33,20 @@
       <!-- Calculate manure application cost and losses  -->
       Results
     </h1>
-   <p class="govuk-body"><a href="">Add another application to this calculation</a></p>
+
+   {% if data.manner_application_three != true %} 
+      <p class="govuk-body"><a href="manner_fields_reset">Add another application to this calculation</a></p>
+   {% endif %} 
+
+    {% if data.manner_application_three == true %}
+      <p class="govuk-body"><a href="">Remove application 3</a></p>
+   {% endif %} 
+
+  {% if data.manner_application_two == true %}
+      <p class="govuk-body"><a href="">Remove application 2</a></p>
+   {% endif %} 
+
+
    <p class="govuk-body"><a href="report/report">Export or print these results</a></p>
    <p class="govuk-body"><a href="fields">Start a new calculation</a></p>
    </div>

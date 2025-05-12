@@ -1,35 +1,44 @@
 {% macro application_headers() %}
 <tr class="govuk-table__row">
     <th scope="col" class="govuk-table__header">
-    {% if data.manner_application_three == true %}
+    {% if data.manner_application_one == true %}
         <th scope="col" class="govuk-table__header">Application 1</th>
-        <th scope="col" class="govuk-table__header">Application 2</th>
-        <th scope="col" class="govuk-table__header">Application 3</th>
-    {% elif data.manner_application_two == true  %}
-        <th scope="col" class="govuk-table__header">Application 1</th>
-        <th scope="col" class="govuk-table__header">Application 2</th>
-    {% else %}
     {% endif %}
-    <th scope="col" class="govuk-table__header">Total</th>
+    {% if data.manner_application_two == true %}
+        <th scope="col" class="govuk-table__header">Application 2</th>
+    {% endif %}
+    {% if data.manner_application_three == true %}
+        <th scope="col" class="govuk-table__header">Application 3</th>
+    {% endif %}
+    {% if (data.manner_application_one == true and data.manner_application_two == true) or (data.manner_application_two == true and data.manner_application_three == true) or (data.manner_application_one == true and data.manner_application_three == true) %}
+        <th scope="col" class="govuk-table__header">Total</th>
+    {% endif %}
 </tr>
 {% endmacro %}
 
 {% macro application_values(value_1, value_2, value_3, measurement, total) %}
-    {% if total == null%}
-        {% set total = value_1 + value_2 + value_3 %}
+{% set count = 0 %}
+    {% if data.manner_application_one == true %}
+        <td class="govuk-table__cell">{{value_1}}{{measurement}}</td>
+        {% set count = count + value_1 %}
+    {% endif %}
+    {% if data.manner_application_two == true %}
+        <td class="govuk-table__cell">{{value_2}}{{measurement}}</td>
+        {% set count = count + value_2 %}
     {% endif %}
     {% if data.manner_application_three == true %}
-        <td class="govuk-table__cell">{{value_1}}{{measurement}}</td>
-        <td class="govuk-table__cell">{{value_2}}{{measurement}}</td>
         <td class="govuk-table__cell">{{value_3}}{{measurement}}</td>
-        <th scope="col" class="govuk-table__header">{{total}}{{measurement}}</th>
-    {% elif data.manner_application_two == true  %}
-        <td class="govuk-table__cell">{{value_1}}{{measurement}}</td>
-        <td class="govuk-table__cell">{{value_2}}{{measurement}}</td>
-        <th scope="col" class="govuk-table__header">{{total}}{{measurement}}</th>
-    {% else %}
+        {% set count = count + value_3 %}
+    {% endif %}
+
+    {% if total == null %}
+        {% set total = count %}
+    {% endif %}
+
+    {% if (data.manner_application_one == true and data.manner_application_two == true) or (data.manner_application_two == true and data.manner_application_three == true) or (data.manner_application_one == true and data.manner_application_three == true) %}
         <td class="govuk-table__cell">{{total}}{{measurement}}</td>
     {% endif %}
+
 {% endmacro %}
 
 

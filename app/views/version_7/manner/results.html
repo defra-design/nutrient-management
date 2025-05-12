@@ -34,7 +34,7 @@
       Results
     </h1>
 
-   {% if (data.manner_application_three != true) or (data.manner_application_three == true and data.manner_application_one == false) %} 
+   {% if (data.manner_application_three == false or data.manner_application_two == false or data.manner_application_tone == false ) %} 
       <p class="govuk-body"><a href="manner_fields_reset">Add another application to this calculation</a></p>
    {% endif %} 
 

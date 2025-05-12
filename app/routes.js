@@ -65,9 +65,9 @@ const loadControlVars = function (req, res, next) {
     req.session.data.crop_count = 0
     req.session.data.manure_spreads = 0
     req.session.data.fertiliser_spreads = 0
-    req.session.data.manner_application_one = true
-    req.session.data.manner_application_two = true
-    req.session.data.manner_application_three = true
+    req.session.data.manner_application_one = false
+    req.session.data.manner_application_two = false
+    req.session.data.manner_application_three = false
     next()
 }
 

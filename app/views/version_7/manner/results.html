@@ -54,17 +54,46 @@
           Manure value
         </a>
       </li>
-      <li class="govuk-tabs__list-item">
-        <a class="govuk-tabs__tab" href="#answers">
-          Application details
-        </a>
-      </li>
+
+      {% if data.manner_application_three == true %}
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#answers">
+            Application 1 details
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#answers">
+            Application 2 details
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#answers">
+            Application 3 details
+          </a>
+        </li>
+      {% elif data.manner_application_two == true %}
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#answers">
+            Application 1 details
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#answers">
+            Application 2 details
+          </a>
+        </li>
+      {% else %}
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#answers">
+            Application details
+          </a>
+        </li>
+      {% endif %}
     </ul>
 
     <div class="govuk-tabs__panel" id="nutrients">
       <h2 class="govuk-heading-l">Nutrients</h2>
         {% include "./templates/nitrogen_table.html ignore missing" %}
-        {% include "./templates/nutrient_table.html ignore missing" %}  
     </div>
 
     <div class="govuk-tabs__panel clearfix govuk-tabs__panel--hidden" id="value">

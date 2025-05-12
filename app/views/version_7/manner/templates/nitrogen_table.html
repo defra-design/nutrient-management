@@ -22,11 +22,14 @@
         <td class="govuk-table__cell">{{value_1}}{{measurement}}</td>
         <td class="govuk-table__cell">{{value_2}}{{measurement}}</td>
         <td class="govuk-table__cell">{{value_3}}{{measurement}}</td>
+        <th scope="col" class="govuk-table__header">{{total}}{{measurement}}</th>
     {% elif data.manner_application_two == true  %}
         <td class="govuk-table__cell">{{value_1}}{{measurement}}</td>
         <td class="govuk-table__cell">{{value_2}}{{measurement}}</td>
-    {% endif %}
+        <th scope="col" class="govuk-table__header">{{total}}{{measurement}}</th>
+    {% else %}
         <td class="govuk-table__cell">{{total}}{{measurement}}</td>
+    {% endif %}
 {% endmacro %}
 
 

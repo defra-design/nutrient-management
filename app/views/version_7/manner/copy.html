@@ -27,26 +27,28 @@
         <div class="govuk-form-group">
             <div class="govuk-radios" data-module="govuk-radios">
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="yes-1" name="copy_manner" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="yes-1">
-                  Yes, copy application 1
-                </label>
-              </div>
-
+            {% if (data.manner_applications | length) >= 1 %} 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="yes-2" name="copy_manner" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="yes-2">
-                  Yes, copy application 2            
+                <label class="govuk-label govuk-radios__label" for="yes-1">
+                  Yes, copy application 1          
                 </label>
               </div>
-
+            {% endif %} 
+            {% if (data.manner_applications | length) >= 2 %} 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="no" name="copy_manner" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="no">
-                  No, start with new manure details
+                <input class="govuk-radios__input" id="yes-2" name="copy_manner" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="yes-1">
+                  Yes, copy application 2         
                 </label>
               </div>
+            {% endif %} 
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="no" name="copy_manner" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="no">
+                No, start with new manure details
+              </label>
+            </div>
 
           </div>
           </fieldset>

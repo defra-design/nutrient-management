@@ -43,7 +43,7 @@
     <div class="govuk-grid-column-full nmax_header">
 
       <h1 class="govuk-heading-xl">Calculate manure application cost and losses (MANNER-NPK)</h1>
-      <p class="govuk-body">Created on {{data.todays_date}}</p>
+      <p class="govuk-body">Created on {{data.content.todays_date}}</p>
 
     </div>
   </div>
@@ -68,8 +68,8 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
-      <h2 class="govuk-heading-m">
-        Long Field details
+      <h2 class="govuk-heading-l">
+        Field details
       </h2>
         {% include "./templates/farm_details.html" ignore missing %}
     </div>
@@ -77,7 +77,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-l">
         Application details
       </h2>
         {% include "./templates/application_details.html" ignore missing %}
@@ -87,28 +87,30 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-l">
         Manure analysis
       </h2>
+      <p class="govuk-body-s negative-10">Values are  per cubic metre.</p>
         {% include "./templates/manure_analysis.html" ignore missing %}
     </div>
   </div>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-l">
         MANNER-NPK results 
       </h2>
-      <p class="govuk-body-s">Values are per hectare</p>
-        {% include "./templates/manner_results.html" ignore missing %}
+      <p class="govuk-body-s negative-10">Values are  per cubic metre.</p>
+      {% include "./templates/manner_results.html" ignore missing %}
     </div>
   </div>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-l">
         Potential financial value of all manure applications <br>£450 per hectare
       </h2>
+      <p class="govuk-body-s negative-10">Based on nitrogen (N) at 90p per kg. P205 at 80p per kg and K20 at 60p per kg.
         {% include "./templates/value.html" ignore missing %}
     </div>
   </div>
@@ -122,7 +124,5 @@
       {% include "/templates/recommendations.html" ignore missing %}
     </div>
 </div>
-  
-
 
 {% endblock %}

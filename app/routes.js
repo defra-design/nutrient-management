@@ -70,7 +70,6 @@ const loadControlVars = function (req, res, next) {
     // req.session.data.manner_application_two = {date:'02/02/2025'}
     // req.session.data.manner_application_three = {date:'03/03/2025'}
     // req.session.data.manner_applications.push(req.session.data.manner_application_one, req.session.data.manner_application_two, req.session.data.manner_application_three)
-    console.log(req.session.data.manner_applications)
     next()
 }
 

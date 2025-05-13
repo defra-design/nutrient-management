@@ -289,4 +289,21 @@ router.get(/grass_years_handler/, function (req, res) {
     res.redirect(next)
 })
 
+router.get(/manner_copy_handler/, function (req, res) {
+    let next = req.session.data.manner_applications.length == 3 ? 'manure_group' : 'copy';
+    res.redirect(next);
+});
+
+router.get(/manner_copy_router/, function (req, res) {
+    let next
+    let tempApplication = {date:'01/01/2025'}
+    if (req.session.data.copy_manner == 'no') {
+        next = 'manure_group'
+    } else {
+        req.session.data.manner_applications.push(tempApplication)
+        next = 'results'
+    }
+    res.redirect(next);
+});
+
 module.exports = router

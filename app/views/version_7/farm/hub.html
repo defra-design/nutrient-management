@@ -42,7 +42,7 @@
       <div>
         <h2 class="govuk-heading-m">Planning and recording</h2>
         {% if data.oaktree_farm.fields_added == true  %}
-        <ul class="menu-list govuk-list">
+        <ul class="menu-list govuk-list govuk-list--spaced">
           <li>
             <a class="govuk-link" href="plans_records">View, create or update a plan</a>
           </li>
@@ -58,7 +58,7 @@
 
       <div>
         <h2 class="govuk-heading-m">Farm and field details</h2>
-          <ul class="menu-list govuk-list">
+          <ul class="menu-list govuk-list govuk-list--spaced">
             <li>
               <a class="govuk-link" href="farm-details">Update farm details</a>
             </li>
@@ -78,7 +78,7 @@
 
     <div>
       <h2 class="govuk-heading-m">Livestock details</h2>
-      <ul class="menu-list govuk-list">
+      <ul class="menu-list govuk-list govuk-list--spaced">
         <li>
           <a class="govuk-link" href="livestock/livestock_years">
             {% if data.oaktree_farm.livestock_added == true %}
@@ -96,7 +96,7 @@
 
     <div>
       <h2 class="govuk-heading-m">Organic manure details</h2>
-      <ul class="menu-list govuk-list">
+      <ul class="menu-list govuk-list govuk-list--spaced">
         <li>
           <a class="govuk-link" href="exports/export_years">
             {% if data.oaktree_farm.manure_exports == true %}
@@ -113,13 +113,13 @@
     <hr class="seperator_thirty">
 
     <div>
-      <h2 class="govuk-heading-m">NVZ compliance, reports and outputs</h2>
-      <ul class="menu-list govuk-list">
+      <h2 class="govuk-heading-m">Reports and outputs</h2>
+      <ul class="menu-list govuk-list govuk-list--spaced">
+        <!-- <li>
+          <a class="govuk-link" href="compliance/compliance_years">View NVZ compliance</a>
+        </li> -->
         <li>
           <a class="govuk-link" href="outputs/years">Save or print a report</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="outputs/years">View NVZ Compliance</a>
         </li>
         <li>
           <a href="">Download all {{data.oaktree_farm.name}}'s data as a csv file</a>        

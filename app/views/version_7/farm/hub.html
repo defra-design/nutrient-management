@@ -49,8 +49,9 @@
         </ul>
         {% else %}
           <p>To start creating plans and records, <a href="field_add_reset_handler">add your fields</a></p>
+          <hr class="seperator_thirty">
         {% endif %}
-        <!-- <p><a class="govuk-link" href="../manner/fields">Calculate manure application cost and losses</a> (MANNER-NPK)</p> -->
+        <p><a class="govuk-link" href="../manner/fields">Calculate manure application cost and losses</a> (MANNER-NPK)</p>
       </div>
 
       <hr class="seperator_thirty">
@@ -112,13 +113,18 @@
     <hr class="seperator_thirty">
 
     <div>
-      <h2 class="govuk-heading-m">Reports and outputs</h2>
+      <h2 class="govuk-heading-m">NVZ compliance, reports and outputs</h2>
       <ul class="menu-list govuk-list">
         <li>
           <a class="govuk-link" href="outputs/years">Save or print a report</a>
         </li>
+        <li>
+          <a class="govuk-link" href="outputs/years">View NVZ Compliance</a>
+        </li>
+        <li>
+          <a href="">Download all {{data.oaktree_farm.name}}'s data as a csv file</a>        
+        </li>
       </ul>
-      <p><a href="">Download all {{data.oaktree_farm.name}}'s data as a csv file</a> </p>
     </div>
 
     <hr class="seperator_thirty">

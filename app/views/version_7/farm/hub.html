@@ -58,14 +58,18 @@
 
       <div>
         <h2 class="govuk-heading-m">Farm and field details</h2>
-          <ul class="menu-list govuk-list govuk-list--spaced">
-            <li>
-              <a class="govuk-link" href="farm-details">Update farm details</a>
-            </li>
+          <ul class="menu-list govuk-list">
+              <li>
+                <a class="govuk-link" href="farm-details">Update farm details</a>
+              </li>
             {% if data.oaktree_farm.fields_added == true %}
-            <li>
-              <a class="govuk-link" href="field_reset_handler">Update fields or soil analysis</a>
-            </li>
+              <li>
+                <a class="govuk-link" href="field_reset_handler">Update fields or soil analysis</a>
+              </li>
+            {% else %}
+              <li>
+                <a href="field_add_reset_handler">Add a field</a>
+              </li>
           {% endif %}
           <!-- manure -->
           <!-- <li>

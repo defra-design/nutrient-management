@@ -223,21 +223,6 @@ router.get(/groupname_handler/, function (req, res) {
 })
 
 
-// current v1-7 - Set the chosen_crop
-router.get(/mvp_crop_handler/, function (req, res) { 
-    // if (req.session.data.crop_group == 'potatoes') { 
-    //     res.redirect('crop_type_potato')
-    // }
-    if (req.session.data.chosen_crop == null || req.session.data.chosen_crop == '')  {
-        if (req.session.data.crop_group == 'other') {
-            req.session.data.chosen_crop = 'Flax'
-        } else {
-            req.session.data.chosen_crop = 'Winter Wheat'
-        }
-    }
-    res.redirect('fields')
-})
-
 //potatoes
 router.get(/potato_type_handler/, function (req, res) { 
     // for (var x in req.session.data.potato_details) {
@@ -392,6 +377,51 @@ router.get(/cropmvp_handler/, function (req, res) {
     } else {
         res.redirect('crop_type_all')
     }
+})
+
+// current v1-7
+router.get(/cropmanner_handler/, function (req, res) { 
+    if (req.session.data.crop_group == 'grass') { 
+        req.session.data.chosen_crop = 'grass'
+        res.redirect('manure_group')
+    } else if (req.session.data.crop_group == 'potatoes') { 
+        res.redirect('crop_type_potato')
+    } else if (req.session.data.crop_group == null) { 
+        req.session.data.crop_group = 'cereals'
+        res.redirect('crop_type_all')
+    } else {
+        res.redirect('crop_type_all')
+    }
+})
+
+// current v1-7 - Set the chosen_crop
+router.get(/mvp_crop_handler/, function (req, res) { 
+    // if (req.session.data.crop_group == 'potatoes') { 
+    //     res.redirect('crop_type_potato')
+    // }
+    if (req.session.data.chosen_crop == null || req.session.data.chosen_crop == '')  {
+        if (req.session.data.crop_group == 'other') {
+            req.session.data.chosen_crop = 'Flax'
+        } else {
+            req.session.data.chosen_crop = 'Winter Wheat'
+        }
+    }
+    res.redirect('fields')
+})
+
+// current v1-7 - Set the chosen_crop
+router.get(/manner_crop_handler/, function (req, res) { 
+    // if (req.session.data.crop_group == 'potatoes') { 
+    //     res.redirect('crop_type_potato')
+    // }
+    if (req.session.data.chosen_crop == null || req.session.data.chosen_crop == '')  {
+        if (req.session.data.crop_group == 'other') {
+            req.session.data.chosen_crop = 'Flax'
+        } else {
+            req.session.data.chosen_crop = 'Winter Wheat'
+        }
+    }
+    res.redirect('manure_group')
 })
 
 // old v2,3,4

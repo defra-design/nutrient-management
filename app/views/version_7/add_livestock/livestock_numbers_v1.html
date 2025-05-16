@@ -18,7 +18,6 @@
 
 
 {% macro monthitem(name) %}
-<div class="margin-bottom-forty">
   <h3 class="govuk-heading-s">{{name}}</h3>
   <div class="govuk-form-group">
     <label class="govuk-label" for="livestock_number">
@@ -37,8 +36,8 @@
       <div class="govuk-input__suffix" aria-hidden="true">%</div>
     </div>
   </div>
-</div>
 {% endmacro %}
+
 
   <div class="govuk-grid-row">
 
@@ -46,15 +45,15 @@
       
       <form action="values_two" method="post" novalidate="">
 
-        <h1 class="govuk-heading-l">{{data.chosen_livestock.name | capitalize}} 2025</h1>
+        <h1 class="govuk-heading-l">Sow place with litter, up to 7kg (with synth, amino acids)  2025</h1>
 
-        <!-- <p class="govuk-body">Enter figures for each month or enter a figure for January and select 'Use January's numbers for the rest of the year'</p> -->
+        <p class="govuk-body"></p>
        
         {{ monthitem ("January") }}
 
         <div class="margin-bottom-ten">
           <button type="" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            Use January's numbers for the rest of the year
+            Add January's number to all months
           </button>
         </div>
 

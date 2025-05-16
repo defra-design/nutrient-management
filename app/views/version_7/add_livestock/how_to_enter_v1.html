@@ -19,24 +19,36 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        How do you want to enter the details for {{data.chosen_livestock.name | capitalize}}for 2025?
+        How do you want to enter the livestock numbers?
       </h1>
+
+      <!-- <p class="govuk-hint">Average for the year is required for N loading report.</p> -->
+
+      <!-- <p class="govuk-body">
+        Does {{data.farm.name}} have livestock_entry?
+      </p> -->
 
       <form class="form" action="livestock_entry_handler" method="post">
 
+        <p class="govuk-body">
+          If the livestock are only on {{data.oaktree_farm.name}} for part of the year, then enter the number per month.
+
+        </p>
+
+      
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="livestock_entry-hint">
             <div class="govuk-radios govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="livestock_entry" name="livestock_entry" type="radio" value="average">
                 <label class="govuk-label govuk-radios__label" for="livestock_entry">
-                  Enter average numbers for the year
+                  Enter the average number for the calendar year
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="livestock_entry-2" name="livestock_entry" type="radio" value="monthly">
                 <label class="govuk-label govuk-radios__label" for="livestock_entry-2">
-                 Enter different numbers for each month 
+                  Enter the number per month
                 </label>
               </div>
             </div>

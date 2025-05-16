@@ -180,8 +180,8 @@ router.get(/get_livestock_reference/, function (req, res) {
             req.session.data.chosen_livestock = req.session.data.livestock_types[reference]
         }
     }
-    var next = 'how_to_enter'
-    res.redirect(next)
+    // res.redirect("how_to_enter")
+    res.redirect("livestock_numbers_jan")
 })
 
 router.get(/add_livestock_handler/, function (req, res) {

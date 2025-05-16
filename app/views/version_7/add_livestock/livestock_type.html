@@ -38,7 +38,7 @@
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="{{animal.reference}}" name="livestock_reference" type="radio" value="{{animal.reference}}">
                   <label class="govuk-label govuk-radios__label" for="{{animal.reference}}">
-                    {{animal.rate}} {{animal.name}}
+                    {{animal.name | capitalize}}
                   </label>
                 </div>
                 {% endif %}

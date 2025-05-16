@@ -1,7 +1,7 @@
 <dl class="govuk-summary-list">
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Does {{data.oaktree_farm.name}} have a derogation for {{data.oaktree_farm.planning_year}}?</dt>
+    <dt class="govuk-summary-list__key">Does {{data.oaktree_farm.name}} have derogation for {{data.oaktree_farm.planning_year}}?</dt>
     <dd class="govuk-summary-list__value">{{data.oaktree_farm.derogation | convert_true_false}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
@@ -19,20 +19,17 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How do you want to enter the livestock numbers?</dt>
-    {% if data.livestock_entry != 'average' %}
-      <dd class="govuk-summary-list__value">Enter the number per month</dd>
-    {% else %}
-      <dd class="govuk-summary-list__value">Enter the average number for the calendar year</dd>
-    {% endif %}
+    <dt class="govuk-summary-list__key">Total number of places in January</dt>
+      <dd class="govuk-summary-list__value">{{data.livestock_number}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What is the average number for the year?</dt>
-    <dd class="govuk-summary-list__value">{{data.livestock_number}}</dd>
+    <dt class="govuk-summary-list__key">Use these numbers for the rest of the year?</dt>
+    <dd class="govuk-summary-list__value">Yes</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+
 
   {% if data.livestock_group != 'cattle' %}
     <div class="govuk-summary-list__row">
@@ -49,9 +46,9 @@
   {% endif %}
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Nitrogen (N) standard per year:</dt>
+    <dt class="govuk-summary-list__key">Nitrogen (N) standard</dt>
     <dd class="govuk-summary-list__value">
-      {{data.chosen_livestock.nitrogen}}kg per year
+      {{data.chosen_livestock.nitrogen}}kg per animal, per year
     </dd>
     {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
@@ -92,3 +89,35 @@
   {% endif %}
 
 </dl>
+
+    <!-- <div class="margin-bottom-forty">
+      <h2 class="govuk-heading-m">
+        Total nitrogen (N) 
+        {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
+          and phosphate (P205) 
+        {% endif %}
+        from this livestock type in 2025
+      </h2>
+      <table class="govuk-table">
+        <tbody>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Nitrogen (N) standard, per animal</th>
+            <td class="govuk-table__cell">{{data.chosen_livestock.nitrogen}}kg</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Total nitrogen (N) produced by this cattle type</th>
+            <td class="govuk-table__cell">60kg</td>
+          </tr>
+          {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Phosphate (P2O5) standard, per animal</th>
+              <td class="govuk-table__cell">60kg</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Total phosphate (P205) produced by this cattle type</th>
+              <td class="govuk-table__cell">32kg</td>
+            </tr>
+          {% endif %}
+        </tbody>
+      </table>  
+    </div> -->

@@ -19,20 +19,8 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Entering livestock numbers
+        How do you want to enter the details for {{data.chosen_livestock.name | capitalize}}for 2025?
       </h1>
-
-      <p class="govuk-body">
-        To calculate organic manure inventory and storage requirements you need to enter the number of animals and their occupancy for each  month.      
-      </p>
-
-      <p class="govuk-body">
-        You can enter an average number for the year and add more detailed information later.      
-      </p>
-
-      <p class="govuk-body strong">
-        Do you want to add detailed livestock information now?      
-      </p>
 
       <form class="form" action="livestock_entry_handler" method="post">
 
@@ -42,13 +30,13 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="livestock_entry" name="livestock_entry" type="radio" value="average">
                 <label class="govuk-label govuk-radios__label" for="livestock_entry">
-                  Yes, enter detailed livestock information now
+                  Enter average numbers for the year
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="livestock_entry-2" name="livestock_entry" type="radio" value="monthly">
                 <label class="govuk-label govuk-radios__label" for="livestock_entry-2">
-                  No, enter basic information and the average number for the year 
+                 Enter different numbers for each month 
                 </label>
               </div>
             </div>

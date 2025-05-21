@@ -22,23 +22,33 @@
 
 {% block content %}
 
-<div class="govuk-grid-row margin-bottom-forty">
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
-
     {% if data.show_success_message == true %}
       {% include "./success_message.html" ignore missing %}
     {% endif %}
+  </div>
+</div>
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl margin-bottom-forty">
-      <!-- Calculate manure application cost and losses  -->
+      <span class="govuk-caption-l">{{data.content.manner_title}} </span>
       Results
     </h1>
+  </div>
+</div>
 
-   {% if (data.manner_applications | length) < 3 %} 
-      <p class="govuk-body"><a href="manner_copy_handler">Add another application to this calculation</a></p>
-   {% endif %} 
+<div class="govuk-grid-row margin-bottom-forty">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
 
-  {% if (data.manner_applications | length) == 3 %} 
+    <p class="govuk-body"><a href="manner_copy_handler">Add another application to this calculation</a></p>
+    
+    {% if (data.manner_applications | length) != 1 %}
+      <p class="govuk-body"><a href="">Remove an application from this calculation</a></p>
+    {% endif %}
+
+  <!-- {% if (data.manner_applications | length) == 3 %} 
     <p class="govuk-body"><a href="manner_remove_application?application=3">Remove application 3</a></p>
     <p class="govuk-body"><a href="manner_remove_application?application=2">Remove application 2</a></p>
     <p class="govuk-body"><a href="manner_remove_application?application=1">Remove application 1</a></p>
@@ -47,7 +57,7 @@
   {% if (data.manner_applications | length) == 2 %} 
     <p class="govuk-body"><a href="manner_remove_application?application=2">Remove application 2</a></p>
     <p class="govuk-body"><a href="manner_remove_application?application=1">Remove application 1</a></p>
-  {% endif %} 
+  {% endif %}  -->
 
    <p class="govuk-body"><a href="report/report">Export or print these results</a></p>
    <p class="govuk-body"><a href="fields">Start a new calculation</a></p>
@@ -73,26 +83,26 @@
       {% if (data.manner_applications | length) >= 1 %} 
         <li class="govuk-tabs__list-item">
           <a class="govuk-tabs__tab" href="#answers1">
-            Application 1 details
+            Application details
           </a>
         </li>
       {% endif %}
 
-      {% if (data.manner_applications | length) >= 2 %} 
+      <!-- {% if (data.manner_applications | length) >= 2 %} 
         <li class="govuk-tabs__list-item">
           <a class="govuk-tabs__tab" href="#answers2">
             Application 2 details
           </a>
         </li>
-      {% endif %}
+      {% endif %} -->
 
-      {% if (data.manner_applications | length) >= 3 %} 
+      <!-- {% if (data.manner_applications | length) >= 3 %} 
         <li class="govuk-tabs__list-item">
           <a class="govuk-tabs__tab" href="#answers3">
             Application 3 details
           </a>
         </li>
-      {% endif %}
+      {% endif %} -->
 
     </ul>
 

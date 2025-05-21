@@ -24,13 +24,6 @@
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Use these numbers for the rest of the year?</dt>
-    <dd class="govuk-summary-list__value">Yes</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-
   {% if data.livestock_group != 'cattle' %}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">What is the occupancy? (optional)</dt>
@@ -46,9 +39,15 @@
   {% endif %}
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Nitrogen (N) standard</dt>
+    <dt class="govuk-summary-list__key">Use these numbers for the rest of the year?</dt>
+    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Nitrogen (N) standard per animal</dt>
     <dd class="govuk-summary-list__value">
-      {{data.chosen_livestock.nitrogen}}kg per animal, per year
+      {{data.chosen_livestock.nitrogen}}kg per year
     </dd>
     {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
@@ -61,7 +60,7 @@
   {% set total_n = data.chosen_livestock.nitrogen * data.livestock_number %}
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Total nitrogen (N) produced by this cattle type</dt>
+    <dt class="govuk-summary-list__key">Total nitrogen (N)</dt>
     <dd class="govuk-summary-list__value">{{total_n}}kg per year</dd>
     {% if data.livestock_group == 'pig' and data.livestock_group == 'poultry' %}
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
@@ -72,7 +71,7 @@
 
   {% if data.oaktree_farm.derogation == true %}
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Phosphate (P2O5) standard</dt>
+      <dt class="govuk-summary-list__key">Phosphate (P2O5) standard per animal</dt>
       <dd class="govuk-summary-list__value">
         83kg per year
       </dd>
@@ -94,7 +93,7 @@
       <h2 class="govuk-heading-m">
         Total nitrogen (N) 
         {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
-          and phosphate (P205) 
+          and phosphate (P2O5) 
         {% endif %}
         from this livestock type in 2025
       </h2>
@@ -114,7 +113,7 @@
               <td class="govuk-table__cell">60kg</td>
             </tr>
             <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Total phosphate (P205) produced by this cattle type</th>
+              <th scope="row" class="govuk-table__header">Total phosphate (P2O5) produced by this cattle type</th>
               <td class="govuk-table__cell">32kg</td>
             </tr>
           {% endif %}

@@ -1099,3 +1099,9 @@ width: 35%
 .negative-10 {
     margin-top: -10px;
 }
+
+.right-align {
+    td:last-child {
+        text-align: right;
+    }
+}

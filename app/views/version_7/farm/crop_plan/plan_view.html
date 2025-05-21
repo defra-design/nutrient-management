@@ -48,7 +48,10 @@
 
     <div class="govuk-grid-column-full">
 
-      <h1 id="main-title" class="govuk-heading-l">{{data.oaktree_farm.name}} plan {{data.oaktree_farm.planning_year}}</h1>
+      <h1 id="main-title" class="govuk-heading-l">
+        <span class="govuk-caption-l">{{data.oaktree_farm.name}} </span>
+        Crop and nutrient plan {{data.oaktree_farm.planning_year}}
+      </h1>
       <div id="summary-header" class="margin-bottom-forty">
         <p class="govuk-body">Last updated {{data.content.todays_date}}. There are {{totalFields}} fields in this plan.</p>
         

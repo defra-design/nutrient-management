@@ -54,10 +54,6 @@
                 <th scope="row" class="govuk-table__header">Mineralised nitrogen (N)</th>
                  {{ application_values(1, 1, 1, ' kg per hectare' ) }}
             </tr>
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Nitrogen efficiency</th>
-                 {{ application_values(29, 29, 29, '%', 29 ) }}
-            </tr>
         </tbody>
     </table>
 </div>
@@ -104,6 +100,10 @@
                 <th scope="row" class="govuk-table__header">Following crop - year 2</th>
                  {{ application_values(3, 3, 3, ' kg per hectare' ) }}
             </tr>
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Nitrogen efficiency</th>
+                 {{ application_values(29, 29, 29, '%', 29 ) }}
+            </tr>
         </tbody>
     </table>
 </div>
@@ -131,7 +131,7 @@
         {{ application_values(50, 50, 50, ' kg per hectare' ) }}
     </tr>
     <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Total SO5</th>
+      <th scope="row" class="govuk-table__header">Total SO3</th>
         {{ application_values(0, 0, 0, '' ) }}
     </tr>
     <tr class="govuk-table__row">

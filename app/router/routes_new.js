@@ -127,7 +127,7 @@ router.get(/livestock_year_handler/, hideSuccessMessage, function (req, res) {
 
 router.get(/export_year_handler/, hideSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.planning_year = req.query.harvest_date
-    if (req.session.data.oaktree_farm.manure_exports == true) {
+    if (req.session.data.oaktree_farm.manure_exports == true || req.session.data.oaktree_farm.manure_imports == true ) {
         res.redirect('manage_exports')
     } else {
         res.redirect('../../add_export/export_type')

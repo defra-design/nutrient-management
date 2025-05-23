@@ -55,7 +55,17 @@
 
       <div>
         <h2 class="govuk-heading-m">{{data.content.manner_title}}</h2>
-        <p><a class="govuk-link" href="../manner/fields">Create a new estimate</a></p>
+        {% if data.oaktree_farm.fields_added == true  %}
+          <ul class="menu-list govuk-list govuk-list--spaced">
+            <li>
+              <a class="govuk-link" href="../manner/fields">Create a new estimate</a>
+            </li>
+          </ul>
+          {% else %}
+            <p>To start creating estimates, <a href="field_add_reset_handler">add your fields</a></p>
+          {% endif %}
+
+        <p></p>
         <hr class="seperator_thirty">
       </div>
 

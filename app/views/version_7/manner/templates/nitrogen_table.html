@@ -12,18 +12,22 @@
 			</tr>
 		</thead>
 		<tbody class="govuk-table__body">
+			{% for item in data.manner_applications %}
 			<tr>
 				<td class="govuk-table__cell">Cattle Farmyard manure - Fresh</td>
 				<td class="govuk-table__cell">21/06/2025</td>
 				<td class="govuk-table__cell">125kg</td>
 				<td class="govuk-table__cell">1kg</td>
 			</tr>
-			<tr class="total_row">
-				<th scope="row" class="govuk-table__header">Totals</th>
-				<th scope="row" class="govuk-table__header">-</th>
-				<td class="govuk-table__cell">125kg</td>
-				<td class="govuk-table__cell">1kg</td>
-			</tr>
+			{% endfor %}
+			{% if (data.manner_applications | length) >= 2 %}
+				<tr class="total_row">
+					<th scope="row" class="govuk-table__header">Totals</th>
+					<th scope="row" class="govuk-table__header">-</th>
+					<td class="govuk-table__cell">125kg</td>
+					<td class="govuk-table__cell">1kg</td>
+				</tr>
+			{% endif %}
 		</tbody>
 	</table>
 </div>
@@ -41,20 +45,24 @@
 			</tr>
 		</thead>
 		<tbody class="govuk-table__body">
-			<tr>
-				<td class="govuk-table__cell">Cattle Farmyard manure - Fresh</td>
-				<td class="govuk-table__cell">21/06/2025</td>
-				<td class="govuk-table__cell">2kg</td>
-				<td class="govuk-table__cell">22kg</td>
-				<td class="govuk-table__cell">1kg</td>
-			</tr>
-			<tr class="total_row">
-				<th scope="row" class="govuk-table__header">Totals</th>
-				<th scope="row" class="govuk-table__header">-</th>
-				<td class="govuk-table__cell">2kg</td>
-				<td class="govuk-table__cell">22kg</td>
-				<td class="govuk-table__cell">1kg</td>
-			</tr>
+			{% for item in data.manner_applications %}
+				<tr>
+					<td class="govuk-table__cell">Cattle Farmyard manure - Fresh</td>
+					<td class="govuk-table__cell">21/06/2025</td>
+					<td class="govuk-table__cell">2kg</td>
+					<td class="govuk-table__cell">22kg</td>
+					<td class="govuk-table__cell">1kg</td>
+				</tr>
+			{% endfor %}
+			{% if (data.manner_applications | length) >= 2 %}
+				<tr class="total_row">
+					<th scope="row" class="govuk-table__header">Totals</th>
+					<th scope="row" class="govuk-table__header">-</th>
+					<td class="govuk-table__cell">2kg</td>
+					<td class="govuk-table__cell">22kg</td>
+					<td class="govuk-table__cell">1kg</td>
+				</tr>
+			{% endif %}
 		</tbody>
 	</table>
 </div>
@@ -73,22 +81,26 @@
 			</tr>
 		</thead>
 		<tbody class="govuk-table__body">
-			<tr>
-				<td class="govuk-table__cell">Cattle Farmyard manure - Fresh</td>
-				<td class="govuk-table__cell">21/06/2025</td>
-				<td class="govuk-table__cell">8kg</td>
-				<td class="govuk-table__cell">6kg</td>
-				<td class="govuk-table__cell">3kg</td>
-				<td class="govuk-table__cell">29%</td>
-			</tr>
-			<tr class="total_row">
-				<th scope="row" class="govuk-table__header">Totals</th>
-				<th scope="row" class="govuk-table__header">-</th>
-				<td class="govuk-table__cell">8kg</td>
-				<td class="govuk-table__cell">6kg</td>
-				<td class="govuk-table__cell">3kg</td>
-				<td class="govuk-table__cell">29%</td>
-			</tr>
+			{% for item in data.manner_applications %}
+				<tr>
+					<td class="govuk-table__cell">Cattle Farmyard manure - Fresh</td>
+					<td class="govuk-table__cell">21/06/2025</td>
+					<td class="govuk-table__cell">8kg</td>
+					<td class="govuk-table__cell">6kg</td>
+					<td class="govuk-table__cell">3kg</td>
+					<td class="govuk-table__cell">29%</td>
+				</tr>
+			{% endfor %}
+			{% if (data.manner_applications | length) >= 2 %}
+				<tr class="total_row">
+					<th scope="row" class="govuk-table__header">Totals</th>
+					<th scope="row" class="govuk-table__header">-</th>
+					<td class="govuk-table__cell">8kg</td>
+					<td class="govuk-table__cell">6kg</td>
+					<td class="govuk-table__cell">3kg</td>
+					<td class="govuk-table__cell">29%</td>
+				</tr>
+			{% endif %}
 		</tbody>
 	</table>
 </div>
@@ -110,28 +122,32 @@
 				</tr>
 		</thead>
 		<tbody class="govuk-table__body">
-			<tr>
-				<td class="govuk-table__cell">Cattle Farmyard manure - Fresh</td>
-				<td class="govuk-table__cell">21/06/2025</td>
-				<td class="govuk-table__cell">115kg</td>
-				<td class="govuk-table__cell">57kg</td>
-				<td class="govuk-table__cell">55kg</td>
-				<td class="govuk-table__cell">50kg</td>
-				<td class="govuk-table__cell">50kg</td>
-				<td class="govuk-table__cell">0</td>
-				<td class="govuk-table__cell">0</td>
-			</tr>
-			<tr class="total_row">
-				<th scope="row" class="govuk-table__header">Totals</th>
-				<th scope="row" class="govuk-table__header">-</th>
-				<th scope="row" class="govuk-table__header">115kg</th>
-				<th scope="row" class="govuk-table__header">57kg</th>
-				<th scope="row" class="govuk-table__header">55kg</th>
-				<th scope="row" class="govuk-table__header">50kg</th>
-				<th scope="row" class="govuk-table__header">50kg</th>
-				<th scope="row" class="govuk-table__header">0</th>
-				<th scope="row" class="govuk-table__header">0</th>
-			</tr>
+			{% for item in data.manner_applications %}
+				<tr>
+					<td class="govuk-table__cell">Cattle Farmyard manure - Fresh</td>
+					<td class="govuk-table__cell">21/06/2025</td>
+					<td class="govuk-table__cell">115kg</td>
+					<td class="govuk-table__cell">57kg</td>
+					<td class="govuk-table__cell">55kg</td>
+					<td class="govuk-table__cell">50kg</td>
+					<td class="govuk-table__cell">50kg</td>
+					<td class="govuk-table__cell">0</td>
+					<td class="govuk-table__cell">0</td>
+				</tr>
+			{% endfor %}
+			{% if (data.manner_applications | length) >= 2 %}
+				<tr class="total_row">
+					<th scope="row" class="govuk-table__header">Totals</th>
+					<th scope="row" class="govuk-table__header">-</th>
+					<th scope="row" class="govuk-table__header">115kg</th>
+					<th scope="row" class="govuk-table__header">57kg</th>
+					<th scope="row" class="govuk-table__header">55kg</th>
+					<th scope="row" class="govuk-table__header">50kg</th>
+					<th scope="row" class="govuk-table__header">50kg</th>
+					<th scope="row" class="govuk-table__header">0</th>
+					<th scope="row" class="govuk-table__header">0</th>
+				</tr>
+			{% endif %}
 		</tbody>
 	</table>
 </div>

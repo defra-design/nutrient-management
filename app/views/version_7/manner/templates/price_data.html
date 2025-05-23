@@ -1,5 +1,6 @@
 
 <h2 class="govuk-heading-m">Nutrient Price Data</h2>
+<p class="govuk-body formlink"><a href="#">Change nitrate product</a></p>
 
 <form class="form" action="manner_values_router" method="post">
     <div class="left_col">
@@ -15,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <div class="govuk-form-group">
+        <!-- <div class="govuk-form-group">
             <label class="govuk-label" for="width-20">
                 Calcium Ammonium nitrate (34.5% N)
             </label>
@@ -26,7 +27,7 @@
                     per tonne
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="govuk-form-group">
             <label class="govuk-label" for="width-20">
                 Triple superphosphate (46% P2O5)
@@ -39,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <div class="govuk-form-group">
+        <div class="govuk-form-group margin-bottom-forty">
             <label class="govuk-label" for="width-20">
                 Muriate of potash (60% K2O)
             </label>
@@ -51,6 +52,9 @@
                 </div>
             </div>
         </div>
+        {{ govukButton({
+        text: "Re-calculate manure value"
+        }) }}
     </div>
 
     <div class="right_col">
@@ -76,7 +80,7 @@
                 </div>
             </div>
         </div>
-        <div class="govuk-form-group margin-bottom-sixty">
+        <div class="govuk-form-group">
             <label class="govuk-label" for="width-20">
                 Potash (K2O)
             </label>
@@ -87,9 +91,6 @@
                 </div>
             </div>
         </div>
-        {{ govukButton({
-        text: "Re-calculate nutrient value"
-        }) }}
     </div>
 </form>
 

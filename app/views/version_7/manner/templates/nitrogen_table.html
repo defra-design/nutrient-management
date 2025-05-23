@@ -1,143 +1,137 @@
-{% macro application_headers() %}
-<tr class="govuk-table__row">
-    <th scope="col" class="govuk-table__header">
-    {% if (data.manner_applications | length) >= 1 %}
-        <th scope="col" class="govuk-table__header">Application 1</th>
-    {% endif %}
-    {% if (data.manner_applications | length) >= 2 %}
-        <th scope="col" class="govuk-table__header">Application 2</th>
-    {% endif %}
-    {% if (data.manner_applications | length) == 3 %}
-        <th scope="col" class="govuk-table__header">Application 3</th>
-    {% endif %}
-    {% if (data.manner_applications | length) >= 2 %}
-        <th scope="col" class="govuk-table__header">Total</th>
-    {% endif %}
-</tr>
-{% endmacro %}
+<p class="govuk-body">All values are per hectare</p>
 
-{% macro application_values(value_1, value_2, value_3, measurement, total) %}
-{% set count = 0 %}
-    {% if (data.manner_applications | length) >= 1 %}
-        <td class="govuk-table__cell">{{value_1}}{{measurement}}</td>
-        {% set count = count + value_1 %}
-    {% endif %}
-    {% if (data.manner_applications | length) >= 2 %}
-        <td class="govuk-table__cell">{{value_2}}{{measurement}}</td>
-        {% set count = count + value_2 %}
-    {% endif %}
-    {% if (data.manner_applications | length) == 3 %}
-        <td class="govuk-table__cell">{{value_3}}{{measurement}}</td>
-        {% set count = count + value_3 %}
-    {% endif %}
-    {% if total == null %}
-        {% set total = count %}
-    {% endif %}
-    {% if (data.manner_applications | length) >= 2 %}
-        <td class="govuk-table__cell">{{total}}{{measurement}}</td>
-    {% endif %}
-{% endmacro %}
-
-
-<div class="margin-bottom-forty">
-    <h2 class="govuk-heading-m">Nitrogen</h2>
-    <table class="govuk-table manner_table">
-        <thead class="govuk-table__head">
-        {{ application_headers() }}        
-        </thead>            
-        <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Total nitrogen (N)</th>
-                 {{ application_values(125, 125, 125, ' kg per hectare' ) }}
-            </tr>
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Mineralised nitrogen (N)</th>
-                 {{ application_values(1, 1, 1, ' kg per hectare' ) }}
-            </tr>
-        </tbody>
-    </table>
+<div class="margin-bottom-fifty">
+	<h2 class="govuk-heading-m">Nitrogen (N)</h2>
+	<table class="govuk-table manner_table-v2">
+		<thead class="govuk-table__head">
+			<tr>
+				<th scope="row" class="govuk-table__header">Application</th>
+				<th scope="row" class="govuk-table__header">Date</th>
+				<th scope="row" class="govuk-table__header number-three">Total nitrogen (N)</th>
+				<th scope="row" class="govuk-table__header">Mineralised nitrogen (N)</th>
+			</tr>
+		</thead>
+		<tbody class="govuk-table__body">
+			<tr>
+				<td class="govuk-table__cell">Cattle Farmyard manure - Fresh</td>
+				<td class="govuk-table__cell">21/06/2025</td>
+				<td class="govuk-table__cell">125kg</td>
+				<td class="govuk-table__cell">1kg</td>
+			</tr>
+			<tr class="total_row">
+				<th scope="row" class="govuk-table__header">Totals</th>
+				<th scope="row" class="govuk-table__header">-</th>
+				<td class="govuk-table__cell">125kg</td>
+				<td class="govuk-table__cell">1kg</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
 
-<div class="margin-bottom-forty">
-    <h2 class="govuk-heading-m">Nitrogen losses</h2>
-    <table class="govuk-table manner_table">
-        <thead class="govuk-table__head">
-        {{ application_headers() }}        
-        </thead>            
-        <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Nitrate-N</th>
-                 {{ application_values(2, 2, 2, ' kg per hectare' ) }}
-            </tr>
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Ammonia-N</th>
-                 {{ application_values(22, 22, 22, ' kg per hectare' ) }}
-            </tr>
-            <tr class="govuk-table__row"></tr>
-                <th scope="row" class="govuk-table__header">Denitrified-N</th>
-                 {{ application_values(1, 1, 1, ' kg per hectare' ) }}
-            </tr>
-        </tbody>
-    </table>
+<div class="margin-bottom-fifty">
+	<h2 class="govuk-heading-m">Nitrogen (N) losses</h2>
+	<table class="govuk-table manner_table-v2">
+		<thead class="govuk-table__head">
+			<tr>
+				<th scope="row" class="govuk-table__header">Application</th>
+				<th scope="row" class="govuk-table__header">Date</th>
+				<th scope="row" class="govuk-table__header number-three">Nitrate-N</th>
+				<th scope="row" class="govuk-table__header">Ammonia-N</th>
+				<th scope="row" class="govuk-table__header">Denitrified-N</th>
+			</tr>
+		</thead>
+		<tbody class="govuk-table__body">
+			<tr>
+				<td class="govuk-table__cell">Cattle Farmyard manure - Fresh</td>
+				<td class="govuk-table__cell">21/06/2025</td>
+				<td class="govuk-table__cell">2kg</td>
+				<td class="govuk-table__cell">22kg</td>
+				<td class="govuk-table__cell">1kg</td>
+			</tr>
+			<tr class="total_row">
+				<th scope="row" class="govuk-table__header">Totals</th>
+				<th scope="row" class="govuk-table__header">-</th>
+				<td class="govuk-table__cell">2kg</td>
+				<td class="govuk-table__cell">22kg</td>
+				<td class="govuk-table__cell">1kg</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
 
-<div class="margin-bottom-forty">
-    <h2 class="govuk-heading-m">Crop available nitrogen (N)</h2>
-    <table class="govuk-table manner_table">
-        <thead class="govuk-table__head">
-        {{ application_headers() }}        
-        </thead>            
-        <tbody class="govuk-table__body">    
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Current grass crop</th>
-                 {{ application_values(8, 8, 8, ' kg per hectare' ) }}
-            </tr>
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Next grass crop - current year</th>
-                 {{ application_values(6, 6, 6, ' kg per hectare' ) }}
-            </tr>
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Following crop - year 2</th>
-                 {{ application_values(3, 3, 3, ' kg per hectare' ) }}
-            </tr>
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Nitrogen efficiency</th>
-                 {{ application_values(29, 29, 29, '%', 29 ) }}
-            </tr>
-        </tbody>
-    </table>
+<div class="margin-bottom-fifty">
+	<h2 class="govuk-heading-m">Crop available nitrogen (N)</h2>
+	<table class="govuk-table manner_table-v2">
+		<thead class="govuk-table__head">
+			<tr>
+				<th scope="row" class="govuk-table__header">Application</th>
+				<th scope="row" class="govuk-table__header">Date</th>
+				<th scope="row" class="govuk-table__header">Current grass crop</th>
+				<th scope="row" class="govuk-table__header">Next grass crop - current year</th>
+				<th scope="row" class="govuk-table__header">Following crop - year 2</th>
+				<th scope="row" class="govuk-table__header">Nitrogen efficiency</th>
+			</tr>
+		</thead>
+		<tbody class="govuk-table__body">
+			<tr>
+				<td class="govuk-table__cell">Cattle Farmyard manure - Fresh</td>
+				<td class="govuk-table__cell">21/06/2025</td>
+				<td class="govuk-table__cell">8kg</td>
+				<td class="govuk-table__cell">6kg</td>
+				<td class="govuk-table__cell">3kg</td>
+				<td class="govuk-table__cell">29%</td>
+			</tr>
+			<tr class="total_row">
+				<th scope="row" class="govuk-table__header">Totals</th>
+				<th scope="row" class="govuk-table__header">-</th>
+				<td class="govuk-table__cell">8kg</td>
+				<td class="govuk-table__cell">6kg</td>
+				<td class="govuk-table__cell">3kg</td>
+				<td class="govuk-table__cell">29%</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
 
-<h2 class="govuk-heading-m">Phosphate, Potash, Sulphur and Magnesium</h2>
-<table class="govuk-table manner_table">
-  <thead class="govuk-table__head">
-    {{ application_headers() }}        
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row"></tr>
-      <th scope="row" class="govuk-table__header">Total P2O5</th>
-        {{ application_values(115, 115, 115, ' kg per hectare' ) }}
-    </tr>
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Crop available P2O5</th>
-        {{ application_values(57, 57, 57, ' kg per hectare' ) }}
-    </tr>
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Total K2O</th>
-        {{ application_values(55, 55, 55, ' kg per hectare' ) }}
-    </tr>
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Crop available K2O</th>
-        {{ application_values(50, 50, 50, ' kg per hectare' ) }}
-    </tr>
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Total SO3</th>
-        {{ application_values(0, 0, 0, '' ) }}
-    </tr>
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Total MgO</th>
-        {{ application_values(0, 0, 0, '' ) }}
-    </tr>
-  </tbody>
-</table>
-
+<div class="margin-bottom-fifty">
+	<h2 class="govuk-heading-m">Phosphate, Potash, Sulphur and Magnesium</h2>
+	<table class="govuk-table manner_table-v2">
+		<thead class="govuk-table__head">
+			<tr>
+				<th scope="row" class="govuk-table__header">Application</th>
+				<th scope="row" class="govuk-table__header">Date</th>
+				<th scope="row" class="govuk-table__header">Total P2O5</th>
+				<th scope="row" class="govuk-table__header">Crop available P2O5</th>
+				<th scope="row" class="govuk-table__header">Total K2O</th>
+				<th scope="row" class="govuk-table__header">Crop available K2O</th>
+				<th scope="row" class="govuk-table__header">Crop available SO3</th>
+				<th scope="row" class="govuk-table__header">Total SO3</th>
+				<th scope="row" class="govuk-table__header">Total MgO</th>
+				</tr>
+		</thead>
+		<tbody class="govuk-table__body">
+			<tr>
+				<td class="govuk-table__cell">Cattle Farmyard manure - Fresh</td>
+				<td class="govuk-table__cell">21/06/2025</td>
+				<td class="govuk-table__cell">115kg</td>
+				<td class="govuk-table__cell">57kg</td>
+				<td class="govuk-table__cell">55kg</td>
+				<td class="govuk-table__cell">50kg</td>
+				<td class="govuk-table__cell">50kg</td>
+				<td class="govuk-table__cell">0</td>
+				<td class="govuk-table__cell">0</td>
+			</tr>
+			<tr class="total_row">
+				<th scope="row" class="govuk-table__header">Totals</th>
+				<th scope="row" class="govuk-table__header">-</th>
+				<th scope="row" class="govuk-table__header">115kg</th>
+				<th scope="row" class="govuk-table__header">57kg</th>
+				<th scope="row" class="govuk-table__header">55kg</th>
+				<th scope="row" class="govuk-table__header">50kg</th>
+				<th scope="row" class="govuk-table__header">50kg</th>
+				<th scope="row" class="govuk-table__header">0</th>
+				<th scope="row" class="govuk-table__header">0</th>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -255,6 +255,10 @@ hr.medium_seperator {
     margin-bottom: 40px;
 }
 
+.margin-bottom-fifty {
+    margin-bottom: 50px;
+}
+
 .margin-bottom-twenty_forty {
     margin: 27px 0 40px;
 }
@@ -1011,9 +1015,23 @@ width: 35%
 
 .manner_table {
     th:first-child {
-        width: 27%
+        width: 27%;
     }
     font-size: 17px;
+}
+
+.manner_table-v2 {
+    th:first-child, td:first-child {
+        width: 16%;
+        padding-right: 10px;
+    }
+    th:nth-child(2) {
+        width: 10%;
+    }
+    font-size: 17px;
+    .number-three {
+        width: 25%;
+    }
 }
 
 .left_col {

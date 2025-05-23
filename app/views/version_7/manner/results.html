@@ -82,28 +82,11 @@
 
       {% if (data.manner_applications | length) >= 1 %} 
         <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#answers1">
+          <a class="govuk-tabs__tab" href="#answers">
             Application details
           </a>
         </li>
       {% endif %}
-
-      <!-- {% if (data.manner_applications | length) >= 2 %} 
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#answers2">
-            Application 2 details
-          </a>
-        </li>
-      {% endif %} -->
-
-      <!-- {% if (data.manner_applications | length) >= 3 %} 
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#answers3">
-            Application 3 details
-          </a>
-        </li>
-      {% endif %} -->
-
     </ul>
 
     <div class="govuk-tabs__panel" id="nutrients">
@@ -116,37 +99,27 @@
       {% include "./templates/price_data.html ignore missing" %}
     </div>
 
-    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
-      <h2 class="govuk-heading-l">Application 1 details</h2>
-      <div class="check-answers">
-        {% include "./templates/answers.html ignore missing" %}
-      </div>  
-    </div>
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers">
+      <h2 class="govuk-heading-l">Application details</h2>
 
-    {% if (data.manner_applications | length) >= 1 %} 
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
-        <h2 class="govuk-heading-l">Application 1 details</h2>
-        <div class="check-answers">
-          {% include "./templates/answers.html ignore missing" %}
-        </div>  
+      <h2 class="govuk-heading-m">Field and crop details</h2>
+      {% include "./templates/field_content.html ignore missing" %}
+      {% set applicationcount = 0 %}
+      {% for item in data.manner_applications %}
+        {% set applicationcount = applicationcount +1 %}
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              View or edit application {{applicationcount}} details
+            </span>
+          </summary>
+          <div class="check-answers">
+            <h2 class="govuk-heading-m margin-top-thirty">Application {{applicationcount}} details</h2>
+            {% include "./templates/answers_content.html ignore missing" %}
+          </div>        
+        </details>
+      {% endfor %}
       </div>
-    {% endif %}
-    {% if (data.manner_applications | length) >= 2 %} 
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers2">
-        <h2 class="govuk-heading-l">Application 2 details</h2>
-        <div class="check-answers">
-          {% include "./templates/answers.html ignore missing" %}
-        </div>  
-      </div>
-    {% endif %}
-    {% if (data.manner_applications | length) == 3 %} 
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers3">
-        <h2 class="govuk-heading-l">Application 3 details</h2>
-        <div class="check-answers">
-          {% include "./templates/answers.html ignore missing" %}
-        </div>  
-      </div>
-    {% endif %}
 
   </div>
 </div>

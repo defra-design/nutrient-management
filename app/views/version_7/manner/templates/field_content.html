@@ -1,0 +1,16 @@
+<dl class="govuk-summary-list margin-bottom-forty">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Which field would you like use?</dt>
+    <dd class="govuk-summary-list__value">
+      {{data.chosen_field | fieldnameconverter}}    
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="fields_two">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Which crop type would you like to use?</dt>
+    <dd class="govuk-summary-list__value">
+      {{data.chosen_crop}}    
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+</dl>

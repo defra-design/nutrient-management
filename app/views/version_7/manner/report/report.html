@@ -42,7 +42,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full nmax_header">
 
-      <h1 class="govuk-heading-l">Calculate manure application cost and losses (MANNER-NPK)</h1>
+      <h1 class="govuk-heading-xl">{{data.content.manner_title}}</h1>
       <p class="govuk-body">Created on {{data.content.todays_date}}</p>
 
     </div>
@@ -68,8 +68,8 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
-      <h2 class="govuk-heading-m">
-        Field details
+      <h2 class="govuk-heading-l">
+        Field and crop details
       </h2>
         {% include "./templates/farm_details.html" ignore missing %}
     </div>
@@ -77,27 +77,27 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
-      <h2 class="govuk-heading-m">
-        Application details
+      <h2 class="govuk-heading-l">
+        Organic material applications
       </h2>
         {% include "./templates/application_details.html" ignore missing %}
     </div>
   </div>
   
 
-  <div class="govuk-grid-row">
+  <!-- <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-m non-standard">
         Manure analysis
       </h2>
       <p class="govuk-body-s negative-10">Values are  per cubic metre.</p>
         {% include "./templates/manure_analysis.html" ignore missing %}
     </div>
   </div>
-
+ -->
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-l">
         MANNER-NPK results 
       </h2>
       <p class="govuk-body-s negative-10">Values are  per hectare.</p>

@@ -120,8 +120,20 @@ hr.medium_seperator {
         padding-top: 0;
     }
 }
-    
 
+
+#column_one, #column_two, #column_three {
+    width: 31%;
+    margin-right: 2%;
+    float: left;
+}
+
+#column_three {
+    width: 31%;
+    float: right;
+}
+
+    
 .application-table {
     margin-top: 40px;
 }
@@ -1045,7 +1057,7 @@ width: 35%
 
 .right_col {
     width: 45%;
-    float: left;
+    float: right;
 }
 
 .clearfix {

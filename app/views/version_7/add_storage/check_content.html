@@ -1,0 +1,99 @@
+<dl class="govuk-summary-list nutrient_list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Do you want to add an import or an export of organic material?</dt>
+    <dd class="govuk-summary-list__value">{{data.import_export | capitalize}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <!-- <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What type of organic material are you importing?</dt>
+    <dd class="govuk-summary-list__value">{{data.manure_group_id | capitalize}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div> -->
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What type of organic material are you {{data.import_export}}ing?</dt>
+    {% if data.import_export == 'import' %}
+      <dd class="govuk-summary-list__value">Cattle farmyard manure - Fresh</dd>
+    {% else %}
+      <dd class="govuk-summary-list__value">Pig slurry - whole</dd>
+    {% endif %}
+
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">When did you {{data.import_export}} this organic material?</dt>
+    {% if data.import_export == 'import' %}
+      <dd class="govuk-summary-list__value">10 January 2025</dd>
+    {% else %}
+      <dd class="govuk-summary-list__value">16 March 2025</dd>
+    {% endif %}
+
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How much did you {{data.import_export}}? </dt>
+      {% if data.import_export == 'import' %}
+      <dd class="govuk-summary-list__value">6 tonnes</dd>
+      {% else %}
+      <dd class="govuk-summary-list__value">30 cubic meters</dd>
+      {% endif %}
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <!-- <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What is the total nitrogen (N) content of this {{data.manure_type.name}}?</dt>
+    <dd class="govuk-summary-list__value"></dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What is the total Phosphate (P2O5) content of this {{data.manure_type.name}}?</dt>
+    <dd class="govuk-summary-list__value"></dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div> -->
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Cattle farmyard manure - Fresh Nutrient values</dt>
+    <dd class="govuk-summary-list__value nutrient_values">
+      <ul class="nutrient_values">
+        <li>Dry Matter content: <span>25%</span></span>
+        <li>Total Nitrogen: <span>6kg</span></span>
+        <li>Ammonium-N:	<span>0.5kg</span></span>
+        <li>Uric acid N:	<span>0kg</span></span>
+        <li>Nitrate-N:	<span>0.1kg</span></span>
+        <li>Total phosphate (P2O5):	<span>3.2kg</span></span>
+        <li>Total potassium (K2O):	<span>8kg</span></span>
+        <li>Total sulphur (SO3):	<span>2.4kg</span></span>
+        <li>Total magnesium oxide (MgO):	<span>1.8kg</span></li>
+      </ul>  
+  </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    {% if data.import_export == 'import' %}
+    <dt class="govuk-summary-list__key">
+          Who are you importing this organic material from?
+    </dt>
+    <dd class="govuk-summary-list__value">Mrs Jones</dd>
+    {% else %}
+    <dt class="govuk-summary-list__key">
+      Who are you exporting this organic material to?
+    </dt>
+    <dd class="govuk-summary-list__value">Mr Smith</dd>
+    {% endif %}
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+        Comments about this import (optional)
+    </dt>
+    <dd class="govuk-summary-list__value">Not entered</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+</dl>

@@ -1,0 +1,85 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/templates/signed-in.html" ignore missing %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Oaktree Lane Farm",
+        href: "hub_reset_router"
+      },
+      {
+        text: "Manure imports and exports"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  
+    <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
+    <h1 class="govuk-heading-l" id="header">Organic material storage</h1>
+
+    <!-- <p class="govuk-hint">Imports and exports are grouped from 1 January to 31 December each year.</p> -->
+    <p><a href="">Add another year</a></p>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div id="all-plans-table" class="govuk-grid-column-two-thirds">
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Calendar year</th>
+            <th scope="col" class="govuk-table__header">Last modified</th>
+            <th scope="col" class="govuk-table__header"> </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body"> 
+          <!-- {% if data.oaktree_farm.manure_exports == true %} 
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">2026</td>
+              <td class="govuk-table__cell">{{data.content.todays_date}}</td>
+              <td class="govuk-table__cell"><a href="storage_year_handler?harvest_date=2026">Update 2026 storage</a></td>
+            </tr>
+          {% else %}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">2026</td>
+              <td class="govuk-table__cell">-</td>
+              <td class="govuk-table__cell"><a href="storage_year_handler?harvest_date=2026">Add 2026 storage</a></td>
+            </tr>
+          {% endif %} -->
+          {% if data.oaktree_farm.manure_exports == true or data.oaktree_farm.manure_imports == true %} 
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">2025</td>
+                <td class="govuk-table__cell">{{data.content.todays_date}}</td>
+                <td class="govuk-table__cell"><a href="storage_year_handler?harvest_date=2025">Update 2025 storage</a></td>
+              </tr>
+            {% else %}
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">2025</td>
+                <td class="govuk-table__cell">-</td>
+                <td class="govuk-table__cell"><a href="storage_year_handler?harvest_date=2025">Add 2025 storage</a></td>
+              </tr>
+            {% endif %}
+              <th scope="row" class="govuk-table__header">2024</td>
+                <td class="govuk-table__cell">-</td>
+                <td class="govuk-table__cell"><a href="">Add 2024 storage</a></td>
+              </tr>
+          </tbody>
+      </table>     
+
+
+  </div>
+</div>
+
+{% endblock %}

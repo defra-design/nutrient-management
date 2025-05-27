@@ -134,6 +134,15 @@ router.get(/export_year_handler/, hideSuccessMessage, function (req, res) {
     }
 })
 
+router.get(/storage_year_handler/, hideSuccessMessage, function (req, res) { 
+    req.session.data.oaktree_farm.planning_year = req.query.harvest_date
+    if (req.session.data.oaktree_farm.storage == true ) {
+        res.redirect('manage_storage')
+    } else {
+        res.redirect('../../add_storage/material_type')
+    }
+})
+
 //refactored - update
 router.get(/exportcheck_handler/, function (req, res) { 
     req.session.data.show_success_message = true;

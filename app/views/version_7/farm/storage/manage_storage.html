@@ -18,11 +18,7 @@
         href: "hub_reset_router"
       },
       {
-        text: "Manure imports and exports",
-        href: "export_years"
-      },
-      {
-        text: data.oaktree_farm.planning_year
+        text: "Organic material storage"
       }
     ]
   }) }}
@@ -39,17 +35,25 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
       <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
-      <h1 class="govuk-heading-l" id="header">Organic manure imports and exports {{data.oaktree_farm.planning_year}}</h1>
+    <h1 class="govuk-heading-l" id="header">Organic material storage</h1>
   </div>
 </div>
 
-<!-- totals -->
-{% if data.oaktree_farm.manure_imports == true or data.oaktree_farm.manure_exports == true %}
-  {% include "./templates/totals.html" ignore missing %}
+{% if data.oaktree_farm.manure_storage_added == false %}
+  <p class="govuk-body">
+    You have not added any organic material storage.
+  </p>
+  <form class="form" action="../../add_storage/material_type" method="post">
+    {{ govukButton({
+      text: "Add organic material storage"
+    }) }}
+  </form>
+
+{% else %}
 {% endif %}
 
 <!-- imports and exports -->
-<div class="govuk-tabs" data-module="govuk-tabs">
+<!-- <div class="govuk-tabs" data-module="govuk-tabs">
 
   <h2 class="govuk-tabs__title">Contents</h2>
 
@@ -64,13 +68,11 @@
 
   <div class="govuk-tabs__panel" id="imports">
     <h2 class="govuk-heading-m non-standard">Imports</h2>
-    {% include "./templates/imports.html" ignore missing %}
   </div>
 
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="exports">
     <h2 class="govuk-heading-m non-standard">Exports</h2>
-    {% include "./templates/exports.html" ignore missing %}
-  </div>
+  </div> -->
   
 </div>
 

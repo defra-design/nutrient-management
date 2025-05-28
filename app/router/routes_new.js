@@ -315,4 +315,13 @@ router.get(/manner_copy_router/, function (req, res) {
     res.redirect(next);
 });
 
+router.get(/check_storage_handler/, function (req, res) {
+    req.session.data.show_success_message = true;
+    req.session.data.oaktree_farm.manure_storage_added = true;
+    // req.session.data.successMessage = 2;
+    var next = '/' + req.session.data.prototype_version + '/farm/storage/manage_storage'
+    res.redirect(next)
+})
+
+
 module.exports = router

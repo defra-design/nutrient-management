@@ -336,8 +336,8 @@ router.get(/storage_size_handler/, function (req, res) {
 })
 
 router.get(/livestockentry_handler/, function (req, res) {
-    // var next = (req.session.data.storage_question == 'dimensions') ? 'sizes' : 'check'
-    res.redirect('livestock_numbers')
+    var next = (req.session.data.livestock_entry == 'monthly') ? 'livestock_numbers' : 'livestock_numbers_average'
+    res.redirect(next)
 })
 
 router.get(/livestock_number_handler/, function (req, res) {

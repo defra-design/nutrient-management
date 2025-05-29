@@ -37,9 +37,17 @@
     <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
     <h1 class="govuk-heading-l" id="header">Organic material storage</h1>
       {% if data.oaktree_farm.manure_storage_added == false %}
-        <p class="govuk-body">You have not added any organic material storage.</p>
+        <p class="govuk-body">
+          You have not added any organic material storage.
+        </p>
+        <a class="govuk-button" href="../../add_storage/material_type">Add organic material storage</a>
+      {% else %}
+        <a class="govuk-button" href="../../add_storage/material_type">Add organic material storage</a>
+        <p class="govuk-body margin-bottom-forty">
+          <a class="govuk-notification-banner__link" href="">Save or print an existing manure storage capacity report</a>
+        </p>  
       {% endif %}
-      <p><a class="govuk-button" href="../../add_storage/material_type">Add organic material storage</a></p>
+
 
   </div>
 </div>

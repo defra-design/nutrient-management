@@ -46,6 +46,13 @@ router.get(/output_router/, hide_error, function (req, res) {
     if (req.session.data.export_type == 6) {
         next = 'not_available_imports'
     }
+    if (req.session.data.export_type == 7) {
+        if (req.session.data.manure_storage_added == false) {
+            next = 'not_available_storage'
+        } else {
+            next = 'not_available_storage'
+        }
+    }
     res.redirect(next)
 })
 

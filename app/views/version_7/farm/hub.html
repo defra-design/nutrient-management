@@ -125,14 +125,11 @@
           </a>
         </li>
           <li>
-          <a class="govuk-link" href="storage/manage_storage">
-              {% if data.oaktree_farm.manure_storage_added == true %}
-              Update 
-            {% else %}
-                Add
-            {% endif %}
-              organic material storage
-          </a>
+          {% if data.oaktree_farm.manure_storage_added == true %}
+            <a class="govuk-link" href="storage/manage_storage">Update organic material storage</a>
+          {% else %}
+            <a class="govuk-link" href="../add_storage/material_type">Add organic material storage</a>
+          {% endif %}
         </li>
       </ul>
     </div>

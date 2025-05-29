@@ -23,9 +23,16 @@
       <form action="check" method="post" novalidate="">
 
         <h1 class="govuk-heading-l">{{data.chosen_livestock.name | capitalize}}</h1>
-        {% if data.livestock_group == 'cattle' %}
-          <p class="govuk-hint">{{data.chosen_livestock.nitrogen}}kg Nitrogen (N) per animal, per year</p>
-        {% endif%}
+        <!-- <h1 class="govuk-heading-l">How many of this livestock type did you have in January 2025?</h1> -->
+        
+        <h2 class="govuk-heading-m">Numbers for January</h2>
+        
+        <!-- {% if data.livestock_group != 'pig' and data.livestock_group != 'poultry' %}
+          <p class="govuk-body margin-bottom-thirty"> (N) standard per animal, per year {{data.chosen_livestock.nitrogen}}kg.</p>
+          {% if data.oaktree_farm.derogation == true %}
+            <p class="govuk-body">Phosphate (P2O5) standard per year: 83kg.</p>
+          {% endif %}
+        {% endif %} -->
 
         <div class="">
           <h3 class="govuk-heading-s">{{name}}</h3>
@@ -44,7 +51,7 @@
               <label class="govuk-label" for="livestock_number">
                 Occupancy in January
               </label>
-              <div class="govuk-hint">Length of time you have these animals on the farm.</div>
+              <div class="govuk-hint">Length of time these animals spend indoors</div>
               <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="100" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
                 <div class="govuk-input__suffix" aria-hidden="true">%</div>
               </div>
@@ -67,15 +74,11 @@
           {% endif %} -->
         {% endif %}
 
-        <!-- <div class="govuk-form-group margin-bottom-forty">
+        <div class="govuk-form-group margin-bottom-forty">
           <div class="govuk-checkboxes__item">
             <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-3">Use these numbers as an average for the rest of the year</label>
+            <label class="govuk-label govuk-checkboxes__label" for="waste-3">Use these numbers for the rest of the year</label>
           </div>
-        </div> -->
-        
-        <div class="margin-bottom-forty">
-          <p></p>
         </div>
 
         <button class="govuk-button margin-bottom-forty" data-module="govuk-button">

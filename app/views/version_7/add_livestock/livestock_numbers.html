@@ -16,37 +16,39 @@
 
 {% block content %}
 
-
 {% macro monthitem(name) %}
-<div class="margin-bottom-forty">
-  <h3 class="govuk-heading-s">{{name}}</h3>
-  <div class="govuk-form-group">
-    <label class="govuk-label" for="livestock_number">
-      How many places did you have in {{name}}?
-    </label>
-    <div class="govuk-input__wrapper">
-      <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
-      <div class="govuk-input__suffix" aria-hidden="true">places</div>
+  <div class="margin-bottom-forty">
+    <h3 class="govuk-heading-s">{{name}}</h3>
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="livestock_number">
+        How many places did you have in {{name}}?
+      </label>
+      <div class="govuk-input__wrapper">
+        <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+        <div class="govuk-input__suffix" aria-hidden="true">places</div>
+      </div>
     </div>
+    {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="livestock_number">
+          Occupancy in {{name}}
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="100" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+          <div class="govuk-input__suffix" aria-hidden="true">%</div>
+        </div>
+      </div>
+    {% endif %}
   </div>
-  <div class="govuk-form-group">
-    <label class="govuk-label" for="livestock_number">
-      Occupancy in {{name}}
-    </label>
-    <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="100" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
-      <div class="govuk-input__suffix" aria-hidden="true">%</div>
-    </div>
-  </div>
-</div>
 {% endmacro %}
 
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
       
-      <form action="values_two" method="post" novalidate="">
+      <form action="livestock_number_handler" method="post" novalidate="">
 
-        <h1 class="govuk-heading-l">{{data.chosen_livestock.name | capitalize}} 2025</h1>
+        <h1 class="govuk-heading-l">Enter the number of places per month</h1>
+        <p class="govuk-hint">{{data.chosen_livestock.rate}} {{data.chosen_livestock.name | capitalize}}</p>
 
         <!-- <p class="govuk-body">Enter figures for each month or enter a figure for January and select 'Use January's numbers for the rest of the year'</p> -->
        
@@ -54,7 +56,7 @@
 
         <div class="margin-bottom-ten">
           <button type="" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            Use January's numbers for the rest of the year
+            Add January's numbers to all months
           </button>
         </div>
 

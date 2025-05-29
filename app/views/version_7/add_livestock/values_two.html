@@ -22,36 +22,20 @@
       
       <form action="livestock_values_handler" method="post" novalidate="">
 
-        <h1 class="govuk-heading-l">{{data.chosen_livestock.rate}} {{data.chosen_livestock.name | capitalize}}</h1>
-
-        <h2 class="govuk-heading-s">Standard nutrient values</h2>
+        <!-- <h1 class="govuk-heading-l">{{data.chosen_livestock.rate}} {{data.chosen_livestock.name | capitalize}}</h1> -->
+        <h1 class="govuk-heading-l">What is the Nitrogen (N) standard per year?</h1>
+        <p class="govuk-hint">{{data.chosen_livestock.rate}} {{data.chosen_livestock.name | capitalize}}</p>
         
-        {% if data.livestock_group != 'pig' and data.livestock_group != 'poultry' %}
-          <p class="govuk-body">Nitrogen (N) standard per year: 83kg</p>
-        {% else %}
           <div class="govuk-form-group">
-            <label class="govuk-label" for="nitrogen_standard">
+            <!-- <label class="govuk-label" for="nitrogen_standard">
               What is the Nitrogen (N) standard per year?
-            </label>
+            </label> -->
             <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="nitrogen_standard" name="nitrogen_standard" value="83" type="text" spellcheck="false" autocomplete="off">
               <div class="govuk-input__suffix" aria-hidden="true">kg</div>
             </div>
           </div>
-        {% endif %}
         {% if data.oaktree_farm.derogation == true %}
           <p class="govuk-body">Phosphate (P2O5) standard per year: 83kg</p>
-        {% endif %}
-
-
-        {% if data.livestock_group != 'cattle' %}
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="livestock_occupancy">
-              What is the occupancy? (optional)
-            </label>
-            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" value="100" id="livestock_occupancy" name="livestock_occupancy" type="text" spellcheck="false" autocomplete="off">
-              <div class="govuk-input__suffix" aria-hidden="true">%</div>
-            </div>
-          </div>
         {% endif %}
 
         <div class="margin-bottom-forty"></div>

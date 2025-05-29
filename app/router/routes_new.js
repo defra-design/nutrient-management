@@ -197,7 +197,7 @@ router.get(/get_livestock_reference/, function (req, res) {
         }
     }
     // res.redirect("how_to_enter")
-    res.redirect("livestock_numbers_jan")
+    res.redirect("livestock_number_question")
 })
 
 router.get(/add_livestock_handler/, function (req, res) {
@@ -335,6 +335,14 @@ router.get(/storage_size_handler/, function (req, res) {
     res.redirect(next)
 })
 
+router.get(/livestockentry_handler/, function (req, res) {
+    // var next = (req.session.data.storage_question == 'dimensions') ? 'sizes' : 'check'
+    res.redirect('livestock_numbers')
+})
 
+router.get(/livestock_number_handler/, function (req, res) {
+    var next = (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry') ? 'values_two' : 'check'
+    res.redirect(next)
+})
 
 module.exports = router

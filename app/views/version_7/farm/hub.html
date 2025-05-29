@@ -126,7 +126,12 @@
         </li>
           <li>
           <a class="govuk-link" href="storage/manage_storage">
-              Add organic material storage
+              {% if data.oaktree_farm.manure_storage_added == true %}
+              Update 
+            {% else %}
+                Add
+            {% endif %}
+              organic material storage
           </a>
         </li>
       </ul>

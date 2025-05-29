@@ -323,5 +323,11 @@ router.get(/check_storage_handler/, function (req, res) {
     res.redirect(next)
 })
 
+router.get(/storage_size_handler/, function (req, res) {
+    var next = (req.session.data.storage_question == 'dimensions') ? 'sizes' : 'check'
+    res.redirect(next)
+})
+
+
 
 module.exports = router

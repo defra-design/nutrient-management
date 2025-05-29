@@ -19,7 +19,11 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        How do you want to enter the number of places and the occupancy?
+        {% if data.livestock_group == 'cattle' %}
+          How do you want to enter the number of places?
+        {% else %}
+          How do you want to enter the number of places and the occupancy?
+        {% endif %}
       </h1>
 
       <p class="govuk-hint">Select one option.</p>

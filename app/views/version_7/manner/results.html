@@ -48,7 +48,7 @@
       <p class="govuk-body"><a href="">Remove an application from this calculation</a></p>
     {% endif %}
 
-  <!-- {% if (data.manner_applications | length) == 3 %} 
+  {% if (data.manner_applications | length) == 3 %} 
     <p class="govuk-body"><a href="manner_remove_application?application=3">Remove application 3</a></p>
     <p class="govuk-body"><a href="manner_remove_application?application=2">Remove application 2</a></p>
     <p class="govuk-body"><a href="manner_remove_application?application=1">Remove application 1</a></p>
@@ -57,7 +57,7 @@
   {% if (data.manner_applications | length) == 2 %} 
     <p class="govuk-body"><a href="manner_remove_application?application=2">Remove application 2</a></p>
     <p class="govuk-body"><a href="manner_remove_application?application=1">Remove application 1</a></p>
-  {% endif %}  -->
+  {% endif %} 
 
    <p class="govuk-body"><a href="report/report">Export or print these results</a></p>
    <p class="govuk-body"><a href="fields">Start a new calculation</a></p>
@@ -99,7 +99,33 @@
       {% include "./templates/price_data.html ignore missing" %}
     </div>
 
-    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers">
+    {% if (data.manner_applications | length) >= 1 %} 
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
+        <h2 class="govuk-heading-l">Application 1 details</h2>
+        <div class="check-answers">
+          {% include "./templates/answers.html ignore missing" %}
+        </div>  
+      </div>
+    {% endif %}
+    {% if (data.manner_applications | length) >= 2 %} 
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers2">
+        <h2 class="govuk-heading-l">Application 2 details</h2>
+        <div class="check-answers">
+          {% include "./templates/answers.html ignore missing" %}
+        </div>  
+      </div>
+    {% endif %}
+    {% if (data.manner_applications | length) == 3 %} 
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers3">
+        <h2 class="govuk-heading-l">Application 3 details</h2>
+        <div class="check-answers">
+          {% include "./templates/answers.html ignore missing" %}
+        </div>  
+      </div>
+    {% endif %}
+
+
+    <!-- <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers">
       <h2 class="govuk-heading-l">Application details</h2>
 
       <h2 class="govuk-heading-m">Field and crop details</h2>
@@ -119,7 +145,7 @@
           </div>        
         </details>
       {% endfor %}
-      </div>
+      </div> -->
 
   </div>
 </div>

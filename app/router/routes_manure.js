@@ -54,6 +54,11 @@ router.get(/v2_quantity_handler/, function (req, res) {
     res.redirect(next);
 })
 
+router.get(/manner_quantity_handler/, function (req, res) { 
+    var next = (req.session.data.quantity_type == "area" || req.session.data.quantity_type == "rate") ? 'manure_value' : 'results';
+    res.redirect(next);
+})
+
 // Handlers //
 
 router.get(/manure_fields_v5_handler/, function (req, res) {

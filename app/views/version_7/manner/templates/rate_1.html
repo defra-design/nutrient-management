@@ -1,9 +1,21 @@
 <div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">How would you like to enter the application rate for your {{data.manure_type.name}}?</dt>
-    {% if data.manure_type.liquid == true %}
-    <dd class="govuk-summary-list__value">Use a typical application rate of 20 tonnes per hectare</dd>
-    {% else %}
-    <dd class="govuk-summary-list__value">Use a typical application rate of 20 tonnes per hectare</dd>
-    {% endif %}
-  <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  <dt class="govuk-summary-list__key">
+    How would you like to enter the application rate for this organic material?
+  </dt>
+  <dd class="govuk-summary-list__value">Use a typical application rate</dd>
+  <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
 </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Application rate
+    </dt>
+      <dd class="govuk-summary-list__value">
+        {% if data.manure_type.liquid == true %}
+          30 cubic meters per hectare</dd>
+        {% else %}
+          20 tonnes per hectare
+        {% endif %}
+      </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>

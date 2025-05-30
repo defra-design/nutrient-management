@@ -1,9 +1,52 @@
 <div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">How would you like to enter the application rate for your {{data.manure_type.name}}?</dt>
-    {% if data.manure_type.liquid == true %}
-    <dd class="govuk-summary-list__value">Use a typical application rate of 20 tonnes per hectare</dd>
+  <dt class="govuk-summary-list__key">
+    How would you like to enter the application rate for this organic material?
+  </dt>
+    {% if data.quantity_type == 'rate' %}
+      <dd class="govuk-summary-list__value">Enter an application rate</dd>
+    {% elif data.quantity_type == 'area' %}
+      <dd class="govuk-summary-list__value">Calculate based on the area and quantity you are spreading </dd>
     {% else %}
-    <dd class="govuk-summary-list__value">Use a typical application rate of 20 tonnes per hectare</dd>
+      <dd class="govuk-summary-list__value">Use a typical application rate</dd>
     {% endif %}
-  <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  <dd class="govuk-summary-list__actions"><a class="govuk-link" href="../update/manner/manure_quantity">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
 </div>
+
+{% if data.quantity_type != 'area' %}
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Application rate
+    </dt>
+      <dd class="govuk-summary-list__value">
+        {% if data.manure_type.liquid == true %}
+          30 cubic meters per hectare</dd>
+        {% else %}
+          20 tonnes per hectare
+        {% endif %}
+      </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="../update/manner/manure_value">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+{% else %}
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Spreading area
+    </dt>
+      <dd class="govuk-summary-list__value">
+          30 hectares
+      </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="../update/manner/manure_value">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Quantity
+    </dt>
+      <dd class="govuk-summary-list__value">
+        {% if data.manure_type.liquid == true %}
+          30 cubic meters</dd>
+        {% else %}
+          10 tonnes
+        {% endif %}
+      </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="../update/manner/manure_value">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+{% endif %}

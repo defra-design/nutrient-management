@@ -148,6 +148,7 @@ router.get(/newmanure_setup/, function (req, res) {
 //full setup
 router.get(/plan_setup/, function (req, res) { 
     req.session.data.showinfo = false
+    req.session.data.extra_features = true
     // function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, group, yield, date) {
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2024, req.session.data.plan_2024, 'fertilisers')
     req.session.data.all_fields = req.session.data.complete_field_list
@@ -190,6 +191,7 @@ router.get(/start_setup_handler/, function (req, res) {
 
 router.get(/farm_setup_handler/, function (req, res) { 
     req.session.data.showinfo = false
+    req.session.data.extra_features = true
     req.session.data.oaktree_farm.setup = true
     req.session.data.prototype_version = req.query.version
     res.redirect('/' + req.query.version + '/start')

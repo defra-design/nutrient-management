@@ -48,7 +48,7 @@
       <p class="govuk-body"><a href="">Remove an application from this calculation</a></p>
     {% endif %}
 
-  {% if (data.manner_applications | length) == 3 %} 
+  <!-- {% if (data.manner_applications | length) == 3 %} 
     <p class="govuk-body"><a href="manner_remove_application?application=3">Remove application 3</a></p>
     <p class="govuk-body"><a href="manner_remove_application?application=2">Remove application 2</a></p>
     <p class="govuk-body"><a href="manner_remove_application?application=1">Remove application 1</a></p>
@@ -57,7 +57,7 @@
   {% if (data.manner_applications | length) == 2 %} 
     <p class="govuk-body"><a href="manner_remove_application?application=2">Remove application 2</a></p>
     <p class="govuk-body"><a href="manner_remove_application?application=1">Remove application 1</a></p>
-  {% endif %} 
+  {% endif %}  -->
 
    <p class="govuk-body"><a href="report/report">Export or print these results</a></p>
    <p class="govuk-body"><a href="fields">Start a new calculation</a></p>
@@ -82,8 +82,24 @@
 
       {% if (data.manner_applications | length) >= 1 %} 
         <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#answers">
+          <a class="govuk-tabs__tab" href="#answers1">
             Application 1 details
+          </a>
+        </li>
+      {% endif %}
+
+      {% if (data.manner_applications | length) >= 2 %} 
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#answers2">
+            Application 2 details
+          </a>
+        </li>
+      {% endif %}
+
+      {% if (data.manner_applications | length) >= 3 %} 
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#answers3">
+            Application 3 details
           </a>
         </li>
       {% endif %}
@@ -111,11 +127,11 @@
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers2">
         <h2 class="govuk-heading-l">Application 2 details</h2>
         <div class="check-answers">
-          {% include "./templates/answers.html ignore missing" %}
+          {% include "./templates/answers_2.html ignore missing" %}
         </div>  
       </div>
     {% endif %}
-    {% if (data.manner_applications | length) == 3 %} 
+    {% if (data.manner_applications | length) >= 3 %} 
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers3">
         <h2 class="govuk-heading-l">Application 3 details</h2>
         <div class="check-answers">
@@ -125,27 +141,6 @@
     {% endif %}
 
 
-    <!-- <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers">
-      <h2 class="govuk-heading-l">Application details</h2>
-
-      <h2 class="govuk-heading-m">Field and crop details</h2>
-      {% include "./templates/field_content.html ignore missing" %}
-      {% set applicationcount = 0 %}
-      {% for item in data.manner_applications %}
-        {% set applicationcount = applicationcount +1 %}
-        <details class="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              View or edit application {{applicationcount}} details
-            </span>
-          </summary>
-          <div class="check-answers">
-            <h2 class="govuk-heading-m margin-top-thirty">Application {{applicationcount}} details</h2>
-            {% include "./templates/answers_content.html ignore missing" %}
-          </div>        
-        </details>
-      {% endfor %}
-      </div> -->
 
   </div>
 </div>

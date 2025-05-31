@@ -110,6 +110,7 @@ router.get(/manuretype_manner_handler/, function (req, res) {
             req.session.data.manure_type = req.session.data.manure_types[x]
         }
     }
+    console.log(req.session.data.manure_type.name)
     res.redirect('manure_date')
 })
 

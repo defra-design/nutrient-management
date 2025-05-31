@@ -222,7 +222,7 @@ router.get(/manner_values_router/, showSuccessMessage, function (req, res) {
 
 router.get(/manner_results_handler/, showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 1 //done
-    let tempApplication = {date:'01/01/2025'}
+    let tempApplication = {date:'01/01/2025', manuretype: req.session.data.manure_type}
     req.session.data.manner_applications.push(tempApplication)
     res.redirect('results')
 })

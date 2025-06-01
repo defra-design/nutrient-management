@@ -1,9 +1,8 @@
 <div id="">
   <dl class="govuk-summary-list margin-bottom-forty">
-    
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">What type of organic material would you like to use?</dt>
-      <dd class="govuk-summary-list__value">{{data.manure_type.name}}</dd>
+      <dd class="govuk-summary-list__value">{{chosen_application.manuretype.name}}</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>  
     
@@ -11,9 +10,7 @@
       <dt class="govuk-summary-list__key">When are you applying this organic material?</dt>
       <dd class="govuk-summary-list__value">
         <p class="govuk-body">
-            {{data.manure_date_day}}
-            {{data.manure_date_month | convertmonth}}
-            {{data.manure_date_year}} 
+          {{chosen_application.date}}        
         </p>
       </dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>

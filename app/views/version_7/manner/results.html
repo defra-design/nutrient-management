@@ -127,10 +127,10 @@
       {% include "./templates/price_data.html ignore missing" %}
     </div>
 
-    {% if (data.manner_applications | length) >= 1 %} 
-
+    {% if (data.manner_applications | length) == 1 %} 
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
         {{ result (1) }}
+        {% set chosen_application = data.manner_applications[0] %}
         <div class="check-answers">
           {% include "./templates/answers_1.html ignore missing" %}     
         </div>

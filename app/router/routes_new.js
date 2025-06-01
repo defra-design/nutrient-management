@@ -313,7 +313,7 @@ router.get(/grass_years_handler/, function (req, res) {
 
 router.get(/manner_copy_router/, function (req, res) {
     let next
-    let tempApplication = {date:'01/01/2025'}
+    let tempApplication = req.session.data.manner_applications[0]
     if (req.session.data.copy_manner == 'no') {
         next = 'manure_group'
     } else {

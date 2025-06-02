@@ -1,12 +1,14 @@
-<div>
-<h2 class="govuk-heading-m">Application 1</h2>
-<div class="left_col">
-  <h3 class="govuk-heading-s">Cattle slurry - 21/6/2025</h3>
-  <table class="data-manner-table govuk-table margin-bottom-forty">
-    <thead class="govuk-table__head">
-    </thead>
+<h2 class="govuk-heading-m">Application 1 details</h2>
+  <table class="govuk-table manner-analysis">
     <tbody class="govuk-table__body">
-    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Manure type</th>
+        <td class="govuk-table__cell">{{data.manner_applications[0].manuretype.name}}</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Application date</th>
+        <td class="govuk-table__cell">21/6/2025</td>
+      </tr>
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Application rate</th>
         <td class="govuk-table__cell">20 cubic metres per hectare</td>
@@ -49,70 +51,47 @@
       </tr>
     </tbody>
   </table>
-</div>
 
-<div class="right_col">
-<h3 class="govuk-heading-s">Manure analysis</h3>
-<table class="data-table govuk-table margin-bottom-forty">
-  <thead class="govuk-table__head">
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Dry matter</th>
-            <td class="govuk-table__cell">6%</td>
-    </tr>
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Total N</th>
-            <td class="govuk-table__cell">2.6kg</td>
-
-          </tr>
-    <tr class="govuk-table__row">
-
-      <th scope="col" class="govuk-table__header">NH4-N</th>
-            <td class="govuk-table__cell">1.2kg</td>
-
-          </tr>
-    <tr class="govuk-table__row">
-
-      <th scope="col" class="govuk-table__header">Uric acid N</th>
-            <td class="govuk-table__cell">0</td>
-
-          </tr>
-    <tr class="govuk-table__row">
-
-      <th scope="col" class="govuk-table__header">Nitrate-N</th>
-            <td class="govuk-table__cell">0</td>
-
-          </tr>
-    <tr class="govuk-table__row">
-
-      <th scope="col" class="govuk-table__header">Total P2O5</th>
-            <td class="govuk-table__cell">1.2kg</td>
-
-          </tr>
-    <tr class="govuk-table__row">
-
-      <th scope="col" class="govuk-table__header">Total K2O</th>
-            <td class="govuk-table__cell">3.2kg</td>
-
-          </tr>
-    <tr class="govuk-table__row">
-
-      <th scope="col" class="govuk-table__header">Total SO3</th>
-            <td class="govuk-table__cell">0.7kg</td>
-
-          </tr>
-    <tr class="govuk-table__row">
-
-      <th scope="col" class="govuk-table__header">Total MgO</th>
-            <td class="govuk-table__cell">0.6kg</td>
-
-    </tr>
-
-</tbody>
-</table>
-</div>
-</div>
-
+  <h2 class="govuk-heading-m">Application 1  manure analysis</h2>
+  <table class="govuk-table manner-analysis">
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Dry Matter content</th>
+        <td class="govuk-table__cell">6%</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Total nitrogen (N)</th>
+        <td class="govuk-table__cell">2.6kg</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">NH4-N</th>
+        <td class="govuk-table__cell">1.2kg</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Uric acid N</th>
+        <td class="govuk-table__cell">0</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Nitrate-N</th>
+        <td class="govuk-table__cell">0</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Total P2O5</th>
+        <td class="govuk-table__cell">1.2kg</td>
+        </tr>
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Total K2O</th>
+        <td class="govuk-table__cell">3.2kg</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Total SO3</th>
+        <td class="govuk-table__cell">0.7kg</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Total MgO</th>
+        <td class="govuk-table__cell">0.6kg</td>
+      </tr>
+    </tbody>
+  </table>
 
 

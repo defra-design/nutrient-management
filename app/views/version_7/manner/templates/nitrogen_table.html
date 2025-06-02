@@ -13,24 +13,29 @@
 			</tr>
 		</thead>
 		<tbody class="govuk-table__body">
-			{% set application_count = 0 %}
-			{% for item in data.manner_applications %}
-				{% set application_count = application_count + 1 %}
-				<tr>
-					<td class="govuk-table__cell">{{application_count}}</td>
-					<td class="govuk-table__cell">{{item.manuretype.name}}</td>
-					<td class="govuk-table__cell">21/06/2025</td>
-					<td class="govuk-table__cell">125kg</td>
-					<td class="govuk-table__cell">1kg</td>
-				</tr>
-			{% endfor %}
+			<tr>
+				<td class="govuk-table__cell">1</td>
+				<td class="govuk-table__cell">{{data.manner_applications[0].manuretype.name}}</td>
+				<td class="govuk-table__cell">21/06/2025</td>
+				<td class="govuk-table__cell">52kg</td>
+				<td class="govuk-table__cell">1kg</td>
+			</tr>
+			{% if (data.manner_applications | length) == 2 %}
+			<tr>
+				<td class="govuk-table__cell">2</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
+				<td class="govuk-table__cell">21/06/2025</td>
+				<td class="govuk-table__cell">180kg</td>
+				<td class="govuk-table__cell">7kg</td>
+			</tr>
+			{% endif %}
 			{% if (data.manner_applications | length) >= 2 %}
 				<tr class="total_row">
 					<th scope="row" class="govuk-table__header">Totals</th>
 					<th scope="row" class="govuk-table__header">-</th>
 					<th scope="row" class="govuk-table__header">-</th>
-					<td class="govuk-table__cell">125kg</td>
-					<td class="govuk-table__cell">1kg</td>
+					<td class="govuk-table__cell">232kg</td>
+					<td class="govuk-table__cell">8kg</td>
 				</tr>
 			{% endif %}
 		</tbody>
@@ -51,26 +56,32 @@
 			</tr>
 		</thead>
 		<tbody class="govuk-table__body">
-			{% set application_count = 0 %}
-			{% for item in data.manner_applications %}
-				{% set application_count = application_count + 1 %}
 				<tr>
-					<td class="govuk-table__cell">{{application_count}}</td>
-					<td class="govuk-table__cell">{{item.manuretype.name}}</td>
+					<td class="govuk-table__cell">1</td>
+					<td class="govuk-table__cell">{{data.manner_applications[0].manuretype.name}}</td>
 					<td class="govuk-table__cell">21/06/2025</td>
+					<td class="govuk-table__cell">10kg</td>
 					<td class="govuk-table__cell">2kg</td>
-					<td class="govuk-table__cell">22kg</td>
-					<td class="govuk-table__cell">1kg</td>
+					<td class="govuk-table__cell">2kg</td>
 				</tr>
-			{% endfor %}
+			{% if (data.manner_applications | length) == 2 %}
+				<tr>
+				<td class="govuk-table__cell">2</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
+					<td class="govuk-table__cell">21/06/2025</td>
+					<td class="govuk-table__cell">31kg</td>
+					<td class="govuk-table__cell">3kg</td>
+					<td class="govuk-table__cell">9kg</td>
+				</tr>
+			{% endif %}
 			{% if (data.manner_applications | length) >= 2 %}
 				<tr class="total_row">
 					<th scope="row" class="govuk-table__header">Totals</th>
 					<th scope="row" class="govuk-table__header">-</th>
 					<th scope="row" class="govuk-table__header">-</th>
-					<td class="govuk-table__cell">2kg</td>
-					<td class="govuk-table__cell">22kg</td>
-					<td class="govuk-table__cell">1kg</td>
+					<td class="govuk-table__cell">41kg</td>
+					<td class="govuk-table__cell">5kg</td>
+					<td class="govuk-table__cell">11kg</td>
 				</tr>
 			{% endif %}
 		</tbody>
@@ -85,35 +96,38 @@
 				<th scope="row" class="govuk-table__header">Application</th>
 				<th scope="row" class="govuk-table__header">Manure type</th>
 				<th scope="row" class="govuk-table__header">Date</th>
-				<th scope="row" class="govuk-table__header">Current grass crop</th>
-				<th scope="row" class="govuk-table__header">Next grass crop - current year</th>
+				<th scope="row" class="govuk-table__header">Current crop</th>
 				<th scope="row" class="govuk-table__header">Following crop - year 2</th>
 				<th scope="row" class="govuk-table__header">Nitrogen efficiency</th>
 			</tr>
 		</thead>
 		<tbody class="govuk-table__body">
-			{% set application_count = 0 %}
-			{% for item in data.manner_applications %}
-				{% set application_count = application_count + 1 %}
+			<tr>
+				<td class="govuk-table__cell">1</td>
+				<td class="govuk-table__cell">{{data.manner_applications[0].manuretype.name}}</td>
+				<td class="govuk-table__cell">21/06/2025</td>
+				<td class="govuk-table__cell">11kg</td>
+				<td class="govuk-table__cell">1kg</td>
+				<td class="govuk-table__cell">22%</td>
+			</tr>
+			{% if (data.manner_applications | length) == 2 %}
 				<tr>
-					<td class="govuk-table__cell">{{application_count}}</td>
-					<td class="govuk-table__cell">{{item.manuretype.name}}</td>
+				<td class="govuk-table__cell">2</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
 					<td class="govuk-table__cell">21/06/2025</td>
-					<td class="govuk-table__cell">8kg</td>
-					<td class="govuk-table__cell">6kg</td>
-					<td class="govuk-table__cell">3kg</td>
-					<td class="govuk-table__cell">29%</td>
+					<td class="govuk-table__cell">88kg</td>
+					<td class="govuk-table__cell">2kg</td>
+					<td class="govuk-table__cell">49%</td>
 				</tr>
-			{% endfor %}
+			{% endif %}
 			{% if (data.manner_applications | length) >= 2 %}
 				<tr class="total_row">
 					<th scope="row" class="govuk-table__header">Totals</th>
 					<th scope="row" class="govuk-table__header">-</th>
 					<th scope="row" class="govuk-table__header">-</th>
-					<td class="govuk-table__cell">8kg</td>
-					<td class="govuk-table__cell">6kg</td>
+					<td class="govuk-table__cell">99kg</td>
 					<td class="govuk-table__cell">3kg</td>
-					<td class="govuk-table__cell">29%</td>
+					<td class="govuk-table__cell">49%</td>
 				</tr>
 			{% endif %}
 		</tbody>
@@ -132,40 +146,50 @@
 				<th scope="row" class="govuk-table__header">Crop available P2O5</th>
 				<th scope="row" class="govuk-table__header">Total K2O</th>
 				<th scope="row" class="govuk-table__header">Crop available K2O</th>
-				<th scope="row" class="govuk-table__header">Crop available SO3</th>
 				<th scope="row" class="govuk-table__header">Total SO3</th>
+				<th scope="row" class="govuk-table__header">Crop available SO3</th>
 				<th scope="row" class="govuk-table__header">Total MgO</th>
 			</tr>
 		</thead>
 		<tbody class="govuk-table__body">
-			{% set application_count = 0 %}
-			{% for item in data.manner_applications %}
-				{% set application_count = application_count + 1 %}
+			<tr>
+				<td class="govuk-table__cell">1</td>
+				<td class="govuk-table__cell">{{data.manner_applications[0].manuretype.name}}</td>
+				<td class="govuk-table__cell">21/06/2025</td>
+				<td class="govuk-table__cell">24kg</td>
+				<td class="govuk-table__cell">12kg</td>
+				<td class="govuk-table__cell">64kg</td>
+				<td class="govuk-table__cell">58kg</td>
+				<td class="govuk-table__cell">14kg</td>
+				<td class="govuk-table__cell">14kg</td>
+				<td class="govuk-table__cell">12kg</td>
+			</tr>
+			{% if (data.manner_applications | length) == 2 %}
 				<tr>
-					<td class="govuk-table__cell">{{application_count}}</td>
-					<td class="govuk-table__cell">{{item.manuretype.name}}</td>
+				<td class="govuk-table__cell">2</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
 					<td class="govuk-table__cell">21/06/2025</td>
-					<td class="govuk-table__cell">115kg</td>
-					<td class="govuk-table__cell">57kg</td>
-					<td class="govuk-table__cell">55kg</td>
+					<td class="govuk-table__cell">90kg</td>
+					<td class="govuk-table__cell">45kg</td>
+					<td class="govuk-table__cell">120kg</td>
+					<td class="govuk-table__cell">108kg</td>
 					<td class="govuk-table__cell">50kg</td>
 					<td class="govuk-table__cell">50kg</td>
-					<td class="govuk-table__cell">0</td>
-					<td class="govuk-table__cell">0</td>
+					<td class="govuk-table__cell">35kg</td>
 				</tr>
-			{% endfor %}
+			{% endif %}
 			{% if (data.manner_applications | length) >= 2 %}
 				<tr class="total_row">
 					<th scope="row" class="govuk-table__header">Totals</th>
 					<th scope="row" class="govuk-table__header">-</th>
 					<th scope="row" class="govuk-table__header">-</th>
-					<th scope="row" class="govuk-table__header">115kg</th>
+					<th scope="row" class="govuk-table__header">114kg</th>
 					<th scope="row" class="govuk-table__header">57kg</th>
-					<th scope="row" class="govuk-table__header">55kg</th>
-					<th scope="row" class="govuk-table__header">50kg</th>
-					<th scope="row" class="govuk-table__header">50kg</th>
-					<th scope="row" class="govuk-table__header">0</th>
-					<th scope="row" class="govuk-table__header">0</th>
+					<th scope="row" class="govuk-table__header">184kg</th>
+					<th scope="row" class="govuk-table__header">166kg</th>
+					<th scope="row" class="govuk-table__header">64kg</th>
+					<th scope="row" class="govuk-table__header">64kg</th>
+					<th scope="row" class="govuk-table__header">47kg</th>
 				</tr>
 			{% endif %}
 		</tbody>

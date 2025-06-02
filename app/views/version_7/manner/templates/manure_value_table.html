@@ -1,4 +1,9 @@
 <h2 class="govuk-heading-l">Manure value</h2>
+      <h3 class="govuk-heading-s">
+        The total potential value of these manure applications is £336 per hectare
+      </h3>
+      <p class="govuk-body-s negative-10">Based on nitrogen (N) at 90p per kg, Phosphate (P2O5) at 80p per kg and Potash (K2O) at 60p per kg.
+
 <div class="margin-bottom-forty">
 	<table class="govuk-table margin-bottom-forty data-table">
 		<thead class="govuk-table__head">
@@ -13,28 +18,35 @@
 			</tr>
 		</thead>
 		<tbody>
-			{% set application_count = 0 %}
-			{% for item in data.manner_applications %}
-				{% set application_count = application_count + 1 %}
+			<tr class="govuk-table__row">
+				<td class="govuk-table__cell">1</td>
+				<td class="govuk-table__cell">{{data.manner_applications[0].manuretype.name}}</td>
+				<td class="govuk-table__cell">21/06/2025</td>
+				<td class="govuk-table__cell">£10</td>
+				<td class="govuk-table__cell">£79</td>
+				<td class="govuk-table__cell">£36</td>
+				<td class="govuk-table__cell">£125</td>
+			</tr>
+			{% if (data.manner_applications | length) == 2 %}
 				<tr class="govuk-table__row">
-					<td class="govuk-table__cell">{{application_count}}</td>
-					<td class="govuk-table__cell">{{item.manuretype.name}}</td>
+				<td class="govuk-table__cell">2</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
 					<td class="govuk-table__cell">21/06/2025</td>
-					<td class="govuk-table__cell">£13</td>
-					<td class="govuk-table__cell">£92</td>
-					<td class="govuk-table__cell">£138</td>
-					<td class="govuk-table__cell">£248</td>
+					<td class="govuk-table__cell">£19</td>
+					<td class="govuk-table__cell">£72</td>
+					<td class="govuk-table__cell">£120</td>
+					<td class="govuk-table__cell">£211</td>
 				</tr>
-			{% endfor %}
+			{% endif %}
 			{% if (data.manner_applications | length) >= 2 %}
 				<tr class="total_row">
 					<td class="govuk-table__cell">Totals</td>
 					<td class="govuk-table__cell">-</td>
 					<td class="govuk-table__cell">-</td>
-					<td class="govuk-table__cell">£26</td>
-					<td class="govuk-table__cell">£184</td>
-					<td class="govuk-table__cell">£276</td>
-					<td class="govuk-table__cell">£486</td>
+					<td class="govuk-table__cell">£29</td>
+					<td class="govuk-table__cell">£151</td>
+					<td class="govuk-table__cell">£156</td>
+					<td class="govuk-table__cell">£336</td>
 				</tr>
 			{% endif %}
 		</tbody>

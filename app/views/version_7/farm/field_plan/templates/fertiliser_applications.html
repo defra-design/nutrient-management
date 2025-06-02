@@ -18,38 +18,38 @@
           
           <td class="govuk-table__cell">
             {% if fertapp.rate != "0" and fertapp.rate != "" and fertapp.rate != nan %}
-              {{fertapp.rate}} kg
+              {{fertapp.rate}}kg
             {% else %} 
               Not entered
             {% endif %} 
           </td>
           <td class="govuk-table__cell">
             {% if fertapp.nitrogen != "0" %}
-              <span class="nutrient-list">{{fertapp.nitrogen}} kg Nitrogen (N)</span>
+              <span class="nutrient-list">{{fertapp.nitrogen}}kg Nitrogen (N)</span>
             {% endif %}
 
             {% if fertapp.P2O5 != "0" %}
-              <span class="nutrient-list">{{fertapp.P2O5}} kg Phosphate (P2O5)</span>
+              <span class="nutrient-list">{{fertapp.P2O5}}kg Phosphate (P2O5)</span>
             {% endif %}
 
             {% if fertapp.K2O != "0" %}
-              <span class="nutrient-list">{{fertapp.K2O}} kg Potash (K2O)</span>
+              <span class="nutrient-list">{{fertapp.K2O}}kg Potash (K2O)</span>
             {% endif %}
 
             {% if fertapp.MgO != "0" %}
-              <span class="nutrient-list">{{fertapp.MgO}} kg Magnesium (MgO)</span>
+              <span class="nutrient-list">{{fertapp.MgO}}kg Magnesium (MgO)</span>
             {% endif %}
 
             {% if fertapp.SO3 != "0" %}
-              <span class="nutrient-list">{{fertapp.SO3}} kg Sulphur (SO3)</span>
+              <span class="nutrient-list">{{fertapp.SO3}}kg Sulphur (SO3)</span>
             {% endif %}
 
             {% if fertapp.Na2O != "0" %}
-              <span class="nutrient-list">{{fertapp.Na2O}} kg Sodium (Na2O)</span>
+              <span class="nutrient-list">{{fertapp.Na2O}}kg Sodium (Na2O)</span>
             {% endif %}
 
             {% if fertapp.Lime != "0" %}
-              <span class="nutrient-list">{{fertapp.Na2O}} kg Lime</span>
+              <span class="nutrient-list">{{fertapp.Na2O}}kg Lime</span>
             {% endif %}
           </td>
 

@@ -1037,12 +1037,15 @@ width: 35%
 }
 
 .manner_table-v2 {
-    th:first-child, td:first-child {
-        width: 16%;
-        padding-right: 10px;
+    th:nth-child(1) {
+        width: 6%;
+        padding-right: 15px;
     }
     th:nth-child(2) {
-        width: 10%;
+        width: 15%;
+    }
+    th:nth-child(3) {
+        width: 13%;
     }
     font-size: 17px;
     .number-three {

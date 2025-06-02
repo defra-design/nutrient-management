@@ -5,6 +5,7 @@
 	<table class="govuk-table manner_table-v2">
 		<thead class="govuk-table__head">
 			<tr>
+				<th scope="row" class="govuk-table__header">Application</th>
 				<th scope="row" class="govuk-table__header">Manure type</th>
 				<th scope="row" class="govuk-table__header">Date</th>
 				<th scope="row" class="govuk-table__header number-three">Total nitrogen (N)</th>
@@ -12,17 +13,21 @@
 			</tr>
 		</thead>
 		<tbody class="govuk-table__body">
+			{% set application_count = 0 %}
 			{% for item in data.manner_applications %}
-			<tr>
-				<td class="govuk-table__cell">{{item.manuretype.name}}</td>
-				<td class="govuk-table__cell">21/06/2025</td>
-				<td class="govuk-table__cell">125kg</td>
-				<td class="govuk-table__cell">1kg</td>
-			</tr>
+				{% set application_count = application_count + 1 %}
+				<tr>
+					<td class="govuk-table__cell">{{application_count}}</td>
+					<td class="govuk-table__cell">{{item.manuretype.name}}</td>
+					<td class="govuk-table__cell">21/06/2025</td>
+					<td class="govuk-table__cell">125kg</td>
+					<td class="govuk-table__cell">1kg</td>
+				</tr>
 			{% endfor %}
 			{% if (data.manner_applications | length) >= 2 %}
 				<tr class="total_row">
 					<th scope="row" class="govuk-table__header">Totals</th>
+					<th scope="row" class="govuk-table__header">-</th>
 					<th scope="row" class="govuk-table__header">-</th>
 					<td class="govuk-table__cell">125kg</td>
 					<td class="govuk-table__cell">1kg</td>
@@ -38,6 +43,7 @@
 		<thead class="govuk-table__head">
 			<tr>
 				<th scope="row" class="govuk-table__header">Application</th>
+				<th scope="row" class="govuk-table__header">Manure type</th>
 				<th scope="row" class="govuk-table__header">Date</th>
 				<th scope="row" class="govuk-table__header number-three">Nitrate-N</th>
 				<th scope="row" class="govuk-table__header">Ammonia-N</th>
@@ -45,8 +51,11 @@
 			</tr>
 		</thead>
 		<tbody class="govuk-table__body">
+			{% set application_count = 0 %}
 			{% for item in data.manner_applications %}
+				{% set application_count = application_count + 1 %}
 				<tr>
+					<td class="govuk-table__cell">{{application_count}}</td>
 					<td class="govuk-table__cell">{{item.manuretype.name}}</td>
 					<td class="govuk-table__cell">21/06/2025</td>
 					<td class="govuk-table__cell">2kg</td>
@@ -57,6 +66,7 @@
 			{% if (data.manner_applications | length) >= 2 %}
 				<tr class="total_row">
 					<th scope="row" class="govuk-table__header">Totals</th>
+					<th scope="row" class="govuk-table__header">-</th>
 					<th scope="row" class="govuk-table__header">-</th>
 					<td class="govuk-table__cell">2kg</td>
 					<td class="govuk-table__cell">22kg</td>
@@ -73,6 +83,7 @@
 		<thead class="govuk-table__head">
 			<tr>
 				<th scope="row" class="govuk-table__header">Application</th>
+				<th scope="row" class="govuk-table__header">Manure type</th>
 				<th scope="row" class="govuk-table__header">Date</th>
 				<th scope="row" class="govuk-table__header">Current grass crop</th>
 				<th scope="row" class="govuk-table__header">Next grass crop - current year</th>
@@ -81,8 +92,11 @@
 			</tr>
 		</thead>
 		<tbody class="govuk-table__body">
+			{% set application_count = 0 %}
 			{% for item in data.manner_applications %}
+				{% set application_count = application_count + 1 %}
 				<tr>
+					<td class="govuk-table__cell">{{application_count}}</td>
 					<td class="govuk-table__cell">{{item.manuretype.name}}</td>
 					<td class="govuk-table__cell">21/06/2025</td>
 					<td class="govuk-table__cell">8kg</td>
@@ -94,6 +108,7 @@
 			{% if (data.manner_applications | length) >= 2 %}
 				<tr class="total_row">
 					<th scope="row" class="govuk-table__header">Totals</th>
+					<th scope="row" class="govuk-table__header">-</th>
 					<th scope="row" class="govuk-table__header">-</th>
 					<td class="govuk-table__cell">8kg</td>
 					<td class="govuk-table__cell">6kg</td>
@@ -111,6 +126,7 @@
 		<thead class="govuk-table__head">
 			<tr>
 				<th scope="row" class="govuk-table__header">Application</th>
+				<th scope="row" class="govuk-table__header">Manure type</th>
 				<th scope="row" class="govuk-table__header">Date</th>
 				<th scope="row" class="govuk-table__header">Total P2O5</th>
 				<th scope="row" class="govuk-table__header">Crop available P2O5</th>
@@ -119,11 +135,14 @@
 				<th scope="row" class="govuk-table__header">Crop available SO3</th>
 				<th scope="row" class="govuk-table__header">Total SO3</th>
 				<th scope="row" class="govuk-table__header">Total MgO</th>
-				</tr>
+			</tr>
 		</thead>
 		<tbody class="govuk-table__body">
+			{% set application_count = 0 %}
 			{% for item in data.manner_applications %}
+				{% set application_count = application_count + 1 %}
 				<tr>
+					<td class="govuk-table__cell">{{application_count}}</td>
 					<td class="govuk-table__cell">{{item.manuretype.name}}</td>
 					<td class="govuk-table__cell">21/06/2025</td>
 					<td class="govuk-table__cell">115kg</td>
@@ -138,6 +157,7 @@
 			{% if (data.manner_applications | length) >= 2 %}
 				<tr class="total_row">
 					<th scope="row" class="govuk-table__header">Totals</th>
+					<th scope="row" class="govuk-table__header">-</th>
 					<th scope="row" class="govuk-table__header">-</th>
 					<th scope="row" class="govuk-table__header">115kg</th>
 					<th scope="row" class="govuk-table__header">57kg</th>

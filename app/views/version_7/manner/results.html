@@ -92,7 +92,7 @@
         </a>
       </li>
 
-      {% if (data.manner_applications | length) >= 1 %} 
+      {% if (data.manner_applications | length) == 1 %} 
         <li class="govuk-tabs__list-item">
           <a class="govuk-tabs__tab" href="#answers1">
             Application 1 details
@@ -100,7 +100,12 @@
         </li>
       {% endif %}
 
-      {% if (data.manner_applications | length) >= 2 %} 
+      {% if (data.manner_applications | length) == 2 %} 
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#answers1">
+            Application 1 details
+          </a>
+        </li>
         <li class="govuk-tabs__list-item">
           <a class="govuk-tabs__tab" href="#answers2">
             Application 2 details
@@ -108,7 +113,17 @@
         </li>
       {% endif %}
 
-      {% if (data.manner_applications | length) >= 3 %} 
+      {% if (data.manner_applications | length) == 3 %} 
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#answers1">
+            Application 1 details
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#answers2">
+            Application 2 details
+          </a>
+        </li>
         <li class="govuk-tabs__list-item">
           <a class="govuk-tabs__tab" href="#answers3">
             Application 3 details
@@ -127,7 +142,7 @@
       {% include "./templates/price_data.html ignore missing" %}
     </div>
 
-    {% if (data.manner_applications | length) == 1 %} 
+    {% if (data.manner_applications | length) <= 1 %} 
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
         {{ result (1) }}
         {% set chosen_application = data.manner_applications[0] %}
@@ -137,36 +152,45 @@
       </div> 
     {% endif %}
 
-    {% if (data.manner_applications | length) >= 2 %} 
+    {% if (data.manner_applications | length) == 2 %} 
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
+        {{ result (1) }}
+        {% set chosen_application = data.manner_applications[0] %}
+        <div class="check-answers">
+          {% include "./templates/answers_1.html ignore missing" %}     
+        </div>
+      </div> 
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers2">
-        <h2 class="govuk-heading-l">Application 2 details</h2>
-        <h2 class="govuk-heading-m">Field and crop</h3>
-        <p class="govuk-hint">Field and crop choices are for all applications.</p>
+        {{ result (2) }}
+        {% set chosen_application = data.manner_applications[1] %}
         <div class="check-answers">
-          {% include "./templates/field_crop_2.html ignore missing" %}
-        </div>  
-        <h2 class="govuk-heading-m">Application details</h2>
-        <p class="govuk-hint">These details are for application 2 only.</p>
-        <div class="check-answers">
-          {% include "./templates/answers_2.html ignore missing" %}
-        </div>  
-      </div>
+          {% include "./templates/answers_2.html ignore missing" %}     
+        </div>
+      </div> 
     {% endif %}
 
     {% if (data.manner_applications | length) >= 3 %} 
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
+        {{ result (1) }}
+        {% set chosen_application = data.manner_applications[0] %}
+        <div class="check-answers">
+          {% include "./templates/answers_1.html ignore missing" %}     
+        </div>
+      </div> 
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers2">
+        {{ result (2) }}
+        {% set chosen_application = data.manner_applications[1] %}
+        <div class="check-answers">
+          {% include "./templates/answers_2.html ignore missing" %}     
+        </div>
+      </div> 
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers3">
-        <h2 class="govuk-heading-l">Application 3 details</h2>
-        <h2 class="govuk-heading-m">Field and crop</h3>
-        <p class="govuk-hint">Field and crop choices are for all applications.</p>
+        {{ result (3) }}
+        {% set chosen_application = data.manner_applications[1] %}
         <div class="check-answers">
-          {% include "./templates/field_crop.html ignore missing" %}
-        </div>  
-        <h2 class="govuk-heading-m">Application details</h2>
-        <p class="govuk-hint">These details are for application 3 only.</p>
-        <div class="check-answers">
-          {% include "./templates/answers_2.html ignore missing" %}
-        </div>  
-      </div>
+          {% include "./templates/answers_2.html ignore missing" %}     
+        </div>
+      </div> 
     {% endif %}
 
   </div>

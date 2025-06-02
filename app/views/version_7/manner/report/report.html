@@ -71,18 +71,13 @@
       <h2 class="govuk-heading-l">
         MANNER-NPK results 
       </h2>
-      <p class="govuk-body-s negative-10">Values are  per hectare.</p>
-      {% include "./templates/manner_results.html" ignore missing %}
+      {% include "../templates/nitrogen_table.html ignore missing" %}
     </div>
   </div>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
-      <h2 class="govuk-heading-m">
-        Potential financial value of all manure applications <br>£486 per hectare
-      </h2>
-      <p class="govuk-body-s negative-10">Based on nitrogen (N) at 90p perkg, Phosphate (P2O5) at 80p perkg and Potash (K2O) at 60p perkg.
-        {% include "./templates/value.html" ignore missing %}
+      {% include "../templates/manure_value_table.html ignore missing" %}
     </div>
   </div>
 
@@ -109,6 +104,7 @@
         {% include "./templates/application_1_details.html" ignore missing %}
       </div>
     </div>
+    <div id="printbreak"></div>
     <div class="govuk-grid-row">
      <div class="govuk-grid-column-full margin-bottom-ten">
         {% include "./templates/application_2_details.html" ignore missing %}

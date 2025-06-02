@@ -222,11 +222,35 @@ router.get(/manner_values_router/, showSuccessMessage, function (req, res) {
 
 router.get(/manner_results_handler/, showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 1 //done
-    let tempApplication = {date:'01/01/2025', manuretype: req.session.data.manure_type}
+    if (req.session.data.manure_rate == null || req.session.data.manure_rate == "" ) {
+        req.session.data.manure_rate = 20
+    }
+    let tempApplication = {date:'01/01/2025', manuretype: req.session.data.manure_type, rate: req.session.data.manure_rate }
     req.session.data.manner_applications.push(tempApplication)
     // console.log(req.session.data.manner_applications)
     res.redirect('results')
 })
+
+router.get(/manner_update_handler/, showSuccessMessage, function (req, res) {
+    req.session.data.successMessage = 1 //done
+    req.session.data.manner_applications[1].rate = req.session.data.manure_rate
+    // console.log(req.session.data.manner_applications)
+    res.redirect('/' + req.session.data.prototype_version + '/manner/results')
+})
+
+router.get(/manuretype_update_handler/, showSuccessMessage, function (req, res) {
+    req.session.data.successMessage = 1 //done
+    //get object
+    for (var x in req.session.data.manure_types ) {
+        if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
+            req.session.data.manure_type = req.session.data.manure_types[x]
+        }
+    }
+    req.session.data.manner_applications[1].manuretype = req.session.data.manure_type
+    // console.log(req.session.data.manure_type.name)
+    res.redirect('/' + req.session.data.prototype_version + '/manner/results')
+})
+
 
 router.get(/manner_remove_application/, showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 4 //application removed

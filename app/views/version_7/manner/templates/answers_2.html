@@ -1,10 +1,6 @@
 <div id="">
   <dl class="govuk-summary-list margin-bottom-forty">
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">What type of organic material would you like to use?</dt>
-      <dd class="govuk-summary-list__value">{{chosen_application.manuretype.name}}</dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>  
+    {% include "./type_2.html ignore missing" %}
     
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">When are you applying this organic material?</dt>
@@ -26,15 +22,15 @@
       <dt class="govuk-summary-list__key">Nutrient values for {{data.manure_type.name}}</dt>
       <dd class="govuk-summary-list__value">
         <ul class="nutrient_values">
-          <li>Dry Matter content: <span>25%</span></span>
-          <li>Total Nitrogen: <span>6kg</span></span>
-          <li>Ammonium-N:	<span>0.5kg</span></span>
+          <li>Dry Matter content: <span>6%</span></span>
+          <li>Total Nitrogen: <span>2.6kg</span></span>
+          <li>Ammonium-N:	<span>1.2kg</span></span>
           <li>Uric acid N:	<span>0kg</span></span>
-          <li>Nitrate-N:	<span>0.1kg</span></span>
-          <li>Total phosphate (P2O5):	<span>3.2kg</span></span>
-          <li>Total potassium (K2O):	<span>8kg</span></span>
-          <li>Total sulphur (SO3):	<span>2.4kg</span></span>
-          <li>Total magnesium oxide (MgO):	<span>1.8kg</span></li>
+          <li>Nitrate-N:	<span>0kg</span></span>
+          <li>Total phosphate (P2O5):	<span>1.2kg</span></span>
+          <li>Total potassium (K2O):	<span>3.2kg</span></span>
+          <li>Total sulphur (SO3):	<span>0.7g</span></span>
+          <li>Total magnesium oxide (MgO):	<span>0.6kg</span></li>
         </ul>  
       </dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>

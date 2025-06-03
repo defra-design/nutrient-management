@@ -232,14 +232,14 @@ router.get(/manner_results_handler/, showSuccessMessage, function (req, res) {
 })
 
 router.get(/manner_update_handler/, showSuccessMessage, function (req, res) {
-    req.session.data.successMessage = 1 //done
+    req.session.data.successMessage = 3 //changed
     req.session.data.manner_applications[1].rate = req.session.data.manure_rate
     // console.log(req.session.data.manner_applications)
     res.redirect('/' + req.session.data.prototype_version + '/manner/results')
 })
 
 router.get(/manuretype_update_handler/, showSuccessMessage, function (req, res) {
-    req.session.data.successMessage = 1 //done
+    req.session.data.successMessage = 3 //changed
     //get object
     for (var x in req.session.data.manure_types ) {
         if (req.session.data.manure_types[x].name == req.session.data.manure_type) {

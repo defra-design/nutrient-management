@@ -1,0 +1,105 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Closed periods for spreading manures with high readily available nitrogen (N)
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        Closed periods for the selected crops
+      </h2>
+      
+      <p>Based on your crop, soil type and farm details.</p>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Field(s)</th>
+            <th scope="col" class="govuk-table__header">Closed from</th>
+            <th scope="col" class="govuk-table__header">Closed to</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Long Field, Short Field, 25 Acres, Barns</td>
+            <td class="govuk-table__cell">1 October 2024</td>
+            <td class="govuk-table__cell">31 January 2025</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Valley, Poplar, Oaks, Narrow land</td>
+            <td class="govuk-table__cell">1 October 2024</td>
+            <td class="govuk-table__cell">31 January 2025</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <form class="form" action="manure_date_v5_handler" method="post">
+
+        <div class="govuk-form-group">
+            <p class="govuk-body">
+              If you do not know the exact application date enter an estimate. You can change it later.
+            </p>
+            <div class="govuk-hint">
+              The date format is '21 06 2024'.
+            </div>
+            <div class="govuk-date-input" id="manure-date">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="manure_date_day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="manure_date_day" name="manure_date_day" type="text" autocomplete="off" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="manure_date_month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="manure_date_month" name="manure_date_month" type="text" autocomplete="off" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="manure_date_year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="manure_date_year" name="manure_date_year" type="text" autocomplete="off" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

@@ -38,7 +38,7 @@ router.get(/output_router/, hide_error, function (req, res) {
         }
     }
     if (req.session.data.export_type == 4 ) {
-        next = './n_loading/checklist'
+        next = './n_loading/derogation'
     }
     if (req.session.data.export_type == 5) {
         next = 'not_available_livestock'
@@ -63,7 +63,7 @@ router.get(/derogation_router/, function (req, res) {
     } else {
         req.session.data.oaktree_farm.derogation = true
     }
-    res.redirect('livestock_group');
+    res.redirect('checklist');
 })
 
 router.get(/export_type_router/, hide_error, function (req, res) {

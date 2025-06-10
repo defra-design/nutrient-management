@@ -1,0 +1,48 @@
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">{{data.oaktree_farm.name}} total area in {{data.oaktree_farm.planning_year}}</dt>
+    <dd class="govuk-summary-list__value">950 hectares</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Area of {{data.oaktree_farm.name}} within an NVZ</dt>
+    <dd class="govuk-summary-list__value">950 hectares</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <!-- <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Does {{data.oaktree_farm.name}} have derogation for {{data.oaktree_farm.planning_year}}?</dt>
+    {% if data.oaktree_farm.derogation == null %}
+      <dd class="govuk-summary-list__value">Not entered</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="derogation">Add<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    {% else %}
+      <dd class="govuk-summary-list__value">{{data.oaktree_farm.derogation | convert_true_false}}</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="derogation">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    {% endif %}
+  </div> -->
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Livestock numbers for {{data.oaktree_farm.planning_year}}</dt>
+    {% if data.oaktree_farm.livestock_added == true %}
+      <dd class="govuk-summary-list__value">Added</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="../../livestock/manage_livestock">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    {% else %}
+      <dd class="govuk-summary-list__value">Not entered</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="../../../add_livestock/derogation">Add<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    {% endif %}
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Imports and exports of livestock manure for {{data.oaktree_farm.planning_year}}</dt>
+    {% if data.oaktree_farm.manure_imports == true or data.oaktree_farm.manure_exports == true %}
+      <dd class="govuk-summary-list__value">Added</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="../../../add_export/export_type_none">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    {% else %}
+      <dd class="govuk-summary-list__value">Not entered</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="../../../add_export/export_type_none">Add<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    {% endif %}
+
+  </div>
+
+</dl>

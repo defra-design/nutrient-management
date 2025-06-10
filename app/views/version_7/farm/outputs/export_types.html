@@ -1,0 +1,119 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+       Which
+       {% if data.report_type == 'nvz' %}
+        NVZ compliance report
+       {% else %}
+        farm information and planning
+       {% endif  %}
+       report do you want to create for {{data.oaktree_farm.planning_year}}?
+      </h1>
+
+      <form class="form" action="output_router" method="post">
+      <div class="govuk-form-group">
+
+        <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+          
+          {% if data.report_type == 'nvz' %}
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="max" name="export_type" type="radio" value="3">
+              <label class="govuk-label govuk-radios__label" for="max">
+                N-max report
+              </label>
+              <div class="govuk-hint govuk-radios__hint">
+                Demonstrate compliance with the N-max limit for each crop.
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="loading" name="export_type" type="radio" value="4">
+              <label class="govuk-label govuk-radios__label" for="loading">
+                N loading limit report for {{data.oaktree_farm.planning_year}} 
+              </label>
+              <div class="govuk-hint govuk-radios__hint">
+                Demonstrate compliance with the N loading limit for the farm.
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="storage" name="export_type" type="radio" value="7">
+              <label class="govuk-label govuk-radios__label" for="storage">
+                Existing manure storage capacity 
+              </label>
+              <div class="govuk-hint govuk-radios__hint"> 
+                Demonstrate compliance with rules for manure storage.
+              </div>
+            </div>
+
+          {% else  %}
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="history" name="export_type" type="radio" value="1">
+            <label class="govuk-label govuk-radios__label" for="history">
+              Crop and field management report
+            </label>
+            <div class="govuk-hint govuk-radios__hint">
+              Crop, field and nutrient applications, for one or more fields.
+            </div>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="numbers" name="export_type" type="radio" value="5">
+            <label class="govuk-label govuk-radios__label" for="numbers">
+              Livestock numbers
+            </label>
+            <div class="govuk-hint govuk-radios__hint">
+              Includes all livestock numbers for the year.
+            </div>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="imports" name="export_type" type="radio" value="6">
+            <label class="govuk-label govuk-radios__label" for="imports">
+              Imports and exports
+            </label>
+            <div class="govuk-hint govuk-radios__hint">
+              Includes all livestock numbers for the year.
+            </div>
+          </div>
+
+        {% endif %}
+
+      </div>
+    </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+      </div>
+    </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

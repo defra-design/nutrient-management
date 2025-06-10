@@ -20,89 +20,36 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-       What kind of report do you want to save or print from your {{data.oaktree_farm.planning_year}} data?
+       What type of report do you want to create from your {{data.oaktree_farm.planning_year}} data?
       </h1>
 
-      <!-- <p class="govuk-body">Available reports are based on data entered for {{data.oaktree_farm.name}}.</p> -->
-
-      <form class="form" action="output_router" method="post">
-      <div class="govuk-form-group">
-        <div class="govuk-radios govuk-radios" data-module="govuk-radios">
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="history" name="export_type" type="radio" value="1">
-            <label class="govuk-label govuk-radios__label" for="history">
-              Crop and field management report
-            </label>
-            <div class="govuk-hint govuk-radios__hint">
-              Crop, field and nutrient applications, for one or more fields.
+      <form class="form" action="export_types" method="post">
+        <div class="govuk-form-group">
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="nvz" name="report_type" type="radio" value="nvz">
+              <label class="govuk-label govuk-radios__label" for="nvz">
+                NVZ compliance reports and calculations
+              </label>
+              <div class="govuk-hint govuk-radios__hint">
+                Includes N-max, N loading, and organic material storage reports.
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="cropfield" name="report_type" type="radio" value="cropfield">
+              <label class="govuk-label govuk-radios__label" for="cropfield">
+                Farm information and planning
+              </label>
+              <div class="govuk-hint govuk-radios__hint">
+                Includes details about your fields, crops and recommendations.
+              </div>
             </div>
           </div>
-          <!-- <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="worksheet" name="export_type" type="radio" value="2">
-            <label class="govuk-label govuk-radios__label" for="worksheet">
-              Nutrient application worksheet
-            </label>
-            <div class="govuk-hint govuk-radios__hint">
-              Planned applications of organic and inorganic material, with space to add updates.
-            </div>
-          </div> -->
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="max" name="export_type" type="radio" value="3">
-          <label class="govuk-label govuk-radios__label" for="max">
-            N-max report
-          </label>
-          <div class="govuk-hint govuk-radios__hint">
-            Demonstrate compliance with the N-max limit for each crop.
-          </div>
         </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="loading" name="export_type" type="radio" value="4">
-          <label class="govuk-label govuk-radios__label" for="loading">
-            N loading limit report for {{data.oaktree_farm.planning_year}} 
-          </label>
-          <div class="govuk-hint govuk-radios__hint">
-            Demonstrate compliance with the N loading limit for the farm.
-          </div>
-        </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="storage" name="export_type" type="radio" value="7">
-          <label class="govuk-label govuk-radios__label" for="storage">
-            Existing manure storage capacity 
-          </label>
-          <div class="govuk-hint govuk-radios__hint"> 
-            Demonstrate compliance with rules for manure storage.
-          </div>
-        </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="numbers" name="export_type" type="radio" value="5">
-          <label class="govuk-label govuk-radios__label" for="numbers">
-            Livestock numbers for {{data.oaktree_farm.planning_year}}
-          </label>
-          <div class="govuk-hint govuk-radios__hint">
-            Includes all livestock numbers for the year.
-          </div>
-        </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="imports" name="export_type" type="radio" value="6">
-          <label class="govuk-label govuk-radios__label" for="imports">
-            Imports and exports for {{data.oaktree_farm.planning_year}}
-          </label>
-          <div class="govuk-hint govuk-radios__hint">
-            Includes all livestock numbers for the year.
-          </div>
-        </div>
-      </div>
-    </fieldset>
-    </div>
-
-      {{ govukButton({
-        text: "Continue"
-      }) }}
-
-    </form>
-
-      </div>
-    </div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
 
   <p class="govuk-body">
     <a href="fields.html">Cancel</a>

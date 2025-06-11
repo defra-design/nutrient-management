@@ -2,12 +2,10 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h2 class="govuk-heading-m">Total imports and exports for {{data.oaktree_farm.planning_year}}</h2>
-
-    <table class="govuk-table">
+    <table class="govuk-table margin-bottom-forty">
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Total imported manure</th>
+          <th scope="col" class="govuk-table__header">Total imported organic material</th>
           {% if data.oaktree_farm.manure_imports == true %}
             <td scope="col" class="govuk-table__cell">5000kg</td>
           {% else %}
@@ -15,7 +13,7 @@
           {% endif %}
         </tr>
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Total exported manure</th>
+          <th scope="col" class="govuk-table__header">Total exported organic material</th>
           {% if data.oaktree_farm.manure_exports == true %}
             <td scope="col" class="govuk-table__cell">90kg</td>
           {% else %}
@@ -29,7 +27,7 @@
             {% elif data.oaktree_farm.manure_exports == true and data.oaktree_farm.manure_imports == false %}
             <th scope="col" class="govuk-table__cell">- 90kg</th>
           {% elif data.oaktree_farm.manure_exports == false and data.oaktree_farm.manure_imports == true %}
-            <th scope="col" class="govuk-table__cell">-+ 5000kg</th>
+            <th scope="col" class="govuk-table__cell">+ 5000kg</th>
           {% else %}
             <th scope="col" class="govuk-table__cell">0</th>
           {% endif %}
@@ -37,8 +35,7 @@
       </tbody>
     </table>
   
-  <p class="govuk-body margin-bottom-forty"><a href="../outputs/export_imports">Save or print a report</a></p>
-
+  <!-- <p class="govuk-body margin-bottom-forty"><a href="../outputs/export_imports">Save or print a report</a></p> -->
 
     </div>
   </div>

@@ -80,36 +80,62 @@
       </div>
 
       <div>
-        <h2 class="govuk-heading-m">Manage farm and field details</h2>
+        <h2 class="govuk-heading-m">Update farm details</h2>
         <ul class="menu-list govuk-list">
           <li>
             <a class="govuk-link" href="farm-details">Update farm details</a>
           </li>
+
         {% if data.oaktree_farm.fields_added == true %}
           <li>
-            <a class="govuk-link" href="field_reset_handler">Update fields or soil analysis</a>
+            <a class="govuk-link" href="field_reset_handler">Update fields and soil analysis</a>
           </li>
         {% else %}
           <li>
             <a href="field_add_reset_handler">Add a field</a>
           </li>
         {% endif %}
+
         {% if data.oaktree_farm.livestock_added == true %}
           <li>
             <a class="govuk-link" href="livestock/livestock_years">Update livestock numbers</a>
           </li> 
+        {% else %}
+          <li>
+            <a class="govuk-link" href="livestock/livestock_years">Add livestock numbers</a>
+          </li> 
         {% endif %}
-        {% if data.oaktree_farm.manure_exports == true %}
+
+        {% if data.oaktree_farm.imports_exports != 'not_answered' %}
           <li>
             <a class="govuk-link" href="exports/export_years">Update organic material imports and exports</a>
           </li>
+        {% else %}
+          <li>
+            <a class="govuk-link" href="exports/export_years">Add organic material imports and exports</a>
+          </li>
         {% endif %}
+
+        {% if data.oaktree_farm.storage_added == true %}
           <li>
             <a class="govuk-link" href="">Update organic material storage</a>
           </li>
+        {% else %}
+          <li>
+            <a class="govuk-link" href="">Add organic material storage</a>
+          </li>
+        {% endif %}
+
+        <!-- {% if data.oaktree_farm.bedding_added == true %}
           <li>
             <a class="govuk-link" href="">Update livestock bedding and wash water details</a>
           </li>
+        {% else %}
+          <li>
+            <a class="govuk-link" href="">Add livestock bedding and wash water details</a>
+          </li>
+        {% endif %} -->
+
         </uli>
       </div>
     
@@ -147,7 +173,7 @@
           </a>
         </li>
           <li>
-          {% if data.oaktree_farm.manure_storage_added == true %}
+          {% if data.oaktree_farm.storage_added == true %}
             <a class="govuk-link" href="storage/manage_storage">Update organic material storage</a>
           {% else %}
             <a class="govuk-link" href="../add_storage/material_type">Add organic material storage</a>

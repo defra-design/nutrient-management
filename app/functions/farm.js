@@ -10,7 +10,7 @@ use_mvp_fields,
 setup,
 fields_added,
 livestock_added,
-manure_storage_added,
+storage_added,
 area_added,
 manure_exports,
 manure_imports,
@@ -31,7 +31,7 @@ ewr
     this.setup = setup,
     this.fields_added = fields_added,
     this.livestock_added = livestock_added,
-    this.manure_storage_added = manure_storage_added,
+    this.storage_added = storage_added,
     this.area_added = area_added,
     this.manure_exports = manure_exports,
     this.manure_imports = manure_imports,
@@ -53,7 +53,7 @@ Farm.prototype.printFarm = function () {
                 this.setup + ", " +
                 this.fields_added + ", " +
                 this.livestock_added + ", " +
-                this.manure_storage_added + ", " +
+                this.storage_added + ", " +
                 this.area_added + ", " +
                 this.manure_exports + ", " +
                 this.manure_imports + ", " +
@@ -75,7 +75,7 @@ Farm.prototype.reset = function () {
     this.setup = false,
     this.fields_added = false,
     this.livestock_added = false,
-    this.manure_storage_added = false,
+    this.storage_added = false,
     this.area_added = false,
     this.manure_exports = false,
     this.manure_imports = false,

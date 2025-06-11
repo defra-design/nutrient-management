@@ -53,7 +53,7 @@ router.get(/output_router/, hide_error, function (req, res) {
         next = 'not_available_imports'
     }
     if (req.session.data.export_type == 7) {
-        if (req.session.data.manure_storage_added == false) {
+        if (req.session.data.storage_added == false) {
             next = 'not_available_storage'
         } else {
             next = 'not_available_storage'
@@ -70,6 +70,15 @@ router.get(/derogation_router/, function (req, res) {
         req.session.data.oaktree_farm.derogation = true
     }
     res.redirect('checklist');
+})
+
+router.get(/derogation_add_router/, function (req, res) {
+    if (req.session.data.derogation == 'no') {
+        req.session.data.oaktree_farm.derogation = false
+    } else {
+        req.session.data.oaktree_farm.derogation = true
+    }
+    res.redirect('livestock_group');
 })
 
 router.get(/export_type_router/, hide_error, function (req, res) {
@@ -336,7 +345,7 @@ router.get(/manner_copy_router/, function (req, res) {
 
 router.get(/check_storage_handler/, function (req, res) {
     req.session.data.show_success_message = true;
-    req.session.data.oaktree_farm.manure_storage_added = true;
+    req.session.data.oaktree_farm.storage_added = true;
     // req.session.data.successMessage = 2;
     var next = '/' + req.session.data.prototype_version + '/farm/storage/manage_storage'
     res.redirect(next)

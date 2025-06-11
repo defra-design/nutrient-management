@@ -18,7 +18,7 @@
 
 {% macro monthitem(name) %}
   <div class="margin-bottom-forty">
-    <h3 class="govuk-heading-s">{{name}}</h3>
+    <h3 class="govuk-heading-s margin-bottom-ten">{{name}}</h3>
     <div class="govuk-form-group">
       <label class="govuk-label" for="livestock_number">
         How many places did you have in {{name}}?
@@ -48,16 +48,21 @@
       <form action="livestock_number_handler" method="post" novalidate="">
 
         <h1 class="govuk-heading-l">Enter the number of places per month</h1>
-        <p class="govuk-hint">{{data.chosen_livestock.rate}} {{data.chosen_livestock.name | capitalize}}</p>
+        <div class="margin-bottom-thirty">
+          <p class="govuk-body">Selected livestock: {{data.chosen_livestock.rate}} {{data.chosen_livestock.name | capitalize}}</p>
+          {% if data.livestock_group == 'cattle' %}
+            <p class="govuk-body">Nitrogen (N) standard :{{data.chosen_livestock.nitrogen}}kg per animal, per year</p>
+          {% endif %}
+        </div>
 
         <!-- <p class="govuk-body">Enter figures for each month or enter a figure for January and select 'Use January's numbers for the rest of the year'</p> -->
        
         {{ monthitem ("January") }}
 
         <div class="margin-bottom-ten">
-          <button type="" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            Add January's numbers to all months
-          </button>
+          <a class="govuk-button govuk-button--secondary" href="" data-module="govuk-button">
+            Use the January number as an average for the year
+          </a>
         </div>
 
         {{ monthitem ("February") }}

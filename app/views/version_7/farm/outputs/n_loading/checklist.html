@@ -19,15 +19,20 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% include "./message.html" %}
+       {% include "./message.html" %}
 
       <h1 class="govuk-heading-l">
-       Create a {{data.oaktree_farm.planning_year}} N loading limit report
+        Livestock manure N farm loading report {{data.oaktree_farm.planning_year}}
       </h1>
 
-      <div class="check-answers">
-        {% include "./check_content.html" %}
+      <p class="govuk-hint">
+      Complete each section to create the report. You can complete the sections in any order.
+      </p>
+
+      <div class="check-answers margin-bottom-forty">
+        {% include "./templates/check_content.html" %}
       </div>
+
 
       <form class="form" action="n_loading_submit_router" method="post">
         {{ govukButton({

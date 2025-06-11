@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
+const { checkout } = require('./routes_message_reset_handlers.js');
 
 const hide_error = function (req, res, next) {
     req.session.data.show_error = false
@@ -37,8 +38,13 @@ router.get(/output_router/, hide_error, function (req, res) {
             next = 'export_crops'
         }
     }
+    // N LOADING
     if (req.session.data.export_type == 4 ) {
-        next = './n_loading/checklist'
+        if (req.session.data.oaktree_farm.derogation == null) {
+            next = './n_loading/derogation'
+        } else {
+            next = './n_loading/checklist'
+        }
     }
     if (req.session.data.export_type == 5) {
         next = 'not_available_livestock'
@@ -63,7 +69,7 @@ router.get(/derogation_router/, function (req, res) {
     } else {
         req.session.data.oaktree_farm.derogation = true
     }
-    res.redirect('livestock_group');
+    res.redirect('checklist');
 })
 
 router.get(/export_type_router/, hide_error, function (req, res) {
@@ -270,18 +276,6 @@ router.get(/manner_remove_application/, showSuccessMessage, function (req, res) 
     res.redirect('/' + req.session.data.prototype_version + '/manner/results')
 })
 
-router.get(/manner_results_reset/, hideSuccessMessage, function (req, res) {
-    res.redirect('/' + req.session.data.prototype_version + '/manner/results')
-})
-
-router.get(/manner_manure_group_reset/, hideSuccessMessage, function (req, res) {
-    res.redirect('/' + req.session.data.prototype_version + '/manner/manure_group')
-})
-
-router.get(/manner_fields_reset/, hideSuccessMessage, function (req, res) {
-    res.redirect('fields')
-})
-
 router.get(/manner_change_handler/, showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 3 //changed
     res.redirect('results')
@@ -368,6 +362,11 @@ router.get(/livestockentry_handler/, function (req, res) {
 router.get(/livestock_number_handler/, function (req, res) {
     var next = (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry') ? 'values_two' : 'check'
     res.redirect(next)
+})
+
+router.get(/farm_area_handler/, function (req, res) {
+    req.session.data.oaktree_farm.area_added = true
+    res.redirect('reset_nloading_checklist_message_handler')
 })
 
 module.exports = router

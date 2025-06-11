@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Closed spreading periods for manures with high readily available nitrogen (N)
+      </h1>
+
+      <h2 class="govuk-heading-m margin-bottom-ten">
+        1 October 2024 to 31 January 2025
+      <h2 class="govuk-heading-l">
+
+      <p class="govuk-body">
+       is the closed spreading period for these fields:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Long Field</li>
+        <li>Short Field</li>
+        <li>25 Acres</li>
+        <li>Barns</li>
+      </ul>
+
+      <h3 class="govuk-heading-s">When are you applying poultry manure on these fields?</h3>
+
+      <form class="form" action="manure_date_v5_handler" method="post">
+
+        <div class="govuk-form-group">
+            <p class="govuk-body">
+              If you do not know the exact application date enter an estimate. You can change it later.
+            </p>
+            <div class="govuk-hint">
+              The date format is '21 06 2024'.
+            </div>
+            <div class="govuk-date-input" id="manure-date">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="manure_date_day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="manure_date_day" name="manure_date_day" type="text" autocomplete="off" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="manure_date_month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="manure_date_month" name="manure_date_month" type="text" autocomplete="off" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="manure_date_year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="manure_date_year" name="manure_date_year" type="text" autocomplete="off" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

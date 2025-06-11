@@ -66,7 +66,7 @@ const loadControlVars = function (req, res, next) {
     req.session.data.manure_spreads = 0
     req.session.data.fertiliser_spreads = 0
     req.session.data.manner_applications = []
-    req.session.data.extra_features = false
+    req.session.data.extra_features = true
 
     // req.session.data.manner_application_one = {date:'01/01/2025'}
     // req.session.data.manner_application_two = {date:'02/02/2025'}
@@ -203,9 +203,10 @@ var  routes_manure = require('./router/routes_manure.js');
 var  setup_routes = require('./router/setup_routes.js');
 var  routes_six = require('./router/routes_version_6.js');
 var  routes_new = require('./router/routes_new.js');
+var  message_reset_handlers = require('./router/routes_message_reset_handlers.js');
 
 var  routes_farm = require('./router/routes_farm.js');
 var  routes_field = require('./router/routes_field.js');
 var  routes_crop = require('./router/routes_crop.js');
 var  routes_updates = require('./router/routes_updates.js');
-router.use('/', routes_farm, routes_new, routes_field, routes_crop, routes_updates, routes_manure, routes_six, setup_routes, routes_prototype_setup);
+router.use('/', routes_farm, routes_new, message_reset_handlers, routes_field, routes_crop, routes_updates, routes_manure, routes_six, setup_routes, routes_prototype_setup);

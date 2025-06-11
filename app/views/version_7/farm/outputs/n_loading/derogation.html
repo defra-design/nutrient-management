@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+ {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
   Question – {{ serviceName }} – GOV.UK Prototype Kit
@@ -19,8 +19,21 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Does {{data.oaktree_farm.name}} have derogation?
+        Does {{data.oaktree_farm.name}} have a derogation for {{data.oaktree_farm.planning_year}}?
       </h1>
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            About derogation
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>You can apply for a grassland derogation to use a higher limit of up to 250kg of nitrogen per hectare, if the nitrogen comes from grazing livestock manure. </p>
+          <p>You can only apply for a derogation if at least 80% of the agricultural area of your holding is grass.</p>
+          <p>More information: <a target="_blank" href="https://www.gov.uk/guidance/grassland-derogations-for-livestock-manure-in-nitrate-vulnerable-zones">Grassland derogations for livestock manure in nitrate vulnerable zones</a> (opens in a new window)</p>
+        </div>
+      </details>
 
       <!-- <p class="govuk-body">
         Does {{data.farm.name}} have derogation?

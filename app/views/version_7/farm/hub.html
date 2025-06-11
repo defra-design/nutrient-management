@@ -40,7 +40,7 @@
       <hr class="seperator_thirty">
 
       <div>
-        <h2 class="govuk-heading-m">Plan and record crops and nutrient use</h2>
+        <h2 class="govuk-heading-m">Nutrient management planning</h2>
         {% if data.oaktree_farm.fields_added == true  %}
         <ul class="menu-list govuk-list govuk-list--spaced">
           <li>
@@ -48,17 +48,27 @@
           </li>
         </ul>
         {% else %}
-          <p>To start creating plans and records, <a href="field_add_reset_handler">add your fields</a></p>
+          <p>To start creating plans and recording details, <a href="field_add_reset_handler">add your fields</a></p>
         {% endif %}
         <hr class="seperator_thirty">
       </div>
+
+      <div>
+        <h2 class="govuk-heading-m">Reports and outputs</h2>
+        <ul class="menu-list govuk-list govuk-list--spaced">
+          <li>
+            <a class="govuk-link" href="outputs/years">Create a report</a>
+          </li>
+        </ul>
+      </div>
+      <hr class="seperator_thirty">
 
       <div>
         <h2 class="govuk-heading-m">{{data.content.manner_title}}</h2>
         {% if data.oaktree_farm.fields_added == true  %}
           <ul class="menu-list govuk-list govuk-list--spaced">
             <li>
-              <a class="govuk-link" href="../manner/fields">Create a new estimate</a>
+              <a class="govuk-link" href="../manner/fields">Create an estimate to help plan organic material applications</a>
             </li>
           </ul>
           {% else %}
@@ -71,30 +81,41 @@
 
       <div>
         <h2 class="govuk-heading-m">Manage farm and field details</h2>
-          <ul class="menu-list govuk-list">
-              <li>
-                <a class="govuk-link" href="farm-details">Update farm details</a>
-              </li>
-            {% if data.oaktree_farm.fields_added == true %}
-              <li>
-                <a class="govuk-link" href="field_reset_handler">Update fields or soil analysis</a>
-              </li>
-            {% else %}
-              <li>
-                <a href="field_add_reset_handler">Add a field</a>
-              </li>
-          {% endif %}
-          <!-- manure -->
-          <!-- <li>
-            <a class="govuk-link" href="manure_reset_handler">Manage manures</a>
-          </li> -->
+        <ul class="menu-list govuk-list">
+          <li>
+            <a class="govuk-link" href="farm-details">Update farm details</a>
+          </li>
+        {% if data.oaktree_farm.fields_added == true %}
+          <li>
+            <a class="govuk-link" href="field_reset_handler">Update fields or soil analysis</a>
+          </li>
+        {% else %}
+          <li>
+            <a href="field_add_reset_handler">Add a field</a>
+          </li>
+        {% endif %}
+        {% if data.oaktree_farm.livestock_added == true %}
+          <li>
+            <a class="govuk-link" href="livestock/livestock_years">Update livestock numbers</a>
+          </li> 
+        {% endif %}
+        {% if data.oaktree_farm.manure_exports == true %}
+          <li>
+            <a class="govuk-link" href="exports/export_years">Update organic material imports and exports</a>
+          </li>
+        {% endif %}
+          <li>
+            <a class="govuk-link" href="">Update organic material storage</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="">Update livestock bedding and wash water details</a>
+          </li>
         </uli>
       </div>
     
-      {% if data.extra_features == true %}
       <hr class="seperator_thirty">
 
-    <div>
+    <!-- <div>
       <h2 class="govuk-heading-m">Manage livestock</h2>
       <ul class="menu-list govuk-list govuk-list--spaced">
         <li>
@@ -108,9 +129,9 @@
           </a>
         </li> 
       </ul>
-    </div>
+    </div> -->
 
-    <hr class="seperator_thirty">
+    <!-- <hr class="seperator_thirty">
 
     <div>
       <h2 class="govuk-heading-m">Manage organic materials</h2>
@@ -133,27 +154,10 @@
           {% endif %}
         </li>
       </ul>
-    </div>
+    </div> -->
 
-    <hr class="seperator_thirty">
+    <!-- <hr class="seperator_thirty"> -->
 
-    <div>
-      <h2 class="govuk-heading-m">Reports and outputs</h2>
-      <ul class="menu-list govuk-list govuk-list--spaced">
-        <!-- <li>
-          <a class="govuk-link" href="compliance/compliance_years">View NVZ compliance</a>
-        </li> -->
-        <li>
-          <a class="govuk-link" href="outputs/years">Save or print a report</a>
-        </li>
-        <li>
-          <a href="">Download all {{data.oaktree_farm.name}}'s data as a csv file</a>        
-        </li>
-      </ul>
-    </div>
-
-    <hr class="seperator_thirty">
-    {% endif %}
 
   </div>
 </div>

@@ -6,31 +6,31 @@
       </h2>
       <div class="govuk-error-summary__body">
         <ul class="govuk-list govuk-error-summary__list">
-          {% if data.oaktree_farm.livestock_added == false %}
+          {% if data.oaktree_farm.area_added != true %}
             <li>
-              <a class="nolink" href="#">Livestock numbers for {{data.oaktree_farm.planning_year}} must be completed</a>
+              <a class="nolink" href="area">Farm area for {{data.oaktree_farm.planning_year}} must be completed</a>
             </li>
           {% endif %}
-            {% if data.oaktree_farm.manure_exports == false %}
+          {% if data.oaktree_farm.livestock_added == false %}
             <li>
-              <a class="nolink" href="#">Any imports or exports for {{data.oaktree_farm.planning_year}} must be completed</a>
+              <a class="nolink" href="../../../add_livestock/livestock_group">Livestock numbers for {{data.oaktree_farm.planning_year}} must be completed</a>
+            </li>
+          {% endif %}
+          {% if data.oaktree_farm.manure_exports == false %}
+            <li>
+              <a class="nolink" href="../../../add_export/export_type_none">Any imports or exports for {{data.oaktree_farm.planning_year}} must be completed</a>
             </li>
           {% endif %}
         </ul>
       </div>
     </div>
   </div>
+{% endif %}
 
-{% else %}
+  <!-- if (data.oaktree_farm.manure_imports == null or data.oaktree_farm.manure_imports == false) and
+  (data.oaktree_farm.manure_exports == null or data.oaktree_farm.manure_exports == false) -->
 
-  {% 
-  if (data.oaktree_farm.manure_imports == null or data.oaktree_farm.manure_imports == false) and
-  (data.oaktree_farm.manure_exports == null or data.oaktree_farm.manure_exports == false)
-  %}
-
-
-
-    <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <!-- <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
       <div class="govuk-notification-banner__header">
         <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
           Important
@@ -52,14 +52,7 @@
             <li>Any imports or exports of livestock manure for 2025</li>
           {% endif %}
 
-          <!-- {% if data.oaktree_farm.derogation == null %}
-            <li>If {{data.oaktree_farm.name}} has a derogation for 2025</li>
-          {% endif %} -->
-
         </ul>
       </div>
-    </div>
+    </div> -->
 
-  {% endif %}
-
-{% endif %}

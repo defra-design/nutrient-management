@@ -35,7 +35,7 @@ ewr
     this.area_added = area_added,
     this.manure_exports = manure_exports,
     this.manure_imports = manure_imports,
-    this.manure_imports = imports_exports,
+    this.imports_exports = imports_exports,
     this.rainfall = rainfall
     this.derogation = derogation,
     this.ewr = ewr

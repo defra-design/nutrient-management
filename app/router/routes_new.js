@@ -270,18 +270,6 @@ router.get(/manner_remove_application/, showSuccessMessage, function (req, res) 
     res.redirect('/' + req.session.data.prototype_version + '/manner/results')
 })
 
-router.get(/manner_results_reset/, hideSuccessMessage, function (req, res) {
-    res.redirect('/' + req.session.data.prototype_version + '/manner/results')
-})
-
-router.get(/manner_manure_group_reset/, hideSuccessMessage, function (req, res) {
-    res.redirect('/' + req.session.data.prototype_version + '/manner/manure_group')
-})
-
-router.get(/manner_fields_reset/, hideSuccessMessage, function (req, res) {
-    res.redirect('fields')
-})
-
 router.get(/manner_change_handler/, showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 3 //changed
     res.redirect('results')

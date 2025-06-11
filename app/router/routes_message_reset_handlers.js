@@ -13,6 +13,11 @@ const hideSuccessMessage = function (req, res, next) {
     next()
 }
 
+const hide_error = function (req, res, next) {
+    req.session.data.show_error = false
+    next()
+}
+
 // Reset handlers for messages
 
 router.get(/manner_results_reset/, hideSuccessMessage, function (req, res) {
@@ -31,8 +36,14 @@ router.get(/reset_manage_livestock_message_handler/, hideSuccessMessage, functio
     res.redirect('/' + req.session.data.prototype_version + '/farm/livestock/manage_livestock')
 })
 
+// MANAGE EXPORTS
 router.get(/reset_manage_exports_message_handler/, hideSuccessMessage, function (req, res) { 
     res.redirect('/' + req.session.data.prototype_version + '/farm/exports/manage_exports')
+})
+
+// N-LOADING CHECKLIST
+router.get(/reset_nloading_checklist_message_handler/, hide_error, function (req, res) { 
+    res.redirect('/' + req.session.data.prototype_version + '/farm/outputs/n_loading/checklist')
 })
 
 module.exports = router

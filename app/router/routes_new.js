@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
+const { checkout } = require('./routes_message_reset_handlers.js');
 
 const hide_error = function (req, res, next) {
     req.session.data.show_error = false
@@ -37,8 +38,13 @@ router.get(/output_router/, hide_error, function (req, res) {
             next = 'export_crops'
         }
     }
+    // N LOADING
     if (req.session.data.export_type == 4 ) {
-        next = './n_loading/derogation'
+        if (req.session.data.oaktree_farm.derogation == null) {
+            next = './n_loading/derogation'
+        } else {
+            next = './n_loading/checklist'
+        }
     }
     if (req.session.data.export_type == 5) {
         next = 'not_available_livestock'
@@ -356,6 +362,11 @@ router.get(/livestockentry_handler/, function (req, res) {
 router.get(/livestock_number_handler/, function (req, res) {
     var next = (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry') ? 'values_two' : 'check'
     res.redirect(next)
+})
+
+router.get(/farm_area_handler/, function (req, res) {
+    req.session.data.oaktree_farm.area_added = true
+    res.redirect('checklist')
 })
 
 module.exports = router

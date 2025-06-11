@@ -31,4 +31,8 @@ router.get(/reset_manage_livestock_message_handler/, hideSuccessMessage, functio
     res.redirect('/' + req.session.data.prototype_version + '/farm/livestock/manage_livestock')
 })
 
+router.get(/reset_manage_exports_message_handler/, hideSuccessMessage, function (req, res) { 
+    res.redirect('/' + req.session.data.prototype_version + '/farm/exports/manage_exports')
+})
+
 module.exports = router

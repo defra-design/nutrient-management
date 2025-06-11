@@ -11,6 +11,7 @@ setup,
 fields_added,
 livestock_added,
 manure_storage_added,
+area_added,
 manure_exports,
 manure_imports,
 rainfall,
@@ -29,11 +30,12 @@ ewr
     this.setup = setup,
     this.fields_added = fields_added,
     this.livestock_added = livestock_added,
-    this.livestock_added = manure_storage_added,
+    this.manure_storage_added = manure_storage_added,
+    this.area_added = area_added,
     this.manure_exports = manure_exports,
     this.manure_imports = manure_imports,
     this.rainfall = rainfall
-    this.derogation = derogation
+    this.derogation = derogation,
     this.ewr = ewr
   }
 
@@ -50,6 +52,7 @@ Farm.prototype.printFarm = function () {
                 this.fields_added + ", " +
                 this.livestock_added + ", " +
                 this.manure_storage_added + ", " +
+                this.area_added + ", " +
                 this.manure_exports + ", " +
                 this.manure_imports + ", " +
                 this.rainfall + ", " +
@@ -70,6 +73,7 @@ Farm.prototype.reset = function () {
     this.fields_added = false
     this.livestock_added = false
     this.manure_storage_added = false
+    this.area_added = false
     this.manure_exports = false
     this.manure_imports = false
     this.rainfall = 600

@@ -152,6 +152,7 @@ router.get(/storage_year_handler/, hideSuccessMessage, function (req, res) {
 //refactored - update
 router.get(/exportcheck_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
+    req.session.data.oaktree_farm.imports_exports = 'added';
     if (req.session.data.imports_exports == 'export') {
         req.session.data.oaktree_farm.manure_exports = true;
     } else {
@@ -163,7 +164,6 @@ router.get(/exportcheck_handler/, function (req, res) {
     req.session.data.exported_month = null
     req.session.data.exported_year = null
     req.session.data.export_total = null
-
     res.redirect('/'+ req.session.data.prototype_version + '/farm/exports/manage_exports')
 })
 

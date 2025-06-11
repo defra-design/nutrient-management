@@ -1,13 +1,13 @@
 <dl class="govuk-summary-list nutrient_list">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key"> Do you want to add an import or an export?</dt>
-    <dd class="govuk-summary-list__value">{{data.import_export | capitalize}}</dd>
+    <dd class="govuk-summary-list__value">{{data.imports_exports | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What type of organic material are you {{data.import_export}}ing?</dt>
-    {% if data.import_export == 'import' %}
+    <dt class="govuk-summary-list__key">What type of organic material are you {{data.imports_exports}}ing?</dt>
+    {% if data.imports_exports == 'import' %}
       <dd class="govuk-summary-list__value">Cattle farmyard manure - Fresh</dd>
     {% else %}
       <dd class="govuk-summary-list__value">Pig slurry - whole</dd>
@@ -17,8 +17,8 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">When did you {{data.import_export}} this organic material?</dt>
-    {% if data.import_export == 'import' %}
+    <dt class="govuk-summary-list__key">When did you {{data.imports_exports}} this organic material?</dt>
+    {% if data.imports_exports == 'import' %}
       <dd class="govuk-summary-list__value">10 January 2025</dd>
     {% else %}
       <dd class="govuk-summary-list__value">16 March 2025</dd>
@@ -28,8 +28,8 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How much {{data.manure_type.name}} are you {{data.import_export}}ing? </dt>
-      {% if data.import_export == 'import' %}
+    <dt class="govuk-summary-list__key">How much {{data.manure_type.name}} are you {{data.imports_exports}}ing? </dt>
+      {% if data.imports_exports == 'import' %}
       <dd class="govuk-summary-list__value">6 tonnes</dd>
       {% else %}
       <dd class="govuk-summary-list__value">30 cubic meters</dd>
@@ -68,7 +68,7 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    {% if data.import_export == 'import' %}
+    {% if data.imports_exports == 'import' %}
     <dt class="govuk-summary-list__key">
           Who are you importing this Cattle farmyard manure - Fresh from?
     </dt>

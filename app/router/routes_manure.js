@@ -158,8 +158,8 @@ router.get(/recs_status_handler/, function (req, res) {
 })
 
 // //New exports
-// router.get(/import_export_handler/, function (req, res) { 
-//     var next = (req.session.data.import_export == "export") ? 'manure_defaults_update' : 'manure_quantity';
+// router.get(/imports_exports_handler/, function (req, res) { 
+//     var next = (req.session.data.imports_exports == "export") ? 'manure_defaults_update' : 'manure_quantity';
 //     res.redirect(next);
 // })
 

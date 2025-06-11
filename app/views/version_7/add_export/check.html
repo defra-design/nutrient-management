@@ -33,7 +33,7 @@
 
     <div class="margin-bottom-forty right-align">
       <h2 class="govuk-heading-m">
-        Total nitrogen (N) and phosphate (P2O5) in this {{data.import_export | capitalize}}
+        Total nitrogen (N) and phosphate (P2O5) in this {{data.imports_exports | capitalize}}
       </h2>
       <table class="govuk-table">
         <tbody>
@@ -51,7 +51,7 @@
 
     <form action="exportcheck_handler" method="post" novalidate>
       {{ govukButton({
-        text: "Add " + data.import_export
+        text: "Add " + data.imports_exports
       }) }}
     </form>
     <p class="govuk-body">

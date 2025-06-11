@@ -74,8 +74,8 @@ router.get(/derogation_router/, function (req, res) {
 
 router.get(/export_type_router/, hide_error, function (req, res) {
     var next = 'manure_group'
-    if (req.session.data.import_export == 'none') {
-        req.session.data.oaktree_farm.manure_exports = true
+    if (req.session.data.imports_exports == 'none') {
+        req.session.data.oaktree_farm.imports_exports = false
         next = '/' + req.session.data.prototype_version + '/farm/outputs/n_loading/checklist'
     }
     res.redirect(next);
@@ -83,18 +83,18 @@ router.get(/export_type_router/, hide_error, function (req, res) {
 
 router.get(/change_export_handler/, hide_error, function (req, res) {
     if (req.query.export_type == 'export') {
-        req.session.data.import_export = 'export'
+        req.session.data.imports_exports = 'export'
     } else {
-        req.session.data.import_export = 'import'
+        req.session.data.imports_exports = 'import'
     }
     res.redirect('/version_7/update/exports/update')
 })
 
 router.get(/export_type_handler/, hideSuccessMessage, function (req, res) { 
     if (req.query.export_type == 'export') {
-        req.session.data.import_export = 'export'
+        req.session.data.imports_exports = 'export'
     } else {
-        req.session.data.import_export = 'import'
+        req.session.data.imports_exports = 'import'
     }
     res.redirect('/version_7/add_export/manure_group')
 })
@@ -110,15 +110,8 @@ router.get(/get_manure_type_handler/, function (req, res) {
 })
 
 router.get(/n_loading_submit_router/, function (req, res) {
-
-    //are there imports or exports?
-
-    // is there any livestock?
-
-
     var next = 'report_no_derogation'
-        if ((req.session.data.oaktree_farm.manure_imports == null || req.session.data.oaktree_farm.manure_imports == false) &&
-        (req.session.data.oaktree_farm.manure_exports == null || req.session.data.oaktree_farm.manure_exports == false)) {
+    if ((req.session.data.oaktree_farm.imports_exports == null)) {
         next = 'checklist';
         req.session.data.show_error = true;
     }
@@ -159,7 +152,7 @@ router.get(/storage_year_handler/, hideSuccessMessage, function (req, res) {
 //refactored - update
 router.get(/exportcheck_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
-    if (req.session.data.import_export == 'export') {
+    if (req.session.data.imports_exports == 'export') {
         req.session.data.oaktree_farm.manure_exports = true;
     } else {
         req.session.data.oaktree_farm.manure_imports = true;

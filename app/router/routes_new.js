@@ -75,8 +75,8 @@ router.get(/derogation_router/, function (req, res) {
 router.get(/export_type_router/, hide_error, function (req, res) {
     var next = 'manure_group'
     if (req.session.data.imports_exports == 'none') {
-        req.session.data.oaktree_farm.imports_exports = false
-        next = '/' + req.session.data.prototype_version + '/farm/outputs/n_loading/checklist'
+        req.session.data.oaktree_farm.imports_exports = 'none'
+        next = 'reset_nloading_checklist_message_handler'
     }
     res.redirect(next);
 })
@@ -111,7 +111,7 @@ router.get(/get_manure_type_handler/, function (req, res) {
 
 router.get(/n_loading_submit_router/, function (req, res) {
     var next = 'report_no_derogation'
-    if ((req.session.data.oaktree_farm.imports_exports == null)) {
+    if ((req.session.data.oaktree_farm.imports_exports == 0)) { //no_anser
         next = 'checklist';
         req.session.data.show_error = true;
     }

@@ -79,6 +79,7 @@ const loadControlVars = function (req, res, next) {
 var oaktree_farm = farm.createFarm();
 
 // populate the farm
+oaktree_farm.reset();
 oaktree_farm.name = 'Oaktree Lane Farm';
 oaktree_farm.setup = false;
 
@@ -90,10 +91,6 @@ oaktree_farm.organic_producer = false;
 oaktree_farm.latest_update = null;
 oaktree_farm.use_mvp_fields = false;
 oaktree_farm.fields_added = false;
-oaktree_farm.livestock_added = false;
-oaktree_farm.manure_storage_added = false;
-oaktree_farm.manure_imports = false;
-oaktree_farm.manure_exports = false;
 oaktree_farm.plans_added = false;
 oaktree_farm.rainfall = 600;
 oaktree_farm.ewr = null;

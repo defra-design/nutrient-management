@@ -41,15 +41,15 @@
     </div>
   </div>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full nmax_header">
-
-      <h1 class="govuk-heading-xl">{{data.oaktree_farm.name}} <br>Livestock manure N farm limit for 2025</h1>
-      <h2 class="govuk-heading-m">This is a derogated farm with 85% grassland.</h2>
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
+      <h1 class="govuk-heading-xl margin-bottom-twenty">{{data.content.n_loading_title}} {{ data.oaktree_farm.planning_year }}</h1>
       <p class="govuk-body">Created on {{data.content.todays_date}}</p>
-
     </div>
   </div>
+
+  <h2 class="govuk-heading-m margin-bottom-thirty">This is a derogated farm with 85% grassland.</h2>
 
   <div class="govuk-grid-row margin-bottom-twenty">
     <div class="govuk-grid-column-one-third">

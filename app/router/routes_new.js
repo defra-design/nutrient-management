@@ -399,4 +399,9 @@ router.get(/farm_area_handler/, hideSuccessMessage, function (req, res) {
     res.redirect('checklist')
 })
 
+router.get(/rainwater_area_handler/, hideSuccessMessage, function (req, res) {
+    req.session.data.oaktree_farm.rainwater_area_added = true
+    res.redirect('checklist')
+})
+
 module.exports = router

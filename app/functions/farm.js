@@ -12,7 +12,7 @@ fields_added,
 livestock_added,
 storage_added,
 low_risk_area_added,
-rainwater_storage_added,
+rainwater_area_added,
 area_added,
 manure_exports,
 manure_imports,
@@ -35,7 +35,7 @@ ewr
     this.livestock_added = livestock_added,
     this.storage_added = storage_added,
     this.low_risk_area_added = low_risk_area_added,
-    this.rainwater_storage_added = rainwater_storage_added,
+    this.rainwater_area_added = rainwater_area_added,
     this.area_added = area_added,
     this.manure_exports = manure_exports,
     this.manure_imports = manure_imports,
@@ -58,7 +58,7 @@ Farm.prototype.printFarm = function () {
                 this.fields_added + ", " +
                 this.livestock_added + ", " +
                 this.storage_added + ", " +
-                this.rainwater_storage_added + ", " +
+                this.rainwater_area_added + ", " +
                 this.low_risk_area_added + ", " +
                 this.area_added + ", " +
                 this.manure_exports + ", " +
@@ -82,7 +82,7 @@ Farm.prototype.reset = function () {
     this.fields_added = false,
     this.livestock_added = false,
     this.storage_added = false,
-    this.rainwater_storage_added = false,
+    this.rainwater_area_added = false,
     this.low_risk_area_added = false,
     this.area_added = false,
     this.manure_exports = false,

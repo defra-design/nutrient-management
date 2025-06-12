@@ -1,0 +1,86 @@
+
+  {% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+{% macro include(name) %}
+<div class="govuk-checkboxes__item">
+  <input class="govuk-checkboxes__input" id={{name}} name="includes" type="checkbox" value={{name}}>
+  <label class="govuk-label govuk-checkboxes__label" for={{name}}>
+    {{name}}
+  </label>
+</div>
+
+{% endmacro %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        What would you like to include in your report?
+      </h1>
+
+      <p class="govuk-hint">Select all that apply.</p>
+
+      <form class="form" action="report" method="post">
+        <!-- <p>Show information for</p> -->
+        <div class="govuk-form-group margin-bottom-forty">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <p class="govuk-heading-s">Livestock</p>
+          {{ include("Cattle") }}
+          {{ include("Pigs") }} 
+          {{ include("Sheep") }} 
+          {{ include("Poultry") }} 
+          {{ include("Goats, deer and horses") }} 
+          <div class="govuk-checkboxes__divider">or</div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="all" name="includes" type="checkbox" checked="checked" value="all">
+            <label class="govuk-label govuk-checkboxes__label" for="all">
+              Select all livestock
+            </label>
+          </div>
+
+          <p class="govuk-heading-s margin-top-thirty">Other information</p>
+          {{ include("Imports") }} 
+          {{ include("Exports") }} 
+          {{ include("Rainfall") }} 
+          <!-- {{ include("Manure quantities") }} 
+          {{ include("Nutrients") }}  -->
+          <div class="govuk-checkboxes__divider">or</div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="all_2" name="includes" type="checkbox" checked="checked" value="all">
+            <label class="govuk-label govuk-checkboxes__label" for="all_2">
+              Select all other information
+            </label>
+          </div>
+        </div>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+  
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}
+

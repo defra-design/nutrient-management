@@ -12,7 +12,11 @@
           {% else %}
             <h3 class="govuk-notification-banner__heading">You have added organic material storage</h3>
             <p class="govuk-body"><a class="govuk-notification-banner__link" href="../../add_storage/material_type">Add more organic material storage</a></p>  
-            <p class="govuk-body"><a class="govuk-notification-banner__link" href="report">Save or print an existing manure storage capacity report</a></p>  
+            {% if data.export_type == 7 %}
+              <p class="govuk-body"><a class="govuk-notification-banner__link" href="report">Save or print an existing manure storage capacity report</a></p>  
+            {% else %}
+              <p class="govuk-body"><a class="govuk-notification-banner__link" href="reset_inventory_checklist_message_handler">Create an Organic manures inventory and NVZ manure storage requirement report for 2025</a></p>  
+            {% endif %}
           {% endif %}
 
         </div>

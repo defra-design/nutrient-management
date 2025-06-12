@@ -399,9 +399,9 @@ router.get(/livestock_number_handler/, function (req, res) {
     res.redirect(next)
 })
 
-router.get(/farm_area_handler/, function (req, res) {
+router.get(/farm_area_handler/, hideSuccessMessage, function (req, res) {
     req.session.data.oaktree_farm.area_added = true
-    res.redirect('reset_nloading_checklist_message_handler')
+    res.redirect('checklist')
 })
 
 module.exports = router

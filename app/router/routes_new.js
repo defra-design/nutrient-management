@@ -54,7 +54,11 @@ router.get(/output_router/, hide_error, function (req, res) {
     }
     // EXISTING MANURE STORAGE
     if (req.session.data.export_type == 7) {
-        next = 'existing_storage/checklist'
+        if (req.session.data.storage_added == false) {
+            next = 'not_available_storage'
+        } else {
+            next = 'not_available_storage'
+        }
     }
     res.redirect(next)
 })

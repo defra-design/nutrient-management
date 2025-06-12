@@ -22,17 +22,16 @@ const hideSuccessMessage = function (req, res, next) {
 //export the documents
 router.get(/output_router/, hide_error, function (req, res) {     
     var next = 'export_fields'
-    console.log(req.session.data.all_fields.length)
-    console.log(req.session.data.export_type)
     if (req.session.data.export_type == 1) {
-        if (req.session.data.all_fields.length === 0) {
+        if (req.session.data.all_fields.length == 0) {
             next = 'not_available_management'
         } else {
             next = 'export_fields'
         }
     }
+    // NMAX
     if (req.session.data.export_type == 3) {
-        if (req.session.data.all_fields.length === 0) {
+        if (req.session.data.all_fields.length == 0 || req.session.data.currentCropGroups.length == 0) {
             next = 'not_available_max'
         } else {
             next = 'export_crops'

@@ -60,6 +60,14 @@ router.get(/output_router/, hide_error, function (req, res) {
             next = 'not_available_storage'
         }
     }
+    // MANURE INVENTORY AND STORAGE
+    if (req.session.data.export_type == 8) {
+        if (req.session.data.oaktree_farm.derogation == null) {
+            next = './inventory/derogation'
+        } else {
+            next = './inventory/checklist'
+        }
+    }
     res.redirect(next)
 })
 
@@ -121,6 +129,19 @@ router.get(/get_manure_type_handler/, function (req, res) {
 
 router.get(/n_loading_submit_router/, function (req, res) {
     var next = 'report_no_derogation'
+    if ((req.session.data.oaktree_farm.imports_exports == 0)) { //no_anser
+        next = 'checklist';
+        req.session.data.show_error = true;
+    }
+    if (req.session.data.oaktree_farm.livestock_added == false) {
+        next = 'checklist'
+        req.session.data.show_error = true
+    }
+    res.redirect(next)
+})
+
+router.get(/inventory_submit_router/, function (req, res) {
+    var next = 'report'
     if ((req.session.data.oaktree_farm.imports_exports == 0)) { //no_anser
         next = 'checklist';
         req.session.data.show_error = true;

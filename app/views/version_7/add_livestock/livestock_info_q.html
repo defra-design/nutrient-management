@@ -20,9 +20,13 @@
 
       <h1 class="govuk-heading-l">
         Extra information for livestock
-
       </h1>
 
+      <p class="govuk-body-l">Description</p>
+
+      <p class="govuk-body">Whats required</p>
+
+      <p class="govuk-body strong">Do you want to add the extra information?</p>
       <p class="govuk-hint">Select one option.</p>
 
       <form class="form" action="livestockentry_handler" method="post">
@@ -33,13 +37,13 @@
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="monthly" name="livestock_entry" type="radio" value="monthly">
                   <label class="govuk-label govuk-radios__label" for="monthly">
-                    Enter figures for each month
+                    Enter the basic information for now
                   </label>
                 </div>
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="annually" name="livestock_entry" type="radio" value="annually">
                   <label class="govuk-label govuk-radios__label" for="annually">
-                    Enter average figures for the year
+                    Add the extra information
                   </label>
                 </div>
             </div>

@@ -100,41 +100,49 @@
           <li>
             <a class="govuk-link" href="livestock/livestock_years">Update livestock numbers</a>
           </li> 
-        {% else %}
+        <!-- {
+          else
           <li>
             <a class="govuk-link" href="livestock/livestock_years">Add livestock numbers</a>
-          </li> 
+          </li>  
+          -->
         {% endif %}
 
         {% if data.oaktree_farm.imports_exports != 'not_answered' %}
           <li>
             <a class="govuk-link" href="exports/export_years">Update organic material imports and exports</a>
           </li>
-        {% else %}
+        <!-- 
+          else
           <li>
             <a class="govuk-link" href="exports/export_years">Add organic material imports and exports</a>
-          </li>
+          </li> 
+          -->
         {% endif %}
 
         {% if data.oaktree_farm.storage_added == true %}
           <li>
             <a class="govuk-link" href="storage/storage_years">Update organic material storage</a>
           </li>
-        {% else %}
+        <!-- 
+          else
           <li>
             <a class="govuk-link" href="../add_storage/material_type">Add organic material storage</a>
-          </li>
+          </li> 
+          -->
         {% endif %}
 
-        <!-- {% if data.oaktree_farm.bedding_added == true %}
+        <!-- 
+        {% if data.oaktree_farm.bedding_added == true %}
           <li>
             <a class="govuk-link" href="">Update livestock bedding and wash water details</a>
           </li>
-        {% else %}
+        else
           <li>
             <a class="govuk-link" href="">Add livestock bedding and wash water details</a>
           </li>
-        {% endif %} -->
+        {% endif %} 
+        -->
 
         </uli>
       </div>

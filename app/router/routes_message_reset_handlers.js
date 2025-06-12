@@ -46,4 +46,9 @@ router.get(/reset_nloading_checklist_message_handler/, hide_error, function (req
     res.redirect('/' + req.session.data.prototype_version + '/farm/outputs/n_loading/checklist')
 })
 
+// INVENTORY CHECKLIST
+router.get(/reset_inventory_checklist_message_handler/, hide_error, function (req, res) { 
+    res.redirect('/' + req.session.data.prototype_version + '/farm/outputs/inventory/checklist')
+})
+
 module.exports = router

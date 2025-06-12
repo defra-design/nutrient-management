@@ -190,17 +190,28 @@ router.get(/livestockcheck_handler/, function (req, res) {
     console.log(req.session.data.chosen_livestock)
     req.session.data.show_success_message = true;
     req.session.data.oaktree_farm.livestock_added = true;
-    req.session.data.livestock_number = null
+    req.session.data.livestock_number_january = null
+    req.session.data.livestock_number_february = null
+    req.session.data.livestock_number_march = null
+    req.session.data.livestock_number_april = null
+    req.session.data.livestock_number_may = null
+    req.session.data.livestock_number_june = null
+    req.session.data.livestock_number_july = null
+    req.session.data.livestock_number_august = null
+    req.session.data.livestock_number_september = null
+    req.session.data.livestock_number_october = null
+    req.session.data.livestock_number_november = null
+    req.session.data.livestock_number_december = null
     req.session.data.nitrogen_standard = null
     req.session.data.livestock_occupancy = null
     res.redirect('/'+ req.session.data.prototype_version + '/farm/livestock/manage_livestock')
 })
 
 router.get(/get_livestock_reference/, function (req, res) {
-    console.log('get livestock reference ' + req.session.data.livestock_reference)
+    // console.log('get livestock reference ' + req.session.data.livestock_reference)
     for (var reference in req.session.data.livestock_types ) {
         if (req.session.data.livestock_types[reference].reference == req.session.data.livestock_reference) {
-            console.log('found ' + req.session.data.livestock_types[reference])
+            // console.log('found ' + req.session.data.livestock_types[reference])
             req.session.data.chosen_livestock = req.session.data.livestock_types[reference]
         }
     }

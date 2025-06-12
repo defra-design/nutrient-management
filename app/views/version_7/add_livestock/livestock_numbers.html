@@ -20,20 +20,20 @@
   <div class="margin-bottom-forty">
     <h3 class="govuk-heading-s margin-bottom-ten">{{name}}</h3>
     <div class="govuk-form-group">
-      <label class="govuk-label" for="livestock_number">
+      <label class="govuk-label" for="livestock_number_{{name | lower}}">
         How many places did you have in {{name}}?
       </label>
       <div class="govuk-input__wrapper">
-        <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+        <input class="govuk-input govuk-input--width-5" id="livestock_number_{{name | lower}}" name="livestock_number_{{name | lower}}" type="text" spellcheck="false" autocomplete="off">
         <div class="govuk-input__suffix" aria-hidden="true">places</div>
       </div>
     </div>
     {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
       <div class="govuk-form-group">
-        <label class="govuk-label" for="livestock_number">
+        <label class="govuk-label" for="livestock_occupancy_{{name | lower}}">
           Occupancy in {{name}}
         </label>
-        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="100" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="100" id="livestock_occupancy_{{name | lower}}" name="livestock_occupancy_{{name | lower}}" type="text" spellcheck="false" autocomplete="off">
           <div class="govuk-input__suffix" aria-hidden="true">%</div>
         </div>
       </div>
@@ -49,9 +49,11 @@
 
         <h1 class="govuk-heading-l">Enter the number of places per month</h1>
         <div class="margin-bottom-thirty">
-          <p class="govuk-body">Selected livestock: {{data.chosen_livestock.rate}} {{data.chosen_livestock.name | capitalize}}</p>
+          <p class="govuk-body">Selected livestock: {{data.chosen_livestock.rate}} {{data.chosen_livestock.name | capitalize}}.</p>
           {% if data.livestock_group == 'cattle' %}
-            <p class="govuk-body">Nitrogen (N) standard :{{data.chosen_livestock.nitrogen}}kg per animal, per year</p>
+            <p class="govuk-body">Nitrogen (N) standard: {{data.chosen_livestock.nitrogen}}kg per animal, per year.</p>
+          {% else %}
+            <p class="govuk-body">Occupancy is the length of time you have these animals on the farm.</p>
           {% endif %}
         </div>
 
@@ -59,11 +61,22 @@
        
         {{ monthitem ("January") }}
 
-        <div class="margin-bottom-ten">
+        <!-- <div class="govuk-form-group">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                Use the January numbers as the average for the year
+              </label>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="margin-bottom-ten">
           <a class="govuk-button govuk-button--secondary" href="" data-module="govuk-button">
             Use the January number as an average for the year
           </a>
-        </div>
+        </div> -->
 
         {{ monthitem ("February") }}
         {{ monthitem ("March") }}

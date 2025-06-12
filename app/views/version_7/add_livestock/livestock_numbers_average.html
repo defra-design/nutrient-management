@@ -26,7 +26,7 @@
           Enter average figures for the year
         </h1>
         <div class="margin-bottom-thirty">
-          <p class="govuk-body">Selected livestock: {{data.chosen_livestock.rate}} {{data.chosen_livestock.name | capitalize}}.</p>
+          <p class="govuk-body">Selected livestock: {{data.chosen_livestock.name | capitalize}}.</p>
           {% if data.livestock_group == 'cattle' %}
             <p class="govuk-body">Nitrogen (N) standard: {{data.chosen_livestock.nitrogen}}kg per animal, per year.</p>
           {% endif %}

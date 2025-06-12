@@ -9,6 +9,11 @@
     You have added livestock
   </h3>
   <p class="govuk-body"><a class="govuk-notification-banner__link" href="../../add_livestock/livestock_group">Add more livestock</a></p>  
-  <p class="govuk-body"><a class="govuk-notification-banner__link" href="reset_nloading_checklist_message_handler">Create a livestock manure N farm loading report 2025</a></p>  
+  {% if data.export_type == 4 %}
+    <p class="govuk-body"><a class="govuk-notification-banner__link" href="reset_nloading_checklist_message_handler">Create a livestock manure N farm loading report 2025</a></p>  
+  {% else %}
+    <p class="govuk-body"><a class="govuk-notification-banner__link" href="reset_inventory_checklist_message_handler">Create an Organic manures inventory and NVZ manure storage requirement report 2025</a></p>  
+  {% endif %}
+
 </div>
 </div>

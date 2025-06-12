@@ -19,14 +19,46 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Total number of places in January</dt>
-      <dd class="govuk-summary-list__value">{{data.livestock_number}}</dd>
+    <dt class="govuk-summary-list__key">How do you want to enter the number of places{% if data.livestock_group != 'cattle' %} and the occupancy{% endif %}?</dt>
+    <dd class="govuk-summary-list__value">{% if data.livestock_entry == 'monthly' %} Enter figures for each month {% else %} Enter average figures for the year {% endif %}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
+  {% if data.livestock_entry == 'monthly' %} 
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Total number of places per month</dt>
+        <dd class="govuk-summary-list__value">
+          <ul class="nutrient_values">
+            <li>January: <span>{{data.livestock_number_january}}</span></li>
+            <li>February: <span>{{data.livestock_number_february}}</span></li>
+            <li>March: <span>{{data.livestock_number_march}}</span></li>
+            <li>April: <span>{{data.livestock_number_april}}</span></li>
+            <li>May: <span>{{data.livestock_number_may}}</span></li>
+            <li>June: <span>{{data.livestock_number_june}}</span></li>
+            <li>July: <span>{{data.livestock_number_july}}</span></li>
+            <li>August: <span>{{data.livestock_number_august}}</span></li>
+            <li>September: <span>{{data.livestock_number_september}}</span></li>
+            <li>October: <span>{{data.livestock_number_october}}</span></li>
+            <li>November: <span>{{data.livestock_number_november}}</span></li>
+            <li>December: <span>{{data.livestock_number_december}}</span></li>
+        </ul>
+        </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% else %}
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Average number of places per month</dt>
+        <dd class="govuk-summary-list__value">
+          {{data.livestock_number}}
+        </ul>
+        </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% endif %}
+
   {% if data.livestock_group != 'cattle' %}
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">What is the occupancy? (optional)</dt>
+      <dt class="govuk-summary-list__key">What is the occupancy?</dt>
       <dd class="govuk-summary-list__value">
         {% if data.livestock_occupancy == null or data.livestock_occupancy == '' %}
           100%
@@ -37,12 +69,6 @@
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
   {% endif %}
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Use these numbers for the rest of the year?</dt>
-    <dd class="govuk-summary-list__value">Yes</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Nitrogen (N) standard per animal</dt>

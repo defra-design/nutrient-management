@@ -41,6 +41,7 @@
 
       <div>
         <h2 class="govuk-heading-m">Nutrient management planning</h2>
+        <p class="govuk-hint">Create nutrient plans, add organic and inorganic applications.</p>
         {% if data.oaktree_farm.fields_added == true  %}
         <ul class="menu-list govuk-list govuk-list--spaced">
           <li>
@@ -55,6 +56,7 @@
 
       <div>
         <h2 class="govuk-heading-m">Reports and outputs</h2>
+        <p class="govuk-hint">Create reports for NVZ compliance (N-max, {{data.content.n_loading_title}}, organic material inventory and storage) and farm information and planning.</p>
         <ul class="menu-list govuk-list govuk-list--spaced">
           <li>
             <a class="govuk-link" href="outputs/years">Create a report</a>
@@ -65,6 +67,7 @@
 
       <div>
         <h2 class="govuk-heading-m">{{data.content.manner_title}}</h2>
+        <p class="govuk-hint">Predict phosphate (P2O5), potash (K2O), magnesium (MgO) and sulphur (SO3) supply from organic manures, calculate of the economic value of manure applications.</p>
         {% if data.oaktree_farm.fields_added == true  %}
           <ul class="menu-list govuk-list govuk-list--spaced">
             <li>
@@ -80,7 +83,8 @@
       </div>
 
       <div>
-        <h2 class="govuk-heading-m">Update farm details</h2>
+        <h2 class="govuk-heading-m">Manage farm and field details</h2>
+        <p class="govuk-hint">Add or update your farm's information.</p>
         <ul class="menu-list govuk-list">
           <li>
             <a class="govuk-link" href="farm-details">Update farm details</a>

@@ -46,6 +46,11 @@ router.get(/reset_nloading_checklist_message_handler/, hide_error, function (req
     res.redirect('/' + req.session.data.prototype_version + '/farm/outputs/n_loading/checklist')
 })
 
+// MANAGE STORAGE)
+router.get(/reset_manage_storage_message_handler/, hide_error, function (req, res) { 
+    res.redirect('/' + req.session.data.prototype_version + '/farm/storage/manage_storage')
+})
+
 // INVENTORY CHECKLIST
 router.get(/reset_inventory_checklist_message_handler/, hide_error, function (req, res) { 
     res.redirect('/' + req.session.data.prototype_version + '/farm/outputs/inventory/checklist')

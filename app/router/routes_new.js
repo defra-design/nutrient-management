@@ -61,11 +61,7 @@ router.get(/output_router/, hide_error, function (req, res) {
     }
     // MANURE INVENTORY AND STORAGE
     if (req.session.data.export_type == 8) {
-        if (req.session.data.oaktree_farm.derogation == null) {
-            next = './inventory/derogation'
-        } else {
-            next = './inventory/checklist'
-        }
+        next = './inventory/checklist'
     }
     res.redirect(next)
 })
@@ -400,6 +396,11 @@ router.get(/livestock_number_handler/, function (req, res) {
 
 router.get(/farm_area_handler/, hideSuccessMessage, function (req, res) {
     req.session.data.oaktree_farm.area_added = true
+    res.redirect('checklist')
+})
+
+router.get(/rainwater_area_handler/, hideSuccessMessage, function (req, res) {
+    req.session.data.oaktree_farm.rainwater_area_added = true
     res.redirect('checklist')
 })
 

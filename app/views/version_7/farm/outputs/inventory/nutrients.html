@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l">Nutrient prices</h1>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Product</th>
+            <th scope="col" class="govuk-table__header">Percentage of nutrient</th>
+            <th scope="col" class="govuk-table__header">Price of product</th>
+            <th scope="col" class="govuk-table__header">Price of nutrient</th>
+            <th scope="col" class="govuk-table__header"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Ammonium nitrate</td>
+            <td class="govuk-table__cell">34.5% Nitrogen (N)</td>
+            <td class="govuk-table__cell">£10 per tonne</td>
+            <td class="govuk-table__cell">10p per kg</td>
+            <td class="govuk-table__cell"><a href="nutrients_values">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Triple superphosphate</td>
+            <td class="govuk-table__cell">46% Phosphate (P2O5)</td>
+            <td class="govuk-table__cell">£10 per tonne</td>
+            <td class="govuk-table__cell">10p per kg</td>
+            <td class="govuk-table__cell"><a href="">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Murate of potash</td>
+            <td class="govuk-table__cell">60% Potash (K2O)</td>
+            <td class="govuk-table__cell">£10 per tonne</td>
+            <td class="govuk-table__cell">10p per kg</td>
+            <td class="govuk-table__cell"><a href="">Change</a></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <form action="checklist" method="post" novalidate="">
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Done
+          </button>
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/version_7/farm/hub">Cancel</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

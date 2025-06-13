@@ -21,8 +21,6 @@
 
       <h1 class="govuk-heading-l">Nutrient prices</h1>
 
-      <h2 class="govuk-heading-l">these are 2 alternatives to discuss</h2>
-
       <table class="govuk-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
@@ -39,7 +37,7 @@
             <td class="govuk-table__cell">34.5% Nitrogen (N)</td>
             <td class="govuk-table__cell">£10 per tonne</td>
             <td class="govuk-table__cell">10p per kg</td>
-            <td class="govuk-table__cell"><a href="">Change</a></td>
+            <td class="govuk-table__cell"><a href="nutrients_values">Change</a></td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">Triple superphosphate</td>
@@ -57,47 +55,10 @@
           </tr>
         </tbody>
       </table>
-
-        <h2 class="govuk-heading-m">Nitrogen (N)</h2>
-        <div class="govuk-form-group ">
-          <label class="govuk-label" for="nutrient_price-4">
-            What is the nitrogen (N) content in the product?
-          </label>
-          <div class="govuk-input__wrapper">
-            <input class="govuk-input govuk-input--width-3" id="nutrient_price-4" name="nutrient_price-4" type="text" value="34.5" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">%</div>
-          </div>
-        </div>
-
-         <div class="govuk-form-group">
-          <label class="govuk-label" for="nutrient_price-1">
-            What is the product price?
-          </label>
-          <div class="govuk-input__wrapper">
-            <div class="govuk-input__prefix" aria-hidden="true">£</div>
-            <input class="govuk-input govuk-input--width-3" id="nutrient_price-1" name="nutrient_price-1" type="text" value="10" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">per tonne</div>
-          </div>
-        </div>
-
-        <div class="govuk-form-group ">
-          <label class="govuk-label" for="nutrient_price-4">
-            What is the nitrogen (N) price?
-          </label>
-          <div class="govuk-input__wrapper">
-            <input class="govuk-input govuk-input--width-3" id="nutrient_price-4" name="nutrient_price-4" type="text" value="10" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">pence per kg</div>
-          </div>
-        </div>
-
-        <!-- <a class="govuk-button nolink govuk-button--secondary margin-bottom-forty">
-          Update nitrogen (N) values
-        </a> -->
-
       
-      <form action="farm_area_handler" method="post" novalidate="">
+      <form action="checklist" method="post" novalidate="">
         <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Continue
+          Done
           </button>
       </form>
 

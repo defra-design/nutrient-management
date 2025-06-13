@@ -24,8 +24,12 @@
 
         <!-- <h1 class="govuk-heading-l">{{data.chosen_livestock.rate}} {{data.chosen_livestock.name | capitalize}}</h1> -->
         <h1 class="govuk-heading-l">Nitrogen (N) standard</h1>
-        <p class="govuk-body margin-bottom-thirty">Selected livestock: {{data.chosen_livestock.name | capitalize}}.</p>
-        
+        <p class="govuk-body">Selected livestock: {{data.chosen_livestock.name | capitalize}}.</p>
+        {% if data.oaktree_farm.derogation == true %}
+          <p class="govuk-body">Phosphate (P2O5) standard: 83kg per animal,  per year</p>
+        {% endif %}
+        <div class="margin-bottom-thirty"></div>
+
           <div class="govuk-form-group">
             <label class="govuk-label" for="nitrogen_standard">
               What is the Nitrogen (N) standard per animal, per year?
@@ -34,9 +38,6 @@
               <div class="govuk-input__suffix" aria-hidden="true">kg</div>
             </div>
           </div>
-        {% if data.oaktree_farm.derogation == true %}
-          <p class="govuk-body">Phosphate (P2O5) standard per year: 83kg</p>
-        {% endif %}
 
         <div class="margin-bottom-forty"></div>
 

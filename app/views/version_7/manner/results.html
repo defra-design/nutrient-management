@@ -46,7 +46,7 @@
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl margin-bottom-forty">
       <span class="govuk-caption-l">{{data.content.manner_title}} </span>
-      Results
+      Estimate of nutrient supply, losses and potential financial value
     </h1>
   </div>
 </div>
@@ -137,6 +137,7 @@
         {% include "./templates/nitrogen_table.html ignore missing" %}
     </div>
 
+    <!-- VALUE -->
     <div class="govuk-tabs__panel clearfix govuk-tabs__panel--hidden" id="value">
       {% include "./templates/manure_value_table.html ignore missing" %}
       {% include "./templates/price_data.html ignore missing" %}

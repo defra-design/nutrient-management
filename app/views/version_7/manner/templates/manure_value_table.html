@@ -1,9 +1,18 @@
 <h2 class="govuk-heading-l">Manure value</h2>
       <h3 class="govuk-heading-s">
-        The total potential value of these manure applications is £336 per hectare
+        The total potential value of these manure applications is 
+		{% if data.manner_applications | length == 1 %}
+			£125 per hectare
+		{% else %}
+			£336 per hectare
+		{% endif %}
       </h3>
-      <p class="govuk-body-s negative-10">Based on nitrogen (N) at 90p per kg, Phosphate (P2O5) at 80p per kg and Potash (K2O) at 60p per kg.
+      <!-- <p class="govuk-body margin-bottom-thirty">Based on nitrogen (N) at 90p per kg, Phosphate (P2O5) at 80p per kg and Potash (K2O) at 60p per kg. -->
 
+	<h3 class="govuk-heading-m">
+        Value breakdown
+    </h3>
+	
 <div class="margin-bottom-forty">
 	<table class="govuk-table margin-bottom-forty data-table">
 		<thead class="govuk-table__head">

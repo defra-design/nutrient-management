@@ -1,0 +1,116 @@
+
+<h2 class="govuk-heading-m">Nutrient Price Data</h2>
+<p class="govuk-body formlink"><a href="#">Change nitrate product</a></p>
+
+<form class="form" action="manner_values_router" method="post">
+    <div class="left_col">
+        <div class="govuk-form-group">
+            <label class="govuk-label" for="width-20">
+                Ammonium nitrate (34.5% N)
+            </label>
+            <div class="govuk-input__wrapper">
+                <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                <input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" value="311" autocomplete="off" spellcheck="false">
+                <div class="govuk-input__suffix" aria-hidden="true">
+                    per tonne
+                </div>
+            </div>
+        </div>
+        <!-- <div class="govuk-form-group">
+            <label class="govuk-label" for="width-20">
+                Calcium Ammonium nitrate (34.5% N)
+            </label>
+            <div class="govuk-input__wrapper">
+                <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                <input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" value="243" autocomplete="off" spellcheck="false">
+                <div class="govuk-input__suffix" aria-hidden="true">
+                    per tonne
+                </div>
+            </div>
+        </div> -->
+        <div class="govuk-form-group">
+            <label class="govuk-label" for="width-20">
+                Triple superphosphate (46% P2O5)
+            </label>
+            <div class="govuk-input__wrapper">
+                <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                <input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" value="368" autocomplete="off" spellcheck="false">
+                <div class="govuk-input__suffix" aria-hidden="true">
+                    per tonne
+                </div>
+            </div>
+        </div>
+        <div class="govuk-form-group margin-bottom-forty">
+            <label class="govuk-label" for="width-20">
+                Muriate of potash (60% K2O)
+            </label>
+            <div class="govuk-input__wrapper">
+                <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                <input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" value="360" autocomplete="off" spellcheck="false">
+                <div class="govuk-input__suffix" aria-hidden="true">
+                    per tonne
+                </div>
+            </div>
+        </div>
+        {{ govukButton({
+        text: "Re-calculate manure value"
+        }) }}
+    </div>
+
+    <div class="right_col">
+        <div class="govuk-form-group">
+            <label class="govuk-label" for="width-20">
+                Nitrogen (N)
+            </label>
+            <div class="govuk-input__wrapper">
+                <input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" value="90" autocomplete="off" spellcheck="false">
+                <div class="govuk-input__suffix" aria-hidden="true">
+                    pence perkg
+                </div>
+            </div>
+        </div>
+        <div class="govuk-form-group">
+            <label class="govuk-label" for="width-20">
+                Phosphate (P2O5)
+            </label>
+            <div class="govuk-input__wrapper">
+                <input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" value="80" autocomplete="off" spellcheck="false">
+                <div class="govuk-input__suffix" aria-hidden="true">
+                    pence perkg
+                </div>
+            </div>
+        </div>
+        <div class="govuk-form-group">
+            <label class="govuk-label" for="width-20">
+                Potash (K2O)
+            </label>
+            <div class="govuk-input__wrapper">
+                <input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" value="60" autocomplete="off" spellcheck="false">
+                <div class="govuk-input__suffix" aria-hidden="true">
+                    pence perkg
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Ammonium nitrate (34.5% N)
+£311 per tonne
+
+Calcium Ammonium nitrate (34.5% N)
+£311 per tonne
+
+Triple superphosphate (46% P2O5)
+£368 per tonne
+
+Muriate of potash (60% K2O)
+£360 per tonne
+
+Nitrogen (N)
+90 pence perkg
+
+Phosphate (P2O5)
+80 pence perkg
+
+Potash (K2O)
+60 pence perkg -->

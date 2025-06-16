@@ -19,29 +19,37 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Do you want to use these standard nutrient values for {{data.manure_type.name}}?
+        Nutrient values for {{data.manure_type.name}}
       </h1>
 
-      <p class="govuk-body"> These values are taken from the AHDB Nutrient Management Guide (RB209).</p>
+      <p class="govuk-hint"> These values are taken from the AHDB Nutrient Management Guide (RB209).</p>
 
+      <!-- <h2 class="govuk-heading-m">
+        {{data.manure_type.name}}
+      </h2> -->
+      
+      <div class="margin-bottom-forty">
       {% if data.manure_type.liquid == true %}
         {% include "./manure_defaults_liquid.html" %}
       {% else %}
        {% include "./manure_defaults_solid.html" %}
       {% endif %}
+      </div>
 
-      <form class="form" action="enter_manure_defualts_handler" method="post">
+      <p class="govuk-body">
+        Do you want to use these standard nutrient values?
+      </p>
+
+      <form class="form margin" action="enter_manure_defualts_handler" method="post">
         
         <div class="govuk-form-group">
-          <div class="govuk-radios" data-module="govuk-radios">
-
+          <div class="govuk-radios margin-bottom-forty" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="yes" name="edit_manure_defaults" type="radio" value="yes">
               <label class="govuk-label govuk-radios__label" for="yes">
                 Yes, use these values          
               </label>
             </div>
-
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="no" name="edit_manure_defaults" type="radio" value="no">
               <label class="govuk-label govuk-radios__label" for="no">

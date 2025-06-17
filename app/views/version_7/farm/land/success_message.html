@@ -1,0 +1,19 @@
+<div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+<div class="govuk-notification-banner__header">
+  <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+    Success
+  </h2>
+</div>
+<div class="govuk-notification-banner__content">
+  <h3 class="govuk-notification-banner__heading">
+    You have added livestock
+  </h3>
+  <p class="govuk-body"><a class="govuk-notification-banner__link" href="../../add_livestock/livestock_group">Add more livestock</a></p>  
+  {% if data.export_type == 4 %}
+    <p class="govuk-body"><a class="govuk-notification-banner__link" href="reset_nloading_checklist_message_handler">Create a {{data.content.n_loading_title | lower}} report for 2025</a></p>  
+  {% else %}
+    <p class="govuk-body"><a class="govuk-notification-banner__link" href="reset_inventory_checklist_message_handler">Create an Organic manures inventory and NVZ manure storage requirement report for 2025</a></p>  
+  {% endif %}
+
+</div>
+</div>

@@ -89,7 +89,11 @@ router.get(/export_type_router/, hide_error, function (req, res) {
     var next = 'manure_group'
     if (req.session.data.imports_exports == 'none') {
         req.session.data.oaktree_farm.imports_exports = 'none'
-        next = 'reset_nloading_checklist_message_handler'
+        if (req.session.data.export_type == 8) {
+            next = 'reset_inventory_checklist_message_handler'
+        } else {
+            next = 'reset_nloading_checklist_message_handler'
+        }
     }
     res.redirect(next);
 })
@@ -401,6 +405,16 @@ router.get(/livestock_number_handler/, function (req, res) {
 router.get(/farm_area_handler/, hideSuccessMessage, function (req, res) {
     req.session.data.oaktree_farm.area_added = true
     res.redirect('checklist')
+})
+
+router.get(/low_risk_land_handler/, hideSuccessMessage, function (req, res) {
+    req.session.data.oaktree_farm.low_risk_land_added = true
+    if (req.session.data.low_risk_land == 'yes') {
+        next = 'area'
+    } else {
+        next = 'reset_inventory_checklist_message_handler'
+    }
+    res.redirect(next)
 })
 
 router.get(/rainwater_area_handler/, hideSuccessMessage, function (req, res) {

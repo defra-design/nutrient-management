@@ -1,0 +1,88 @@
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    {% if cattle_added == true %}
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#cattle">
+        Cattle
+      </a>
+    </li>
+    {% endif %}
+
+    {% if pig_added == true %}
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#pigs">
+          Pigs
+        </a>
+      </li>
+    {% endif %}
+
+    {% if poultry_added == true %}
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#poultry">
+          Poultry
+        </a>
+      </li>
+    {% endif %}
+
+    {% if sheep_added == true %}
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#sheep">
+          Sheep
+        </a>
+      </li>
+    {% endif %}
+
+    {% if other_added == true %}
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#other">
+          Goats, Deer and Horses
+        </a>
+      </li>
+    {% endif %}
+
+  </ul>
+
+  {% if cattle_added == true %}
+    <div class="govuk-tabs__panel" id="cattle">
+      <h2 class="govuk-heading-l">Cattle</h2>
+        {% set livestock_type = 'cattle' %}
+        {% include "./livestock_table_template.html" ignore missing %}
+    </div>
+  {% endif %}
+
+  {% if pig_added == true %}
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="pigs">
+      <h2 class="govuk-heading-l">Pigs</h2>
+        {% set livestock_type = 'pig' %}
+        {% include "./livestock_table_template.html" ignore missing %}
+    </div>
+  {% endif %}
+
+  {% if poultry_added == true %}
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="poultry">
+      <h2 class="govuk-heading-l">Poultry</h2>
+        {% set livestock_type = 'poultry' %}
+        {% include "./livestock_table_template.html" ignore missing %}
+    </div>
+  {% endif %}
+
+  {% if sheep_added == true %}
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="sheep">
+      <h2 class="govuk-heading-l">Sheep</h2>
+        {% set livestock_type = 'sheep' %}
+        {% include "./livestock_table_template.html" ignore missing %}
+    </div>
+  {% endif %}
+
+  {% if other_added == true %}
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="other">
+      <h2 class="govuk-heading-l">Goats, Deer and Horses</h2>
+        {% set livestock_type = 'other' %}
+        {% include "./livestock_table_template.html" ignore missing %}
+    </div>
+  {% endif %}
+
+</div>

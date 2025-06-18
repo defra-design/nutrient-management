@@ -20,7 +20,7 @@
     
     <!-- {% include "templates/title_span.html" %} -->
     <h1 class="govuk-heading-l">
-      Add livestock details for {{data.oaktree_farm.planning_year}} 
+      Manure used on low run-off risk land {{data.oaktree_farm.planning_year}} 
     </h1>
 
     <h2 class="govuk-heading-m">
@@ -33,7 +33,7 @@
     
     <form action="livestockcheck_handler" method="post" novalidate>
       {{ govukButton({
-        text: "Add this livestock"
+        text: "Add"
       }) }}
     </form>
     <p class="govuk-body">

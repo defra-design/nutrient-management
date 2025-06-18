@@ -18,17 +18,17 @@
 
 {% macro monthitem(name) %}
   <div class="margin-bottom-forty">
-    <h3 class="govuk-heading-s margin-bottom-ten">{{name}}</h3>
+    <!-- <h3 class="govuk-heading-s margin-bottom-ten">{{name}}</h3> -->
     <div class="govuk-form-group">
       <label class="govuk-label" for="livestock_number_{{name | lower}}">
-        How many places did you have in {{name}}?
+        How many of this {{data.chosen_livestock.shortname}} type did you have in {{name}}?
       </label>
       <div class="govuk-input__wrapper">
         <input class="govuk-input govuk-input--width-5" id="livestock_number_{{name | lower}}" name="livestock_number_{{name | lower}}" type="text" spellcheck="false" autocomplete="off">
-        <div class="govuk-input__suffix" aria-hidden="true">places</div>
+        <div class="govuk-input__suffix" aria-hidden="true">{{data.chosen_livestock.shortname}}</div>
       </div>
     </div>
-    {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
+    <!-- {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
       <div class="govuk-form-group">
         <label class="govuk-label" for="livestock_occupancy_{{name | lower}}">
           Occupancy in {{name}}
@@ -37,7 +37,7 @@
           <div class="govuk-input__suffix" aria-hidden="true">%</div>
         </div>
       </div>
-    {% endif %}
+    {% endif %} -->
   </div>
 {% endmacro %}
 
@@ -47,9 +47,14 @@
       
       <form action="livestock_number_handler" method="post" novalidate="">
 
-        <h1 class="govuk-heading-l">Enter the number of places per month</h1>
+        <!-- <h1 class="govuk-heading-l">Number of this {{data.chosen_livestock.shortname}} type, per month</h1>   -->
+        <h1 class="govuk-heading-l">
+          How many of this {{data.chosen_livestock.shortname}} type did you have each month?
+        </h1>
+
+        <p class="strong">{{data.chosen_livestock.name | capitalize}}</p>
+
         <div class="margin-bottom-thirty">
-          <p class="govuk-body">Selected livestock: {{data.chosen_livestock.name | capitalize}}.</p>
           {% if data.livestock_group == 'cattle' %}
             <p class="govuk-body">Nitrogen (N) standard: {{data.chosen_livestock.nitrogen}}kg per animal, per year.</p>
           {% else %}

@@ -22,9 +22,12 @@
       
       <form action="livestock_values_handler" method="post" novalidate="">
 
-        <!-- <h1 class="govuk-heading-l">{{data.chosen_livestock.rate}} {{data.chosen_livestock.name | capitalize}}</h1> -->
-        <h1 class="govuk-heading-l">Nitrogen (N) standard</h1>
-        <p class="govuk-body">Selected livestock: {{data.chosen_livestock.name | capitalize}}.</p>
+        <h1 class="govuk-heading-l">
+         Nitrogen (N) standard
+        </h1>
+
+        <p>{{data.chosen_livestock.name | capitalize}}</p>
+        
         {% if data.oaktree_farm.derogation == true %}
           <p class="govuk-body">Phosphate (P2O5) standard: 83kg per animal,  per year</p>
         {% endif %}

@@ -19,28 +19,34 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How do you want to enter the number of places{% if data.livestock_group != 'cattle' %} and the occupancy{% endif %}?</dt>
+    <dt class="govuk-summary-list__key">
+      {% if data.livestock_group == 'poultry' %}
+        How do you want to enter the number of places and the occupancy?
+      {% else %}
+        How do you want to enter the numbers for this {{data.chosen_livestock.shortname}}?
+      {% endif %}
+    </dt>
     <dd class="govuk-summary-list__value">{% if data.livestock_entry == 'monthly' %} Enter numbers for each month {% else %} Enter average number for the year {% endif %}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   {% if data.livestock_entry == 'monthly' %} 
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Total number of places per month</dt>
+      <dt class="govuk-summary-list__key">Total number of this {{data.chosen_livestock.shortname}}, per month</dt>
         <dd class="govuk-summary-list__value">
           <ul class="nutrient_values">
-            <li>January: <span>{{data.livestock_number_january}}</span></li>
-            <li>February: <span>{{data.livestock_number_february}}</span></li>
-            <li>March: <span>{{data.livestock_number_march}}</span></li>
-            <li>April: <span>{{data.livestock_number_april}}</span></li>
-            <li>May: <span>{{data.livestock_number_may}}</span></li>
-            <li>June: <span>{{data.livestock_number_june}}</span></li>
-            <li>July: <span>{{data.livestock_number_july}}</span></li>
-            <li>August: <span>{{data.livestock_number_august}}</span></li>
-            <li>September: <span>{{data.livestock_number_september}}</span></li>
-            <li>October: <span>{{data.livestock_number_october}}</span></li>
-            <li>November: <span>{{data.livestock_number_november}}</span></li>
-            <li>December: <span>{{data.livestock_number_december}}</span></li>
+            <li>January: <span>{{data.livestock_number_january}} {{data.chosen_livestock.shortname}}</span></li>
+            <li>February: <span>{{data.livestock_number_february}} {{data.chosen_livestock.shortname}}</span></li>
+            <li>March: <span>{{data.livestock_number_march}} {{data.chosen_livestock.shortname}}</span></li>
+            <li>April: <span>{{data.livestock_number_april}} {{data.chosen_livestock.shortname}}</span></li>
+            <li>May: <span>{{data.livestock_number_may}} {{data.chosen_livestock.shortname}}</span></li>
+            <li>June: <span>{{data.livestock_number_june}} {{data.chosen_livestock.shortname}}</span></li>
+            <li>July: <span>{{data.livestock_number_july}} {{data.chosen_livestock.shortname}}</span></li>
+            <li>August: <span>{{data.livestock_number_august}} {{data.chosen_livestock.shortname}}</span></li>
+            <li>September: <span>{{data.livestock_number_september}} {{data.chosen_livestock.shortname}}</span></li>
+            <li>October: <span>{{data.livestock_number_october}} {{data.chosen_livestock.shortname}}</span></li>
+            <li>November: <span>{{data.livestock_number_november}} {{data.chosen_livestock.shortname}}</span></li>
+            <li>December: <span>{{data.livestock_number_december}} {{data.chosen_livestock.shortname}}</span></li>
         </ul>
         </dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
@@ -49,7 +55,7 @@
       <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Average number of places per month</dt>
         <dd class="govuk-summary-list__value">
-          {{data.livestock_number}}
+          {{data.livestock_number}} {{data.chosen_livestock.shortname}}
         </ul>
         </dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>

@@ -38,8 +38,8 @@
                 {% if animal.type == data.livestock_group %}
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="{{animal.reference}}" name="livestock_reference" type="radio" value="{{animal.reference}}">
-                  <label class="govuk-label govuk-radios__label" for="{{animal.reference}}">
-                    {{animal.name | capitalize}}
+                  <label class="govuk-label govuk-radios__label" for="{{animal.reference}}"> 
+                   {{animal.name | capitalize}} {% if animal.type == 'poultry' %} ({{animal.rate}}) {% endif %}
                   </label>
                   <!-- <div class="govuk-hint govuk-radios__hint">
                     Nitrogen (N) standard: {{animal.nitrogen}}kg per year

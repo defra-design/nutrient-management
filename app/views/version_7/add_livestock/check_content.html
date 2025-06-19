@@ -18,18 +18,16 @@
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      {% if data.livestock_group == 'poultry' %}
-        How do you want to enter the number of places and the occupancy?
-      {% else %}
-        How do you want to enter the numbers for this {{data.chosen_livestock.shortname}}?
-      {% endif %}
-    </dt>
-    <dd class="govuk-summary-list__value">{% if data.livestock_entry == 'monthly' %} Enter numbers for each month {% else %} Enter average number for the year {% endif %}</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
+  {% if data.livestock_group != 'poultry' and data.livestock_group != 'pig' %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+          How do you want to enter the numbers for this {{data.chosen_livestock.shortname}}?
+      </dt>
+      <dd class="govuk-summary-list__value">{% if data.livestock_entry == 'monthly' %} Enter a number for each month {% else %} Enter the average number for the year {% endif %}</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% endif %}
+  
   {% if data.livestock_entry == 'monthly' %} 
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Total number of this {{data.chosen_livestock.shortname}}, per month</dt>
@@ -53,9 +51,13 @@
     </div>
   {% else %}
       <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Average number of places per month</dt>
+      <dt class="govuk-summary-list__key">What is the average number of places for 2025?</dt>
         <dd class="govuk-summary-list__value">
-          {{data.livestock_number}} {{data.chosen_livestock.shortname}}
+          {% if data.livestock_group == 'poultry' or data.livestock_group == 'pig' %}
+             places
+          {% else %}
+             {{data.livestock_number}} {{data.chosen_livestock.shortname}}
+          {% endif %}
         </ul>
         </dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>

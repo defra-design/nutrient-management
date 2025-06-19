@@ -6,7 +6,7 @@
       </h2>
       <div class="govuk-error-summary__body">
         <ul class="govuk-list govuk-error-summary__list">
-          {% if data.oaktree_farm.livestock_added == false %}
+          {% if data.oaktree_farm.livestock_2025 == false %}
             <li>
               <a class="nolink" href="#">Livestock numbers for {{data.oaktree_farm.planning_year}} must be completed</a>
             </li>
@@ -44,7 +44,7 @@
           To create the report you must add:
         </p>
         <ul class="govuk-list govuk-list--bullet">
-          {% if data.oaktree_farm.livestock_added == false %}
+          {% if data.oaktree_farm.livestock_2025 == false %}
             <li>Livestock numbers for 2025</li>
           {% endif %}
 

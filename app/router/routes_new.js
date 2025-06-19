@@ -132,7 +132,7 @@ router.get(/n_loading_submit_router/, function (req, res) {
         next = 'checklist';
         req.session.data.show_error = true;
     }
-    if (req.session.data.oaktree_farm.livestock_added == false) {
+    if (req.session.data.oaktree_farm.livestock_2025 == false) {
         next = 'checklist'
         req.session.data.show_error = true
     }
@@ -145,7 +145,7 @@ router.get(/inventory_submit_router/, function (req, res) {
         next = 'checklist';
         req.session.data.show_error = true;
     }
-    if (req.session.data.oaktree_farm.livestock_added == false) {
+    if (req.session.data.oaktree_farm.livestock_2025 == false) {
         next = 'checklist'
         req.session.data.show_error = true
     }
@@ -154,7 +154,7 @@ router.get(/inventory_submit_router/, function (req, res) {
 
 router.get(/livestock_year_handler/, hideSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.planning_year = req.query.harvest_date
-    if (req.session.data.oaktree_farm.livestock_added == true) {
+    if (req.session.data.oaktree_farm.livestock_2025 == true) {
         res.redirect('manage_livestock')
     } else {
         res.redirect('../../add_livestock/derogation')
@@ -210,7 +210,7 @@ router.get(/livestockcheck_handler/, function (req, res) {
     req.session.data.livestock_2025.push(req.session.data.chosen_livestock)
     console.log(req.session.data.chosen_livestock)
     req.session.data.show_success_message = true;
-    req.session.data.oaktree_farm.livestock_added = true;
+    req.session.data.oaktree_farm.livestock_2025 = true;
     req.session.data.livestock_number_january = null
     req.session.data.livestock_number_february = null
     req.session.data.livestock_number_march = null

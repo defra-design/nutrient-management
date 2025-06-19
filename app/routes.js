@@ -185,7 +185,7 @@ router.get('/', loadContent, loadControlVars, function (req, res) {
     req.session.data.allManureApplications = []
     req.session.data.allManureApplications_v2 = []
     req.session.data.allFertiliserApplications = []
-    req.session.data.livestock_2025 = []
+    req.session.data.livestock_record_2025 = []
 
     //planviews
     req.session.data.plan_version = 2

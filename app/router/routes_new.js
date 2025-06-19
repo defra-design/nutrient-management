@@ -98,6 +98,20 @@ router.get(/export_type_router/, hide_error, function (req, res) {
     res.redirect(next);
 })
 
+router.get(/livestock_2025_handler/, hide_error, function (req, res) {
+    var next = 'livestock_group'
+    if (req.session.data.livestock_2025 == 'no') {
+        req.session.data.oaktree_farm.livestock_2025 = 'none'
+        if (req.session.data.export_type == 8) {
+            next = 'reset_inventory_checklist_message_handler'
+        } else {
+            next = 'reset_nloading_checklist_message_handler'
+        }
+    }
+    res.redirect(next);
+})
+
+
 router.get(/change_export_handler/, hide_error, function (req, res) {
     if (req.query.export_type == 'export') {
         req.session.data.imports_exports = 'export'
@@ -154,7 +168,7 @@ router.get(/inventory_submit_router/, function (req, res) {
 
 router.get(/livestock_year_handler/, hideSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.planning_year = req.query.harvest_date
-    if (req.session.data.oaktree_farm.livestock_2025 == true) {
+    if (req.session.data.oaktree_farm.livestock_2025 == 'added') {
         res.redirect('manage_livestock')
     } else {
         res.redirect('../../add_livestock/derogation')
@@ -207,10 +221,11 @@ router.get(/livestockcheck_handler/, function (req, res) {
     if (req.session.data.livestock_number != null && req.session.data.livestock_number != '') {
         req.session.data.chosen_livestock.total = req.session.data.livestock_number
     }
-    req.session.data.livestock_2025.push(req.session.data.chosen_livestock)
-    console.log(req.session.data.chosen_livestock)
+    // console.log('1' + req.session.data.chosen_livestock)
+    // console.log('2' + req.session.data.livestock_2025)
+    req.session.data.livestock_record_2025.push(req.session.data.chosen_livestock)
     req.session.data.show_success_message = true;
-    req.session.data.oaktree_farm.livestock_2025 = true;
+    req.session.data.oaktree_farm.livestock_2025 = 'added';
     req.session.data.livestock_number_january = null
     req.session.data.livestock_number_february = null
     req.session.data.livestock_number_march = null

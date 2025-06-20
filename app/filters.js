@@ -38,6 +38,16 @@ addFilter('nameconverter', function (crop_name) {
     return crop_name
 })
 
+
+addFilter('convert_export_type', function (export_ref) {
+    var export_title = 'N-max'
+    if (export_ref == 4 ) {
+        export_title = 'Livestock manure nitrogen (N) farm limit'
+    }
+    return export_title
+})
+
+
 addFilter('cropgroupconverter', function (group_name) {
     if (group_name == 'cereals') {
         group_name = 'Arable cereals';

@@ -1,18 +1,18 @@
 <dl class="govuk-summary-list nutrient_list">
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Do you want to add an import or an export of organic material?</dt>
+    <dt class="govuk-summary-list__key">Do you want to add an import or an export of livestock manure?</dt>
     <dd class="govuk-summary-list__value">{{data.imports_exports | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <!-- <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What type of organic material are you importing?</dt>
+    <dt class="govuk-summary-list__key">What type of livestock manure are you importing?</dt>
     <dd class="govuk-summary-list__value">{{data.manure_group_id | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div> -->
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What type of organic material are you {{data.imports_exports}}ing?</dt>
+    <dt class="govuk-summary-list__key">What type of livestock manure are you {{data.imports_exports}}ing?</dt>
     {% if data.imports_exports == 'import' %}
       <dd class="govuk-summary-list__value">Cattle farmyard manure - Fresh</dd>
     {% else %}
@@ -23,7 +23,7 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">When did you {{data.imports_exports}} this organic material?</dt>
+    <dt class="govuk-summary-list__key">When did you {{data.imports_exports}} this livestock manure?</dt>
     {% if data.imports_exports == 'import' %}
       <dd class="govuk-summary-list__value">10 January 2025</dd>
     {% else %}
@@ -56,7 +56,7 @@
   </div> -->
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Cattle farmyard manure - Fresh Nutrient values</dt>
+    <dt class="govuk-summary-list__key">Nutrient values for Cattle farmyard manure - Fresh</dt>
     <dd class="govuk-summary-list__value nutrient_values">
       <ul class="nutrient_values">
         <li>Dry Matter content: <span>25%</span></span>
@@ -76,12 +76,12 @@
   <div class="govuk-summary-list__row">
     {% if data.imports_exports == 'import' %}
     <dt class="govuk-summary-list__key">
-          Who are you importing this organic material from?
+          Who are you importing this livestock manure from?
     </dt>
     <dd class="govuk-summary-list__value">Mrs Jones</dd>
     {% else %}
     <dt class="govuk-summary-list__key">
-      Who are you exporting this organic material to?
+      Who are you exporting this livestock manure to?
     </dt>
     <dd class="govuk-summary-list__value">Mr Smith</dd>
     {% endif %}

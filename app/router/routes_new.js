@@ -20,7 +20,8 @@ const hideSuccessMessage = function (req, res, next) {
 }
 
 //export the documents
-router.get(/output_router/, hide_error, function (req, res) {     
+router.get(/output_router/, hide_error, function (req, res) {   
+    req.session.data.oaktree_farm.planning_year = req.session.data.output_year
     var next = 'export_fields'
     if (req.session.data.export_type == 1) {
         if (req.session.data.all_fields.length == 0) {
@@ -86,8 +87,8 @@ router.get(/derogation_add_router/, function (req, res) {
 })
 
 router.get(/export_type_router/, hide_error, function (req, res) {
-    var next = 'manure_group'
-    if (req.session.data.imports_exports == 'none') {
+    var next = 'export_type'
+    if (req.session.data.imports_exports == 'no') {
         req.session.data.oaktree_farm.imports_exports = 'none'
         if (req.session.data.export_type == 8) {
             next = 'reset_inventory_checklist_message_handler'
@@ -96,6 +97,11 @@ router.get(/export_type_router/, hide_error, function (req, res) {
         }
     }
     res.redirect(next);
+})
+
+router.get(/manure_export_type_handler/, hide_error, function (req, res) {
+    req.session.data.manure_group_id == 'livestock'
+    res.redirect('manure_type');
 })
 
 router.get(/livestock_2025_handler/, hide_error, function (req, res) {
@@ -211,11 +217,11 @@ router.get(/exportcheck_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version + '/farm/exports/manage_exports')
 })
 
-//refactored - update
-router.get(/output_year_handler/, function (req, res) { 
-    req.session.data.oaktree_farm.planning_year = req.session.data.output_year
-    res.redirect('export')
-})
+// //refactored - update
+// router.get(/output_year_handler/, function (req, res) { 
+//     req.session.data.oaktree_farm.planning_year = req.session.data.output_year
+//     res.redirect('export')
+// })
 
 router.get(/livestockcheck_handler/, function (req, res) { 
     if (req.session.data.livestock_number != null && req.session.data.livestock_number != '') {

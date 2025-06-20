@@ -51,16 +51,15 @@
     </div>
   {% else %}
       <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">What is the average number of places for 2025?</dt>
-        <dd class="govuk-summary-list__value">
-          {% if data.livestock_group == 'poultry' or data.livestock_group == 'pig' %}
-             places
-          {% else %}
-             {{data.livestock_number}} {{data.chosen_livestock.shortname}}
-          {% endif %}
-        </ul>
-        </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        {% if data.livestock_group == 'poultry' or data.livestock_group == 'pig' %}
+        <dt class="govuk-summary-list__key">What is the average number of places for 2025?</dt>
+        <dd class="govuk-summary-list__value">{{data.livestock_number}} places</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      {% else %}
+        <dt class="govuk-summary-list__key">What is the average number of {{data.chosen_livestock.shortname}} for 2025?</dt>
+        <dd class="govuk-summary-list__value">{{data.livestock_number}} places</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      {% endif %}
     </div>
   {% endif %}
 

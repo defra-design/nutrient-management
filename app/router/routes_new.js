@@ -388,14 +388,13 @@ router.get(/grass_years_handler/, function (req, res) {
 //     res.redirect(next);
 // });
 
-router.get(/manner_copy_router/, function (req, res) {
-    let next
+router.get(/manner_copy_router/, showSuccessMessage, function (req, res) {
+    let next = 'results'
     let tempApplication = req.session.data.manner_applications[0]
     if (req.session.data.copy_manner == 'no') {
         next = 'manure_group'
     } else {
         req.session.data.manner_applications.push(tempApplication)
-        next = 'results'
     }
     res.redirect(next);
 });

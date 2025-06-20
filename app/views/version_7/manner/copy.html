@@ -34,8 +34,8 @@
            {% for item in data.manner_applications %}
             {% set count = count+1 %}
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="yes" name="copy_manner" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="yes">
+                <input class="govuk-radios__input" id="{{count}}" name="copy_manner" type="radio" value="{{count}}">
+                <label class="govuk-label govuk-radios__label" for="{{count}}">
                   Yes, copy application {{count}}    
                 </label>
               </div>

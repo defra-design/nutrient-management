@@ -23,11 +23,13 @@
       <form action="livestock_number_handler" method="post" novalidate="">
 
         <h1 class="govuk-heading-l">
-          Average number for this {{data.chosen_livestock.shortname}} type in 2025
+          {% if data.livestock_group == 'poultry' or data.livestock_group == 'pig' %} 
+            Number of places, occupancy and nitrogen (N) standard
+          {% else %} 
+            Average number of this {{data.chosen_livestock.shortname}} type in 2025
+          {% endif %} 
         </h1>
         
-        <p class="strong">{{data.chosen_livestock.name | capitalize}}</p>
-
         {% if data.livestock_group == 'poultry' or data.livestock_group == 'pig' %}
           {% include "./poultry_content.html" ignore missing %}
         {% else %}

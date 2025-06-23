@@ -1,0 +1,44 @@
+<p class="govuk-body strong">{{data.chosen_livestock.name | capitalize}}</p>
+
+<div class="">
+    <h3 class="govuk-heading-s">{{name}}</h3>
+        <div class="govuk-form-group">
+        <label class="govuk-label" for="livestock_number">
+            What is the average number of places for 2025?
+        </label>
+        <div class="govuk-input__wrapper">
+            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">
+                places
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-form-group">
+        <label class="govuk-label" for="livestock_occupancy">
+          What is the average occupancy?
+        </label>
+        <div class="govuk-hint">Length of time you have these animals on the farm.</div>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="100" id="livestock_occupancy" name="livestock_occupancy" type="text" spellcheck="false" autocomplete="off">
+        <div class="govuk-input__suffix" aria-hidden="true">%</div>
+        </div>
+    </div>
+    
+    <div class="govuk-form-group margin-bottom-thirty">
+        <label class="govuk-label" for="nitrogen_standard">
+            What is the Nitrogen (N) standard per 1000 places, per year?
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="nitrogen_standard" name="nitrogen_standard" value="83" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">kg</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Occupancy
+Question: What proportion of the year is the animal place occupied?
+Explanatory text: For pigs and poultry, the occupancy is the proportion of the year that the animal place is occupied by animals – the remaining time will be for cleaning etc. If the occupancy on your farm is different to the occupancy values shown here, you should enter the actual occupancy figures for your farm.
+If you enter your own N standard figure, do not subsequently edit the value in the ‘Occupancy’ column.
+Numeric, 0dp, 0-100
+Editable defaults (See excel sheet)
+Note that if the occupancy figure is changed, this will update the N standard figure (see below) -->

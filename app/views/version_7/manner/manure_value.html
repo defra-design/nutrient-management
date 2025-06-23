@@ -26,9 +26,9 @@
         <h1 class="govuk-heading-l">
           Enter the application rate
         </h1>
-        <p class="govuk-hint">
+        <!-- <p class="govuk-hint">
           Enter a number from 0 to 250 to 1 decimal place
-        </p>  
+        </p>   -->
       {% endif %}
       
       {% if data.quantity_type == "area"  %}
@@ -36,7 +36,7 @@
         <caption class="govuk-table__caption govuk-table__caption--m">Sizes entered at set up</caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Total field size</th>
+            <th scope="col" class="govuk-table__header">Total field area</th>
             <td class="govuk-table__cell">77 hectares</td>
           </tr>
         </thead>
@@ -59,7 +59,7 @@
 
           <div class="govuk-form-group">
             <label class="govuk-label" for="width-20">
-              Spreading Area
+              Spreading area
             </label>
             <div class="govuk-input__wrapper"><input value="57" class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" autocomplete="off" spellcheck="false">
               <div class="govuk-input__suffix" aria-hidden="true">hectares</div>

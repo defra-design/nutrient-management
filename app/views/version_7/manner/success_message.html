@@ -9,11 +9,12 @@
       <h3 class="govuk-notification-banner__heading">
         Nutrient supply estimated
       </h3>
-      <p class="">Select an application's details to change any of the entered information.</p>
-      <p class="">Select manure value to adjust your nutrient prices.</p>
+      <p class="">Select an application details tab to change any of the entered information.</p>
+      <p class="">Select the organic material value tab to view the financial value of the organic material nutrients</p>
+
       {% elif data.successMessage == 2 %}
         <h3 class="govuk-notification-banner__heading">
-          Manure value updated
+          Organic material value updated
         </h3>
       {% elif data.successMessage == 4 %}
       <h3 class="govuk-notification-banner__heading">
@@ -24,7 +25,7 @@
         Manure application added
       </h3>
       <p class="">Select an application's details to change any of the entered information.</p>
-      <p class="">Select manure value to adjust your nutrient prices.</p>
+      <p class="">Select the organic material value tab to adjust your nutrient prices.</p>
     {% else %}
     <h3 class="govuk-notification-banner__heading">
       Nutrient supply and value updated

@@ -27,6 +27,7 @@
       <form class="form" action="export_types" method="post">
         <div class="govuk-form-group">
           <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="nvz" name="report_type" type="radio" value="nvz">
               <label class="govuk-label govuk-radios__label" for="nvz">
@@ -36,6 +37,7 @@
                 Includes N-max, nitrogen (N) farm limit, and organic material storage
               </div>
             </div>
+
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="cropfield" name="report_type" type="radio" value="cropfield">
               <label class="govuk-label govuk-radios__label" for="cropfield">
@@ -45,6 +47,7 @@
                 Includes details about your fields, crops and recommendations.
               </div>
             </div>
+
           </div>
         </div>
         {{ govukButton({
@@ -57,3 +60,7 @@
   </p>
 
 {% endblock %}
+
+
+<!-- Field records and nutrient management planning
+Farm and field details for NVZ records -->

@@ -27,34 +27,8 @@
         <div class="govuk-form-group">
             <div class="govuk-radios" data-module="govuk-radios">
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="band" name="application_method" type="radio" value="Band spreader trailing hose">
-                <label class="govuk-label govuk-radios__label" for="band">
-                  Band spreader trailing hose    
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="broadcast" name="application_method" type="radio" value="Broadcast spreader">
-                <label class="govuk-label govuk-radios__label" for="broadcast">
-                  Broadcast spreader
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="deep" name="application_method" type="radio" value="Deep injection (23cm - 30cm)">
-                <label class="govuk-label govuk-radios__label" for="deep">
-                  Deep injection (23cm - 30cm)
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="shallow" name="application_method" type="radio" value="Shallow injection (5cm - 7cm)">
-                <label class="govuk-label govuk-radios__label" for="shallow">
-                  Shallow injection (5cm - 7cm)
-                </label>
-              </div>
-
+              {% include "/templates/application-methods.html" ignore missing %}
+              
           </div>
         </div>
         {{ govukButton({

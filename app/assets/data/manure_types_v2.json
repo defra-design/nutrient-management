@@ -11,7 +11,7 @@
     {"name": "Goat Farmyard Manure", "liquid": false, "displayname": "Goat Farmyard Manure", "group_id":"24"},
     {"name": "Poultry manure", "liquid": false, "displayname": "Poultry manure", "group_id": "24"},
     {"name": "Dirty water", "liquid": true, "displayname": "Dirty water", "group_id": "25"},
-    {"name": "Pig slurry whole", "liquid": false, "displayname": "Pig slurry - whole", "group_id": "25"},
+    {"name": "Pig slurry", "liquid": false, "displayname": "Pig slurry - whole", "group_id": "25"},
     {"name": "Pig Slurry - Separated Liquid Portion", "liquid": true, "displayname": "Pig Slurry - Separated Liquid Portion", "group_id": "25"},
     {"name": "Pig Slurry - Separated Solid Portion", "liquid": false, "displayname": "Pig Slurry - Separated Solid Portion", "group_id": "25"},
     {"name": "Cattle slurry - whole", "liquid": true, "displayname": "Cattle slurry - whole", "group_id": "25"},

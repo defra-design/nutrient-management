@@ -260,6 +260,7 @@ router.get(/get_livestock_reference/, function (req, res) {
     }
     // res.redirect("how_to_enter")
     if (req.session.data.livestock_group == 'pig' ||req.session.data.livestock_group == 'poultry' ) {
+        req.session.data.livestock_entry = 'annually'
         next = 'livestock_numbers_average'
     }
     res.redirect(next)

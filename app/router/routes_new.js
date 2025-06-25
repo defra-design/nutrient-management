@@ -148,11 +148,15 @@ router.get(/get_manure_type_handler/, function (req, res) {
 
 router.get(/n_loading_submit_router/, function (req, res) {
     var next = 'report_no_derogation'
-    if ((req.session.data.oaktree_farm.imports_exports == 0)) { //no_anser
+    if ((req.session.data.oaktree_farm.area_added == false)) {
         next = 'checklist';
         req.session.data.show_error = true;
     }
-    if (req.session.data.oaktree_farm.livestock_2025 == false) {
+    if ((req.session.data.oaktree_farm.imports_exports == 'not_answered')) {
+        next = 'checklist';
+        req.session.data.show_error = true;
+    }
+    if (req.session.data.oaktree_farm.livestock_2025 == 'not_answered') {
         next = 'checklist'
         req.session.data.show_error = true
     }
@@ -161,7 +165,7 @@ router.get(/n_loading_submit_router/, function (req, res) {
 
 router.get(/inventory_submit_router/, function (req, res) {
     var next = 'report'
-    if ((req.session.data.oaktree_farm.imports_exports == 0)) { //no_anser
+    if ((req.session.data.oaktree_farm.imports_exports == 0)) {
         next = 'checklist';
         req.session.data.show_error = true;
     }

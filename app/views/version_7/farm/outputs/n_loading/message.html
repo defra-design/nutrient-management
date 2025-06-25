@@ -11,7 +11,7 @@
               <a class="nolink" href="area">Farm area for {{data.oaktree_farm.planning_year}} must be completed</a>
             </li>
           {% endif %}
-          {% if data.oaktree_farm.livestock_2025 == false %}
+          {% if data.oaktree_farm.livestock_2025 == 'not_answered' %}
             <li>
               <a class="nolink" href="../../../add_livestock/livestock_group">Livestock numbers for {{data.oaktree_farm.planning_year}} must be completed</a>
             </li>

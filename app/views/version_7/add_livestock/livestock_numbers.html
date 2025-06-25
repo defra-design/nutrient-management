@@ -52,7 +52,9 @@
           Monthly totals for this {{data.chosen_livestock.shortname}} type in 2025
         </h1>
 
-        <p class="strong">{{data.chosen_livestock.name | capitalize}}</p>
+    <p class="govuk-body">
+        Selected livestock type: {{data.chosen_livestock.name | capitalize}}
+    </p>
 
         <div class="margin-bottom-thirty">
           {% if data.livestock_group == 'cattle' %}

@@ -19,6 +19,20 @@ const hideSuccessMessage = function (req, res, next) {
     next()
 }
 
+const setManureGroup = function (req, res, next) {
+    if (req.session.data.manure_group_id == "livestock") {
+        req.session.data.manure_types = req.session.data.manure_types_livestock
+    } else if (req.session.data.manure_group_id == "biosolids") {
+        req.session.data.manure_types = req.session.data.manure_types_biosolid
+    } else if (req.session.data.manure_group_id == "other") {
+        req.session.data.manure_types = req.session.data.manure_types_other
+    } else if (req.session.data.manure_group_id == "digestate") {
+        req.session.data.manure_types = req.session.data.manure_types_digestate
+    }
+    // console.log('manure types = ' + req.session.data.manure_types)
+    next()
+}
+
 //export the documents
 router.get(/output_router/, hide_error, function (req, res) {   
     req.session.data.oaktree_farm.planning_year = req.session.data.output_year
@@ -99,8 +113,8 @@ router.get(/export_type_router/, hide_error, function (req, res) {
     res.redirect(next);
 })
 
-router.get(/manure_export_type_handler/, hide_error, function (req, res) {
-    req.session.data.manure_group_id == 'livestock'
+router.get(/manure_export_type_handler/, setManureGroup, hide_error, function (req, res) {
+    req.session.data.manure_group_id = 'livestock'
     res.redirect('manure_type');
 })
 

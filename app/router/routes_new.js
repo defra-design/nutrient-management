@@ -267,6 +267,11 @@ router.get(/livestockcheck_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version + '/farm/livestock/manage_livestock')
 })
 
+router.get(/landcheck_handler/, showSuccessMessage, function (req, res) { 
+    req.session.data.oaktree_farm.low_risk_land_added = 'added';
+    res.redirect('/'+ req.session.data.prototype_version + '/farm/land/manage_land')
+})
+
 router.get(/get_livestock_reference/, function (req, res) {
     var next = 'livestock_number_question'
     // console.log('get livestock reference ' + req.session.data.livestock_reference)
@@ -451,7 +456,7 @@ router.get(/farm_area_handler/, hideSuccessMessage, function (req, res) {
 })
 
 router.get(/low_risk_land_handler/, hideSuccessMessage, function (req, res) {
-    req.session.data.oaktree_farm.low_risk_land_added = true
+    req.session.data.oaktree_farm.low_risk_land_added = 'added'
     if (req.session.data.low_risk_land == 'yes') {
         next = 'area'
     } else {

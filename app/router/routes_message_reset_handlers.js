@@ -46,7 +46,7 @@ router.get(/reset_nloading_checklist_message_handler/, hide_error, function (req
     res.redirect('/' + req.session.data.prototype_version + '/farm/outputs/n_loading/checklist')
 })
 
-// MANAGE STORAGE)
+// MANAGE STORAGE
 router.get(/reset_manage_storage_message_handler/, hide_error, function (req, res) { 
     res.redirect('/' + req.session.data.prototype_version + '/farm/storage/manage_storage')
 })
@@ -54,6 +54,11 @@ router.get(/reset_manage_storage_message_handler/, hide_error, function (req, re
 // INVENTORY CHECKLIST
 router.get(/reset_inventory_checklist_message_handler/, hide_error, function (req, res) { 
     res.redirect('/' + req.session.data.prototype_version + '/farm/outputs/inventory/checklist')
+})
+
+// MANAGE LOW RUN-OFF RISK LAND 
+router.get(/reset_manage_land_message_handler/, hideSuccessMessage, function (req, res) { 
+    res.redirect('/' + req.session.data.prototype_version + '/farm/land/manage_land')
 })
 
 module.exports = router

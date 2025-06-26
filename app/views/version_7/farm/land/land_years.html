@@ -13,7 +13,7 @@
         href: "hub_reset_router"
       },
       {
-        text: "Livestock numbers"
+        text: "Low run-off risk land"
       }
     ]
   }) }}
@@ -25,9 +25,9 @@
   <div class="govuk-grid-column-full">
   
     <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
-    <h1 class="govuk-heading-l" id="header">Livestock numbers</h1>
+    <h1 class="govuk-heading-l" id="header">Low run-off risk land</h1>
 
-    <!-- <p class="govuk-hint">Livestock numbers are organised from 1 January to 31 December each year.</p> -->
+    <!-- <p class="govuk-hint">Low run-off risk land are organised from 1 January to 31 December each year.</p> -->
     <p><a href="">Add another year</a></p>
 
   </div>
@@ -45,12 +45,12 @@
           </tr>
         </thead>
         <tbody class="govuk-table__body"> 
-          {% if data.oaktree_farm.livestock_2025 == 'added' %} 
+          {% if data.oaktree_farm.low_risk_land_added == 'added' %} 
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">2025</td>
                 <td class="govuk-table__cell">{{data.content.todays_date}}</td>
                 <!-- <td class="govuk-table__cell">{{data.content.todays_date}}</td> -->
-                <td class="govuk-table__cell"><a href="livestock_year_handler?harvest_date=2025">Update 2025 livestock numbers</a></td>
+                <td class="govuk-table__cell"><a href="livestock_year_handler?harvest_date=2025">Update 2025 low run-off risk land</a></td>
                 <!-- <td class="govuk-table__cell"><a href="crop_plan_year_handler?">Add 2025 livestock</a></td> -->
               </tr>
             {% else %}
@@ -58,21 +58,21 @@
                 <th scope="row" class="govuk-table__header">2025</td>
                 <td class="govuk-table__cell">-</td>
                 <!-- <td class="govuk-table__cell">{{data.content.todays_date}}</td> -->
-                <td class="govuk-table__cell"><a href="livestock_year_handler?harvest_date=2025">Add 2025 livestock numbers</a></td>
+                <td class="govuk-table__cell"><a href="livestock_year_handler?harvest_date=2025">Add 2025 low run-off risk land</a></td>
                   <!-- <td class="govuk-table__cell"><a href="crop_plan_year_handler?">Add 2025 livestock</a></td> -->
               </tr>
             {% endif %}
-            {% if data.oaktree_farm.livestock_2025 == 'added' %}   
+            {% if data.oaktree_farm.low_risk_land_added == 'added' %}   
               <th scope="row" class="govuk-table__header">2024</td>
                 <td class="govuk-table__cell">{{data.content.todays_date}}</td>
                 <!-- <td class="govuk-table__cell">{{data.content.todays_date}}</td> -->
-                <td class="govuk-table__cell"><a href="livestock_year_handler?harvest_date=2024">Update 2024 livestock numbers</a></td>
+                <td class="govuk-table__cell"><a href="livestock_year_handler?harvest_date=2024">Update 2024 low run-off risk land</a></td>
               </tr>
             {% else %}  
               <th scope="row" class="govuk-table__header">2024</td>
                 <td class="govuk-table__cell">-</td>
                 <!-- <td class="govuk-table__cell">{{data.content.todays_date}}</td> -->
-                <td class="govuk-table__cell"><a href="livestock_year_handler?harvest_date=2024">Add 2024 livestock numbers</a></td>
+                <td class="govuk-table__cell"><a href="livestock_year_handler?harvest_date=2024">Add 2024 low run-off risk land</a></td>
               </tr>
             {% endif %}  
           </tbody>

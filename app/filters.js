@@ -38,11 +38,35 @@ addFilter('nameconverter', function (crop_name) {
     return crop_name
 })
 
-
 addFilter('convert_export_type', function (export_ref) {
-    var export_title = 'N-max'
-    if (export_ref == 4 ) {
-        export_title = 'Livestock manure nitrogen (N) farm limit'
+    var export_title;
+    switch (export_ref) {
+    case '1':
+        export_title = 'Crop and field management';
+        break;
+    case '2':
+        export_title = 'Livestock manure nitrogen (N) farm limit';
+        break;
+    case '3':
+        export_title = 'N-max report';
+        break;
+    case '4':
+        export_title = 'Livestock manure nitrogen (N) farm limit';
+        break;
+    case '5':
+        export_title = 'Livestock numbers';
+        break;
+    case '6':
+        export_title = 'Imports and exports';
+        break;
+    case '7':
+        export_title = 'Existing manure storage capacity';
+        break;
+    case '8':
+        export_title = 'Organic manures inventory and NVZ manure storage requirement';
+        break;
+    default:
+        export_title = '';
     }
     return export_title
 })

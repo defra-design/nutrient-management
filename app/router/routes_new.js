@@ -37,7 +37,7 @@ const setManureGroup = function (req, res, next) {
 router.get(/output_router/, hide_error, function (req, res) {   
     req.session.data.oaktree_farm.planning_year = req.session.data.output_year
     var next = 'export_fields'
-    if (req.session.data.export_type == 1) {
+    if (req.session.data.export_type == '1') {
         if (req.session.data.all_fields.length == 0) {
             next = 'not_available_management'
         } else {
@@ -45,7 +45,7 @@ router.get(/output_router/, hide_error, function (req, res) {
         }
     }
     // NMAX
-    if (req.session.data.export_type == 3) {
+    if (req.session.data.export_type == '3') {
         if (req.session.data.all_fields.length == 0 || req.session.data.currentCropGroups.length == 0) {
             next = 'not_available_max'
         } else {
@@ -53,21 +53,21 @@ router.get(/output_router/, hide_error, function (req, res) {
         }
     }
     // N LOADING
-    if (req.session.data.export_type == 4 ) {
+    if (req.session.data.export_type == '4' ) {
         if (req.session.data.oaktree_farm.derogation == null) {
             next = './n_loading/derogation'
         } else {
             next = './n_loading/checklist'
         }
     }
-    if (req.session.data.export_type == 5) {
+    if (req.session.data.export_type == '5') {
         next = 'not_available_livestock'
     }
-    if (req.session.data.export_type == 6) {
+    if (req.session.data.export_type == '6') {
         next = 'not_available_imports'
     }
     // EXISTING MANURE STORAGE
-    if (req.session.data.export_type == 7) {
+    if (req.session.data.export_type == '7') {
         if (req.session.data.storage_added == false) {
             next = 'not_available_storage'
         } else {
@@ -75,7 +75,7 @@ router.get(/output_router/, hide_error, function (req, res) {
         }
     }
     // MANURE INVENTORY AND STORAGE
-    if (req.session.data.export_type == 8) {
+    if (req.session.data.export_type == '8') {
         next = './inventory/derogation'
     }
     res.redirect(next)
@@ -104,7 +104,7 @@ router.get(/export_type_router/, hide_error, function (req, res) {
     var next = 'export_type'
     if (req.session.data.imports_exports == 'no') {
         req.session.data.oaktree_farm.imports_exports = 'none'
-        if (req.session.data.export_type == 8) {
+        if (req.session.data.export_type == '8') {
             next = 'reset_inventory_checklist_message_handler'
         } else {
             next = 'reset_nloading_checklist_message_handler'
@@ -122,7 +122,7 @@ router.get(/livestock_2025_handler/, hide_error, function (req, res) {
     var next = 'livestock_group'
     if (req.session.data.livestock_2025 == 'no') {
         req.session.data.oaktree_farm.livestock_2025 = 'none'
-        if (req.session.data.export_type == 8) {
+        if (req.session.data.export_type == '8') {
             next = 'reset_inventory_checklist_message_handler'
         } else {
             next = 'reset_nloading_checklist_message_handler'

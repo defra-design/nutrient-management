@@ -1,0 +1,63 @@
+{% set livestock_count = 0 %}
+
+{% set cattle_added = false %}
+{% set pig_added = false %}
+{% set poultry_added = false %}
+{% set sheep_added = false %}
+{% set other_added = false %}
+
+<!-- show the right livestock -->
+{% for livestock_type in data.livestock_record_2025 %}
+
+  {% if livestock_type.type == 'cattle' %}
+    {% set cattle_added = true %}
+  {% endif %}
+
+  {% if livestock_type.type == 'pig' %}
+    {% set pig_added = true %}
+  {% endif %}
+
+  {% if livestock_type.type == 'poultry' %}
+    {% set poultry_added = true %}
+  {% endif %}
+
+  {% if livestock_type.type == 'sheep' %}
+    {% set sheep_added = true %}
+  {% endif %}
+
+  {% if livestock_type.type == 'other' %}
+    {% set other_added = true %}
+  {% endif %}
+
+{% endfor %}
+
+
+<!-- how many types have been added? -->
+{% if cattle_added == true %}
+  {% set livestock_count = livestock_count + 1 %}
+{% endif %}
+
+{% if pig_added == true %}
+  {% set livestock_count = livestock_count + 1 %}
+{% endif %}
+
+{% if poultry_added == true %}
+  {% set livestock_count = livestock_count + 1 %}
+{% endif %}
+
+{% if sheep_added == true %}
+  {% set livestock_count = livestock_count + 1 %}
+{% endif %}
+
+{% if other_added == true %}
+  {% set livestock_count = livestock_count + 1 %}
+{% endif %}
+
+
+ <!-- use the right template -->
+{% if livestock_count == 1 %}
+  <hr class="seperator_zero">
+  {% include "./templates/livestock_lists.html" ignore missing %}
+{% else %}
+  {% include "./templates/livestock_tabs.html" ignore missing %}
+{% endif %}

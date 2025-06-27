@@ -118,31 +118,6 @@
       </div>
     {% endif %}
   </li>
-
-    <!-- WASH WATER AREA -->
-  <li class="govuk-task-list__item govuk-task-list__item--with-link">
-    {% if data.oaktree_farm.washwater_added == true %}
-      <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="" aria-describedby="company-details-1-status">
-          Bedding and Wash Water
-        </a>
-      </div>
-      <div class="govuk-task-list__status" id="company-details-1-status">
-        Completed
-      </div>
-    {% else %}
-      <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="" aria-describedby="company-details-1-status">
-          Bedding and Wash Water
-        </a>
-      </div>
-      <div class="govuk-task-list__status" id="company-details-4-status">
-        <strong class="govuk-tag govuk-tag--blue">
-          Incomplete
-        </strong>
-      </div>
-    {% endif %}
-  </li>
   
     <!-- LIVESTOCK -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
@@ -177,6 +152,55 @@
     {% endif %}
   </li>
 
+      <!-- WASH WATER AREAS -->
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    {% if data.oaktree_farm.washwater_added == true %}
+      <div class="govuk-task-list__name-and-hint">
+        <a class="govuk-link govuk-task-list__link" href="" aria-describedby="company-details-1-status">
+          Manure system and bedding
+        </a>
+      </div>
+      <div class="govuk-task-list__status" id="company-details-1-status">
+        Completed
+      </div>
+    {% else %}
+      <div class="govuk-task-list__name-and-hint">
+        <a class="govuk-link govuk-task-list__link" href="" aria-describedby="company-details-1-status">
+          Manure system and bedding
+        </a>
+      </div>
+      <div class="govuk-task-list__status" id="company-details-4-status">
+        <strong class="govuk-tag govuk-tag--blue">
+          Incomplete
+        </strong>
+      </div>
+    {% endif %}
+  </li>
+
+  <!-- WASH WATER AREAS -->
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    {% if data.oaktree_farm.washwater_added == true %}
+      <div class="govuk-task-list__name-and-hint">
+        <a class="govuk-link govuk-task-list__link" href="" aria-describedby="company-details-1-status">
+          Wash Water
+        </a>
+      </div>
+      <div class="govuk-task-list__status" id="company-details-1-status">
+        Completed
+      </div>
+    {% else %}
+      <div class="govuk-task-list__name-and-hint">
+        <a class="govuk-link govuk-task-list__link" href="" aria-describedby="company-details-1-status">
+          Wash Water
+        </a>
+      </div>
+      <div class="govuk-task-list__status" id="company-details-4-status">
+        <strong class="govuk-tag govuk-tag--blue">
+          Incomplete
+        </strong>
+      </div>
+    {% endif %}
+  </li>
 
   <!-- IMPORTS AND EXPORTS -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">

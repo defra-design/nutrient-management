@@ -1,0 +1,33 @@
+{% macro monthitem(name, number, poultry) %}
+  <tr>
+    <td class="govuk-table__cell livestock-type">{{name}}</td>
+    <td class="govuk-table__cell">{{number}}</td>
+    <td class="govuk-table__cell">0</td>
+    <td class="govuk-table__cell">{{poultry}}</td>
+    <td class="govuk-table__cell">0</td>
+    <td class="govuk-table__cell">0</td>
+    <td class="govuk-table__cell"><a href="month_view">Change</a></td>
+  </tr>
+{% endmacro %}
+
+<h2 class="govuk-heading-l">Livestock summary by month</h2>
+
+<div class="margin-bottom-thirty">
+  <table class="govuk-table data-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Month</th>
+        <th scope="col" class="govuk-table__header">Cattle</th>
+        <th scope="col" class="govuk-table__header">Pigs</th>
+        <th scope="col" class="govuk-table__header">Poultry</th>
+        <th scope="col" class="govuk-table__header">Sheep</th>
+        <th scope="col" class="govuk-table__header">Goats, horses, deer</th>
+        <th scope="col" class="govuk-table__header"> </th>
+      </tr>				
+      </thead>
+      <tbody class="govuk-table__body">
+        {{ monthitem("October", 100, 0) }}
+        {{ monthitem("November", 100, 0) }}
+      </tbody>
+  </table>
+</div>

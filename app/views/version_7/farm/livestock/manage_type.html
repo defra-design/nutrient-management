@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if data.show_success_message == true %}
+        {% include "./success_message.html" ignore missing %}
+      {% endif %}
+    </div>
+  </div>
+      
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+    
+      <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
+      <h1 class="govuk-heading-l" id="header">Manage livestock type for {{ data.oaktree_farm.planning_year }}</h1>
+        
+      <!-- {% if data.oaktree_farm.livestock_2025 == 'added' %}
+
+        <form class="margin-bottom-ten" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+          <button class="govuk-button" data-module="govuk-button">
+            Add livestock
+          </button>
+        </form>
+      {% endif %} -->
+  
+      {% if data.oaktree_farm.livestock_2025 == 'added' %}
+
+        <div class="govuk-tabs" data-module="govuk-tabs">
+          <h2 class="govuk-tabs__title">
+            Contents
+          </h2>
+          <ul class="govuk-tabs__list">
+            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+              <a class="govuk-tabs__tab" href="#info">
+                General information
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#other">
+                Manure and bedding information
+              </a>
+            </li>
+          </ul>
+
+          <div class="govuk-tabs__panel" id="info">
+            <h2 class="govuk-heading-l">Cattle</h2>
+              {% set livestock_type = 'cattle' %}
+              {% include "./templates/livestock_table_template.html" ignore missing %}
+          </div>
+
+          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="other">
+            <h2 class="govuk-heading-l">Goats, Deer and Horses</h2>
+              {% set livestock_type = 'other' %}
+              {% include "./templates/livestock_table_template.html" ignore missing %}
+          </div>
+        </div>
+
+      {% else %}
+
+      <p class="govuk-body">You have not added any livestock information.</p>
+
+      <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+        <button class="govuk-button" data-module="govuk-button">
+          Add livestock
+        </button>
+      </form>
+    {% endif %}
+      
+    </div>
+  </div>
+
+{% endblock %}

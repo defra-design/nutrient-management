@@ -7,21 +7,9 @@
 {% block beforeContent %}
 
 {% include "/templates/signed-in.html" ignore missing %}
-  {{ govukBreadcrumbs({
-    items: [
-      {
-        text: "All farms", href: "../farms" 
-      },
-      {
-        text: "Oaktree Lane Farm", href: "hub_reset_router"
-      },
-      {
-        text: "Livestock numbers", href: "livestock_years"
-      },
-      {
-        text: "Livestock numbers for 2005"
-      }
-    ]
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
   }) }}
 {% endblock %}
 
@@ -58,7 +46,7 @@
 
     {% if data.oaktree_farm.livestock_2025 == 'added' %}
         <hr class="seperator_zero">
-        {% include "./templates/summary_for_year.html" ignore missing %}
+        {% include "./templates/totals_for_month.html" ignore missing %}
     {% else %}
       <p class="govuk-body">You have not added any livestock information.</p>
       <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    

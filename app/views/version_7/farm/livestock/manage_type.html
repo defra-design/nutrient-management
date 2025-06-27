@@ -31,16 +31,7 @@
     
       <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
       <h1 class="govuk-heading-l" id="header">Manage livestock type for {{ data.oaktree_farm.planning_year }}</h1>
-        
-      <!-- {% if data.oaktree_farm.livestock_2025 == 'added' %}
-
-        <form class="margin-bottom-ten" action="../../add_livestock/livestock_group" method="post" novalidate="">    
-          <button class="govuk-button" data-module="govuk-button">
-            Add livestock
-          </button>
-        </form>
-      {% endif %} -->
-  
+          
       {% if data.oaktree_farm.livestock_2025 == 'added' %}
 
         <div class="govuk-tabs" data-module="govuk-tabs">
@@ -55,21 +46,19 @@
             </li>
             <li class="govuk-tabs__list-item">
               <a class="govuk-tabs__tab" href="#other">
-                Manure and bedding information
+                Manure system and bedding information
               </a>
             </li>
           </ul>
 
           <div class="govuk-tabs__panel" id="info">
-            <h2 class="govuk-heading-l">Cattle</h2>
-              {% set livestock_type = 'cattle' %}
-              {% include "./templates/livestock_table_template.html" ignore missing %}
+            <h2 class="govuk-heading-l">General information</h2>
+              {% include "./templates/general_info.html" ignore missing %}
           </div>
 
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="other">
-            <h2 class="govuk-heading-l">Goats, Deer and Horses</h2>
-              {% set livestock_type = 'other' %}
-              {% include "./templates/livestock_table_template.html" ignore missing %}
+            <h2 class="govuk-heading-l">Manure system and bedding information</h2>
+              {% include "./templates/livestock_bedding_info.html" ignore missing %}
           </div>
         </div>
 

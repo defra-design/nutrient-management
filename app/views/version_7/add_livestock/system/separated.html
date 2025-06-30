@@ -1,0 +1,83 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Is the slurry separated by mechanical separation? 
+      </h1>
+
+      <!-- <p class="govuk-body">
+        The information entered about this organic material application will not be saved.
+      </p> -->
+
+      <form class="form" action="bedding" method="post">
+      
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="slurry_separated-hint">
+          <div id="slurry_separated-hint" class="govuk-hint">
+            Select one option
+          </div>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="slurry_separated" name="slurry_separated" type="radio" value="yes" data-aria-controls="conditional-slurry_separated">
+              <label class="govuk-label govuk-radios__label" for="slurry_separated">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-slurry_separated">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="slurry_separated-yes">
+                  How much is collected?
+                </label>
+                <input class="govuk-input govuk-!-width-one-third" id="slurry_separated-yes" name="slurry_separatedYes" type="yes" spellcheck="false" autocomplete="yes">
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="slurry_separated-no" name="slurry_separated" type="radio" value="text" data-aria-controls="conditional-slurry_separated-no">
+              <label class="govuk-label govuk-radios__label" for="slurry_separated-no">
+                No
+              </label>
+            </div>
+            <!-- <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-slurry_separated-no">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="slurry_separated-by-text">
+                  Mobile phone number
+                </label>
+                <input class="govuk-input govuk-!-width-one-third" id="slurry_separated-by-text" name="slurry_separatedByText" type="tel" autocomplete="tel">
+              </div>
+            </div> -->
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+    
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

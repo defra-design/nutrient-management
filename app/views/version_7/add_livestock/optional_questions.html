@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Manure system
+      </h1>
+
+      <p class="govuk-body">
+        Manure system information is not needed for a livestock manure nitrogen (N) farm limit report.
+      </p>
+
+      <p class="govuk-body">
+        It is used when when creating an organic manures inventory and NVZ manure storage requirement report.
+      </p>
+
+      <p class="govuk-body margin-bottom-forty">
+        It can be added added later.
+      </p>
+
+      <p class="govuk-body">
+        Do you want to add the manure system details for this livestock type now?
+      </p>
+
+      <form class="form" action="manure_system_skip_handler" method="post">
+      
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="manure_system_skip-hint">
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="manure_system_skip" name="manure_system_skip" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="manure_system_skip">
+                  Yes, add manure system details
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="manure_system_skip-2" name="manure_system_skip" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="manure_system_skip-2">
+                  No, skip the manure system details
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+    
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

@@ -443,10 +443,10 @@ router.get(/livestockentry_handler/, function (req, res) {
 
 router.get(/livestock_number_handler/, function (req, res) {
     // var next = (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry') ? 'values_two' : 'check'
-    var next = 'check'
-    if ( (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry') && (req.session.data.livestock_entry == 'monthly') ) {
-        next = 'values_two'
-    }
+    var next = './system/manure_system'
+    // if ( (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry') && (req.session.data.livestock_entry == 'monthly') ) {
+    //     next = 'values_two'
+    // }
     res.redirect(next)
 })
 

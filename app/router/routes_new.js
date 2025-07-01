@@ -487,5 +487,21 @@ router.get(/manure_system_skip_handler/, hideSuccessMessage, function (req, res)
     res.redirect(next)
 })
 
+router.get(/optional_questions_handler/, hideSuccessMessage, function (req, res) {
+    var next
+    if (req.session.data.export_type == '8') {
+        next = 'system/manure_numbers'
+    } else {
+        next = 'optional_questions'
+    }
+    res.redirect(next)
+})
+
+router.get(/livestock_report_reset/, hideSuccessMessage, function (req, res) {
+    req.session.data.export_type = null
+    res.redirect('livestock/livestock_years')
+})
+
+
 
 module.exports = router

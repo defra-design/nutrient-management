@@ -34,7 +34,7 @@
           Occupancy in {{name}}
         </label>
         <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="100" id="livestock_occupancy_{{name | lower}}" name="livestock_occupancy_{{name | lower}}" type="text" spellcheck="false" autocomplete="off">
-          <div class="govuk-input__suffix" aria-hidden="true">%</div>
+          <div class="govuk-input__suffix" aria-hidden="true">percent</div>
         </div>
       </div>
     {% endif %} -->
@@ -45,7 +45,7 @@
 
     <div class="govuk-grid-column-two-thirds">
       
-      <form action="livestock_number_handler" method="post" novalidate="">
+      <form action="optional_questions_handler" method="post" novalidate="">
 
         <!-- <h1 class="govuk-heading-l">Number of this {{data.chosen_livestock.shortname}} type, per month</h1>   -->
         <h1 class="govuk-heading-l">

@@ -1,0 +1,39 @@
+{% macro monthitem(name) %}
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell strong">{{name}}</td>
+      <td class="govuk-table__cell">Slurry mainly</td>
+      <td class="govuk-table__cell">100%</td>
+      <td class="govuk-table__cell">1.3 tonnes</td>
+      <td class="govuk-table__cell">1.2 tonnes</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell"><a href="">Change</td>
+    </tr>
+{% endmacro %}
+
+<table class="govuk-table data-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Month</th>
+      <th scope="col" class="govuk-table__header">Manure system</th>
+      <th scope="row" class="govuk-table__header">Collected as slurry</th>
+      <th scope="row" class="govuk-table__header">Bedding factor</th>
+      <th scope="row" class="govuk-table__header">Bedding per month</th>
+      <th scope="row" class="govuk-table__header">Mechanically separated</th>
+      <th scope="row" class="govuk-table__header"> </th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+      {{ monthitem ("October") }}
+      {{ monthitem ("November") }}
+      {{ monthitem ("December") }}
+      {{ monthitem ("January") }}
+      {{ monthitem ("February") }}
+      {{ monthitem ("March") }}
+      {{ monthitem ("April") }}
+      {{ monthitem ("May") }}
+      {{ monthitem ("June") }}
+      {{ monthitem ("July") }}
+      {{ monthitem ("August") }}
+      {{ monthitem ("September") }}
+  </tbody>
+</table>

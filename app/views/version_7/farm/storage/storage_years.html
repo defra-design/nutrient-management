@@ -58,7 +58,7 @@
               <td class="govuk-table__cell"><a href="storage_year_handler?harvest_date=2026">Add 2026 storage</a></td>
             </tr>
           {% endif %} -->
-          {% if data.oaktree_farm.manure_exports == true or data.oaktree_farm.manure_imports == true %} 
+          {% if data.oaktree_farm.storage_added == true %} 
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">2025</td>
                 <td class="govuk-table__cell">{{data.content.todays_date}}</td>

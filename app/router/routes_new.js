@@ -52,7 +52,7 @@ router.get(/output_router/, hide_error, function (req, res) {
             next = 'export_crops'
         }
     }
-    // N LOADING
+    // N-LOADING
     if (req.session.data.export_type == '4' ) {
         if (req.session.data.oaktree_farm.derogation == null) {
             next = './n_loading/derogation'
@@ -68,10 +68,12 @@ router.get(/output_router/, hide_error, function (req, res) {
     }
     // EXISTING MANURE STORAGE
     if (req.session.data.export_type == '7') {
-        if (req.session.data.storage_added == false) {
+        if (req.session.data.oaktree_farm.storage_added != true) {
             next = 'not_available_storage'
         } else {
-            next = 'not_available_storage'
+            next = '../storage/report'
+            // next = '../storage/manage_storage'
+
         }
     }
     // MANURE INVENTORY AND STORAGE
@@ -210,7 +212,7 @@ router.get(/export_year_handler/, hideSuccessMessage, function (req, res) {
 
 router.get(/storage_year_handler/, hideSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.planning_year = req.query.harvest_date
-    if (req.session.data.oaktree_farm.storage == true ) {
+    if (req.session.data.oaktree_farm.storage_added == true ) {
         res.redirect('manage_storage')
     } else {
         res.redirect('../../add_storage/material_type')

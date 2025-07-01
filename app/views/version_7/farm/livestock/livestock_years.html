@@ -28,7 +28,7 @@
     <h1 class="govuk-heading-l" id="header">Livestock details</h1>
 
     <!-- <p class="govuk-hint">Livestock details are organised from 1 January to 31 December each year.</p> -->
-    <!-- <p><a href="">Add another year</a></p> -->
+    <p><a href="">Add another year</a></p>
 
   </div>
 </div>
@@ -62,19 +62,6 @@
                   <!-- <td class="govuk-table__cell"><a href="crop_plan_year_handler?">Add 2025 livestock</a></td> -->
               </tr>
             {% endif %}
-            {% if data.oaktree_farm.livestock_2025 == 'added' %}   
-              <th scope="row" class="govuk-table__header">2024</td>
-                <td class="govuk-table__cell">{{data.content.todays_date}}</td>
-                <!-- <td class="govuk-table__cell">{{data.content.todays_date}}</td> -->
-                <td class="govuk-table__cell"><a href="livestock_year_handler?harvest_date=2024">Update 2024 livestock details</a></td>
-              </tr>
-            {% else %}  
-              <th scope="row" class="govuk-table__header">2024</td>
-                <td class="govuk-table__cell">-</td>
-                <!-- <td class="govuk-table__cell">{{data.content.todays_date}}</td> -->
-                <td class="govuk-table__cell"><a href="livestock_year_handler?harvest_date=2024">Add 2024 livestock details</a></td>
-              </tr>
-            {% endif %}  
           </tbody>
       </table>     
 

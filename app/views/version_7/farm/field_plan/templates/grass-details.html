@@ -23,13 +23,9 @@
         </td>
     </tr>  
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell strong">Planting date</td>
-        <td class="govuk-table__cell">
-          {% if data.chosen_group.planting_date == null %}
-            Not entered
-          {% else %}
-            {{data.chosen_group.planting_date}}
-        {% endif %}
+      <td class="govuk-table__cell strong">Sowing date</td>
+      <td class="govuk-table__cell">
+        21 June 2025
       </td>
     </tr>   
     <tr class="govuk-table__row">
@@ -68,7 +64,7 @@
         {% if data.chosen_year == 2024 %}
           Not entered
         {% else %}
-          {{data.chosen_group.yield}} tonnes per hectare
+          10 tonnes per hectare
         {% endif %}
       </td>
     </tr>      

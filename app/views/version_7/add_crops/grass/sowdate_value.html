@@ -34,12 +34,13 @@
         What is the sowing date for {{data.chosen_crop | nameconverter}} in {{data.crop_fields[0].name | nameconverter}}?
       {% endif %}
       </h1>
+
+      <p class="govuk-hint">If you do not know the exact sowing date enter an estimate. You can change it later.
+      <p class="govuk-hint">The date format is 21 06 2025</p>
+
       <form class="form" action="sward_type" method="post">
 
         <div class="govuk-form-group">
-            <div id="sow_date_hint" class="govuk-hint">
-              If you do not know the exact sowing date enter an estimate. You can change it later.
-            </div>
             <div class="govuk-date-input" id="sow-date">
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">

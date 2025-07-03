@@ -31,43 +31,42 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
     <div class="check-answers">
 
       <dl class="govuk-summary-list">     
-        <!-- <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">What is the crop group?</dt>
-          <dd class="govuk-summary-list__value">
-            {% if data.chosen_crop_group == "arable-other" %}
-            Arable, other
-            {% else %}
-            {{data.chosen_crop_group | capitalize}}
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-        </div>
- -->
+
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">What is the crop type?</dt>
-          <dd class="govuk-summary-list__value">{{data.chosen_group.crop_reference | nameconverter}}</dd>
+          <dt class="govuk-summary-list__key">What type of crop would you like to plan?</dt>
+          <dd class="govuk-summary-list__value">Grass</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Which fields do you plan to grow {{data.chosen_group.crop_reference | nameconverter}} in?</dt>
+          <dt class="govuk-summary-list__key">Which fields would you like to plan Grass for?</dt>
           <dd class="govuk-summary-list__value">
-
-            {% for field in data.chosen_group.fields %}
-            {{field.name}}<br>
-            {% endfor %}
+            Long Field<br>
+            Short Field<br>
           </dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What would you like to call this crop group (optional)?</dt>
-          <dd class="govuk-summary-list__value">Crop group {{data.chosen_group.reference}}</dd>
+          <dd class="govuk-summary-list__value">Crop group 1</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Are these new swards or existing swards in these fields?</dt>
+          <dd class="govuk-summary-list__value">Existing swards</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the sward in these fields in 2025?</dt>
+          <dd class="govuk-summary-list__value">Spring sown</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
       
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Do you have a date for when you planted your {{data.chosen_group.crop_reference | nameconverter}}, or when you will plant it?</dt>
+          <dt class="govuk-summary-list__key">Do you have a date for when you sowed your grass, or when you will sow it?</dt>
           <dd class="govuk-summary-list__value">
             {% if data.new_planting_date_day == '' or data.new_planting_date_day == null %}
               {% if data.chosen_group.planting_date == '' or data.chosen_group.planting_date == null %}
@@ -83,7 +82,7 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
         </div>
       
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">What will you be growing on the sward?</dt>
+          <dt class="govuk-summary-list__key">What is the sward type in these fields in 2025?</dt>
           <dd class="govuk-summary-list__value">Grass</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
@@ -107,13 +106,14 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
         </div>
 
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">How do you want to enter your target yield for these fields?</dt>
-          <dd class="govuk-summary-list__value">Dry weight</dd>
+          <dt class="govuk-summary-list__key">What is the total annual target dry matter yield for Long Field?</dt>
+          <dd class="govuk-summary-list__value">10 tonnes per hectare</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
+
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">What is the total target dry matter yield for each of these fields?</dt>
-          <dd class="govuk-summary-list__value">10 to 13 tonnes per hectare</dd>
+          <dt class="govuk-summary-list__key">What is the total annual target dry matter yield for Short Field?</dt>
+          <dd class="govuk-summary-list__value">9 tonnes per hectare</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 

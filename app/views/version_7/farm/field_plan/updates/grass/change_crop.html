@@ -35,42 +35,13 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
     </div>
 
     <div class="check-answers">
-
+<!-- 
       <dl class="govuk-summary-list">     
-        <!-- <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">What is the crop group?</dt>
-          <dd class="govuk-summary-list__value">
-            {% if data.chosen_crop_group == "arable-other" %}
-            Arable, other
-            {% else %}
-            {{data.chosen_crop_group | capitalize}}
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-        </div>
- -->
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the crop type?</dt>
           <dd class="govuk-summary-list__value">{{data.chosen_group.crop_reference | nameconverter}}</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
-
-        <!-- <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Which fields do you plan to grow {{data.chosen_group.crop_reference | nameconverter}} in?</dt>
-          <dd class="govuk-summary-list__value">
-
-            {% for field in data.chosen_group.fields %}
-            {{field.name}}<br>
-            {% endfor %}
-          </dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-        </div> -->
-
-        <!-- <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">What would you like to call this crop group (optional)?</dt>
-          <dd class="govuk-summary-list__value">Crop group {{data.chosen_group.reference}}</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-        </div> -->
       
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Do you have a date for when you planted your {{data.chosen_group.crop_reference | nameconverter}}, or when you will plant it?</dt>
@@ -120,6 +91,66 @@ View or update a group's crop information – {{ serviceName }} – GOV.UK Proto
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the total target dry matter yield for each of these fields?</dt>
           <dd class="govuk-summary-list__value">10 to 13 tonnes per hectare</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+
+      </dl>     -->
+
+      <dl class="govuk-summary-list">     
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the crop type?</dt>
+          <dd class="govuk-summary-list__value">Grass</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key"> Is this a new sward or existing sward?</dt>
+          <dd class="govuk-summary-list__value">Existing sward</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the sward in 2025?</dt>
+          <dd class="govuk-summary-list__value">Spring sown</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Do you have a date for when you sowed your grass, or when you will sow it?</dt>
+          <dd class="govuk-summary-list__value">
+            21 June 2025
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="update_question_handler?update_type=date">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the sward type in 2025?</dt>
+          <dd class="govuk-summary-list__value">Grass</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How will the field be managed?</dt>
+          <dd class="govuk-summary-list__value">Grazing and hay</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How many cuts and grazings will you have?</dt>
+          <dd class="govuk-summary-list__value">Four</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the cut and grazing order?</dt>
+          <dd class="govuk-summary-list__value">Cut, graze, graze, graze</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the total annual target dry matter yield?</dt>
+          <dd class="govuk-summary-list__value">10 tonnes per hectare</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 

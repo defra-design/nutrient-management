@@ -19,37 +19,36 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        What kind of organic material storage do you want to add?
+        What kind of solid manure is stored is Tin Tank?
       </h1>
 
       <p class="govuk-hint">Choose one option.</p>
 
-      <form class="form" action="material_type_handler" method="post">
+      <form class="form" action="name" method="post">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
-            <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="manure" name="material_type" type="radio" value="solid manure">
-                <label class="govuk-label govuk-radios__label" for="manure">
-                  Solid manure
+                <input class="govuk-radios__input" id="square" name="material_type" type="radio" value="poultry litter">
+                <label class="govuk-label govuk-radios__label" for="square">
+                  Poultry litter
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="slurry" name="material_type" type="radio" value="slurry">
-                <label class="govuk-label govuk-radios__label" for="slurry">
-                  Slurry
+                <input class="govuk-radios__input" id="rectangular" name="material_type" type="radio" value="Other poultry litter">
+                <label class="govuk-label govuk-radios__label" for="rectangular">
+                  Other poultry litter (usually from layers)
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="dirty_water" name="material_type" type="radio" value="dirty water">
-                <label class="govuk-label govuk-radios__label" for="dirty_water">
-                  Dirty water
+                <input class="govuk-radios__input" id="circular" name="material_type" type="radio" value="Other solid manures">
+                <label class="govuk-label govuk-radios__label" for="circular">
+                  Other solid manures
                 </label>
               </div>
-            </div>
           </fieldset>
         </div>
+
         {{ govukButton({
           text: "Continue"
         }) }}

@@ -24,11 +24,10 @@
 
       <p class="govuk-hint">Choose one option.</p>
 
-      <form class="form" action="size_question" method="post">
+      <form class="form" action="sizes" method="post">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
-            {% if data.material_type != 'solid manure' %}
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="square" name="material_type" type="radio" value="square">
@@ -55,27 +54,6 @@
                   </label>
                 </div>
               </div>
-            {% else %}
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="square" name="material_type" type="radio" value="poultry litter">
-                <label class="govuk-label govuk-radios__label" for="square">
-                  Poultry litter
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rectangular" name="material_type" type="radio" value="Other poultry litter">
-                <label class="govuk-label govuk-radios__label" for="rectangular">
-                  Other poultry litter (usually from layers)
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="circular" name="material_type" type="radio" value="Other solid manures">
-                <label class="govuk-label govuk-radios__label" for="circular">
-                  Other solid manures
-                </label>
-              </div>
-            {% endif %}
-
           </fieldset>
         </div>
 

@@ -434,7 +434,16 @@ router.get(/check_storage_handler/, function (req, res) {
 })
 
 router.get(/storage_size_handler/, function (req, res) {
-    var next = (req.session.data.storage_question == 'dimensions') ? 'sizes' : 'check'
+    var next
+    if (req.session.data.material_type == 'solid manure') {
+        next = 'weight'
+    } else {
+        if (req.session.data.storage_question == 'dimensions') {
+            next = 'storage_type'
+        } else {
+            next = 'check'
+        }
+    }
     res.redirect(next)
 })
 
@@ -504,6 +513,23 @@ router.get(/livestock_report_reset/, hideSuccessMessage, function (req, res) {
     res.redirect('livestock/livestock_years')
 })
 
+router.get(/storage_type_handler/, function (req, res) {
+    var next = 'size_question'
+    if (req.session.data.material_type == 'solid manure') {
+        next = 'storage_type_solid'
+    }
+    res.redirect(next)
+})
+
+router.get(/material_type_handler/, function (req, res) {
+    var next = (req.session.data.material_type == 'solid manure') ? 'storage_type_solid' : 'name'
+    res.redirect(next)
+})
+
+router.get(/storage_sizes_handler/, function (req, res) {
+    var next = (req.session.data.material_type == 'solid manure') ? 'weight' : 'check'
+    res.redirect(next)
+})
 
 
 module.exports = router

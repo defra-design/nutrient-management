@@ -28,28 +28,28 @@
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
-            {% if data.storage_type != 'solid manure' %}
+            {% if data.material_type != 'solid manure' %}
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="square" name="storage_type" type="radio" value="square">
+                  <input class="govuk-radios__input" id="square" name="material_type" type="radio" value="square">
                   <label class="govuk-label govuk-radios__label" for="square">
                     Square
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="rectangular" name="storage_type" type="radio" value="rectangular">
+                  <input class="govuk-radios__input" id="rectangular" name="material_type" type="radio" value="rectangular">
                   <label class="govuk-label govuk-radios__label" for="rectangular">
                     Rectangular
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="circular" name="storage_type" type="radio" value="circular">
+                  <input class="govuk-radios__input" id="circular" name="material_type" type="radio" value="circular">
                   <label class="govuk-label govuk-radios__label" for="circular">
                     Circular
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="banked" name="storage_type" type="radio" value="earth banked">
+                  <input class="govuk-radios__input" id="banked" name="material_type" type="radio" value="earth banked">
                   <label class="govuk-label govuk-radios__label" for="banked">
                     Earth banked
                   </label>
@@ -57,19 +57,19 @@
               </div>
             {% else %}
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="square" name="storage_type" type="radio" value="poultry litter">
+                <input class="govuk-radios__input" id="square" name="material_type" type="radio" value="poultry litter">
                 <label class="govuk-label govuk-radios__label" for="square">
                   Poultry litter
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rectangular" name="storage_type" type="radio" value="Other poultry litter">
+                <input class="govuk-radios__input" id="rectangular" name="material_type" type="radio" value="Other poultry litter">
                 <label class="govuk-label govuk-radios__label" for="rectangular">
                   Other poultry litter (usually from layers)
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="circular" name="storage_type" type="radio" value="Other solid manures">
+                <input class="govuk-radios__input" id="circular" name="material_type" type="radio" value="Other solid manures">
                 <label class="govuk-label govuk-radios__label" for="circular">
                   Other solid manures
                 </label>

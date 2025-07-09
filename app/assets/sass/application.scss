@@ -955,6 +955,23 @@ h2.govuk-heading-m .padding-top-0 {
     }
 }
 
+.dimension_values {
+    li {
+        clear: both;
+        overflow: auto;
+    }
+    .key {
+        float: left;
+        width: 35%;
+    }
+    .value {
+        float: left;
+        width: 40%;
+    }
+    margin: 0;
+    padding: 0;
+}
+
 #nmax_summary {
     .govuk-table__header:nth-child(1) {
         width: 20%;
@@ -975,7 +992,6 @@ width: 35%
         width: 33%
     }
 }
-
 
 .govuk-task-list {
     font-family: "GDS Transport", arial, sans-serif;
@@ -1196,4 +1212,10 @@ width: 35%
 
 .storage_name {
     width: 40%;
+}
+
+.farm_area_derogated {
+    th {
+        width: 50%;
+    }
 }

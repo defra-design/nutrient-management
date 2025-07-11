@@ -30,8 +30,10 @@
           {% endif %} 
         </h1>
         
-        {% if data.livestock_group == 'poultry' or data.livestock_group == 'pig' %}
-          {% include "./poultry_content.html" ignore missing %}
+        {% if data.livestock_group == 'poultry' %}
+          {% include "./poultry_content_v1.html" ignore missing %}
+        {% elif data.livestock_group == 'pig' %}
+          {% include "./pig_content.html" ignore missing %}
         {% else %}
           {% include "./cattle_content.html" ignore missing %}
         {% endif %}

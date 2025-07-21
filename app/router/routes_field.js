@@ -252,6 +252,15 @@ router.get(/mineral_router/, function (req, res) {
     res.redirect(next)
 })
 
+router.get(/grass_years_handler/, function (req, res) {
+    let next = 'previous_lay'
+    for (var item in req.session.data.grass_years) {
+        if (req.session.data.grass_years[item] == '2024') {
+            next = 'previous_cuts'
+        }
+    }
+    res.redirect(next)
+})
 
 
 module.exports = router

@@ -164,23 +164,6 @@ router.get(/livestock_2025_handler/, hide_error, function (req, res) {
 
 //inventory and storage routes 
 
-router.get(/derogation_add_router/, function (req, res) {
-    if (req.session.data.derogation == 'no') {
-        req.session.data.oaktree_farm.derogation = false
-    } else {
-        req.session.data.oaktree_farm.derogation = true
-    }
-    res.redirect('livestock_group');
-})
-
-router.get(/derogation_router/, function (req, res) {
-    if (req.session.data.derogation == 'no') {
-        req.session.data.oaktree_farm.derogation = false
-    } else {
-        req.session.data.oaktree_farm.derogation = true
-    }
-    res.redirect('checklist');
-})
 
 router.get(/slurry_separated_handler/, hideSuccessMessage, function (req, res) {
     var next = '/' + req.session.data.prototype_version + '/add_livestock/system/bedding'

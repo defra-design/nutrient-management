@@ -2,17 +2,7 @@ var express = require('express')
 var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
-
-//cb functions
-const showSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = true
-    next()
-}
-
-const hideSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = false
-    next()
-}
+var callback_functions = require('./callbacks.js');
 
 
 //Handlers
@@ -64,7 +54,7 @@ router.get(/set_tempField_data_handler/, function (req, res) {
 
 
 //add field
-router.get(/add_field_handler/, showSuccessMessage, function (req, res) { 
+router.get(/add_field_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 3 //field added
 
     var sowdate = null;
@@ -106,13 +96,13 @@ router.get(/copy_name_handler/, function (req, res) {
     res.redirect('./copy-field-check')
 })
 
-router.get(/field_update_handler/, showSuccessMessage, function (req, res) { 
+router.get(/field_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 4 //field updated
     req.session.data.oaktree_farm.latest_update = 'field_updated'
     res.redirect('/' + req.session.data.prototype_version + '/farm/field/field-details')
 })
 
-router.get(/soil_update_handler/, showSuccessMessage, function (req, res) { 
+router.get(/soil_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 5 //soil updated
     req.session.data.oaktree_farm.latest_update = 'field_updated'
     res.redirect('/' + req.session.data.prototype_version + '/farm/field/field-details')

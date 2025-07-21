@@ -2,37 +2,9 @@ var express = require('express')
 var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
-const { checkout } = require('./routes_message_reset_handlers.js');
+var callback_functions = require('./callbacks.js');
 
-const hide_error = function (req, res, next) {
-    req.session.data.show_error = false
-    next()
-}
-
-const showSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = true
-    next()
-}
-
-const hideSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = false
-    next()
-}
-
-const setManureGroup = function (req, res, next) {
-    if (req.session.data.manure_group_id == "livestock") {
-        req.session.data.manure_types = req.session.data.manure_types_livestock
-    } else if (req.session.data.manure_group_id == "biosolids") {
-        req.session.data.manure_types = req.session.data.manure_types_biosolid
-    } else if (req.session.data.manure_group_id == "other") {
-        req.session.data.manure_types = req.session.data.manure_types_other
-    } else if (req.session.data.manure_group_id == "digestate") {
-        req.session.data.manure_types = req.session.data.manure_types_digestate
-    }
-    // console.log('manure types = ' + req.session.data.manure_types)
-    next()
-}
-
+// const { checkout } = require('./routes_message_reset_handlers.js');
 
 // Storage routes
 
@@ -80,12 +52,12 @@ router.get(/check_storage_handler/, function (req, res) {
 
 // Livestock routes
 
-router.get(/livestock_report_reset/, hideSuccessMessage, function (req, res) {
+router.get(/livestock_report_reset/, callback_functions.hideSuccessMessage, function (req, res) {
     req.session.data.export_type = null
     res.redirect('livestock/livestock_years')
 })
 
-router.get(/optional_questions_handler/, hideSuccessMessage, function (req, res) {
+router.get(/optional_questions_handler/, callback_functions.hideSuccessMessage, function (req, res) {
     var next
     if (req.session.data.export_type == '8') {
         next = 'system/manure_numbers'
@@ -95,12 +67,12 @@ router.get(/optional_questions_handler/, hideSuccessMessage, function (req, res)
     res.redirect(next)
 })
 
-router.get(/manure_system_skip_handler/, hideSuccessMessage, function (req, res) {
+router.get(/manure_system_skip_handler/, callback_functions.hideSuccessMessage, function (req, res) {
     var next = (req.session.data.manure_system_skip != 'yes') ? 'check' : './system/manure_numbers'
     res.redirect(next)
 })
 
-router.get(/farm_area_handler/, hideSuccessMessage, function (req, res) {
+router.get(/farm_area_handler/, callback_functions.hideSuccessMessage, function (req, res) {
     req.session.data.oaktree_farm.area_added = true
     res.redirect('checklist')
 })
@@ -148,7 +120,7 @@ router.get(/add_livestock_handler/, function (req, res) {
     res.redirect('/version_7/add_livestock/livestock_type')
 })
 
-router.get(/livestock_2025_handler/, hide_error, function (req, res) {
+router.get(/livestock_2025_handler/, callback_functions.hide_error, function (req, res) {
     var next = 'livestock_group'
     if (req.session.data.livestock_2025 == 'no') {
         req.session.data.oaktree_farm.livestock_2025 = 'none'
@@ -165,7 +137,7 @@ router.get(/livestock_2025_handler/, hide_error, function (req, res) {
 //inventory and storage routes 
 
 
-router.get(/slurry_separated_handler/, hideSuccessMessage, function (req, res) {
+router.get(/slurry_separated_handler/, callback_functions.hideSuccessMessage, function (req, res) {
     var next = '/' + req.session.data.prototype_version + '/add_livestock/system/bedding'
     if (req.session.data.manure_system == 'slurry') {
         next = '/' + req.session.data.prototype_version + '/add_livestock/check'
@@ -173,12 +145,12 @@ router.get(/slurry_separated_handler/, hideSuccessMessage, function (req, res) {
     res.redirect(next)
 })
 
-router.get(/rainwater_area_handler/, hideSuccessMessage, function (req, res) {
+router.get(/rainwater_area_handler/, callback_functions.hideSuccessMessage, function (req, res) {
     req.session.data.oaktree_farm.rainwater_area_added = true
     res.redirect('checklist')
 })
 
-router.get(/low_risk_land_handler/, hideSuccessMessage, function (req, res) {
+router.get(/low_risk_land_handler/, callback_functions.hideSuccessMessage, function (req, res) {
     req.session.data.oaktree_farm.low_risk_land_added = 'added'
     if (req.session.data.low_risk_land == 'yes') {
         next = 'area'
@@ -200,7 +172,7 @@ router.get(/livestock_number_handler/, function (req, res) {
     res.redirect(next)
 })
 
-router.get(/landcheck_handler/, showSuccessMessage, function (req, res) { 
+router.get(/landcheck_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.low_risk_land_added = 'added';
     res.redirect('/'+ req.session.data.prototype_version + '/farm/land/manage_land')
 })
@@ -231,7 +203,7 @@ router.get(/livestockcheck_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version + '/farm/livestock/manage_livestock')
 })
 
-router.get(/storage_year_handler/, hideSuccessMessage, function (req, res) { 
+router.get(/storage_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.planning_year = req.query.harvest_date
     if (req.session.data.oaktree_farm.storage_added == true ) {
         res.redirect('manage_storage')
@@ -240,7 +212,7 @@ router.get(/storage_year_handler/, hideSuccessMessage, function (req, res) {
     }
 })
 
-router.get(/livestock_year_handler/, hideSuccessMessage, function (req, res) { 
+router.get(/livestock_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.planning_year = req.query.harvest_date
     if (req.session.data.oaktree_farm.livestock_2025 == 'added') {
         res.redirect('manage_livestock')
@@ -327,7 +299,7 @@ router.get(/exportcheck_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version + '/farm/exports/manage_exports')
 })
 
-router.get(/export_year_handler/, hideSuccessMessage, function (req, res) { 
+router.get(/export_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.planning_year = req.query.harvest_date
     if (req.session.data.oaktree_farm.manure_exports == true || req.session.data.oaktree_farm.manure_imports == true ) {
         res.redirect('manage_exports')
@@ -346,7 +318,7 @@ router.get(/get_manure_type_handler/, function (req, res) {
     res.redirect('date')
 })
 
-router.get(/export_type_handler/, hideSuccessMessage, function (req, res) { 
+router.get(/export_type_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     if (req.query.export_type == 'export') {
         req.session.data.imports_exports = 'export'
     } else {
@@ -355,7 +327,7 @@ router.get(/export_type_handler/, hideSuccessMessage, function (req, res) {
     res.redirect('/version_7/add_export/manure_group')
 })
 
-router.get(/change_export_handler/, hide_error, function (req, res) {
+router.get(/change_export_handler/, callback_functions.hide_error, function (req, res) {
     if (req.query.export_type == 'export') {
         req.session.data.imports_exports = 'export'
     } else {
@@ -364,12 +336,12 @@ router.get(/change_export_handler/, hide_error, function (req, res) {
     res.redirect('/version_7/update/exports/update')
 })
 
-router.get(/manure_export_type_handler/, setManureGroup, hide_error, function (req, res) {
+router.get(/manure_export_type_handler/, callback_functions.setManureGroup, callback_functions.hide_error, function (req, res) {
     req.session.data.manure_group_id = 'livestock'
     res.redirect('manure_type');
 })
 
-router.get(/export_type_router/, hide_error, function (req, res) {
+router.get(/export_type_router/, callback_functions.hide_error, function (req, res) {
     var next = 'export_type'
     if (req.session.data.imports_exports == 'no') {
         req.session.data.oaktree_farm.imports_exports = 'none'
@@ -381,9 +353,6 @@ router.get(/export_type_router/, hide_error, function (req, res) {
     }
     res.redirect(next);
 })
-
-
-
 
 
 module.exports = router

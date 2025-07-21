@@ -2,22 +2,9 @@ var express = require('express')
 var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
-const { checkout } = require('./routes_message_reset_handlers.js');
+var callback_functions = require('./callbacks.js');
 
-const hide_error = function (req, res, next) {
-    req.session.data.show_error = false
-    next()
-}
-
-const showSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = true
-    next()
-}
-
-const hideSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = false
-    next()
-}
+// const { checkout } = require('./routes_message_reset_handlers.js');
 
 
 // Routes
@@ -27,7 +14,7 @@ const hideSuccessMessage = function (req, res, next) {
 //     res.redirect(next);
 // });
 
-router.get(/manner_copy_router/, showSuccessMessage, function (req, res) {
+router.get(/manner_copy_router/, callback_functions.showSuccessMessage, function (req, res) {
     let next = 'results'
     let tempApplication = req.session.data.manner_applications[0]
     if (req.session.data.copy_manner == 'no') {
@@ -39,12 +26,12 @@ router.get(/manner_copy_router/, showSuccessMessage, function (req, res) {
     res.redirect(next);
 })
 
-router.get(/manner_change_handler/, showSuccessMessage, function (req, res) {
+router.get(/manner_change_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 3 //changed
     res.redirect('results')
 })
 
-router.get(/manner_remove_application/, showSuccessMessage, function (req, res) {
+router.get(/manner_remove_application/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 4 //application removed
     if (req.query.application == 1) {
         req.session.data.manner_applications.shift()
@@ -62,7 +49,7 @@ router.get(/manner_remove_application/, showSuccessMessage, function (req, res) 
     res.redirect('/' + req.session.data.prototype_version + '/manner/results')
 })
 
-router.get(/manuretype_update_handler/, showSuccessMessage, function (req, res) {
+router.get(/manuretype_update_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 3 //changed
     //get object
     for (var x in req.session.data.manure_types ) {
@@ -75,14 +62,14 @@ router.get(/manuretype_update_handler/, showSuccessMessage, function (req, res) 
     res.redirect('/' + req.session.data.prototype_version + '/manner/results')
 })
 
-router.get(/manner_update_handler/, showSuccessMessage, function (req, res) {
+router.get(/manner_update_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 3 //changed
     req.session.data.manner_applications[1].rate = req.session.data.manure_rate
     // console.log(req.session.data.manner_applications)
     res.redirect('/' + req.session.data.prototype_version + '/manner/results')
 })
 
-router.get(/manner_results_handler/, showSuccessMessage, function (req, res) {
+router.get(/manner_results_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 1 //done
     if (req.session.data.manure_rate == null || req.session.data.manure_rate == "" ) {
         req.session.data.manure_rate = 20
@@ -93,7 +80,7 @@ router.get(/manner_results_handler/, showSuccessMessage, function (req, res) {
     res.redirect('results')
 })
 
-router.get(/manner_values_router/, showSuccessMessage, function (req, res) {
+router.get(/manner_values_router/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 2 //recalculation
     res.redirect('results#value')
 })

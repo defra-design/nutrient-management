@@ -4,51 +4,10 @@ var router = express.Router()
 let nextURL
 
 var allFunctions = require('../functions/allFunctions.js');
+var callback_functions = require('./callbacks.js');
 
-//cb functions
-const showSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = true
-    next()
-}
 
-const hideSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = false
-    next()
-}
-
-const getApplicationByReference = function (req, res, next) {
-    req.session.data.application_ref = req.query.applicationref
-    // console.log('Application Ref = ' + req.session.data.application_ref)
-    next()
-}
-
-const setManureJourney = function (req, res, next) {
-    req.session.data.manure_journey = req.query.manurejourney
-    // console.log('manure journey = ' + req.session.data.manure_journey)
-    if (req.session.data.manure_journey == 'multi') {
-        nextURL = '/' + req.session.data.prototype_version + '/add_manure/manure_fields'
-    } else {
-        req.session.data.manure_fields = []
-        req.session.data.manure_fields.push(req.session.data.chosen_field.reference)
-        nextURL = '/' + req.session.data.prototype_version + '/add_manure/manure_group'
-    }
-    next()
-}
-
-const setManureGroup = function (req, res, next) {
-    if (req.session.data.manure_group_id == "livestock") {
-        req.session.data.manure_types = req.session.data.manure_types_livestock
-    } else if (req.session.data.manure_group_id == "biosolids") {
-        req.session.data.manure_types = req.session.data.manure_types_biosolid
-    } else if (req.session.data.manure_group_id == "other") {
-        req.session.data.manure_types = req.session.data.manure_types_other
-    } else if (req.session.data.manure_group_id == "digestate") {
-        req.session.data.manure_types = req.session.data.manure_types_digestate
-    }
-    // console.log('manure types = ' + req.session.data.manure_types)
-    next()
-}
-
+//Routes
 router.get(/v2_quantity_handler/, function (req, res) { 
     var next = (req.session.data.quantity_type == "area" || req.session.data.quantity_type == "rate") ? 'manure_value' : 'manure_incorporation_method';
     res.redirect(next);
@@ -136,7 +95,7 @@ router.get(/manure_date_v5_handler/, function (req, res) {
     }
 })
 
-router.get(/version5_manure_handler/, showSuccessMessage, function (req, res) { 
+router.get(/version5_manure_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 2
     var manureType = req.session.data.manure_type.name
     var manure_fields = req.session.data.manure_fields
@@ -166,11 +125,11 @@ router.get(/recs_status_handler/, function (req, res) {
 
 // Routers //
 
-router.get(/plan_manure_application_router/, setManureJourney, function (req, res) { 
+router.get(/plan_manure_application_router/, callback_functions.setManureJourney, function (req, res) { 
     res.redirect(nextURL)
 })
 
-router.get(/manuregroup_handler/, setManureGroup, function (req, res) { 
+router.get(/manuregroup_handler/, callback_functions.setManureGroup, function (req, res) { 
     res.redirect("manure_type")
 })
 
@@ -187,16 +146,16 @@ router.get(/fertiliser_if_router/, function (req, res) {
     res.redirect(next)
 })
 
-router.get(/fertiliser_remove_router/, showSuccessMessage, function (req, res) { 
+router.get(/fertiliser_remove_router/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 15
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
 
-router.get(/fertiliser_change_router/, getApplicationByReference, function (req, res) { 
+router.get(/fertiliser_change_router/, callback_functions.getApplicationByReference, function (req, res) { 
     res.redirect('/' + req.session.data.prototype_version + '/update/fertiliser/update')
 })  
 
-router.get(/version5_manure_update_handler/, showSuccessMessage, function (req, res) { 
+router.get(/version5_manure_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 4
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
@@ -308,7 +267,7 @@ router.get(/fertiliser_loop_handler/, function (req, res) {
 })
 
 //CHECK
-router.get(/version2_fertiliser_handler/, showSuccessMessage, function (req, res) { 
+router.get(/version2_fertiliser_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 3
     req.session.data.fertiliser_count = 0
     if (req.session.data.fertiliser_journey == 'multi') {
@@ -320,7 +279,7 @@ router.get(/version2_fertiliser_handler/, showSuccessMessage, function (req, res
     }
 })
 
-router.get(/fertiliser_v5_update_handler/, showSuccessMessage, function (req, res) { 
+router.get(/fertiliser_v5_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 5
     res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
 })
@@ -439,13 +398,13 @@ router.get(/v2_plan_handler/, function (req, res) {
 
 
 //view the plan by year
-router.get(/crop_plan_year_handler/, hideSuccessMessage, function (req, res) { 
+router.get(/crop_plan_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.planning_year = req.query.harvest_date
     res.redirect('./crop_plan/plan_view')
 })
 
 //view the selected plan
-router.get(/field_level_plan_handler/, hideSuccessMessage, function (req, res) { 
+router.get(/field_level_plan_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     // console.log('req.query.chosen_field ' + req.query.chosen_field)
     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field)
     // console.log(req.session.data.chosen_field)
@@ -454,7 +413,7 @@ router.get(/field_level_plan_handler/, hideSuccessMessage, function (req, res) {
 })
 
 ///2025
-router.get(/field_level_plan_v6_handler/, hideSuccessMessage, function (req, res) { 
+router.get(/field_level_plan_v6_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.chosen_group = req.query.groupref 
     req.session.data.chosen_field = req.query.fieldref
     // console.log(req.session.data.chosen_group)
@@ -466,7 +425,7 @@ router.get(/field_level_plan_v6_handler/, hideSuccessMessage, function (req, res
     res.redirect('../field_plan/index')
 })
 
-router.get(/group_level_plan_v6_handler/, hideSuccessMessage, function (req, res) { 
+router.get(/group_level_plan_v6_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.chosen_group = req.query.groupref
     console.log(req.session.data.chosen_group)
     //group.reference
@@ -474,7 +433,7 @@ router.get(/group_level_plan_v6_handler/, hideSuccessMessage, function (req, res
     res.redirect('/update/crop/change_crop')
 })
 
-router.get(/mvpfield_plan_handler/, hideSuccessMessage, function (req, res) { 
+router.get(/mvpfield_plan_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field.reference)
     req.session.data.chosen_crop = req.query.chosencrop
     req.session.data.cover_crop = req.query.covercrop
@@ -482,7 +441,7 @@ router.get(/mvpfield_plan_handler/, hideSuccessMessage, function (req, res) {
 })
 
 // ALPHA // add manure
-router.get(/alpha_manure_check_handler/, hideSuccessMessage, function (req, res) { 
+router.get(/alpha_manure_check_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     // req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field.reference)
     // req.session.data.chosen_crop = req.query.chosencrop
     // req.session.data.cover_crop = req.query.covercrop
@@ -522,13 +481,13 @@ router.get(/fertiliser_type_handler_v2/, function (req, res) {
 })
 
 //select a field
-router.get(/field-select-handler/, hideSuccessMessage, function (req, res) { 
+router.get(/field-select-handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.chosen_field = req.query.chosen_field
     res.redirect('/'+ req.session.data.prototype_version + '/farm/field/field-details')
 })
 
 //update soil
-router.get(/add_soil_handler/, showSuccessMessage, function (req, res) { 
+router.get(/add_soil_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.latest_update = 'soil-added'
     res.redirect('../field/field-details')
 })
@@ -581,7 +540,7 @@ router.get(/v5_fertiliser_handler/, function (req, res) {
 
 
 //set fertiliser
-router.get(/fertiliser_v5_handler/, showSuccessMessage, function (req, res) { 
+router.get(/fertiliser_v5_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 3
     var fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
     var fertiliser_fields = req.session.data.fertiliser_fields
@@ -651,7 +610,7 @@ router.get(/fertiliser_date_handler/, function (req, res) {
     res.redirect("fertiliser_amount")
 })
 
-router.get(/change_cropgroup_handler/, hideSuccessMessage, function (req, res) { 
+router.get(/change_cropgroup_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.currentCropGroups, req.query.groupref)
     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)
     //go through the crops for x
@@ -667,13 +626,13 @@ router.get(/change_cropgroup_handler/, hideSuccessMessage, function (req, res) {
 })
 
 ///2025
-router.get(/change_cropgroup_v6_handler/, hideSuccessMessage, function (req, res) { 
+router.get(/change_cropgroup_v6_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.chosen_farm_crop_groups, req.query.groupref)
     // console.log(req.session.data.chosen_group)
     res.redirect('change_crop')
 })
 
-router.get(/rainfall_update_handler/, showSuccessMessage, function (req, res) { 
+router.get(/rainfall_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 12;
     req.session.data.oaktree_farm.ewr = req.session.data.excess_rain
     res.redirect('../../plan_view')

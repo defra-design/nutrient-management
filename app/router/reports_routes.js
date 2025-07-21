@@ -2,22 +2,10 @@ var express = require('express')
 var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
-const { checkout } = require('./routes_message_reset_handlers.js');
+var callback_functions = require('./callbacks.js');
 
-const hide_error = function (req, res, next) {
-    req.session.data.show_error = false
-    next()
-}
+// const { checkout } = require('./routes_message_reset_handlers.js');
 
-const showSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = true
-    next()
-}
-
-const hideSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = false
-    next()
-}
 
 
 // Routes
@@ -41,7 +29,7 @@ router.get(/derogation_router/, function (req, res) {
 })
 
 
-router.get(/output_router/, hide_error, function (req, res) {   
+router.get(/output_router/, callback_functions.hide_error, function (req, res) {   
     req.session.data.oaktree_farm.planning_year = req.session.data.output_year
     var next = 'export_fields'
     if (req.session.data.export_type == '1') {

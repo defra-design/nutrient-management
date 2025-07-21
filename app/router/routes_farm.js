@@ -2,17 +2,7 @@ var express = require('express')
 var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
-
-//cb functions
-const showSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = true
-    next()
-}
-
-const hideSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = false
-    next()
-}
+var callback_functions = require('./callbacks.js');
 
 //Handlers
 
@@ -28,7 +18,7 @@ router.get(/planning_year_handler/, function (req, res) {
     res.redirect('/'+ req.session.data.prototype_version + next)
 })
 
-router.get(/field_level_plan_v5_handler/, hideSuccessMessage, function (req, res) { 
+router.get(/field_level_plan_v5_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.planning_year = req.query.year
     req.session.data.chosen_group = req.query.fieldref
     req.session.data.chosen_field = req.query.groupref
@@ -95,7 +85,7 @@ router.get(/set_farm_defaults_handler/, function (req, res) {
 })
 
 //creates a farm
-router.get(/add_farm_handler/, showSuccessMessage, function (req, res) { 
+router.get(/add_farm_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 1 //farm added
 
     req.session.data.oaktree_farm.name = req.session.data.farm_name;
@@ -109,7 +99,7 @@ router.get(/add_farm_handler/, showSuccessMessage, function (req, res) {
 })
 
 //removes a farm
-router.get(/delete_handler/, showSuccessMessage, function (req, res) { 
+router.get(/delete_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 2 //farm removed
     req.session.data.oaktree_farm.setup = false;
     res.redirect('/' + req.session.data.prototype_version + '/farm/farms');
@@ -143,9 +133,6 @@ router.get(/farmsview_reset_handler/, function (req, res) {
     req.session.data.show_success_message = false;
     res.redirect('/' + req.session.data.prototype_version + '/farm/farms');
 })
-
-
-
 
 
 module.exports = router

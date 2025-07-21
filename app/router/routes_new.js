@@ -508,19 +508,6 @@ router.get(/optional_questions_handler/, hideSuccessMessage, function (req, res)
     res.redirect(next)
 })
 
-router.get(/livestock_report_reset/, hideSuccessMessage, function (req, res) {
-    req.session.data.export_type = null
-    res.redirect('livestock/livestock_years')
-})
-
-router.get(/storage_type_handler/, function (req, res) {
-    var next = 'size_question'
-    if (req.session.data.material_type == 'solid manure') {
-        next = 'storage_type_solid'
-    }
-    res.redirect(next)
-})
-
 // router.get(/material_type_handler/, function (req, res) {
 //     var next = (req.session.data.material_type == 'solid manure') ? 'storage_type_solid' : 'name'
 //     res.redirect(next)

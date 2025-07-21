@@ -22,6 +22,25 @@ const hideSuccessMessage = function (req, res, next) {
 
 // Routes
 
+router.get(/derogation_add_router/, function (req, res) {
+    if (req.session.data.derogation == 'no') {
+        req.session.data.oaktree_farm.derogation = false
+    } else {
+        req.session.data.oaktree_farm.derogation = true
+    }
+    res.redirect('livestock_group');
+})
+
+router.get(/derogation_router/, function (req, res) {
+    if (req.session.data.derogation == 'no') {
+        req.session.data.oaktree_farm.derogation = false
+    } else {
+        req.session.data.oaktree_farm.derogation = true
+    }
+    res.redirect('checklist');
+})
+
+
 router.get(/output_router/, hide_error, function (req, res) {   
     req.session.data.oaktree_farm.planning_year = req.session.data.output_year
     var next = 'export_fields'

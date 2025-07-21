@@ -209,6 +209,7 @@ var  routes_crop = require('./router/routes_crop.js');
 var  routes_updates = require('./router/routes_updates.js');
 
 var  livestock_storage_routes = require('./router/livestock_storage_routes.js');
+var  manner_routes = require('./router/manner_routes.js');
 
 
-router.use('/', livestock_storage_routes, routes_farm, routes_new, message_reset_handlers, routes_field, routes_crop, routes_updates, routes_manure, routes_six, setup_routes, routes_prototype_setup);
+router.use('/', manner_routes, livestock_storage_routes, routes_farm, routes_new, message_reset_handlers, routes_field, routes_crop, routes_updates, routes_manure, routes_six, setup_routes, routes_prototype_setup);

@@ -1,0 +1,79 @@
+var express = require('express')
+var router = express.Router()
+
+var allFunctions = require('../functions/allFunctions.js');
+const { checkout } = require('./routes_message_reset_handlers.js');
+
+const hide_error = function (req, res, next) {
+    req.session.data.show_error = false
+    next()
+}
+
+const showSuccessMessage = function (req, res, next) {
+    req.session.data.show_success_message = true
+    next()
+}
+
+const hideSuccessMessage = function (req, res, next) {
+    req.session.data.show_success_message = false
+    next()
+}
+
+
+// Routes
+
+router.get(/output_router/, hide_error, function (req, res) {   
+    req.session.data.oaktree_farm.planning_year = req.session.data.output_year
+    var next = 'export_fields'
+    if (req.session.data.export_type == '1') {
+        if (req.session.data.all_fields.length == 0) {
+            next = 'not_available_management'
+        } else {
+            next = 'export_fields'
+        }
+    }
+    // NMAX
+    if (req.session.data.export_type == '3') {
+        if (req.session.data.all_fields.length == 0 || req.session.data.currentCropGroups.length == 0) {
+            next = 'not_available_max'
+        } else {
+            next = 'export_crops'
+        }
+    }
+    // N-LOADING
+    if (req.session.data.export_type == '4' ) {
+        if (req.session.data.oaktree_farm.derogation == null) {
+            next = './n_loading/derogation'
+        } else {
+            next = './n_loading/checklist'
+        }
+    }
+    if (req.session.data.export_type == '5') {
+        next = 'not_available_livestock'
+    }
+    if (req.session.data.export_type == '6') {
+        next = 'not_available_imports'
+    }
+    // EXISTING MANURE STORAGE
+    if (req.session.data.export_type == '7') {
+        if (req.session.data.oaktree_farm.storage_added != true) {
+            next = 'not_available_storage'
+        } else {
+            next = '../storage/report'
+            // next = '../storage/manage_storage'
+
+        }
+    }
+    // MANURE INVENTORY AND STORAGE
+    if (req.session.data.export_type == '8') {
+        next = './inventory/derogation'
+    }
+    res.redirect(next)
+})
+
+
+
+
+
+
+module.exports = router

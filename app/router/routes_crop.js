@@ -2,24 +2,7 @@ var express = require('express')
 var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
-
-//call back functions
-const showSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = true
-    next()
-}
-
-const hideSuccessMessage = function (req, res, next) {
-    req.session.data.show_success_message = false
-    next()
-}
-
-const default_grass_values = function (req, res, next) {
-    // if (req.session.data.crop_fields == null || req.session.data.crop_fields == []) {
-    //     req.session.data.crop_fields = ['Long Field', 'Short Field']
-    // }
-    next()
-} 
+var callback_functions = require('./callbacks.js');
 
 
 //handlers
@@ -323,7 +306,7 @@ router.get(/yield_question_router/, function (req, res) {
     res.redirect(next)
 })
 
-router.get(/v7_grass_yield_handler/, default_grass_values, function (req, res) { 
+router.get(/v7_grass_yield_handler/, callback_functions.default_grass_values, function (req, res) { 
     res.redirect('../check');
 })
 

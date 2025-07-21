@@ -526,10 +526,4 @@ router.get(/storage_type_handler/, function (req, res) {
 //     res.redirect(next)
 // })
 
-router.get(/storage_sizes_handler/, function (req, res) {
-    var next = (req.session.data.material_type == 'solid manure') ? 'weight' : 'check'
-    res.redirect(next)
-})
-
-
 module.exports = router

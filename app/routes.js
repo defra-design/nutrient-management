@@ -207,4 +207,8 @@ var  routes_farm = require('./router/routes_farm.js');
 var  routes_field = require('./router/routes_field.js');
 var  routes_crop = require('./router/routes_crop.js');
 var  routes_updates = require('./router/routes_updates.js');
-router.use('/', routes_farm, routes_new, message_reset_handlers, routes_field, routes_crop, routes_updates, routes_manure, routes_six, setup_routes, routes_prototype_setup);
+
+var  storage_routes = require('./router/storage_routes.js');
+
+
+router.use('/', storage_routes, routes_farm, routes_new, message_reset_handlers, routes_field, routes_crop, routes_updates, routes_manure, routes_six, setup_routes, routes_prototype_setup);

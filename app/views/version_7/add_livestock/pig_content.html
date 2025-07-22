@@ -1,5 +1,7 @@
 <p class="govuk-body">Selected livestock type: {{data.chosen_livestock.name | capitalize}}</p>
 
+{% include "./occupancy_details.html" ignore missing %}
+
 <div class="">
     <h3 class="govuk-heading-s">{{name}}</h3>
         <div class="govuk-form-group">

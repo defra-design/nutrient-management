@@ -174,7 +174,7 @@ router.get(/livestock_number_handler/, function (req, res) {
 
 router.get(/landcheck_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.low_risk_land_added = 'added';
-    res.redirect('/'+ req.session.data.prototype_version + '/farm/land/manage_land')
+    res.redirect('/'+ req.session.data.prototype_version + '/farm/outputs/inventory/checklist')
 })
 
 router.get(/livestockcheck_handler/, function (req, res) { 

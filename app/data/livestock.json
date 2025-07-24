@@ -1,5 +1,5 @@
 [
-  {"name": "calf (all categories) youger than to 2 months", "type": "cattle", "shortname": "cattle", "rate": 1, "total": 2, "nitrogen": 50, "reference": "0"},
+  {"name": "calf (all categories) younger than to 2 months", "type": "cattle", "shortname": "cattle", "rate": 1, "total": 2, "nitrogen": 50, "reference": "0"},
   {"name": "dairy cow from 2 months and less than 12 months", "type": "cattle", "shortname": "cattle", "rate": 1, "total": 2, "nitrogen": 50, "reference": "1"},
   {"name": "dairy cow from 12 months up to first calf", "type": "cattle", "shortname": "cattle", "rate": 1, "total": 2, "nitrogen": 50, "reference": "2"},
   {"name": "dairy cow after first calf (over 9,000 litres milk yield)", "type": "cattle", "shortname": "cattle", "rate": 1, "total": 2, "nitrogen": 50, "reference": "3"},

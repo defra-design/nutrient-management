@@ -1,11 +1,15 @@
 {% macro monthitem(name) %}
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell strong">{{name}}</td>
+      <td class="govuk-table__cell month-name">{{name}}</td>
+      <td class="govuk-table__cell">100</td>
+      <td class="govuk-table__cell">87%</td>
       <td class="govuk-table__cell">Slurry mainly</td>
       <td class="govuk-table__cell">100%</td>
-      <td class="govuk-table__cell">1.3 tonnes</td>
-      <td class="govuk-table__cell">1.2 tonnes</td>
-      <td class="govuk-table__cell">0</td>
+      <!-- <td class="govuk-table__cell">1.3 tonnes</td>
+      <td class="govuk-table__cell">1.2 tonnes</td> -->
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">0%</td>
       <td class="govuk-table__cell"><a href="">Change</td>
     </tr>
 {% endmacro %}
@@ -14,8 +18,10 @@
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Month</th>
+      <th scope="col" class="govuk-table__header">Number</th>
+      <th scope="col" class="govuk-table__header">Occupancy</th>
       <th scope="col" class="govuk-table__header">Manure system</th>
-      <th scope="row" class="govuk-table__header">Collected as slurry</th>
+      <th scope="row" class="govuk-table__header">Slurry collected</th>
       <th scope="row" class="govuk-table__header">Bedding factor</th>
       <th scope="row" class="govuk-table__header">Bedding per month</th>
       <th scope="row" class="govuk-table__header">Mechanically separated</th>
@@ -23,17 +29,144 @@
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-      {{ monthitem ("October") }}
-      {{ monthitem ("November") }}
-      {{ monthitem ("December") }}
-      {{ monthitem ("January") }}
-      {{ monthitem ("February") }}
-      {{ monthitem ("March") }}
-      {{ monthitem ("April") }}
-      {{ monthitem ("May") }}
-      {{ monthitem ("June") }}
-      {{ monthitem ("July") }}
-      {{ monthitem ("August") }}
-      {{ monthitem ("September") }}
+      {{ monthitem ("October 2024") }}
+      {{ monthitem ("November 2024") }}
+      {{ monthitem ("December 2024") }}
+      {{ monthitem ("January 2025") }}
+      {{ monthitem ("February 2025") }}
+      {{ monthitem ("March 2025") }}
+      {{ monthitem ("April 2025") }}
+      {{ monthitem ("May 2025") }}
+      {{ monthitem ("June 2025") }}
+      {{ monthitem ("July 2025") }}
+      {{ monthitem ("August 2025") }}
+      {{ monthitem ("September 2025") }}
   </tbody>
 </table>
+
+<!-- <table class="govuk-table data-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header"> </th>
+      <th scope="col" class="govuk-table__header">January</th>
+      <th scope="col" class="govuk-table__header">February</th>
+      <th scope="col" class="govuk-table__header">March</th>
+      <th scope="col" class="govuk-table__header">April</th>
+      <th scope="col" class="govuk-table__header">May</th>
+      <th scope="col" class="govuk-table__header">June</th>
+      <th scope="col" class="govuk-table__header">July</th>
+      <th scope="col" class="govuk-table__header">August</th>
+      <th scope="col" class="govuk-table__header">September</th>
+      <th scope="col" class="govuk-table__header">October</th>
+      <th scope="col" class="govuk-table__header">November</th>
+      <th scope="col" class="govuk-table__header">December</th>
+    </tr>
+  </thead>
+    <tbody class="govuk-table__body">
+      <tr>
+        <td scope="col" class="govuk-table__cell">Number</td>
+        <td scope="col" class="govuk-table__cell">100</td>
+        <td scope="col" class="govuk-table__cell">100</td>
+        <td scope="col" class="govuk-table__cell">100</td>
+        <td scope="col" class="govuk-table__cell">100</td>
+        <td scope="col" class="govuk-table__cell">100</td>
+        <td scope="col" class="govuk-table__cell">100</td>
+        <td scope="col" class="govuk-table__cell">100</td>
+        <td scope="col" class="govuk-table__cell">100</td>
+        <td scope="col" class="govuk-table__cell">100</td>
+        <td scope="col" class="govuk-table__cell">100</td>
+        <td scope="col" class="govuk-table__cell">100</td>
+        <td scope="col" class="govuk-table__cell">100</td>
+      </tr>
+      <tr>
+        <td scope="col" class="govuk-table__cell">Occupancy</td>
+        <td scope="col" class="govuk-table__cell">97%</td>
+        <td scope="col" class="govuk-table__cell">97%</td>
+        <td scope="col" class="govuk-table__cell">97%</td>
+        <td scope="col" class="govuk-table__cell">97%</td>
+        <td scope="col" class="govuk-table__cell">97%</td>
+        <td scope="col" class="govuk-table__cell">97%</td>
+        <td scope="col" class="govuk-table__cell">97%</td>
+        <td scope="col" class="govuk-table__cell">97%</td>
+        <td scope="col" class="govuk-table__cell">97%</td>
+        <td scope="col" class="govuk-table__cell">97%</td>
+        <td scope="col" class="govuk-table__cell">97%</td>
+        <td scope="col" class="govuk-table__cell">97%</td>
+      </tr>
+      <tr>
+        <td scope="col" class="govuk-table__cell">Main manure system</td>
+        <td scope="col" class="govuk-table__cell">Solid</td>
+        <td scope="col" class="govuk-table__cell">Solid</td>
+        <td scope="col" class="govuk-table__cell">Solid</td>
+        <td scope="col" class="govuk-table__cell">Solid</td>
+        <td scope="col" class="govuk-table__cell">Solid</td>
+        <td scope="col" class="govuk-table__cell">Solid</td>
+        <td scope="col" class="govuk-table__cell">Solid</td>
+        <td scope="col" class="govuk-table__cell">Solid</td>
+        <td scope="col" class="govuk-table__cell">Solid</td>
+        <td scope="col" class="govuk-table__cell">Solid</td>
+        <td scope="col" class="govuk-table__cell">Solid</td>
+        <td scope="col" class="govuk-table__cell">Solid</td>
+      </tr>
+      <tr>
+        <td scope="col" class="govuk-table__cell">Slurry collected</td>
+        <td scope="col" class="govuk-table__cell">100%</td>
+        <td scope="col" class="govuk-table__cell">100%</td>
+        <td scope="col" class="govuk-table__cell">100%</td>
+        <td scope="col" class="govuk-table__cell">100%</td>
+        <td scope="col" class="govuk-table__cell">100%</td>
+        <td scope="col" class="govuk-table__cell">100%</td>
+        <td scope="col" class="govuk-table__cell">100%</td>
+        <td scope="col" class="govuk-table__cell">100%</td>
+        <td scope="col" class="govuk-table__cell">100%</td>
+        <td scope="col" class="govuk-table__cell">100%</td>
+        <td scope="col" class="govuk-table__cell">100%</td>
+        <td scope="col" class="govuk-table__cell">100%</td>
+      </tr>
+      <tr>
+        <td scope="col" class="govuk-table__cell">Bedding factor</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+      </tr>
+      <tr>
+        <td scope="col" class="govuk-table__cell">Bedding per month</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+        <td scope="col" class="govuk-table__cell">-</td>
+      </tr>
+      <tr>
+        <td scope="col" class="govuk-table__cell">Mechanically separated</td>
+        <td scope="col" class="govuk-table__cell">0%</td>
+        <td scope="col" class="govuk-table__cell">0%</td>
+        <td scope="col" class="govuk-table__cell">0%</td>
+        <td scope="col" class="govuk-table__cell">0%</td>
+        <td scope="col" class="govuk-table__cell">0%</td>
+        <td scope="col" class="govuk-table__cell">0%</td>
+        <td scope="col" class="govuk-table__cell">0%</td>
+        <td scope="col" class="govuk-table__cell">0%</td>
+        <td scope="col" class="govuk-table__cell">0%</td>
+        <td scope="col" class="govuk-table__cell">0%</td>
+        <td scope="col" class="govuk-table__cell">0%</td>
+        <td scope="col" class="govuk-table__cell">0%</td>
+      </tr>
+    </tbody>
+</table> -->

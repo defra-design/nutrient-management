@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Add manure system details for each livestock type
+      </h1>
+<!-- 
+      <p class="govuk-body">
+        Add manure system details for each livestock type
+      </p>
+       -->
+      <div class="check-answers margin-bottom-forty">
+        <ul class="govuk-task-list">
+        {% for livestock_type in data.livestock_record_2025 %}
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="/version_7/add_system/manure_numbers" aria-describedby="company-details-1-status">
+                {{livestock_type.name | capitalize}}
+              </a>
+            </div>
+            {% if data.oaktree_farm.derogation == 'blagh' %}
+              <div class="govuk-task-list__status" id="company-details-1-status">
+                Completed
+              </div>
+            {% else %}
+              <div class="govuk-task-list__status" id="company-details-4-status">
+                <strong class="govuk-tag govuk-tag--blue">
+                  Incomplete
+                </strong>
+              </div>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </div>
+
+      <form class="form" action="checklist" method="post">
+      <!-- <form class="form" action="inventory_submit_router" method="post"> -->
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

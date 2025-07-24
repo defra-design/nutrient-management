@@ -197,11 +197,12 @@ router.get('/', loadContent, loadControlVars, function (req, res) {
 
 //import routes
 var  routes_prototype_setup = require('./router/routes_prototype_setup.js');
-var  routes_manure = require('./router/routes_manure.js');
+var  message_reset_handlers = require('./router/routes_message_reset_handlers.js');
 var  setup_routes = require('./router/setup_routes.js');
+
+var  routes_manure = require('./router/routes_manure.js');
 var  routes_six = require('./router/routes_version_6.js');
 var  reports_routes = require('./router/reports_routes.js');
-var  message_reset_handlers = require('./router/routes_message_reset_handlers.js');
 
 var  routes_farm = require('./router/routes_farm.js');
 var  routes_field = require('./router/routes_field.js');
@@ -212,4 +213,4 @@ var  livestock_storage_routes = require('./router/livestock_storage_routes.js');
 var  manner_routes = require('./router/manner_routes.js');
 
 
-router.use('/', manner_routes, livestock_storage_routes, routes_farm, reports_routes, message_reset_handlers, routes_field, routes_crop, routes_updates, routes_manure, routes_six, setup_routes, routes_prototype_setup);
+router.use('/',routes_prototype_setup, message_reset_handlers, manner_routes, livestock_storage_routes, routes_farm, reports_routes, routes_field, routes_crop, routes_updates, routes_manure, routes_six, setup_routes);

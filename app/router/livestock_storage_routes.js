@@ -341,14 +341,19 @@ router.get(/manure_export_type_handler/, callback_functions.setManureGroup, call
     res.redirect('manure_type');
 })
 
+router.get(/n_loading_export_handler/, callback_functions.setManureGroup, callback_functions.hide_error, function (req, res) {
+    req.session.data.manure_group_id = 'livestock'
+    res.redirect('/version_7/add_export/manure_type');
+})
+
 router.get(/export_type_router/, callback_functions.hide_error, function (req, res) {
     var next = 'export_type'
     if (req.session.data.imports_exports == 'no') {
         req.session.data.oaktree_farm.imports_exports = 'none'
         if (req.session.data.export_type == '8') {
-            next = 'reset_inventory_checklist_message_handler'
+            next = '/version_7/farm/outputs/inventory/checklist'
         } else {
-            next = 'reset_nloading_checklist_message_handler'
+            next = '/version_7/farm/outputs/n_loading/checklist'
         }
     }
     res.redirect(next);

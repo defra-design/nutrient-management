@@ -63,7 +63,7 @@ addFilter('convert_export_type', function (export_ref) {
         export_title = 'Existing manure storage capacity';
         break;
     case '8':
-        export_title = 'Organic manures inventory and NVZ manure storage requirement';
+        export_title = 'Organic manures inventory and storage';
         break;
     default:
         export_title = '';

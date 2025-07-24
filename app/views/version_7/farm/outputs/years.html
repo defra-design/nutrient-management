@@ -19,12 +19,20 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Which year would you like to create a {{data.export_type | convert_export_type}} report for?
+        Which year would you like to create an {{data.export_type | convert_export_type}} report for?
       </h1>
 
       <p class="govuk-hint">
         Select one option.
       </p>
+
+      {% if data.export_type == 8 %}
+        {% set timeframeA = "October" %}
+        {% set timeframeB = "September" %}
+      {% else %}
+        {% set timeframeA = "January" %}
+        {% set timeframeB = "December" %}
+      {% endif %}
 
       <form class="form" action="output_router" method="post">
       
@@ -32,50 +40,26 @@
           <fieldset class="govuk-fieldset" aria-describedby="output_year-hint">
             <div class="govuk-radios govuk-radios" data-module="govuk-radios">
 
-
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="2025" name="output_year" type="radio" value="2025">
                 <label class="govuk-label govuk-radios__label" for="2025">
-                  Current year - 2025
+                    {{timeframeA}} 2024 to {{timeframeB}} 2025
                 </label>
               </div>
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="2026" name="output_year" type="radio" value="2026">
                 <label class="govuk-label govuk-radios__label" for="2026">
-                  Next year - 2026
+                    {{timeframeA}} 2023 to {{timeframeB}} 2024
                 </label>
               </div>
-
-              <div id="crop_use_or" class="govuk-checkboxes__divider">or</div>
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="2024" name="output_year" type="radio" value="2025">
                 <label class="govuk-label govuk-radios__label" for="2024">
-                  A previous year
+                    {{timeframeA}} 2022 to {{timeframeB}} 2023
                 </label>
               </div>
-
-              <!-- <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="2024" name="output_year" type="radio" value="2024">
-                <label class="govuk-label govuk-radios__label" for="2024">
-                  2024
-                </label>
-              </div>
- -->
-              <!-- <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="2023" name="output_year" type="radio" value="2023">
-                <label class="govuk-label govuk-radios__label" for="2023">
-                  2023
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="2022" name="output_year" type="radio" value="2022">
-                <label class="govuk-label govuk-radios__label" for="2022">
-                  2022
-                </label>
-              </div> -->
 
             </div>
           </fieldset>

@@ -108,7 +108,7 @@ router.get(/get_livestock_reference/, function (req, res) {
         }
     }
     // res.redirect("how_to_enter")
-    if (req.session.data.livestock_group == 'pig' ||req.session.data.livestock_group == 'poultry' ) {
+    if (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry' ) {
         req.session.data.livestock_entry = 'annually'
         next = 'livestock_numbers_average'
     }
@@ -138,10 +138,10 @@ router.get(/livestock_2025_handler/, callback_functions.hide_error, function (re
 
 
 router.get(/slurry_separated_handler/, callback_functions.hideSuccessMessage, function (req, res) {
-    var next = '/' + req.session.data.prototype_version + '/add_livestock/system/bedding'
-    if (req.session.data.manure_system == 'slurry') {
-        next = '/' + req.session.data.prototype_version + '/add_livestock/check'
-    }
+    var next = 'livestock_numbers_jan_q2'
+    // if (req.session.data.manure_system == 'slurry') {
+    //     next = '/' + req.session.data.prototype_version + '/add_livestock/check'
+    // }
     res.redirect(next)
 })
 

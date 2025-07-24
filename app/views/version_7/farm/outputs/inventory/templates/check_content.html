@@ -44,6 +44,31 @@
     {% endif %}
   </li>
 
+  <!-- RAINWATER COLLECTION AREA -->
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    {% if data.oaktree_farm.rainwater_area_added == true %}
+      <div class="govuk-task-list__name-and-hint">
+        <a class="govuk-link govuk-task-list__link" href="rainwater" aria-describedby="company-details-1-status">
+          Rainwater collection areas
+        </a>
+      </div>
+      <div class="govuk-task-list__status" id="company-details-1-status">
+        Completed
+      </div>
+    {% else %}
+      <div class="govuk-task-list__name-and-hint">
+        <a class="govuk-link govuk-task-list__link" href="rainwater" aria-describedby="company-details-1-status">
+          Rainwater collection areas
+        </a>
+      </div>
+      <div class="govuk-task-list__status" id="company-details-4-status">
+        <strong class="govuk-tag govuk-tag--blue">
+          Incomplete
+        </strong>
+      </div>
+    {% endif %}
+  </li>
+
     <!-- LOW RISK LAND -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     {% if data.oaktree_farm.low_risk_land_added == 'added' %}
@@ -69,63 +94,12 @@
     {% endif %}
   </li>
 
-    <!-- MANURE STORAGE -->
-  <li class="govuk-task-list__item govuk-task-list__item--with-link">
-    {% if data.oaktree_farm.storage_added == true %}
-      <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="reset_manage_storage_message_handler" aria-describedby="company-details-1-status">
-          Manure storage
-        </a>
-      </div>
-      <div class="govuk-task-list__status" id="company-details-1-status">
-        Completed
-      </div>
-    {% else %}
-      <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="../../../add_storage/material_type" aria-describedby="company-details-1-status">
-          Manure storage
-        </a>
-      </div>
-      <div class="govuk-task-list__status" id="company-details-4-status">
-        <strong class="govuk-tag govuk-tag--blue">
-          Incomplete
-        </strong>
-      </div>
-    {% endif %}
-  </li>
-
-      <!-- RAINWATER COLLECTION AREA -->
-  <li class="govuk-task-list__item govuk-task-list__item--with-link">
-    {% if data.oaktree_farm.rainwater_area_added == true %}
-      <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="rainwater" aria-describedby="company-details-1-status">
-          Rainwater collection areas
-        </a>
-      </div>
-      <div class="govuk-task-list__status" id="company-details-1-status">
-        Completed
-      </div>
-    {% else %}
-      <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="rainwater" aria-describedby="company-details-1-status">
-          Rainwater collection areas
-        </a>
-      </div>
-      <div class="govuk-task-list__status" id="company-details-4-status">
-        <strong class="govuk-tag govuk-tag--blue">
-          Incomplete
-        </strong>
-      </div>
-    {% endif %}
-  </li>
-  
-
   <!-- LIVESTOCK -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     {% if data.oaktree_farm.livestock_2025 == 'not_answered' %}
       <div class="govuk-task-list__name-and-hint">
         <a class="govuk-link govuk-task-list__link" href="../../../add_livestock/livestock_none" aria-describedby="company-details-1-status">
-          Livestock numbers
+          Livestock numbers January 2025 to September 2025
         </a>
       </div>
       <div class="govuk-task-list__status" id="company-details-4-status">
@@ -137,13 +111,46 @@
       {% if data.oaktree_farm.livestock_2025 == 'none' %}
         <div class="govuk-task-list__name-and-hint">
           <a class="govuk-link govuk-task-list__link" href="../../../add_livestock/livestock_none" aria-describedby="company-details-1-status">
-            Livestock numbers
+          Livestock numbers January 2025 to September 2025
           </a>
         </div>
       {% else %}
         <div class="govuk-task-list__name-and-hint">
           <a class="govuk-link govuk-task-list__link" href="reset_manage_livestock_message_handler" aria-describedby="company-details-1-status">
-            Livestock numbers
+          Livestock numbers January 2025 to September 2025
+          </a>
+        </div>
+      {% endif %}
+      <div class="govuk-task-list__status" id="company-details-1-status">
+        Completed
+      </div>
+    {% endif %}
+  </li>
+
+  <!-- LIVESTOCK -->
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    {% if data.oaktree_farm.livestock_2025 == 'not_answered' %}
+      <div class="govuk-task-list__name-and-hint">
+        <a class="govuk-link govuk-task-list__link" href="../../../add_livestock/livestock_none" aria-describedby="company-details-1-status">
+          Livestock numbers October 2024 to December 2024
+        </a>
+      </div>
+      <div class="govuk-task-list__status" id="company-details-4-status">
+        <strong class="govuk-tag govuk-tag--blue">
+          Incomplete
+        </strong>
+      </div>
+    {% else %}
+      {% if data.oaktree_farm.livestock_2025 == 'none' %}
+        <div class="govuk-task-list__name-and-hint">
+          <a class="govuk-link govuk-task-list__link" href="../../../add_livestock/livestock_none" aria-describedby="company-details-1-status">
+          Livestock numbers October 2024 to December 2024
+          </a>
+        </div>
+      {% else %}
+        <div class="govuk-task-list__name-and-hint">
+          <a class="govuk-link govuk-task-list__link" href="reset_manage_livestock_message_handler" aria-describedby="company-details-1-status">
+          Livestock numbers October 2024 to December 2024
           </a>
         </div>
       {% endif %}
@@ -204,6 +211,30 @@
     {% endif %}
     </li>
 
+        <!-- MANURE STORAGE -->
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    {% if data.oaktree_farm.storage_added == true %}
+      <div class="govuk-task-list__name-and-hint">
+        <a class="govuk-link govuk-task-list__link" href="reset_manage_storage_message_handler" aria-describedby="company-details-1-status">
+          Manure storage
+        </a>
+      </div>
+      <div class="govuk-task-list__status" id="company-details-1-status">
+        Completed
+      </div>
+    {% else %}
+      <div class="govuk-task-list__name-and-hint">
+        <a class="govuk-link govuk-task-list__link" href="../../../add_storage/material_type" aria-describedby="company-details-1-status">
+          Manure storage
+        </a>
+      </div>
+      <div class="govuk-task-list__status" id="company-details-4-status">
+        <strong class="govuk-tag govuk-tag--blue">
+          Incomplete
+        </strong>
+      </div>
+    {% endif %}
+  </li>  
 
   <!-- IMPORTS AND EXPORTS -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">

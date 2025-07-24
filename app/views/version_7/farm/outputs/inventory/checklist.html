@@ -22,7 +22,7 @@
        {% include "./message.html" %}
 
       <h1 class="govuk-heading-l">
-        Organic manures inventory and NVZ manure storage requirement report {{data.oaktree_farm.planning_year}}
+        Organic manures inventory and storage report {{data.oaktree_farm.planning_year}}
       </h1>
 
       <p class="govuk-hint">
@@ -38,7 +38,8 @@
       </div>
 
 
-      <form class="form" action="export_options" method="post">
+      <!-- <form class="form" action="export_options" method="post"> -->
+      <form class="form" action="" method="post">
       <!-- <form class="form" action="inventory_submit_router" method="post"> -->
         {{ govukButton({
           text: "Create report"

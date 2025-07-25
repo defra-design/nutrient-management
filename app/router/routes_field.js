@@ -186,12 +186,6 @@ router.get(/previous_use_router/, function (req, res) {
     }
 })
 
-router.get(/sns_router/, function (req, res) { 
-    var next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'sns/crop_group'
-    res.redirect(next)
-    res.redirect('sns/crop_group')
-})
-
 router.get(/sns_v3_router/, function (req, res) { 
     var next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'set_tempField_data_handler';
     res.redirect(next);

@@ -51,7 +51,6 @@ router.get(/manure_fields_v5_handler/, function (req, res) {
     }
 })
 
-
 router.get(/manuretype_v7_handler/, function (req, res) {
     //get object
     for (var x in req.session.data.manure_types ) {
@@ -110,19 +109,6 @@ router.get(/version5_manure_handler/, callback_functions.showSuccessMessage, fun
 })
 
 
-//ALPHA //set the status to recommendations
-router.get(/recs_status_handler/, function (req, res) { 
-    req.session.data.alpha_planning = 1
-    res.redirect('recs')
-})
-
-// //New exports
-// router.get(/imports_exports_handler/, function (req, res) { 
-//     var next = (req.session.data.imports_exports == "export") ? 'manure_defaults_update' : 'manure_quantity';
-//     res.redirect(next);
-// })
-
-
 // Routers //
 
 router.get(/plan_manure_application_router/, callback_functions.setManureJourney, function (req, res) { 
@@ -133,17 +119,9 @@ router.get(/manuregroup_handler/, callback_functions.setManureGroup, function (r
     res.redirect("manure_type")
 })
 
-
 router.get(/enter_manure_defualts_handler/, function (req, res) {
     var next = (req.session.data.edit_manure_defaults === "no") ? 'manure_defaults_update' : 'manure_quantity';
     res.redirect(next);
-})
-
-
-//ALPHA // do you plan to spread fertiliser?
-router.get(/fertiliser_if_router/, function (req, res) { 
-    let next = req.session.data.fertiliser_if === "yes" ? (req.session.data.chosen_crop == 'grass' ? './grass/inorganic_defoliation' : 'fertiliser_when') : 'check_two';
-    res.redirect(next)
 })
 
 router.get(/fertiliser_remove_router/, callback_functions.showSuccessMessage, function (req, res) { 
@@ -155,63 +133,11 @@ router.get(/fertiliser_change_router/, callback_functions.getApplicationByRefere
     res.redirect('/' + req.session.data.prototype_version + '/update/fertiliser/update')
 })  
 
-router.get(/version5_manure_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 
-    req.session.data.successMessage = 4
-    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
-})
-
-router.get(/manurecheck_handler/, function (req, res) { 
-    if (req.query.notification == 'true') {
-        req.session.data.show_manure_notification = true
-    }
-    res.redirect('/version_2/add_manure/check')
-})
-
 router.get(/manuredate_handler/, function (req, res) { 
     if (req.query.notification == 'true') {
         req.session.data.show_manure_notification = true
     }
     res.redirect('/version_2/add_manure/manure_datenotification')
-})
-
-
-router.get(/manuretype_handler/, function (req, res) {
-    //get object
-    if (req.session.data.manure_group_id != 'livestock') {
-        for (var x in req.session.data.manure_types ) {
-            if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
-                req.session.data.manure_type = req.session.data.manure_types[x]
-            }
-        }
-    }
-    var next = "manure_date"
-    if (req.session.data.manure_group_id == "livestock") {
-        next = "livestock_type"
-        if (req.session.data.manure_type == "dirty_water" ||
-            req.session.data.manure_type == "horse_fym" || 
-            req.session.data.manure_type == "goat_fym" ||
-            req.session.data.manure_type == "poultry") {
-            next = "manure_date"
-            //get object
-            for (var a in req.session.data.manure_types_livestock ) {
-                if (req.session.data.manure_types_livestock[a].type == req.session.data.manure_type) {
-                    req.session.data.manure_type = req.session.data.manure_types_livestock[a]
-                }
-            }
-        }
-    }
-    res.redirect(next)
-})
-
-router.get(/livestock_type_handler/, function (req, res) {
-    // console.log(req.session.data.manure_type)
-    //get object
-    for (var x in req.session.data.manure_types_livestock) {
-        if (req.session.data.manure_types_livestock[x].name == req.session.data.manure_type) {
-            req.session.data.manure_type = req.session.data.manure_types_livestock[x]
-        }
-    }
-    res.redirect("manure_date")
 })
 
 router.get(/livestock_type_v7_handler/, function (req, res) {
@@ -243,7 +169,6 @@ router.get(/incorporation_handler/, function (req, res) {
 
 ////FERTILISERS
 
-
 router.get(/fertiliser_when_handler/, function (req, res) { 
     res.redirect('defoliation')
 })
@@ -266,136 +191,7 @@ router.get(/fertiliser_loop_handler/, function (req, res) {
     }
 })
 
-//CHECK
-router.get(/version2_fertiliser_handler/, callback_functions.showSuccessMessage, function (req, res) { 
-    req.session.data.successMessage = 3
-    req.session.data.fertiliser_count = 0
-    if (req.session.data.fertiliser_journey == 'multi') {
-        req.session.data.plan_2024.multipleFertilisersApplied = true
-        res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
-    } else {
-        req.session.data.plan_2024.singleFertilisersApplied = true
-        res.redirect('/' + req.session.data.prototype_version + '/farm/field_plan/index') 
-    }
-})
-
-router.get(/fertiliser_v5_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 
-    req.session.data.successMessage = 5
-    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view')
-})
-
-//Set the chosen_field OBJECT
-router.get(/create_plan_handler/, function (req, res) { 
-    for ( var y in req.session.data.field_details ) {
-        if(req.session.data.field_details[y].reference === req.query.chosen_field) {
-            req.session.data.chosen_field = req.session.data.field_details[y]
-        }
-    }
-    if (req.session.data.chosen_field.planStatus == "crop_added") {
-        req.session.data.chosen_crop = req.session.data.chosen_field.crop
-        if (req.session.data.chosen_field.crop == "grass") {
-            res.redirect('grass/current_sward')
-        } else {
-            res.redirect('crop_when')
-        }
-    } else {
-        res.redirect('create')
-    }
-})
-
-//grass or arable?
-router.get(/crop_type_handler/, function (req, res) { 
-    if (req.session.data.field_use == "arable") {
-        res.redirect('crop_group')
-    } else {
-        req.session.data.chosen_crop = "grass"
-        res.redirect('grass/current_sward')
-    }
-})
-
-//do you plan to spread manure?
-router.get(/manure_if_handler/, function (req, res) { 
-    var next = (req.session.data.manure_if == "yes") ? 'manure_when' : 'check_one'
-    res.redirect(next)
-})
-
-//manure application loops
-router.get(/manure_counter_updater/, function (req, res) { 
-    req.session.data.manure_spreads++
-    res.redirect('manure_type')
-})
-
-// //set the plan status
-// router.get(/set_status/, function (req, res) { 
-//     for ( var y in req.session.data.field_details ) {
-//         if (req.session.data.field_details[y].reference === req.session.data.chosen_field.reference) {
-//             if (req.session.data.plan_type == "previous") {
-//                 req.session.data.field_details[y].planStatus = 'recommendations'
-//             } else {
-//                 req.session.data.field_details[y].planStatus = 'Plan complete'
-//             }
-//             req.session.data.field_details[y].crop = req.session.data.chosen_crop
-//         }
-//     }
-//     req.session.data.farm_details.plan_status = 'new';
-//     res.redirect('fields')
-// })
-
-// update the status of the plan for chosen_field to nul, recs, full
-
 //FERTILISER
-
-//manure application loops
-router.get(/fertiliser_counter_updater/, function (req, res) { 
-    req.session.data.fertiliser_spreads++
-    res.redirect('fertiliser_type')
-})
-    
-//fertiliser application types loop
-router.get(/fertiliser_types_handler/, function (req, res) { 
-    var chosen_nutrients = req.session.data.chosen_nutrients
-    req.session.data.chosen_nitrogen = false
-    req.session.data.chosen_phosphate = false
-    req.session.data.chosen_potash = false
-    req.session.data.chosen_sulphur = false
-    req.session.data.chosen_lime = false
-    for (var x in chosen_nutrients) {
-        if (chosen_nutrients[x] == "nitrogen") {
-            req.session.data.chosen_nitrogen = true;
-        } else if (chosen_nutrients[x] == "phosphate") {
-            req.session.data.chosen_phosphate = true;
-        } else if (chosen_nutrients[x] == "potash") {
-            req.session.data.chosen_potash = true;
-        } else if (chosen_nutrients[x] == "sulphur") {
-            req.session.data.chosen_sulphur = true;
-        } else if (chosen_nutrients[x] == "lime") {
-            req.session.data.chosen_lime = true;
-        }
-    }
-    res.redirect('fertiliser_amount_table')
-})
-
-//add another
-router.get(/v2_another_crop_router/, function (req, res) { 
-    if (req.session.data.another_crop == "yes") {
-        res.redirect('crops_grass')
-    } else {
-        req.session.data.another_crop = 'no';
-        res.redirect('check')
-    }
-})
-
-// select plan type
-router.get(/v2_plan_handler/, function (req, res) { 
-    if (req.session.data.v2_plan_type == 'new') {
-        req.session.data.plan_type = 'new'
-        res.redirect('alpha/prototype_3/alpha/plan/crops')
-    } else {
-        req.session.data.plan_type = 'previous'
-        res.redirect('alpha/prototype_3/alpha/plan/check')
-    }
-})
-
 
 //view the plan by year
 router.get(/crop_plan_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
@@ -412,48 +208,11 @@ router.get(/field_level_plan_handler/, callback_functions.hideSuccessMessage, fu
     res.redirect('../field_plan/index')
 })
 
-///2025
-router.get(/field_level_plan_v6_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    req.session.data.chosen_group = req.query.groupref 
-    req.session.data.chosen_field = req.query.fieldref
-    // console.log(req.session.data.chosen_group)
-    // console.log(req.session.data.chosen_field)
-    //group.reference 
-    req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.chosen_farm_crop_groups, req.query.groupref)
-    //field reference
-    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.chosen_farm_fields, req.query.fieldref)    
-    res.redirect('../field_plan/index')
-})
-
-router.get(/group_level_plan_v6_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    req.session.data.chosen_group = req.query.groupref
-    console.log(req.session.data.chosen_group)
-    //group.reference
-    req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.chosen_farm_crop_groups, req.query.groupref)
-    res.redirect('/update/crop/change_crop')
-})
-
 router.get(/mvpfield_plan_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field.reference)
     req.session.data.chosen_crop = req.query.chosencrop
     req.session.data.cover_crop = req.query.covercrop
     res.redirect('../field_plan/index')
-})
-
-// ALPHA // add manure
-router.get(/alpha_manure_check_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    // req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field.reference)
-    // req.session.data.chosen_crop = req.query.chosencrop
-    // req.session.data.cover_crop = req.query.covercrop
-    res.redirect('alpha/prototype_3/crop_plan/index')
-})
-
-// ALPHA // add fertiliser
-router.get(/alpha_check_fertiliser_handler/, function (req, res) { 
-    req.session.data.alphaPlan2025.fertiliser_added = true
-    req.session.data.alphaPlan2025.plan_update = 'fertiliser_added'
-    req.session.data.chosen_plan = req.session.data.alphaPlan2025
-    res.redirect('../../crop_plan/index')
 })
 
 //show the right fertilisers
@@ -485,19 +244,6 @@ router.get(/field-select-handler/, callback_functions.hideSuccessMessage, functi
     req.session.data.chosen_field = req.query.chosen_field
     res.redirect('/'+ req.session.data.prototype_version + '/farm/field/field-details')
 })
-
-//update soil
-router.get(/add_soil_handler/, callback_functions.showSuccessMessage, function (req, res) { 
-    req.session.data.oaktree_farm.latest_update = 'soil-added'
-    res.redirect('../field/field-details')
-})
-
-router.get(/condition_question_handler/, function (req, res) { 
-    req.session.data.condition_question = req.query.question
-    res.redirect('condition_question')
-})
-
-
 
 router.get(/v5_fertiliser_handler/, function (req, res) {
     var next = 'fertiliser_when'
@@ -535,9 +281,6 @@ router.get(/v5_fertiliser_handler/, function (req, res) {
     }
     res.redirect(next)
 })
-
-
-
 
 //set fertiliser
 router.get(/fertiliser_v5_handler/, callback_functions.showSuccessMessage, function (req, res) { 
@@ -587,16 +330,6 @@ router.get(/manure_date_handler/, function (req, res) {
     }
 })
 
-
-router.get(/manure_defoliation_handler/, function (req, res) {
-    if (req.session.data.manure_type.liquid == true) {
-        res.redirect("manure_applied")
-    } else {
-        res.redirect("manure_defaults")
-    }
-})
-
-
 router.get(/fertiliser_date_handler/, function (req, res) {
     if (req.session.data.fertiliser_date_day < 1) {
         req.session.data.fertiliser_date_day = 21
@@ -622,13 +355,6 @@ router.get(/change_cropgroup_handler/, callback_functions.hideSuccessMessage, fu
     }
     //if the reference == req.session.data.chosen_group.crop
     //crop type == x.type
-    res.redirect('change_crop')
-})
-
-///2025
-router.get(/change_cropgroup_v6_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.chosen_farm_crop_groups, req.query.groupref)
-    // console.log(req.session.data.chosen_group)
     res.redirect('change_crop')
 })
 

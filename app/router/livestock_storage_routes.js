@@ -44,27 +44,11 @@ router.get(/check_storage_handler/, function (req, res) {
 })
 
 
-// router.get(/material_type_handler/, function (req, res) {
-//     var next = (req.session.data.material_type == 'solid manure') ? 'storage_type_solid' : 'name'
-//     res.redirect(next)
-// })
-
-
 // Livestock routes
 
 router.get(/livestock_report_reset/, callback_functions.hideSuccessMessage, function (req, res) {
     req.session.data.export_type = null
     res.redirect('livestock/livestock_years')
-})
-
-router.get(/optional_questions_handler/, callback_functions.hideSuccessMessage, function (req, res) {
-    var next
-    if (req.session.data.export_type == '8') {
-        next = 'system/manure_numbers'
-    } else {
-        next = 'optional_questions'
-    }
-    res.redirect(next)
 })
 
 router.get(/manure_system_skip_handler/, callback_functions.hideSuccessMessage, function (req, res) {
@@ -358,6 +342,5 @@ router.get(/export_type_router/, callback_functions.hide_error, function (req, r
     }
     res.redirect(next);
 })
-
 
 module.exports = router

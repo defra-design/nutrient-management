@@ -12,12 +12,6 @@ router.get(/field_reset_handler/, function (req, res) {
     res.redirect('/' + req.session.data.prototype_version + '/farm/field/manage-fields');
 })
 
-//manage manure view reset messages
-router.get(/manure_reset_handler/, function (req, res) {
-    req.session.data.show_success_message = false;
-    res.redirect('/' + req.session.data.prototype_version + '/farm/manure/manage-manure');
-})
-
 //add a field view reset messages
 router.get(/field_add_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false;
@@ -50,30 +44,10 @@ router.get(/cropuse_handler/, function (req, res) {
     res.redirect(next);
 })
 
-router.get(/organicadjustment_handler/, function (req, res) { 
-    if (req.session.data.chosen_crop == "Oilseed-Spring" || req.session.data.chosen_crop == "Oilseed-Winter") {
-        res.redirect('gai_height')
-    } else if (req.session.data.crop_group == "cereals" || req.session.data.crop_group == 'arable-other') {
-        res.redirect('shoots')
-    } else {
-        res.redirect('/add-field/check')
-    }
-})
-
 //add field - grass history - handler
 router.get(/add-grass-handler/, function (req, res) { 
     var next = (req.session.data.previous_grass == 'yes') ? 'plough' : 'check'
     res.redirect(next)
-})
-
-router.get(/field-cuts-handler/, function (req, res) { 
-    var next = (req.session.data.previous_management == 'grazing') ? 'previous-nitrogen' : 'previous-cuts'
-    res.redirect(next)
-})
-
-router.get(/show-field-handler/, function (req, res) { 
-    req.session.data.oaktree_farm.fields_added = true;
-    res.redirect('../field/manage-fields')
 })
 
 router.get(/addcrops_handler/, function (req, res) { 

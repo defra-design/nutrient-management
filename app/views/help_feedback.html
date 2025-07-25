@@ -1,0 +1,144 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Get help or give feedback
+    </h1>
+
+    <p class="govuk-body">
+      This service is currently in a private beta phase. 
+      This means that we are testing the service with a group of invited users. 
+      As such, some functionality may not work as expected and some features have not yet been developed.     
+    </p>
+
+    <p class="govuk-body">
+      Check the <a href="">release schedule</a> to see what features have been added to the test version of the service.
+    </p>
+
+    <p class="govuk-body">
+      View the <a href="legal">terms of use</a> for this service.
+    </p>
+
+    <h2 class="govuk-heading-m">
+      Getting help 
+    </h2>
+
+    <p class="gov-body">
+      If you experience a technical problem with any of the functionality in this service, you can email: <a href="">helpdesk@rsk-bsl.co.uk</a>. 
+    </p>
+
+    <p class="gov-body">
+      The helpdesk will help with issues such as:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>technical issues</li>
+      <li>login issues</li>
+      <li>service outages</li>
+    </ul>
+
+    <p class="gov-body">
+      Please tell us what you were trying to do, what happened, and what you expected. This will help us to identify the problem. 
+    </p>
+
+    <h2 class="govuk-heading-m">
+      Help with the service's recommendations
+    </h2>
+
+    <p class="gov-body">
+      You can email the helpdesk if you have any issues with the data and recommendations the service provides. Email: <a href="">helpdesk@rsk-bsl.co.uk</a>.
+    </p>
+
+    <p class="gov-body">
+      This service might give slightly different recommendations from the previous service PLANET. This is because this new service uses an updated version of the RB209 API, so it provides the very latest data.
+    </p>
+
+    <p class="gov-body">
+      We will reply to your email as quickly as we can. 
+    </p>
+
+    <h2 class="govuk-heading-m">
+      Giving feedback about this service
+    </h2>
+
+    <p class="gov-body">
+      If you would like to give us feedback about this service, then please email: <a href="">nmpt@defra.gov.uk</a>.
+    </p>
+
+    <p class="gov-body">
+      Your feedback will help us improve this service.  
+    </p>
+
+    <h2 class="govuk-heading-m">
+      More information
+    </h2>
+
+    <p class="gov-body">
+      The Nutrient Management Plan is intended to be used alongside RB209
+    </p>
+
+    <p class="gov-body">
+      For advice about nutrient planning in general, start with <a href="https://www.triedandtested.org.uk" target="_blank">Tried and Tested</a> (opens in a new window).
+    </p>
+
+    <p class="gov-body">
+      For more information on RB209, visit <a href="https://ahdb.org.uk/knowledge-library/rb209-section-1-principles-of-nutrient-management-and-fertiliser-use" target="_blank">Nutrient management guide (RB209) section 1</a> (opens in a new window).
+    </p>
+
+    <!-- <h2 class="govuk-heading-m">
+      Moving your data to the live service
+    </h2>
+    
+    <p class="govuk-body">
+      If you wish to take your farm data and plans from the testing version to the live version, please email our team at <a href="">helpdesk@rsk-bsl.co.uk</a>.
+    </p>
+
+    <p class="govuk-body">
+      We will migrate your data for you when the service launches, and then your plans will be suitable for regulatory use.
+    </p> -->
+
+    <div class="margin-bottom-forty">&nbsp;</div>
+
+</div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "/legal",
+         text: "Terms of use"
+       },
+       {
+         href: "/",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}

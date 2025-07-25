@@ -1,0 +1,223 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l">Nutrient prices</h1>
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Product</th>
+      <th scope="col" class="govuk-table__header">Percentage of nutrient</th>
+      <th scope="col" class="govuk-table__header">Price of product</th>
+      <th scope="col" class="govuk-table__header">Price of nutrient</th>
+      <th scope="col" class="govuk-table__header"></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Ammonium nitrate</td>
+      <td class="govuk-table__cell">34.5% Nitrogen (N)</td>
+      <td class="govuk-table__cell">£10 per tonne</td>
+      <td class="govuk-table__cell">10p per kg</td>
+      <td class="govuk-table__cell"><a href="">Change</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Triple superphosphate</td>
+      <td class="govuk-table__cell">46% Phosphate (P2O5)</td>
+      <td class="govuk-table__cell">£10 per tonne</td>
+      <td class="govuk-table__cell">10p per kg</td>
+      <td class="govuk-table__cell"><a href="">Change</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Murate of potash</td>
+      <td class="govuk-table__cell">60% Potash (K2O)</td>
+      <td class="govuk-table__cell">£10 per tonne</td>
+      <td class="govuk-table__cell">10p per kg</td>
+      <td class="govuk-table__cell"><a href="">Change</a></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+      
+      <form action="farm_area_handler" method="post" novalidate="">
+
+        <div class="govuk-form-group">
+
+        <h2 class="govuk-heading-s">How do you want to enter the nitrogen (N) values?</h2>
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+          <!-- <div id="contact-hint" class="govuk-hint">
+            Select one option
+          </div> -->
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+              <label class="govuk-label govuk-radios__label" for="contact-2">
+                Enter a nitrogen (N) product price and nitrogen (N) content
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+              <p class="govuk-hint">Example shown is based on Ammonium nitrate (34.5% nitrogen)</p>
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="nutrient_price-4">
+                  What is the nitrogen (N) content in the product?
+                </label>
+                <div class="govuk-input__wrapper">
+                  <input class="govuk-input govuk-input--width-3" id="nutrient_price-4" name="nutrient_price-4" type="text" value="34.5" spellcheck="false" autocomplete="off">
+                  <div class="govuk-input__suffix" aria-hidden="true">% nitrogen (N)</div>
+                </div>
+              </div>
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="nutrient_price-4">
+                  What is the product price?
+                </label>
+                <div class="govuk-input__wrapper">
+                  <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                  <input class="govuk-input govuk-input--width-3" id="nutrient_price-1" name="nutrient_price-1" type="text" value="10" spellcheck="false" autocomplete="off">
+                  <div class="govuk-input__suffix" aria-hidden="true">per tonne</div>
+                </div>
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="contact-3" name="contact" type="radio" value="text" data-aria-controls="conditional-contact-3">
+              <label class="govuk-label govuk-radios__label" for="contact-3">
+                Enter an individual price in pence per kg
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+              <div class="govuk-form-group">
+                <div class="govuk-input__wrapper">
+                  <input class="govuk-input govuk-input--width-2" id="nutrient_price-5" name="nutrient_price-5" type="text" value="10" spellcheck="false" autocomplete="off">
+                  <div class="govuk-input__suffix" aria-hidden="true">pence per kg</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+        <h2 class="govuk-heading-m">Nitrogen (N)</h2>
+        <div class="govuk-form-group ">
+          <label class="govuk-label" for="nutrient_price-4">
+            What is the nitrogen (N) content in the product?
+          </label>
+          <div class="govuk-input__wrapper">
+            <input class="govuk-input govuk-input--width-2" id="nutrient_price-4" name="nutrient_price-4" type="text" value="10" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">%</div>
+          </div>
+        </div>
+
+         <div class="govuk-form-group">
+          <label class="govuk-label" for="nutrient_price-1">
+            What is the product price?
+          </label>
+          <div class="govuk-input__wrapper">
+            <div class="govuk-input__prefix" aria-hidden="true">£</div>
+            <input class="govuk-input govuk-input--width-3" id="nutrient_price-1" name="nutrient_price-1" type="text" value="10" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">per tonne</div>
+          </div>
+        </div>
+
+         <div class="govuk-form-group ">
+          <label class="govuk-label" for="nutrient_price-4">
+            Nitrogen (N)
+          </label>
+          <div class="govuk-input__wrapper">
+            <input class="govuk-input govuk-input--width-3" id="nutrient_price-4" name="nutrient_price-4" type="text" value="10" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">pence per kg</div>
+          </div>
+        </div>
+
+        <a class="govuk-button nolink govuk-button--secondary margin-bottom-forty">
+          Update nitrogen (N) values
+        </a>
+        
+        <h2 class="govuk-heading-m">Phosphate (P205)</h2>
+         <div class="govuk-form-group">
+          <label class="govuk-label" for="nutrient_price-2">
+            Triple superphosphate (46% P205)
+          </label>
+          <div class="govuk-input__wrapper">
+            <div class="govuk-input__prefix" aria-hidden="true">£</div>
+            <input class="govuk-input govuk-input--width-3" id="nutrient_price-2" name="nutrient_price-2" type="text" value="10" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">per tonne</div>
+          </div>
+        </div>
+         <div class="govuk-form-group margin-bottom-forty">
+          <label class="govuk-label" for="nutrient_price-5">
+             Phosphate (P205)
+          </label>
+          <div class="govuk-input__wrapper">
+            <input class="govuk-input govuk-input--width-3" id="nutrient_price-5" name="nutrient_price-5" type="text" value="10" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">pence per kg</div>
+          </div>
+        </div>
+
+        <a class="govuk-button nolink govuk-button--secondary margin-bottom-forty">
+          Update phosphate (P205) values
+        </a>
+
+        <h2 class="govuk-heading-m">Potash (K20)</h2>
+         <div class="govuk-form-group">
+          <label class="govuk-label" for="nutrient_price-3">
+            Murate of potash (60% K20)
+          </label>
+          <div class="govuk-input__wrapper">
+            <div class="govuk-input__prefix" aria-hidden="true">£</div>
+            <input class="govuk-input govuk-input--width-3" id="nutrient_price-3" name="nutrient_price-3" type="text" value="10" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">per tonne</div>
+          </div>
+        </div>
+         <div class="govuk-form-group margin-bottom-forty">
+          <label class="govuk-label" for="nutrient_price-6">
+             Potash (K20)
+          </label>
+          <div class="govuk-input__wrapper">
+            <input class="govuk-input govuk-input--width-3" id="nutrient_price-6" name="nutrient_price-6" type="text" value="10" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">pence per kg</div>
+          </div>
+        </div>
+
+        <a class="govuk-button nolink govuk-button--secondary margin-bottom-forty">
+          Update potash (K20) values
+        </a>
+
+      
+
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+
+    </div>
+
+  </div>
+
+{% endblock %}

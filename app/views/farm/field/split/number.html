@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form action="equal" method="post" novalidate="">
+
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">How many fields do you want to split {{data.chosen_field}} into?</h1>
+        </legend>
+        <div id="account-number-hint" class="govuk-hint">
+          Enter the total number of fields to split {{data.chosen_field}} into, for example 2
+        </div>          
+        <div class="govuk-form-group margin-bottom-forty">
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="non_spreading_area" name="non_spreading_area" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">fields</div>
+          </div>
+        </div>
+
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+
+    </div>
+
+  </div>
+
+{% endblock %}

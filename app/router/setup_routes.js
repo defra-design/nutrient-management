@@ -9,25 +9,25 @@ var allFunctions = require('../functions/allFunctions.js');
 //manage fields view reset messages
 router.get(/field_reset_handler/, function (req, res) {
     req.session.data.show_success_message = false;
-    res.redirect('/' + req.session.data.prototype_version + '/farm/field/manage-fields');
+    res.redirect('farm/field/manage-fields');
 })
 
 //add a field view reset messages
 router.get(/field_add_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false;
-    res.redirect('/'+ req.session.data.prototype_version + '/add-field/name');
+    res.redirect('add-field/name');
 })
 
 //add a field view reset messages
 router.get(/field_copy_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false;
-    res.redirect('/'+ req.session.data.prototype_version + '/add-field/copy_field');
+    res.redirect('add-field/copy_field');
 })
 
 //field details view reset messages
 router.get(/field_details_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false;
-    res.redirect('/'+ req.session.data.prototype_version +'/farm/field/field-details');
+    res.redirect('farm/field/field-details');
 })
 
 //plan_view reset messages
@@ -52,14 +52,14 @@ router.get(/add-grass-handler/, function (req, res) {
 
 router.get(/addcrops_handler/, function (req, res) { 
     req.session.data.secondcrop_journey = true
-    res.redirect('/'+ req.session.data.prototype_version + '/add_crops/another_crop')
+    res.redirect('add_crops/another_crop')
 })
 
 router.get(/foragecrops_check_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
     req.session.data.plan_2024.forageCrop = true;
     req.session.data.oaktree_farm.planning_year = 2024;
-    res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+    res.redirect('farm/crop_plan/plan_view')
 })
 
 

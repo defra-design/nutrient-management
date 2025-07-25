@@ -175,8 +175,6 @@ router.get('/', loadContent, loadControlVars, function (req, res) {
     req.session.data.grass_total_yield = null
     req.session.data.grass_total_yield_figure = null
 
-    req.session.data.prototype_version = 'mvp'
-
     // new fields management
     req.session.data.all_fields = all_fields
 

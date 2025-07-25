@@ -46,7 +46,7 @@ router.get(/manner_remove_application/, callback_functions.showSuccessMessage, f
     if (req.query.application == 3) {
         req.session.data.manner_applications.pop()
     }
-    res.redirect('/' + req.session.data.prototype_version + '/manner/results')
+    res.redirect('manner/results')
 })
 
 router.get(/manuretype_update_handler/, callback_functions.showSuccessMessage, function (req, res) {
@@ -59,14 +59,14 @@ router.get(/manuretype_update_handler/, callback_functions.showSuccessMessage, f
     }
     req.session.data.manner_applications[1].manuretype = req.session.data.manure_type
     // console.log(req.session.data.manure_type.name)
-    res.redirect('/' + req.session.data.prototype_version + '/manner/results')
+    res.redirect('manner/results')
 })
 
 router.get(/manner_update_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 3 //changed
     req.session.data.manner_applications[1].rate = req.session.data.manure_rate
     // console.log(req.session.data.manner_applications)
-    res.redirect('/' + req.session.data.prototype_version + '/manner/results')
+    res.redirect('manner/results')
 })
 
 router.get(/manner_results_handler/, callback_functions.showSuccessMessage, function (req, res) {

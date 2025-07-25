@@ -9,13 +9,10 @@ var callback_functions = require('./callbacks.js');
 router.get(/planning_year_handler/, function (req, res) { 
     var next = '/add_crops/crop_group'
     req.session.data.oaktree_farm.planning_year = req.query.year
-    if (req.session.data.prototype_version == 'version_3' || req.session.data.prototype_version == 'version_4') {
-        next = '/add_crops/create_next'
-    }
     if (req.query.year == '2024') {
         next = '/farm/crop_plan/plan_view'
     }
-    res.redirect('/'+ req.session.data.prototype_version + next)
+    res.redirect(next)
 })
 
 router.get(/field_level_plan_v5_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
@@ -33,7 +30,8 @@ router.get(/field_level_plan_v5_handler/, callback_functions.hideSuccessMessage,
         req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.currentCropGroups, req.query.groupref)
     }
     //field reference
-    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)    res.redirect('../field_plan/index')
+    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)    
+    res.redirect('../field_plan/index')
 })
 
 router.get(/group_level_plan_v7_handler/, function (req, res) { 
@@ -94,14 +92,14 @@ router.get(/add_farm_handler/, callback_functions.showSuccessMessage, function (
     req.session.data.oaktree_farm.organic_producer = req.session.data.organic_producer;
     req.session.data.oaktree_farm.setup = true;
     req.session.data.oaktree_farm.latest_update = 'added'; //remove this
-    res.redirect('/'+ req.session.data.prototype_version +'/farm/hub');
+    res.redirect('farm/hub');
 })
 
 //removes a farm
 router.get(/delete_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 2 //farm removed
     req.session.data.oaktree_farm.setup = false;
-    res.redirect('/' + req.session.data.prototype_version + '/farm/farms');
+    res.redirect('farm/farms');
 })
 
 
@@ -110,27 +108,27 @@ router.get(/delete_handler/, callback_functions.showSuccessMessage, function (re
 router.get(/start_router/, function (req, res) { 
     var next = '/disclaimer'
     if (req.session.data.showinfo == false) {
-        next = '/farm/farms'
+        next = 'farm/farms'
     }
-    res.redirect('/' + req.session.data.prototype_version + next);
+    res.redirect(next);
 })
 
 router.get(/hub_reset_router/, function (req, res) { 
     req.session.data.show_success_message = false;
-    res.redirect('/' + req.session.data.prototype_version + '/farm/hub');
+    res.redirect('farm/hub');
 })
 
 
 //hide success message
 router.get(/plan_view_reset_router/, function (req, res) { 
     req.session.data.show_success_message = false;
-    res.redirect('/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view');
+    res.redirect('farm/crop_plan/plan_view');
 })
 
 //hub reset messages
 router.get(/farmsview_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false;
-    res.redirect('/' + req.session.data.prototype_version + '/farm/farms');
+    res.redirect('farm/farms');
 })
 
 

@@ -45,7 +45,7 @@ router.get(/crop_group_update_v7_handler/, function (req, res) {
     req.session.data.new_planting_date_day = null
     req.session.data.new_planting_date_month = null
     req.session.data.new_planting_date_year = null
-    res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+    res.redirect('farm/crop_plan/plan_view')
 })
 
 router.get(/cover_handler/, function (req, res) { 
@@ -96,7 +96,7 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     req.session.data.sow_date_month = null;
     req.session.data.sow_date_year = null;
     yield = null;
-    res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+    res.redirect('farm/crop_plan/plan_view')
 })
 
 
@@ -104,7 +104,7 @@ router.get(/copyplan_handler/, function (req, res) {
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 17
     req.session.data.oaktree_farm.planning_year = 2026
-    res.redirect('/'+ req.session.data.prototype_version + '/farm/crop_plan/plan_view')
+    res.redirect('farm/crop_plan/plan_view')
 })
 
 
@@ -124,7 +124,7 @@ router.get(/grassyield_handler/, function (req, res) {
     if (req.session.data.weight_type == null) {
         req.session.data.weight_type = 'Fresh cut weight'
     }
-    res.redirect('/'+ req.session.data.prototype_version + '/add_crops/check')
+    res.redirect('add_crops/check')
 })
 
 

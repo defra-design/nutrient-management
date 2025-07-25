@@ -23,26 +23,26 @@ const  CropGroup = require('./functions/crop_group.js');
 
 
 const loadContent = function (req, res, next) {
-req.session.data.content = content
-req.session.data.manure_types_digestate = manure_types_digestate
-req.session.data.manure_types_other = manure_types_other
-req.session.data.manure_types_biosolid = manure_types_biosolid
-req.session.data.manure_types_livestock = manure_types_livestock
-req.session.data.manure_types_livestock_groups = manure_types_livestock_groups
-req.session.data.complete_field_list = complete_field_list
-req.session.data.potato_details = potato_details
-req.session.data.crop_types = crop_types
-req.session.data.livestock_types = livestock_types
-req.session.data.all_fertiliser_applications = all_fertiliser_applications
-req.session.data.manure_applications_list = manure_applications_list
-req.session.data.plan_2023 = plan_2023;
-req.session.data.plan_2024 = plan_2024;
-req.session.data.plan_2023.reset();
-req.session.data.plan_2024.reset();
-req.session.data.plan_2023.year = 2023;
-req.session.data.plan_2024.year = 2024;
-req.session.data.show_error = false
-next()
+    req.session.data.content = content
+    req.session.data.manure_types_digestate = manure_types_digestate
+    req.session.data.manure_types_other = manure_types_other
+    req.session.data.manure_types_biosolid = manure_types_biosolid
+    req.session.data.manure_types_livestock = manure_types_livestock
+    req.session.data.manure_types_livestock_groups = manure_types_livestock_groups
+    req.session.data.complete_field_list = complete_field_list
+    req.session.data.potato_details = potato_details
+    req.session.data.crop_types = crop_types
+    req.session.data.livestock_types = livestock_types
+    req.session.data.all_fertiliser_applications = all_fertiliser_applications
+    req.session.data.manure_applications_list = manure_applications_list
+    req.session.data.plan_2023 = plan_2023;
+    req.session.data.plan_2024 = plan_2024;
+    req.session.data.plan_2023.reset();
+    req.session.data.plan_2024.reset();
+    req.session.data.plan_2023.year = 2023;
+    req.session.data.plan_2024.year = 2024;
+    req.session.data.show_error = false
+    next()
 }
 
 const loadControlVars = function (req, res, next) {

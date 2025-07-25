@@ -33,8 +33,7 @@ router.get(/field_level_plan_v5_handler/, callback_functions.hideSuccessMessage,
         req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.currentCropGroups, req.query.groupref)
     }
     //field reference
-    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)    
-    res.redirect('../field_plan/index')
+    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)    res.redirect('../field_plan/index')
 })
 
 router.get(/group_level_plan_v7_handler/, function (req, res) { 

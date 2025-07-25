@@ -101,7 +101,7 @@ router.get(/get_livestock_reference/, function (req, res) {
 
 router.get(/add_livestock_handler/, function (req, res) {
     req.session.data.livestock_reference = req.query.livestock_reference
-    res.redirect('/version_7/add_livestock/livestock_type')
+    res.redirect('/add_livestock/livestock_type')
 })
 
 router.get(/livestock_2025_handler/, callback_functions.hide_error, function (req, res) {
@@ -308,7 +308,7 @@ router.get(/export_type_handler/, callback_functions.hideSuccessMessage, functio
     } else {
         req.session.data.imports_exports = 'import'
     }
-    res.redirect('/version_7/add_export/manure_group')
+    res.redirect('/add_export/manure_group')
 })
 
 router.get(/change_export_handler/, callback_functions.hide_error, function (req, res) {
@@ -317,7 +317,7 @@ router.get(/change_export_handler/, callback_functions.hide_error, function (req
     } else {
         req.session.data.imports_exports = 'import'
     }
-    res.redirect('/version_7/update/exports/update')
+    res.redirect('/update/exports/update')
 })
 
 router.get(/manure_export_type_handler/, callback_functions.setManureGroup, callback_functions.hide_error, function (req, res) {
@@ -327,7 +327,7 @@ router.get(/manure_export_type_handler/, callback_functions.setManureGroup, call
 
 router.get(/n_loading_export_handler/, callback_functions.setManureGroup, callback_functions.hide_error, function (req, res) {
     req.session.data.manure_group_id = 'livestock'
-    res.redirect('/version_7/add_export/manure_type');
+    res.redirect('/add_export/manure_type');
 })
 
 router.get(/export_type_router/, callback_functions.hide_error, function (req, res) {
@@ -335,9 +335,9 @@ router.get(/export_type_router/, callback_functions.hide_error, function (req, r
     if (req.session.data.imports_exports == 'no') {
         req.session.data.oaktree_farm.imports_exports = 'none'
         if (req.session.data.export_type == '8') {
-            next = '/version_7/farm/outputs/inventory/checklist'
+            next = '/farm/outputs/inventory/checklist'
         } else {
-            next = '/version_7/farm/outputs/n_loading/checklist'
+            next = '/farm/outputs/n_loading/checklist'
         }
     }
     res.redirect(next);

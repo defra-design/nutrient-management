@@ -39,7 +39,7 @@ router.get(/check_storage_handler/, function (req, res) {
     req.session.data.show_success_message = true;
     req.session.data.oaktree_farm.storage_added = true;
     // req.session.data.successMessage = 2;
-    var next = 'farm/storage/manage_storage'
+    var next = '/farm/storage/manage_storage'
     res.redirect(next)
 })
 
@@ -158,7 +158,7 @@ router.get(/livestock_number_handler/, function (req, res) {
 
 router.get(/landcheck_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.low_risk_land_added = 'added';
-    res.redirect('farm/outputs/inventory/checklist')
+    res.redirect('/farm/outputs/inventory/checklist')
 })
 
 router.get(/livestockcheck_handler/, function (req, res) { 
@@ -184,7 +184,7 @@ router.get(/livestockcheck_handler/, function (req, res) {
     req.session.data.livestock_number_december = null
     req.session.data.nitrogen_standard = null
     req.session.data.livestock_occupancy = null
-    res.redirect('farm/livestock/manage_livestock')
+    res.redirect('/farm/livestock/manage_livestock')
 })
 
 router.get(/storage_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
@@ -242,7 +242,7 @@ router.get(/n_loading_submit_router/, function (req, res) {
 router.get(/export_update_handler/, function (req, res) {
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 2;
-    var next = 'farm/exports/manage_exports'
+    var next = '/farm/exports/manage_exports'
     res.redirect(next)
 })
 
@@ -280,7 +280,7 @@ router.get(/exportcheck_handler/, function (req, res) {
     req.session.data.exported_month = null
     req.session.data.exported_year = null
     req.session.data.export_total = null
-    res.redirect('farm/exports/manage_exports')
+    res.redirect('/farm/exports/manage_exports')
 })
 
 router.get(/export_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 

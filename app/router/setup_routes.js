@@ -9,7 +9,7 @@ var allFunctions = require('../functions/allFunctions.js');
 //manage fields view reset messages
 router.get(/field_reset_handler/, function (req, res) {
     req.session.data.show_success_message = false;
-    res.redirect('farm/field/manage-fields');
+    res.redirect('/farm/field/manage-fields');
 })
 
 //add a field view reset messages
@@ -27,7 +27,7 @@ router.get(/field_copy_reset_handler/, function (req, res) {
 //field details view reset messages
 router.get(/field_details_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false;
-    res.redirect('farm/field/field-details');
+    res.redirect('/farm/field/field-details');
 })
 
 //plan_view reset messages
@@ -59,7 +59,7 @@ router.get(/foragecrops_check_handler/, function (req, res) {
     req.session.data.show_success_message = true;
     req.session.data.plan_2024.forageCrop = true;
     req.session.data.oaktree_farm.planning_year = 2024;
-    res.redirect('farm/crop_plan/plan_view')
+    res.redirect('/farm/crop_plan/plan_view')
 })
 
 

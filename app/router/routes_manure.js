@@ -105,7 +105,7 @@ router.get(/version5_manure_handler/, callback_functions.showSuccessMessage, fun
     }
     manure_fields = null
     req.session.data.manure_fields = null
-    res.redirect('farm/crop_plan/plan_view')
+    res.redirect('/farm/crop_plan/plan_view')
 })
 
 
@@ -126,7 +126,7 @@ router.get(/enter_manure_defualts_handler/, function (req, res) {
 
 router.get(/fertiliser_remove_router/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 15
-    res.redirect('farm/crop_plan/plan_view')
+    res.redirect('/farm/crop_plan/plan_view')
 })
 
 router.get(/fertiliser_change_router/, callback_functions.getApplicationByReference, function (req, res) { 
@@ -242,7 +242,7 @@ router.get(/fertiliser_type_handler_v2/, function (req, res) {
 //select a field
 router.get(/field-select-handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.chosen_field = req.query.chosen_field
-    res.redirect('farm/field/field-details')
+    res.redirect('/farm/field/field-details')
 })
 
 router.get(/v5_fertiliser_handler/, function (req, res) {
@@ -306,9 +306,9 @@ router.get(/fertiliser_v5_handler/, callback_functions.showSuccessMessage, funct
         )
         req.session.data.allFertiliserApplications.push(applicationGroup)
     }
-    var next = 'farm/crop_plan/plan_view'
+    var next = '/farm/crop_plan/plan_view'
     if (req.session.data.fertiliser_journey == "multi") {
-        next = 'farm/crop_plan/plan_view'
+        next = '/farm/crop_plan/plan_view'
     }
     res.redirect(next)
 })

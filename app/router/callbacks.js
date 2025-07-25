@@ -31,11 +31,11 @@ const setManureJourney = function (req, res, next) {
     req.session.data.manure_journey = req.query.manurejourney
     // console.log('manure journey = ' + req.session.data.manure_journey)
     if (req.session.data.manure_journey == 'multi') {
-        nextURL = '/' + req.session.data.prototype_version + '/add_manure/manure_fields'
+        nextURL = 'add_manure/manure_fields'
     } else {
         req.session.data.manure_fields = []
         req.session.data.manure_fields.push(req.session.data.chosen_field.reference)
-        nextURL = '/' + req.session.data.prototype_version + '/add_manure/manure_group'
+        nextURL = 'add_manure/manure_group'
     }
     next()
 }

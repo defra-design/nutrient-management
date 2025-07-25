@@ -15,14 +15,14 @@ router.get(/manure_update_handler/, function (req, res) {
 router.get(/manure_update_v6_handler/, function (req, res) {
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 13;
-    var next = '/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view'
+    var next = '/farm/crop_plan/plan_view'
     res.redirect(next)
 })
 
 router.get(/fertiliser_update_v6_handler/, function (req, res) {
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 14;
-    var next = '/' + req.session.data.prototype_version + '/farm/crop_plan/plan_view'
+    var next = '/farm/crop_plan/plan_view'
     res.redirect(next)
 })
 

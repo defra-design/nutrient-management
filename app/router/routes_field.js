@@ -48,7 +48,7 @@ router.get(/set_tempField_data_handler/, function (req, res) {
     // if (req.session.data.soilanalysis == null || req.session.data.soilanalysis == "" ) {
     //     req.session.data.soilanalysis = 'yes'
     // }
-    var next = '/'+ req.session.data.prototype_version +'/add-field/check'
+    var next = 'add-field/check'
     res.redirect(next);
 })
 
@@ -76,14 +76,14 @@ router.get(/add_field_handler/, callback_functions.showSuccessMessage, function 
     req.session.data.soiltype = null
     req.session.data.field_nvz = null
     req.session.data.field_alt = null
-    res.redirect('/'+ req.session.data.prototype_version +'/farm/field/manage-fields');
+    res.redirect('/farm/field/manage-fields');
 })
 
 router.get(/add_sns_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 17;
     req.session.data.chosen_group.sns = true;
-    res.redirect('/'+ req.session.data.prototype_version +'/farm/field_plan/index');
+    res.redirect('/farm/field_plan/index');
 })
 
 router.get(/copy_name_handler/, function (req, res) { 
@@ -99,13 +99,13 @@ router.get(/copy_name_handler/, function (req, res) {
 router.get(/field_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 4 //field updated
     req.session.data.oaktree_farm.latest_update = 'field_updated'
-    res.redirect('/' + req.session.data.prototype_version + '/farm/field/field-details')
+    res.redirect('/farm/field/field-details')
 })
 
 router.get(/soil_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 5 //soil updated
     req.session.data.oaktree_farm.latest_update = 'field_updated'
-    res.redirect('/' + req.session.data.prototype_version + '/farm/field/field-details')
+    res.redirect('/farm/field/field-details')
 })
 
 

@@ -2,6 +2,10 @@ const  govukPrototypeKit = require('govuk-prototype-kit')
 const  router = govukPrototypeKit.requests.setupRouter()
 
 ///external data
+const farm = require('./functions/farm.js');
+const content = require('./content.js').content;
+var  Plan = require('./functions/plan.js');
+
 const  all_fertiliser_applications = require('./data/fertiliser_applications.json');
 const  manure_applications_list = require('./data/manure_applications.json');
 const  complete_field_list = require('./data/complete_field_list.json');
@@ -15,11 +19,31 @@ const  crop_types = require('./data/crops.json');
 const  livestock_types = require('./data/livestock.json');
 
 const allFunctions = require('./functions/allFunctions.js');
-const farm = require('./functions/farm.js');
 const  CropGroup = require('./functions/crop_group.js');
 
-const content = require('./content.js').content;
-var  Plan = require('./functions/plan.js');
+
+const loadContent = function (req, res, next) {
+req.session.data.content = content
+req.session.data.manure_types_digestate = manure_types_digestate
+req.session.data.manure_types_other = manure_types_other
+req.session.data.manure_types_biosolid = manure_types_biosolid
+req.session.data.manure_types_livestock = manure_types_livestock
+req.session.data.manure_types_livestock_groups = manure_types_livestock_groups
+req.session.data.complete_field_list = complete_field_list
+req.session.data.potato_details = potato_details
+req.session.data.crop_types = crop_types
+req.session.data.livestock_types = livestock_types
+req.session.data.all_fertiliser_applications = all_fertiliser_applications
+req.session.data.manure_applications_list = manure_applications_list
+req.session.data.plan_2023 = plan_2023;
+req.session.data.plan_2024 = plan_2024;
+req.session.data.plan_2023.reset();
+req.session.data.plan_2024.reset();
+req.session.data.plan_2023.year = 2023;
+req.session.data.plan_2024.year = 2024;
+req.session.data.show_error = false
+next()
+}
 
 const loadControlVars = function (req, res, next) {
     req.session.data.prototypeVersion = 'mvp'
@@ -111,28 +135,7 @@ const alphaPlan2024 = createAlphaPlan("2024", true, true, true);
 const alphaPlan2023 = createAlphaPlan("2023", false, false, false);
 
 //index route
-router.get('/', loadControlVars, function (req, res) { 
-
-    req.session.data.content = content
-    req.session.data.manure_types_digestate = manure_types_digestate
-    req.session.data.manure_types_other = manure_types_other
-    req.session.data.manure_types_biosolid = manure_types_biosolid
-    req.session.data.manure_types_livestock = manure_types_livestock
-    req.session.data.manure_types_livestock_groups = manure_types_livestock_groups
-    req.session.data.complete_field_list = complete_field_list
-    req.session.data.potato_details = potato_details
-    req.session.data.crop_types = crop_types
-    req.session.data.livestock_types = livestock_types
-    req.session.data.all_fertiliser_applications = all_fertiliser_applications
-    req.session.data.manure_applications_list = manure_applications_list
-    req.session.data.plan_2023 = plan_2023;
-    req.session.data.plan_2024 = plan_2024;
-    req.session.data.plan_2023.reset();
-    req.session.data.plan_2024.reset();
-    req.session.data.plan_2023.year = 2023;
-    req.session.data.plan_2024.year = 2024;
-    req.session.data.show_error = false
-
+router.get('/', loadContent, loadControlVars, function (req, res) { 
     req.session.data.selected_fields = [{"reference":"1", "name":"Long Field", "planStatus":false, "crop": null, "soil": null},
     {"reference":"2", "name":"Barn Field", "planStatus":false, "crop": null, "soil": null},
     {"reference":"3", "name":"Orchard", "planStatus":false, "crop": null, "soil": null}]

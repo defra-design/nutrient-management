@@ -111,7 +111,17 @@ router.get(/version5_manure_handler/, callback_functions.showSuccessMessage, fun
 
 // Routers //
 
-router.get(/plan_manure_application_router/, callback_functions.setManureJourney, function (req, res) { 
+router.get(/plan_manure_application_router/, function (req, res) { 
+    let nextURL
+    req.session.data.manure_journey = req.query.manurejourney
+    if (req.session.data.manure_journey == 'multi') {
+        nextURL = '/add_manure/manure_fields'
+    } else {
+        req.session.data.manure_fields = []
+        req.session.data.manure_fields.push(req.session.data.chosen_field.reference)
+        nextURL = '/add_manure/manure_group'
+    }
+    // console.log('nextURL = ' + nextURL)
     res.redirect(nextURL)
 })
 

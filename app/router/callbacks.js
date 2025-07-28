@@ -27,19 +27,6 @@ const setManureGroup = function (req, res, next) {
     next()
 }
 
-const setManureJourney = function (req, res, next) {
-    req.session.data.manure_journey = req.query.manurejourney
-    // console.log('manure journey = ' + req.session.data.manure_journey)
-    if (req.session.data.manure_journey == 'multi') {
-        nextURL = 'add_manure/manure_fields'
-    } else {
-        req.session.data.manure_fields = []
-        req.session.data.manure_fields.push(req.session.data.chosen_field.reference)
-        nextURL = 'add_manure/manure_group'
-    }
-    next()
-}
-
 const default_grass_values = function (req, res, next) {
     // if (req.session.data.crop_fields == null || req.session.data.crop_fields == []) {
     //     req.session.data.crop_fields = ['Long Field', 'Short Field']
@@ -58,6 +45,5 @@ module.exports.hide_error = hide_error;
 module.exports.showSuccessMessage = showSuccessMessage;
 module.exports.hideSuccessMessage = hideSuccessMessage;
 module.exports.setManureGroup = setManureGroup;
-module.exports.setManureJourney = setManureJourney;
 module.exports.default_grass_values = default_grass_values;
 module.exports.getApplicationByReference = getApplicationByReference;

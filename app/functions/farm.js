@@ -10,6 +10,7 @@ use_mvp_fields,
 setup,
 fields_added,
 livestock_2025,
+livestock_advanced,
 storage_added,
 low_risk_land_added,
 rainwater_area_added,
@@ -33,6 +34,7 @@ ewr
     this.setup = setup,
     this.fields_added = fields_added,
     this.livestock_2025 = livestock_2025,
+    this.livestock_advanced = livestock_advanced,
     this.storage_added = storage_added,
     this.low_risk_land_added = low_risk_land_added,
     this.rainwater_area_added = rainwater_area_added,
@@ -57,6 +59,7 @@ Farm.prototype.printFarm = function () {
                 this.setup + ", " +
                 this.fields_added + ", " +
                 this.livestock_2025 + ", " +
+                this.livestock_advanced + ", " +
                 this.storage_added + ", " +
                 this.rainwater_area_added + ", " +
                 this.low_risk_land_added + ", " +
@@ -81,6 +84,7 @@ Farm.prototype.reset = function () {
     this.setup = false,
     this.fields_added = false,
     this.livestock_2025 = 'not_answered',
+    this.livestock_advanced = 'not_answered',
     this.storage_added = false,
     this.rainwater_area_added = false,
     this.low_risk_land_added = false,

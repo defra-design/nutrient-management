@@ -158,7 +158,7 @@ router.get(/livestock_number_handler/, function (req, res) {
 
 router.get(/landcheck_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.low_risk_land_added = 'added';
-    res.redirect('/farm/outputs/inventory/checklist')
+    res.redirect('/outputs/inventory/checklist')
 })
 
 router.get(/livestockcheck_handler/, function (req, res) { 
@@ -335,9 +335,9 @@ router.get(/export_type_router/, callback_functions.hide_error, function (req, r
     if (req.session.data.imports_exports == 'no') {
         req.session.data.oaktree_farm.imports_exports = 'none'
         if (req.session.data.export_type == '8') {
-            next = '/farm/outputs/inventory/checklist'
+            next = '/outputs/inventory/checklist'
         } else {
-            next = '/farm/outputs/n_loading/checklist'
+            next = '/outputs/n_loading/checklist'
         }
     }
     res.redirect(next);

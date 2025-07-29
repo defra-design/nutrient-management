@@ -30,7 +30,7 @@
 
       <p class="govuk-body">Nitrogen (N) standard: {{data.chosen_livestock.nitrogen}}kg Nitrogen (N) per animal, per year</p>
 
-      <form action="check" method="post" novalidate="">
+      <form action="separated" method="post" novalidate="">
 
         <div class="govuk-form-group margin-bottom-thirty">
           <label class="govuk-label" for="livestock_number">
@@ -44,16 +44,16 @@
 
           <div class="govuk-form-group margin-bottom-thirty">
             <label class="govuk-label" for="livestock_occupancy">
-              Occupancy in January
+              What is the occupancy in October 2024?
             </label>
-            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="100" id="livestock_occupancy" name="livestock_occupancy" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" id="livestock_occupancy" value="90" name="livestock_occupancy" type="text" spellcheck="false" autocomplete="off">
               <div class="govuk-input__suffix" aria-hidden="true">%</div>
             </div>
           </div>
 
           <div class="govuk-form-group margin-bottom-thirty">
             <label class="govuk-label" for="livestock_occupancy">
-              What is the manure system in January?
+              What is the manure system in October 2024?
             </label>
             <div class="govuk-form-group">
               <div class="govuk-radios" data-module="govuk-radios">
@@ -64,7 +64,7 @@
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+                  <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" checked="checked" value="scotland">
                   <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
                     Slurry (mainly)
                   </label>

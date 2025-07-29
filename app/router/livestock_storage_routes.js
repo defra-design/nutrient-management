@@ -120,14 +120,26 @@ router.get(/add_livestock_handler/, function (req, res) {
     res.redirect('/add_livestock/livestock_type')
 })
 
-router.get(/livestock_2025_handler/, callback_functions.hide_error, function (req, res) {
+router.get(/livestock_loading_handler/, callback_functions.hide_error, function (req, res) {
     var next = 'livestock_group'
-    if (req.session.data.livestock_2025 == 'no') {
-        req.session.data.oaktree_farm.livestock_2025 = 'none'
-        if (req.session.data.export_type == '8') {
-            next = 'reset_inventory_checklist_message_handler'
-        } else {
-            next = 'reset_nloading_checklist_message_handler'
+    if (req.session.data.livestock_loading == 'no') {
+        req.session.data.oaktree_farm.livestock_inventory = 'none'
+        req.session.data.oaktree_farm.livestock_loading = 'none'
+        next = 'reset_nloading_checklist_message_handler'
+    }
+    res.redirect(next);
+})
+
+router.get(/livestock_inventory_handler/, callback_functions.hide_error, function (req, res) {
+    var next = 'livestock_group'
+    // if added
+    if (req.session.data.livestock_loading == 'no') {
+        req.session.data.oaktree_farm.livestock_inventory = 'none'
+        req.session.data.oaktree_farm.livestock_loading = 'none'
+        next = 'reset_inventory_checklist_message_handler'
+    } else {
+        if (req.session.data.oaktree_farm.livestock_loading == 'added') {
+            next = 'copy_list'
         }
     }
     res.redirect(next);
@@ -182,10 +194,10 @@ router.get(/livestockcheck_handler/, function (req, res) {
         req.session.data.chosen_livestock.total = req.session.data.livestock_number
     }
     // console.log('1' + req.session.data.chosen_livestock)
-    // console.log('2' + req.session.data.livestock_2025)
+    // console.log('2' + req.session.data.livestock_loading)
     req.session.data.livestock_record_2025.push(req.session.data.chosen_livestock)
     req.session.data.show_success_message = true;
-    req.session.data.oaktree_farm.livestock_2025 = 'added';
+    req.session.data.oaktree_farm.livestock_loading = 'added';
     req.session.data.livestock_number_january = null
     req.session.data.livestock_number_february = null
     req.session.data.livestock_number_march = null
@@ -208,11 +220,11 @@ router.get(/livestockadvanced_handler/, function (req, res) {
         req.session.data.chosen_livestock.total = req.session.data.livestock_number
     }
     // console.log('1' + req.session.data.chosen_livestock)
-    // console.log('2' + req.session.data.livestock_2025)
+    // console.log('2' + req.session.data.livestock_loading)
     req.session.data.livestock_record_2025.push(req.session.data.chosen_livestock)
     req.session.data.show_success_message = true;
-    req.session.data.oaktree_farm.livestock_2025 = 'added';
-    req.session.data.oaktree_farm.livestock_advanced = 'added';
+    req.session.data.oaktree_farm.livestock_loading = 'added';
+    req.session.data.oaktree_farm.livestock_inventory = 'added';
     req.session.data.livestock_number_january = null
     req.session.data.livestock_number_february = null
     req.session.data.livestock_number_march = null
@@ -242,7 +254,7 @@ router.get(/storage_year_handler/, callback_functions.hideSuccessMessage, functi
 
 router.get(/livestock_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.planning_year = req.query.harvest_date
-    if (req.session.data.oaktree_farm.livestock_2025 == 'added') {
+    if (req.session.data.oaktree_farm.livestock_loading == 'added') {
         res.redirect('manage_livestock')
     } else {
         res.redirect('../../add_livestock/derogation')
@@ -255,7 +267,7 @@ router.get(/inventory_submit_router/, function (req, res) {
         next = 'checklist';
         req.session.data.show_error = true;
     }
-    if (req.session.data.oaktree_farm.livestock_2025 == false) {
+    if (req.session.data.oaktree_farm.livestock_loading == false) {
         next = 'checklist'
         req.session.data.show_error = true
     }
@@ -272,7 +284,7 @@ router.get(/n_loading_submit_router/, function (req, res) {
         next = 'checklist';
         req.session.data.show_error = true;
     }
-    if (req.session.data.oaktree_farm.livestock_2025 == 'not_answered') {
+    if (req.session.data.oaktree_farm.livestock_loading == 'not_answered') {
         next = 'checklist'
         req.session.data.show_error = true
     }

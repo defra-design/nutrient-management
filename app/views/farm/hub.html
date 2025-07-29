@@ -102,7 +102,7 @@
           </li>
         {% endif %}
 
-        {% if data.oaktree_farm.livestock_2025 == 'added' %}
+        {% if data.oaktree_farm.livestock_loading == 'added' %}
           <li>
             <a class="govuk-link" href="livestock_report_reset">Update livestock details</a>
           </li> 
@@ -166,7 +166,7 @@
       <ul class="menu-list govuk-list govuk-list--spaced">
         <li>
           <a class="govuk-link" href="livestock/livestock_years">
-            {% if data.oaktree_farm.livestock_2025 == 'added' %}
+            {% if data.oaktree_farm.livestock_loading == 'added' %}
               Update 
             {% else %}
               Add

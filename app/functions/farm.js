@@ -9,8 +9,8 @@ latest_update,
 use_mvp_fields,
 setup,
 fields_added,
-livestock_2025,
-livestock_advanced,
+livestock_loading,
+livestock_inventory,
 storage_added,
 low_risk_land_added,
 rainwater_area_added,
@@ -33,8 +33,8 @@ ewr
     this.use_mvp_fields = use_mvp_fields,
     this.setup = setup,
     this.fields_added = fields_added,
-    this.livestock_2025 = livestock_2025,
-    this.livestock_advanced = livestock_advanced,
+    this.livestock_loading = livestock_loading,
+    this.livestock_inventory = livestock_inventory,
     this.storage_added = storage_added,
     this.low_risk_land_added = low_risk_land_added,
     this.rainwater_area_added = rainwater_area_added,
@@ -58,8 +58,8 @@ Farm.prototype.printFarm = function () {
                 this.use_mvp_fields + ", " +
                 this.setup + ", " +
                 this.fields_added + ", " +
-                this.livestock_2025 + ", " +
-                this.livestock_advanced + ", " +
+                this.livestock_loading + ", " +
+                this.livestock_inventory + ", " +
                 this.storage_added + ", " +
                 this.rainwater_area_added + ", " +
                 this.low_risk_land_added + ", " +
@@ -83,8 +83,8 @@ Farm.prototype.reset = function () {
     this.use_mvp_fields = false,
     this.setup = false,
     this.fields_added = false,
-    this.livestock_2025 = 'not_answered',
-    this.livestock_advanced = 'not_answered',
+    this.livestock_loading = 'not_answered',
+    this.livestock_inventory = 'not_answered',
     this.storage_added = false,
     this.rainwater_area_added = false,
     this.low_risk_land_added = false,

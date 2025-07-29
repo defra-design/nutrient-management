@@ -145,7 +145,7 @@ router.get(/plan_setup/, function (req, res) {
     req.session.data.all_fields = req.session.data.complete_field_list
     req.session.data.oaktree_farm.planning_year = '2025'
     req.session.data.oaktree_farm.area_added = true
-    req.session.data.oaktree_farm.livestock_2025 = 'added'
+    req.session.data.oaktree_farm.livestock_loading = 'added'
     req.session.data.oaktree_farm.storage_added = true
     req.session.data.oaktree_farm.derogation = false
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[1])

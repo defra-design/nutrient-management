@@ -82,9 +82,4 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
     res.redirect(next)
 })
 
-
-
-
-
-
 module.exports = router

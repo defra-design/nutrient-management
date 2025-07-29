@@ -11,7 +11,7 @@
               <a class="nolink" href="area">Farm area for {{data.oaktree_farm.planning_year}} must be completed</a>
             </li>
           {% endif %}
-          {% if data.oaktree_farm.livestock_2025 == false %}
+          {% if data.oaktree_farm.livestock_loading == false %}
             <li>
               <a class="nolink" href="../../../add_livestock/livestock_group">Livestock numbers for {{data.oaktree_farm.planning_year}} must be completed</a>
             </li>
@@ -44,7 +44,7 @@
           To create the report you must add:
         </p>
         <ul class="govuk-list govuk-list--bullet">
-          {% if data.oaktree_farm.livestock_2025 == false %}
+          {% if data.oaktree_farm.livestock_loading == false %}
             <li>Livestock numbers for 2025</li>
           {% endif %}
 

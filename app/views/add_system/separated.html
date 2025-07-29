@@ -19,55 +19,16 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Is the slurry separated by mechanical separation? 
+        What percentage of this livestock's manure goes through mechanical separation? 
       </h1>
 
-      <!-- <p class="govuk-body">
-        The information entered about this organic material application will not be saved.
-      </p> -->
-
       <form class="form" action="slurry_separated_handler" method="post">
-      
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="slurry_separated-hint">
-          <div id="slurry_separated-hint" class="govuk-hint">
-            Select one option
+        
+        <div class="govuk-form-group margin-bottom-thirty">
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" id="livestock_occupancy" name="livestock_occupancy" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">%</div>
           </div>
-          <div class="govuk-radios" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="slurry_separated" name="slurry_separated" type="radio" value="yes" data-aria-controls="conditional-slurry_separated">
-              <label class="govuk-label govuk-radios__label" for="slurry_separated">
-                Yes
-              </label>
-            </div>
-            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-slurry_separated">
-              <div class="govuk-form-group">
-                <label class="govuk-label" for="slurry_separated-yes">
-                  How much of this livestock type's manure goes into the separator?
-                </label>
-                  <div class="govuk-input__wrapper">
-                    <input class="govuk-input govuk-input--width-5" id="slurry_percentage" name="slurry_percentage" type="text" spellcheck="false" autocomplete="off">
-                    <div class="govuk-input__suffix" aria-hidden="true">%</div>
-                  </div>
-              </div>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="slurry_separated-no" name="slurry_separated" type="radio" value="text" data-aria-controls="conditional-slurry_separated-no">
-              <label class="govuk-label govuk-radios__label" for="slurry_separated-no">
-                No
-              </label>
-            </div>
-            <!-- <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-slurry_separated-no">
-              <div class="govuk-form-group">
-                <label class="govuk-label" for="slurry_separated-by-text">
-                  Mobile phone number
-                </label>
-                <input class="govuk-input govuk-!-width-one-third" id="slurry_separated-by-text" name="slurry_separatedByText" type="tel" autocomplete="tel">
-              </div>
-            </div> -->
-          </div>
-        </fieldset>
-      </div>
+        </div>
 
       {{ govukButton({
           text: "Continue"

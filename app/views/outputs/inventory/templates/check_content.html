@@ -21,11 +21,11 @@
 
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     <div class="govuk-task-list__name-and-hint">
-      <a class="govuk-link govuk-task-list__link" href="derogation" aria-describedby="company-details-1-status">
-        Manure
+      <a class="govuk-link govuk-task-list__link" href="separation" aria-describedby="company-details-1-status">
+        Mechanical separation
       </a>
     </div>
-    {% if data.oaktree_farm.derogation != null %}
+    {% if data.oaktree_farm.separation != null %}
       <div class="govuk-task-list__status" id="company-details-1-status">
         Completed
       </div>
@@ -120,7 +120,8 @@
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     {% if data.oaktree_farm.livestock_advanced == 'not_answered' %}
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="../../../add_livestock_advanced/livestock_none" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="system_list" aria-describedby="company-details-1-status">
+        <!-- <a class="govuk-link govuk-task-list__link" href="../../../add_livestock_advanced/livestock_none" aria-describedby="company-details-1-status"> -->
           Livestock details
         </a>
       </div>
@@ -132,13 +133,14 @@
     {% else %}
       {% if data.oaktree_farm.livestock_advanced == 'none' %}
         <div class="govuk-task-list__name-and-hint">
-          <a class="govuk-link govuk-task-list__link" href="../../../add_livestock_advanced/livestock_none" aria-describedby="company-details-1-status">
+          <a class="govuk-link govuk-task-list__link" href="system_list" aria-describedby="company-details-1-status">
+          <!-- <a class="govuk-link govuk-task-list__link" href="../../../add_livestock_advanced/livestock_none" aria-describedby="company-details-1-status"> -->
             Livestock details
           </a>
         </div>
       {% else %}
         <div class="govuk-task-list__name-and-hint">
-          <a class="govuk-link govuk-task-list__link" href="reset_manage_livestock_message_handler" aria-describedby="company-details-1-status">
+          <a class="govuk-link govuk-task-list__link" href="system_list" aria-describedby="company-details-1-status">
             Livestock details
           </a>
         </div>

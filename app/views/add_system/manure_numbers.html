@@ -17,49 +17,38 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-
-    <div class="govuk-grid-column-full">
-      
-      <form action="/outputs/inventory/system_list" method="post" novalidate="">
+    <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-l">
-            Manure system
+          Enter the monthly totals and manure system information
         </h1>
 
-        <p class="govuk-body">
+        <p class="govuk-body margin-bottom-forty">
           Selected livestock type: {{data.chosen_livestock.name | capitalize}}
         </p>
 
-        <h2 class="govuk-heading-m">
-          Default values
-        </h2>
-
-        <details class="govuk-details">
+        <!-- <details class="govuk-details">
           <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
               About the default values
               </span>
           </summary>
           <div class="govuk-details__text">
-              <!-- <p class="govuk-body">
-                  Occupancy is the proportion of the year that the animal place is occupied by animals.
-              </p>
-              <p class="govuk-body">
-                  The remaining time will be for cleaning etc. 
-              </p>
-              <p class="govuk-body">
-                  If the occupancy on your farm is different to the occupancy values shown here, you should enter the actual occupancy figures for your farm.
-              </p>
-              <p class="govuk-body">
-                  If you enter your own nitrogen (N) standard figure, do not change the occupancy value.
-              </p> -->
           </div>
-        </details>
+        </details> -->
+
+      </div>
+    </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      
+      <form action="/outputs/inventory/system_list" method="post" novalidate="">
 
         {% include "./templates/table.html" ignore missing %}
         
         <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Continue
+          Done
         </button>
 
       </form>

@@ -130,21 +130,36 @@ router.get(/livestock_loading_handler/, callback_functions.hide_error, function 
     res.redirect(next);
 })
 
-router.get(/livestock_inventory_handler/, callback_functions.hide_error, function (req, res) {
-    var next = 'livestock_group'
-    // if added
-    if (req.session.data.livestock_loading == 'no') {
+// is there any livestock question (livestock none)
+router.get(/livestock_inventory_router/, callback_functions.hide_error, function (req, res) {
+    let next
+    if (req.session.data.livestock_inventory == 'no') { 
         req.session.data.oaktree_farm.livestock_inventory = 'none'
-        req.session.data.oaktree_farm.livestock_loading = 'none'
-        next = 'reset_inventory_checklist_message_handler'
+        next = '/outputs/inventory/checklist'
     } else {
-        if (req.session.data.oaktree_farm.livestock_loading == 'added') {
-            next = 'copy_list'
-        }
+        next = '/add_livestock_inventory/livestock_group'
     }
     res.redirect(next);
 })
 
+// is there any livestock checklist link
+router.get(/livestock_inventory_handler/, callback_functions.hide_error, function (req, res) {
+    // if inventory added go to the list
+    // if nlaoding not added did you have livestock?
+    // if nlaoding added copy that list
+    let next;
+
+    if (req.session.data.oaktree_farm.livestock_inventory == 'added') { 
+        next = '/outputs/inventory/manage_livestock/index'
+    } else {
+        if (req.session.data.oaktree_farm.livestock_loading == 'added') { 
+            next = 'copy_list'
+        } else {
+            next = '/add_livestock_inventory/livestock_none'
+        }
+    }
+    res.redirect(next);
+})
 
 //inventory and storage routes 
 
@@ -215,7 +230,7 @@ router.get(/livestockcheck_handler/, function (req, res) {
     res.redirect('/farm/livestock/manage_livestock')
 })
 
-router.get(/livestockadvanced_handler/, function (req, res) { 
+router.get(/livestockinventory_handler/, function (req, res) { 
     if (req.session.data.livestock_number != null && req.session.data.livestock_number != '') {
         req.session.data.chosen_livestock.total = req.session.data.livestock_number
     }
@@ -239,7 +254,7 @@ router.get(/livestockadvanced_handler/, function (req, res) {
     req.session.data.livestock_number_december = null
     req.session.data.nitrogen_standard = null
     req.session.data.livestock_occupancy = null
-    res.redirect('/outputs/inventory/system_list')
+    res.redirect('/outputs/inventory/manage_livestock/index')
 })
 
 

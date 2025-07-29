@@ -1,0 +1,84 @@
+{% macro solid_table() %}
+  <table class="govuk-table data-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header manure_system">Manure system</th>
+        <th scope="col" class="govuk-table__header">Occupancy</th>
+        <th scope="col" class="govuk-table__header">Collected as Slurry</th>
+        <th scope="col" class="govuk-table__header">Bedding factor</th>
+        <th scope="col" class="govuk-table__header">Bedding per month</th>
+        <th scope="col" class="govuk-table__header">Slurry separated</th>
+        <th scope="col" class="govuk-table__header"> </th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Solid manure mostly</td>
+        <td class="govuk-table__cell">90%</td>
+        <td class="govuk-table__cell">40%</td>
+        <td class="govuk-table__cell">1.15</td>
+        <td class="govuk-table__cell">1.1 tonnes</td>
+        <td class="govuk-table__cell">0%</td>
+      </tr>
+    </tbody>
+  </table>
+{% endmacro %}
+
+
+{% macro slurry_table() %}
+<table class="govuk-table data-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header manure_system">Manure system</th>
+      <th scope="col" class="govuk-table__header">Occupancy</th>
+      <th scope="col" class="govuk-table__header">Collected as Slurry</th>
+      <th scope="col" class="govuk-table__header">Slurry separated</th>
+      <th scope="col" class="govuk-table__header"> </th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Slurry mostly</td>
+      <td class="govuk-table__cell">90%</td>
+      <td class="govuk-table__cell">100%</td>
+      <td class="govuk-table__cell">0%</td>
+    </tr>
+  </tbody>
+</table>
+{% endmacro %}
+
+
+{% macro monthbedding(name, number) %}
+  <div class="margin-bottom-thirty">
+    <h2 class="govuk-heading-m">{{name}}</h2>
+    <h3 class="govuk-heading-s">{{number}} cattle</h3>
+      {{ slurry_table() }}
+    <p class="govuk-body margin-bottom-thirty"><a href="#">Change</a></p>
+    <hr>
+  </div>
+{% endmacro %}
+
+{% macro monthbedding_solid(name, number) %}
+  <div class="margin-bottom-thirty">
+    <h2 class="govuk-heading-m">{{name}}</h2>
+    <h3 class="govuk-heading-s">{{number}} cattle</h3>
+      {{ solid_table() }}
+    <p class="govuk-body margin-bottom-thirty"><a href="#">Change</a></p>
+    <hr>
+  </div>
+{% endmacro %}
+
+
+
+      {{ monthbedding("October", 10) }}
+      {{ monthbedding_solid("November", 10) }}
+      {{ monthbedding_solid("December", 10) }}
+      {{ monthbedding_solid("January", 10) }}
+      {{ monthbedding("February", 10) }}
+      {{ monthbedding("March", 10) }}
+      {{ monthbedding("April", 10) }}
+      {{ monthbedding("May", 10) }}
+      {{ monthbedding("June", 10) }}
+      {{ monthbedding("July", 10) }}
+      {{ monthbedding("August", 10) }}
+      {{ monthbedding("September", 10) }}

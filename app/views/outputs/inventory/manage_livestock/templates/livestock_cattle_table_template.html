@@ -1,0 +1,68 @@
+<div class="margin-bottom-thirty">   
+  <!-- {% if livestock_type == 'other' %}
+    <p class="govuk-body"><a href="add_livestock_handler?livestock_type={{livestock_type}}">Add {{livestock_type}} livestock type</a></p>
+  {% else %}
+      <p class="govuk-body"><a href="add_livestock_handler?livestock_type={{livestock_type}}">Add {{livestock_type}} type</a></p>
+  {% endif %} -->
+
+  <table class="govuk-table data-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header livestock-type">{{livestock_type | capitalize }} type</th>
+        <th scope="col" class="govuk-table__header">Average for year</th>
+        
+        {% if livestock_type != 'cattle' %}
+          <th scope="col" class="govuk-table__header">Occupancy</th>
+        {% endif %}
+
+        <th scope="col" class="govuk-table__header"><span class="no_wrap">Nitrogen (N)</span> standard</th>
+        <th scope="col" class="govuk-table__header">Total <span class="no_wrap">nitrogen (N)</span></th>
+        <th scope="col" class="govuk-table__header">Phosphate (P2O5) standard</th>
+        <th scope="col" class="govuk-table__header">Total Phosphate (P2O5)</th>
+        <th scope="col" class="govuk-table__header"> </th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      {% set animal_total = 0 %}
+
+      {% set total_n = 0 %}
+
+      {% for animal in data.livestock_record_2025 %}
+        {% if animal.type == livestock_type %}
+          {% set animal_total = animal.total * animal.nitrogen %}
+          {% set total_n = total_n + animal_total %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{animal.rate}} {{animal.name | capitalize}}</td>
+            <td class="govuk-table__cell">{{animal.total}}</td>
+
+            {% if livestock_type != 'cattle' %}
+              <td class="govuk-table__cell">100%</td>
+            {% endif %}
+  
+            <td class="govuk-table__cell">{{animal.nitrogen}}kg</td>
+            <td class="govuk-table__cell">{{animal_total}}kg</td>
+            <td class="govuk-table__cell">8.4kg</td>
+            <td class="govuk-table__cell">17kg</td>
+            <td class="govuk-table__cell">
+              <a href="">Change</a>
+            </td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell strong">Totals</td>
+        <td class="govuk-table__cell">-</td>
+
+        {% if livestock_type != 'cattle' %}
+          <td class="govuk-table__cell">-</td>
+        {% endif %}
+
+        <td class="govuk-table__cell">-</td>
+        <td class="govuk-table__cell strong">{{total_n}}kg</td>
+        <td class="govuk-table__cell">-</td>
+        <td class="govuk-table__cell strong">Figure</td>
+        <td class="govuk-table__cell"> </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

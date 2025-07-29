@@ -151,11 +151,8 @@ router.get(/plan_setup/, function (req, res) {
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[1])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[2])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[3])
-    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[3])
-    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[13])
-    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[21])
-    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[12])
-    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[35])
+    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[4])
+    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[5])
     req.session.data.oaktree_farm.manure_imports = true
     req.session.data.oaktree_farm.manure_exports = true
     req.session.data.oaktree_farm.imports_exports = 'added'

@@ -100,6 +100,7 @@ router.get(/get_livestock_reference/, function (req, res) {
 })
 
 router.get(/advanced_livestock_reference/, function (req, res) {
+    // console.log('get livestock reference ' + req.session.data.livestock_reference)
     for (var reference in req.session.data.livestock_types ) {
         if (req.session.data.livestock_types[reference].reference == req.session.data.livestock_reference) {
             // console.log('found ' + req.session.data.livestock_types[reference])
@@ -109,8 +110,9 @@ router.get(/advanced_livestock_reference/, function (req, res) {
     // res.redirect("how_to_enter")
     if (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry' ) {
         req.session.data.livestock_entry = 'annually'
+        next = 'livestock_numbers_average'
     }
-    res.redirect('manure_numbers')
+    res.redirect('livestock_numbers')
 })
 
 router.get(/add_livestock_handler/, function (req, res) {

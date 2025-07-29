@@ -18,7 +18,6 @@
 
 {% macro monthitem(name) %}
   <div class="margin-bottom-forty">
-    <h3 class="govuk-heading-s margin-bottom-ten">{{name}}</h3>
     <div class="govuk-form-group">
       <label class="govuk-label" for="livestock_number_{{name | lower}}">
         How many of this {{data.chosen_livestock.shortname}} type did you have in {{name}}?
@@ -28,14 +27,6 @@
         <div class="govuk-input__suffix" aria-hidden="true">{{data.chosen_livestock.shortname}}</div>
       </div>
     </div>
-      <div class="govuk-form-group">
-        <label class="govuk-label" for="livestock_occupancy_{{name | lower}}">
-          What is the occupancy in {{name}}?
-        </label>
-        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="100" id="livestock_occupancy_{{name | lower}}" name="livestock_occupancy_{{name | lower}}" type="text" spellcheck="false" autocomplete="off">
-          <div class="govuk-input__suffix" aria-hidden="true">%</div>
-        </div>
-      </div>
   </div>
 {% endmacro %}
 
@@ -45,7 +36,6 @@
       
       <form action="check" method="post" novalidate="">
 
-        <!-- <h1 class="govuk-heading-l">Number of this {{data.chosen_livestock.shortname}} type, per month</h1>   -->
         <h1 class="govuk-heading-l">
           Monthly totals for this {{data.chosen_livestock.shortname}} type between October 2025 and September 2025
         </h1>
@@ -62,26 +52,6 @@
           {% endif %}
         </div>
 
-        <!-- <p class="govuk-body">Enter a number for each month or enter a figure for January and select 'Use January's numbers for the rest of the year'</p> -->
-
-
-        <!-- <div class="govuk-form-group">
-          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-              <label class="govuk-label govuk-checkboxes__label" for="waste">
-                Use the January numbers as the average for the year
-              </label>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- <div class="margin-bottom-ten">
-          <a class="govuk-button govuk-button--secondary" href="" data-module="govuk-button">
-            Use the January number as an average for the year
-          </a>
-        </div> -->
-
         {{ monthitem ("October 2024") }}
         {{ monthitem ("November 2024") }}
         {{ monthitem ("December 2024") }}
@@ -94,8 +64,6 @@
         {{ monthitem ("July 2025") }}
         {{ monthitem ("August 2025") }}
         {{ monthitem ("September 2025") }}
-
-
 
         <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
           Continue

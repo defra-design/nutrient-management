@@ -73,7 +73,11 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
     }
     // MANURE INVENTORY AND STORAGE
     if (req.session.data.export_type == '8') {
-        next = './inventory/derogation'
+        if (req.session.data.oaktree_farm.derogation == null) {
+            next = './inventory/derogation'
+        } else {
+            next = './inventory/separator'
+        }
     }
     res.redirect(next)
 })

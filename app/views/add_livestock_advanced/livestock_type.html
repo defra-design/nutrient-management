@@ -31,6 +31,7 @@
       <p class="govuk-hint">Select one {{data.livestock_group}} type. You can add more {{data.livestock_group}} types later.</p>
     {% endif %}
 
+
       <form class="form" action="advanced_livestock_reference" method="post">
 
         <div class="govuk-form-group">
@@ -53,6 +54,19 @@
             </div>
           </fieldset>
         </div>
+
+    <!-- <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="signIn" name="signIn" type="radio" value="government-gateway" aria-describedby="signIn-item-hint">
+        <label class="govuk-label govuk-radios__label" for="signIn">
+          Sign in with Government Gateway
+        </label>
+        <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+          You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before
+        </div>
+      </div>
+    </div>
+</div> -->
 
         {{ govukButton({
           text: "Continue"

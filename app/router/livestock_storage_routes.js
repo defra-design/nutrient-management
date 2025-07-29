@@ -48,7 +48,7 @@ router.get(/check_storage_handler/, function (req, res) {
 
 router.get(/livestock_report_reset/, callback_functions.hideSuccessMessage, function (req, res) {
     req.session.data.export_type = null
-    res.redirect('livestock/livestock_years')
+    res.redirect('livestock/manage_livestock')
 })
 
 router.get(/manure_system_skip_handler/, callback_functions.hideSuccessMessage, function (req, res) {

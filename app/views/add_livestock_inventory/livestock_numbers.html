@@ -18,14 +18,23 @@
 
 {% macro monthitem(name, year) %}
   <div class="margin-bottom-forty">
+    <h3 class="govuk-heading-s margin-bottom-ten">{{name}} {{year}}</h3>
     <div class="govuk-form-group">
       <label class="govuk-label" for="livestock_number_{{name | lower}}">
         <!-- How many of this {{data.chosen_livestock.shortname}} type did you have in {{name}}? -->
-        Enter the total for {{name}} {{year}}
+        What is the total number of this {{data.chosen_livestock.shortname}} type for {{name}} {{year}}?
       </label>
       <div class="govuk-input__wrapper">
         <input class="govuk-input govuk-input--width-5" id="livestock_number_{{name | lower}}" name="livestock_number_{{name | lower}}" type="text" spellcheck="false" autocomplete="off">
         <div class="govuk-input__suffix" aria-hidden="true">{{data.chosen_livestock.shortname}}</div>
+      </div>
+    </div>
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="livestock_occupancy_{{name | lower}}">
+        What is the  occupancy in {{name}}?
+      </label>
+      <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="97" id="livestock_occupancy_{{name | lower}}" name="livestock_occupancy_{{name | lower}}" type="text" spellcheck="false" autocomplete="off">
+        <div class="govuk-input__suffix" aria-hidden="true">%</div>
       </div>
     </div>
   </div>
@@ -38,12 +47,15 @@
       <form action="check" method="post" novalidate="">
 
         <h1 class="govuk-heading-l">
-          Enter the number of this {{data.chosen_livestock.shortname}} type for each month
+          Enter the total number of this {{data.chosen_livestock.shortname}} type, and its occupancy for each month
         </h1>
 
         <p class="govuk-body">
             Selected livestock type: {{data.chosen_livestock.name | capitalize}}
         </p>
+
+        {% include "./occupancy_details.html" ignore missing %}
+
 
         {{ monthitem ("October", "2024") }}
         {{ monthitem ("November", "2024") }}

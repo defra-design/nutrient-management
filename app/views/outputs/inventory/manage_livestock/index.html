@@ -46,7 +46,7 @@
         </div>
       </div>
             
-      {% if data.oaktree_farm.livestock_loading == 'added' %}
+      {% if data.oaktree_farm.livestock_inventory == 'added' %}
 
       <!-- <div>
         {% include "./templates/derogation.html" ignore missing %}
@@ -65,8 +65,8 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-  
-      {% if data.oaktree_farm.livestock_loading == 'added' %}
+
+      {% if data.oaktree_farm.livestock_inventory == 'added' %}
           {% include "./livestock_tables.html" ignore missing %}
       {% else %}
         <p class="govuk-body">You have not added any livestock information.</p>

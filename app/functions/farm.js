@@ -18,6 +18,7 @@ area_added,
 imports_exports,
 manure_exports,
 manure_imports,
+manure_system,
 rainfall,
 derogation,
 ewr
@@ -41,6 +42,7 @@ ewr
     this.area_added = area_added,
     this.manure_exports = manure_exports,
     this.manure_imports = manure_imports,
+    this.manure_system = manure_system,
     this.imports_exports = imports_exports,
     this.rainfall = rainfall
     this.derogation = derogation,
@@ -66,6 +68,7 @@ Farm.prototype.printFarm = function () {
                 this.area_added + ", " +
                 this.manure_exports + ", " +
                 this.manure_imports + ", " +
+                this.manure_system + ", " +
                 this.imports_exports + ", " +
                 this.rainfall + ", " +
                 this.derogation + ", " +
@@ -91,6 +94,7 @@ Farm.prototype.reset = function () {
     this.area_added = false,
     this.manure_exports = false,
     this.manure_imports = false,
+    this.manure_system = 'not_answered',
     this.imports_exports = 'not_answered',
     this.rainfall = 600,
     this.derogation = null,

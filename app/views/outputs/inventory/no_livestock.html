@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        You need to add livestock numbers for October 2024 to September 2025 first.
+      </h1>
+
+      <div class="margin-bottom-forty">
+        <p class="govuk-hint">
+          You need to complete that section even if you didn't have any livestock between October 2024 to September 2025
+        </p>
+      </div>
+
+      <form class="form" action="/add_livestock_inventory/livestock_none" method="post">
+
+        {{ govukButton({
+          text: "Continue to livestock section"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+  
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

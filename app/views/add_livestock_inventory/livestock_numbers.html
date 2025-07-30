@@ -16,11 +16,12 @@
 
 {% block content %}
 
-{% macro monthitem(name) %}
+{% macro monthitem(name, year) %}
   <div class="margin-bottom-forty">
     <div class="govuk-form-group">
       <label class="govuk-label" for="livestock_number_{{name | lower}}">
-        How many of this {{data.chosen_livestock.shortname}} type did you have in {{name}}?
+        <!-- How many of this {{data.chosen_livestock.shortname}} type did you have in {{name}}? -->
+        Enter the total for {{name}} {{year}}
       </label>
       <div class="govuk-input__wrapper">
         <input class="govuk-input govuk-input--width-5" id="livestock_number_{{name | lower}}" name="livestock_number_{{name | lower}}" type="text" spellcheck="false" autocomplete="off">
@@ -37,33 +38,25 @@
       <form action="check" method="post" novalidate="">
 
         <h1 class="govuk-heading-l">
-          Monthly totals for this {{data.chosen_livestock.shortname}} type between October 2025 and September 2025
+          Enter the number of this {{data.chosen_livestock.shortname}} type for each month
         </h1>
 
-    <p class="govuk-body">
-        Selected livestock type: {{data.chosen_livestock.name | capitalize}}
-    </p>
+        <p class="govuk-body">
+            Selected livestock type: {{data.chosen_livestock.name | capitalize}}
+        </p>
 
-        <div class="margin-bottom-thirty">
-          {% if data.livestock_group == 'cattle' %}
-            <p class="govuk-body">Nitrogen (N) standard: {{data.chosen_livestock.nitrogen}}kg per animal, per year.</p>
-          {% else %}
-            <p class="govuk-body">Occupancy is the length of time you have these animals on the farm.</p>
-          {% endif %}
-        </div>
-
-        {{ monthitem ("October 2024") }}
-        {{ monthitem ("November 2024") }}
-        {{ monthitem ("December 2024") }}
-        {{ monthitem ("January 2025") }}
-        {{ monthitem ("February 2025") }}
-        {{ monthitem ("March 2025") }}
-        {{ monthitem ("April 2025") }}
-        {{ monthitem ("May 2025") }}
-        {{ monthitem ("June 2025") }}
-        {{ monthitem ("July 2025") }}
-        {{ monthitem ("August 2025") }}
-        {{ monthitem ("September 2025") }}
+        {{ monthitem ("October", "2024") }}
+        {{ monthitem ("November", "2024") }}
+        {{ monthitem ("December", "2024") }}
+        {{ monthitem ("January", "2025") }}
+        {{ monthitem ("February", "2025") }}
+        {{ monthitem ("March", "2025") }}
+        {{ monthitem ("April", "2025") }}
+        {{ monthitem ("May", "2025") }}
+        {{ monthitem ("June", "2025") }}
+        {{ monthitem ("July", "2025") }}
+        {{ monthitem ("August", "2025") }}
+        {{ monthitem ("September", "2025") }}
 
         <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
           Continue

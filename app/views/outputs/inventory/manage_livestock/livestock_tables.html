@@ -1,5 +1,3 @@
-{% set livestock_count = 0 %}
-
 {% set cattle_added = false %}
 {% set pig_added = false %}
 {% set poultry_added = false %}
@@ -31,33 +29,5 @@
 
 {% endfor %}
 
-
-<!-- how many types have been added? -->
-{% if cattle_added == true %}
-  {% set livestock_count = livestock_count + 1 %}
-{% endif %}
-
-{% if pig_added == true %}
-  {% set livestock_count = livestock_count + 1 %}
-{% endif %}
-
-{% if poultry_added == true %}
-  {% set livestock_count = livestock_count + 1 %}
-{% endif %}
-
-{% if sheep_added == true %}
-  {% set livestock_count = livestock_count + 1 %}
-{% endif %}
-
-{% if other_added == true %}
-  {% set livestock_count = livestock_count + 1 %}
-{% endif %}
-
-
  <!-- use the right template -->
-{% if livestock_count == 1 %}
-  <hr class="seperator_zero">
-  {% include "./templates/livestock_lists.html" ignore missing %}
-{% else %}
-  {% include "./templates/livestock_tabs.html" ignore missing %}
-{% endif %}
+{% include "./templates/livestock_lists.html" ignore missing %}

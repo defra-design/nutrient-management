@@ -39,18 +39,11 @@
         
           <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
           <h1 class="govuk-heading-l" id="header">Livestock details</h1>
-
-          <!-- <p class="govuk-body">Last updated 19 April 2025.</p> -->
-          <!-- <p class="govuk-body margin-bottom-thirty">{{data.oaktree_farm.name}} does not have a derogation for {{data.oaktree_farm.planning_year}} . <a href="">Add derogation</a>.</p> -->
             
         </div>
       </div>
             
       {% if data.oaktree_farm.livestock_inventory == 'added' %}
-
-      <!-- <div>
-        {% include "./templates/derogation.html" ignore missing %}
-      </div> -->
 
         <form class="margin-bottom-ten" action="../../add_livestock/livestock_group" method="post" novalidate="">    
           <button class="govuk-button" data-module="govuk-button">

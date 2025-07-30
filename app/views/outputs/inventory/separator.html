@@ -19,23 +19,23 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Do any of the manures produced at {{data.oaktree_farm.name}} go through a mechanical separator?
+        Do any of the manures produced at {{data.oaktree_farm.name}} go through a mechanical mech_separator?
       </h1>
 
-      <form class="form" action="derogation_router" method="post">
+      <form class="form" action="manage_livestock/systems" method="post">
       
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
             <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="separator-1" name="separator" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="separator">
+                <input class="govuk-radios__input" id="mech_separator-1" name="mech_separator" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="mech_separator-1">
                   Yes
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="separator-2" name="separator" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="separator-2">
+                <input class="govuk-radios__input" id="mech_separator-2" name="mech_separator" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="mech_separator-2">
                   No
                 </label>
               </div>

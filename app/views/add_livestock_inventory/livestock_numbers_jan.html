@@ -21,20 +21,18 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        October 2024 totals for this cattle type
+        Total number and occupancy for October 2024
       </h1>
 
       <p class="govuk-body">
         Selected livestock type: {{data.chosen_livestock.name | capitalize}}
       </p>
 
-      <p class="govuk-body">Nitrogen (N) standard: {{data.chosen_livestock.nitrogen}}kg Nitrogen (N) per animal, per year</p>
-
       <form action="check" method="post" novalidate="">
 
         <div class="govuk-form-group margin-bottom-thirty">
           <label class="govuk-label" for="livestock_number">
-            How many of this cattle type did you have in October 2024?
+            What is the total number of this {{data.chosen_livestock.shortname}} type for October 2024?
           </label>
           <div class="govuk-input__wrapper">
             <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
@@ -42,16 +40,16 @@
           </div>
         </div>
 
-          <div class="govuk-form-group margin-bottom-thirty">
+          <div class="govuk-form-group margin-bottom-forty">
             <label class="govuk-label" for="livestock_occupancy">
-              Occupancy in January
+              What is the occupancy in October?
             </label>
-            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="100" id="livestock_occupancy" name="livestock_occupancy" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="97" id="livestock_occupancy" name="livestock_occupancy" type="text" spellcheck="false" autocomplete="off">
               <div class="govuk-input__suffix" aria-hidden="true">%</div>
             </div>
           </div>
 
-          <div class="govuk-form-group margin-bottom-thirty">
+          <!-- <div class="govuk-form-group margin-bottom-thirty">
             <label class="govuk-label" for="livestock_occupancy">
               What is the manure system in January?
             </label>
@@ -70,6 +68,18 @@
                   </label>
                 </div>
             </div>
+          </div> -->
+
+          <div class="govuk-form-group">
+            <h3 class="govuk-heading-s">Use these numbers for the following months</h3>
+            <p class="govuk-body">Select this box to use these numbers for the rest of the year. You can change the numbers before you save.</p>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  Copy these numbers to the following months
+                </label>
+              </div>
           </div>
 
         

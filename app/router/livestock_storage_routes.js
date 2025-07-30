@@ -112,7 +112,7 @@ router.get(/advanced_livestock_reference/, function (req, res) {
         req.session.data.livestock_entry = 'annually'
         next = 'livestock_numbers_average'
     }
-    res.redirect('livestock_numbers')
+    res.redirect('livestock_numbers_jan')
 })
 
 router.get(/add_livestock_handler/, function (req, res) {

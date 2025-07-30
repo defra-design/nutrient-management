@@ -151,7 +151,7 @@ router.get(/livestock_inventory_handler/, callback_functions.hide_error, functio
     let next;
 
     if (req.session.data.oaktree_farm.livestock_inventory == 'added') { 
-        next = '/outputs/inventory/manage_livestock/index'
+        next = '/outputs/inventory/manage_livestock/numbers/index'
     } else {
         if (req.session.data.oaktree_farm.livestock_loading == 'added') { 
             next = 'copy_list'
@@ -164,7 +164,7 @@ router.get(/livestock_inventory_handler/, callback_functions.hide_error, functio
 
 // is there any livestock checklist link
 router.get(/system_inventory_handler/, callback_functions.hide_error, function (req, res) {
-    let next = '/outputs/inventory/system_list'
+    let next = '/outputs/inventory/manage_livestock/systems'
     if (req.session.data.oaktree_farm.livestock_inventory != 'added') { 
         next = '/add_livestock_inventory/livestock_none'
     }
@@ -264,7 +264,7 @@ router.get(/livestockinventory_handler/, function (req, res) {
     req.session.data.livestock_number_december = null
     req.session.data.nitrogen_standard = null
     req.session.data.livestock_occupancy = null
-    res.redirect('/outputs/inventory/manage_livestock/index')
+    res.redirect('/outputs/inventory/manage_livestock/numbers')
 })
 
 

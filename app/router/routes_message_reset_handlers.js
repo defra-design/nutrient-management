@@ -48,4 +48,9 @@ router.get(/reset_manage_land_message_handler/, callback_functions.hideSuccessMe
     res.redirect('/farm/land/manage_land')
 })
 
+// MANAGE LIVESTOCK NUMBERS - INVENTORY
+router.get(/reset_manage_livestock_inventory_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
+    res.redirect('/outputs/inventory/manage_livestock/numbers')
+})
+
 module.exports = router

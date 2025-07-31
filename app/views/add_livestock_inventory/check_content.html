@@ -1,6 +1,6 @@
 {% macro monthitem(name, year) %}
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Total number and occupancy for {{name}} {{year}}</dt>
+    <dt class="govuk-summary-list__key">Numbers for {{name}} {{year}}</dt>
       <dd class="govuk-summary-list__value">
         <ul class="nutrient_values">
           <li>100 {{data.chosen_livestock.shortname}}</li>
@@ -10,7 +10,6 @@
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 {% endmacro %}
-
 
 
 <dl class="govuk-summary-list margin-bottom-forty">

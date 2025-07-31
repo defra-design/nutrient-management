@@ -40,7 +40,11 @@
     <div class="govuk-grid-column-full">
       
       <h3 class="govuk-heading-m margin-bottom-thirty">
-        {{data.chosen_livestock.name | capitalize}}
+        {% if data.chosen_livestock == null %}
+          Dairy cow from 2 months and less than 12 months 
+        {% else %}
+          {{data.chosen_livestock.name | capitalize}}
+        {% endif %}
       </h3>
 
       <form action="systems" method="post" novalidate="">

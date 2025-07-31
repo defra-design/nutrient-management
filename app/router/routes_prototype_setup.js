@@ -146,6 +146,9 @@ router.get(/plan_setup/, function (req, res) {
     req.session.data.oaktree_farm.planning_year = '2025'
     req.session.data.oaktree_farm.area_added = true
     req.session.data.oaktree_farm.livestock_loading = 'added'
+    req.session.data.oaktree_farm.livestock_inventory = 'added'
+    req.session.data.oaktree_farm.manure_system = 'added'
+    req.session.data.oaktree_farm.manure_system_details = 'added'
     req.session.data.oaktree_farm.storage_added = true
     req.session.data.oaktree_farm.derogation = false
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[1])
@@ -169,7 +172,7 @@ router.get(/plan_setup/, function (req, res) {
     for (var y in req.session.data.manure_applications_list) {
         req.session.data.allManureApplications_v2.push(req.session.data.manure_applications_list[y])
     }
-    res.redirect('/farm/crop_plan/plan_view')
+    res.redirect('start')
 })
 
 

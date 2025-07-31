@@ -430,6 +430,17 @@ router.get(/export_type_router/, callback_functions.hide_error, function (req, r
     res.redirect(next);
 })
 
+router.get(/manure_numbers_handler/, callback_functions.hide_error, function (req, res) {
+    console.log(req.query.reference)
+        for (var reference in req.session.data.livestock_types ) {
+        if (req.session.data.livestock_types[reference].reference == req.query.reference) {
+            console.log('found ' + req.session.data.livestock_types[reference])
+            req.session.data.chosen_livestock = req.session.data.livestock_types[reference]
+        }
+    }
+    res.redirect('/outputs/inventory/manage_livestock/manure_numbers');
+})
+
 router.get(/add_manure_system_handler/, callback_functions.hide_error, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.oaktree_farm.manure_system_details = true
     req.session.data.oaktree_farm.manure_system = 'done'

@@ -21,22 +21,21 @@
         {% include "./success_message.html" ignore missing %}
       {% endif %}
       
-      <h1 class="govuk-heading-l" id="header">Livestock numbers</h1>
-      <h2 class="govuk-heading-m">October 2024 to September 2025</h2>
-
-      <p class="govuk-body">Add all livestock types</p>
+      <h1 class="govuk-heading-l" id="header">Add all of the livestock between October 2024 and September 2025</h1>
+      <!-- <h2 class="govuk-heading-m">October 2024 to September 2025</h2> -->
 
       <form class="margin-bottom-ten" action="/add_livestock_inventory/livestock_group" method="post" novalidate="">    
         <button class="govuk-button" data-module="govuk-button">
           Add a livestock type
         </button>
       </form>
-
     </div>
   </div>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-m">Livestock</hs>
 
     {% if data.oaktree_farm.livestock_inventory == 'added' %}
         {% include "./templates/numbers/livestock_tables.html" ignore missing %}

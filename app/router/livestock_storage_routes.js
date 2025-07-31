@@ -426,4 +426,13 @@ router.get(/export_type_router/, callback_functions.hide_error, function (req, r
     res.redirect(next);
 })
 
+
+
+router.get(/add_manure_system_handler/, callback_functions.hide_error, function (req, res) {
+    req.session.data.oaktree_farm.manure_system_details = true
+    res.redirect('manure_numbers');
+})
+
+
+
 module.exports = router

@@ -27,17 +27,14 @@
 
       <h2 class="govuk-heading-m">Livestock</h2>
 
-      {% if data.oaktree_farm.livestock_inventory == 'added' %}
-          {% include "./templates/system/livestock_system_tables.html" ignore missing %}
-      {% else %}
-        <p class="govuk-body">You have not added any livestock information.</p>
-        <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
-          <button class="govuk-button" data-module="govuk-button">
-            Add a livestock type
-          </button>
-        </form>
-      {% endif %}
-      
+      {% include "./templates/system/livestock_system_tables.html" ignore missing %}
+
+      <form action="../checklist" method="post" novalidate="">
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Done
+        </button>
+      </form>
+
     </div>
   </div>
 

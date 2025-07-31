@@ -413,6 +413,10 @@ router.get(/n_loading_export_handler/, callback_functions.setManureGroup, callba
     res.redirect('/add_export/manure_type');
 })
 
+router.get(/inventory_export_handler/, callback_functions.hide_error, function (req, res) {
+    res.redirect('/add_export/manure_group');
+})
+
 router.get(/export_type_router/, callback_functions.hide_error, function (req, res) {
     var next = 'export_type'
     if (req.session.data.imports_exports == 'no') {
@@ -426,12 +430,17 @@ router.get(/export_type_router/, callback_functions.hide_error, function (req, r
     res.redirect(next);
 })
 
-
 router.get(/add_manure_system_handler/, callback_functions.hide_error, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.oaktree_farm.manure_system_details = true
     req.session.data.oaktree_farm.manure_system = 'done'
     res.redirect('manure_numbers');
 })
+
+// router.get(/export_inventory_router/, callback_functions.hide_error, function (req, res) {
+//     req.session.data.oaktree_farm.manure_system_details = true
+//     req.session.data.oaktree_farm.manure_system = 'done'
+//     res.redirect('checklist');
+// })
 
 
 module.exports = router

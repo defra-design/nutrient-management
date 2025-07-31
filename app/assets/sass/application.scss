@@ -1227,3 +1227,21 @@ width: 35%
 .month-name {
     width: 16%;
 }
+
+.manure_system_table {
+    th {
+        width: 14%;
+    }
+    th:first-child {
+        width: 17%;
+    }
+    th:nth-child(2) {
+        width: 10%;
+    }
+    th:nth-child(3) {
+        width: 11%;
+    }
+    th:last-child {
+        width: 5%;
+    }
+}

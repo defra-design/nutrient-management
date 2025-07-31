@@ -1,9 +1,9 @@
 {% macro monthitem(name) %}
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell month-name">{{name}}</td>
+      <td class="govuk-table__cell">{{name}}</td>
       <!-- <td class="govuk-table__cell">-</td>
       <td class="govuk-table__cell">87%</td> -->
-      <td class="govuk-table__cell">Slurry mainly</td>
+      <td class="govuk-table__cell">Slurry</td>
       <td class="govuk-table__cell">100%</td>
       <!-- <td class="govuk-table__cell">1.3 tonnes</td>
       <td class="govuk-table__cell">1.2 tonnes</td> -->
@@ -14,13 +14,13 @@
     </tr>
 {% endmacro %}
 
-<table class="govuk-table data-table">
+<table class="govuk-table manure_system_table">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Month</th>
       <!-- <th scope="col" class="govuk-table__header">Number</th>
       <th scope="col" class="govuk-table__header">Occupancy</th> -->
-      <th scope="col" class="govuk-table__header">Manure system</th>
+      <th scope="col" class="govuk-table__header">System</th>
       <th scope="row" class="govuk-table__header">Slurry collected</th>
       <th scope="row" class="govuk-table__header">Bedding factor</th>
       <th scope="row" class="govuk-table__header">Bedding per month</th>

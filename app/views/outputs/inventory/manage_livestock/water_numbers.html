@@ -20,7 +20,7 @@
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-l">
-          Add the cattle's manure system for each month
+          Add the cattle's wash water for each month
         </h1>
 
         <!-- <details class="govuk-details">
@@ -47,8 +47,8 @@
         {% endif %}
       </h3>
 
-      <form action="systems" method="post" novalidate="">
-        {% include "./templates/manure_numbers_table.html" ignore missing %}
+      <form action="/outputs/inventory/manage_livestock/water" method="post" novalidate="">
+        {% include "./templates/water_numbers_table.html" ignore missing %}
         <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
           Done
         </button>

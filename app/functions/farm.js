@@ -19,6 +19,8 @@ imports_exports,
 manure_exports,
 manure_imports,
 manure_system,
+wash_water,
+wash_water_details,
 manure_system_details,
 rainfall,
 derogation,
@@ -44,6 +46,8 @@ ewr
     this.manure_exports = manure_exports,
     this.manure_imports = manure_imports,
     this.manure_system = manure_system,
+    this.wash_water = wash_water,
+    this.wash_water_details = wash_water_details,
     this.manure_system_details = manure_system_details,
     this.imports_exports = imports_exports,
     this.rainfall = rainfall
@@ -71,6 +75,8 @@ Farm.prototype.printFarm = function () {
                 this.manure_exports + ", " +
                 this.manure_imports + ", " +
                 this.manure_system + ", " +
+                this.wash_water + ", " +
+                this.wash_water_details + ", " +
                 this.manure_system_details + ", " +
                 this.imports_exports + ", " +
                 this.rainfall + ", " +
@@ -99,6 +105,8 @@ Farm.prototype.reset = function () {
     this.manure_imports = false,
     this.manure_system = 'not_answered',
     this.manure_system_details = false
+    this.wash_water = 'not_answered',
+    this.wash_water_details = false
     this.imports_exports = 'not_answered',
     this.rainfall = 600,
     this.derogation = null,

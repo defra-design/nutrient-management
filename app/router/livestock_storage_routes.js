@@ -447,11 +447,27 @@ router.get(/add_manure_system_handler/, callback_functions.hide_error, callback_
     res.redirect('manure_numbers');
 })
 
+router.get(/water_numbers_handler/, callback_functions.hide_error, function (req, res) {
+    console.log(req.query.reference)
+        for (var reference in req.session.data.livestock_types ) {
+        if (req.session.data.livestock_types[reference].reference == req.query.reference) {
+            console.log('found ' + req.session.data.livestock_types[reference])
+            req.session.data.chosen_livestock = req.session.data.livestock_types[reference]
+        }
+    }
+    res.redirect('/outputs/inventory/manage_livestock/water_numbers');
+})
+
+router.get(/add_wash_water_details_handler/, callback_functions.hide_error, callback_functions.showSuccessMessage, function (req, res) {
+    req.session.data.oaktree_farm.wash_water_details = true
+    req.session.data.oaktree_farm.wash_water = 'done'
+    res.redirect('water_numbers');
+})
+
 // router.get(/export_inventory_router/, callback_functions.hide_error, function (req, res) {
 //     req.session.data.oaktree_farm.manure_system_details = true
 //     req.session.data.oaktree_farm.manure_system = 'done'
 //     res.redirect('checklist');
 // })
-
 
 module.exports = router

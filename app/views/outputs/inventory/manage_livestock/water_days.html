@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Daily volume and number of wash days
+      </h1>
+
+      <p class="govuk-body">
+        Selected livestock type: {{data.chosen_livestock.name | capitalize}}
+      </p>
+
+      <form action="water_volume" method="post" novalidate="">
+
+        <div class="govuk-form-group margin-bottom-thirty">
+          <label class="govuk-label" for="livestock_number">
+            What is the daily volume?
+          </label>
+          <div class="govuk-input__wrapper">
+            <input class="govuk-input govuk-input--width-3" id="livestock_number" name="livestock_number" value="20" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">Litres</div>
+          </div>
+        </div>
+
+        <div class="govuk-form-group margin-bottom-thirty">
+          <label class="govuk-label" for="livestock_number">
+            How many wash days?
+          </label>
+          <div class="govuk-input__wrapper">
+            <input class="govuk-input govuk-input--width-3" id="livestock_number" name="livestock_number" value="31" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">Days</div>
+          </div>
+        </div>
+
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+
+    </div>
+
+  </div>
+
+{% endblock %}

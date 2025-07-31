@@ -1,0 +1,96 @@
+
+  {% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Which crops would you like to create a {{data.oaktree_farm.planning_year}} N-max report for?
+      </h1>
+
+      <p class="govuk-hint">Select all that apply.</p>
+
+      {% set cropGroups = data.currentCropGroups %}
+  
+      {% if data.oaktree_farm.planning_year == '2024' %}
+        {% set cropGroups = data.previousCropGroups %}
+      {% endif %}
+
+      <form class="form" action="/outputs/nmax/" method="post">
+
+        <div class="govuk-form-group">
+
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">          
+            <div class="govuk-checkboxes__item margin-bottom-twenty">
+              <input class="govuk-checkboxes__input" id="group_1" name="nmax_crop" type="checkbox" value="group_1">
+              <label class="govuk-label govuk-checkboxes__label" for="group_1">
+                Winter Wheat
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item margin-bottom-twenty">
+              <input class="govuk-checkboxes__input" id="group_2" name="nmax_crop" type="checkbox" value=group_2>
+              <label class="govuk-label govuk-checkboxes__label hinted" for=group_2>
+                Vegetable group 1
+              </label>
+              <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                Asparagus, carrots, radishes, swedes
+              </div>
+            </div>
+            <div class="govuk-checkboxes__item margin-bottom-twenty">
+              <input class="govuk-checkboxes__input" id="group_3" name="nmax_crop" type="checkbox" value=""group_3"">
+              <label class="govuk-label govuk-checkboxes__label hinted" for="group_3">
+                Vegetable group 2
+              </label>
+              <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                Celery, courgettes, dwarf beans, lettuce, onions, parsnips, runner beans, sweetcorn, turnips
+              </div>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="group_4" name="nmax_crop" type="checkbox" value="group_4">
+              <label class="govuk-label govuk-checkboxes__label hinted" for="group_4">
+                Vegetable group 3
+              </label>
+              <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                Beetroot, brussels sprouts, cabbage, calabrese, cauliflower, leeks
+              </div>
+            </div>
+            <div class="govuk-checkboxes__divider">or</div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="all" name="nmax_crop" type="checkbox" value="all">
+              <label class="govuk-label govuk-checkboxes__label" for="all">
+                Select all
+              </label>
+          </div>
+        </div>
+      </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+  
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}
+

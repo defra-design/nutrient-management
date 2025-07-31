@@ -1,0 +1,53 @@
+{% macro monthitem(name, number) %}
+  <tr>
+    <td class="govuk-table__cell">{{name}}</td>
+    <td class="govuk-table__cell">{{number}}</td>
+  </tr>
+{% endmacro %}
+
+<div class="tabs-thirds margin-bottom-thirty">
+  <table class="govuk-table">
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell strong">Average number for 2025</td>
+        <td class="govuk-table__cell">10 cattle</td>
+      </tr>      
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell strong">Nitrogen (N) standard</td>
+        <td class="govuk-table__cell">50kg per animal, per year</td>
+      </tr>         
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell strong">Total nitrogen (N)</td>
+        <td class="govuk-table__cell">500kg</td>
+      </tr>      
+    </tbody>
+  </table> 
+
+  <h2 class="govuk-heading-s">Numbers per month</h2>
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Month</th>
+        <th scope="col" class="govuk-table__header">Number of cattle</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      {{ monthitem("October", 10) }}
+      {{ monthitem("November", 10) }}
+      {{ monthitem("December", 10) }}
+      {{ monthitem("January", 10) }}
+      {{ monthitem("February", 10) }}
+      {{ monthitem("March", 10) }}
+      {{ monthitem("April", 10) }}
+      {{ monthitem("May", 10) }}
+      {{ monthitem("June", 10) }}
+      {{ monthitem("July", 10) }}
+      {{ monthitem("August", 10) }}
+      {{ monthitem("September", 10) }}
+    </tbody>
+  </table>
+
+  <p><a href="">Change</a></p>
+
+</div>
+

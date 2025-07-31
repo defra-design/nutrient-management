@@ -1,0 +1,109 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Which year would you like to create an {{data.export_type | convert_export_type}} report for?
+      </h1>
+
+      <p class="govuk-hint">
+        Select one option.
+      </p>
+
+      {% if data.export_type == 8 %}
+        {% set timeframeA = "October" %}
+        {% set timeframeB = "September" %}
+      {% else %}
+        {% set timeframeA = "January" %}
+        {% set timeframeB = "December" %}
+      {% endif %}
+
+      <form class="form" action="output_router" method="post">
+      
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="output_year-hint">
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="2026" name="output_year" type="radio" value="2026">
+                <label class="govuk-label govuk-radios__label" for="2026">
+                   2026
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="2025" name="output_year" type="radio" value="2025">
+                <label class="govuk-label govuk-radios__label" for="2025">
+                   2025
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="2024" name="output_year" type="radio" value="2024">
+                <label class="govuk-label govuk-radios__label" for="2024">
+                    2024
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="2023" name="output_year" type="radio" value="2023">
+                <label class="govuk-label govuk-radios__label" for="2023">
+                    2023
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="2022" name="output_year" type="radio" value="2022">
+                <label class="govuk-label govuk-radios__label" for="2022  ">
+                    2022
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="2021" name="output_year" type="radio" value="2021">
+                <label class="govuk-label govuk-radios__label" for="2021">
+                    2021
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="2020" name="output_year" type="radio" value="2020">
+                <label class="govuk-label govuk-radios__label" for="2020">
+                    2020
+                </label>
+              </div>
+
+            </div>
+          </fieldset>
+        </div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+    
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

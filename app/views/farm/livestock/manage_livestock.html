@@ -18,11 +18,7 @@
         href: "hub_reset_router"
       },
       {
-        text: "Livestock details",
-        href: "livestock_years"
-      },
-      {
-        text: "Livestock details for 2005"
+        text: "Livestock details"
       }
     ]
   }) }}
@@ -42,7 +38,7 @@
         <div class="govuk-grid-column-full">
         
           <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
-          <h1 class="govuk-heading-l" id="header">Livestock details {{ data.oaktree_farm.planning_year }}</h1>
+          <h1 class="govuk-heading-l" id="header">Livestock details</h1>
 
           <!-- <p class="govuk-body">Last updated 19 April 2025.</p> -->
           <!-- <p class="govuk-body margin-bottom-thirty">{{data.oaktree_farm.name}} does not have a derogation for {{data.oaktree_farm.planning_year}} . <a href="">Add derogation</a>.</p> -->
@@ -50,7 +46,7 @@
         </div>
       </div>
             
-      {% if data.oaktree_farm.livestock_2025 == 'added' %}
+      {% if data.oaktree_farm.livestock_loading == 'added' %}
 
       <!-- <div>
         {% include "./templates/derogation.html" ignore missing %}
@@ -61,7 +57,7 @@
             Add a livestock type
           </button>
         </form>
-        <p class="govuk-body margin-bottom-forty"><a href="../outputs/export">Create a report from this information</a></p>
+        <p class="govuk-body margin-bottom-forty"><a href="/outputs/export">Create a report from this information</a></p>
       {% endif %}
 
       </div>
@@ -70,7 +66,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
   
-      {% if data.oaktree_farm.livestock_2025 == 'added' %}
+      {% if data.oaktree_farm.livestock_loading == 'added' %}
           {% include "./livestock_tables.html" ignore missing %}
       {% else %}
         <p class="govuk-body">You have not added any livestock information.</p>

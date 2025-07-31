@@ -19,7 +19,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Did you have any livestock on {{data.oaktree_farm.name}} in 2025?
+        Is there any livestock on {{data.oaktree_farm.name}} in 2025?
       </h1>
 
       <p class="govuk-hint">
@@ -30,19 +30,19 @@
       <p class="govuk-hint">Select one option.</p>
 
 
-      <form class="form" action="livestock_2025_handler" method="post">
+      <form class="form" action="livestock_loading_handler" method="post">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <div class="govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="yes" name="livestock_2025" type="radio" value="yes">
+                <input class="govuk-radios__input" id="yes" name="livestock_loading" type="radio" value="yes">
                 <label class="govuk-label govuk-radios__label" for="yes">
                   Yes
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="no" name="livestock_2025" type="radio" {% if data.oaktree_farm.livestock_2025 == 'none' %} checked {% endif %} value="no">
+                <input class="govuk-radios__input" id="no" name="livestock_loading" type="radio" {% if data.oaktree_farm.livestock_loading == 'none' %} checked {% endif %} value="no">
                 <label class="govuk-label govuk-radios__label" for="no">
                   No
                 </label>

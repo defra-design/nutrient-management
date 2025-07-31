@@ -1,0 +1,84 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    {% if data.livestock_group == 'other' %}
+      <h1 class="govuk-heading-l">
+        Which goat, deer or horse would you like to add?
+      </h1>
+      <p class="govuk-hint">Select one livestock type. You can add more livestock types later.</p>
+    {% else %}
+
+      <h1 class="govuk-heading-l">
+          What type of {{data.livestock_group}} would you like to add?
+      </h1>
+      <p class="govuk-hint">Select one {{data.livestock_group}} type. You can add more {{data.livestock_group}} types later.</p>
+    {% endif %}
+
+
+      <form class="form" action="advanced_livestock_reference" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              {% for animal in data.livestock_types %}
+                {% if animal.type == data.livestock_group %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="{{animal.reference}}" name="livestock_reference" type="radio" value="{{animal.reference}}">
+                  <label class="govuk-label govuk-radios__label" for="{{animal.reference}}"> 
+                   {{animal.name | capitalize}}
+                  </label>
+                  <!-- <div class="govuk-hint govuk-radios__hint">
+                    Nitrogen (N) standard: {{animal.nitrogen}}kg per year
+                  </div> -->
+                </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </fieldset>
+        </div>
+
+    <!-- <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="signIn" name="signIn" type="radio" value="government-gateway" aria-describedby="signIn-item-hint">
+        <label class="govuk-label govuk-radios__label" for="signIn">
+          Sign in with Government Gateway
+        </label>
+        <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+          You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before
+        </div>
+      </div>
+    </div>
+</div> -->
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+  
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

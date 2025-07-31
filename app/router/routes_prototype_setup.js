@@ -144,16 +144,15 @@ router.get(/plan_setup/, function (req, res) {
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2024, req.session.data.plan_2024, 'fertilisers')
     req.session.data.all_fields = req.session.data.complete_field_list
     req.session.data.oaktree_farm.planning_year = '2025'
-    req.session.data.oaktree_farm.livestock_2025 = 'added'
+    req.session.data.oaktree_farm.area_added = true
+    req.session.data.oaktree_farm.livestock_loading = 'added'
     req.session.data.oaktree_farm.storage_added = true
+    req.session.data.oaktree_farm.derogation = false
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[1])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[2])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[3])
-    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[3])
-    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[13])
-    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[21])
-    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[12])
-    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[35])
+    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[4])
+    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[5])
     req.session.data.oaktree_farm.manure_imports = true
     req.session.data.oaktree_farm.manure_exports = true
     req.session.data.oaktree_farm.imports_exports = 'added'

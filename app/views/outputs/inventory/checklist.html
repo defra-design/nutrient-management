@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back to " + data.oaktree_farm.name,
+    href: "/farm/hub"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+       {% include "./message.html" %}
+
+      <h1 class="govuk-heading-l">
+        Organic manures inventory and storage report
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        October 2024 to September 2025
+      </h2>
+
+      <p class="govuk-hint">
+        Complete each section to create the report.
+      </p>
+
+      <!-- <p class="govuk-hint">
+        Nutrient prices have been added based on [...].
+      </p> -->
+
+      <div class="check-answers margin-bottom-forty">
+        {% include "./templates/check_content.html" %}
+      </div>
+
+      <p class="govuk-body margin-bottom-forty">
+        You can also <a class="govuk-link" href="nutrients">view or update nutrient prices</a>.
+      </p>
+
+      <!-- <form class="form" action="export_options" method="post"> -->
+      <form class="form" action="" method="post">
+      <!-- <form class="form" action="inventory_submit_router" method="post"> -->
+        {{ govukButton({
+          text: "Create report"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

@@ -48,7 +48,7 @@ router.get(/check_storage_handler/, function (req, res) {
 
 router.get(/livestock_report_reset/, callback_functions.hideSuccessMessage, function (req, res) {
     req.session.data.export_type = null
-    res.redirect('livestock/livestock_years')
+    res.redirect('livestock/manage_livestock')
 })
 
 router.get(/manure_system_skip_handler/, callback_functions.hideSuccessMessage, function (req, res) {
@@ -99,24 +99,79 @@ router.get(/get_livestock_reference/, function (req, res) {
     res.redirect(next)
 })
 
+router.get(/advanced_livestock_reference/, function (req, res) {
+    // console.log('get livestock reference ' + req.session.data.livestock_reference)
+    for (var reference in req.session.data.livestock_types ) {
+        if (req.session.data.livestock_types[reference].reference == req.session.data.livestock_reference) {
+            // console.log('found ' + req.session.data.livestock_types[reference])
+            req.session.data.chosen_livestock = req.session.data.livestock_types[reference]
+        }
+    }
+    // res.redirect("how_to_enter")
+    if (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry' ) {
+        req.session.data.livestock_entry = 'annually'
+        next = 'livestock_numbers_average'
+    }
+    res.redirect('livestock_numbers_jan')
+})
+
 router.get(/add_livestock_handler/, function (req, res) {
     req.session.data.livestock_reference = req.query.livestock_reference
     res.redirect('/add_livestock/livestock_type')
 })
 
-router.get(/livestock_2025_handler/, callback_functions.hide_error, function (req, res) {
+router.get(/livestock_loading_handler/, callback_functions.hide_error, function (req, res) {
     var next = 'livestock_group'
-    if (req.session.data.livestock_2025 == 'no') {
-        req.session.data.oaktree_farm.livestock_2025 = 'none'
-        if (req.session.data.export_type == '8') {
-            next = 'reset_inventory_checklist_message_handler'
+    if (req.session.data.livestock_loading == 'no') {
+        req.session.data.oaktree_farm.livestock_inventory = 'none'
+        req.session.data.oaktree_farm.livestock_loading = 'none'
+        next = 'reset_nloading_checklist_message_handler'
+    }
+    res.redirect(next);
+})
+
+// is there any livestock question (livestock none)
+router.get(/livestock_inventory_router/, callback_functions.hide_error, function (req, res) {
+    let next
+    if (req.session.data.livestock_inventory == 'no') { 
+        req.session.data.oaktree_farm.livestock_inventory = 'none'
+        req.session.data.oaktree_farm.manure_system = 'none'
+        next = '/outputs/inventory/checklist'
+    } else {
+        next = '/add_livestock_inventory/livestock_group'
+    }
+    res.redirect(next);
+})
+
+// is there any livestock checklist link
+router.get(/livestock_inventory_handler/, callback_functions.hide_error, function (req, res) {
+    // if inventory added go to the list
+    // if nlaoding not added did you have livestock?
+    // if nlaoding added copy that list
+    let next;
+
+    if (req.session.data.oaktree_farm.livestock_inventory == 'added') { 
+        next = '/outputs/inventory/manage_livestock/numbers/index'
+    } else {
+        if (req.session.data.oaktree_farm.livestock_loading == 'added') { 
+            next = 'copy_list'
         } else {
-            next = 'reset_nloading_checklist_message_handler'
+            next = '/add_livestock_inventory/livestock_none'
         }
     }
     res.redirect(next);
 })
 
+// is there any livestock checklist link
+router.get(/system_inventory_handler/, callback_functions.hide_error, callback_functions.hideSuccessMessage, function (req, res) {
+    let next = '/outputs/inventory/manage_livestock/systems'
+    if (req.session.data.oaktree_farm.livestock_inventory != 'added') { 
+        next = '/add_livestock_inventory/livestock_none'
+    } else if (req.session.data.mech_separator == null) {
+        next = 'separator'
+    }
+    res.redirect(next);
+})
 
 //inventory and storage routes 
 
@@ -158,7 +213,7 @@ router.get(/livestock_number_handler/, function (req, res) {
 
 router.get(/landcheck_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.low_risk_land_added = 'added';
-    res.redirect('/farm/outputs/inventory/checklist')
+    res.redirect('/outputs/inventory/checklist')
 })
 
 router.get(/livestockcheck_handler/, function (req, res) { 
@@ -166,10 +221,10 @@ router.get(/livestockcheck_handler/, function (req, res) {
         req.session.data.chosen_livestock.total = req.session.data.livestock_number
     }
     // console.log('1' + req.session.data.chosen_livestock)
-    // console.log('2' + req.session.data.livestock_2025)
+    // console.log('2' + req.session.data.livestock_loading)
     req.session.data.livestock_record_2025.push(req.session.data.chosen_livestock)
     req.session.data.show_success_message = true;
-    req.session.data.oaktree_farm.livestock_2025 = 'added';
+    req.session.data.oaktree_farm.livestock_loading = 'added';
     req.session.data.livestock_number_january = null
     req.session.data.livestock_number_february = null
     req.session.data.livestock_number_march = null
@@ -187,6 +242,34 @@ router.get(/livestockcheck_handler/, function (req, res) {
     res.redirect('/farm/livestock/manage_livestock')
 })
 
+router.get(/livestockinventory_handler/, function (req, res) { 
+    if (req.session.data.livestock_number != null && req.session.data.livestock_number != '') {
+        req.session.data.chosen_livestock.total = req.session.data.livestock_number
+    }
+    // console.log('1' + req.session.data.chosen_livestock)
+    // console.log('2' + req.session.data.livestock_loading)
+    req.session.data.livestock_record_2025.push(req.session.data.chosen_livestock)
+    req.session.data.show_success_message = true;
+    req.session.data.oaktree_farm.livestock_inventory = 'added';
+    req.session.data.oaktree_farm.manure_system = 'not_answered';
+    req.session.data.livestock_number_january = null
+    req.session.data.livestock_number_february = null
+    req.session.data.livestock_number_march = null
+    req.session.data.livestock_number_april = null
+    req.session.data.livestock_number_may = null
+    req.session.data.livestock_number_june = null
+    req.session.data.livestock_number_july = null
+    req.session.data.livestock_number_august = null
+    req.session.data.livestock_number_september = null
+    req.session.data.livestock_number_october = null
+    req.session.data.livestock_number_november = null
+    req.session.data.livestock_number_december = null
+    req.session.data.nitrogen_standard = null
+    req.session.data.livestock_occupancy = null
+    res.redirect('/outputs/inventory/manage_livestock/numbers')
+})
+
+
 router.get(/storage_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.planning_year = req.query.harvest_date
     if (req.session.data.oaktree_farm.storage_added == true ) {
@@ -198,7 +281,7 @@ router.get(/storage_year_handler/, callback_functions.hideSuccessMessage, functi
 
 router.get(/livestock_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.oaktree_farm.planning_year = req.query.harvest_date
-    if (req.session.data.oaktree_farm.livestock_2025 == 'added') {
+    if (req.session.data.oaktree_farm.livestock_loading == 'added') {
         res.redirect('manage_livestock')
     } else {
         res.redirect('../../add_livestock/derogation')
@@ -211,7 +294,7 @@ router.get(/inventory_submit_router/, function (req, res) {
         next = 'checklist';
         req.session.data.show_error = true;
     }
-    if (req.session.data.oaktree_farm.livestock_2025 == false) {
+    if (req.session.data.oaktree_farm.livestock_loading == false) {
         next = 'checklist'
         req.session.data.show_error = true
     }
@@ -228,7 +311,7 @@ router.get(/n_loading_submit_router/, function (req, res) {
         next = 'checklist';
         req.session.data.show_error = true;
     }
-    if (req.session.data.oaktree_farm.livestock_2025 == 'not_answered') {
+    if (req.session.data.oaktree_farm.livestock_loading == 'not_answered') {
         next = 'checklist'
         req.session.data.show_error = true
     }
@@ -335,12 +418,20 @@ router.get(/export_type_router/, callback_functions.hide_error, function (req, r
     if (req.session.data.imports_exports == 'no') {
         req.session.data.oaktree_farm.imports_exports = 'none'
         if (req.session.data.export_type == '8') {
-            next = '/farm/outputs/inventory/checklist'
+            next = '/outputs/inventory/checklist'
         } else {
-            next = '/farm/outputs/n_loading/checklist'
+            next = '/outputs/n_loading/checklist'
         }
     }
     res.redirect(next);
 })
+
+
+router.get(/add_manure_system_handler/, callback_functions.hide_error, callback_functions.showSuccessMessage, function (req, res) {
+    req.session.data.oaktree_farm.manure_system_details = true
+    req.session.data.oaktree_farm.manure_system = 'done'
+    res.redirect('manure_numbers');
+})
+
 
 module.exports = router

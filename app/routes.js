@@ -69,6 +69,7 @@ const loadControlVars = function (req, res, next) {
     req.session.data.manner_applications = []
     req.session.data.extra_features = true
     req.session.data.imports_exports = null
+    req.session.data.mech_separator = null
 
     // req.session.data.manner_application_one = {date:'01/01/2025'}
     // req.session.data.manner_application_two = {date:'02/02/2025'}

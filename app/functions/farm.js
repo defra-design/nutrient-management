@@ -9,7 +9,8 @@ latest_update,
 use_mvp_fields,
 setup,
 fields_added,
-livestock_2025,
+livestock_loading,
+livestock_inventory,
 storage_added,
 low_risk_land_added,
 rainwater_area_added,
@@ -17,6 +18,8 @@ area_added,
 imports_exports,
 manure_exports,
 manure_imports,
+manure_system,
+manure_system_details,
 rainfall,
 derogation,
 ewr
@@ -32,13 +35,16 @@ ewr
     this.use_mvp_fields = use_mvp_fields,
     this.setup = setup,
     this.fields_added = fields_added,
-    this.livestock_2025 = livestock_2025,
+    this.livestock_loading = livestock_loading,
+    this.livestock_inventory = livestock_inventory,
     this.storage_added = storage_added,
     this.low_risk_land_added = low_risk_land_added,
     this.rainwater_area_added = rainwater_area_added,
     this.area_added = area_added,
     this.manure_exports = manure_exports,
     this.manure_imports = manure_imports,
+    this.manure_system = manure_system,
+    this.manure_system_details = manure_system_details,
     this.imports_exports = imports_exports,
     this.rainfall = rainfall
     this.derogation = derogation,
@@ -56,13 +62,16 @@ Farm.prototype.printFarm = function () {
                 this.use_mvp_fields + ", " +
                 this.setup + ", " +
                 this.fields_added + ", " +
-                this.livestock_2025 + ", " +
+                this.livestock_loading + ", " +
+                this.livestock_inventory + ", " +
                 this.storage_added + ", " +
                 this.rainwater_area_added + ", " +
                 this.low_risk_land_added + ", " +
                 this.area_added + ", " +
                 this.manure_exports + ", " +
                 this.manure_imports + ", " +
+                this.manure_system + ", " +
+                this.manure_system_details + ", " +
                 this.imports_exports + ", " +
                 this.rainfall + ", " +
                 this.derogation + ", " +
@@ -80,13 +89,16 @@ Farm.prototype.reset = function () {
     this.use_mvp_fields = false,
     this.setup = false,
     this.fields_added = false,
-    this.livestock_2025 = 'not_answered',
+    this.livestock_loading = 'not_answered',
+    this.livestock_inventory = 'not_answered',
     this.storage_added = false,
     this.rainwater_area_added = false,
     this.low_risk_land_added = false,
     this.area_added = false,
     this.manure_exports = false,
     this.manure_imports = false,
+    this.manure_system = 'not_answered',
+    this.manure_system_details = false
     this.imports_exports = 'not_answered',
     this.rainfall = 600,
     this.derogation = null,

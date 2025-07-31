@@ -30,7 +30,7 @@ router.get(/reset_manage_exports_message_handler/, callback_functions.hideSucces
 
 // N-LOADING CHECKLIST
 router.get(/reset_nloading_checklist_message_handler/, callback_functions.hide_error, function (req, res) { 
-    res.redirect('/farm/outputs/n_loading/checklist')
+    res.redirect('/outputs/n_loading/checklist')
 })
 
 // MANAGE STORAGE
@@ -40,12 +40,17 @@ router.get(/reset_manage_storage_message_handler/, callback_functions.hide_error
 
 // INVENTORY CHECKLIST
 router.get(/reset_inventory_checklist_message_handler/, callback_functions.hide_error, function (req, res) { 
-    res.redirect('/farm/outputs/inventory/checklist')
+    res.redirect('/outputs/inventory/checklist')
 })
 
 // MANAGE LOW RUN-OFF RISK LAND 
 router.get(/reset_manage_land_message_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     res.redirect('/farm/land/manage_land')
+})
+
+// MANAGE LIVESTOCK NUMBERS - INVENTORY
+router.get(/reset_manage_livestock_inventory_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
+    res.redirect('/outputs/inventory/manage_livestock/numbers')
 })
 
 module.exports = router

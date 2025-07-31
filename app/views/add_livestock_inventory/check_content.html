@@ -1,0 +1,42 @@
+{% macro monthitem(name, year) %}
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Numbers for {{name}} {{year}}</dt>
+      <dd class="govuk-summary-list__value">
+        <ul class="nutrient_values">
+          <li>100 {{data.chosen_livestock.shortname}}</li>
+          <li>87% Occupancy</li>
+      </ul>
+      </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+{% endmacro %}
+
+
+<dl class="govuk-summary-list margin-bottom-forty">
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What type of livestock would you like to add?</dt>
+    <dd class="govuk-summary-list__value">{{data.livestock_group | capitalize}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What type of {{data.livestock_group }} would you like to add?</dt>
+    <dd class="govuk-summary-list__value">{{data.chosen_livestock.name | capitalize}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+        {{ monthitem ("October", "2024") }}
+        {{ monthitem ("November", "2024") }}
+        {{ monthitem ("December", "2024") }}
+        {{ monthitem ("January", "2025") }}
+        {{ monthitem ("February", "2025") }}
+        {{ monthitem ("March", "2025") }}
+        {{ monthitem ("April", "2025") }}
+        {{ monthitem ("May", "2025") }}
+        {{ monthitem ("June", "2025") }}
+        {{ monthitem ("July", "2025") }}
+        {{ monthitem ("August", "2025") }}
+        {{ monthitem ("September", "2025") }}
+
+</dl>

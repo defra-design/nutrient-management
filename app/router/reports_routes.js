@@ -73,14 +73,9 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
     }
     // MANURE INVENTORY AND STORAGE
     if (req.session.data.export_type == '8') {
-        next = './inventory/derogation'
+        next = './inventory/checklist'
     }
     res.redirect(next)
 })
-
-
-
-
-
 
 module.exports = router

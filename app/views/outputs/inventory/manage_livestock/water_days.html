@@ -21,7 +21,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        October 2024 slurry and bedding totals for this cattle type
+        Daily volume and number of wash days
       </h1>
 
       <p class="govuk-body">
@@ -30,66 +30,23 @@
 
       <form action="water_volume" method="post" novalidate="">
 
-                  <div class="govuk-form-group">
-                              <label class="govuk-label" for="livestock_number">
-            Hose type
-          </label>
-
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" checked="checked" type="radio" value="england">
-                <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-                  Solid manure (mainly)
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
-                <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-                  Slurry (mainly)
-                </label>
-              </div>
-          </div>
-
         <div class="govuk-form-group margin-bottom-thirty">
           <label class="govuk-label" for="livestock_number">
-            Daily volume
+            What is the daily volume?
           </label>
           <div class="govuk-input__wrapper">
-            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" value="40" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">%</div>
+            <input class="govuk-input govuk-input--width-3" id="livestock_number" name="livestock_number" value="20" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">Litres</div>
           </div>
         </div>
 
         <div class="govuk-form-group margin-bottom-thirty">
           <label class="govuk-label" for="livestock_number">
-            Number of wash days
+            How many wash days?
           </label>
           <div class="govuk-input__wrapper">
-            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" value="1.30" type="text" spellcheck="false" autocomplete="off">
-            <!-- <div class="govuk-input__suffix" aria-hidden="true">%</div> -->
-          </div>
-        </div>
-
-        <div class="govuk-form-group margin-bottom-thirty">
-          <label class="govuk-label" for="livestock_number">
-            Floor area washed
-          </label>
-          <div class="govuk-input__wrapper">
-            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" value="14.4" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
-          </div>
-        </div>
-
-        <div class="govuk-form-group margin-bottom-forty">
-          <h3 class="govuk-heading-s">Use these answers for the following months</h3>
-          <p class="govuk-hint">Select this box to use these numbers for all following months. You can change the copied numbers.</p>
-          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-              <label class="govuk-label govuk-checkboxes__label" for="waste">
-                Use these answers for the following months
-              </label>
-            </div>
+            <input class="govuk-input govuk-input--width-3" id="livestock_number" name="livestock_number" value="31" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">Days</div>
           </div>
         </div>
 

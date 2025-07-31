@@ -16,154 +16,31 @@
 
 {% block content %}
 
-{% macro yearitem(name) %}
-    <table class="govuk-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Month</th>
-          <th scope="col" class="govuk-table__header">Cattle</th>
-          <th scope="col" class="govuk-table__header">Pigs</th>
-          <th scope="col" class="govuk-table__header">Poultry</th>
-          <th scope="col" class="govuk-table__header">Sheep</th>
-          <th scope="col" class="govuk-table__header">Other</th>
-          <th scope="col" class="govuk-table__header">Imports</th>
-          <th scope="col" class="govuk-table__header">Exports</th>
-          <th scope="col" class="govuk-table__header">Clean rainfall</th>
-          <th scope="col" class="govuk-table__header">Dirty rainfall</th>
-          <th scope="col" class="govuk-table__header">Net total</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        {{ monthitem('October', 12, 68) }}
-        {{ monthitem('November', 11, 97) }}
-        {{ monthitem('December', 11, 96) }}
-        {{ monthitem('January', 11, 96) }}
-        {{ monthitem('February', 8, 93) }}
-        {{ monthitem('March', 9, 94) }}
-        {{ monthitem('April', 9, 94) }}
-        {{ monthitem('May', 8, 94) }}
-        {{ monthitem('June', 11, 95) }}
-        {{ monthitem('July', 9, 98) }}
-        {{ monthitem('August', 10, 98) }}
-        {{ monthitem('September', 10, 98) }}
-          <tr class="govuk-table__row total_row">
-            <td class="govuk-table__cell">Total</td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">977</td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">118</td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">1,112</td>
-          </tr>
-      </tbody>
-    </table>
-{% endmacro %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-{% macro monthitem(name, rainfall, total) %}
-  <tr class="govuk-table__row">
-    <td class="govuk-table__cell">{{name}}</td>
-    <td class="govuk-table__cell">-</td>
-    <td class="govuk-table__cell">40</td>
-    <td class="govuk-table__cell">-</td>
-    <td class="govuk-table__cell">-</td>
-    <td class="govuk-table__cell">-</td>
-    <td class="govuk-table__cell">-</td>
-    <td class="govuk-table__cell">-</td>
-    <td class="govuk-table__cell">{{rainfall}}</td>
-    <td class="govuk-table__cell">-</td>
-    <td class="govuk-table__cell">{{total}}</td>
-  </tr>
-{% endmacro %}
+    <h1 class="govuk-heading-l">
+      Manure inventory
+    </h1>
 
+    <h2 class="govuk-heading-l">
+      Nutrients October 2024 to September 2025
+    </h2>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-l">
-        Manure inventory
-      </h1>
-
-      <h2 class="govuk-heading-l">
-        Quantities October 2024 to September 2025
-      </h2>
-
-      </div>
+    </div>
     </div>
 
-  <div class="margin-bottom-forty">
-    <p class="govuk-body"><a href="">View NVZ minimum storage requirement</a></p>
-  </div>
+    <div class="margin-bottom-forty">
+      <p class="govuk-body"><a href="">View NVZ minimum storage requirement</a></p>
+    </div>
 
-  <h2 class="govuk-heading-m">
-    Inventory
-  </h2>
-  <p class="govuk-body margin-bottom-forty"><a href="final_nutrients">View nutrients</a></p>
-
-  <div class="govuk-tabs" data-module="govuk-tabs">
-  <h2 class="govuk-tabs__title">
-    Contents
-  </h2>
-  <ul class="govuk-tabs__list">
-    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-      <a class="govuk-tabs__tab" href="#slurry">
-        Slurry
-      </a>
-    </li>
-    <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#dirty-water">
-        Dirty water
-      </a>
-    </li>
-    <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#poultry-manure">
-        Poultry layer manure
-      </a>
-    </li>
-    <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#poultry-litter">
-        Poultry litter
-      </a>
-    </li>
-    <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#other-manures">
-        Other solid manures
-      </a>
-    </li>
-  </ul>
-  <div class="govuk-tabs__panel" id="slurry">
-    <h2 class="govuk-heading-l">Slurry</h2>
-    <p class="govuk-body">All values are metres cubed</p>
-    {{ yearitem () }}
-  </div>
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="dirty-water">
-    <h2 class="govuk-heading-l">Dirty water</h2>
-    <p class="govuk-body">All values are metres cubed</p>
-    {{ yearitem () }}
-  </div>
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="poultry-manure">
-    <h2 class="govuk-heading-l">Poultry layer manure</h2>
-    <p class="govuk-body">All values are metres cubed</p>
-    {{ yearitem () }}
-  </div>
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="poultry-litter">
-    <h2 class="govuk-heading-l">Poultry litter</h2>
-    <p class="govuk-body">All values are metres cubed</p>
-    {{ yearitem () }}
-  </div>
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="other-manures">
-    <h2 class="govuk-heading-l">Other solid manures</h2>
-    <p class="govuk-body">All values are metres cubed</p>
-    {{ yearitem () }}
+    <h2 class="govuk-heading-m">
+      Inventory
+    </h2>
+    <p class="govuk-body margin-bottom-forty"><a href="final_nutrients">View nutrients</a></p>
+    {% include "./templates/final_numbers_table.html" ignore missing %}
 
   </div>
 </div>
-
-    </div>
-
-  </div>
 
 {% endblock %}

@@ -22,24 +22,22 @@
         Which year would you like to create an {{data.export_type | convert_export_type}} report for?
       </h1>
 
+      {% if data.export_type == 8 %}
+        <p class="govuk-body">
+          These reports are from October to September.
+        </p>
+      {% endif %}
+
       <p class="govuk-hint">
         Select one option.
       </p>
-
-      {% if data.export_type == 8 %}
-        {% set timeframeA = "October" %}
-        {% set timeframeB = "September" %}
-      {% else %}
-        {% set timeframeA = "January" %}
-        {% set timeframeB = "December" %}
-      {% endif %}
 
       {% macro monthitem(year_one, year_two) %}
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id={{year_two}} name="output_year" type="radio" value={{year_two}}>
           {% if data.export_type == 8 %}
               <label class="govuk-label govuk-radios__label" for={{year_two}}>
-                  September {{year_one}} to October {{year_two}}
+                  {{year_one}} to {{year_two}}
               </label>
           {% else %}
               <label class="govuk-label govuk-radios__label" for={{year_two}}>
@@ -49,7 +47,6 @@
           {% endif %}
         </div>
       {% endmacro %}
-
 
       <form class="form" action="output_router" method="post">
       
@@ -74,7 +71,6 @@
       </form>
 
     </div>
-    
   </div>
 
   <p class="govuk-body">

@@ -1,9 +1,9 @@
-{% macro monthitem(name) %}
+{% macro monthitem(name, days) %}
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">{{name}}</td>
       <td class="govuk-table__cell">Low</td>
       <td class="govuk-table__cell">20</td>
-      <td class="govuk-table__cell">31</td>
+      <td class="govuk-table__cell">{{days}}</td>
       <td class="govuk-table__cell">-</td>
       <td class="govuk-table__cell">620 metres cubed</td>
       <td class="govuk-table__cell">Cattle slurry store</td>
@@ -25,18 +25,18 @@
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-      {{ monthitem ("October 2024") }}
-      {{ monthitem ("November 2024") }}
-      {{ monthitem ("December 2024") }}
-      {{ monthitem ("January 2025") }}
-      {{ monthitem ("February 2025") }}
-      {{ monthitem ("March 2025") }}
-      {{ monthitem ("April 2025") }}
-      {{ monthitem ("May 2025") }}
-      {{ monthitem ("June 2025") }}
-      {{ monthitem ("July 2025") }}
-      {{ monthitem ("August 2025") }}
-      {{ monthitem ("September 2025") }}
+      {{ monthitem ("October 2024", 31) }}
+      {{ monthitem ("November 2024", 30) }}
+      {{ monthitem ("December 2024", 31) }}
+      {{ monthitem ("January 2025", 29) }}
+      {{ monthitem ("February 2025", 31) }}
+      {{ monthitem ("March 2025", 31) }}
+      {{ monthitem ("April 2025", 30) }}
+      {{ monthitem ("May 2025", 31) }}
+      {{ monthitem ("June 2025", 30) }}
+      {{ monthitem ("July 2025", 31) }}
+      {{ monthitem ("August 2025", 31) }}
+      {{ monthitem ("September 2025", 30) }}
   </tbody>
 </table>
 

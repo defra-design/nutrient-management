@@ -21,26 +21,24 @@
         {% include "./templates/numbers/success_message.html" ignore missing %}
       {% endif %}
       
-      <h1 class="govuk-heading-l" id="header">Add the livestock between October 2024 and September 2025</h1>
+      <h1 class="govuk-heading-l margin-bottom-forty">Add the livestock between October 2024 and September 2025</h1>
       
-      <p class="govuk-body margin-bottom-thirty"><a href="/add_livestock_inventory/livestock_group">Add more livestock</a></p>
-
-      <!-- <h2 class="govuk-heading-m">October 2024 to September 2025</h2> -->
-
-      <!-- <form class="margin-bottom-ten" action="/add_livestock_inventory/livestock_group" method="post" novalidate="">    
-        <button class="govuk-button" data-module="govuk-button">
-          Add a livestock type
+      <!-- <p class="govuk-body margin-bottom-thirty"><a href="/add_livestock_inventory/livestock_group">Add more livestock</a></p> -->
+      <form class="margin-bottom-twenty" action="/add_livestock_inventory/livestock_group" method="post" novalidate="">
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add more livestock
         </button>
-      </form> -->
+      </form>
 
     </div>
   </div>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-
-    <h2 class="govuk-heading-m">Livestock</hs>
-    {% include "./templates/numbers/livestock_tables.html" ignore missing %}
+    <div class="margin-bottom-forty">
+      <!-- <h2 class="govuk-heading-m">Livestock added</hs> -->
+      {% include "./templates/numbers/livestock_tables.html" ignore missing %}
+    </div>
 
     <form action="../checklist" method="post" novalidate="">
       <button class="govuk-button margin-bottom-forty" data-module="govuk-button">

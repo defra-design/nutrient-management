@@ -23,10 +23,16 @@
 
       <h1 class="govuk-heading-l" id="header">Add the wash water details for each livestock type</h1>
       <!-- <h2 class="govuk-heading-m">October 2024 to September 2025</h2> -->
-      <p class="govuk-body margin-bottom-thirty"><a href="numbers">Add or remove livestock</a></p>
+      
+      <form class="margin-bottom-twenty" action="numbers" method="post" novalidate="">
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add or remove livestock
+        </button>
+      </form>
+
+      <!-- <p class="govuk-body margin-bottom-thirty"><a href="numbers">Add or remove livestock</a></p> -->
 
       <h2 class="govuk-heading-m">Livestock</h2>
-
       {% include "./templates/water/livestock_water_tables.html" ignore missing %}
 
       <form action="../checklist" method="post" novalidate="">

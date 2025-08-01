@@ -16,7 +16,6 @@
 {% endblock %}
 
 {% block content %}
-{{ plan_status }}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -31,7 +30,8 @@
     <div class="govuk-grid-column-full">
 
       <h1 class="govuk-heading-l">Organic material storage</h1>
-      <!-- <h2 class="govuk-heading-m">October 2024 to September 2025</h2> -->
+      <h2 class="govuk-heading-m margin-bottom-forty">October 2024 to September 2025</h2>
+
       <div class="margin-bottom-twenty">
         <form action="../../add_storage/material_type" method="post" novalidate="">
           <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">

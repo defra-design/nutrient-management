@@ -23,8 +23,8 @@
       Manure inventory
     </h1>
 
-    <h2 class="govuk-heading-l">
-      Inventory October 2024 to September 2025
+    <h2 class="govuk-heading-m margin-bottom-thirty">
+      Manure quantities - October 2024 to September 2025
     </h2>
 
     </div>
@@ -34,15 +34,13 @@
     <div class="govuk-grid-column-full">
 
       <div class="margin-bottom-forty">
+        <form class="form" action="final_nutrients" method="post">
+          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            View nutrient values
+          </button>
+        </form>
         <p class="govuk-body"><a href="">Print or save these values as a PDF</a></p>
         <p class="govuk-body"><a href="">Create an NVZ minimum storage requirement report</a></p>
-      </div>
-
-      <div class="margin-bottom-sixty">
-        <h2 class="govuk-heading-m">
-          Inventory
-        </h2>
-        <p class="govuk-body"><a href="final_nutrients">View the nutrient values</a></p>
       </div>
       
       {% include "./templates/final_numbers_table.html" ignore missing %}

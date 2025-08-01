@@ -14,6 +14,7 @@ livestock_inventory,
 storage_added,
 low_risk_land_added,
 rainwater_area_added,
+storage_figures,
 area_added,
 imports_exports,
 manure_exports,
@@ -42,6 +43,7 @@ ewr
     this.storage_added = storage_added,
     this.low_risk_land_added = low_risk_land_added,
     this.rainwater_area_added = rainwater_area_added,
+    this.storage_figures = storage_figures,
     this.area_added = area_added,
     this.manure_exports = manure_exports,
     this.manure_imports = manure_imports,
@@ -70,6 +72,7 @@ Farm.prototype.printFarm = function () {
                 this.livestock_inventory + ", " +
                 this.storage_added + ", " +
                 this.rainwater_area_added + ", " +
+                this.storage_figures + ", " +
                 this.low_risk_land_added + ", " +
                 this.area_added + ", " +
                 this.manure_exports + ", " +
@@ -99,6 +102,7 @@ Farm.prototype.reset = function () {
     this.livestock_inventory = 'not_answered',
     this.storage_added = false,
     this.rainwater_area_added = false,
+    this.storage_figures = false,
     this.low_risk_land_added = false,
     this.area_added = false,
     this.manure_exports = false,

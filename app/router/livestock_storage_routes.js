@@ -189,6 +189,11 @@ router.get(/rainwater_area_handler/, callback_functions.hideSuccessMessage, func
     res.redirect('checklist')
 })
 
+router.get(/storage_figures_handler/, callback_functions.hideSuccessMessage, function (req, res) {
+    req.session.data.oaktree_farm.storage_figures = true
+    res.redirect('checklist')
+})
+
 router.get(/low_risk_land_handler/, callback_functions.hideSuccessMessage, function (req, res) {
     req.session.data.oaktree_farm.low_risk_land_added = 'added'
     if (req.session.data.low_risk_land == 'yes') {

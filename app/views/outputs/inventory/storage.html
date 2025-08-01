@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form action="storage_figures_handler" method="post" novalidate="">
+
+        <h1 class="govuk-heading-l">Manure storage</h1>
+
+        <h2 class="govuk-heading-m">Slurry storage</h2>
+        <div class="govuk-form-group margin-bottom-thirty">
+          <label class="govuk-label" for="livestock_number">
+            Capacity of slurry stores
+          </label>
+          <div class="govuk-input__wrapper">
+            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">metres cubed</div>
+          </div>
+        </div>
+
+        <div class="govuk-form-group margin-bottom-forty">
+          <label class="govuk-label" for="livestock_number">
+            Surface area of uncovered slurry stores
+          </label>
+          <div class="govuk-input__wrapper">
+            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">metres squared</div>
+          </div>
+        </div>
+
+        
+        <h2 class="govuk-heading-m">Dirty water stores</h2>
+        <div class="govuk-form-group margin-bottom-thirty">
+          <label class="govuk-label" for="livestock_number">
+            Capacity of dirty water stores
+          </label>
+          <div class="govuk-input__wrapper">
+            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">metres cubed</div>
+          </div>
+        </div>
+
+        <div class="govuk-form-group margin-bottom-forty">
+          <label class="govuk-label" for="livestock_number">
+            Surface area of uncovered dirty water stores
+          </label>
+          <div class="govuk-input__wrapper">
+            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">metres squared</div>
+          </div>
+        </div>
+
+       <h2 class="govuk-heading-m">Sold manure stores</h2>
+        <div class="govuk-form-group margin-bottom-forty">
+          <label class="govuk-label" for="livestock_number">
+            Capacity of solid manure stores
+          </label>          
+          <p class="govuk-hint" for="livestock_number">
+            Include stores on an impermeable base or in poultry houses
+          </p>
+          <div class="govuk-input__wrapper">
+            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+          </div>
+        </div>
+
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+
+    </div>
+
+  </div>
+
+{% endblock %}

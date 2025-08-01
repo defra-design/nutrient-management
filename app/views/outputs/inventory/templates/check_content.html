@@ -212,9 +212,9 @@
   
   <!-- MANURE STORAGE -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
-    {% if data.oaktree_farm.storage_added == true %}
+    {% if data.oaktree_farm.storage_figures == true %}
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="reset_manage_storage_message_handler" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="storage" aria-describedby="company-details-1-status">
           Manure storage
         </a>
       </div>
@@ -223,7 +223,7 @@
       </div>
     {% else %}
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="../../../add_storage/material_type" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="storage" aria-describedby="company-details-1-status">
           Manure storage
         </a>
       </div>

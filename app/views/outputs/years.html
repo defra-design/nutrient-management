@@ -22,10 +22,31 @@
         Which year would you like to create an {{data.export_type | convert_export_type}} report for?
       </h1>
 
+      {% if data.export_type == 8 %}
+        <p class="govuk-body">
+          These reports are from October to September.
+        </p>
+      {% endif %}
+
       <p class="govuk-hint">
         Select one option.
       </p>
 
+      {% macro monthitem(year_one, year_two) %}
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id={{year_two}} name="output_year" type="radio" value={{year_two}}>
+          {% if data.export_type == 8 %}
+              <label class="govuk-label govuk-radios__label" for={{year_two}}>
+                  {{year_one}} to {{year_two}}
+              </label>
+          {% else %}
+              <label class="govuk-label govuk-radios__label" for={{year_two}}>
+               {{year_two}}
+              </label>
+
+          {% endif %}
+        </div>
+      {% endmacro %}
 
       <form class="form" action="output_router" method="post">
       
@@ -33,54 +54,12 @@
           <fieldset class="govuk-fieldset" aria-describedby="output_year-hint">
             <div class="govuk-radios govuk-radios" data-module="govuk-radios">
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="2026" name="output_year" type="radio" value="2026">
-                <label class="govuk-label govuk-radios__label" for="2026">
-                   2026
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="2025" name="output_year" type="radio" value="2025">
-                <label class="govuk-label govuk-radios__label" for="2025">
-                   2025
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="2024" name="output_year" type="radio" value="2024">
-                <label class="govuk-label govuk-radios__label" for="2024">
-                    2024
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="2023" name="output_year" type="radio" value="2023">
-                <label class="govuk-label govuk-radios__label" for="2023">
-                    2023
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="2022" name="output_year" type="radio" value="2022">
-                <label class="govuk-label govuk-radios__label" for="2022  ">
-                    2022
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="2021" name="output_year" type="radio" value="2021">
-                <label class="govuk-label govuk-radios__label" for="2021">
-                    2021
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="2020" name="output_year" type="radio" value="2020">
-                <label class="govuk-label govuk-radios__label" for="2020">
-                    2020
-                </label>
-              </div>
+              {{ monthitem(2025, 2026)}}
+              {{ monthitem(2024, 2025)}}
+              {{ monthitem(2023, 2024)}}
+              {{ monthitem(2022, 2023)}}
+              {{ monthitem(2021, 2022)}}
+              {{ monthitem(2020, 2021)}}
 
             </div>
           </fieldset>
@@ -92,7 +71,6 @@
       </form>
 
     </div>
-    
   </div>
 
   <p class="govuk-body">

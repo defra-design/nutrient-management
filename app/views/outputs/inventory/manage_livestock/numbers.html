@@ -8,7 +8,7 @@
 
 {% include "/templates/signed-in.html" ignore missing %}
   {{ govukBackLink({
-    text: "Create an Organic manures inventory and storage report for 2025",
+    text: "Create an Organic manures inventory and storage report",
     href: "/outputs/inventory/checklist"
   }) }}
 {% endblock %}
@@ -25,8 +25,8 @@
       
       <!-- <p class="govuk-body margin-bottom-thirty"><a href="/add_livestock_inventory/livestock_group">Add more livestock</a></p> -->
       <form class="margin-bottom-twenty" action="/add_livestock_inventory/livestock_group" method="post" novalidate="">
-        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-          Add more livestock
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Add livestock
         </button>
       </form>
 
@@ -41,10 +41,12 @@
     </div>
 
     <form action="../checklist" method="post" novalidate="">
-      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-        Done
+      <button class="govuk-button govuk-button--secondary margin-bottom-forty" data-module="govuk-button">
+        Save and continue
       </button>
     </form>
+
+    <!-- <p><a href="../checklist">Create an Organic manures inventory and storage report</a></p> -->
 
     </div>
   </div>

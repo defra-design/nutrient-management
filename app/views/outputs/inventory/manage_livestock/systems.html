@@ -26,7 +26,7 @@
       <h1 class="govuk-heading-l" id="header">Add the manure collection method for each livestock type</h1>
       <!-- <h2 class="govuk-heading-m">October 2024 to September 2025</h2> -->
       <form class="margin-bottom-twenty" action="numbers" method="post" novalidate="">
-        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
           Add or remove livestock
         </button>
       </form>
@@ -54,10 +54,13 @@
       {% include "./templates/system/livestock_system_tables.html" ignore missing %}
 
       <form action="../checklist" method="post" novalidate="">
-        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Done
+        <button class="govuk-button govuk-button--secondary margin-bottom-forty" data-module="govuk-button">
+          Save and continue
         </button>
       </form>
+
+      <!-- <p><a href="../checklist">Back to the checklist</a></p> -->
+
 
     </div>
   </div>

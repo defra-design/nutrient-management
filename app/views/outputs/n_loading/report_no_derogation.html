@@ -16,11 +16,11 @@
 {% block content %}
 
 <!-- SAVE -->
-{% include "./templates/reports/save.html" ignore missing %}
+{% include "./templates/save.html" ignore missing %}
 
 <!-- TITLE -->
 {% set report_derogation = false %}
-{% include "./templates/reports/title.html" ignore missing %}
+{% include "./templates/title.html" ignore missing %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full margin-bottom-ten">
@@ -28,7 +28,7 @@
       Compliance with NVZ livestock manure nitrogen (N) farm limit
     </h2>
     <h3 class="govuk-heading-s">
-      The information entered indicates compliance
+      The information entered indicates compliance.
     </h3>
     <p class="govuk-body-s">
       This assessment is based on the NVZ livestock manure farm limit of 170kg of nitrogen (N) per hectare, and best practice guidance of 250kg of nitrogen (N) per hectare for land outside of an NVZ.

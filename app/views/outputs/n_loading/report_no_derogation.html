@@ -94,13 +94,19 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
       <h2 class="govuk-heading-m">
-        Exports of livestock manure
+        Imports and exports of livestock manure
       </h2>
-        <!-- <p class="govuk-body">Contingency plan available to be used if an agreement to send the manure off the farm fails: Yes.</p> -->
-        <p class="govuk-body">None</p>
-      <h2 class="govuk-heading-s">
-        Livestock manure imports and exports net total: +15,000 tonnes
-      </h2>
+      <p class="govuk-body">
+        Livestock manure imports and exports net total: <span class="">+90,000kg of nitrogen (N)</span>
+      </p>
+
+      <h3 class="govuk-heading-s">
+        Imports of livestock manure 
+      </h3>
+      {% include "./templates/imports.html" ignore missing %}
+      <h3 class="govuk-heading-s">
+        There are no exports of livestock manure
+      </h3>
     </div>
   </div>
 
@@ -120,6 +126,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <hr class="margin-bottom-forty">
+      <h2 class="govuk-heading-s">
+        About farm area
+      </h2>
+      <p class="govuk-body-s">
+        The farm area does not include surface waters, areas of hardstanding, buildings or woodland (unless the woodland is used for grazing), and any land covered by a greenhouse.
+      </p>
       <h2 class="govuk-heading-s">
         About recommendations, guidance, and advice
       </h2>

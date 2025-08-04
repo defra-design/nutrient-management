@@ -15,118 +15,55 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row noprint">
-    <div class="govuk-grid-column-two-thirds">
+<!-- SAVE -->
+{% include "./templates/reports/save.html" ignore missing %}
 
-      <h2 class="govuk-heading-m">Print or save as a PDF</h2>
-      <ol class="govuk-list govuk-list--number">
-        <li>To save as a PDF choose 'Print or save as a PDF',</li>
-        <li>Select, 'Save as PDF', where you are asked to select a printer,</li>
-        <li>Select, 'Print', then choose where to save the PDF.</li>
-      </ol>
-      <form class="" action="" method="post" novalidate="">    
-        <button onclick="window.print()" class="govuk-button" data-module="govuk-button">
-          Print or save as a PDF
-        </button>
-      </form>
+<!-- TITLE -->
+{% set report_derogation = false %}
+{% include "./templates/reports/title.html" ignore missing %}
 
-    </div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full margin-bottom-ten">
+    <h2 class="govuk-heading-m">
+      Compliance with NVZ livestock manure nitrogen (N) farm limit
+    </h2>
+    <h3 class="govuk-heading-s">
+      The information entered indicates compliance
+    </h3>
+    <p class="govuk-body-s">
+      This assessment is based on the NVZ livestock manure farm limit of 170kg of nitrogen (N) per hectare, and best practice guidance of 250kg of nitrogen (N) per hectare for land outside of an NVZ.
+    </p>
+    <h3 class="govuk-heading-s">
+      Key information
+    </h3>
+    {% include "./templates/compliance.html" ignore missing %}
   </div>
+</div>
 
-  <div class="govuk-grid-row noprint margin-bottom-thirty">
-    <div class="govuk-grid-column-full">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full margin-bottom-ten">
+    <h2 class="govuk-heading-m">
+      Farm area and livestock manure total nitrogen (N) capacity
+    </h2>
+    <!-- <p class="govuk-body-s">The farm area does not include surface waters, areas of hardstanding, buildings or woodland (unless the woodland is used for grazing), and any land covered by a greenhouse.</p> -->
+    {% include "./templates/farm_area.html" ignore missing %}
 
-      <hr>
-
-    </div>
-  </div>
-
-  <div class="govuk-grid-row margin-bottom-thirty">
-    <div class="govuk-grid-column-full">
-      <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
-      <h1 class="govuk-heading-xl margin-bottom-twenty">{{data.content.n_loading_title}} {{ data.oaktree_farm.planning_year }}</h1>
-      <p class="govuk-body">Created on {{data.content.todays_date}}</p>
-    </div>
-  </div>
-
-  <div class="govuk-grid-row margin-bottom-twenty">
-    <div class="govuk-grid-column-one-third">
-      <p class="govuk-body">Oaktree Lane Farm, <br>
-        24 South Road<br> 
-        Hexham<br>  
-        Northumberland<br> 
-        NE46 7LQ</p>
-    </div>
-      
-    <div class="govuk-grid-column-two-thirds">
-      <p class="govuk-body">CPH number: 123456789<br>
-        Single Business Identifier: 123456789<br>
-      </p>
-      <p class="govuk-body">This is not a derogated farm.</p>
-
-          
-    </div>
-
-  </div>
-
-  <!-- <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-
-      <h2 class="govuk-heading-m">Private beta disclaimer</h2>
-      {% include "/templates/beta_disclaimer.html" ignore missing %} 
-      <hr class="seperator_forty">
-
-    </div>
-  </div> -->
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-thirty">
-
-      <h2 class="govuk-heading-m">
-        Compliance is indicated
-      </h2>
-      <p class="govuk-body">
-        The information entered indicates compliance with the NVZ Livestock Manure nitrogen (N) Farm Limit, and guidance for land outside an NVZ.
-      </p>
-      <h2 class="govuk-heading-s">
-        Key information
-      </h2>
-      {% include "./templates/compliance.html" ignore missing %}
-
-    </div>
-  </div>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-thirty">
-
-      <h2 class="govuk-heading-m">
-        Farm area and livestock manure total nitrogen (N) capacity
-      </h2>
-      {% include "./templates/farm_area.html" ignore missing %}
-
-    </div>
-  </div>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-thirty">
-
-      <h2 class="govuk-heading-m">
-        Livestock manure total nitrogen (N) loading
-      </h2>
-      {% include "./templates/livestock_manure.html" ignore missing %}
-
+    <h2 class="govuk-heading-m">
+      Livestock manure total nitrogen (N) loading
+    </h2>
+    {% include "./templates/livestock_manure.html" ignore missing %}
     </div>
   </div>
 
   <div id="printbreak"></div>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-thirty">
+    <div class="govuk-grid-column-full margin-bottom-ten">
 
       <h2 class="govuk-heading-m">
-        Grazing livestock manure total nitrogen (N) and phosphate (P2O5) production
+        Grazing livestock manure total nitrogen (N)
       </h2>
-      <p class="govuk-body">Home-produced manures from any cattle (including veal calves), sheep, deer, goats, or horses</p>
+      <p class="govuk-body-s">Home-produced manures from any cattle, sheep, deer, goats, or horses, regardless of whether the animals are housed or not.</p>
       <!-- <p>Total livestock manure nitrogen (N) production: 3,944kg</p> -->
       {% include "./templates/grazing_livestock.html" ignore missing %}
 
@@ -134,11 +71,11 @@
   </div>
 
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full margin-bottom-thirty">
+      <div class="govuk-grid-column-full margin-bottom-ten">
         <h2 class="govuk-heading-m">
-          Non-grazing livestock manure total nitrogen (N) and phosphate (P2O5) production
+          Non-grazing livestock manure total nitrogen (N)
         </h2>
-        <p class="govuk-body">Home-produced manures from any pigs, poultry, whether they are housed or not.</p>
+        <p class="govuk-body-s">Home-produced manures from any pigs or poultry, regardless of whether the animals are housed or not.</p>
         {% include "./templates/pigs.html" ignore missing %}
       </div>
     </div>

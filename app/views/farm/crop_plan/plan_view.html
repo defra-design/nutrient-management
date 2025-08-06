@@ -133,12 +133,7 @@
               Add an organic material application
             </button>
           </form>
-  
-          <!-- <p class="govuk-body"><a href="plan_manure_application_router?manurejourney=multi">Add an organic material application to one or more fields</a></p> -->
-          <!-- if organics == true
-            include "./templates/2024_manure_totals.html" ignore missing
-          endif  -->
-        </div>
+          </div>
         <hr class="seperator_forty">
         
         {% if organics == true %}
@@ -159,7 +154,6 @@
             <p class="govuk-body">You have no inorganic fertiliser applications planned.</p>
           {% endif %}
 
-          <!-- <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=multi">Add an inorganic fertiliser application to one or more fields</a></p> -->
           
           <form class="add-button" action="v2fertiliser_handler?fertiliserjourney=multi" method="post" novalidate="">    
             <button class="govuk-button" data-module="govuk-button">
@@ -167,9 +161,6 @@
             </button>
           </form>
 
-          <!-- if inorganics == true
-            include "./templates/2024_fertiliser_totals.html" ignore missing
-          endif -->
 
         </div>
         <hr class="seperator_forty">
@@ -181,7 +172,6 @@
             <p class="govuk-body"><a href="#">Sort by field name</a> <span>&nbsp;</span> or <span>&nbsp;</span> <a href="#">sort by application date</a></p>
             {% include "./templates/2024_fertiliser_table.html" ignore missing %}
           </div>
-          <!-- <p class="govuk-body"><a href="#inorganic">Back to the top</a></p> -->
         {% endif %}
       </div>
       

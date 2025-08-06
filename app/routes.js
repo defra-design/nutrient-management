@@ -2,7 +2,6 @@ const  govukPrototypeKit = require('govuk-prototype-kit')
 const  router = govukPrototypeKit.requests.setupRouter()
 
 ///external data
-var  Plan = require('./functions/plan.js');
 
 const  all_fertiliser_applications = require('./data/fertiliser_applications.json');
 const  manure_applications_list = require('./data/manure_applications.json');
@@ -27,9 +26,6 @@ var tempField = {
     nvz: false,
     elevation: false
 };
-
-///////Plans
-var plan_2024 = Plan.createPlan();
 
 //index route
 router.get('/', function (req, res) { 
@@ -113,8 +109,8 @@ router.get('/', function (req, res) {
     req.session.data.alpha_planning = 0 //0 = not started, 1 = recs, 2 = completed
     
     //manures
-    req.session.data.plan_2024.multipleManuresApplied = false
-    req.session.data.plan_2024.singleManuresApplied = false
+    req.session.data.multipleManuresApplied = false
+    req.session.data.singleManuresApplied = false
     req.session.data.manure_journey = null //multi or single
     req.session.data.manure_count = 0
     req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'
@@ -122,8 +118,8 @@ router.get('/', function (req, res) {
     req.session.data.secondcrop_journey = null //true for second crop
 
     //fertilisers
-    req.session.data.plan_2024.multipleFertilisersApplied = false
-    req.session.data.plan_2024.singleFertilisersApplied = false
+    req.session.data.multipleFertilisersApplied = false
+    req.session.data.singleFertilisersApplied = false
     req.session.data.fertiliser_journey = null //multi or single
     req.session.data.fertiliser_count = 0
     req.session.data.show_fertiliser_notification = false

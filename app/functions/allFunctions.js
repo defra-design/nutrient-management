@@ -57,13 +57,6 @@ function basicSetup (farm, mvpFields, manure, fertiliser) {
     farm.use_mvp_fields = mvpFields
 };
 
-function manureSetup (planYear, multipleManures, singleManures, multipleFertilisers, singleFertilisers) {
-    planYear.multipleManuresApplied = multipleManures 
-    planYear.singleManuresApplied = singleManures
-    planYear.multipleFertilisersApplied = multipleFertilisers 
-    planYear.singleFertilisersApplied = singleFertilisers
-};
-
 function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, group, yield, date, sns) {
     var newGroup = {
         reference: reference,
@@ -266,7 +259,6 @@ module.exports.getGroupByReference = getGroupByReference;
 module.exports.getMultipleFieldsByReferences = getMultipleFieldsByReferences;
 module.exports.totalFieldsCount = totalFieldsCount;
 module.exports.basicSetup = basicSetup;
-module.exports.manureSetup = manureSetup;
 module.exports.createCropGroup = createCropGroup;
 module.exports.getManureFields = getManureFields;
 module.exports.addManureApplication = addManureApplication;

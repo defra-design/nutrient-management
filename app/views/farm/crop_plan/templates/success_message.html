@@ -6,7 +6,7 @@
       {% else %}
         {% if data.show_fertiliser_notification == true %}
           <h3 class="govuk-notification-banner__heading">
-            {{data.content.non_organic_term}} application added to the Winter Wheat fields in this plan.
+            Inorganic fertiliser application added to the Winter Wheat fields in this plan.
           </h3>
           <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
         {% else %}
@@ -56,7 +56,7 @@
     <!-- fertiliser added - 3 -->
     {% if data.successMessage == 3 %}
       <h3 class="govuk-notification-banner__heading">
-        {{data.content.non_organic_term}} application added to fields in this plan.
+        Inorganic fertiliser application added to fields in this plan.
       </h3>
       <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
     {% endif %}
@@ -72,7 +72,7 @@
     <!-- fertiliser updated - 5 -->
     {% if data.successMessage == 5 %}
       <h3 class="govuk-notification-banner__heading">
-        {{data.content.non_organic_term}} updated.
+        Inorganic fertiliser updated.
       </h3>
       <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
     {% endif %}

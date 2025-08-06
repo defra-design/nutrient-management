@@ -86,7 +86,7 @@ router.get(/crops_V5_check_handler/, function (req, res) {
         // console.log('yield ' + yield)
         req.session.data.successMessage = 16
     } else {
-        req.session.data.successMessage = 11
+        req.session.data.successMessage = 1
         yield = '8 tonnes'
     }
     req.session.data.currentCropGroups.push(allFunctions.createCropGroup(newRef, 2025, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, req.session.data.variety, req.session.data.groupname, yield, sowdate))
@@ -324,11 +324,11 @@ router.get(/season_router/, function (req, res) {
 
 router.get(/grass_management_router/, function (req, res) { 
     if (req.session.data.grass_management == 'grazing') {
-        req.session.data.content.defoliations = 'grazings'
+        req.session.data.defoliations = 'grazings'
     } else if (req.session.data.grass_management == 'hay' || req.session.data.grass_management == 'silage') {
-        req.session.data.content.defoliations = 'cuts'
+        req.session.data.defoliations = 'cuts'
     } else  {
-        req.session.data.content.defoliations = 'cuts and grazings'
+        req.session.data.defoliations = 'cuts and grazings'
     }
     res.redirect('defoliation')
 })

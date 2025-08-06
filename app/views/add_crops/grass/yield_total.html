@@ -20,7 +20,7 @@
 
       <h1 class="govuk-heading-l">
         Do you want to enter the target annual yield as a total per field, or for each 
-        {% if data.content.defoliations == 'cuts and grazings' %}
+        {% if data.defoliations == 'cuts and grazings' %}
           cut and grazing?
         {% else %}
           grazing?
@@ -46,7 +46,7 @@
                 <input class="govuk-radios__input" id="multi" name="yield_total" type="radio" value="multi">
                 <label class="govuk-label govuk-radios__label" for="multi">
                   Enter a yield per cut 
-                  {% if data.content.defoliations == 'cuts and grazings' %}
+                  {% if data.defoliations == 'cuts and grazings' %}
                     or grazing
                   {% endif %}
                 </label>

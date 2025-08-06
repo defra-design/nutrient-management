@@ -74,6 +74,8 @@ router.get('/', function (req, res) {
     // req.session.data.oaktree_farm.print()
 
     // control vars  
+    req.session.data.show_success_message = false
+
     req.session.data.tempField = tempField
     req.session.data.chosen_field = null
     req.session.data.crop_group = null
@@ -88,7 +90,6 @@ router.get('/', function (req, res) {
     req.session.data.plan_type = 'new'
     req.session.data.another_crop = 'no'
     req.session.data.chosen_plan = null //v2
-    req.session.data.show_success_message = false
     req.session.data.crop_count = 0
     req.session.data.manure_spreads = 0
     req.session.data.fertiliser_spreads = 0

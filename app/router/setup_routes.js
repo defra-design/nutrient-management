@@ -15,7 +15,7 @@ router.get(/field_reset_handler/, function (req, res) {
 //add a field view reset messages
 router.get(/field_add_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false;
-    res.redirect('add-field/name');
+    res.redirect('/add-field/name');
 })
 
 //add a field view reset messages

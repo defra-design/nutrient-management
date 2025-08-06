@@ -17,7 +17,6 @@ const  crop_types = require('./data/crops.json');
 const  livestock_types = require('./data/livestock.json');
 
 const allFunctions = require('./functions/allFunctions.js');
-// const  CropGroup = require('./functions/crop_group.js');
 
 /// create fields
 let all_fields = [];

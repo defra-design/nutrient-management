@@ -41,20 +41,6 @@ var tempField = {
 var plan_2023 = Plan.createPlan();
 var plan_2024 = Plan.createPlan();
 
-// ALPHA plan
-const createAlphaPlan = (harvest_date, crop_added, manure_added, fertiliser_added) => ({
-    harvest_date,
-    crop_added,
-    manure_added,
-    fertiliser_added,
-    plan_update: null,
-    updated: '10 November 2023'
-});
-
-const alphaPlan2025 = createAlphaPlan("2025", false, false, false);
-const alphaPlan2024 = createAlphaPlan("2024", true, true, true);
-const alphaPlan2023 = createAlphaPlan("2023", false, false, false);
-
 //index route
 router.get('/', function (req, res) { 
     req.session.data.oaktree_farm = {
@@ -149,11 +135,6 @@ router.get('/', function (req, res) {
     //set Alpha planning status
     req.session.data.alpha_planning = 0 //0 = not started, 1 = recs, 2 = completed
     
-    //ALPHA plans
-    req.session.data.alphaPlan2025 = alphaPlan2025
-    req.session.data.alphaPlan2024 = alphaPlan2024
-    req.session.data.alphaPlan2023 = alphaPlan2023
-
     //manures
     req.session.data.plan_2024.multipleManuresApplied = false
     req.session.data.plan_2024.singleManuresApplied = false

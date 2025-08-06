@@ -21,7 +21,6 @@ const  livestock_types = require('./data/livestock.json');
 const allFunctions = require('./functions/allFunctions.js');
 const  CropGroup = require('./functions/crop_group.js');
 
-
 const loadContent = function (req, res, next) {
     req.session.data.content = content
     req.session.data.manure_types_digestate = manure_types_digestate
@@ -41,7 +40,8 @@ const loadContent = function (req, res, next) {
     req.session.data.plan_2024.reset();
     req.session.data.plan_2023.year = 2023;
     req.session.data.plan_2024.year = 2024;
-    req.session.data.show_error = false
+    req.session.data.show_error = false;
+    req.session.data.defoliations = "Cuts and grazings";
     next()
 }
 

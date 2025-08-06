@@ -1,5 +1,4 @@
 var content = {
-    organic_term : "Organic material",
     non_organic_term : "Inorganic fertiliser",
     harvest_year : "harvest year 2025",
     todays_date : "1 July 2025",

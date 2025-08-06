@@ -211,7 +211,6 @@ router.get(/mvp_fields_handler/, function (req, res) {
             for (var b in req.session.data.all_fields) {
                 if (req.session.data.all_fields[b].reference == req.session.data.crop_fields[a]) {
                     req.session.data.plan_2024.firstFieldReferences.push(req.session.data.crop_fields[a])
-                    req.session.data.plan_2024.firstFields.push(req.session.data.all_fields[b])
                 }
             }
         }    

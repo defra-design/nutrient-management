@@ -24,21 +24,11 @@ let all_fields = [];
 var tempField = {
     name: "Short Field",
     reference: "shortfield",
-    // total_area: 10,
-    // crop_area: 8,
-    // non_spread_area: 2,
     nvz: false,
     elevation: false
-    // soil: 'Medium',
-    // sulphur: true,
-    // analysis :false,
-    // grass: true,
-    // crop: 'winter-wheat',
-    // sns: false
 };
 
 ///////Plans
-var plan_2023 = Plan.createPlan();
 var plan_2024 = Plan.createPlan();
 
 //index route
@@ -81,7 +71,7 @@ router.get('/', function (req, res) {
     }
 
     req.session.data.oaktree_farm.resetFarm()
-    req.session.data.oaktree_farm.print()
+    // req.session.data.oaktree_farm.print()
 
     // control vars  
     req.session.data.tempField = tempField
@@ -119,12 +109,6 @@ router.get('/', function (req, res) {
     req.session.data.livestock_types = livestock_types
     req.session.data.all_fertiliser_applications = all_fertiliser_applications
     req.session.data.manure_applications_list = manure_applications_list
-    req.session.data.plan_2023 = plan_2023;
-    req.session.data.plan_2024 = plan_2024;
-    req.session.data.plan_2023.reset();
-    req.session.data.plan_2024.reset();
-    req.session.data.plan_2023.year = 2023;
-    req.session.data.plan_2024.year = 2024;
     req.session.data.show_error = false;
     req.session.data.defoliations = "Cuts and grazings";
 
@@ -167,7 +151,6 @@ router.get('/', function (req, res) {
 
     // version 5
     req.session.data.currentCropGroups = []
-    req.session.data.previousCropGroups = []
     req.session.data.allManureApplications = []
     req.session.data.allManureApplications_v2 = []
     req.session.data.allFertiliserApplications = []
@@ -196,6 +179,5 @@ var  routes_updates = require('./router/routes_updates.js');
 
 var  livestock_storage_routes = require('./router/livestock_storage_routes.js');
 var  manner_routes = require('./router/manner_routes.js');
-
 
 router.use('/',routes_prototype_setup, message_reset_handlers, manner_routes, livestock_storage_routes, routes_farm, reports_routes, routes_field, routes_crop, routes_updates, routes_manure, setup_routes);

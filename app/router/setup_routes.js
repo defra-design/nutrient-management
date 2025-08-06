@@ -38,7 +38,6 @@ router.get(/planview_reset_handler/, function (req, res) {
 
 
 //// FIELD 
-
 router.get(/cropuse_handler/, function (req, res) { 
     var next = (req.session.data.crop_group == 'other') ? 'another_crop' : 'crop_use';
     res.redirect(next);
@@ -54,13 +53,6 @@ router.get(/addcrops_handler/, function (req, res) {
     req.session.data.secondcrop_journey = true
     res.redirect('add_crops/another_crop')
 })
-
-router.get(/foragecrops_check_handler/, function (req, res) { 
-    req.session.data.show_success_message = true;
-    req.session.data.plan_2024.forageCrop = true;
-    res.redirect('/farm/crop_plan/plan_view')
-})
-
 
 
 module.exports = router

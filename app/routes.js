@@ -2,7 +2,6 @@ const  govukPrototypeKit = require('govuk-prototype-kit')
 const  router = govukPrototypeKit.requests.setupRouter()
 
 ///external data
-const farm = require('./functions/farm.js');
 const content = require('./content.js').content;
 var  Plan = require('./functions/plan.js');
 
@@ -47,7 +46,6 @@ const loadContent = function (req, res, next) {
 
 const loadControlVars = function (req, res, next) {
     req.session.data.prototypeVersion = 'mvp'
-    req.session.data.oaktree_farm = oaktree_farm
     req.session.data.tempField = tempField
     req.session.data.chosen_field = null
     req.session.data.crop_group = null
@@ -79,24 +77,46 @@ const loadControlVars = function (req, res, next) {
 }
 
 /// create the farm
-var oaktree_farm = farm.createFarm();
+// var oaktree_farm = farm.createFarm();
 
-// populate the farm
-oaktree_farm.reset();
-oaktree_farm.name = 'Oaktree Lane Farm';
-oaktree_farm.setup = false;
+function resetFarm() {
+    oaktree_farm.name = "Oaktree Lane Farm";
+    oaktree_farm.postcode = "NE46 7LQ";
+    oaktree_farm.planning_year = 2025;
+    oaktree_farm.nvz = "some";
+    oaktree_farm.elevation = "some";
+    oaktree_farm.organic_producer = false;
+    oaktree_farm.latest_update = null;
+    oaktree_farm.use_mvp_fields = false;
+    oaktree_farm.setup = false;
+    oaktree_farm.fields_added = false;
+    oaktree_farm.livestock_loading = 'not_answered';
+    oaktree_farm.livestock_inventory = 'not_answered';
+    oaktree_farm.storage_added = false;
+    oaktree_farm.rainwater_area_added = false;
+    oaktree_farm.storage_figures = false;
+    oaktree_farm.low_risk_land_added = false;
+    oaktree_farm.area_added = false;
+    oaktree_farm.manure_exports = false;
+    oaktree_farm.manure_imports = false;
+    oaktree_farm.manure_system = 'not_answered';
+    oaktree_farm.manure_system_details = false;
+    oaktree_farm.wash_water = 'not_answered';
+    oaktree_farm.wash_water_details = false;
+    oaktree_farm.imports_exports = 'not_answered';
+    oaktree_farm.rainfall = 600;
+    oaktree_farm.derogation = null;
+    oaktree_farm.ewr = null;
+    console.log('Farm reset')
+}
 
-oaktree_farm.postcode = "NE46 7LQ";
-oaktree_farm.planning_year = 2025;
-oaktree_farm.nvz = "some";
-oaktree_farm.elevation =  "some";
-oaktree_farm.organic_producer = false;
-oaktree_farm.latest_update = null;
-oaktree_farm.use_mvp_fields = false;
-oaktree_farm.fields_added = false;
-oaktree_farm.plans_added = false;
-oaktree_farm.rainfall = 600;
-oaktree_farm.ewr = null;
+function printFarm(farm) {
+    console.log(farm);
+}
+
+let oaktree_farm = {}
+resetFarm()
+printFarm(oaktree_farm)
 
 /// create fields
 let all_fields = [];
@@ -137,6 +157,8 @@ const alphaPlan2023 = createAlphaPlan("2023", false, false, false);
 
 //index route
 router.get('/', loadContent, loadControlVars, function (req, res) { 
+    req.session.data.oaktree_farm = oaktree_farm
+
     req.session.data.selected_fields = [{"reference":"1", "name":"Long Field", "planStatus":false, "crop": null, "soil": null},
     {"reference":"2", "name":"Barn Field", "planStatus":false, "crop": null, "soil": null},
     {"reference":"3", "name":"Orchard", "planStatus":false, "crop": null, "soil": null}]

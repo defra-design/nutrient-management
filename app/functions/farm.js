@@ -57,36 +57,6 @@ ewr
     this.ewr = ewr
   }
 
-Farm.prototype.printFarm = function () {
-  console.log(  this.name + ", " +
-                this.postcode + ", " +
-                this.planning_year + ", " +
-                this.nvz + ", " +
-                this.elevation + ", " +
-                this.organic_producer + ", " +
-                this.latest_update + ", " +
-                this.use_mvp_fields + ", " +
-                this.setup + ", " +
-                this.fields_added + ", " +
-                this.livestock_loading + ", " +
-                this.livestock_inventory + ", " +
-                this.storage_added + ", " +
-                this.rainwater_area_added + ", " +
-                this.storage_figures + ", " +
-                this.low_risk_land_added + ", " +
-                this.area_added + ", " +
-                this.manure_exports + ", " +
-                this.manure_imports + ", " +
-                this.manure_system + ", " +
-                this.wash_water + ", " +
-                this.wash_water_details + ", " +
-                this.manure_system_details + ", " +
-                this.imports_exports + ", " +
-                this.rainfall + ", " +
-                this.derogation + ", " +
-                this.ewr)
-};
-
 Farm.prototype.reset = function () {
     this.name = null,
     this.postcode = null,

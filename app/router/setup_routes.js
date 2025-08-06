@@ -58,7 +58,6 @@ router.get(/addcrops_handler/, function (req, res) {
 router.get(/foragecrops_check_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
     req.session.data.plan_2024.forageCrop = true;
-    req.session.data.oaktree_farm.planning_year = 2024;
     res.redirect('/farm/crop_plan/plan_view')
 })
 

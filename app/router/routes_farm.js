@@ -6,23 +6,9 @@ var callback_functions = require('./callbacks.js');
 
 //Handlers
 
-router.get(/planning_year_handler/, function (req, res) { 
-    var next = '/add_crops/crop_group'
-    req.session.data.oaktree_farm.planning_year = req.query.year
-    if (req.query.year == '2024') {
-        next = '/farm/crop_plan/plan_view'
-    }
-    res.redirect(next)
-})
-
 router.get(/field_level_plan_v5_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    req.session.data.oaktree_farm.planning_year = req.query.year
     req.session.data.chosen_group = req.query.fieldref
     req.session.data.chosen_field = req.query.groupref
-    req.session.data.chosen_year = req.query.year
-    console.log(req.session.data.chosen_group)
-    console.log(req.session.data.chosen_field)
-    console.log(req.session.data.chosen_year)
     //group.reference 
     if (req.session.data.chosen_year == 2024) {
         req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.previousCropGroups, req.query.groupref)

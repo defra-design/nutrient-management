@@ -205,7 +205,6 @@ router.get(/fertiliser_loop_handler/, function (req, res) {
 
 //view the plan by year
 router.get(/crop_plan_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    req.session.data.oaktree_farm.planning_year = req.query.harvest_date
     res.redirect('./crop_plan/plan_view')
 })
 

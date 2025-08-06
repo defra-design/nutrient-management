@@ -38,9 +38,7 @@
       {% include "./templates/v5_grass_empty.html" ignore missing %}
     {% endif %}
   {% else %}
-    {% if data.oaktree_farm.planning_year == 2024 %}
-      {% include "./templates/v5_all_empty.html" ignore missing %}
-    {% elif organics == true and inorganics == true %}
+    {% if organics == true and inorganics == true %}
       {% include "./templates/v4_nutrients_both.html" ignore missing %}
     {% elif organics == true and inorganics == false %}
       {% include "./templates/v4_nutrients_one_organic.html" ignore missing %}

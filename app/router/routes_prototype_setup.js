@@ -143,7 +143,6 @@ router.get(/plan_setup/, function (req, res) {
     // function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, group, yield, date) {
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2024, req.session.data.plan_2024, 'fertilisers')
     req.session.data.all_fields = req.session.data.complete_field_list
-    req.session.data.oaktree_farm.planning_year = '2025'
     req.session.data.oaktree_farm.area_added = true
     req.session.data.oaktree_farm.livestock_loading = 'added'
     req.session.data.oaktree_farm.livestock_inventory = 'added'
@@ -306,7 +305,6 @@ router.get(/field_v7_setup/, function (req, res) {
     req.session.data.showinfo = false
     allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2024, req.session.data.plan_2024, 'fields')
     req.session.data.all_fields = req.session.data.complete_field_list
-    req.session.data.oaktree_farm.planning_year = '2025'
     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(1, 2024, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', null, 'Crop group 1', null, null, false))
     res.redirect('start')
 })

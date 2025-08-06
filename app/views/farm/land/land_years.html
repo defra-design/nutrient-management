@@ -50,7 +50,7 @@
               <th scope="row" class="govuk-table__header">2025</td>
                 <td class="govuk-table__cell">8 August 2025</td>
                 <!-- <td class="govuk-table__cell">8 August 2025</td> -->
-                <td class="govuk-table__cell"><a href="livestock_year_handler?harvest_date=2025">Update 2025 low run-off risk land</a></td>
+                <td class="govuk-table__cell"><a href="livestock_year_handler">Update 2025 low run-off risk land</a></td>
                 <!-- <td class="govuk-table__cell"><a href="crop_plan_year_handler?">Add 2025 livestock</a></td> -->
               </tr>
             {% else %}
@@ -58,23 +58,10 @@
                 <th scope="row" class="govuk-table__header">2025</td>
                 <td class="govuk-table__cell">-</td>
                 <!-- <td class="govuk-table__cell">8 August 2025</td> -->
-                <td class="govuk-table__cell"><a href="livestock_year_handler?harvest_date=2025">Add 2025 low run-off risk land</a></td>
+                <td class="govuk-table__cell"><a href="livestock_year_handler">Add 2025 low run-off risk land</a></td>
                   <!-- <td class="govuk-table__cell"><a href="crop_plan_year_handler?">Add 2025 livestock</a></td> -->
               </tr>
             {% endif %}
-            {% if data.oaktree_farm.low_risk_land_added == 'added' %}   
-              <th scope="row" class="govuk-table__header">2024</td>
-                <td class="govuk-table__cell">8 August 2025</td>
-                <!-- <td class="govuk-table__cell">8 August 2025</td> -->
-                <td class="govuk-table__cell"><a href="livestock_year_handler?harvest_date=2024">Update 2024 low run-off risk land</a></td>
-              </tr>
-            {% else %}  
-              <th scope="row" class="govuk-table__header">2024</td>
-                <td class="govuk-table__cell">-</td>
-                <!-- <td class="govuk-table__cell">8 August 2025</td> -->
-                <td class="govuk-table__cell"><a href="livestock_year_handler?harvest_date=2024">Add 2024 low run-off risk land</a></td>
-              </tr>
-            {% endif %}  
           </tbody>
       </table>     
 

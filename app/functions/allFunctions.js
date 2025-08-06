@@ -57,13 +57,6 @@ function basicSetup (farm, mvpFields, manure, fertiliser) {
     farm.use_mvp_fields = mvpFields
 };
 
-function cropSetup (planYear, cropOne, cropTwo, firstFields, secondFields) {
-    planYear.firstCropReference = cropOne
-    planYear.secondCropReference = cropTwo
-    planYear.firstFieldReferences = firstFields
-    planYear.secondFieldReferences = secondFields
-};
-
 function manureSetup (planYear, multipleManures, singleManures, multipleFertilisers, singleFertilisers) {
     planYear.multipleManuresApplied = multipleManures 
     planYear.singleManuresApplied = singleManures
@@ -273,7 +266,6 @@ module.exports.getGroupByReference = getGroupByReference;
 module.exports.getMultipleFieldsByReferences = getMultipleFieldsByReferences;
 module.exports.totalFieldsCount = totalFieldsCount;
 module.exports.basicSetup = basicSetup;
-module.exports.cropSetup = cropSetup;
 module.exports.manureSetup = manureSetup;
 module.exports.createCropGroup = createCropGroup;
 module.exports.getManureFields = getManureFields;

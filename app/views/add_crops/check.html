@@ -35,16 +35,6 @@
       {% endif %}
     </div>
     
-    {% if data.plan_type == 'previous' %}
-    <br>
-    <h2 class="govuk-heading-m">
-      Organic material
-    </h2>
-    <div class="check-answers">
-      {% include "./add_manure/check_manure.html" %}
-    </div>
-    {% endif %}
-
     <form action="/crops_V5_check_handler/" method="post" novalidate>
       {{ govukButton({
         text: "Create plan"

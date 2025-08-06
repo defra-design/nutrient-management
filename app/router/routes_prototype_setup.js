@@ -71,16 +71,6 @@ router.get(/farm_setup_handler/, function (req, res) {
     res.redirect('start')
 })
 
-router.get(/onecrop_setup_handler/, function (req, res) {
-    req.session.data.oaktree_farm.setup = true
-    req.session.data.oaktree_farm.fields_added = true
-    req.session.data.all_fields = req.session.data.complete_field_list
-    ///2024 plan setup
-    allFunctions.cropSetup (req.session.data.plan_2024, 'oats-Spring', null, [1, 2, 3, 4, 5], null)
-    req.session.data.plan_2024.firstFields = allFunctions.getMultipleFieldsByReferences(req.session.data.plan_2024.firstFieldReferences, req.session.data.all_fields)
-    res.redirect('start')
-})
-
 //Farm and fields added
 router.get(/end_to_end_field_handler/, function (req, res) { 
     req.session.data.oaktree_farm.setup = true

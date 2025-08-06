@@ -75,19 +75,11 @@ router.get('/', function (req, res) {
 
     // control vars  
     req.session.data.show_success_message = false
-
     req.session.data.tempField = tempField
     req.session.data.chosen_field = null
     req.session.data.crop_group = null
-    req.session.data.chosen_nutrients = []
-    req.session.data.chosen_nitrogen = false
-    req.session.data.chosen_phosphate = false
-    req.session.data.chosen_potash = false
-    req.session.data.chosen_sulphur = false
-    req.session.data.chosen_lime = false
     req.session.data.chosen_crop = null
     req.session.data.chosen_fields = []
-    req.session.data.plan_type = 'new'
     req.session.data.another_crop = 'no'
     req.session.data.chosen_plan = null //v2
     req.session.data.crop_count = 0
@@ -168,7 +160,6 @@ router.get('/', function (req, res) {
 //import routes
 var  routes_prototype_setup = require('./router/routes_prototype_setup.js');
 var  message_reset_handlers = require('./router/routes_message_reset_handlers.js');
-var  setup_routes = require('./router/setup_routes.js');
 
 var  routes_manure = require('./router/routes_manure.js');
 var  reports_routes = require('./router/reports_routes.js');
@@ -181,4 +172,4 @@ var  routes_updates = require('./router/routes_updates.js');
 var  livestock_storage_routes = require('./router/livestock_storage_routes.js');
 var  manner_routes = require('./router/manner_routes.js');
 
-router.use('/',routes_prototype_setup, message_reset_handlers, manner_routes, livestock_storage_routes, routes_farm, reports_routes, routes_field, routes_crop, routes_updates, routes_manure, setup_routes);
+router.use('/',routes_prototype_setup, message_reset_handlers, manner_routes, livestock_storage_routes, routes_farm, reports_routes, routes_field, routes_crop, routes_updates, routes_manure);

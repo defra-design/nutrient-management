@@ -244,5 +244,10 @@ router.get(/grass_years_handler/, function (req, res) {
     res.redirect(next)
 })
 
+router.get(/add-grass-handler/, function (req, res) { 
+    var next = (req.session.data.previous_grass == 'yes') ? 'plough' : 'check'
+    res.redirect(next)
+})
+
 
 module.exports = router

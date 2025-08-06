@@ -53,4 +53,36 @@ router.get(/reset_manage_livestock_inventory_handler/, callback_functions.hideSu
     res.redirect('/outputs/inventory/manage_livestock/numbers')
 })
 
+//manage fields view reset messages
+router.get(/field_reset_handler/, function (req, res) {
+    req.session.data.show_success_message = false;
+    res.redirect('/farm/field/manage-fields');
+})
+
+//add a field view reset messages
+router.get(/field_add_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false;
+    res.redirect('add-field/name');
+})
+
+//add a field view reset messages
+router.get(/field_copy_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false;
+    res.redirect('add-field/copy_field');
+})
+
+//field details view reset messages
+router.get(/field_details_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false;
+    res.redirect('/farm/field/field-details');
+})
+
+//plan_view reset messages
+router.get(/planview_reset_handler/, function (req, res) { 
+    req.session.data.show_success_message = false;
+    res.redirect('../crop_plan/plan_view');
+})
+
+
+
 module.exports = router

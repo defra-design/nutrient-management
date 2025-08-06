@@ -19,15 +19,6 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <!-- <span class="govuk-caption-l">
-        Nutrient application plan 2023 to 2024
-      </span> -->
-
-
-      <!-- go through the crop currentCropGroups
-      go throuhg their fields
-      if they havent been listed list them
- -->
       <h1 class="govuk-heading-l">
         Which fields would you like to plan an organic material application for?
       </h1>
@@ -40,30 +31,6 @@
               Select all that apply.
             </div>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-
-              <!-- {% for field in data.all_fields %}
-              {% set isPlanned = false %}
-              {% for thisField in data.plan_2024.firstFields %} 
-                {% if thisField.reference == field.reference %}
-                  {% set isPlanned = true %}
-                {% endif %}
-              {% endfor %} 
-              {% if isPlanned == true %}
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id={{field.reference}} name="manure_fields" type="checkbox" value={{field.reference}}>
-                  <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
-                    {{field.name}} 
-                  </label>
-                </div>
-              {% else %}
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id={{field.reference}} name="manure_fields" type="checkbox" value={{field.reference}}>
-                <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
-                  {{field.name}}
-                </label>
-              </div>
-              {% endif %}
-            {% endfor %}    -->
 
             {% for group in data.currentCropGroups %}
               {% for field in group.fields %}

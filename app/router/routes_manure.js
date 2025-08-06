@@ -224,30 +224,6 @@ router.get(/mvpfield_plan_handler/, callback_functions.hideSuccessMessage, funct
     res.redirect('../field_plan/index')
 })
 
-//show the right fertilisers
-router.get(/fertiliser_type_handler_v2/, function (req, res) { 
-    var chosen_nutrients = req.session.data.chosen_nutrients
-    req.session.data.chosen_nitrogen = false
-    req.session.data.chosen_phosphate = false
-    req.session.data.chosen_potash = false
-    req.session.data.chosen_sulphur = false
-    req.session.data.chosen_lime = false
-    for (var x in chosen_nutrients) {
-        if (chosen_nutrients[x] == "nitrogen") {
-            req.session.data.chosen_nitrogen = true;
-        } else if (chosen_nutrients[x] == "phosphate") {
-            req.session.data.chosen_phosphate = true;
-        } else if (chosen_nutrients[x] == "potash") {
-            req.session.data.chosen_potash = true;
-        } else if (chosen_nutrients[x] == "sulphur") {
-            req.session.data.chosen_sulphur = true;
-        } else if (chosen_nutrients[x] == "lime") {
-            req.session.data.chosen_lime = true;
-        }
-    }
-    res.redirect('fertiliser_amount')
-})
-
 //select a field
 router.get(/field-select-handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.chosen_field = req.query.chosen_field

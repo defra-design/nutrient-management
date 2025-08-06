@@ -57,24 +57,6 @@ function basicSetup (farm, mvpFields, manure, fertiliser) {
     farm.use_mvp_fields = mvpFields
 };
 
-// allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, fertilisers)
-function farmSetup (farm, alphaPlan2023, alphaPlan2024, stage) {
-    farm.setup = true
-    if (stage == "fields" || stage == "crops" || stage == "grass" || stage == "manures" || stage == "fertilisers") {
-        farm.fields_added = true
-        alphaPlan2023.setup = true
-    }
-    if (stage == "crops" || stage == "grass" || stage == "manures" || stage == "fertilisers") {
-        alphaPlan2024.setup = true
-    }
-    if (stage == "manures" || stage == "fertilisers") {
-        alphaPlan2024.multipleManuresApplied = true
-    }
-    if (stage == "fertilisers") {
-        alphaPlan2024.multipleFertilisersApplied = true
-    }
-};
-
 function cropSetup (planYear, cropOne, cropTwo, firstFields, secondFields) {
     planYear.firstCropReference = cropOne
     planYear.secondCropReference = cropTwo
@@ -291,7 +273,6 @@ module.exports.getGroupByReference = getGroupByReference;
 module.exports.getMultipleFieldsByReferences = getMultipleFieldsByReferences;
 module.exports.totalFieldsCount = totalFieldsCount;
 module.exports.basicSetup = basicSetup;
-module.exports.farmSetup = farmSetup;
 module.exports.cropSetup = cropSetup;
 module.exports.manureSetup = manureSetup;
 module.exports.createCropGroup = createCropGroup;

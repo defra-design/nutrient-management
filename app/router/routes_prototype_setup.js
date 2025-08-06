@@ -3,8 +3,9 @@ var router = express.Router()
 var allFunctions = require('../functions/allFunctions.js');
 
 router.get(/end_to_end_setup_handler/, function (req, res) { 
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
-    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
     var fieldOne = {name: "Long Field",reference: 1, nvz: true,elevation: false};
     var fieldTwo = {name: "Short Field",reference: 2,nvz: true,elevation: false};
     req.session.data.all_fields.push(fieldOne)
@@ -17,8 +18,9 @@ router.get(/end_to_end_setup_handler/, function (req, res) {
 })
 
 router.get(/onecrop_v5_setup_handler/, function (req, res) { 
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
-    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
     req.session.data.all_fields = req.session.data.complete_field_list
     req.session.data.previousCropGroups.push(allFunctions.createCropGroup(1, 2024, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', null, 'Crop group 1', null, null, false))
     req.session.data.currentCropGroups.push(allFunctions.createCropGroup(1, 2025, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', '8', null, false))
@@ -27,10 +29,10 @@ router.get(/onecrop_v5_setup_handler/, function (req, res) {
 
 //full setup
 router.get(/plan_setup/, function (req, res) { 
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
     req.session.data.extra_features = true
-    // function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, group, yield, date) {
-    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2024, req.session.data.plan_2024, 'fertilisers')
     req.session.data.all_fields = req.session.data.complete_field_list
     req.session.data.oaktree_farm.area_added = true
     req.session.data.oaktree_farm.livestock_loading = 'added'
@@ -74,8 +76,9 @@ router.get(/farm_setup_handler/, function (req, res) {
     res.redirect('start')
 })
 
-router.get(/onecrop_setup_handler/, function (req, res) { 
-    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'crops')
+router.get(/onecrop_setup_handler/, function (req, res) {
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.oaktree_farm.fields_added = true
     req.session.data.all_fields = req.session.data.complete_field_list
     ///2023 plan setup
     allFunctions.cropSetup (req.session.data.plan_2023, 'Wheat-Winter', 'oats-Winter', [1, 2, 3, 4, 5], [6, 7, 8, 9, 10, 11])
@@ -89,8 +92,9 @@ router.get(/onecrop_setup_handler/, function (req, res) {
 
 //Farm and fields added
 router.get(/end_to_end_field_handler/, function (req, res) { 
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
-    allFunctions.farmSetup(req.session.data.oaktree_farm, req.session.data.plan_2023, req.session.data.plan_2024, 'fields')
     var fieldOne = {name: "Long Field",reference: 1, nvz: true,elevation: false};
     var fieldTwo = {name: "Short Field",reference: 2,nvz: true,elevation: false};
     req.session.data.all_fields.push(fieldOne)

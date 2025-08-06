@@ -15,7 +15,10 @@
     <p class="govuk-body-s">Version 6 July 2025</p>
 
     <h2 class="govuk-heading-s" id="textp">
-      {{data.content.content_loaded}}
+      
+      {% if data.oaktree_farm.created != true %}
+        Please refresh your browser
+      {% endif %}
     </h2>
 
     <ul class="govuk-list govuk-list--spaced margin-bottom-thirty">
@@ -52,7 +55,6 @@
         <a href="onecrop_v5_setup_handler" class="govuk-link">1 x arable crop added</a>
       </li>
     </ul>
-
 
     <h2 class="govuk-heading-m">Reports</h2>
     <ul class="govuk-list govuk-list--spaced margin-bottom-thirty">

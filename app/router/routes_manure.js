@@ -208,15 +208,6 @@ router.get(/crop_plan_year_handler/, callback_functions.hideSuccessMessage, func
     res.redirect('./crop_plan/plan_view')
 })
 
-//view the selected plan
-router.get(/field_level_plan_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    // console.log('req.query.chosen_field ' + req.query.chosen_field)
-    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field)
-    // console.log(req.session.data.chosen_field)
-    req.session.data.chosen_crop = req.query.chosencrop
-    res.redirect('../field_plan/index')
-})
-
 router.get(/mvpfield_plan_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field.reference)
     req.session.data.chosen_crop = req.query.chosencrop

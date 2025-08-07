@@ -1,0 +1,286 @@
+{% macro monthitem(name) %}
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{name}}</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+    </tr>
+{% endmacro %}
+
+{% macro emptyTable() %}
+<table class="govuk-table data-table margin-bottom-forty">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Month</th>
+      <th scope="col" class="govuk-table__header">Home produced (cattle)</th>
+      <th scope="col" class="govuk-table__header">Home produced (pigs)</th>
+      <th scope="col" class="govuk-table__header">Home produced (poultry)</th>
+      <th scope="col" class="govuk-table__header">Home produced (sheep/other)</th>
+      <th scope="col" class="govuk-table__header">Imports</th>
+      <th scope="col" class="govuk-table__header">Exports</th>
+      <th scope="col" class="govuk-table__header">Clean rainfall</th>
+      <th scope="col" class="govuk-table__header">Dirty rainfall</th>
+      <th scope="col" class="govuk-table__header">Net total retained on farm</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    {{ monthitem ("October") }}
+    {{ monthitem ("November") }}
+    {{ monthitem ("December") }}
+    {{ monthitem ("January") }}
+    {{ monthitem ("February") }}
+    {{ monthitem ("March") }}
+    {{ monthitem ("April") }}
+    {{ monthitem ("May") }}
+    {{ monthitem ("June") }}
+    {{ monthitem ("July") }}
+    {{ monthitem ("August") }}
+    {{ monthitem ("September") }}
+    <tr class="govuk-table__row total_row">
+      <td class="govuk-table__cell">Total</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+  </tbody>
+</table>
+{% endmacro %}
+
+<p class="govuk-body-s">
+  Clean rainfall is the quantity of rainfall landing on clean concrete and roofs, or uncovered slurry stores that drain to a slurry store. This quantity of rainfall may be easily redirected to reduce the
+volume of slurry.
+</p>
+
+<p class="govuk-body-s">
+  Dirty rainfall is the quantity of rainfall landing on fouled open concrete, and uncovered solid manure stores, silage clamps, etc., that drain to a manure store.
+</p>
+
+<h3 class="govuk-heading-s">Slurry</h3>
+<table class="govuk-table data-table margin-bottom-forty">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Month</th>
+      <th scope="col" class="govuk-table__header">Home produced (cattle)</th>
+      <th scope="col" class="govuk-table__header">Home produced (pigs)</th>
+      <th scope="col" class="govuk-table__header">Home produced (poultry)</th>
+      <th scope="col" class="govuk-table__header">Home produced (sheep/other)</th>
+      <th scope="col" class="govuk-table__header">Imports</th>
+      <th scope="col" class="govuk-table__header">Exports</th>
+      <th scope="col" class="govuk-table__header">Clean rainfall</th>
+      <th scope="col" class="govuk-table__header">Dirty rainfall</th>
+      <th scope="col" class="govuk-table__header">Net total retained on farm</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">October</td>
+      <td class="govuk-table__cell">85</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">12</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">97</td></tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">November</td>
+      <td class="govuk-table__cell">85</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">11</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">97</td></tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">December</td>
+      <td class="govuk-table__cell">85</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">11</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">96</td></tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">January</td>
+      <td class="govuk-table__cell">85</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">11</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">96</td></tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">February</td>
+      <td class="govuk-table__cell">85</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">8</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">93</td></tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">March</td>
+      <td class="govuk-table__cell">85</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">9</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">94</td></tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">April</td>
+      <td class="govuk-table__cell">85</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">9</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">94</td></tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">May</td>
+      <td class="govuk-table__cell">85</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">8</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">94</td></tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">June</td>
+      <td class="govuk-table__cell">85</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">11</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">96</td></tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">July</td>
+      <td class="govuk-table__cell">85</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">9</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">94</td></tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">August</td>
+      <td class="govuk-table__cell">85</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">10</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">95</td></tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">September</td>
+      <td class="govuk-table__cell">85</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">10</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">96</td></tr>
+    <tr class="govuk-table__row total_row">
+      <td class="govuk-table__cell">Total</td>
+      <td class="govuk-table__cell">1,022</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">118</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">1,140</td></tr>
+  </tbody>
+</table>
+
+<h3 class="govuk-heading-s">Dirty water</h3>
+<table class="govuk-table data-table margin-bottom-forty">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Month</th>
+      <th scope="col" class="govuk-table__header">Home produced (cattle)</th>
+      <th scope="col" class="govuk-table__header">Home produced (pigs)</th>
+      <th scope="col" class="govuk-table__header">Home produced (poultry)</th>
+      <th scope="col" class="govuk-table__header">Home produced (sheep/other)</th>
+      <th scope="col" class="govuk-table__header">Imports</th>
+      <th scope="col" class="govuk-table__header">Exports</th>
+      <th scope="col" class="govuk-table__header">Clean rainfall</th>
+      <th scope="col" class="govuk-table__header">Dirty rainfall</th>
+      <th scope="col" class="govuk-table__header">Net total retained on farm</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row"><td class="govuk-table__cell">October</td><td class="govuk-table__cell">8</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">3</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">11</td></tr>
+    <tr class="govuk-table__row"><td class="govuk-table__cell">November</td><td class="govuk-table__cell">30</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">8</td><td class="govuk-table__cell">3</td><td class="govuk-table__cell">41</td></tr>
+    <tr class="govuk-table__row"><td class="govuk-table__cell">December</td><td class="govuk-table__cell">31</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">8</td><td class="govuk-table__cell">3</td><td class="govuk-table__cell">41</td></tr>
+    <tr class="govuk-table__row"><td class="govuk-table__cell">January</td><td class="govuk-table__cell">31</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">7</td><td class="govuk-table__cell">3</td><td class="govuk-table__cell">41</td></tr>
+    <tr class="govuk-table__row"><td class="govuk-table__cell">February</td><td class="govuk-table__cell">28</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">6</td><td class="govuk-table__cell">2</td><td class="govuk-table__cell">36</td></tr>
+    <tr class="govuk-table__row"><td class="govuk-table__cell">March</td><td class="govuk-table__cell">31</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">6</td><td class="govuk-table__cell">2</td><td class="govuk-table__cell">39</td></tr>
+    <tr class="govuk-table__row"><td class="govuk-table__cell">April</td><td class="govuk-table__cell">30</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">6</td><td class="govuk-table__cell">2</td><td class="govuk-table__cell">38</td></tr>
+    <tr class="govuk-table__row"><td class="govuk-table__cell">May</td><td class="govuk-table__cell">31</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">6</td><td class="govuk-table__cell">2</td><td class="govuk-table__cell">39</td></tr>
+    <tr class="govuk-table__row"><td class="govuk-table__cell">June</td><td class="govuk-table__cell">30</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">8</td><td class="govuk-table__cell">3</td><td class="govuk-table__cell">40</td></tr>
+    <tr class="govuk-table__row"><td class="govuk-table__cell">July</td><td class="govuk-table__cell">31</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">6</td><td class="govuk-table__cell">2</td><td class="govuk-table__cell">40</td></tr>
+    <tr class="govuk-table__row"><td class="govuk-table__cell">August</td><td class="govuk-table__cell">31</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">7</td><td class="govuk-table__cell">2</td><td class="govuk-table__cell">40</td></tr>
+    <tr class="govuk-table__row"><td class="govuk-table__cell">September</td><td class="govuk-table__cell">30</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">-</td><td class="govuk-table__cell">7</td><td class="govuk-table__cell">3</td><td class="govuk-table__cell">40</td></tr>
+    <tr class="govuk-table__row total_row">
+      <td class="govuk-table__cell">Total</td>
+      <td class="govuk-table__cell">334</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">83</td>
+      <td class="govuk-table__cell">30</td>
+      <td class="govuk-table__cell">447</td></tr>
+  </tbody>
+</table>
+
+<h3 class="govuk-heading-s">Poultry layer manure</h3>
+<p class="govuk-body">None</p>
+<!-- {{ emptyTable () }} -->
+
+<h3 class="govuk-heading-s">Poultry litter</h3>
+<p class="govuk-body">None</p>
+<!-- {{ emptyTable () }} -->
+
+<h3 class="govuk-heading-s">Other solid manures</h3>
+<p class="govuk-body">None</p>
+<!-- {{ emptyTable () }} -->

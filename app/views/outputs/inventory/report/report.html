@@ -71,9 +71,16 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
+      <!-- Area -->
+      <div>
+        <h2 class="govuk-heading-m">Farm information</h2>
+        {% include "./templates/area.html" ignore missing %} 
+        </div>
+      <!-- <hr class="seperator_forty"> -->
+
       <!-- NVZ storage capacity -->
       <div>
-        <h2 class="govuk-heading-m">The Nitrate Vulnerable Zone (NVZ) minimum mandatory manure storage capacity requirements</h2>
+        <h2 class="govuk-heading-m">Nitrate Vulnerable Zone (NVZ) minimum mandatory manure storage capacity requirements</h2>
         {% include "./templates/minimum_storage.html" ignore missing %} 
         </div>
       <!-- <hr class="seperator_forty"> -->
@@ -141,7 +148,7 @@
         <h2 class="govuk-heading-m">Financial value</h2>
         {% include "./templates/value.html" ignore missing %} 
         </div>
-      <hr class="seperator_forty">
+      <!-- <hr class="seperator_forty"> -->
 
       <h2 class="govuk-heading-s">
         About recommendations, guidance, and advice

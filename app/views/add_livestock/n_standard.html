@@ -34,29 +34,23 @@
       <details class="govuk-details">
         <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
-            About the default values
+            Help with nitrogen (N) standard
             </span>
         </summary>
         <div class="govuk-details__text">
-            <p class="govuk-body">
-                Occupancy is the proportion of the year that the animal place is occupied by animals.
-            </p>
-            <p class="govuk-body">
-                The remaining time will be for cleaning etc. 
-            </p>
-            <p class="govuk-body">
-                If the occupancy on your farm is different to the occupancy values shown here, you should enter the actual occupancy figures for your farm.
-            </p>
-            <p class="govuk-body">
-                If you enter your own nitrogen (N) standard figure, do not change the occupancy value.
-            </p>
+        <p class="govuk-body">
+          The nitrogen (N) standard figure is the average nitrogen (N) produced by this type of animal
+        </p>
+        <!-- <p class="govuk-body">
+          This figure accounts for occupancy already, so if you change it, you must keep the occupancy value the same. You can only change one of these values.
+        </p> -->
         </div>
     </details>
 
-      <form action="livestock_numbers_average" method="post" novalidate="">
+      <form action="check" method="post" novalidate="">
         <div class="govuk-form-group">
           <div class="govuk-input__wrapper">
-              <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" value="{{data.chosen_livestock.nitrogen}}" autocomplete="off">
+              <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" value="83" autocomplete="off">
               <div class="govuk-input__suffix" aria-hidden="true">
                   kg, per 1000 places
               </div>

@@ -65,10 +65,10 @@
 
   {% if data.livestock_group != 'cattle' %}
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">What is the occupancy?</dt>
+      <dt class="govuk-summary-list__key">Occupancy</dt>
       <dd class="govuk-summary-list__value">
         {% if data.livestock_occupancy == null or data.livestock_occupancy == '' %}
-          100%
+          86%
         {% else %}
           {{data.livestock_occupancy}}%
         {% endif %}
@@ -80,13 +80,13 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
       {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
-        Nitrogen (N) standard per 1000 places per year
+        Nitrogen (N) standard
       {% else %}
           Nitrogen (N) standard per animal, per year
       {% endif %}
     </dt>
     <dd class="govuk-summary-list__value">
-      {{data.chosen_livestock.nitrogen}}kg per year
+      83kg per 1000 places, per year
     </dd>
     {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>

@@ -18,56 +18,36 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Tin Tank dimensions</h1>
+      <h1 class="govuk-heading-l">
+        How do you want to add the capacity?
+      </h1>
 
-      <p class="govuk-hint">Do not include the the freeboard area.</p>
+      <p class="govuk-hint">Choose one option.</p>
 
       <form class="form" action="sizes" method="post">
 
         <div class="govuk-form-group">
-          <label class="govuk-label" for="nitrogen_standard">
-              What is the depth, without the freeboard?
-          </label>
-          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="nitrogen_standard" name="nitrogen_standard" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">metres</div>
-          </div>
-        </div>
-
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="nitrogen_standard">
-              Do you want to enter the circumference or the diameter?
-          </label>
           <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="contact-1" name="storage_question" type="radio" value="capacity" data-aria-controls="conditional-contact-1">
-                <label class="govuk-label govuk-radios__label" for="contact-1">
-                  Enter the circumference
+                <input class="govuk-radios__input" id="contact" name="storage_question" type="radio" value="dimensions" data-aria-controls="conditional-contact">
+                <label class="govuk-label govuk-radios__label" for="contact">
+                  Enter the dimensions and calculate the capacity
                 </label>
-              </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-1">
-                <div class="govuk-form-group">
-                  <label class="govuk-label" for="contact-by-phone">
-                    What is the circumference?
-                  </label>
-                  <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="nitrogen_standard" name="nitrogen_standard" type="text" spellcheck="false" autocomplete="off">
-                    <div class="govuk-input__suffix" aria-hidden="true">metres</div>
-                  </div>
-                </div>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="contact-2" name="storage_question" type="radio" value="capacity" data-aria-controls="conditional-contact-2">
                 <label class="govuk-label govuk-radios__label" for="contact-2">
-                  Enter the diameter
+                  Enter the total capacity
                 </label>
               </div>
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
                 <div class="govuk-form-group">
                   <label class="govuk-label" for="contact-by-phone">
-                    What is the diameter?
+                    Total capacity
                   </label>
                   <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="nitrogen_standard" name="nitrogen_standard" type="text" spellcheck="false" autocomplete="off">
-                    <div class="govuk-input__suffix" aria-hidden="true">metres</div>
+                    <div class="govuk-input__suffix" aria-hidden="true">Cubic metres</div>
                   </div>
                 </div>
               </div>

@@ -68,46 +68,56 @@
 
   </div>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-
-      <!-- Area -->
-      <div>
+    <!-- Area -->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
         <h2 class="govuk-heading-m">Farm information</h2>
         {% include "./templates/area.html" ignore missing %} 
-        </div>
-      <!-- <hr class="seperator_forty"> -->
+      </div>
+    </div>
+    <!-- <hr class="seperator_forty"> -->
 
-      <!-- NVZ storage capacity -->
-      <div>
+    <!-- NVZ storage capacity -->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
         <h2 class="govuk-heading-m">Nitrate Vulnerable Zone (NVZ) minimum mandatory manure storage capacity requirements</h2>
         {% include "./templates/minimum_storage.html" ignore missing %} 
-        </div>
-      <!-- <hr class="seperator_forty"> -->
+      </div>
+    </div>
+    <!-- <hr class="seperator_forty"> -->
 
-      <!-- Existing stores -->
-      <div>
+    <!-- <div id="printbreak" class="pagebreak">&nbsp;</div> -->
+
+    <!-- Existing stores -->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
         <h2 class="govuk-heading-m">Existing slurry, solid manure and dirty water stores, and other rainwater collection areas</h2>
         {% include "./templates/stores_rainwater.html" ignore missing %} 
-        </div>
-      <!-- <hr class="seperator_forty"> -->
+      </div>
+    </div>
+    <!-- <hr class="seperator_forty"> -->
 
-      <!-- Livestock details -->
-      <div>
+    <!-- Livestock details -->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
         <h2 class="govuk-heading-m">Livestock details</h2>
         {% include "./templates/livestock.html" ignore missing %} 
-        </div>
-      <hr class="seperator_forty">
+      </div>
+    </div>
+    <!-- <hr class="seperator_forty"> -->
 
-      <!-- Wash water -->
-      <div>
+    <!-- Wash water -->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
         <h2 class="govuk-heading-m">Wash water</h2>
         {% include "./templates/wash_water.html" ignore missing %} 
-        </div>
-      <!-- <hr class="seperator_forty"> -->
+      </div>
+    </div>
+    <!-- <hr class="seperator_forty"> -->
 
-      <!-- Imports and exports -->
-      <div>
+    <!-- Imports and exports -->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
         <h2 class="govuk-heading-m">Imports and exports of livestock manure</h2>
         <p class="govuk-body">
           Livestock manure imports and exports net total: <span class="">+90,000kg of nitrogen (N)</span>
@@ -119,53 +129,55 @@
         <h3 class="govuk-heading-s">
           There are no exports of livestock manure
         </h3>
+        <hr class="seperator_thirty">
       </div>
-      <hr class="seperator_forty">
+    </div>
 
-      <!-- Low run-off risk land -->
-      <div>
+    <!-- Low run-off risk land -->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
         <h2 class="govuk-heading-m">Low run-off risk land</h2>
         {% include "./templates/run_off_land.html" ignore missing %} 
-        </div>
-      <hr class="seperator_forty">
+      <hr class="seperator_thirty">
+      </div>
+    </div>
 
-      <!-- Manure production summary -->
-      <div>
+    <!-- Manure production summary -->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
         <h2 class="govuk-heading-m">Summary of organic manure and dirty water production</h2>
-        {% include "./templates/manure_and_water.html" ignore missing %} 
-        </div>
-      <hr class="seperator_forty">
+        {% include "./templates/manure_and_water.html" ignore missing %}
+        <hr class="seperator_thirty">
+      </div>
+    </div>
 
-      <!-- Nutrients in handled manures  -->
-      <div>
+    <!-- Nutrients in handled manures  -->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
         <h2 class="govuk-heading-m">Nutrients in handled manures (approximate values)</h2>
         {% include "./templates/nutrients.html" ignore missing %} 
-        </div>
-      <!-- <hr class="seperator_forty"> -->
+      </div>
+    </div>
+    <!-- <hr class="seperator_forty"> -->
 
-      <!-- Financial value -->
-      <div>
+    <!-- Financial value -->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
         <h2 class="govuk-heading-m">Financial value</h2>
         {% include "./templates/value.html" ignore missing %} 
-        </div>
-      <!-- <hr class="seperator_forty"> -->
+      </div>
+    </div>
+    <!-- <hr class="seperator_forty"> -->
+    <div id="printbreak" class="pagebreak">&nbsp;</div>
 
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
       <h2 class="govuk-heading-s">
         About recommendations, guidance, and advice
       </h2>
       {% include "/templates/recommendations.html" ignore missing %}
-
     </div>
   </div>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-thirty">
-
-      <!-- add report components here -->
-
-  </div>
-</div>
   
-
 
 {% endblock %}

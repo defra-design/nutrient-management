@@ -7,32 +7,31 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">What do you want to call this organic material store?</dt>
-      <dd class="govuk-summary-list__value">Tin Tank</dd>
+      <dd class="govuk-summary-list__value">{{data.storage_name}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What kind of storage is Tin Tank?</dt>
+    <dt class="govuk-summary-list__key">What kind of storage is {{data.storage_name}}?</dt>
       <dd class="govuk-summary-list__value">{{data.storage_type | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <!-- circular dimensions -->
   {% if data.storage_type == 'circular' %}
-    {% include "./templates/check_circle.html" ignore missing %}
+    {% include "./check_circle.html" ignore missing %}
   
   <!-- capacity -->
   {% elif data.storage_type == 'storage bag' %}
-    {% include "./templates/check_capacity.html" ignore missing %}
+    {% include "./check_capacity.html" ignore missing %}
 
   <!-- sloped sides -->
   {% elif data.storage_type == 'earth banked' %}
-    {% include "./templates/check_slope.html" ignore missing %}
+    {% include "./check_slope.html" ignore missing %}
   
   <!-- everything else = rectangle -->
   {% else %}
-    {% include "./templates/check_rectangle.html" ignore missing %}
+    {% include "./check_rectangle.html" ignore missing %}
   {% endif %}
-
 
 </dl>

@@ -496,6 +496,12 @@ router.get(/occupancy_handler/, function (req, res) {
     res.redirect(next);
 })
 
+router.get(/storage_name_handler/, function (req, res) {
+    req.session.data.storage_name = (req.session.data.storage_name == '') ? 'My Storage' : req.session.data.storage_name
+    res.redirect('storage_type');
+})
+
+
 
 // router.get(/export_inventory_router/, callback_functions.hide_error, function (req, res) {
 //     req.session.data.oaktree_farm.manure_system_details = true

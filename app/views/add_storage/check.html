@@ -28,28 +28,8 @@
     </h2>
 
     <div class="check-answers margin-bottom-forty">
-      {% include "./check_content_solid.html" %}
-      <!-- {% include "./check_content_liquid.html" %} -->
+      {% include "./check_content.html" %}
     </div>
-
-    <!-- <div class="margin-bottom-forty right-align">
-      <h2 class="govuk-heading-m">
-        Total sizes
-      </h2>
-      <table class="govuk-table">
-        <tbody>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Capacity volume</th>
-            <td class="govuk-table__cell">60 metres cubed</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Surface area</th>
-            <td class="govuk-table__cell">32 metres squared</td>
-          </tr>
-        </tbody>
-      </table>  
-    </div> -->
-
     <form action="check_storage_handler" method="post" novalidate>
       {{ govukButton({
         text: "Add organic material storage"

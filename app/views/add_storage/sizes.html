@@ -19,16 +19,23 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">Tin Tank dimensions</h1>
-    
+    {% if ata.storage_type == 'storage bag' %}
+      <h1 class="govuk-heading-l">Tin Tank dimensions</h1>
+    {% else %}
+      <h1 class="govuk-heading-l">What is the total capacity of Tin Tank?
+</h1>
+    {% endif %}
+
     <form action="storage_sizes_handler" method="post" novalidate="">
     
       <!-- circular dimensions -->
       {% if data.storage_type == 'circular' %}
         {% include "./templates/circular_sizes.html" ignore missing %}
+      
       <!-- capacity -->
       {% elif data.storage_type == 'storage bag' %}
         {% include "./templates/capacity.html" ignore missing %}
+      
       <!-- everything else = rectangle -->
       {% else %}
         <p class="govuk-hint">Do not include the the freeboard area.</p>

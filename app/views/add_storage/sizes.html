@@ -16,49 +16,34 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Tin Tank dimensions</h1>
+    
+    <form action="storage_sizes_handler" method="post" novalidate="">
+    
+      <!-- circular dimensions -->
+      {% if data.storage_type == 'circular' %}
+        {% include "./templates/circular_sizes.html" ignore missing %}
+      <!-- capacity -->
+      {% elif data.storage_type == 'storage bag' %}
+        {% include "./templates/capacity.html" ignore missing %}
+      <!-- everything else = rectangle -->
+      {% else %}
+        <p class="govuk-hint">Do not include the the freeboard area.</p>
+        {% include "./templates/rectangle_sizes.html" ignore missing %}
+      {% endif %}
 
-      <h1 class="govuk-heading-l">Tin Tank dimensions</h1>
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
 
-      <p class="govuk-hint">Do not include the the freeboard area.</p>
-      
-      <form action="storage_sizes_handler" method="post" novalidate="">
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="nitrogen_standard">
-              What is the length?
-            </label>
-            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="nitrogen_standard" name="nitrogen_standard" type="text" spellcheck="false" autocomplete="off">
-              <div class="govuk-input__suffix" aria-hidden="true">metres</div>
-            </div>
-          </div>
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="nitrogen_standard">
-              What is the width?
-            </label>
-            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="nitrogen_standard" name="nitrogen_standard" type="text" spellcheck="false" autocomplete="off">
-              <div class="govuk-input__suffix" aria-hidden="true">metres</div>
-            </div>
-          </div>
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="nitrogen_standard">
-              What is the depth, without the freeboard?
-            </label>
-            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="nitrogen_standard" name="nitrogen_standard" type="text" spellcheck="false" autocomplete="off">
-              <div class="govuk-input__suffix" aria-hidden="true">metres</div>
-            </div>
-          </div>
+    </form>
 
-        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Continue
-        </button>
-      </form>
-
-      <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
-
-    </div>
+    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
 
   </div>
+</div>
 
 {% endblock %}

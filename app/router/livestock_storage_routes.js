@@ -9,7 +9,12 @@ var callback_functions = require('./callbacks.js');
 // Storage routes
 
 router.get(/storage_sizes_handler/, function (req, res) {
-    let next = (req.session.data.material_type == 'solid manure') ? 'weight' : 'check'
+    let next = 'check'
+    if (req.session.data.storage_type == 'earth banked') {
+        next = 'slope_question'
+    } else if (req.session.data.material_type == 'solid manure'){
+        next = 'weight'
+    }
     res.redirect(next)
 })
 

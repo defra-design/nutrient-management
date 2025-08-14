@@ -1,6 +1,11 @@
 <div class="govuk-form-group">
   <label class="govuk-label" for="lenght">
-  What is the length?
+  {% if data.storage_type == 'earth banked' %}
+    What is the length at the top edge of the lagoon?
+  {% else %}
+      What is the length?
+  {% endif %}
+
   </label>
   <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="length" name="size" type="text" spellcheck="false" autocomplete="off">
     <div class="govuk-input__suffix" aria-hidden="true">metres</div>
@@ -9,7 +14,11 @@
 
 <div class="govuk-form-group">
   <label class="govuk-label" for="width">
-    What is the width?
+    {% if data.storage_type == 'earth banked' %}
+      What is the width at the top edge of the lagoon?
+    {% else %}
+      What is the width?
+    {% endif %}
   </label>
   <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="width" name="size" type="text" spellcheck="false" autocomplete="off">
     <div class="govuk-input__suffix" aria-hidden="true">metres</div>
@@ -18,9 +27,36 @@
 
 <div class="govuk-form-group">
   <label class="govuk-label" for="depth">
+  {% if data.material_type != 'solid manure' %}
     What is the depth, without the freeboard?
+  {% else %}
+    What is the depth?
+  {% endif %}
   </label>
   <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="depth" name="size" type="text" spellcheck="false" autocomplete="off">
     <div class="govuk-input__suffix" aria-hidden="true">metres</div>
   </div>
 </div>
+
+  {% if data.material_type != 'solid manure' %}
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="width">
+    Is {{data.storage_name}} covered?
+    </label>
+    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="changedName">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="changedName-2">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+{% endif %}

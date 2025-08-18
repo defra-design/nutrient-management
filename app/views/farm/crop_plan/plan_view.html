@@ -110,7 +110,7 @@
           </button>
         </form>
 
-        <hr class="seperator_forty">
+        <hr class="separator_forty">
           {% for group in cropGroups %}
             {% if group.crop_reference == 'grass' %}
               {% include "./templates/2024_crop_groups_grass.html" ignore missing %}
@@ -133,8 +133,18 @@
               Add an organic material application
             </button>
           </form>
+<<<<<<< HEAD
           </div>
         <hr class="seperator_forty">
+=======
+  
+          <!-- <p class="govuk-body"><a href="plan_manure_application_router?manurejourney=multi">Add an organic material application to one or more fields</a></p> -->
+          <!-- if organics == true
+            include "./templates/2024_manure_totals.html" ignore missing
+          endif  -->
+        </div>
+        <hr class="separator_forty">
+>>>>>>> working
         
         {% if organics == true %}
         <div class="margin-bottom-forty">
@@ -163,7 +173,7 @@
 
 
         </div>
-        <hr class="seperator_forty">
+        <hr class="separator_forty">
 
         {% if inorganics == true %}
           <div class="margin-bottom-forty">

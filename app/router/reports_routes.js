@@ -28,7 +28,6 @@ router.get(/derogation_router/, function (req, res) {
     res.redirect('checklist');
 })
 
-
 router.get(/output_router/, callback_functions.hide_error, function (req, res) {   
     var next = 'export_fields'
     if (req.session.data.export_type == '1') {
@@ -72,7 +71,7 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
     }
     // MANURE INVENTORY AND STORAGE
     if (req.session.data.export_type == '8') {
-        next = './inventory/checklist'
+        next = './inventory/separator'
     }
     res.redirect(next)
 })

@@ -65,40 +65,40 @@
     padding-top: 5px;
 }
 
-hr.big_seperator {
+hr.big_separator {
     margin: 40px 0 40px 0;
     background-color: black;
     height: 2px;
     border: none;
 }
 
-hr.mid_seperator {
+hr.mid_separator {
     margin: 40px 0 40px 0;
     height: 1px;
     background-color: lightgray;
     border: none;
 }
 
-hr.seperator_forty {
+hr.separator_forty {
     margin: 40px 0 40px 0;
     // height: 2px;
     // background-color: lightgray;
     // border: none;
 }
 
-hr.seperator_zero {
+hr.separator_zero {
         margin: 0;
 }
 
-hr.seperator_thirty {
+hr.separator_thirty {
     margin: 30px 0 30px 0;
 }
 
-hr.seperator_twenty {
+hr.separator_twenty {
     margin: 20px 0 20px 0;
 }
 
-hr.medium_seperator {
+hr.medium_separator {
     margin: 30px 0 30px 0;
     border: none;
 }
@@ -1253,4 +1253,12 @@ width: 35%
 
 th.wide, td.wide {
     width: 65%;
+}
+
+.livestock_name {
+    width: 60%;
+}
+
+.livestock-container {
+    margin-bottom: 35px;
 }

@@ -21,23 +21,23 @@
         {% include "./templates/system/success_message.html" ignore missing %}
       {% endif %} -->
 
-      <h1 class="govuk-heading-l" id="header">Add the wash water details</h1>
+      <h1 class="govuk-heading-l" id="header">Add wash water details for each livestock type</h1>
       <!-- <p class="govuk-hint">Add wash water details for livestock types that have wash water</p> -->
       <!-- <h2 class="govuk-heading-m">October 2024 to September 2025</h2> -->
       
-      <form class="margin-bottom-twenty" action="numbers" method="post" novalidate="">
-        <button type="submit" class="govuk-button" data-module="govuk-button">
+      <form action="numbers" method="post" novalidate="">
+        <button type="submit" class="govuk-button govuk-button--secondary margin-bottom-fifty" data-module="govuk-button">
           Add or remove livestock
         </button>
       </form>
 
       <!-- <p class="govuk-body margin-bottom-thirty"><a href="numbers">Add or remove livestock</a></p> -->
 
-      <h2 class="govuk-heading-m">Livestock</h2>
+      <h2 class="govuk-heading-m non-standard">Wash water details</h2>
       {% include "./templates/water/livestock_water_tables.html" ignore missing %}
 
       <form action="../checklist" method="post" novalidate="">
-        <button class="govuk-button govuk-button--secondary margin-bottom-forty" data-module="govuk-button">
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
           Save and continue
         </button>
       </form>

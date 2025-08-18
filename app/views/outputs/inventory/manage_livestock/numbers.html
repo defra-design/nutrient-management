@@ -25,7 +25,7 @@
       <!-- <p class="govuk-body margin-bottom-thirty"><a href="/add_livestock_inventory/livestock_group">Add another livestock type</a></p> -->
 
       <form action="/add_livestock_inventory/livestock_group" method="post" novalidate="">
-        <button type="submit" class="govuk-button govuk-button--secondary margin-bottom-twenty" data-module="govuk-button">
+        <button type="submit" class="govuk-button govuk-button--secondary margin-bottom-fifty" data-module="govuk-button">
           Add another livestock type
         </button>
       </form>
@@ -37,8 +37,7 @@
     <div class="govuk-grid-column-full">
     <div class="margin-bottom-forty">
     
-    <hr class="separator_thirty">
-      <!-- <h2 class="govuk-heading-m">Livestock added</hs> -->
+      <h2 class="govuk-heading-m non-standard">Livestock</h2>
       {% include "./templates/numbers/livestock_tables.html" ignore missing %}
     </div>
 

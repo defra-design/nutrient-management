@@ -7,7 +7,8 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Ki
 {% block beforeContent %}
 
 {% include "/templates/signed-in.html" ignore missing %}
-{{ govukBreadcrumbs({
+
+<!-- {{ govukBreadcrumbs({
   items: [
     {
       text: "All farms",
@@ -21,7 +22,21 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Ki
       text: "Livestock details"
     }
   ]
-}) }}
+}) }} -->
+
+{% if data.export_type == 7 %}
+  {{ govukBackLink({
+    text: "Back to " + data.oaktree_farm.name,
+    href: "hub_message_reset"
+  }) }}
+{% elif data.export_type == 8 %}  
+{% else %}  
+  {{ govukBackLink({
+    text: "Back",
+    href: "/outputs/inventory/checklist"
+  }) }}
+{% endif %}  
+
 {% endblock %}
 
 {% block content %}
@@ -30,15 +45,21 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Ki
   <div class="govuk-grid-column-two-thirds">
 
     {% if data.show_success_message == true %}
-      {% include "./success_message.html" ignore missing %}
+      {% include "./templates/success_message.html" ignore missing %}
     {% endif %}
     
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
       
         <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
-        <h1 class="govuk-heading-l" id="header">Livestock details</h1>
-
+        <h1 class="govuk-heading-l add_sub" id="header">Livestock details</h1>
+        <h2 class="govuk-heading-m margin-bottom-thirty">
+          {% if data.export_type == 4 %}
+          2025
+          {% elif data.export_type == 7 %}
+            October 2024 and September 2025
+          {% endif %}
+        </h2>
         <!-- <p class="govuk-body">Last updated 19 April 2025.</p> -->
         <!-- <p class="govuk-body margin-bottom-thirty">{{data.oaktree_farm.name}} does not have a derogation for {{data.oaktree_farm.planning_year}} . <a href="">Add derogation</a>.</p> -->
           
@@ -52,7 +73,9 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Ki
           Add a livestock type
         </button>
       </form>
-      <p class="govuk-body margin-bottom-forty"><a href="/outputs/export">Create a report from this information</a></p>
+      {% if data.show_success_message != true %}
+        <p class="govuk-body margin-bottom-forty"><a href="/outputs/export">Create a report from this information</a></p>
+      {% endif %}
     {% endif %}
 
     </div>

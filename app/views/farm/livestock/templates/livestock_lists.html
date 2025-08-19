@@ -1,6 +1,6 @@
 {% if cattle_added == true %}
 {% set livestock_type = 'cattle' %}
-  <h2 class="govuk-heading-l margin-top-thirty">{{livestock_type | capitalize}}</h2>
+  <h2 class="govuk-heading-m non-standard margin-top-thirty">{{livestock_type | capitalize}}</h2>
   {% include "./livestock_table_template.html" ignore missing %}
 {% endif %}
 

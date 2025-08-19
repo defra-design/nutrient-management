@@ -1,83 +1,78 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
 
 {% include "/templates/signed-in.html" ignore missing %}
-  {{ govukBreadcrumbs({
-    items: [
-      {
-        text: "All farms",
-        href: "../farms" 
-      },
-      {
-        text: "Oaktree Lane Farm",
-        href: "hub_reset_router"
-      },
-      {
-        text: "Livestock details"
-      }
-    ]
-  }) }}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "All farms",
+      href: "../farms" 
+    },
+    {
+      text: "Oaktree Lane Farm",
+      href: "hub_reset_router"
+    },
+    {
+      text: "Livestock details"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}
-{{ plan_status }}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      {% if data.show_success_message == true %}
-        {% include "./success_message.html" ignore missing %}
-      {% endif %}
-      
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-        
-          <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
-          <h1 class="govuk-heading-l" id="header">Livestock details</h1>
-
-          <!-- <p class="govuk-body">Last updated 19 April 2025.</p> -->
-          <!-- <p class="govuk-body margin-bottom-thirty">{{data.oaktree_farm.name}} does not have a derogation for {{data.oaktree_farm.planning_year}} . <a href="">Add derogation</a>.</p> -->
-            
-        </div>
-      </div>
-            
-      {% if data.oaktree_farm.livestock_loading == 'added' %}
-
-      <!-- <div>
-        {% include "./templates/derogation.html" ignore missing %}
-      </div> -->
-
-        <form class="margin-bottom-ten" action="../../add_livestock/livestock_group" method="post" novalidate="">    
-          <button class="govuk-button" data-module="govuk-button">
-            Add a livestock type
-          </button>
-        </form>
-        <p class="govuk-body margin-bottom-forty"><a href="/outputs/export">Create a report from this information</a></p>
-      {% endif %}
-
-      </div>
-    </div>
-
+    {% if data.show_success_message == true %}
+      {% include "./success_message.html" ignore missing %}
+    {% endif %}
+    
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-  
-      {% if data.oaktree_farm.livestock_loading == 'added' %}
-          {% include "./livestock_tables.html" ignore missing %}
-      {% else %}
-        <p class="govuk-body">You have not added any livestock information.</p>
-        <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
-          <button class="govuk-button" data-module="govuk-button">
-            Add a livestock type
-          </button>
-        </form>
-      {% endif %}
       
+        <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
+        <h1 class="govuk-heading-l" id="header">Livestock details</h1>
+
+        <!-- <p class="govuk-body">Last updated 19 April 2025.</p> -->
+        <!-- <p class="govuk-body margin-bottom-thirty">{{data.oaktree_farm.name}} does not have a derogation for {{data.oaktree_farm.planning_year}} . <a href="">Add derogation</a>.</p> -->
+          
+      </div>
+    </div>
+          
+    {% if data.oaktree_farm.livestock_loading == 'added' %}
+
+      <form class="margin-bottom-ten" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+        <button class="govuk-button" data-module="govuk-button">
+          Add a livestock type
+        </button>
+      </form>
+      <p class="govuk-body margin-bottom-forty"><a href="/outputs/export">Create a report from this information</a></p>
+    {% endif %}
+
     </div>
   </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+    {% if data.oaktree_farm.livestock_loading == 'added' %}
+        {% include "./livestock_tables.html" ignore missing %}
+    {% else %}
+      <p class="govuk-body">You have not added any livestock information.</p>
+      <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+        <button class="govuk-button" data-module="govuk-button">
+          Add a livestock type
+        </button>
+      </form>
+    {% endif %}
+    
+  </div>
+</div>
 
 {% endblock %}

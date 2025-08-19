@@ -7,7 +7,8 @@
 {% block beforeContent %}
 
 {% include "/templates/signed-in.html" ignore missing %}
-  {{ govukBreadcrumbs({
+
+  <!-- {{ govukBreadcrumbs({
     items: [
       {
         text: "All farms",
@@ -25,61 +26,84 @@
         text: "Organic material storage 2005"
       }
     ]
+  }) }} -->
+
+{% if data.export_type == 7 %}
+  {{ govukBackLink({
+    text: "Back to " + data.oaktree_farm.name,
+    href: "hub_message_reset"
   }) }}
+{% else %}  
+  {{ govukBackLink({
+    text: "Back",
+    href: "/outputs/inventory/checklist"
+  }) }}
+{% endif %}  
+
 {% endblock %}
 
 {% block content %}
 {{ plan_status }}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      {% if data.show_success_message == true %}
-        {% include "./templates/success_message.html" ignore missing %}
-      {% endif %}
-    </div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% if data.show_success_message == true %}
+      {% include "./templates/success_message.html" ignore missing %}
+    {% endif %}
   </div>
+</div>
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">     
-        <span class="name govuk-caption-m">{{ data.oaktree_farm.name }}</span> 
-        <h1 class="govuk-heading-l add_sub">Organic material storage</h1>
-        <h2 class="govuk-heading-m">2025</h2>
-        {% if data.show_success_message != true %}
-          <div class="govuk-inset-text">
-            <p class="govuk-body">To create an existing manure storage capacity report, add all the organic material storage on {{data.oaktree_farm.name}} in 2025.</p>
-            <p class="govuk-body"><a href="report">Create an existing organic material storage capacity report</a></p>
-          </div>
-        {% endif %}      
-      </div>
-  </div>
-      
-      {% if data.oaktree_farm.storage_added == true %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">     
+    
+    <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span> 
+    <h1 class="govuk-heading-l">Organic material storage</h1>
+    <!-- <h2 class="govuk-heading-m">October 2024 and September 2025</h2> -->
 
-        <form class="margin-bottom-ten" action="../../add_storage/material_type" method="post" novalidate="">    
-          <button class="govuk-button" data-module="govuk-button">
-            Add organic material storage
-          </button>
-        </form>
-        <!-- <p class="govuk-body margin-bottom-forty"><a href="/outputs/export">Create a report from this information</a></p> -->
-      <hr class="separator_ten">
+    {% if data.show_success_message != true and data.export_type != null %}
+      <div class="govuk-inset-text margin-bottom-forty">
+        {% if data.export_type == 8 %}
+          <p class="govuk-body">
+            To create an organic manures inventory and NVZ organic material storage report, add all the organic material storage on {{data.oaktree_farm.name}} between October 2024 and September 2025.
+          </p>
+          <p class="govuk-body">
+            <a href="/outputs/inventory/checklist">Create an organic manures inventory and NVZ organic material storage report</a>
+          </p>
+        {% else %}
+          <p class="govuk-body">To create an existing manure storage capacity report, enter the organic material storage on {{data.oaktree_farm.name}} in 2025.</p>
+          <p class="govuk-body"><a href="report">Create an existing organic material storage capacity report</a></p>
         {% endif %}
+      </div>
+    {% endif %}   
 
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-  
-      {% if data.oaktree_farm.storage_added == true %}
-          {% include "./templates/storage_type_table.html" ignore missing %}
-      {% else %}
-        <p class="govuk-body">You have not added any storage information.</p>
-        <form class="" action="../../add_storage/material_type" method="post" novalidate="">    
-          <button class="govuk-button" data-module="govuk-button">
-            Add organic material storage
-          </button>
-        </form>
-      {% endif %}
-      
-    </div>
   </div>
+</div>
+      
+<form class="margin-bottom-ten" action="../../add_storage/material_type" method="post" novalidate="">    
+  <button class="govuk-button" data-module="govuk-button">
+    Add organic material storage
+  </button>
+</form>
+
+{% if data.show_success_message != true and data.export_type == null %}
+  <p class="govuk-body margin-bottom-thirty"><a href="/outputs/export">Create a report from this information</a></p>
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    {% if data.oaktree_farm.storage_added == true %}
+      {% include "./templates/storage_type_table.html" ignore missing %}
+    {% else %}
+      <p class="govuk-body">You have not added any storage information.</p>
+      <form class="" action="../../add_storage/material_type" method="post" novalidate="">    
+        <button class="govuk-button" data-module="govuk-button">
+          Add organic material storage
+        </button>
+      </form>
+    {% endif %}
+  
+  </div>
+</div>
 
 {% endblock %}

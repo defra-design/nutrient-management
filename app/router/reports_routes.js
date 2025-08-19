@@ -64,7 +64,7 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
         if (req.session.data.oaktree_farm.storage_added != true) {
             next = 'not_available_storage'
         } else {
-            next = '../storage/report'
+            next = 'farm/storage/report'
             // next = '../storage/manage_storage'
 
         }
@@ -74,6 +74,11 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
         next = './inventory/separator'
     }
     res.redirect(next)
+})
+
+router.get(/manage_storage_router/, callback_functions.hideSuccessMessage, function (req, res) {
+    req.session.data.export_type = null
+    res.redirect('/farm/storage/manage_storage');
 })
 
 module.exports = router

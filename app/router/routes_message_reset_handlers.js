@@ -11,6 +11,10 @@ router.get(/manner_results_reset/, callback_functions.hideSuccessMessage, functi
     res.redirect('manner/results')
 })
 
+router.get(/hub_message_reset/, callback_functions.hideSuccessMessage, function (req, res) {
+    res.redirect('/farm/hub')
+})
+
 router.get(/manner_manure_group_reset/, callback_functions.hideSuccessMessage, function (req, res) {
     res.redirect('manner/manure_group')
 })
@@ -34,7 +38,7 @@ router.get(/reset_nloading_checklist_message_handler/, callback_functions.hide_e
 })
 
 // MANAGE STORAGE
-router.get(/reset_manage_storage_message_handler/, callback_functions.hide_error, function (req, res) { 
+router.get(/reset_manage_storage_message_handler/, callback_functions.hide_error, callback_functions.hideSuccessMessage, function (req, res) { 
     res.redirect('/farm/storage/manage_storage')
 })
 

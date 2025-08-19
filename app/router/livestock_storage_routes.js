@@ -172,8 +172,6 @@ router.get(/system_inventory_handler/, callback_functions.hide_error, callback_f
     let next = '/outputs/inventory/manage_livestock/systems'
     if (req.session.data.oaktree_farm.livestock_inventory != 'added') { 
         next = '/add_livestock_inventory/livestock_none'
-    } else if (req.session.data.mech_separator == null) {
-        next = 'separator'
     }
     res.redirect(next);
 })

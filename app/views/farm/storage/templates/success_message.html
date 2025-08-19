@@ -1,20 +1,17 @@
+<div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Success</h2>
+  </div>
 
-      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-        
-        <div class="govuk-notification-banner__header">
-          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Success</h2>
-        </div>
+  <div class="govuk-notification-banner__content">
+      <h3 class="govuk-notification-banner__heading">You have added organic material storage</h3>
+      <p class="govuk-body"><a class="govuk-notification-banner__link" href="../../add_storage/material_type">Add more organic material storage</a></p>  
+      {% if data.export_type == 7 %}
+        <p class="govuk-body"><a class="govuk-notification-banner__link" href="report">Create an existing organic material storage capacity report</a></p>  
+      {% else %}
+        <p class="govuk-body"><a class="govuk-notification-banner__link" href="reset_inventory_checklist_message_handler">Create an Organic manures inventory and NVZ organic material storage requirement report for 2025</a></p>  
+      {% endif %}
 
-        <div class="govuk-notification-banner__content">
-            <h3 class="govuk-notification-banner__heading">You have added organic material storage</h3>
-            <p class="govuk-body"><a class="govuk-notification-banner__link" href="../../add_storage/material_type">Add more organic material storage</a></p>  
-            {% if data.export_type == 7 %}
-              <p class="govuk-body"><a class="govuk-notification-banner__link" href="report">Create an existing organic material storage capacity report</a></p>  
-            {% else %}
-              <p class="govuk-body"><a class="govuk-notification-banner__link" href="reset_inventory_checklist_message_handler">Create an Organic manures inventory and NVZ organic material storage requirement report for 2025</a></p>  
-            {% endif %}
-
-        </div>
-
-      </div>
-      
+  </div>
+</div>

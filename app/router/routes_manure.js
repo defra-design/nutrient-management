@@ -205,17 +205,7 @@ router.get(/fertiliser_loop_handler/, function (req, res) {
 
 //view the plan by year
 router.get(/crop_plan_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    req.session.data.oaktree_farm.planning_year = req.query.harvest_date
     res.redirect('./crop_plan/plan_view')
-})
-
-//view the selected plan
-router.get(/field_level_plan_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    // console.log('req.query.chosen_field ' + req.query.chosen_field)
-    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field)
-    // console.log(req.session.data.chosen_field)
-    req.session.data.chosen_crop = req.query.chosencrop
-    res.redirect('../field_plan/index')
 })
 
 router.get(/mvpfield_plan_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
@@ -223,30 +213,6 @@ router.get(/mvpfield_plan_handler/, callback_functions.hideSuccessMessage, funct
     req.session.data.chosen_crop = req.query.chosencrop
     req.session.data.cover_crop = req.query.covercrop
     res.redirect('../field_plan/index')
-})
-
-//show the right fertilisers
-router.get(/fertiliser_type_handler_v2/, function (req, res) { 
-    var chosen_nutrients = req.session.data.chosen_nutrients
-    req.session.data.chosen_nitrogen = false
-    req.session.data.chosen_phosphate = false
-    req.session.data.chosen_potash = false
-    req.session.data.chosen_sulphur = false
-    req.session.data.chosen_lime = false
-    for (var x in chosen_nutrients) {
-        if (chosen_nutrients[x] == "nitrogen") {
-            req.session.data.chosen_nitrogen = true;
-        } else if (chosen_nutrients[x] == "phosphate") {
-            req.session.data.chosen_phosphate = true;
-        } else if (chosen_nutrients[x] == "potash") {
-            req.session.data.chosen_potash = true;
-        } else if (chosen_nutrients[x] == "sulphur") {
-            req.session.data.chosen_sulphur = true;
-        } else if (chosen_nutrients[x] == "lime") {
-            req.session.data.chosen_lime = true;
-        }
-    }
-    res.redirect('fertiliser_amount')
 })
 
 //select a field

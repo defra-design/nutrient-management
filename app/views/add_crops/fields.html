@@ -19,10 +19,6 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <!-- <span class="govuk-caption-l">
-        Nutrient application plan 2023 to 2024
-      </span> -->
-
       <h1 class="govuk-heading-l">
         Which fields would you like to plan {{data.chosen_crop | nameconverter}} for?
       </h1>
@@ -48,38 +44,14 @@
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
 
               {% for field in data.all_fields %}
-              {% set isPlanned = false %}
-              {% for thisField in data.plan_2024.firstFields %} 
-                {% if thisField.reference == field.reference %}
-                  {% set isPlanned = true %}
-                {% endif %}
-              {% endfor %} 
-              {% if isPlanned == true %}
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id={{field.reference}} name="crop_fields" type="checkbox" value={{field.reference}}>
                   <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
                     {{field.name}} 
-                    <!-- <span>(Carrots)</span> -->
                   </label>
                 </div>
-              {% else %}
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id={{field.reference}} name="crop_fields" type="checkbox" value={{field.reference}}>
-                <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
-                  {{field.name}}
-                </label>
-              </div>
-              {% endif %}
             {% endfor %}   
       
-            <!-- <div class="govuk-checkboxes__divider">or</div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="" name="" type="checkbox" value="">
-              <label class="govuk-label govuk-checkboxes__label" for="">
-                Select all
-              </label>
-            </div> -->
-
             </div>
           </fieldset>
         </div>

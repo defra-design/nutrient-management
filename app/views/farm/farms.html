@@ -17,8 +17,6 @@
 
   <div id="all-plans-table" class="govuk-grid-column-two-thirds">
 
-    <!-- <h1 class="govuk-heading-xl">Plan and record nutrient applications</h1> -->
-
     {% if data.show_success_message == true %}
       {% include "./templates/success_messages" ignore missing %}
     {% endif %}
@@ -29,12 +27,6 @@
         <p class="govuk-body">
           You have not added any farms.
         </p>
-        <!-- <p class="govuk-body">
-          <a class="govuk-link" href="../add-farm/name">Manually add a farm</a>
-        </p>
-        <p class="govuk-body">
-          <a class="govuk-link" href="">Import a farm from PLANET data</a>
-        </p> -->
         <form class="form" action="../add-farm/name" method="post">
           {{ govukButton({
             text: "Add a farm"
@@ -44,15 +36,11 @@
       
         <div class="margin-bottom-forty">
             <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub_reset_router">Oaktree Lane Farm</a> </p>
-            <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub_reset_router">My new Farm</a> </p>
-            <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub_reset_router">Houseteads Farm</a> </p>
-            <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub_reset_router">Shortleg Farm</a> </p>
-            <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub_reset_router">Whitehouse Farm</a> </p>
-            <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub_reset_router">Red Lane Farm</a> </p>
-            <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub_reset_router">SomeLane Farm</a> </p>
-            <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub_reset_router">Lois Lane Farm</a> </p> -->
         </div>
 
+<<<<<<< HEAD
+        <hr class="seperator_forty">
+=======
         <!-- <nav class="govuk-pagination" aria-label="Pagination">
           <ul class="govuk-pagination__list">
             <li class="govuk-pagination__item govuk-pagination__item--current">
@@ -84,6 +72,7 @@
         </nav> -->
 
         <hr class="separator_forty">
+>>>>>>> working
         <div class="margin-bottom-forty">
           <h2 class="govuk-heading-m">Add a new farm</h2>
           <p class="govuk-body">
@@ -92,9 +81,6 @@
           <p class="govuk-body">
             <a class="govuk-link" href="">Import a farm from PLANET data</a>
           </p>
-          <!-- <p class="govuk-body">
-            <a class="govuk-link" href="./choose_file">Import data from the Planet desktop software</a>
-          </p> -->
         </div>
       {% endif %}
       

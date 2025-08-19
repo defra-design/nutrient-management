@@ -29,7 +29,6 @@ router.get(/derogation_router/, function (req, res) {
 })
 
 router.get(/output_router/, callback_functions.hide_error, function (req, res) {   
-    req.session.data.oaktree_farm.planning_year = req.session.data.output_year
     var next = 'export_fields'
     if (req.session.data.export_type == '1') {
         if (req.session.data.all_fields.length == 0) {

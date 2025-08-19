@@ -196,31 +196,6 @@ router.get(/mvp_another_crop_router/, function (req, res) {
     }
 })
 
-router.get(/mvp_fields_handler/, function (req, res) { 
-    if (req.session.data.secondcrop_journey == true) {
-        for (var x in req.session.data.crop_fields) {
-            for (var y in req.session.data.all_fields) {
-                if (req.session.data.all_fields[y].reference == req.session.data.crop_fields[x]) {
-                    req.session.data.plan_2024.secondFieldReferences.push(req.session.data.crop_fields[x])
-                    req.session.data.plan_2024.secondFields.push(req.session.data.all_fields[y])
-                }
-            }
-        }    
-    } else {
-        for (var a in req.session.data.crop_fields) {
-            for (var b in req.session.data.all_fields) {
-                if (req.session.data.all_fields[b].reference == req.session.data.crop_fields[a]) {
-                    req.session.data.plan_2024.firstFieldReferences.push(req.session.data.crop_fields[a])
-                    req.session.data.plan_2024.firstFields.push(req.session.data.all_fields[b])
-                }
-            }
-        }    
-    }
-    // console.log(req.session.data.firstFieldReferences)
-    var next = (req.session.data.crop_group == 'grass') ? 'grass/current_sward' : 'sowdate_question';
-    res.redirect(next);
-})
-
 router.get(/yield_question_router/, function (req, res) { 
     var next = 'check'
     if (req.session.data.yield_option_one != 'rb209') {
@@ -373,6 +348,11 @@ router.get(/weight_type_router/, function (req, res) {
         }
     }
     res.redirect(next)
+})
+
+router.get(/addcrops_handler/, function (req, res) { 
+    req.session.data.secondcrop_journey = true
+    res.redirect('add_crops/another_crop')
 })
 
 

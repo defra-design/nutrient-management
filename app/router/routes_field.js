@@ -65,9 +65,7 @@ router.get(/add_field_handler/, callback_functions.showSuccessMessage, function 
     if (req.session.data.sow_date_day != null) {
         sowdate = req.session.data.sow_date_day + '/' + req.session.data.sow_date_month + '/' + req.session.data.sow_date_year
     }
-    req.session.data.previousCropGroups.push(allFunctions.createCropGroup(newRef, 2024, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, req.session.data.variety, req.session.data.groupname, null, sowdate))
     console.log(req.session.data.tempField)
-    console.log(req.session.data.previousCropGroups)
     //reset temp vars
     req.session.data.chosen_crop = null
     req.session.data.total_area = null
@@ -243,6 +241,11 @@ router.get(/grass_years_handler/, function (req, res) {
             next = 'previous_cuts'
         }
     }
+    res.redirect(next)
+})
+
+router.get(/add-grass-handler/, function (req, res) { 
+    var next = (req.session.data.previous_grass == 'yes') ? 'plough' : 'check'
     res.redirect(next)
 })
 

@@ -2,7 +2,6 @@ const  govukPrototypeKit = require('govuk-prototype-kit')
 const  router = govukPrototypeKit.requests.setupRouter()
 
 ///external data
-var  Plan = require('./functions/plan.js');
 
 const  all_fertiliser_applications = require('./data/fertiliser_applications.json');
 const  manure_applications_list = require('./data/manure_applications.json');
@@ -17,7 +16,6 @@ const  crop_types = require('./data/crops.json');
 const  livestock_types = require('./data/livestock.json');
 
 const allFunctions = require('./functions/allFunctions.js');
-const  CropGroup = require('./functions/crop_group.js');
 
 /// create fields
 let all_fields = [];
@@ -25,36 +23,9 @@ let all_fields = [];
 var tempField = {
     name: "Short Field",
     reference: "shortfield",
-    // total_area: 10,
-    // crop_area: 8,
-    // non_spread_area: 2,
     nvz: false,
     elevation: false
-    // soil: 'Medium',
-    // sulphur: true,
-    // analysis :false,
-    // grass: true,
-    // crop: 'winter-wheat',
-    // sns: false
 };
-
-///////Plans
-var plan_2023 = Plan.createPlan();
-var plan_2024 = Plan.createPlan();
-
-// ALPHA plan
-const createAlphaPlan = (harvest_date, crop_added, manure_added, fertiliser_added) => ({
-    harvest_date,
-    crop_added,
-    manure_added,
-    fertiliser_added,
-    plan_update: null,
-    updated: '10 November 2023'
-});
-
-const alphaPlan2025 = createAlphaPlan("2025", false, false, false);
-const alphaPlan2024 = createAlphaPlan("2024", true, true, true);
-const alphaPlan2023 = createAlphaPlan("2023", false, false, false);
 
 //index route
 router.get('/', function (req, res) { 
@@ -96,24 +67,17 @@ router.get('/', function (req, res) {
     }
 
     req.session.data.oaktree_farm.resetFarm()
-    req.session.data.oaktree_farm.print()
+    // req.session.data.oaktree_farm.print()
 
     // control vars  
+    req.session.data.show_success_message = false
     req.session.data.tempField = tempField
     req.session.data.chosen_field = null
     req.session.data.crop_group = null
-    req.session.data.chosen_nutrients = []
-    req.session.data.chosen_nitrogen = false
-    req.session.data.chosen_phosphate = false
-    req.session.data.chosen_potash = false
-    req.session.data.chosen_sulphur = false
-    req.session.data.chosen_lime = false
     req.session.data.chosen_crop = null
     req.session.data.chosen_fields = []
-    req.session.data.plan_type = 'new'
     req.session.data.another_crop = 'no'
     req.session.data.chosen_plan = null //v2
-    req.session.data.show_success_message = false
     req.session.data.crop_count = 0
     req.session.data.manure_spreads = 0
     req.session.data.fertiliser_spreads = 0
@@ -134,12 +98,6 @@ router.get('/', function (req, res) {
     req.session.data.livestock_types = livestock_types
     req.session.data.all_fertiliser_applications = all_fertiliser_applications
     req.session.data.manure_applications_list = manure_applications_list
-    req.session.data.plan_2023 = plan_2023;
-    req.session.data.plan_2024 = plan_2024;
-    req.session.data.plan_2023.reset();
-    req.session.data.plan_2024.reset();
-    req.session.data.plan_2023.year = 2023;
-    req.session.data.plan_2024.year = 2024;
     req.session.data.show_error = false;
     req.session.data.defoliations = "Cuts and grazings";
 
@@ -150,14 +108,9 @@ router.get('/', function (req, res) {
     //set Alpha planning status
     req.session.data.alpha_planning = 0 //0 = not started, 1 = recs, 2 = completed
     
-    //ALPHA plans
-    req.session.data.alphaPlan2025 = alphaPlan2025
-    req.session.data.alphaPlan2024 = alphaPlan2024
-    req.session.data.alphaPlan2023 = alphaPlan2023
-
     //manures
-    req.session.data.plan_2024.multipleManuresApplied = false
-    req.session.data.plan_2024.singleManuresApplied = false
+    req.session.data.multipleManuresApplied = false
+    req.session.data.singleManuresApplied = false
     req.session.data.manure_journey = null //multi or single
     req.session.data.manure_count = 0
     req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'
@@ -165,8 +118,8 @@ router.get('/', function (req, res) {
     req.session.data.secondcrop_journey = null //true for second crop
 
     //fertilisers
-    req.session.data.plan_2024.multipleFertilisersApplied = false
-    req.session.data.plan_2024.singleFertilisersApplied = false
+    req.session.data.multipleFertilisersApplied = false
+    req.session.data.singleFertilisersApplied = false
     req.session.data.fertiliser_journey = null //multi or single
     req.session.data.fertiliser_count = 0
     req.session.data.show_fertiliser_notification = false
@@ -187,7 +140,6 @@ router.get('/', function (req, res) {
 
     // version 5
     req.session.data.currentCropGroups = []
-    req.session.data.previousCropGroups = []
     req.session.data.allManureApplications = []
     req.session.data.allManureApplications_v2 = []
     req.session.data.allFertiliserApplications = []
@@ -204,7 +156,6 @@ router.get('/', function (req, res) {
 //import routes
 var  routes_prototype_setup = require('./router/routes_prototype_setup.js');
 var  message_reset_handlers = require('./router/routes_message_reset_handlers.js');
-var  setup_routes = require('./router/setup_routes.js');
 
 var  routes_manure = require('./router/routes_manure.js');
 var  reports_routes = require('./router/reports_routes.js');
@@ -217,5 +168,4 @@ var  routes_updates = require('./router/routes_updates.js');
 var  livestock_storage_routes = require('./router/livestock_storage_routes.js');
 var  manner_routes = require('./router/manner_routes.js');
 
-
-router.use('/',routes_prototype_setup, message_reset_handlers, manner_routes, livestock_storage_routes, routes_farm, reports_routes, routes_field, routes_crop, routes_updates, routes_manure, setup_routes);
+router.use('/',routes_prototype_setup, message_reset_handlers, manner_routes, livestock_storage_routes, routes_farm, reports_routes, routes_field, routes_crop, routes_updates, routes_manure);

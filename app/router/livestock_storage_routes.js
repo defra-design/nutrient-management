@@ -287,7 +287,6 @@ router.get(/livestockinventory_handler/, function (req, res) {
 
 
 router.get(/storage_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    req.session.data.oaktree_farm.planning_year = req.query.harvest_date
     if (req.session.data.oaktree_farm.storage_added == true ) {
         res.redirect('manage_storage')
     } else {
@@ -296,7 +295,6 @@ router.get(/storage_year_handler/, callback_functions.hideSuccessMessage, functi
 })
 
 router.get(/livestock_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    req.session.data.oaktree_farm.planning_year = req.query.harvest_date
     if (req.session.data.oaktree_farm.livestock_loading == 'added') {
         res.redirect('manage_livestock')
     } else {
@@ -383,7 +381,6 @@ router.get(/exportcheck_handler/, function (req, res) {
 })
 
 router.get(/export_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    req.session.data.oaktree_farm.planning_year = req.query.harvest_date
     if (req.session.data.oaktree_farm.manure_exports == true || req.session.data.oaktree_farm.manure_imports == true ) {
         res.redirect('manage_exports')
     } else {

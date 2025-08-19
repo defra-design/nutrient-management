@@ -27,10 +27,6 @@
 
       {% set cropGroups = data.currentCropGroups %}
   
-      {% if data.oaktree_farm.planning_year == '2024' %}
-        {% set cropGroups = data.previousCropGroups %}
-      {% endif %}
-
       <form class="form" action="/outputs/nmax/" method="post">
 
         <div class="govuk-form-group">

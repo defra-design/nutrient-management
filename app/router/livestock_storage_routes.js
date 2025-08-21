@@ -232,11 +232,7 @@ router.get(/livestockcheck_handler/, function (req, res) {
         req.session.data.chosen_livestock.total = req.session.data.livestock_number
     }
     //function get livestock
-    for (var reference in req.session.data.livestock_types ) {
-        if (req.session.data.livestock_types[reference].reference == req.session.data.livestock_reference) {
-            req.session.data.livestock_types[reference].numbers_added_nloading = true
-        }
-    }
+    req.session.data.chosen_livestock.numbers_added_nloading = true
     req.session.data.livestock_record_2025.push(req.session.data.chosen_livestock)
     req.session.data.show_success_message = true;
     req.session.data.oaktree_farm.livestock_loading = 'added';
@@ -250,11 +246,7 @@ router.get(/livestockinventory_handler/, function (req, res) {
         req.session.data.chosen_livestock.total = req.session.data.livestock_number
     }
     //function get livestock
-    for (var reference in req.session.data.livestock_types ) {
-        if (req.session.data.livestock_types[reference].reference == req.session.data.livestock_reference) {
-            req.session.data.livestock_types[reference].numbers_added_inventory = true
-        }
-    }
+    req.session.data.chosen_livestock.numbers_added_inventory = true
     req.session.data.livestock_record_2025.push(req.session.data.chosen_livestock)
     req.session.data.show_success_message = true;
     req.session.data.oaktree_farm.livestock_inventory = 'added';
@@ -276,7 +268,7 @@ router.get(/livestock_year_handler/, callback_functions.hideSuccessMessage, func
     if (req.session.data.oaktree_farm.livestock_loading == 'added') {
         res.redirect('manage_livestock')
     } else {
-        res.redirect('../../add_livestock/derogation')
+        res.redirect('/add_livestock/derogation')
     }
 })
 

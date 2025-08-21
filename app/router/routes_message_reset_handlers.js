@@ -53,8 +53,13 @@ router.get(/reset_manage_land_message_handler/, callback_functions.hideSuccessMe
 })
 
 // MANAGE LIVESTOCK NUMBERS - INVENTORY
-router.get(/reset_manage_livestock_inventory_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
+router.get(/reset_numbers_livestock_inventory_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     res.redirect('/outputs/inventory/manage_livestock/numbers')
+})
+
+// MANAGE LIVESTOCK MANAGE - INVENTORY
+router.get(/reset_manage_livestock_inventory_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
+    res.redirect('/outputs/inventory/manage_livestock/index')
 })
 
 //manage fields view reset messages

@@ -81,7 +81,7 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Ki
           
     {% if data.oaktree_farm.livestock_loading == 'added' %}
 
-      <form class="margin-bottom-ten" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+      <form class="margin-bottom-ten" action="/add_livestock/livestock_group" method="post" novalidate="">    
         <button class="govuk-button" data-module="govuk-button">
           Add a livestock type
         </button>
@@ -101,7 +101,7 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Ki
         {% include "./livestock_tables.html" ignore missing %}
     {% else %}
       <p class="govuk-body">You have not added any livestock information.</p>
-      <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+      <form class="" action="/add_livestock/livestock_group" method="post" novalidate="">    
         <button class="govuk-button" data-module="govuk-button">
           Add a livestock type
         </button>

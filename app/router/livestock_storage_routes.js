@@ -89,7 +89,7 @@ router.get(/livestock_values_handler/, function (req, res) {
 
 router.get(/get_livestock_reference/, function (req, res) {
     let next = 'livestock_number_question'
-    // console.log('get livestock reference ' + req.session.data.livestock_reference)
+    console.log('get livestock reference ' + req.session.data.livestock_reference)
     for (var reference in req.session.data.livestock_types ) {
         if (req.session.data.livestock_types[reference].reference == req.session.data.livestock_reference) {
             // console.log('found ' + req.session.data.livestock_types[reference])
@@ -149,20 +149,15 @@ router.get(/livestock_inventory_router/, callback_functions.hide_error, function
 })
 
 // is there any livestock checklist link
-router.get(/livestock_inventory_handler/, callback_functions.hide_error, function (req, res) {
+router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
     // if inventory added go to the list
     // if nlaoding not added did you have livestock?
     // if nlaoding added copy that list
     let next;
-
-    if (req.session.data.oaktree_farm.livestock_inventory == 'added') { 
-        next = '/outputs/inventory/manage_livestock/numbers/index'
+    if (req.session.data.oaktree_farm.livestock_inventory == 'added' || req.session.data.oaktree_farm.livestock_loading == 'added') { 
+        next = '/farm/livestock/manage_livestock'
     } else {
-        if (req.session.data.oaktree_farm.livestock_loading == 'added') { 
-            next = 'copy_list'
-        } else {
-            next = '/add_livestock_inventory/livestock_none'
-        }
+        next = '/add_livestock_inventory/livestock_none'
     }
     res.redirect(next);
 })

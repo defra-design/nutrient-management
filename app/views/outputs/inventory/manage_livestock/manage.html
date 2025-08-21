@@ -1,0 +1,114 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+<!-- {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "All farms",
+      href: "../farms" 
+    },
+    {
+      text: "Oaktree Lane Farm",
+      href: "hub_reset_router"
+    },
+    {
+      text: "Livestock details"
+    }
+  ]
+}) }} -->
+{% set back_url = 'hub_message_reset' %}
+
+{% if data.export_type == 8 %}
+  {% set back_url = '/outputs/inventory/checklist' %}
+{% elif data.export_type == 4 %}
+  {% set back_url = '/outputs/n_loading/checklist' %}
+{% endif %}  
+
+  {{ govukBackLink({
+    text: "Back",
+    href: back_url
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if data.show_success_message == true %}
+      {% include "./templates/success_message.html" ignore missing %}
+    {% endif %}
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+      
+        <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
+        <h1 class="govuk-heading-l add_sub" id="header">Livestock details</h1>
+        <h2 class="govuk-heading-m margin-bottom-thirty">
+          {% if data.export_type == 8 %}
+            October 2024 and September 2025
+          {% else %}
+            2025 
+          {% endif %}
+        </h2>
+        
+        {% if data.show_success_message != true and data.export_type != null %}
+          <div class="govuk-inset-text margin-bottom-forty">
+            {% if data.export_type == 8 %}
+              <p class="govuk-body">
+                To create an organic manures inventory and NVZ organic material storage report, enter the livestock on {{data.oaktree_farm.name}} between October 2024 and September 2025.
+              </p>
+              <p class="govuk-body">
+                <a href="/outputs/inventory/checklist">Create an organic manures inventory and NVZ organic material storage report</a>
+              </p>
+            {% else %}
+              <p class="govuk-body">To create a livestock manure nitrogen (N) farm limit report, enter the livestock on {{data.oaktree_farm.name}} in 2025.</p>
+              <p class="govuk-body"><a href="/outputs/n_loading/checklist">Create a livestock manure nitrogen (N) farm limit report</a></p>
+            {% endif %}
+          </div>
+        {% endif %}   
+
+      </div>
+    </div>
+          
+    {% if data.oaktree_farm.livestock_loading == 'added' %}
+
+      <form class="margin-bottom-ten" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+        <button class="govuk-button" data-module="govuk-button">
+          Add a livestock type
+        </button>
+      </form>
+      {% if data.show_success_message != true and data.export_type == null %}
+        <p class="govuk-body margin-bottom-forty"><a href="/outputs/export">Create a report from this information</a></p>
+      {% endif %}
+    {% endif %}
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+    {% if data.oaktree_farm.livestock_loading == 'added' %}
+        {% include "./templates/manage/livestock_tables.html" ignore missing %}
+    {% else %}
+      <p class="govuk-body">You have not added any livestock information.</p>
+      <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+        <button class="govuk-button" data-module="govuk-button">
+          Add a livestock type
+        </button>
+      </form>
+    {% endif %}
+    
+  </div>
+</div>
+
+{% endblock %}

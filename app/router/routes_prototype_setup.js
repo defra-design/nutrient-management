@@ -83,6 +83,20 @@ router.get(/end_to_end_field_handler/, function (req, res) {
     res.redirect('start')
 })
 
+//Farm fields livestock added
+router.get(/end_to_end_livestock_handler/, function (req, res) { 
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.oaktree_farm.fields_added = true
+    req.session.data.showinfo = false
+    var fieldOne = {name: "Long Field",reference: 1, nvz: true,elevation: false};
+    var fieldTwo = {name: "Short Field",reference: 2,nvz: true,elevation: false};
+    req.session.data.all_fields.push(fieldOne)
+    req.session.data.all_fields.push(fieldTwo)
+    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[3])
+    req.session.data.oaktree_farm.livestock_loading = 'added';
+    res.redirect('start')
+})
+
 
 module.exports = router
 

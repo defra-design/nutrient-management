@@ -89,13 +89,11 @@ router.get(/livestock_values_handler/, function (req, res) {
 
 router.get(/get_livestock_reference/, function (req, res) {
     let next = 'livestock_number_question'
-    console.log('get livestock reference ' + req.session.data.livestock_reference)
+    //function get livestock
     for (var reference in req.session.data.livestock_types ) {
         if (req.session.data.livestock_types[reference].reference == req.session.data.livestock_reference) {
             // console.log('found ' + req.session.data.livestock_types[reference])
-            req.session.data.livestock_types[reference].numbers_added_nloading = true
             req.session.data.chosen_livestock = req.session.data.livestock_types[reference]
-            console.log(req.session.data.livestock_types[reference].numbers_added_nloading)
         }
     }
     // res.redirect("how_to_enter")
@@ -233,23 +231,15 @@ router.get(/livestockcheck_handler/, function (req, res) {
     if (req.session.data.livestock_number != null && req.session.data.livestock_number != '') {
         req.session.data.chosen_livestock.total = req.session.data.livestock_number
     }
-    console.log('1' + req.session.data.chosen_livestock)
-    // console.log('2' + req.session.data.livestock_loading)
+    //function get livestock
+    for (var reference in req.session.data.livestock_types ) {
+        if (req.session.data.livestock_types[reference].reference == req.session.data.livestock_reference) {
+            req.session.data.livestock_types[reference].numbers_added_nloading = true
+        }
+    }
     req.session.data.livestock_record_2025.push(req.session.data.chosen_livestock)
     req.session.data.show_success_message = true;
     req.session.data.oaktree_farm.livestock_loading = 'added';
-    req.session.data.livestock_number_january = null
-    req.session.data.livestock_number_february = null
-    req.session.data.livestock_number_march = null
-    req.session.data.livestock_number_april = null
-    req.session.data.livestock_number_may = null
-    req.session.data.livestock_number_june = null
-    req.session.data.livestock_number_july = null
-    req.session.data.livestock_number_august = null
-    req.session.data.livestock_number_september = null
-    req.session.data.livestock_number_october = null
-    req.session.data.livestock_number_november = null
-    req.session.data.livestock_number_december = null
     req.session.data.nitrogen_standard = null
     req.session.data.livestock_occupancy = null
     res.redirect('/farm/livestock/manage_livestock')
@@ -259,29 +249,20 @@ router.get(/livestockinventory_handler/, function (req, res) {
     if (req.session.data.livestock_number != null && req.session.data.livestock_number != '') {
         req.session.data.chosen_livestock.total = req.session.data.livestock_number
     }
-    // console.log('1' + req.session.data.chosen_livestock)
-    // console.log('2' + req.session.data.livestock_loading)
+    //function get livestock
+    for (var reference in req.session.data.livestock_types ) {
+        if (req.session.data.livestock_types[reference].reference == req.session.data.livestock_reference) {
+            req.session.data.livestock_types[reference].numbers_added_inventory = true
+        }
+    }
     req.session.data.livestock_record_2025.push(req.session.data.chosen_livestock)
     req.session.data.show_success_message = true;
     req.session.data.oaktree_farm.livestock_inventory = 'added';
     req.session.data.oaktree_farm.manure_system = 'not_answered';
-    req.session.data.livestock_number_january = null
-    req.session.data.livestock_number_february = null
-    req.session.data.livestock_number_march = null
-    req.session.data.livestock_number_april = null
-    req.session.data.livestock_number_may = null
-    req.session.data.livestock_number_june = null
-    req.session.data.livestock_number_july = null
-    req.session.data.livestock_number_august = null
-    req.session.data.livestock_number_september = null
-    req.session.data.livestock_number_october = null
-    req.session.data.livestock_number_november = null
-    req.session.data.livestock_number_december = null
     req.session.data.nitrogen_standard = null
     req.session.data.livestock_occupancy = null
     res.redirect('/outputs/inventory/manage_livestock/index')
 })
-
 
 router.get(/storage_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     if (req.session.data.oaktree_farm.storage_added == true ) {

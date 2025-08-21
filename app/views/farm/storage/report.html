@@ -3,7 +3,7 @@
 {% set bodyClasses = "landscape" %}
 
 {% block pageTitle %}
-  Oaktree lane farm - N-max limits 2025
+  Oaktree lane farm - Existing organic material storage 2025
 {% endblock %}
 {% block beforeContent %}
 
@@ -66,31 +66,22 @@
     </div>
 
   </div>
-
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         {% include "./templates/report_content.html" ignore missing %} 
       </div>
     </div>
 
-  <!-- <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+     <!-- <div id="printbreak" class="pagebreak">&nbsp;</div> -->
+    <hr class="margin-bottom-forty">
 
-      <h2 class="govuk-heading-m">Private beta disclaimer</h2>
-      {% include "/templates/beta_disclaimer.html" ignore missing %} 
-      <hr class="separator_forty">
-
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-s">
+        About recommendations, guidance, and advice
+      </h2>
+      {% include "/templates/recommendations.html" ignore missing %}
     </div>
-  </div> -->
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-thirty">
-
-      <!-- add report components here -->
-
   </div>
-</div>
-  
-
 
 {% endblock %}

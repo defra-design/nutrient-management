@@ -92,6 +92,8 @@ router.get(/end_to_end_livestock_handler/, function (req, res) {
     var fieldTwo = {name: "Short Field",reference: 2,nvz: true,elevation: false};
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
+    req.session.data.livestock_types[3].numbers_added_nloading = true;
+    req.session.data.livestock_types[3].numbers_added_inventory = false;
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[3])
     req.session.data.oaktree_farm.livestock_loading = 'added';
     res.redirect('start')

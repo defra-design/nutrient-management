@@ -155,7 +155,7 @@ router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage,
     // if nlaoding added copy that list
     let next;
     if (req.session.data.oaktree_farm.livestock_inventory == 'added' || req.session.data.oaktree_farm.livestock_loading == 'added') { 
-        next = '/farm/livestock/manage_livestock'
+        next = 'manage_livestock/index'
     } else {
         next = '/add_livestock_inventory/livestock_none'
     }

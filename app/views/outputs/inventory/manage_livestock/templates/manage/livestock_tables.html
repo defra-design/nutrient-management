@@ -1,5 +1,3 @@
-{% set livestock_count = 0 %}
-
 {% set cattle_added = false %}
 {% set pig_added = false %}
 {% set poultry_added = false %}
@@ -31,32 +29,32 @@
 
 {% endfor %}
 
-
-<!-- how many types have been added? -->
 {% if cattle_added == true %}
-  {% set livestock_count = livestock_count + 1 %}
+{% set livestock_type = 'cattle' %}
+  <h2 class="govuk-heading-m non-standard margin-top-thirty">{{livestock_type | capitalize}}</h2>
+  {% include "./livestock_checklist_template.html" ignore missing %}
 {% endif %}
 
 {% if pig_added == true %}
-  {% set livestock_count = livestock_count + 1 %}
+{% set livestock_type = 'pig' %}
+  <h2 class="govuk-heading-m non-standard margin-top-thirty">{{livestock_type | capitalize}}s</h2>
+  {% include "./livestock_checklist_template.html" ignore missing %}
 {% endif %}
 
 {% if poultry_added == true %}
-  {% set livestock_count = livestock_count + 1 %}
+{% set livestock_type = 'poultry' %}
+  <h2 class="govuk-heading-m non-standard margin-top-thirty">{{livestock_type | capitalize}}</h2>
+  {% include "./livestock_checklist_template.html" ignore missing %}
 {% endif %}
 
 {% if sheep_added == true %}
-  {% set livestock_count = livestock_count + 1 %}
+{% set livestock_type = 'sheep' %}
+  <h2 class="govuk-heading-m non-standard margin-top-thirty">{{livestock_type | capitalize}}</h2>
+  {% include "./livestock_checklist_template.html" ignore missing %}
 {% endif %}
 
 {% if other_added == true %}
-  {% set livestock_count = livestock_count + 1 %}
-{% endif %}
-
- <!-- use the right template -->
-{% if livestock_count == 1 %}
-  <hr class="separator_zero">
-  {% include "./livestock_lists.html" ignore missing %}
-{% else %}
-  {% include "./livestock_tabs.html" ignore missing %}
+{% set livestock_type = 'other' %}
+  <h2 class="govuk-heading-m non-standard margin-top-thirty">Goats, Deer and Horses</h2>
+  {% include "./livestock_checklist_template.html" ignore missing %}
 {% endif %}

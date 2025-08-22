@@ -125,12 +125,12 @@ router.get(/add_livestock_handler/, function (req, res) {
     res.redirect('/add_livestock/livestock_type')
 })
 
-router.get(/livestock_loading_handler/, callback_functions.hide_error, function (req, res) {
+router.get(/livestock_loading_router/, callback_functions.hide_error, function (req, res) {
     let next = 'livestock_group'
     if (req.session.data.livestock_loading == 'no') {
         req.session.data.oaktree_farm.livestock_inventory = 'none'
         req.session.data.oaktree_farm.livestock_loading = 'none'
-        next = 'reset_nloading_checklist_message_handler'
+        next = '/add_livestock/livestock_group'
     }
     res.redirect(next);
 })
@@ -149,13 +149,21 @@ router.get(/livestock_inventory_router/, callback_functions.hide_error, function
 })
 
 // is there any livestock checklist link
-router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
-    // if inventory added go to the list
-    // if nlaoding not added did you have livestock?
-    // if nlaoding added copy that list
+router.get(/livestock_loading_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
     let next;
     if (req.session.data.oaktree_farm.livestock_inventory == 'added' || req.session.data.oaktree_farm.livestock_loading == 'added') { 
-        next = 'manage_livestock/index'
+        next = './manage_livestock/index'
+    } else {
+        next = '/add_livestock/livestock_none'
+    }
+    res.redirect(next);
+})
+
+// is there any livestock checklist link
+router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
+    let next;
+    if (req.session.data.oaktree_farm.livestock_inventory == 'added' || req.session.data.oaktree_farm.livestock_loading == 'added') { 
+        next = './manage_livestock/index'
     } else {
         next = '/add_livestock_inventory/livestock_none'
     }

@@ -424,7 +424,7 @@ router.get(/manure_numbers_handler/, callback_functions.hide_error, function (re
             req.session.data.chosen_livestock = req.session.data.livestock_types[reference]
         }
     }
-    res.redirect('/outputs/inventory/manage_livestock/manure_numbers');
+    res.redirect('/outputs/inventory/manage_collection/manure_numbers');
 })
 
 router.get(/update_inventorynumbers_handler/, callback_functions.hide_error, function (req, res) {

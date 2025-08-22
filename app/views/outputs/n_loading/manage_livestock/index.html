@@ -8,17 +8,9 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Ki
 
 {% include "/templates/signed-in.html" ignore missing %}
 
-{% set back_url = 'hub_message_reset' %}
-
-{% if data.export_type == 8 %}
-  {% set back_url = '/outputs/inventory/checklist' %}
-{% elif data.export_type == 4 %}
-  {% set back_url = '/outputs/n_loading/checklist' %}
-{% endif %}  
-
 {{ govukBackLink({
   text: "Back",
-  href: back_url
+  href: '/outputs/n_loading/checklist'
 }) }}
 
 {% endblock %}
@@ -35,21 +27,21 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Ki
     <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
     <h1 class="govuk-heading-l add_sub" id="header">Livestock details</h1>
     <h2 class="govuk-heading-m margin-bottom-thirty">
-        October 2024 and September 2025
+        2025
     </h2>
     
     {% if data.show_success_message != true %}
       <div class="govuk-inset-text margin-bottom-forty">
         <p class="govuk-body">
-          To create an organic manures inventory and NVZ organic material storage report, enter the livestock on {{data.oaktree_farm.name}} between October 2024 and September 2025.
+          To create a livestock manure nitrogen (N) farm limit report, enter the livestock on Oaktree Lane Farm in 2025.
         </p>
         <p class="govuk-body">
-          <a href="/outputs/inventory/checklist">Create an organic manures inventory and NVZ organic material storage report</a>
+          <a href="/outputs/n_loading/checklist">Create a livestock manure nitrogen (N) farm limit report</a>
         </p>
       </div>
     {% endif %}   
     
-    <form class="margin-bottom-ten" action="reset_add_inventory_lstock" method="post" novalidate="">    
+    <form class="margin-bottom-ten" action="reset_add_loading_lstock" method="post" novalidate="">    
       <button class="govuk-button" data-module="govuk-button">
         Add a livestock type
       </button>

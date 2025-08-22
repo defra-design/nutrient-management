@@ -35,7 +35,7 @@
     {% if data.livestock_update_journey == true %}
       {% set button_text = 'Update this livestock' %}
     {% endif %}
-    <form action="livestockinventory_handler" method="post" novalidate>
+    <form action="check_inventory_lstock_handler" method="post" novalidate>
       {{ govukButton({
         text: button_text
       }) }}

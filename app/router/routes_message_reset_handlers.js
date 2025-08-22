@@ -106,4 +106,10 @@ router.get(/reset_add_loading_lstock/, function (req, res) {
     res.redirect('/add_livestock/livestock_group');
 })
 
+//Reset the manure collection success message
+router.get(/reset_manure_collection_message/, function (req, res) { 
+    req.session.data.show_success_message = false;
+    res.redirect('/outputs/inventory/manage_collection/index');
+})
+
 module.exports = router

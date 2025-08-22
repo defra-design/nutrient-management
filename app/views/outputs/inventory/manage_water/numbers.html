@@ -47,12 +47,12 @@
         {% endif %}
       </h3>
 
-      <form action="/outputs/inventory/manage_livestock/water" method="post" novalidate="">
+      <form action="/outputs/inventory/manage_water/index" method="post" novalidate="">
 
         {% if data.oaktree_farm.wash_water_details == true %}
-          {% include "./templates/water_numbers_table_updated.html" ignore missing %}
+          {% include "./templates/numbers_table_updated.html" ignore missing %}
         {% else %}
-          {% include "./templates/water_numbers_table.html" ignore missing %}
+          {% include "./templates/numbers_table.html" ignore missing %}
         {% endif %}
 
         <button class="govuk-button govuk-button--secondary margin-bottom-forty" data-module="govuk-button">

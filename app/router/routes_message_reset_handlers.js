@@ -92,6 +92,13 @@ router.get(/planview_reset_handler/, function (req, res) {
     res.redirect('../crop_plan/plan_view');
 })
 
+//change the livestock add / change journey to add
+router.get(/reset_add_livestock/, function (req, res) { 
+    req.session.data.show_success_message = false;
+    req.session.data.livestock_update_journey = false;
+    res.redirect('/add_livestock_inventory/livestock_group');
+})
+
 
 
 module.exports = router

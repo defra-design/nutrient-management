@@ -24,7 +24,7 @@ router.get(/manner_fields_reset/, callback_functions.hideSuccessMessage, functio
 })
 
 router.get(/reset_manage_livestock_message_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    res.redirect('/farm/livestock/manage_livestock')
+    res.redirect('/outputs/n_loading/manage_livestock/index')
 })
 
 // MANAGE EXPORTS
@@ -92,13 +92,19 @@ router.get(/planview_reset_handler/, function (req, res) {
     res.redirect('../crop_plan/plan_view');
 })
 
-//change the livestock add / change journey to add
-router.get(/reset_add_livestock/, function (req, res) { 
+//change the livestock add / change journey to add for inventory livestock
+router.get(/reset_add_inventory_lstock/, function (req, res) { 
     req.session.data.show_success_message = false;
     req.session.data.livestock_update_journey = false;
     res.redirect('/add_livestock_inventory/livestock_group');
 })
 
+//change the livestock add / change journey to add for n_loading livestock
+router.get(/reset_add_loading_lstock/, function (req, res) { 
+    req.session.data.show_success_message = false;
+    req.session.data.livestock_update_journey = false;
+    res.redirect('/add_livestock/livestock_group');
+})
 
 
 module.exports = router

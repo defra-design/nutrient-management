@@ -43,7 +43,7 @@
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
             {% if animal.numbers_added_loading == false %}
               <div class="govuk-task-list__name-and-hint">
-                <a class="govuk-link govuk-task-list__link" href="animalnumbers_handler?reference={{animal.reference}}" aria-describedby="company-details-1-status">
+                <a class="govuk-link govuk-task-list__link" href="add_loadingnumbers_handler?reference={{animal.reference}}" aria-describedby="company-details-1-status">
                   {{animal.name | capitalize}}
                 </a>
               </div>
@@ -54,7 +54,7 @@
               </div>
             {% else %}
               <div class="govuk-task-list__name-and-hint">
-                <a class="govuk-link govuk-task-list__link" href="update_numbers_handler?reference={{animal.reference}}" aria-describedby="company-details-1-status">
+                <a class="govuk-link govuk-task-list__link" href="update_loadingnumbers_handler?reference={{animal.reference}}" aria-describedby="company-details-1-status">
                   {{animal.name | capitalize}}
                 </a>
               </div>

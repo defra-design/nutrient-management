@@ -58,8 +58,7 @@ router.get('/', function (req, res) {
             req.session.data.oaktree_farm.imports_exports = 'not_answered',
             req.session.data.oaktree_farm.rainfall = 600,
             req.session.data.oaktree_farm.derogation = null,
-            req.session.data.oaktree_farm.ewr = null,
-            console.log('Farm is reset')
+            req.session.data.oaktree_farm.ewr = null
         },
         print : function () {
             console.log(this);

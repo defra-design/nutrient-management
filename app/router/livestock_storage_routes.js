@@ -180,7 +180,7 @@ router.get(/system_inventory_handler/, callback_functions.hide_error, callback_f
 })
 
 router.get(/water_inventory_handler/, callback_functions.hide_error, callback_functions.hideSuccessMessage, function (req, res) {
-    let next = '/outputs/inventory/manage_livestock/water'
+    let next = '/outputs/inventory/manage_water/index'
     if (req.session.data.oaktree_farm.livestock_inventory != 'added') { 
         next = '/add_livestock_inventory/livestock_none'
     } 
@@ -500,7 +500,7 @@ router.get(/add_manure_system_handler/, callback_functions.hide_error, callback_
     res.redirect('manure_numbers');
 })
 
-router.get(/water_numbers_handler/, callback_functions.hide_error, function (req, res) {
+router.get(/numbers_handler/, callback_functions.hide_error, function (req, res) {
     console.log(req.query.reference)
         for (var reference in req.session.data.livestock_types ) {
         if (req.session.data.livestock_types[reference].reference == req.query.reference) {
@@ -508,13 +508,13 @@ router.get(/water_numbers_handler/, callback_functions.hide_error, function (req
             req.session.data.chosen_livestock = req.session.data.livestock_types[reference]
         }
     }
-    res.redirect('/outputs/inventory/manage_livestock/water_numbers');
+    res.redirect('/outputs/inventory/manage_water/numbers');
 })
 
 router.get(/add_wash_water_details_handler/, callback_functions.hide_error, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.oaktree_farm.wash_water_details = true
     req.session.data.oaktree_farm.wash_water = 'done'
-    res.redirect('water_numbers');
+    res.redirect('numbers');
 })
 
 

@@ -106,5 +106,4 @@ router.get(/reset_add_loading_lstock/, function (req, res) {
     res.redirect('/add_livestock/livestock_group');
 })
 
-
 module.exports = router

@@ -1,0 +1,29 @@
+<div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <h3 class="govuk-notification-banner__heading">
+      You have added livestock
+    </h3>
+    {% if data.export_type == 4 %}
+      <p class="govuk-body">
+        To create a livestock manure nitrogen (N) farm limit report, enter the livestock on {{data.oaktree_farm.name}} in 2025
+      </p>  
+    {% else %}
+      <p class="govuk-body">
+        To create an organic manures inventory and storage report, enter the livestock on {{data.oaktree_farm.name}} from October 2025 to September 2026
+      </p>  
+    {% endif %}
+    
+    <p class="govuk-body"><a class="govuk-notification-banner__link" href="/add_livestock/livestock_group">Add more livestock</a></p>  
+    
+    {% if data.export_type == 4 %}
+      <p class="govuk-body"><a class="govuk-notification-banner__link" href="reset_nloading_checklist_message_handler">Create a Livestock manure nitrogen (N) farm limit report for 2025</a></p>  
+    {% else %}
+      <p class="govuk-body"><a class="govuk-notification-banner__link" href="reset_inventory_checklist_message_handler">Create an Organic manures inventory and storage report for 2025</a></p>  
+    {% endif %}
+  </div>
+</div>

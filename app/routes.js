@@ -85,6 +85,7 @@ router.get('/', function (req, res) {
     req.session.data.extra_features = true
     req.session.data.imports_exports = null
     req.session.data.mech_separator = null
+    req.session.data.livestock_update_journey = false
 
     //content
     req.session.data.manure_types_digestate = manure_types_digestate

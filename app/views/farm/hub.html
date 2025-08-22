@@ -24,10 +24,6 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% if data.show_success_message == true %}
-        {% include "./templates/success_messages" ignore missing %}
-      {% endif %}
-
       <div id="farm-title">
         <h1 class="govuk-heading-xl">{{data.oaktree_farm.name}}</h1>
         <p class="govuk-body address">South Road, Hexham, Northumberland NE46 7LQ</p>
@@ -104,7 +100,7 @@
 
         {% if data.oaktree_farm.livestock_loading == 'added' %}
           <li>
-            <a class="govuk-link" href="livestock_report_reset">Update livestock details</a>
+            <a class="govuk-link" href="livestock/livestock_years">Update livestock details</a>
           </li> 
         <!-- {
           else

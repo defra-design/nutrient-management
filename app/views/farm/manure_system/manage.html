@@ -43,7 +43,7 @@
       <h1 class="govuk-heading-l" id="header">Livestock numbers and manure collection {{ data.oaktree_farm.planning_year }}</h1>
                 
       {% if data.oaktree_farm.livestock_loading == 'added' %}
-        <form class="margin-bottom-ten" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+        <form class="margin-bottom-ten" action="/add_livestock/livestock_group" method="post" novalidate="">    
           <button class="govuk-button" data-module="govuk-button">
             Add livestock
           </button>
@@ -61,7 +61,7 @@
         {% include "./templates/summary_for_year.html" ignore missing %}
     {% else %}
       <p class="govuk-body">You have not added any livestock information.</p>
-      <form class="" action="../../add_livestock/livestock_group" method="post" novalidate="">    
+      <form class="" action="/add_livestock/livestock_group" method="post" novalidate="">    
         <button class="govuk-button" data-module="govuk-button">
           Add livestock
         </button>

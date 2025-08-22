@@ -53,8 +53,13 @@ router.get(/reset_manage_land_message_handler/, callback_functions.hideSuccessMe
 })
 
 // MANAGE LIVESTOCK NUMBERS - INVENTORY
-router.get(/reset_manage_livestock_inventory_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
+router.get(/reset_numbers_livestock_inventory_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     res.redirect('/outputs/inventory/manage_livestock/numbers')
+})
+
+// MANAGE LIVESTOCK MANAGE - INVENTORY
+router.get(/reset_manage_livestock_inventory_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
+    res.redirect('/outputs/inventory/manage_livestock/index')
 })
 
 //manage fields view reset messages
@@ -85,6 +90,13 @@ router.get(/field_details_reset_handler/, function (req, res) {
 router.get(/planview_reset_handler/, function (req, res) { 
     req.session.data.show_success_message = false;
     res.redirect('../crop_plan/plan_view');
+})
+
+//change the livestock add / change journey to add
+router.get(/reset_add_livestock/, function (req, res) { 
+    req.session.data.show_success_message = false;
+    req.session.data.livestock_update_journey = false;
+    res.redirect('/add_livestock_inventory/livestock_group');
 })
 
 

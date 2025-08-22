@@ -29,6 +29,16 @@
 
 <div class="check-answers margin-bottom-forty">
   <ul class="govuk-task-list">
+
+    <li class="govuk-task-list__item govuk-task-list__item--with-link">
+      <div class="govuk-task-list__name-and-hint">
+        <span class="strong">Type</span>
+      </div>
+      <div class="govuk-task-list__status" id="company-details-1-status">
+        <span class="strong">Manure collection details</span>
+      </div>
+    </li>
+
     {% for animal in data.livestock_record_2025 %}
       {% if animal.type == livestock_type %}
       <li class="govuk-task-list__item govuk-task-list__item--with-link">

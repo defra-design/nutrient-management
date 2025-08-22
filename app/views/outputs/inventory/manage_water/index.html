@@ -27,14 +27,14 @@
       
       <form action="../manage_livestock/index" method="post" novalidate="">
         <button type="submit" class="govuk-button govuk-button--secondary margin-bottom-fifty" data-module="govuk-button">
-          You can also add or remove livestock
+          Add or remove livestock
         </button>
       </form>
 
-      <!-- <p class="govuk-body margin-bottom-thirty"><a href="numbers">You can also add or remove livestock</a></p> -->
+      <!-- <p class="govuk-body margin-bottom-thirty"><a href="numbers">Add or remove livestock</a></p> -->
 
       <h2 class="govuk-heading-m non-standard">Wash water details</h2>
-      {% include "./templates/livestock_water_tables.html" ignore missing %}
+      {% include "./templates/table_manager.html" ignore missing %}
 
       <form action="../checklist" method="post" novalidate="">
         <button class="govuk-button margin-bottom-forty" data-module="govuk-button">

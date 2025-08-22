@@ -424,6 +424,17 @@ router.get(/animalnumbers_handler/, callback_functions.hide_error, function (req
     res.redirect('/add_livestock_inventory/livestock_numbers_jan');
 })
 
+router.get(/update_numbers_handler/, callback_functions.hide_error, function (req, res) {
+    console.log(req.query.reference)
+    for (var reference in req.session.data.livestock_record_2025) {
+        if (req.session.data.livestock_record_2025[reference].reference == req.query.reference) {
+            console.log('found ' + req.session.data.livestock_record_2025[reference])
+            req.session.data.chosen_livestock = req.session.data.livestock_record_2025[reference]
+        }
+    }
+    res.redirect('/add_livestock_inventory/check');
+})
+
 router.get(/manure_numbers_handler/, callback_functions.hide_error, function (req, res) {
     console.log(req.query.reference)
         for (var reference in req.session.data.livestock_types ) {

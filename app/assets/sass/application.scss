@@ -1216,7 +1216,13 @@ width: 35%
 }
 
 .storage_name {
-    width: 40%;
+    width: 35%;
+}
+
+.manure_store_totals {
+    th:first-child {
+        width: 35%
+    }
 }
 
 .farm_area_derogated {

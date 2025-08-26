@@ -29,6 +29,7 @@
     
       <!-- circular dimensions -->
       {% if data.storage_type == 'circular' %}
+        {% include "./templates/freeboard_details.html" ignore missing %}
         {% include "./templates/circular_sizes.html" ignore missing %}
       
       <!-- capacity -->
@@ -37,9 +38,7 @@
       
       <!-- everything else = rectangle -->
       {% else %}
-        {% if data.material_type != 'solid manure' %}
-          <p class="govuk-hint">Do not include thefreeboard area.</p>
-        {% endif %}
+        {% include "./templates/freeboard_details.html" ignore missing %}
         {% include "./templates/rectangle_sizes.html" ignore missing %}
       {% endif %}
 

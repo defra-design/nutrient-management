@@ -1,23 +1,35 @@
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Length<br>
+    <dt class="govuk-summary-list__key">
+      {% if data.storage_type == 'earth banked' %}
+        length at top
+      {% else %}
+        Length
+      {% endif %}
+    </dt>
       <dd class="govuk-summary-list__value">
-      20 metres
+      8 metres
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Width<br>
+    <dt class="govuk-summary-list__key">
+      {% if data.storage_type == 'earth banked' %}
+        Width at top
+      {% else %}
+        Width
+      {% endif %}
+    </dt>
       <dd class="govuk-summary-list__value">
-        20 metres
+        8 metres
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Depth<br>
+    <dt class="govuk-summary-list__key">Total depth (including the freeboard)<br>
       <dd class="govuk-summary-list__value">
-        20 metres
+        4 metres
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
@@ -48,12 +60,12 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Capacity volume</dt>
-      <dd class="govuk-summary-list__value">60 cubic metres</dd>
+      <dd class="govuk-summary-list__value">256 cubic metres</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""> <span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Surface area</dt>
-      <dd class="govuk-summary-list__value">60 metres squared</dd>
+      <dd class="govuk-summary-list__value">32 metres squared</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""> <span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>

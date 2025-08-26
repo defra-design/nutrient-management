@@ -20,12 +20,12 @@
 
       <div>
         <h1 class="govuk-heading-l">
-          You have not entered any organic material storage for {{data.oaktree_farm.planning_year}}
+          You have not entered any manure storage for {{data.oaktree_farm.planning_year}}
         </h1>
         <!-- <p class="govuk-body">A report is not available. You need to add details about any organic manure imports or exports.</p> -->
         <form class="form" action="../../add_storage/material_type" method="post">
           {{ govukButton({
-            text: "Add organic material storage"
+            text: "Add manure storage"
           }) }}
         </form>
       </div>

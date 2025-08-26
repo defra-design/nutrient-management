@@ -19,7 +19,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Which year would you like to create an {{data.export_type | convert_export_type}} report for?
+        Which year would you like to create an {{data.export_type | convert_export_type | lower}} report for?
       </h1>
 
       {% if data.export_type == 8 %}

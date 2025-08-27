@@ -28,7 +28,8 @@
 <div class="govuk-form-group">
   <label class="govuk-label" for="depth">
   {% if data.material_type != 'solid manure' %}
-    What is the total depth (including the freeboard)?
+    <span>What is the total depth?</span><br>
+    <span class="govuk-hint">Do not deduct the freeboard</span>
   {% else %}
     What is the depth?
   {% endif %}

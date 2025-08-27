@@ -1,0 +1,99 @@
+<dl class="govuk-summary-list nutrient_list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What is the storage type?</dt>
+    <dd class="govuk-summary-list__value">{{data.material_type | capitalize}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What do you want to call this manure store?</dt>
+      <dd class="govuk-summary-list__value">{{data.storage_name}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What kind of storage is {{data.storage_name}}?</dt>
+      <dd class="govuk-summary-list__value">{{data.storage_type | capitalize}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      {% if data.storage_type == 'earth banked' %}
+        length at top
+      {% else %}
+        Length
+      {% endif %}
+    </dt>
+      <dd class="govuk-summary-list__value">
+      8 metres
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      {% if data.storage_type == 'earth banked' %}
+        Width at top
+      {% else %}
+        Width
+      {% endif %}
+    </dt>
+      <dd class="govuk-summary-list__value">
+        8 metres
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Total depth<br>
+      (including the freeboard)
+    </dt>
+    <dd class="govuk-summary-list__value">
+        4 metres
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Does {{data.storage_name}} have sloped edges?<br>
+      <dd class="govuk-summary-list__value">
+        Yes
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What is the estimated angle of the bank slope?<br>
+      <dd class="govuk-summary-list__value">
+        1:1 (45 degrees)
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Is {{data.storage_name}} covered?
+      <dd class="govuk-summary-list__value">
+        No
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Total capacity<br>
+      (minus the freeboard)
+    </dt>
+      <dd class="govuk-summary-list__value">256 cubic metres</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""> <span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Surface area</dt>
+      <dd class="govuk-summary-list__value">32 metres squared</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""> <span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+  
+
+</dl>

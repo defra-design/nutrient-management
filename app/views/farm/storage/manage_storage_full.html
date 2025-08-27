@@ -1,0 +1,201 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  <!-- {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "All farms",
+        href: "../farms" 
+      },
+      {
+        text: "Oaktree Lane Farm",
+        href: "hub_reset_router"
+      },
+      {
+        text: "Manure storage",
+        href: "storage_years"
+      },
+      {
+        text: "Manure storage 2005"
+      }
+    ]
+  }) }} -->
+
+{% if data.export_type == 7 %}
+  {{ govukBackLink({
+    text: "Back to " + data.oaktree_farm.name,
+    href: "hub_message_reset"
+  }) }}
+{% else %}  
+  {{ govukBackLink({
+    text: "Back",
+    href: "/outputs/inventory/checklist"
+  }) }}
+{% endif %}  
+
+{% endblock %}
+
+{% block content %}
+{{ plan_status }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% if data.show_success_message == true %}
+      {% include "./templates/success_message.html" ignore missing %}
+    {% endif %}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">    
+
+    <div class="margin-bottom-thirty">
+      <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span> 
+      <h1 class="govuk-heading-l margin-bottom-ten">Manure storage</h1>
+      {% if data.export_type == 8 %}
+        <h2 class="govuk-heading-m">October 2024 and September 2025</h2>
+      {% else %}
+        <h2 class="govuk-heading-m">2025</h2>
+      {% endif %}
+    </div>
+
+    {% if data.show_success_message != true and data.export_type != null %}
+      <div class="govuk-inset-text margin-bottom-forty">
+        {% if data.export_type == 8 %}
+          <p class="govuk-body">
+            To create an organic manures inventory and NVZ storage report, add all the Manure storage on {{data.oaktree_farm.name}} between October 2024 and September 2025.
+          </p>
+          <p class="govuk-body">
+            <a href="/outputs/inventory/checklist">Create an organic manures inventory and NVZ storage report</a>
+          </p>
+        {% else %}
+          <p class="govuk-body">To create an existing manure storage capacity report, enter the manure storage on {{data.oaktree_farm.name}} in 2025.</p>
+          <p class="govuk-body"><a href="report">Create an existing manure storage capacity report</a></p>
+        {% endif %}
+      </div>
+    {% endif %}   
+
+  </div>
+</div>
+
+<div class="margin-bottom-twenty">
+  <form class="margin-bottom-ten" action="../../add_storage/material_type" method="post" novalidate="">    
+    <button class="govuk-button" data-module="govuk-button">
+      Add manure storage
+    </button>
+  </form>
+</div>
+
+{% if data.show_success_message != true and data.export_type == null %}
+  <p class="govuk-body margin-bottom-thirty"><a href="/outputs/export">Create a report from this information</a></p>
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="margin-bottom-forty">
+      <h2 class="govuk-heading-l non-standard">Solid manure storage</h2>
+      <table class="govuk-table data-table store-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Name</th>
+            <th scope="col" class="govuk-table__header">Storage type</th>
+            <!-- <th scope="col" class="govuk-table__header">Length</th>
+            <th scope="col" class="govuk-table__header">Width</th>
+            <th scope="col" class="govuk-table__header">Depth</th>
+            <th scope="col" class="govuk-table__header">Circumference</th> -->
+            <!-- <th scope="col" class="govuk-table__header">Bank slope</th> -->
+            <th scope="col" class="govuk-table__header">Total capacity</th>
+            <th scope="col" class="govuk-table__header"> </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Poultry store</td>
+            <td class="govuk-table__cell">Square or rectangular tank</td>
+            <!-- <td class="govuk-table__cell">8 metres</td>
+            <td class="govuk-table__cell">8 metres</td>
+            <td class="govuk-table__cell">4 metres</td>
+            <td class="govuk-table__cell">-</td> -->
+            <!-- <td class="govuk-table__cell">1:1 (45 degrees)</td> -->
+            <td class="govuk-table__cell">256 cubic metres</td>
+            <td class="govuk-table__cell"><a href="">Change</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="margin-bottom-forty">
+      <h2 class="govuk-heading-l non-standard">Slurry storage</h2>
+      <table class="govuk-table data-table store-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Name</th>
+            <th scope="col" class="govuk-table__header">Storage type</th>
+            <!-- <th scope="col" class="govuk-table__header">Length</th>
+            <th scope="col" class="govuk-table__header">Width</th>
+            <th scope="col" class="govuk-table__header">Depth</th>
+            <th scope="col" class="govuk-table__header">Circumference</th> -->
+            <!-- <th scope="col" class="govuk-table__header">Bank slope</th> -->
+            <th scope="col" class="govuk-table__header">Total capacity</th>
+            <th scope="col" class="govuk-table__header"> </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Slurry tank</td>
+            <td class="govuk-table__cell">Earth banked lagoon</td>
+            <!-- <td class="govuk-table__cell">8 metres</td>
+            <td class="govuk-table__cell">8 metres</td>
+            <td class="govuk-table__cell">4 metres</td>
+            <td class="govuk-table__cell">-</td> -->
+            <!-- <td class="govuk-table__cell">1:1 (45 degrees)</td> -->
+            <td class="govuk-table__cell">256 cubic metres</td>
+            <td class="govuk-table__cell"><a href="">Change</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="margin-bottom-forty">
+      <h2 class="govuk-heading-l non-standard">Dirty water storage</h2>
+      <table class="govuk-table data-table store-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Name</th>
+            <th scope="col" class="govuk-table__header">Storage type</th>
+            <!-- <th scope="col" class="govuk-table__header">Length</th>
+            <th scope="col" class="govuk-table__header">Width</th>
+            <th scope="col" class="govuk-table__header">Depth</th>
+            <th scope="col" class="govuk-table__header">Circumference</th> -->
+            <!-- <th scope="col" class="govuk-table__header">Bank slope</th> -->
+            <th scope="col" class="govuk-table__header">Total capacity</th>
+            <th scope="col" class="govuk-table__header"> </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Dirty water store</td>
+            <td class="govuk-table__cell">Circular tank</td>
+            <!-- <td class="govuk-table__cell">8 metres</td>
+            <td class="govuk-table__cell">8 metres</td>
+            <td class="govuk-table__cell">4 metres</td>
+            <td class="govuk-table__cell">-</td> -->
+            <!-- <td class="govuk-table__cell">1:1 (45 degrees)</td> -->
+            <td class="govuk-table__cell">256 cubic metres</td>
+            <td class="govuk-table__cell"><a href="">Change</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -116,6 +116,15 @@ hr.medium_separator {
     font-size: 17px;
 }
 
+.store-table {
+    td {
+        width: 30%;
+    }
+    td:last-child {
+       text-align: right;
+        width: 10%;
+    }
+}
 
 .record-table {
     font-size: 17px;

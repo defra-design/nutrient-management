@@ -64,9 +64,7 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
         if (req.session.data.oaktree_farm.storage_added != true) {
             next = 'not_available_storage'
         } else {
-            next = 'farm/storage/report'
-            // next = '../storage/manage_storage'
-
+            next = '/farm/storage/manage_storage'
         }
     }
     // MANURE INVENTORY AND STORAGE
@@ -78,7 +76,7 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
 
 router.get(/manage_storage_router/, callback_functions.hideSuccessMessage, function (req, res) {
     req.session.data.export_type = null
-    res.redirect('/farm/storage/manage_storage');
+    res.redirect('/farm/storage/storage_years');
 })
 
 module.exports = router

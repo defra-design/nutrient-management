@@ -127,8 +127,8 @@
   </li>
 
 
-  <!-- LIVESTOCK -->
-  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+  <!-- LIVESTOCK old -->
+  <!-- <li class="govuk-task-list__item govuk-task-list__item--with-link">
     {% if data.oaktree_farm.livestock_inventory == 'not_answered' %}
       <div class="govuk-task-list__name-and-hint">
         <a class="govuk-link govuk-task-list__link" href="livestock_inventory_handler">
@@ -158,7 +158,7 @@
         Completed
       </div>
     {% endif %}
-  </li>
+  </li> -->
 
 
   <!-- LIVESTOCK UPDATED -->
@@ -169,12 +169,12 @@
       </a>
     </div>
     <div class="govuk-task-list__status" id="company-details-4-status">
-      {% if data.oaktree_farm.livestock_inventory == 'none' %}
+      {% if data.oaktree_farm.livestock_inventory == 3 %}
+        Completed
+      {% else %}
         <strong class="govuk-tag govuk-tag--blue">
           Incomplete
         </strong>
-      {% else %}
-          Completed
       {% endif %}
     </div>
   </li>

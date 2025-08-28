@@ -164,7 +164,9 @@ router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage,
     let next = '/add_livestock_inventory/livestock_none'
     if (req.session.data.oaktree_farm.livestock_inventory == 2 || req.session.data.oaktree_farm.livestock_inventory == 3) { 
         next = '/outputs/inventory/manage_livestock/index'
-    } 
+    } else {
+        next = '/outputs/inventory/manage_livestock/index'
+    }
     res.redirect(next);
 })
 

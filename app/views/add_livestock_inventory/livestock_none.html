@@ -42,7 +42,7 @@
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="no" name="livestock_inventory" type="radio" value="no">
+                <input class="govuk-radios__input" id="no" name="livestock_inventory" type="radio" value="no" {% if data.oaktree_farm.livestock_inventory == 4  %} checked='checked' {% endif %}>
                 <label class="govuk-label govuk-radios__label" for="no">
                   No
                 </label>

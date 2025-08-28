@@ -139,7 +139,7 @@ router.get(/livestock_loading_router/, callback_functions.hide_error, function (
 router.get(/livestock_inventory_router/, callback_functions.hide_error, function (req, res) {
     let next
     if (req.session.data.livestock_inventory == 'no') { 
-        req.session.data.oaktree_farm.livestock_inventory = 'none'
+        req.session.data.oaktree_farm.livestock_inventory = 4
         req.session.data.oaktree_farm.manure_system = 'none'
         next = '/outputs/inventory/checklist'
     } else {

@@ -91,7 +91,7 @@ router.get(/copy_name_handler/, function (req, res) {
         req.session.data.temp_field_name = 'New Field #' + req.session.data.tempField.reference 
     }
     req.session.data.tempField.name = req.session.data.temp_field_name
-    res.redirect('./copy-field-check')
+    res.redirect('./analysis')
 })
 
 router.get(/field_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 

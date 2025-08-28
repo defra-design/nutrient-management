@@ -2,7 +2,7 @@
 
   <!-- <li class="govuk-task-list__item govuk-task-list__item--with-link">
     <div class="govuk-task-list__name-and-hint">
-      <a class="govuk-link govuk-task-list__link" href="derogation" aria-describedby="company-details-1-status">
+      <a class="govuk-link govuk-task-list__link" href="derogation">
         Derogation
       </a>
     </div>
@@ -21,7 +21,7 @@
 
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     <!-- <div class="govuk-task-list__name-and-hint">
-      <a class="govuk-link govuk-task-list__link" href="separator" aria-describedby="company-details-1-status">
+      <a class="govuk-link govuk-task-list__link" href="separator">
         Mechanical separation
       </a>
     </div>
@@ -40,7 +40,7 @@
 
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     <div class="govuk-task-list__name-and-hint">
-      <a class="govuk-link govuk-task-list__link" href="separator" aria-describedby="company-details-1-status">
+      <a class="govuk-link govuk-task-list__link" href="separator">
         Mechanical separation
       </a>
     </div>
@@ -53,7 +53,7 @@
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     {% if data.oaktree_farm.area_Completed == true %}
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="area" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="area">
           Farm area
         </a>
       </div>
@@ -62,7 +62,7 @@
       </div>
     {% else %}
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="area" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="area">
           Farm area
         </a>
       </div>
@@ -79,7 +79,7 @@
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     {% if data.oaktree_farm.rainwater_area_Completed == true %}
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="rainwater" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="rainwater">
           Rainwater collection areas
         </a>
       </div>
@@ -88,7 +88,7 @@
       </div>
     {% else %}
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="rainwater" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="rainwater">
           Rainwater collection areas
         </a>
       </div>
@@ -105,7 +105,7 @@
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     {% if data.oaktree_farm.low_risk_land_Completed == 'Completed' %}
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="../../../add_land/check" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="../../../add_land/check">
           Low run-off risk land
         </a>
       </div>
@@ -114,7 +114,7 @@
       </div>
     {% else %}
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="../../../add_land/land_options" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="../../../add_land/land_options">
           Low run-off risk land
         </a>
       </div>
@@ -131,7 +131,7 @@
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     {% if data.oaktree_farm.livestock_inventory == 'not_answered' %}
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="livestock_inventory_handler" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="livestock_inventory_handler">
           Livestock details
         </a>
       </div>
@@ -143,13 +143,13 @@
     {% else %}
       {% if data.oaktree_farm.livestock_inventory == 'none' %}
         <div class="govuk-task-list__name-and-hint">
-          <a class="govuk-link govuk-task-list__link" href="/add_livestock_inventory/livestock_none" aria-describedby="company-details-1-status">
+          <a class="govuk-link govuk-task-list__link" href="/add_livestock_inventory/livestock_none">
             Livestock details
           </a>
         </div>
       {% else %}
         <div class="govuk-task-list__name-and-hint">
-          <a class="govuk-link govuk-task-list__link" href="reset_manage_livestock_inventory_handler" aria-describedby="company-details-1-status">
+          <a class="govuk-link govuk-task-list__link" href="reset_manage_livestock_inventory_handler">
             Livestock details
           </a>
         </div>
@@ -161,11 +161,30 @@
   </li>
 
 
+  <!-- LIVESTOCK UPDATED -->
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="livestock_inventory_handler">
+        Livestock details
+      </a>
+    </div>
+    <div class="govuk-task-list__status" id="company-details-4-status">
+      {% if data.oaktree_farm.livestock_inventory == 'none' %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Incomplete
+        </strong>
+      {% else %}
+          Completed
+      {% endif %}
+    </div>
+  </li>
+
+
   <!-- MANURE COLLECTION -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     {% if data.oaktree_farm.manure_system == 'not_answered' %}
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="system_inventory_handler" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="system_inventory_handler">
           Manure collection
         </a>
       </div>
@@ -177,13 +196,13 @@
     {% else %}
       {% if data.oaktree_farm.manure_system == 'none' %}
         <div class="govuk-task-list__name-and-hint">
-          <a class="govuk-link govuk-task-list__link" href="system_inventory_handler" aria-describedby="company-details-1-status">
+          <a class="govuk-link govuk-task-list__link" href="system_inventory_handler">
             Manure collection
           </a>
         </div>
       {% else %}
         <div class="govuk-task-list__name-and-hint">
-          <a class="govuk-link govuk-task-list__link" href="reset_manure_collection_message" aria-describedby="company-details-1-status">
+          <a class="govuk-link govuk-task-list__link" href="reset_manure_collection_message">
             Manure collection
           </a>
         </div>
@@ -199,7 +218,7 @@
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     {% if data.oaktree_farm.wash_water_details == true or data.oaktree_farm.livestock_loading == 'none' %}
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="manage_water/index" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="manage_water/index">
           Wash Water
         </a>
       </div>
@@ -208,7 +227,7 @@
       </div>
     {% else %}
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="water_inventory_handler" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="water_inventory_handler">
           Wash Water
         </a>
       </div>
@@ -225,7 +244,7 @@
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     {% if data.oaktree_farm.storage_added == true %}
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="reset_manage_storage_message_handler" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="reset_manage_storage_message_handler">
           Manure storage
         </a>
       </div>
@@ -234,7 +253,7 @@
       </div>
     {% else %}
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="storage_none" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="storage_none">
           Manure storage
         </a>
       </div>
@@ -251,7 +270,7 @@
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     {% if data.oaktree_farm.imports_exports == 'not_answered' %}
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="export_none" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="export_none">
           Imports and exports of organic material
         </a>
       </div>
@@ -263,11 +282,11 @@
     {% else %}
       <div class="govuk-task-list__name-and-hint">
         {% if data.oaktree_farm.imports_exports == 'none' %}
-          <a class="govuk-link govuk-task-list__link" href="export_none" aria-describedby="company-details-1-status">
+          <a class="govuk-link govuk-task-list__link" href="export_none">
             Imports and exports of organic material
           </a>
         {% else %}
-          <a class="govuk-link govuk-task-list__link" href="reset_manage_exports_message_handler" aria-describedby="company-details-1-status">
+          <a class="govuk-link govuk-task-list__link" href="reset_manage_exports_message_handler">
             Imports and exports of manure
           </a>
         {% endif %}
@@ -282,7 +301,7 @@
   <!-- NUTRIENT VALUES -->
   <!-- <li class="govuk-task-list__item govuk-task-list__item--with-link">
       <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="../../../add_export/export_type_none" aria-describedby="company-details-1-status">
+        <a class="govuk-link govuk-task-list__link" href="../../../add_export/export_type_none">
           Nutrient prices
         </a>
       </div>
@@ -292,7 +311,7 @@
         </strong>
       </div>
       <div class="govuk-task-list__name-and-hint">
-          <a class="govuk-link govuk-task-list__link" href="nutrients" aria-describedby="company-details-1-status">
+          <a class="govuk-link govuk-task-list__link" href="nutrients">
             Nutrient prices
           </a>
       </div>

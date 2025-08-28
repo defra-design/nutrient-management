@@ -161,12 +161,10 @@ router.get(/livestock_loading_handler/, callback_functions.hideSuccessMessage, c
 
 // is there any livestock checklist link
 router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
-    let next;
-    if (req.session.data.oaktree_farm.livestock_inventory == 'added' || req.session.data.oaktree_farm.livestock_loading == 'added') { 
-        next = './manage_livestock/index'
-    } else {
+    let next = '/add_livestock_inventory/livestock_none'
+    if (req.session.data.oaktree_farm.livestock_loading == 3 && req.session.data.oaktree_farm.livestock_inventory == null) { 
         next = '/add_livestock_inventory/livestock_none'
-    }
+    } 
     res.redirect(next);
 })
 

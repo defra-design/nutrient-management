@@ -42,8 +42,12 @@ router.get('/', function (req, res) {
             req.session.data.oaktree_farm.use_mvp_fields = false,
             req.session.data.oaktree_farm.setup = false,
             req.session.data.oaktree_farm.fields_added = false,
-            req.session.data.oaktree_farm.livestock_loading = 'not_answered',
-            req.session.data.oaktree_farm.livestock_inventory = 'not_answered',
+            // livestock statuses
+            // 1 Nothing added = null (incomplete)
+            // 2 Copied from loading = copied (incomplete)
+            // 3 Added for inventory = added (complete)
+            req.session.data.oaktree_farm.livestock_loading = null,
+            req.session.data.oaktree_farm.livestock_inventory = null,
             req.session.data.oaktree_farm.storage_added = false,
             req.session.data.oaktree_farm.rainwater_area_added = false,
             req.session.data.oaktree_farm.storage_figures = false,

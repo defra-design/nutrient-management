@@ -20,17 +20,25 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-l">
-        Update {{data.chosen_field}}
+        Update {{data.temp_field_name}}
       </h1>
 
-      <div class="check-answers">
-        <!-- <h2 class="govuk-heading-m">Field details</h2> -->
+      <div class="govuk-inset-text">
+        <p class="govuk-body">Changing these details could change your nutrient recommendations for 2024 and future years.</p>
+      </div>
+
+      <h2 class="govuk-heading-m">Field details</h2>
+      <div class="check-answers margin-bottom-forty">
         <dl class="govuk-summary-list">
-          {% include "./templates/check-details_v2.html" ignore missing %}
-          {% include "./templates/check-details-sns-simple.html" ignore missing %}
+          {% include "./templates/update_details_field.html" ignore missing %}
         </dl>
       </div>
-      <br>
+      <h2 class="govuk-heading-m">Previous crop history</h2>
+      <div class="check-answers margin-bottom-forty">
+        <dl class="govuk-summary-list">
+          {% include "./templates/update_details_grass.html" ignore missing %}
+        </dl>
+      </div>
 
       <form action="field_update_handler" method="post" novalidate>
 

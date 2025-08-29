@@ -69,7 +69,7 @@
   </li> -->
 
   <!-- LIVESTOCK -->
-  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+  <!-- <li class="govuk-task-list__item govuk-task-list__item--with-link">
     {% if data.oaktree_farm.livestock_loading == 'not_answered' %}
       <div class="govuk-task-list__name-and-hint">
         <a class="govuk-link govuk-task-list__link" href="livestock_loading_handler" aria-describedby="company-details-1-status">
@@ -99,6 +99,25 @@
         Completed
       </div>
     {% endif %}
+  </li>
+ -->
+
+   <!-- LIVESTOCK UPDATED -->
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="livestock_loading_handler">
+        Livestock details
+      </a>
+    </div>
+    <div class="govuk-task-list__status" id="loading-list-4-status">
+      {% if data.oaktree_farm.livestock_loading >= 3 %}
+        Completed
+      {% else %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Incomplete
+        </strong>
+      {% endif %}
+    </div>
   </li>
 
   <!-- IMPORTS AND EXPORTS -->

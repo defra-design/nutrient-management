@@ -95,19 +95,12 @@ router.get(/end_to_end_livestock_handler/, function (req, res) {
     req.session.data.all_fields.push(fieldTwo)
     
     // Livestock
-    req.session.data.livestock_types[0].numbers_added_nloading = true;
-    req.session.data.livestock_types[1].numbers_added_nloading = true;
-    req.session.data.livestock_types[2].numbers_added_nloading = true;
-    req.session.data.livestock_types[3].numbers_added_nloading = true;
-    req.session.data.livestock_types[4].numbers_added_nloading = true;
-    req.session.data.livestock_types[5].numbers_added_nloading = true;
-
-    req.session.data.livestock_types[0].numbers_added_inventory = false;
-    req.session.data.livestock_types[1].numbers_added_inventory = false;
-    req.session.data.livestock_types[2].numbers_added_inventory = false;
-    req.session.data.livestock_types[3].numbers_added_inventory = false;
-    req.session.data.livestock_types[4].numbers_added_inventory = false;
-    req.session.data.livestock_types[5].numbers_added_inventory = false;
+    req.session.data.livestock_types[0].numbers_added_nloading = 2;
+    req.session.data.livestock_types[1].numbers_added_nloading = 2;
+    req.session.data.livestock_types[2].numbers_added_nloading = 2;
+    req.session.data.livestock_types[3].numbers_added_nloading = 2;
+    req.session.data.livestock_types[4].numbers_added_nloading = 2;
+    req.session.data.livestock_types[5].numbers_added_nloading = 2;
 
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[0])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[1])
@@ -115,7 +108,7 @@ router.get(/end_to_end_livestock_handler/, function (req, res) {
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[3])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[4])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[5])
-    req.session.data.oaktree_farm.livestock_loading = 'added';
+    req.session.data.oaktree_farm.livestock_loading = 3;
 
     res.redirect('start')
 })
@@ -130,19 +123,12 @@ router.get(/livestock_handler_inventory/, function (req, res) {
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
     // Livestock
-    req.session.data.livestock_types[0].numbers_added_nloading = false;
-    req.session.data.livestock_types[1].numbers_added_nloading = false;
-    req.session.data.livestock_types[2].numbers_added_nloading = false;
-    req.session.data.livestock_types[3].numbers_added_nloading = false;
-    req.session.data.livestock_types[4].numbers_added_nloading = false;
-    req.session.data.livestock_types[5].numbers_added_nloading = false;
-
-    req.session.data.livestock_types[0].numbers_added_inventory = true;
-    req.session.data.livestock_types[1].numbers_added_inventory = true;
-    req.session.data.livestock_types[2].numbers_added_inventory = true;
-    req.session.data.livestock_types[3].numbers_added_inventory = true;
-    req.session.data.livestock_types[4].numbers_added_inventory = true;
-    req.session.data.livestock_types[5].numbers_added_inventory = true;
+    req.session.data.livestock_types[0].numbers_added_inventory = 2;
+    req.session.data.livestock_types[1].numbers_added_inventory = 2;
+    req.session.data.livestock_types[2].numbers_added_inventory = 2;
+    req.session.data.livestock_types[3].numbers_added_inventory = 2;
+    req.session.data.livestock_types[4].numbers_added_inventory = 2;
+    req.session.data.livestock_types[5].numbers_added_inventory = 2;
 
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[0])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[1])
@@ -150,7 +136,7 @@ router.get(/livestock_handler_inventory/, function (req, res) {
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[3])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[4])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[5])
-    req.session.data.oaktree_farm.livestock_inventory = 'added';
+    req.session.data.oaktree_farm.livestock_inventory = 3;
 
     res.redirect('start')
 })

@@ -1,59 +1,69 @@
-{% set cattle_added = false %}
-{% set pig_added = false %}
-{% set poultry_added = false %}
-{% set sheep_added = false %}
-{% set other_added = false %}
+{% set show_cattle = false %}
+{% set show_pigs = false %}
+{% set show_poultry = false %}
+{% set show_sheep = false %}
+{% set show_other = false %}
 
 <!-- show the right livestock -->
 {% for livestock_type in data.livestock_record_2025 %}
 
   {% if livestock_type.type == 'cattle' %}
-    {% set cattle_added = true %}
+    {% if livestock_type.numbers_added_inventory != null %}
+      {% set show_cattle = true %}
+    {% endif %}
   {% endif %}
 
   {% if livestock_type.type == 'pig' %}
-    {% set pig_added = true %}
+    {% if livestock_type.numbers_added_inventory != null %}
+      {% set show_pigs = true %}
+    {% endif %}
   {% endif %}
 
   {% if livestock_type.type == 'poultry' %}
-    {% set poultry_added = true %}
+    {% if livestock_type.numbers_added_inventory != null %}
+      {% set show_poultry = true %}
+    {% endif %}
   {% endif %}
 
   {% if livestock_type.type == 'sheep' %}
-    {% set sheep_added = true %}
+    {% if livestock_type.numbers_added_inventory != null %}
+      {% set show_sheep = true %}
+    {% endif %}
   {% endif %}
 
   {% if livestock_type.type == 'other' %}
-    {% set other_added = true %}
+    {% if livestock_type.numbers_added_inventory != null %}
+      {% set show_other = true %}
+    {% endif %}
   {% endif %}
 
 {% endfor %}
 
-{% if cattle_added == true %}
+{% if show_cattle == true %}
 {% set livestock_type = 'cattle' %}
   <h2 class="govuk-heading-m non-standard margin-top-thirty">{{livestock_type | capitalize}}</h2>
   {% include "./livestock_checklist_template.html" ignore missing %}
 {% endif %}
 
-{% if pig_added == true %}
+{% if show_pigs == true %}
 {% set livestock_type = 'pig' %}
   <h2 class="govuk-heading-m non-standard margin-top-thirty">{{livestock_type | capitalize}}s</h2>
   {% include "./livestock_checklist_template.html" ignore missing %}
 {% endif %}
 
-{% if poultry_added == true %}
+{% if show_poultry == true %}
 {% set livestock_type = 'poultry' %}
   <h2 class="govuk-heading-m non-standard margin-top-thirty">{{livestock_type | capitalize}}</h2>
   {% include "./livestock_checklist_template.html" ignore missing %}
 {% endif %}
 
-{% if sheep_added == true %}
+{% if show_sheep == true %}
 {% set livestock_type = 'sheep' %}
   <h2 class="govuk-heading-m non-standard margin-top-thirty">{{livestock_type | capitalize}}</h2>
   {% include "./livestock_checklist_template.html" ignore missing %}
 {% endif %}
 
-{% if other_added == true %}
+{% if show_other == true %}
 {% set livestock_type = 'other' %}
   <h2 class="govuk-heading-m non-standard margin-top-thirty">Goats, Deer and Horses</h2>
   {% include "./livestock_checklist_template.html" ignore missing %}

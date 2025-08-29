@@ -180,7 +180,7 @@ router.get(/livestock_copy_handler/, function (req, res) {
               req.session.data.livestock_record_2025[x].numbers_added_inventory = 1
           }
       }
-        req.session.data.oaktree_farm.livestock_inventory = 2
+      req.session.data.oaktree_farm.livestock_inventory = 2
   } else {
     next = '/add_livestock_inventory/livestock_none'
   }
@@ -467,26 +467,26 @@ router.get(/update_loadingnumbers_handler/, callback_functions.hide_error, funct
 })
 
 router.get(/check_inventory_lstock_handler/, function (req, res) { 
-    if (req.session.data.livestock_number != null && req.session.data.livestock_number != '') {
-        req.session.data.chosen_livestock.total = req.session.data.livestock_number
-    }
-    if (req.session.data.livestock_update_journey == true) {
-    for (let livestock_type in req.session.data.livestock_record_2025) {
-        if (req.session.data.livestock_record_2025[livestock_type].reference == req.session.data.chosen_livestock.reference) {
-            req.session.data.livestock_record_2025[livestock_type].numbers_added_inventory = 2
-        }
-    }
-    } else {
-        //function get livestock
-        req.session.data.chosen_livestock.numbers_added_inventory = 2
-        req.session.data.livestock_record_2025.push(req.session.data.chosen_livestock)
-    }
-    req.session.data.show_success_message = true;
-    req.session.data.oaktree_farm.livestock_inventory = 3;
-    // req.session.data.oaktree_farm.manure_system = 'not_answered';
-    // req.session.data.nitrogen_standard = null
-    // req.session.data.livestock_occupancy = null
-    res.redirect('/outputs/inventory/manage_livestock/index')
+  if (req.session.data.livestock_number != null && req.session.data.livestock_number != '') {
+      req.session.data.chosen_livestock.total = req.session.data.livestock_number
+  }
+  if (req.session.data.livestock_update_journey == true) {
+      for (let livestock_type in req.session.data.livestock_record_2025) {
+          if (req.session.data.livestock_record_2025[livestock_type].reference == req.session.data.chosen_livestock.reference) {
+              req.session.data.livestock_record_2025[livestock_type].numbers_added_inventory = 2
+          }
+      }
+  } else {
+      //function get livestock
+      req.session.data.chosen_livestock.numbers_added_inventory = 2
+      req.session.data.livestock_record_2025.push(req.session.data.chosen_livestock)
+  }
+  req.session.data.show_success_message = true;
+  req.session.data.oaktree_farm.livestock_inventory = 3;
+  // req.session.data.oaktree_farm.manure_system = 'not_answered';
+  // req.session.data.nitrogen_standard = null
+  // req.session.data.livestock_occupancy = null
+  res.redirect('/outputs/inventory/manage_livestock/index')
 })
 
 router.get(/check_loading_lstock_handler/, function (req, res) { 

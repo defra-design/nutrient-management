@@ -175,7 +175,22 @@ router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage,
     res.redirect(next);
 })
 
-router.get(/livestock_copy_handler/, function (req, res) {
+router.get(/livestock_copy_for_loading_handler/, function (req, res) {
+  let next = '/outputs/n_loading/manage_livestock/index'
+  if (req.session.data.copy_loading == 'yes') {
+      for (let x in req.session.data.livestock_record_2025) {
+          if (req.session.data.livestock_record_2025[x].numbers_added_inventory == 2) {
+              req.session.data.livestock_record_2025[x].numbers_added_nloading = 1
+          }
+      }
+      req.session.data.oaktree_farm.livestock_loading = 2
+  } else {
+    next = '/add_livestock/livestock_none'
+  }
+  res.redirect(next);
+})
+
+router.get(/livestock_copy_for_inventory_handler/, function (req, res) {
   let next = '/outputs/inventory/manage_livestock/index'
   if (req.session.data.copy_loading == 'yes') {
       for (let x in req.session.data.livestock_record_2025) {
@@ -425,15 +440,21 @@ router.get(/add_inventorynumbers_handler/, callback_functions.hide_error, functi
 })
 
 router.get(/add_loadingnumbers_handler/, callback_functions.hide_error, function (req, res) {
-    console.log(req.query.reference)
     for (var reference in req.session.data.livestock_record_2025) {
         if (req.session.data.livestock_record_2025[reference].reference == req.query.reference) {
             console.log('found ' + req.session.data.livestock_record_2025[reference])
             req.session.data.chosen_livestock = req.session.data.livestock_record_2025[reference]
+            req.session.data.livestock_group = req.session.data.livestock_record_2025[reference].type
         }
     }
 	req.session.data.livestock_update_journey = true
-    res.redirect('/add_livestock_inventory/livestock_numbers_jan');
+    let next
+    if (req.session.data.chosen_livestock.type != 'pig' && req.session.data.chosen_livestock.type != 'poultry') {
+        next = '/add_livestock/livestock_number_question'
+    } else {
+        next = '/add_livestock/livestock_numbers_average'
+    }
+    res.redirect(next);
 })
 
 router.get(/manure_numbers_handler/, callback_functions.hide_error, function (req, res) {
@@ -493,25 +514,25 @@ router.get(/check_inventory_lstock_handler/, function (req, res) {
 })
 
 router.get(/check_loading_lstock_handler/, function (req, res) { 
-    if (req.session.data.livestock_number != null && req.session.data.livestock_number != '') {
-        req.session.data.chosen_livestock.total = req.session.data.livestock_number
+  if (req.session.data.livestock_number != null && req.session.data.livestock_number != '') {
+    req.session.data.chosen_livestock.total = req.session.data.livestock_number
+  }
+  if (req.session.data.livestock_update_journey == true) {
+    for (let livestock_type in req.session.data.livestock_record_2025) {
+      if (req.session.data.livestock_record_2025[livestock_type].reference == req.session.data.chosen_livestock.reference) {
+        req.session.data.livestock_record_2025[livestock_type].numbers_added_nloading = 2
+      }
     }
-    if (req.session.data.livestock_update_journey == true) {
-      for (let livestock_type in req.session.data.livestock_record_2025) {
-        if (req.session.data.livestock_record_2025[livestock_type].reference == req.session.data.chosen_livestock.reference) {
-        	req.session.data.livestock_record_2025[livestock_type].numbers_added_loading = true
-        }
-    	}
-    } else {
-        //function get livestock
-        req.session.data.chosen_livestock.numbers_added_nloading = 3
-        req.session.data.livestock_record_2025.push(req.session.data.chosen_livestock)
-    }
-    req.session.data.show_success_message = true;
-    req.session.data.oaktree_farm.livestock_loading = 3;
-    // req.session.data.nitrogen_standard = null
-    // req.session.data.livestock_occupancy = null
-    res.redirect('/outputs/n_loading/manage_livestock/index')
+  } else {
+      //function get livestock
+      req.session.data.chosen_livestock.numbers_added_nloading = 2
+      req.session.data.livestock_record_2025.push(req.session.data.chosen_livestock)
+  }
+  req.session.data.show_success_message = true;
+  req.session.data.oaktree_farm.livestock_loading = 3;
+  // req.session.data.nitrogen_standard = null
+  // req.session.data.livestock_occupancy = null
+  res.redirect('/outputs/n_loading/manage_livestock/index')
 })
 
 router.get(/add_manure_system_handler/, callback_functions.hide_error, callback_functions.showSuccessMessage, function (req, res) {

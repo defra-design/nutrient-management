@@ -1,11 +1,17 @@
 {% macro monthitem(name, year) %}
+  <h3 class="govuk-heading-s margin-top-thirty">{{name}} {{year}}</h3>
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Numbers for {{name}} {{year}}</dt>
+    <dt class="govuk-summary-list__value">Number</dt>
       <dd class="govuk-summary-list__value">
-        <ul class="nutrient_values">
-          <li>100 {{data.chosen_livestock.shortname}}</li>
-          <li>80% Occupancy</li>
-      </ul>
+          100 {{data.chosen_livestock.shortname}}
+      </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__value">Time housed
+    </dt>
+      <dd class="govuk-summary-list__value">
+          80%
       </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>

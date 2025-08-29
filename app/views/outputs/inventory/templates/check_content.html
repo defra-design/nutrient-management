@@ -7,11 +7,11 @@
       </a>
     </div>
     {% if data.oaktree_farm.derogation != null %}
-      <div class="govuk-task-list__status" id="company-details-1-status">
+      <div class="govuk-task-list__status" id="inventory-list-1-status">
         Completed
       </div>
     {% else %}
-      <div class="govuk-task-list__status" id="company-details-4-status">
+      <div class="govuk-task-list__status" id="inventory-list-4-status">
         <strong class="govuk-tag govuk-tag--blue">
           Incomplete
         </strong>
@@ -26,11 +26,11 @@
       </a>
     </div>
     {% if data.oaktree_farm.separation != null %}
-      <div class="govuk-task-list__status" id="company-details-1-status">
+      <div class="govuk-task-list__status" id="inventory-list-1-status">
         Completed
       </div>
     {% else %}
-      <div class="govuk-task-list__status" id="company-details-4-status">
+      <div class="govuk-task-list__status" id="inventory-list-4-status">
         <strong class="govuk-tag govuk-tag--blue">
           Incomplete
         </strong>
@@ -44,7 +44,7 @@
         Mechanical separation
       </a>
     </div>
-      <div class="govuk-task-list__status" id="company-details-1-status">
+      <div class="govuk-task-list__status" id="inventory-list-1-status">
         Completed
       </div>
   </li>
@@ -57,7 +57,7 @@
           Farm area
         </a>
       </div>
-      <div class="govuk-task-list__status" id="company-details-1-status">
+      <div class="govuk-task-list__status" id="inventory-list-1-status">
         Completed
       </div>
     {% else %}
@@ -66,7 +66,7 @@
           Farm area
         </a>
       </div>
-      <div class="govuk-task-list__status" id="company-details-4-status">
+      <div class="govuk-task-list__status" id="inventory-list-4-status">
         <strong class="govuk-tag govuk-tag--blue">
           Incomplete
         </strong>
@@ -83,7 +83,7 @@
           Rainwater collection areas
         </a>
       </div>
-      <div class="govuk-task-list__status" id="company-details-1-status">
+      <div class="govuk-task-list__status" id="inventory-list-1-status">
         Completed
       </div>
     {% else %}
@@ -92,7 +92,7 @@
           Rainwater collection areas
         </a>
       </div>
-      <div class="govuk-task-list__status" id="company-details-4-status">
+      <div class="govuk-task-list__status" id="inventory-list-4-status">
         <strong class="govuk-tag govuk-tag--blue">
           Incomplete
         </strong>
@@ -109,7 +109,7 @@
           Low run-off risk land
         </a>
       </div>
-      <div class="govuk-task-list__status" id="company-details-1-status">
+      <div class="govuk-task-list__status" id="inventory-list-1-status">
         Completed
       </div>
     {% else %}
@@ -118,7 +118,7 @@
           Low run-off risk land
         </a>
       </div>
-      <div class="govuk-task-list__status" id="company-details-4-status">
+      <div class="govuk-task-list__status" id="inventory-list-4-status">
         <strong class="govuk-tag govuk-tag--blue">
           Incomplete
         </strong>
@@ -135,7 +135,7 @@
           Livestock details
         </a>
       </div>
-      <div class="govuk-task-list__status" id="company-details-4-status">
+      <div class="govuk-task-list__status" id="inventory-list-4-status">
         <strong class="govuk-tag govuk-tag--blue">
           Incomplete
         </strong>
@@ -154,7 +154,7 @@
           </a>
         </div>
       {% endif %}
-      <div class="govuk-task-list__status" id="company-details-1-status">
+      <div class="govuk-task-list__status" id="inventory-list-1-status">
         Completed
       </div>
     {% endif %}
@@ -168,7 +168,7 @@
         Livestock details
       </a>
     </div>
-    <div class="govuk-task-list__status" id="company-details-4-status">
+    <div class="govuk-task-list__status" id="inventory-list-4-status">
       {% if data.oaktree_farm.livestock_inventory >= 3 %}
         Completed
       {% else %}
@@ -180,15 +180,15 @@
   </li>
 
 
-  <!-- MANURE COLLECTION -->
-  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+  <!-- MANURE COLLECTION OLD -->
+  <!-- <li class="govuk-task-list__item govuk-task-list__item--with-link">
     {% if data.oaktree_farm.manure_system == 'not_answered' %}
       <div class="govuk-task-list__name-and-hint">
         <a class="govuk-link govuk-task-list__link" href="system_inventory_handler">
           Manure collection
         </a>
       </div>
-      <div class="govuk-task-list__status" id="company-details-4-status">
+      <div class="govuk-task-list__status" id="inventory-list-4-status">
         <strong class="govuk-tag govuk-tag--blue">
           Incomplete
         </strong>
@@ -207,11 +207,29 @@
           </a>
         </div>
       {% endif %}
-      <div class="govuk-task-list__status" id="company-details-1-status">
+      <div class="govuk-task-list__status" id="inventory-list-1-status">
         Completed
       </div>
     {% endif %}
+  </li> -->
+
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="system_inventory_handler">
+        Manure collection
+      </a>
+    </div>
+    <div class="govuk-task-list__status" id="inventory-list-4-status">
+      {% if data.oaktree_farm.manure_system == 'done' %}
+        Completed
+      {% else %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Incomplete
+        </strong>
+      {% endif %}
+    </div>
   </li>
+
 
 
   <!-- WASH WATER -->
@@ -222,7 +240,7 @@
           Wash Water
         </a>
       </div>
-      <div class="govuk-task-list__status" id="company-details-1-status">
+      <div class="govuk-task-list__status" id="inventory-list-1-status">
         Completed
       </div>
     {% else %}
@@ -231,7 +249,7 @@
           Wash Water
         </a>
       </div>
-      <div class="govuk-task-list__status" id="company-details-4-status">
+      <div class="govuk-task-list__status" id="inventory-list-4-status">
         <strong class="govuk-tag govuk-tag--blue">
           Incomplete
         </strong>
@@ -248,7 +266,7 @@
           Manure storage
         </a>
       </div>
-      <div class="govuk-task-list__status" id="company-details-1-status">
+      <div class="govuk-task-list__status" id="inventory-list-1-status">
         Completed
       </div>
     {% else %}
@@ -257,7 +275,7 @@
           Manure storage
         </a>
       </div>
-      <div class="govuk-task-list__status" id="company-details-4-status">
+      <div class="govuk-task-list__status" id="inventory-list-4-status">
         <strong class="govuk-tag govuk-tag--blue">
           Incomplete
         </strong>
@@ -274,7 +292,7 @@
           Imports and exports of organic material
         </a>
       </div>
-      <div class="govuk-task-list__status" id="company-details-4-status">
+      <div class="govuk-task-list__status" id="inventory-list-4-status">
         <strong class="govuk-tag govuk-tag--blue">
           Incomplete
         </strong>
@@ -291,7 +309,7 @@
           </a>
         {% endif %}
       </div>
-      <div class="govuk-task-list__status" id="company-details-1-status">
+      <div class="govuk-task-list__status" id="inventory-list-1-status">
         Completed
       </div>
     {% endif %}
@@ -305,7 +323,7 @@
           Nutrient prices
         </a>
       </div>
-      <div class="govuk-task-list__status" id="company-details-4-status">
+      <div class="govuk-task-list__status" id="inventory-list-4-status">
         <strong class="govuk-tag govuk-tag--blue">
           Incomplete
         </strong>
@@ -315,7 +333,7 @@
             Nutrient prices
           </a>
       </div>
-      <div class="govuk-task-list__status" id="company-details-1-status">
+      <div class="govuk-task-list__status" id="inventory-list-1-status">
         Completed
       </div>
   </li> -->

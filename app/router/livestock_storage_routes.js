@@ -190,8 +190,8 @@ router.get(/livestock_copy_handler/, function (req, res) {
 // is there any livestock checklist link
 router.get(/system_inventory_handler/, callback_functions.hide_error, callback_functions.hideSuccessMessage, function (req, res) {
     let next = '/outputs/inventory/manage_collection/index'
-    if (req.session.data.oaktree_farm.livestock_inventory != 'added') { 
-        next = '/add_livestock_inventory/livestock_none'
+    if (req.session.data.oaktree_farm.livestock_inventory == null) { 
+        next = 'livestock_inventory_handler'
     }
     res.redirect(next);
 })

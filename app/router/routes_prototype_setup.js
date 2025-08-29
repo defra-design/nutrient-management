@@ -102,12 +102,16 @@ router.get(/end_to_end_livestock_handler/, function (req, res) {
     req.session.data.livestock_types[4].numbers_added_nloading = 2;
     req.session.data.livestock_types[5].numbers_added_nloading = 2;
 
+    req.session.data.livestock_types[24].numbers_added_nloading = 2;
+
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[0])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[1])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[2])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[3])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[4])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[5])
+
+    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[24])
     req.session.data.oaktree_farm.livestock_loading = 3;
 
     res.redirect('start')
@@ -129,6 +133,7 @@ router.get(/livestock_handler_inventory/, function (req, res) {
     req.session.data.livestock_types[3].numbers_added_inventory = 2;
     req.session.data.livestock_types[4].numbers_added_inventory = 2;
     req.session.data.livestock_types[5].numbers_added_inventory = 2;
+    req.session.data.livestock_types[24].numbers_added_inventory = 2;
 
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[0])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[1])
@@ -136,6 +141,8 @@ router.get(/livestock_handler_inventory/, function (req, res) {
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[3])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[4])
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[5])
+    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[24])
+    
     req.session.data.oaktree_farm.livestock_inventory = 3;
 
     res.redirect('start')

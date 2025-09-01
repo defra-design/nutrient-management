@@ -27,7 +27,11 @@
     <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
     <h1 class="govuk-heading-l add_sub" id="header">Organic material imports and exports</h1>
     <h2 class="govuk-heading-m margin-bottom-thirty">
+      {% if data.export_type == 4 %}
+       2025
+      {% else %}
         October 2024 and September 2025
+      {% endif %}
     </h2>
 
     {% if data.show_success_message != true %}
@@ -41,7 +45,7 @@
   <div class="govuk-grid-column-full">
 
     <div class="margin-bottom-twenty">
-      <form action="../../add_export/export_type" method="post" novalidate="">
+      <form action="/add_export/export_type" method="post" novalidate="">
         <button type="submit" class="govuk-button" data-module="govuk-button">
           Add an import or export
         </button>

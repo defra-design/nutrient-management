@@ -385,12 +385,17 @@ router.get(/get_manure_type_handler/, function (req, res) {
 })
 
 router.get(/export_type_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
+    let next = '/add_export/manure_group'
     if (req.query.export_type == 'export') {
         req.session.data.imports_exports = 'export'
     } else {
         req.session.data.imports_exports = 'import'
     }
-    res.redirect('/add_export/manure_group')
+    if (req.session.data.export_type == 4 ) {
+        req.session.data.oaktree_farm.manure_group_id = 'livestock'
+        next = '/add_export/manure_type'
+    }
+    res.redirect(next)
 })
 
 router.get(/change_export_handler/, callback_functions.hide_error, function (req, res) {

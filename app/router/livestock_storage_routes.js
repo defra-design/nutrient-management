@@ -210,6 +210,8 @@ router.get(/system_inventory_handler/, callback_functions.hide_error, callback_f
     let next = '/outputs/inventory/manage_collection/index'
     if (req.session.data.oaktree_farm.livestock_inventory == null) { 
         next = 'livestock_inventory_handler'
+    } else if (req.session.data.oaktree_farm.livestock_inventory == 4) {
+        next = '/add_livestock_inventory/livestock_none'
     }
     res.redirect(next);
 })

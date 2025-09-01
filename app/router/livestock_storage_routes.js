@@ -244,11 +244,10 @@ router.get(/storage_figures_handler/, callback_functions.hideSuccessMessage, fun
 })
 
 router.get(/low_risk_land_handler/, callback_functions.hideSuccessMessage, function (req, res) {
+    let next = 'area'
     req.session.data.oaktree_farm.low_risk_land_added = 'added'
-    if (req.session.data.low_risk_land == 'yes') {
-        next = 'area'
-    } else {
-        next = 'reset_inventory_checklist_message_handler'
+    if (req.session.data.low_risk_land == 'no') {
+        next = '/outputs/inventory/checklist'
     }
     res.redirect(next)
 })

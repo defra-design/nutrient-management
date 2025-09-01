@@ -600,6 +600,15 @@ router.get(/lowrisk_land_handler/, function (req, res) {
     res.redirect(next);
 })
 
+router.get(/inventory_importexport_handler/, function (req, res) {
+    let next = 'export_none'
+    if (req.session.data.oaktree_farm.imports_exports == 2) {
+        next = 'reset_manage_exports_message_handler'
+    }
+    res.redirect(next);
+})
+
+
 // router.get(/export_inventory_router/, callback_functions.hide_error, function (req, res) {
 //     req.session.data.oaktree_farm.manure_system_details = true
 //     req.session.data.oaktree_farm.manure_system = 'done'

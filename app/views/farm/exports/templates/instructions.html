@@ -1,0 +1,17 @@
+<div class="govuk-inset-text margin-bottom-forty">
+  {% if data.export_type == 4 %}
+    <p class="govuk-body">
+      To create a Livestock manure nitrogen (N) farm limit report, enter the imports and exports of livestock manure on {{data.oaktree_farm.name}} in 2025.
+    </p>
+    <p class="govuk-body">
+      <a class="govuk-notification-banner__link" href="reset_nloading_checklist_message_handler">Create a Livestock manure nitrogen (N) farm limit report for 2025</a>
+    </p>  
+  {% else %}
+    <p class="govuk-body">
+      To create an organic manures inventory and NVZ organic material storage report, enter the imports and exports of organic materials on {{data.oaktree_farm.name}} between October 2024 and September 2025.
+    </p>
+    <p class="govuk-body">
+      <a class="govuk-notification-banner__link" href="reset_inventory_checklist_message_handler">Create an organic manure inventory and NVZ storage requirement report 2025</a>
+    </p>  
+  {% endif %}
+</div>

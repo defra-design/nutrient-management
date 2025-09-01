@@ -154,37 +154,6 @@
 
 
   <!-- Imports and exports -->
-  <!-- <li class="govuk-task-list__item govuk-task-list__item--with-link">
-    {% if data.oaktree_farm.imports_exports == null %}
-      <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="export_none">
-          Imports and exports of organic material
-        </a>
-      </div>
-      <div class="govuk-task-list__status">
-        <strong class="govuk-tag govuk-tag--blue">
-          Incomplete
-        </strong>
-      </div>
-    {% else %}
-      <div class="govuk-task-list__name-and-hint">
-        {% if data.oaktree_farm.imports_exports == 4 %}
-          <a class="govuk-link govuk-task-list__link" href="export_none">
-            Imports and exports of organic material
-          </a>
-        {% else %}
-          <a class="govuk-link govuk-task-list__link" href="reset_manage_exports_message_handler">
-            Imports and exports of manure
-          </a>
-        {% endif %}
-      </div>
-      <div class="govuk-task-list__status">
-        Completed
-      </div>
-    {% endif %}
-  </li> -->
-
-  <!-- Imports and exports -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     <div class="govuk-task-list__name-and-hint">
       <a class="govuk-link govuk-task-list__link" href="inventory_importexport_handler">
@@ -193,7 +162,7 @@
     </div>
     <div class="govuk-task-list__status">
       {% if data.oaktree_farm.imports_exports != null %}
-        Complete
+        Completed
       {% else %}
         <strong class="govuk-tag govuk-tag--blue">
           Incomplete

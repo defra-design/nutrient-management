@@ -169,10 +169,30 @@ router.get(/exports_setup_handler/, function (req, res) {
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
     req.session.data.oaktree_farm.imports_exports = 2
+    req.session.data.oaktree_farm.storage_added = true
+    req.session.data.oaktree_farm.storage_figures = true
+
+    req.session.data.livestock_types[0].numbers_added_inventory = 4;
+    req.session.data.livestock_types[1].numbers_added_inventory = 4;
+    req.session.data.livestock_types[2].numbers_added_inventory = 4;
+    req.session.data.livestock_types[3].numbers_added_inventory = 4;
+    req.session.data.livestock_types[4].numbers_added_inventory = 4;
+    req.session.data.livestock_types[5].numbers_added_inventory = 4;
+    req.session.data.livestock_types[24].numbers_added_inventory = 4;
+
+    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[0])
+    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[1])
+    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[2])
+    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[3])
+    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[4])
+    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[5])
+    req.session.data.livestock_record_2025.push(req.session.data.livestock_types[24])
+    
+    req.session.data.oaktree_farm.livestock_inventory = 3;
+
+
     res.redirect('start')
 })
-
-
 
 
 module.exports = router

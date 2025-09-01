@@ -10,44 +10,47 @@
 
   {{ govukBackLink({
   text: "Back",
-  href: "javascript:window.history.back()"
+  href: "reset_manure_collection_message"
 }) }}
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l">
-          Add the manure collection method for each month
-        </h1>
-
-        <!-- <details class="govuk-details">
-          <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">
-              About the default values
-              </span>
-          </summary>
-          <div class="govuk-details__text">
-          </div>
-        </details> -->
-
+    {% if data.show_success_message == true %}
+      {% include "./templates/success_message.html" ignore missing %}
+    {% endif %}
+    
+    <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
+    <h1 class="govuk-heading-l add_sub" id="header">Livestock manure collection details</h1>
+    <h2 class="govuk-heading-m margin-bottom-thirty">
+      {% if data.chosen_livestock == null %}
+        Dairy cow from 2 months and less than 12 months 
+      {% else %}
+        {{data.chosen_livestock.name | capitalize}}
+      {% endif %}
+    </h2>
+    
+    {% if data.show_success_message != true %}
+      <div class="govuk-inset-text margin-bottom-forty">
+        <p class="govuk-body">
+          To create an organic manures inventory and NVZ organic material storage report, enter the livestock manure collection details.
+        </p>
+        <!-- <p class="govuk-body">
+          <a href="/outputs/inventory/checklist">Create an organic manures inventory and NVZ organic material storage report</a>
+        </p> -->
       </div>
-    </div>
+    {% endif %}   
+    
+  </div>
+</div>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       
-      <h3 class="govuk-heading-m margin-bottom-thirty">
-        {% if data.chosen_livestock == null %}
-          Dairy cow from 2 months and less than 12 months 
-        {% else %}
-          {{data.chosen_livestock.name | capitalize}}
-        {% endif %}
-      </h3>
-
-      <form action="index" method="post" novalidate="">
+      <hr>
 
         {% if data.oaktree_farm.manure_system_details == true %}
           {% include "./templates/manure_numbers_table_updated.html" ignore missing %}
@@ -55,12 +58,15 @@
           {% include "./templates/manure_numbers_table.html" ignore missing %}
         {% endif %}
 
-        <button class="govuk-button govuk-button--secondary margin-bottom-forty" data-module="govuk-button">
+
+      <form action="reset_manure_collection_message" method="post" novalidate="">
+
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
           Save and continue
         </button>
       </form>
 
-      <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+      <!-- <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p> -->
 
     </div>
 

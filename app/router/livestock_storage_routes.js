@@ -359,6 +359,7 @@ router.get(/exportcheck_handler/, function (req, res) {
     }
     //reset defaults
     req.session.data.manure_type.name = null
+    req.session.data.manure_group_id = null
     req.session.data.exported_day = null
     req.session.data.exported_month = null
     req.session.data.exported_year = null

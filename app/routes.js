@@ -51,7 +51,7 @@ router.get('/', function (req, res) {
             req.session.data.oaktree_farm.storage_added = false,
             req.session.data.oaktree_farm.rainwater_area_added = false,
             req.session.data.oaktree_farm.storage_figures = false,
-            req.session.data.oaktree_farm.low_risk_land_added = false,
+            req.session.data.oaktree_farm.low_risk_land_added = null,
             req.session.data.oaktree_farm.area_added = false,
             req.session.data.oaktree_farm.manure_exports = false,
             req.session.data.oaktree_farm.manure_imports = false,

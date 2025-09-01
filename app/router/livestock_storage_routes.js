@@ -245,9 +245,10 @@ router.get(/storage_figures_handler/, callback_functions.hideSuccessMessage, fun
 
 router.get(/low_risk_land_handler/, callback_functions.hideSuccessMessage, function (req, res) {
     let next = 'area'
-    req.session.data.oaktree_farm.low_risk_land_added = 'added'
+    req.session.data.oaktree_farm.low_risk_land_added = 2
     if (req.session.data.low_risk_land == 'no') {
         next = '/outputs/inventory/checklist'
+        req.session.data.oaktree_farm.low_risk_land_added = 4
     }
     res.redirect(next)
 })
@@ -265,7 +266,7 @@ router.get(/livestock_number_handler/, function (req, res) {
 })
 
 router.get(/landcheck_handler/, callback_functions.showSuccessMessage, function (req, res) { 
-    req.session.data.oaktree_farm.low_risk_land_added = 'added';
+    req.session.data.oaktree_farm.low_risk_land_added = 2;
     res.redirect('/outputs/inventory/checklist')
 })
 
@@ -585,6 +586,16 @@ router.get(/storage_totals_handler/, function (req, res) {
       next = 'storage_values'
   }
   res.redirect(next);
+})
+
+router.get(/lowrisk_land_handler/, function (req, res) {
+    let next = '/add_land/land_options'
+    if (req.session.data.oaktree_farm.low_risk_land_added == 2) {
+        next = '/add_land/check'
+    } else if (req.session.data.oaktree_farm.low_risk_land_added == 4) {
+        next = '/add_land/land_options'
+    }
+    res.redirect(next);
 })
 
 // router.get(/export_inventory_router/, callback_functions.hide_error, function (req, res) {

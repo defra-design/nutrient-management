@@ -580,7 +580,13 @@ router.get(/storage_name_handler/, function (req, res) {
     res.redirect('storage_type');
 })
 
-
+router.get(/storage_totals_handler/, function (req, res) {
+  let next = 'storage_none'
+  if (req.session.data.oaktree_farm.storage_figures == true || req.session.data.oaktree_farm.storage_added == true) {
+      next = 'storage_values'
+  }
+  res.redirect(next);
+})
 
 // router.get(/export_inventory_router/, callback_functions.hide_error, function (req, res) {
 //     req.session.data.oaktree_farm.manure_system_details = true

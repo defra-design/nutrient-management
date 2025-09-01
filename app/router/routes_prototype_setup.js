@@ -148,6 +148,19 @@ router.get(/livestock_handler_inventory/, function (req, res) {
     res.redirect('start')
 })
 
+router.get(/manure_storage_setup_handler/, function (req, res) { 
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.oaktree_farm.fields_added = true
+    req.session.data.showinfo = false
+    var fieldOne = {name: "Long Field",reference: 1, nvz: true,elevation: false};
+    var fieldTwo = {name: "Short Field",reference: 2,nvz: true,elevation: false};
+    req.session.data.all_fields.push(fieldOne)
+    req.session.data.all_fields.push(fieldTwo)
+    req.session.data.oaktree_farm.storage_added = true
+    res.redirect('start')
+})
+
+
 
 module.exports = router
 

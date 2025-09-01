@@ -256,32 +256,23 @@
     {% endif %}
     </li>
 
-  
-  <!-- MANURE STORAGE -->
+    <!-- MANURE STORAGE -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
-    {% if data.oaktree_farm.storage_added == true %}
-      <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="reset_manage_storage_message_handler">
-          Manure storage
-        </a>
-      </div>
-      <div class="govuk-task-list__status" id="inventory-list-1-status">
+    <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="storage_totals_handler">
+        Manure storage
+      </a>
+    </div>
+    <div class="govuk-task-list__status" id="inventory-list-1-status">
+      {% if data.oaktree_farm.storage_figures == true %}
         Completed
-      </div>
-    {% else %}
-      <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="storage_none">
-          Manure storage
-        </a>
-      </div>
-      <div class="govuk-task-list__status" id="inventory-list-4-status">
+      {% else %}
         <strong class="govuk-tag govuk-tag--blue">
           Incomplete
         </strong>
-      </div>
-    {% endif %}
+      {% endif %}
+    </div>
   </li>  
-
 
   <!-- IMPORTS AND EXPORTS -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">

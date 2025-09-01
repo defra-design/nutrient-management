@@ -33,10 +33,10 @@ router.get(/plan_setup/, function (req, res) {
     req.session.data.extra_features = true
     req.session.data.all_fields = req.session.data.complete_field_list
     req.session.data.oaktree_farm.area_added = true
-    req.session.data.oaktree_farm.livestock_loading = 'added'
-    req.session.data.oaktree_farm.livestock_inventory = 'added'
-    req.session.data.oaktree_farm.manure_system = 'added'
-    req.session.data.oaktree_farm.manure_system_details = 'added'
+    req.session.data.oaktree_farm.livestock_loading = 2
+    req.session.data.oaktree_farm.livestock_inventory = 2
+    req.session.data.oaktree_farm.manure_system = 2
+    req.session.data.oaktree_farm.manure_system_details = 2
     req.session.data.oaktree_farm.storage_added = true
     req.session.data.oaktree_farm.derogation = false
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[1])

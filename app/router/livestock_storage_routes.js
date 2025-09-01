@@ -140,7 +140,7 @@ router.get(/livestock_inventory_router/, callback_functions.hide_error, function
     let next
     if (req.session.data.livestock_inventory == 'no') { 
         req.session.data.oaktree_farm.livestock_inventory = 4
-        req.session.data.oaktree_farm.manure_system = 'none'
+        req.session.data.oaktree_farm.manure_system = 4
         next = '/outputs/inventory/checklist'
     } else {
         next = '/add_livestock_inventory/livestock_group'
@@ -537,7 +537,7 @@ router.get(/check_loading_lstock_handler/, function (req, res) {
 
 router.get(/add_manure_system_handler/, callback_functions.hide_error, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.oaktree_farm.manure_system_details = true
-    req.session.data.oaktree_farm.manure_system = 'done'
+    req.session.data.oaktree_farm.manure_system = 2
     res.redirect('manure_numbers');
 })
 

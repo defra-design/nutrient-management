@@ -50,6 +50,7 @@
     </div>
   </li>
 
+  
   <!-- Low risk land -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     <div class="govuk-task-list__name-and-hint">
@@ -96,7 +97,7 @@
       </a>
     </div>
     <div class="govuk-task-list__status">
-      {% if data.oaktree_farm.manure_system == 'done' or data.oaktree_farm.livestock_inventory == 4 %}
+      {% if data.oaktree_farm.manure_system == 4 or data.oaktree_farm.livestock_inventory == 4 %}
         Completed
       {% else %}
         <strong class="govuk-tag govuk-tag--blue">

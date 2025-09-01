@@ -38,13 +38,13 @@
           <fieldset class="govuk-fieldset">
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="yes" name="copy_loading" type="radio" value="yes">
+                <input class="govuk-radios__input" id="yes" name="copy_inventory" type="radio" value="yes">
                 <label class="govuk-label govuk-radios__label" for="yes">
                   Yes, start with a copy
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="no" name="copy_loading" type="radio" {% if data.oaktree_farm.copy_loading == 'none' %} checked {% endif %} value="no">
+                <input class="govuk-radios__input" id="no" name="copy_inventory" type="radio" {% if data.oaktree_farm.copy_loading == 'none' %} checked {% endif %} value="no">
                 <label class="govuk-label govuk-radios__label" for="no">
                   No, enter new livestock details
                 </label>

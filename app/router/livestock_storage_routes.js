@@ -177,13 +177,13 @@ router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage,
 
 router.get(/livestock_copy_for_loading_handler/, function (req, res) {
   let next = '/outputs/n_loading/manage_livestock/index'
-  if (req.session.data.copy_loading == 'yes') {
+  if (req.session.data.copy_inventory == 'yes') {
       for (let x in req.session.data.livestock_record_2025) {
           if (req.session.data.livestock_record_2025[x].numbers_added_inventory == 2) {
               req.session.data.livestock_record_2025[x].numbers_added_nloading = 1
           }
       }
-      req.session.data.oaktree_farm.livestock_loading = 2
+      req.session.data.oaktree_farm.livestock_loading = null
   } else {
     next = '/add_livestock/livestock_none'
   }

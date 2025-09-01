@@ -39,29 +39,18 @@
     </li>
 
     {% for animal in data.livestock_record_2025 %}
-      {% if animal.type == livestock_type %}
+      {% if animal.type == livestock_type and animal.numbers_added_nloading >= 1 %}
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
-            {% if animal.numbers_added_nloading == 1 %}
-              <div class="govuk-task-list__name-and-hint">
-                <a class="govuk-link govuk-task-list__link" href="add_loadingnumbers_handler?reference={{animal.reference}}" aria-describedby="company-details-1-status">
-                  {{animal.name | capitalize}}
-                </a>
-              </div>
-              <div class="govuk-task-list__status" id="company-details-1-status">
-                <strong class="govuk-tag govuk-tag--blue">
-                  Not entered
-                </strong>
-              </div>
-            {% else %}
-              <div class="govuk-task-list__name-and-hint">
-                <a class="govuk-link govuk-task-list__link" href="update_loadingnumbers_handler?reference={{animal.reference}}" aria-describedby="company-details-1-status">
-                  {{animal.name | capitalize}}
-                </a>
-              </div>
-              <div class="govuk-task-list__status" id="company-details-4-status">
-                  Completed
-              </div>
-            {% endif %}
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="add_loadingnumbers_handler?reference={{animal.reference}}" aria-describedby="company-details-1-status">
+              {{animal.name | capitalize}}
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            <strong class="govuk-tag govuk-tag--blue">
+              Not entered
+            </strong>
+          </div>
         </li>
       {% endif %}
   {% endfor %}

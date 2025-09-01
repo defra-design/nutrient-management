@@ -59,7 +59,7 @@ router.get('/', function (req, res) {
             req.session.data.oaktree_farm.manure_system_details = false,
             req.session.data.oaktree_farm.wash_water = 'not_answered',
             req.session.data.oaktree_farm.wash_water_details = false,
-            req.session.data.oaktree_farm.imports_exports = 'not_answered',
+            req.session.data.oaktree_farm.imports_exports = null,
             req.session.data.oaktree_farm.rainfall = 600,
             req.session.data.oaktree_farm.derogation = null,
             req.session.data.oaktree_farm.ewr = null

@@ -16,7 +16,7 @@
               <a class="nolink" href="..//add_livestock/livestock_group">Livestock numbers for {{data.oaktree_farm.planning_year}} must be completed</a>
             </li>
           {% endif %}
-          {% if data.oaktree_farm.imports_exports == 'not_answered' %}
+          {% if data.oaktree_farm.imports_exports == null %}
             <li>
               <a class="nolink" href="../../../add_export/export_type_none">Any imports or exports for {{data.oaktree_farm.planning_year}} must be completed</a>
             </li>

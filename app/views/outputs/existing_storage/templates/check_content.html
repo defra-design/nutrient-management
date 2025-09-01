@@ -95,7 +95,7 @@
 
   <!-- IMPORTS AND EXPORTS -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
-    {% if data.oaktree_farm.imports_exports == 'not_answered' %}
+    {% if data.oaktree_farm.imports_exports == null %}
       <div class="govuk-task-list__name-and-hint">
         <a class="govuk-link govuk-task-list__link" href="../../../add_export/export_type_none" aria-describedby="company-details-1-status">
           Imports and exports of livestock manure
@@ -108,7 +108,7 @@
       </div>
     {% else %}
       <div class="govuk-task-list__name-and-hint">
-        {% if data.oaktree_farm.imports_exports == 'none' %}
+        {% if data.oaktree_farm.imports_exports == 4 %}
           <a class="govuk-link govuk-task-list__link" href="../../../add_export/export_type_none" aria-describedby="company-details-1-status">
             Imports and exports of livestock manure
           </a>

@@ -46,7 +46,7 @@ router.get(/plan_setup/, function (req, res) {
     req.session.data.livestock_record_2025.push(req.session.data.livestock_types[5])
     req.session.data.oaktree_farm.manure_imports = true
     req.session.data.oaktree_farm.manure_exports = true
-    req.session.data.oaktree_farm.imports_exports = 'added'
+    req.session.data.oaktree_farm.imports_exports = 2
     req.session.data.oaktree_farm.storage_added = true
     req.session.data.currentCropGroups.push(allFunctions.createCropGroup(1, 2025, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Crop group 1', null, null, true))
     req.session.data.currentCropGroups.push(allFunctions.createCropGroup(2, 2025, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 2', '10 to 13', "12/03/2025", true))
@@ -159,6 +159,19 @@ router.get(/manure_storage_setup_handler/, function (req, res) {
     req.session.data.oaktree_farm.storage_added = true
     res.redirect('start')
 })
+
+router.get(/exports_setup_handler/, function (req, res) { 
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.oaktree_farm.fields_added = true
+    req.session.data.showinfo = false
+    var fieldOne = {name: "Long Field",reference: 1, nvz: true,elevation: false};
+    var fieldTwo = {name: "Short Field",reference: 2,nvz: true,elevation: false};
+    req.session.data.all_fields.push(fieldOne)
+    req.session.data.all_fields.push(fieldTwo)
+    req.session.data.oaktree_farm.imports_exports = 2
+    res.redirect('start')
+})
+
 
 
 

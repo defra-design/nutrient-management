@@ -290,7 +290,7 @@ router.get(/livestock_year_handler/, callback_functions.hideSuccessMessage, func
 
 router.get(/inventory_submit_router/, function (req, res) {
     let next = 'report'
-    if ((req.session.data.oaktree_farm.imports_exports == 0)) {
+    if ((req.session.data.oaktree_farm.imports_exports == null)) {
         next = 'checklist';
         req.session.data.show_error = true;
     }
@@ -307,7 +307,7 @@ router.get(/n_loading_submit_router/, function (req, res) {
         next = 'checklist';
         req.session.data.show_error = true;
     }
-    if ((req.session.data.oaktree_farm.imports_exports == 'not_answered')) {
+    if ((req.session.data.oaktree_farm.imports_exports == null)) {
         next = 'checklist';
         req.session.data.show_error = true;
     }
@@ -351,7 +351,7 @@ router.get(/set_export_defaults_handler/, function (req, res) {
 
 router.get(/exportcheck_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
-    req.session.data.oaktree_farm.imports_exports = 'added';
+    req.session.data.oaktree_farm.imports_exports = 2;
     if (req.session.data.imports_exports == 'export') {
         req.session.data.oaktree_farm.manure_exports = true;
     } else {
@@ -419,7 +419,7 @@ router.get(/inventory_export_handler/, callback_functions.hide_error, function (
 router.get(/export_type_router/, callback_functions.hide_error, function (req, res) {
     let next = 'export_type'
     if (req.session.data.imports_exports == 'no') {
-        req.session.data.oaktree_farm.imports_exports = 'none'
+        req.session.data.oaktree_farm.imports_exports = 4
         if (req.session.data.export_type == '8') {
             next = '/outputs/inventory/checklist'
         } else {

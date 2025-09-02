@@ -546,7 +546,7 @@ router.get(/check_loading_lstock_handler/, function (req, res) {
 router.get(/add_manure_system_handler/, callback_functions.hide_error, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.oaktree_farm.manure_system_details = true
     req.session.data.oaktree_farm.manure_system = 2
-    res.redirect('manure_numbers');
+    res.redirect('check');
 })
 
 router.get(/numbers_handler/, callback_functions.hide_error, function (req, res) {

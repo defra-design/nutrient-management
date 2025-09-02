@@ -28,7 +28,7 @@
         Selected livestock type: {{data.chosen_livestock.name | capitalize}}
       </p>
 
-      <form action="check" method="post" novalidate="">
+      <form action="manure_slurry_handler" method="post" novalidate="">
 
         <div class="govuk-form-group margin-bottom-thirty">
           <label class="govuk-label" for="livestock_number">
@@ -40,16 +40,37 @@
           </div>
         </div>
 
-          <div class="govuk-form-group margin-bottom-forty">
-            <label class="govuk-label" for="livestock_occupancy">
-              What percentage of time are the {{data.chosen_livestock.shortname}} housed during October?
-            </label>
-            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="80" id="livestock_occupancy" name="livestock_occupancy" type="text" spellcheck="false" autocomplete="off">
-              <div class="govuk-input__suffix" aria-hidden="true">%</div>
-            </div>
+        <div class="govuk-form-group margin-bottom-forty">
+          <label class="govuk-label" for="livestock_occupancy">
+            What percentage of time are the {{data.chosen_livestock.shortname}} housed during October?
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="80" id="livestock_occupancy" name="livestock_occupancy" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">%</div>
           </div>
+        </div>
 
-        {% include "/templates/reuse_figures.html" ignore missing %}
+        <div class="govuk-form-group margin-bottom-thirty">
+          <div class="govuk-form-group">
+            <legend class="govuk-fieldset__legend">
+              What is this livestock's main manure system in October?
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="slurry" name="mostly_manure"  type="radio" value="slurry">
+                <label class="govuk-label govuk-radios__label" for="slurry">
+                  Mostly slurry
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="solid" name="mostly_manure" type="radio" value="solid">
+                <label class="govuk-label govuk-radios__label" for="solid">
+                   Mostly solid manure
+                </label>
+              </div>
+          </div>
+        </div>
+
+        <!-- {% include "/templates/reuse_figures.html" ignore missing %} -->
 
         <div class="margin-bottom-forty">
           <p></p>

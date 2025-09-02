@@ -621,6 +621,11 @@ router.get(/manure_slurry_handler/, function (req, res) {
 })
 
 
+router.get(/separator_handler/, function (req, res) {
+    res.redirect('checklist')
+})
+
+
 // router.get(/export_inventory_router/, callback_functions.hide_error, function (req, res) {
 //     req.session.data.oaktree_farm.manure_system_details = true
 //     req.session.data.oaktree_farm.manure_system = 'done'

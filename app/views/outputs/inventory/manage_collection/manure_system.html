@@ -20,32 +20,36 @@
 
     <div class="govuk-grid-column-two-thirds">
 
+      <!-- <h1 class="govuk-heading-l">
+        Manure collection in October 2024
+      </h1> -->
+
       <h1 class="govuk-heading-l">
-        What is the main manure system in October for this livestock type?
+        What is this livestock's main manure system in October?
       </h1>
 
-      <p class="govuk-body">
+      <p class="govuk-body margin-bottom-thirty">
         Selected livestock type: {{data.chosen_livestock.name | capitalize}}
       </p>
 
-      <form action="separated" method="post" novalidate="">
+      <form action="manure_slurry_handler" method="post" novalidate="">
 
         <div class="govuk-form-group margin-bottom-thirty">
-          <!-- <label class="govuk-label" for="livestock_occupancy">
-            What is the manure system in January?
-          </label> -->
           <div class="govuk-form-group">
+            <!-- <legend class="govuk-fieldset__legend">
+              What is this livestock's main manure system in October?
+            </legend> -->
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive"  type="radio" value="england">
-                <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-                  Mostly solid manure
+                <input class="govuk-radios__input" id="slurry" name="mostly_manure"  type="radio" value="slurry">
+                <label class="govuk-label govuk-radios__label" for="slurry">
+                  Mostly slurry
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
-                <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-                  Mostly slurry
+                <input class="govuk-radios__input" id="solid" name="mostly_manure" type="radio" value="solid">
+                <label class="govuk-label govuk-radios__label" for="solid">
+                   Mostly solid manure
                 </label>
               </div>
           </div>

@@ -615,6 +615,12 @@ router.get(/inventory_importexport_handler/, function (req, res) {
 })
 
 
+router.get(/manure_slurry_handler/, function (req, res) {
+    let next = (req.session.data.mostly_manure == 'slurry') ? 'slurry' : 'solid'
+    res.redirect(next)
+})
+
+
 // router.get(/export_inventory_router/, callback_functions.hide_error, function (req, res) {
 //     req.session.data.oaktree_farm.manure_system_details = true
 //     req.session.data.oaktree_farm.manure_system = 'done'

@@ -31,14 +31,18 @@
       </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__value">How much of this livestock's slurry goes through the manure separator?
-    </dt>
-      <dd class="govuk-summary-list__value">
-          100%
-      </dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
+
+  {% if data.oaktree_farm.separator == true %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__value">How much of this livestock's slurry goes through the mechanical separator?
+      </dt>
+        <dd class="govuk-summary-list__value">
+            100%
+        </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% endif %}
+
 {% endmacro %}
 
 

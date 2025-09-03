@@ -622,6 +622,7 @@ router.get(/manure_slurry_handler/, function (req, res) {
 
 
 router.get(/separator_handler/, function (req, res) {
+    req.session.data.oaktree_farm.separator = (req.session.data.mech_separator == 'yes') ? true : false
     res.redirect('checklist')
 })
 

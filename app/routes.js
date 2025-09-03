@@ -62,6 +62,7 @@ router.get('/', function (req, res) {
             req.session.data.oaktree_farm.imports_exports = null,
             req.session.data.oaktree_farm.rainfall = 600,
             req.session.data.oaktree_farm.derogation = null,
+            req.session.data.oaktree_farm.separator = null,
             req.session.data.oaktree_farm.ewr = null
         },
         print : function () {
@@ -87,7 +88,6 @@ router.get('/', function (req, res) {
     req.session.data.manner_applications = []
     req.session.data.extra_features = true
     req.session.data.imports_exports = null
-    req.session.data.mech_separator = null
     req.session.data.livestock_update_journey = false
 
     //content

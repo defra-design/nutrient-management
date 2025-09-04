@@ -497,6 +497,14 @@ router.get(/yield_question_router/, function (req, res) {
     res.redirect(next)
 })
 
+router.get(/crop_use_handler/, function (req, res) { 
+    var next = 'crop_use'
+    if (req.session.data.crop_group == 'potatoes') {
+        next = 'growth'
+    }
+    res.redirect(next)
+})
+
 router.get(/v7_grass_yield_handler/, callback_functions.default_grass_values, function (req, res) { 
     res.redirect('../check');
 })
@@ -534,7 +542,7 @@ router.get(/sowdatetwo_value_router/, function (req, res) {
   res.redirect(next);
 })
 
-router.get(/cropmvp_handler/, function (req, res) { 
+router.get(/crop_choice_router/, function (req, res) { 
     if (req.session.data.crop_group == 'grass') { 
         req.session.data.chosen_crop = 'grass'
         res.redirect('fields')

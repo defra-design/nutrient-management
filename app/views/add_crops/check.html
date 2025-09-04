@@ -26,12 +26,13 @@
     <h2 class="govuk-heading-m">
       Harvest year 2025
     </h2>
-
     <div class="check-answers">
-      {% if data.crop_group != 'grass' %}
-        {% include "./templates/check_crops.html" %}
-      {% else %}
+      {% if data.crop_group == 'grass' %}
         {% include "./templates/check_grass.html" %}
+      {% elif data.crop_group == 'potatoes' %}
+        {% include "./templates/check_potatoes.html" %}
+      {% else %}
+        {% include "./templates/check_crops.html" %}
       {% endif %}
     </div>
     

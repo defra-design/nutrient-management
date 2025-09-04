@@ -9,9 +9,11 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Which fields would you like to plan Grass for?</dt>
     <dd class="govuk-summary-list__value">
-      {% for field in data.crop_fields %}
-        {{field.name}} <br>
-      {% endfor %}      
+      <ul class="govuk-list">
+        {% for field in data.crop_fields %}
+          <li>{{field.name}}</li>
+          {% endfor %}   
+      </ul>
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>

@@ -26,9 +26,9 @@
       Select one option. These options come from the AHDB Nutrient Management Guide (RB209).
     </p>
 
-    <form class="form" action="cropmvp_handler" method="post">
+    <form class="form" action="crop_choice_router" method="post">
       <div class="govuk-form-group">
-          {% include "./templates/crop_group_content" %}
+        {% include "./templates/crop_group_content" %}
         </fieldset>
       </div>
       
@@ -37,6 +37,7 @@
       }) }}
 
     </form>
+
     <p class="govuk-body">
       <a href="fields.html">Cancel</a>
     </p>

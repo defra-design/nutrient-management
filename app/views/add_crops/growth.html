@@ -29,6 +29,8 @@ Milling{% extends "layouts/main.html" %}
       What is the length of growing season for {{data.chosen_crop | nameconverter}}?
     </h1>
 
+    <p class="govuk-hint">Select one option</p>
+
     <form class="form" action="check" method="post">
 
       <div class="govuk-form-group">
@@ -51,12 +53,12 @@ Milling{% extends "layouts/main.html" %}
               90 - 120 days 
             </label>
           </div>
-          <div class="govuk-radios__item">
+          <!-- <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="season_4" name="season" type="radio" value="More than 120 days">
             <label class="govuk-label govuk-radios__label" for="season_4">
               More than 120 days 
             </label>
-          </div>
+          </div> -->
         </div>
       </div>
 

@@ -1,30 +1,30 @@
 <dl class="govuk-summary-list">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Crop group</dt>
-    <dd class="govuk-summary-list__value">{{data.crop_group | capitalize}}</dd>
+    <dd class="govuk-summary-list__value">Potatoes</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Crop type</dt>
-    <dd class="govuk-summary-list__value">{{data.chosen_crop | nameconverter}}</dd>
+    <dt class="govuk-summary-list__key">Potato variety group </dt>
+    <dd class="govuk-summary-list__value">1</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What is the variety name (optional)?</dt>
+    <dt class="govuk-summary-list__key">What is the variety name?</dt>
     <dd class="govuk-summary-list__value">
-      {% if data.variety != '' %}
+      {% if data.variety != '' or data.variety != null %}
         {{data.variety}}
       {% else %}
-        Not entered
+        Maris Piper
       {% endif %}
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Which fields do you plan to grow {{data.chosen_crop | nameconverter}} in?</dt>
+    <dt class="govuk-summary-list__key">Which fields do you plan to grow {{data.variety}} in?</dt>
     <dd class="govuk-summary-list__value">
       <ul class="govuk-list">
         {% for field in data.crop_fields %}
@@ -42,7 +42,9 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Do you have a date for when you planted your {{data.chosen_crop | nameconverter}}, or when you will plant it?</dt>
+    <dt class="govuk-summary-list__key">
+      Do you have a date for when you planted your {{data.variety}}, or when you will plant it?
+    </dt>
 
     <dd class="govuk-summary-list__value">
       {% if data.sow_option_one == 'single' %}
@@ -59,14 +61,20 @@
 
   {% if data.sow_option_one != 'no' %}
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">What is the Planting date for {{data.chosen_crop | nameconverter}} in these fields?</dt>
-      <dd class="govuk-summary-list__value">15 September 2024</dd>
+      <dt class="govuk-summary-list__key">
+        What is the Planting date for {{data.variety}} in these fields?
+      </dt>
+      <dd class="govuk-summary-list__value">
+        15 September 2024
+      </dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>      
   {% endif %}
   
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How do you want to enter the expected yield?</dt>
+    <dt class="govuk-summary-list__key">
+      How do you want to enter the expected yield?
+    </dt>
 
     <dd class="govuk-summary-list__value">
       {% if data.yield_option_one == 'single' %}
@@ -83,25 +91,24 @@
 
   {% if data.yield_option_one != 'rb209' %}
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">What is the expected yield for {{data.chosen_crop | nameconverter}} per hectare in these fields?</dt>
-      <dd class="govuk-summary-list__value">8.5 tonnes per hectare</dd>
+      <dt class="govuk-summary-list__key">
+        What is the expected yield for {{data.chosen_crop | nameconverter}} per hectare in these fields?
+      </dt>
+      <dd class="govuk-summary-list__value">
+        8.5 tonnes per hectare
+      </dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>      
   {% endif %}
   
-  {% if data.crop_group == 'cereals' %}
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How do you plan to use the crop?</dt>
-    <dd class="govuk-summary-list__value">Milling</dd>
+    <dt class="govuk-summary-list__key">
+      What is the length of growing season for {{data.chosen_crop | nameconverter}}?
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{data.season}}
+    </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How do you plan to use the straw?</dt>
-    <dd class="govuk-summary-list__value">Incorporated</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-  {% endif %}
-
 
 </dl>

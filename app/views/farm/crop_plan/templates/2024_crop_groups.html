@@ -1,6 +1,11 @@
 <div class="tab-left margin-bottom-thirty">
   <h2 class="govuk-heading-m margin-bottom-ten">
+    {% if group.crop_reference == 'potatoes' %}
+      Potato variety group 1 recommendations  <span class="govuk-body nonbold">- Crop group {{group.reference}}</span>
+    {% else %}
       {{group.crop_reference | nameconverter }}  <span class="govuk-body nonbold">- Crop group {{group.reference}}</span>
+    {% endif %}
+
     </h2>
   </div>
 

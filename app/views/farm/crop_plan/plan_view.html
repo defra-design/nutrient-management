@@ -111,13 +111,13 @@
         </form>
 
         <hr class="separator_forty">
-          {% for group in cropGroups %}
-            {% if group.crop_reference == 'grass' %}
-              {% include "./templates/2024_crop_groups_grass.html" ignore missing %}
-            {% else %}  
-              {% include "./templates/2024_crop_groups.html" ignore missing %}
-            {% endif %}  
-          {% endfor %}  
+        {% for group in cropGroups %}
+          {% if group.crop_reference == 'grass' %}
+            {% include "./templates/2024_crop_groups_grass.html" ignore missing %}
+          {% else %}  
+            {% include "./templates/2024_crop_groups.html" ignore missing %}
+          {% endif %}  
+        {% endfor %}  
       </div>
 
       <!-- manures -->

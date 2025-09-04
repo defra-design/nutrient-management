@@ -19,17 +19,47 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-        What is the variety name?
+      Which potato variety group are you planning to grow?
     </h1>
 
+    <p class="govuk-hint">
+      Select one option. These are the potato groups from the AHDB Nutrient Management Guide (RB209).
+    </p>
+    
+    <p class="govuk-body margin-bottom-thirty">
+      <a href="https://potatoes.ahdb.org.uk/knowledge-library/potato-nitrogen-groups" target="_blank">Help me find my potato variety group</a> (opens in a new tab)
+    </p>
+
     <form class="form" action="potato_type_handler" method="post">
-      <div class="govuk-radios" data-module="govuk-radios">
-        <div class="govuk-form-group">
-          <input class="govuk-input" id="chosen_crop" name="chosen_crop" type="text" autocomplete="off">
-        </div> 
-        <div class="govuk-form-group">
-          <p class="govuk-body"><a href="#">My variety is not listed</a></p>
-        </div>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="1" name="changedName" type="radio" value="1">
+              <label class="govuk-label govuk-radios__label" for="1">
+                Potato variety group 1
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="2" name="changedName" type="radio" value="2">
+              <label class="govuk-label govuk-radios__label" for="2">
+                Potato variety group 2
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="3" name="changedName" type="radio" value="3">
+              <label class="govuk-label govuk-radios__label" for="3">
+                Potato variety group 3
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="4-2" name="changedName" type="radio" value="4">
+              <label class="govuk-label govuk-radios__label" for="4-2">
+                Potato variety group 4
+              </label>
+            </div>
+          </div>
+        </fieldset>
       </div>
       
       {{ govukButton({

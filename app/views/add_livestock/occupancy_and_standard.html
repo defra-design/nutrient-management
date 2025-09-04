@@ -71,14 +71,16 @@
               <th scope="col" class="govuk-table__header">Nitrogen (N) standard</th>
               <td class="govuk-table__cell">83kg per 1000 places, per year</td>
             </tr>
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Phosphate (P205) standard</th>
+              <td class="govuk-table__cell">83kg per 1000 places, per year</td>
+            </tr>
         </tbody>
     </table>
 
-        <p class="govuk-body">
-      Do you want to use these values for this poultry type?
-        </p>
+    <p class="govuk-body">Do you want to use these values for this poultry type?</p>
+    <p class="govuk-hint">The Phosphate (P205) standard can not be changed.</p>
 
-      
       <form action="occupancy_handler" method="post" novalidate="">
 
 <div class="govuk-form-group margin-bottom-thirty">
@@ -87,7 +89,7 @@
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="occupancy" name="occupancy_value" type="radio" value="yes">
         <label class="govuk-label govuk-radios__label" for="occupancy">
-          Yes, use both these values
+          Yes, use these values
         </label>
       </div>
       <div class="govuk-radios__item">

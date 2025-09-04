@@ -53,12 +53,16 @@ router.get(/manure_fields_v5_handler/, function (req, res) {
 
 router.get(/manuretype_v7_handler/, function (req, res) {
     //get object
+    let next = 'manure_date'
     for (var x in req.session.data.manure_types ) {
         if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
             req.session.data.manure_type = req.session.data.manure_types[x]
         }
     }
-    res.redirect('manure_defoliation')
+    if (req.session.data.oaktree_farm.grass_setup == true) {
+        next = 'manure_defoliation'
+    }
+    res.redirect(next)
 })
 
 router.get(/manuretype_manner_handler/, function (req, res) {

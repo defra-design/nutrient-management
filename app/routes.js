@@ -42,6 +42,7 @@ router.get('/', function (req, res) {
             req.session.data.oaktree_farm.use_mvp_fields = false,
             req.session.data.oaktree_farm.setup = false,
             req.session.data.oaktree_farm.fields_added = false,
+            req.session.data.oaktree_farm.grass_setup = false,
             // livestock statuses
             // 1 Nothing added = null (incomplete)
             // 2 Copied from loading = copied (incomplete)

@@ -14,75 +14,47 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      What kind of hay bales do you produce on Oaktree lane Farm?
+    </h1>
 
-      <h1 class="govuk-heading-l">What kind of hay bales do you produce on Oaktree lane Farm?</h1>
-
-      <!-- <p class="govuk-body">This calculator is for estimating a yield. For more accurate results you should add actual target weights.</p> -->
-
-      <form action="yield_calculator_q2" method="post" novalidate="">
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-            <div id="waste-hint" class="govuk-hint">
-              Select all that apply
+    <form action="yield_calculator_q2" method="post" novalidate="">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <div id="waste-hint" class="govuk-hint">
+            Select all that apply
+          </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                Round bales (approximately 0cm tall by 0cm circumference)
+              </label>
             </div>
-            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                <label class="govuk-label govuk-checkboxes__label" for="waste">
-                  Round bales (approximately 0cm tall by 0cm circumference)
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-                  Rectangle bales (approximately 0cm tall x 0cm wide x 0cm long)
-                </label>
-              </div>
-              <!-- <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Other
-                </label>
-              </div> -->
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                Rectangle bales (approximately 0cm tall x 0cm wide x 0cm long)
+              </label>
             </div>
-          </fieldset>
-        </div>
-        
-        <!-- <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-            <div id="waste-hint" class="govuk-hint">
-              Select all that apply
-            </div>
-            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                <label class="govuk-label govuk-checkboxes__label" for="waste">
-                  Square or rectangular baler (approximately 0cm tall by 0cm wide)
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-                  Round baler (approximately 0cm tall by 0cm wide)
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div> -->
+          </div>
+        </fieldset>
+      </div>
       
-        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
         Continue
       </button>
 
-      </form>
-      <p class="govuk-body cancel-link"><a href="/mvp/field/field-details">Cancel</a></p>
+    </form>
 
-    </div>
-    
+    <p class="govuk-body cancel-link">
+      <a href="/mvp/field/field-details">Cancel</a>
+    </p>
+
   </div>
+</div>
 
 {% endblock %}

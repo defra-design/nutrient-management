@@ -16,47 +16,46 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Are these new swards or existing swards in these fields?
-      </h1>
+    <h1 class="govuk-heading-l">
+      Are these new swards or existing swards in these fields?
+    </h1>
 
-      <!-- <p class="govuk-hint">For example, ploughing the field before re-seeding.</p> -->
+    <!-- <p class="govuk-hint">For example, ploughing the field before re-seeding.</p> -->
 
-      <form class="form" action="season_router" method="post">
+    <form class="form" action="season_router" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="new" name="reseed" type="radio" value="new">
+              <label class="govuk-label govuk-radios__label" for="new">
+                New swards
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="existing" name="reseed" type="radio" value="existing">
+              <label class="govuk-label govuk-radios__label" for="existing">
+                Existing swards
+              </label>
+            </div>
+          </div>
+        </fieldset>       
+      </div>
 
-        <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <div class="govuk-radios govuk-radios" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="new" name="reseed" type="radio" value="new">
-                  <label class="govuk-label govuk-radios__label" for="new">
-                    New swards
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="existing" name="reseed" type="radio" value="existing">
-                  <label class="govuk-label govuk-radios__label" for="existing">
-                    Existing swards
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-                      
-        </div>
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-      </form>
+    </form>
 
-    </div>
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
-
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

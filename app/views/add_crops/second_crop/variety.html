@@ -16,31 +16,29 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <!-- {% include "templates/title_span.html" %} -->
-      <h1 class="govuk-heading-l">
-          What is the variety name (optional)?
-      </h1>
+    <h1 class="govuk-heading-l">
+        What is the variety name (optional)?
+    </h1>
 
-      <form class="form" action="date_question" method="post" autocomplete="off">
+    <form class="form" action="date_question" method="post" autocomplete="off">
+      <div class="govuk-form-group">
+        <input class="govuk-input" id="variety" name="variety" type="text">
+      </div>
 
-        <div class="govuk-form-group">
-          <input class="govuk-input" id="variety" name="variety" type="text">
-        </div>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+    </form>
 
-      </form>
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
 
-    </div>
   </div>
-
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

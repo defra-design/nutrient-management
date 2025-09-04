@@ -19,29 +19,26 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <!-- {% include "templates/title_span.html" %} -->
       <h1 class="govuk-heading-l">
         How do you plan to use the straw from these fields?
       </h1>
 
       <form class="form" action="check" method="post">
-
         <div class="govuk-form-group">
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="arable" name="straw" type="radio" value="arable">
-                <label class="govuk-label govuk-radios__label" for="arable">
-                  Baled
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="grass" name="straw" type="radio" value="grass">
-                <label class="govuk-label govuk-radios__label" for="grass">
-                  Incorporated
-                </label>
-              </div>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="arable" name="straw" type="radio" value="arable">
+              <label class="govuk-label govuk-radios__label" for="arable">
+                Baled
+              </label>
             </div>
-          </fieldset>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="grass" name="straw" type="radio" value="grass">
+              <label class="govuk-label govuk-radios__label" for="grass">
+                Incorporated
+              </label>
+            </div>
+          </div>
         </div>
         {{ govukButton({
           text: "Continue"
@@ -49,11 +46,11 @@
 
       </form>
 
+      <p class="govuk-body">
+        <a href="fields.html">Cancel</a>
+      </p>
+
     </div>
   </div>
-
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
 
 {% endblock %}

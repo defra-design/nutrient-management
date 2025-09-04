@@ -24,38 +24,35 @@
 
       <form class="form" action="yield_question_three" method="post">
 
-        <div class="govuk-form-group">
-
-            <div class="govuk-radios" data-module="govuk-radios">
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="fresh" name="weight_type" type="radio" value="Fresh weight">
-                <label class="govuk-label govuk-radios__label" for="fresh">
-                  Fresh weight
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="dry" name="weight_type" type="radio" value="Dry weight">
-                <label class="govuk-label govuk-radios__label" for="dry">
-                  Dry weight
-                </label>
-              </div>
-            </div>
-          </fieldset>
+      <div class="govuk-form-group">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="fresh" name="weight_type" type="radio" value="Fresh weight">
+            <label class="govuk-label govuk-radios__label" for="fresh">
+              Fresh weight
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="dry" name="weight_type" type="radio" value="Dry weight">
+            <label class="govuk-label govuk-radios__label" for="dry">
+              Dry weight
+            </label>
+          </div>
         </div>
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+      </div>
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
       </form>
 
-    </div>
-    
-  </div>
+      <p class="govuk-body">
+        <a href="fields.html">Cancel</a>
+      </p>
 
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+    </div>
+  </div>
 
 {% endblock %}
 

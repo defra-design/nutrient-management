@@ -16,57 +16,57 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      
-      <h1 class="govuk-heading-l">
-        Which fields would you like to plan {{data.chosen_crop | nameconverter}} for?
-      </h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <h1 class="govuk-heading-l">
+      Which fields would you like to plan {{data.chosen_crop | nameconverter}} for?
+    </h1>
 
-      {% if data.chosen_crop == 'grass' %}
-      <div class="govuk-inset-text">
-        <p class="govuk-body">
-          You can group fields that will have the same grass type, and the same cuts and grazings. This makes it easier to plan and manage them.
-        </p>
-        <p class="govuk-body">
-          You can add more fields or change any information later. You can add as many groups of fields as you need.
-        </p>
-      </div>
-      {% endif %}
-
-      <form class="form" action="v5_fields_handler" method="post">
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-            <div id="waste-hint" class="govuk-hint">
-              Select one or more fields
-            </div>
-            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-
-              {% for field in data.all_fields %}
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id={{field.reference}} name="crop_fields" type="checkbox" value={{field.reference}}>
-                  <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
-                    {{field.name}} 
-                  </label>
-                </div>
-            {% endfor %}   
-      
-            </div>
-          </fieldset>
-        </div>
-
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-
-      </form>    
-
+    {% if data.chosen_crop == 'grass' %}
+    <div class="govuk-inset-text">
+      <p class="govuk-body">
+        You can group fields that will have the same grass type, and the same cuts and grazings. This makes it easier to plan and manage them.
+      </p>
+      <p class="govuk-body">
+        You can add more fields or change any information later. You can add as many groups of fields as you need.
+      </p>
     </div>
-  </div>
+    {% endif %}
 
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+    <form class="form" action="v5_fields_handler" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <div id="waste-hint" class="govuk-hint">
+            Select one or more fields
+          </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+            {% for field in data.all_fields %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id={{field.reference}} name="crop_fields" type="checkbox" value={{field.reference}}>
+                <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                  {{field.name}} 
+                </label>
+              </div>
+          {% endfor %}   
+    
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>   
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
+  </div>
+</div>
 
 {% endblock %}

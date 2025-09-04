@@ -16,82 +16,84 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-       How will these fields be managed?
-      </h1>
+    <h1 class="govuk-heading-l">
+      How will these fields be managed?
+    </h1>
 
-      <p class="govuk-hint">Select one option. These options come from the AHDB Nutrient Management
-Guide (RB209).</p>
+    <p class="govuk-hint">
+      Select one option. These options come from the AHDB Nutrient Management Guide (RB209).
+    </p>
 
 
-      <form class="form" action="grass_management_router" method="post">
+    <form class="form" action="grass_management_router" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
 
-        <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-                <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios" data-module="govuk-radios">
 
-                  {% if data.sward_type != 'red clover' and data.sward_type != 'lucerne' %}
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="grazing" name="grass_management" type="radio" value="grazing">
-                      <label class="govuk-label govuk-radios__label" for="grazing">
-                        Grazing only
-                      </label>
-                    </div>    
-                  {% endif %}
+            {% if data.sward_type != 'red clover' and data.sward_type != 'lucerne' %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="grazing" name="grass_management" type="radio" value="grazing">
+                <label class="govuk-label govuk-radios__label" for="grazing">
+                  Grazing only
+                </label>
+              </div>    
+            {% endif %}
 
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="silage" name="grass_management" type="radio" value="silage">
-                    <label class="govuk-label govuk-radios__label" for="silage">
-                      Silage only
-                    </label>
-                  </div>    
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="silage" name="grass_management" type="radio" value="silage">
+              <label class="govuk-label govuk-radios__label" for="silage">
+                Silage only
+              </label>
+            </div>    
 
-                  {% if data.sward_type != 'red clover' and data.sward_type != 'lucerne' %}
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="hay" name="grass_management" type="radio" value="hay">
-                    <label class="govuk-label govuk-radios__label" for="hay">
-                      Hay only
-                    </label>
-                  </div>    
+            {% if data.sward_type != 'red clover' and data.sward_type != 'lucerne' %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="hay" name="grass_management" type="radio" value="hay">
+                <label class="govuk-label govuk-radios__label" for="hay">
+                  Hay only
+                </label>
+              </div>    
+            {% endif %}
+
+            {% if data.sward_type != 'red clover' and data.sward_type != 'lucerne' %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="grazinghay" name="grass_management" type="radio" value="grazinghay">
+                <label class="govuk-label govuk-radios__label" for="grazinghay">
+                  Grazing and hay
+                </label>
+              </div>
+            {% endif %}
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="grazingsilage" name="grass_management" type="radio" value="grazingsilage">
+              <label class="govuk-label govuk-radios__label" for="grazingsilage">
+                {% if data.sward_type == 'grass' %}
+                  Grazing and silage (or haylage)
+                {% else %}
+                  Grazing and silage
                 {% endif %}
+              </label>
+            </div>
 
-                  {% if data.sward_type != 'red clover' and data.sward_type != 'lucerne' %}
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="grazinghay" name="grass_management" type="radio" value="grazinghay">
-                    <label class="govuk-label govuk-radios__label" for="grazinghay">
-                      Grazing and hay
-                    </label>
-                  </div>
-                  {% endif %}
+          </div>
+        </fieldset>        
+      </div>
 
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="grazingsilage" name="grass_management" type="radio" value="grazingsilage">
-                    <label class="govuk-label govuk-radios__label" for="grazingsilage">
-                      {% if data.sward_type == 'grass' %}
-                        Grazing and silage (or haylage)
-                      {% else %}
-                        Grazing and silage
-                      {% endif %}
-                    </label>
-                  </div>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-                </div>
-              </fieldset>        
-        </div>
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+    </form>
 
-      </form>
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
 
-    </div>
   </div>
-
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

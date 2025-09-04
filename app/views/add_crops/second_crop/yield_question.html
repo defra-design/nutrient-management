@@ -15,58 +15,53 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <!-- {% include "templates/title_span.html" %} -->
-      <h1 class="govuk-heading-l">
-        How do you want to enter the expected yield for Stubble Turnips in these fields?
-      </h1>
+    <h1 class="govuk-heading-l">
+      How do you want to enter the expected yield for Stubble Turnips in these fields?
+    </h1>
 
-      <form class="form" action="check" method="post">
+    <form class="form" action="check" method="post">
+      <div class="govuk-form-group">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="single" name="yield_option_one" type="radio" value="single">
+            <label class="govuk-label govuk-radios__label" for="single">
+              Enter a single figure for all these fields
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="different" name="yield_option_one" type="radio" value="different">
+            <label class="govuk-label govuk-radios__label" for="different">
+              Enter different figures for each field
+            </label>
+          </div>
 
-        <div class="govuk-form-group">
-
-            <div class="govuk-radios" data-module="govuk-radios">
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="single" name="yield_option_one" type="radio" value="single">
-                <label class="govuk-label govuk-radios__label" for="single">
-                  Enter a single figure for all these fields
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="different" name="yield_option_one" type="radio" value="different">
-                <label class="govuk-label govuk-radios__label" for="different">
-                  Enter different figures for each field
-                </label>
-              </div>
-
-              {% if data.crop_group != 'other' %}
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="rb209" name="yield_option_one" type="radio" value="rb209">
-                  <label class="govuk-label govuk-radios__label" for="rb209">
-                    Use the standard figure of 8 tonnes per hectare for all these fields
-                  </label>
-                </div>
-            {% endif %}
-
+          {% if data.crop_group != 'other' %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="rb209" name="yield_option_one" type="radio" value="rb209">
+              <label class="govuk-label govuk-radios__label" for="rb209">
+                Use the standard figure of 8 tonnes per hectare for all these fields
+              </label>
             </div>
-          </fieldset>
+          {% endif %}
+
         </div>
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+      </div>
 
-      </form>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-    </div>
-    
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
-
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}
 

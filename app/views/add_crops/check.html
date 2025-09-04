@@ -15,10 +15,10 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
-    
-    <!-- {% include "templates/title_span.html" %} -->
+
     <h1 class="govuk-heading-l">
       Check your answers
     </h1>
@@ -29,9 +29,9 @@
 
     <div class="check-answers">
       {% if data.crop_group != 'grass' %}
-        {% include "./check_crops.html" %}
+        {% include "./templates/check_crops.html" %}
       {% else %}
-        {% include "./check_grass.html" %}
+        {% include "./templates/check_grass.html" %}
       {% endif %}
     </div>
     
@@ -40,9 +40,12 @@
         text: "Create plan"
       }) }}
     </form>
+
     <p class="govuk-body">
       <a href="field_plan">Cancel</a>
     </p>
+    
   </div>
 </div>
+
 {% endblock %}

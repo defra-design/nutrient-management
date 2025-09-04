@@ -1,70 +1,58 @@
 
 
-        {% extends "layouts/main.html" %}
+{% extends "layouts/main.html" %}
 
-        {% block pageTitle %}
-          Question – {{ serviceName }} – GOV.UK Prototype Kit
-        {% endblock %}
-        
-        {% block beforeContent %}
-          {% include "/templates/signed-in.html" ignore missing %}
-          
-          {{ govukBackLink({
-            text: "Back",
-            href: "javascript:window.history.back()"
-          }) }}
-        {% endblock %}
-        
-        {% block content %}
-        
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-        
-              <h1 class="govuk-heading-l">
-                Which crop type do you plan to grow in these fields in 2024, after your Spring Oats?
-              </h1>
-        
-              <form class="form" action="variety" method="post">
-                <div class="govuk-form-group">
-                  <div class="govuk-radios" data-module="govuk-radios">
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="turnips" name="cover_crop" type="radio" value="Turnips-stubble">
-                      <label class="govuk-label govuk-radios__label" for="turnips">
-                        Stubble Turnips
-                      </label>
-                    </div>
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="Rape-forage" name="cover_crop" type="radio" value="Rape-forage">
-                      <label class="govuk-label govuk-radios__label" for="Rape-forage">
-                        Forage Rape
-                      </label>
-                    </div>
-                  </div>
-      
-                </div>
-                {{ govukButton({
-                  text: "Continue"
-                }) }}
-        
-              </form>
-        
-            </div>
-            
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Which crop type do you plan to grow in these fields in 2024, after your Spring Oats?
+    </h1>
+
+    <form class="form" action="variety" method="post">
+      <div class="govuk-form-group">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="turnips" name="cover_crop" type="radio" value="Turnips-stubble">
+            <label class="govuk-label govuk-radios__label" for="turnips">
+              Stubble Turnips
+            </label>
           </div>
-        
-          <p class="govuk-body">
-            <a href="fields.html">Cancel</a>
-          </p>
-        
-        {% endblock %}
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="Rape-forage" name="cover_crop" type="radio" value="Rape-forage">
+            <label class="govuk-label govuk-radios__label" for="Rape-forage">
+              Forage Rape
+            </label>
+          </div>
+        </div>
+      </div>
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+    
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

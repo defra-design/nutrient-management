@@ -1,0 +1,104 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <h1 class="govuk-heading-l">
+      What is the total target dry matter yield for each of these fields, per hectare?
+    </h1>
+
+    <div id="event-name-hint" class="govuk-hint">
+      Select a range or enter a total target annual yield per field
+    </div>
+
+    <form class="form" action="grassyield_handler" method="post">
+      <div class="govuk-form-group">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="ten" name="grass_total_yield" type="radio" value="10 - 13">
+            <label class="govuk-label govuk-radios__label" for="ten">
+              10 - 13 tonnes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="nine" name="grass_total_yield" type="radio" value="9 - 12">
+            <label class="govuk-label govuk-radios__label" for="nine">
+              9 - 12 tonnes
+            </label>
+          </div>            
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="seven" name="grass_total_yield" type="radio" value="7 - 9">
+            <label class="govuk-label govuk-radios__label" for="seven">
+              7 - 9 tonnes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="six" name="grass_total_yield" type="radio" value="6 - 8">
+            <label class="govuk-label govuk-radios__label" for="six">
+              6 - 8 tonnes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="five" name="grass_total_yield" type="radio" value="5 - 7">
+            <label class="govuk-label govuk-radios__label" for="five">
+              5 - 7 tonnes
+            </label> 
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="four" name="grass_total_yield" type="radio" value="4 - 5">
+            <label class="govuk-label govuk-radios__label" for="four">
+              4 - 5 tonnes
+            </label>
+          </div>
+
+          <div class="govuk-radios__divider">or</div>
+          
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="value" name="grass_total_yield" type="radio" value="value" data-aria-controls="conditional-contact">
+            <label class="govuk-label govuk-radios__label" for="value">
+              Enter a value
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="weight">
+                Dry matter yield per hectare
+              </label>
+              <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="grass_total_yield_figure" name="grass_total_yield_figure" type="text" spellcheck="false">
+                <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

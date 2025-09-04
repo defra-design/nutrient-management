@@ -15,71 +15,43 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      
-      <!-- {% include "templates/title_span.html" %} -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Which harvest would you like to plan for?
-      </h1>
+    <h1 class="govuk-heading-l">
+      Which harvest would you like to plan for?
+    </h1>
 
-      <form class="form" action="/add_crops/crop_group" method="post" autocomplete="off">
+    <form class="form" action="/add_crops/crop_group" method="post" autocomplete="off">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="2025" name="whereDoYouLive" type="radio" value="2025">
+              <label class="govuk-label govuk-radios__label" for="2025">
+                2025
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="2024" name="whereDoYouLive" type="radio" value="2024">
+              <label class="govuk-label govuk-radios__label" for="2024">
+                2024
+              </label>
+            </div>
+        </fieldset>
+      </div>
 
-        <!-- <div class="govuk-form-group">
-          <div id="event-name-hint" class="govuk-hint">
-            For example 2024
-          </div>
-          <input class="govuk-input govuk-input--width-5" id="event-name" name="eventName" type="text" aria-describedby="event-name-hint">
-        </div> -->
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                Where do you live?
-              </h1>
-            </legend> -->
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="2025" name="whereDoYouLive" type="radio" value="2025">
-                <label class="govuk-label govuk-radios__label" for="2025">
-                  2025
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="2024" name="whereDoYouLive" type="radio" value="2024">
-                <label class="govuk-label govuk-radios__label" for="2024">
-                  2024
-                </label>
-              </div>
-              <!-- <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whereDoYouLive-3" name="whereDoYouLive" type="radio" value="wales">
-                <label class="govuk-label govuk-radios__label" for="whereDoYouLive-3">
-                  Wales
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
-                <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
-                  Northern Ireland
-                </label>
-              </div>
-            </div> -->
-          </fieldset>
-        </div>
+    </form>
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+    <p class="govuk-body">
+      <a href="#">Cancel</a>
+    </p>
 
-      </form>
-
-    </div>
   </div>
-
-  <p class="govuk-body">
-    <a href="#">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

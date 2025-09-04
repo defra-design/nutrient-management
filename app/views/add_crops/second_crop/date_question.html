@@ -15,66 +15,51 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Do you have a date for when you planted your
-        Stubble Turnips, or when you will plant it?
-      </h1>
+    <h1 class="govuk-heading-l">
+      Do you have a date for when you planted your
+      Stubble Turnips, or when you will plant it?
+    </h1>
 
-      <p>You can change your planting date later.</p>
+    <p>You can change your planting date later.</p>
 
-      <form class="form" action="yield_question" method="post">
-
-        <div class="govuk-form-group">
-
-            <div class="govuk-radios" data-module="govuk-radios">
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="single" name="sow_option_one" type="radio" value="single">
-                <label class="govuk-label govuk-radios__label" for="single">
-                  Yes, I have a single date for all these fields
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="different" name="sow_option_one" type="radio" value="different">
-                <label class="govuk-label govuk-radios__label" for="different">
-                  Yes, I have different dates for each of these fields
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="no" name="sow_option_one" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="no">
-                  No, I'll enter the date later
-                </label>
-              </div>
-            
-            </div>
-          </fieldset>
+    <form class="form" action="yield_question" method="post">
+      <div class="govuk-form-group">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="single" name="sow_option_one" type="radio" value="single">
+            <label class="govuk-label govuk-radios__label" for="single">
+              Yes, I have a single date for all these fields
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="different" name="sow_option_one" type="radio" value="different">
+            <label class="govuk-label govuk-radios__label" for="different">
+              Yes, I have different dates for each of these fields
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="no" name="sow_option_one" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="no">
+              No, I'll enter the date later
+            </label>
+          </div>
         </div>
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+      </div>
 
-      </form>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-    </div>
-    
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
-
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}
-
-
-
-
-
-
-
-
-
-

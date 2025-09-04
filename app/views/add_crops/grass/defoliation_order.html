@@ -16,60 +16,61 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        What is the cut and grazing order in these fields?
-      </h1>
+    <h1 class="govuk-heading-l">
+      What is the cut and grazing order in these fields?
+    </h1>
 
-      <p class="govuk-hint">Select one option. These options come from the AHDB Nutrient Management
-Guide (RB209).</p>
+    <p class="govuk-hint">
+      Select one option. These options come from the AHDB Nutrient Management Guide (RB209).
+    </p>
 
-      <form class="form" action="def_sequence_handler" method="post">
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">
-            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="cggg" name="defoliation_order" type="radio" value="cggg">
-                <label class="govuk-label govuk-radios__label" for="cggg">
-                  Cut, graze, graze, graze 
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="gcgg" name="defoliation_order" type="radio" value="gcgg">
-                <label class="govuk-label govuk-radios__label" for="gcgg">
-                  Graze, cut, graze, graze
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="ggcg" name="defoliation_order" type="radio" value="ggcg">
-                <label class="govuk-label govuk-radios__label" for="ggcg">
-                  Graze, graze, cut, graze
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="gggc" name="defoliation_order" type="radio" value="gggc">
-                <label class="govuk-label govuk-radios__label" for="gggc">
-                  Graze, graze, graze, cut
-                </label>
-              </div>
+    <form class="form" action="def_sequence_handler" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="defoliation_order-hint">
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="cggg" name="defoliation_order" type="radio" value="cggg">
+              <label class="govuk-label govuk-radios__label" for="cggg">
+                Cut, graze, graze, graze 
+              </label>
             </div>
-          </fieldset>
-        </div>
-                    
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="gcgg" name="defoliation_order" type="radio" value="gcgg">
+              <label class="govuk-label govuk-radios__label" for="gcgg">
+                Graze, cut, graze, graze
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="ggcg" name="defoliation_order" type="radio" value="ggcg">
+              <label class="govuk-label govuk-radios__label" for="ggcg">
+                Graze, graze, cut, graze
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="gggc" name="defoliation_order" type="radio" value="gggc">
+              <label class="govuk-label govuk-radios__label" for="gggc">
+                Graze, graze, graze, cut
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+                  
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-      </form>
+    </form>
 
-    </div>
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
+</div>
 
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
 
 {% endblock %}

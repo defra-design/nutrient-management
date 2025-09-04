@@ -14,39 +14,33 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="variety_handler" method="post" autocomplete="off">
+    <h1 class="govuk-heading-l">
+      {% if data.crop_group == 'potatoes'%}
+        What is the variety name?
+      {% else %}
+        What is the variety name (optional)?
+      {% endif %}
+    </h1>
 
-        <!-- <div class="govuk-form-group">
-          <input class="govuk-input" id="variety" name="variety" type="text">
-        </div> -->
+    <form class="form" action="variety_handler" method="post" autocomplete="off">
+      <div class="govuk-form-group">
+        <input class="govuk-input" id="variety" name="variety" type="text">
+      </div>
 
-        <div class="govuk-form-group">
-      <h1 class="govuk-heading-l">
-        {% if data.crop_group == 'potatoes'%}
-          What is the variety name?
-        {% else %}
-          What is the variety name (optional)?
-        {% endif %}
-      </h1>
-      <input class="govuk-input" id="variety" name="variety" type="text">
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
-
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-
-      </form>
-
-    </div>
-  </div>
-
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}
-
-

@@ -15,50 +15,43 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <!-- {% include "templates/title_span.html" %} -->
-      <h1 class="govuk-heading-l">
-        Which fields would you like to add a second crop to?
-      </h1>
+    <h1 class="govuk-heading-l">
+      Which fields would you like to add a second crop to?
+    </h1>
 
-      <form class="form" action="crop" method="post">
+    <form class="form" action="crop" method="post">
 
-        <div class="govuk-form-group">
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="all" name="second_fields" type="radio" value="all">
-                <label class="govuk-label govuk-radios__label" for="all">
-                  All Spring Oat fields
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="some" name="second_fields" type="radio" value="some">
-                <label class="govuk-label govuk-radios__label" for="some">
-                  Select specific Fields
-                </label>
-              </div>
-              <!-- <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="remove" name="second_fields" type="radio" value="remove">
-                <label class="govuk-label govuk-radios__label" for="remove">
-                  Winter Rye fields
-                </label>
-              </div> -->
-            </div>
-          </fieldset>
+      <div class="govuk-form-group">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="all" name="second_fields" type="radio" value="all">
+            <label class="govuk-label govuk-radios__label" for="all">
+              All Spring Oat fields
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="some" name="second_fields" type="radio" value="some">
+            <label class="govuk-label govuk-radios__label" for="some">
+              Select specific Fields
+            </label>
+          </div>
         </div>
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+      </div>
 
-      </form>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-    </div>
+    </form>
+    
+    <p class="govuk-body">
+      <a href="#">Cancel</a>
+    </p>
+
   </div>
-
-  <p class="govuk-body">
-    <a href="#">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

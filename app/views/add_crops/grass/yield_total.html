@@ -27,46 +27,40 @@
         {% endif %}
       </h1>
 
-      <!-- <div id="event-name-hint" class="govuk-hint">
-        Target yield will be used to calculate the recommendations.
-      </div> -->
-
       <form class="form" action="yield_total_router" method="post">
-
         <div class="govuk-form-group">
-
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="single" name="yield_total" type="radio" value="single">
-                <label class="govuk-label govuk-radios__label" for="single">
-                  Enter a total annual yield, per field
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="multi" name="yield_total" type="radio" value="multi">
-                <label class="govuk-label govuk-radios__label" for="multi">
-                  Enter a yield per cut 
-                  {% if data.defoliations == 'cuts and grazings' %}
-                    or grazing
-                  {% endif %}
-                </label>
-              </div>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="single" name="yield_total" type="radio" value="single">
+              <label class="govuk-label govuk-radios__label" for="single">
+                Enter a total annual yield, per field
+              </label>
             </div>
-          </fieldset>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="multi" name="yield_total" type="radio" value="multi">
+              <label class="govuk-label govuk-radios__label" for="multi">
+                Enter a yield per cut 
+                {% if data.defoliations == 'cuts and grazings' %}
+                  or grazing
+                {% endif %}
+              </label>
+            </div>
+          </div>
         </div>
+
         {{ govukButton({
           text: "Continue"
         }) }}
 
       </form>
+      
+      <p class="govuk-body">
+        <a href="fields.html">Cancel</a>
+      </p>
 
     </div>
-    
   </div>
 
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
 
 {% endblock %}
 

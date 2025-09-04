@@ -16,40 +16,38 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Total annual target dry matter yield for Long Field
+    </h1>
+    
+    <div class="">
+      <!-- <h3 class="govuk-heading-s">Total annual target dry matter yield</h3> -->
+      <h3 class="govuk-heading-s">6 to 8 tonnes per hectare</h3>
+      <!-- <p class="govuk-body">6 to 8 tonnes per hectare</p> -->
+      <p class="govuk-body"><a href="rainfall-manual">Change the total annual target dry matter yield</a></p>
+    </div>
 
-      <h1 class="govuk-heading-l">
-        Total annual target dry matter yield for Long Field
-      </h1>
-      
-      <div class="">
-        <!-- <h3 class="govuk-heading-s">Total annual target dry matter yield</h3> -->
-        <h3 class="govuk-heading-s">6 to 8 tonnes per hectare</h3>
-        <!-- <p class="govuk-body">6 to 8 tonnes per hectare</p> -->
-        <p class="govuk-body"><a href="rainfall-manual">Change the total annual target dry matter yield</a></p>
-      </div>
+    <div class="text-group margin-bottom-forty">
+      <p class="govuk-body">This is based on:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Average hay bale size of 0cm tall x 0cm wide x 0cm long</li>
+        <li>100 rectangular bales required</li>
+      </ul>
+      <p class="govuk-body"><a href="">Change these figures</a></p>
+    </div>
+    
+    <form action="" method="post" novalidate="">
+      <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
 
-      <div class="text-group margin-bottom-forty">
-        <p class="govuk-body">This is based on:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>Average hay bale size of 0cm tall x 0cm wide x 0cm long</li>
-          <li>100 rectangular bales required</li>
-        </ul>
-        <p class="govuk-body"><a href="">Change these figures</a></p>
-      </div>
-      
-      <form action="" method="post" novalidate="">
-        <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Continue
-        </button>
-      </form>
-
-      <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
+    <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
 
   </div>
-
 </div>
 
 {% endblock %}

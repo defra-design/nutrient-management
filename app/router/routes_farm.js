@@ -83,13 +83,6 @@ router.get(/delete_handler/, callback_functions.showSuccessMessage, function (re
 
 //Routers
 
-router.get(/start_router/, function (req, res) { 
-    var next = '/disclaimer'
-    if (req.session.data.showinfo == false) {
-        next = '/farm/farms'
-    }
-    res.redirect(next);
-})
 
 router.get(/hub_reset_router/, function (req, res) { 
     req.session.data.show_success_message = false;

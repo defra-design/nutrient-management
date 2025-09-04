@@ -6,7 +6,6 @@ let nextURL
 var allFunctions = require('../functions/allFunctions.js');
 var callback_functions = require('./callbacks.js');
 
-
 //Routes
 router.get(/v2_quantity_handler/, function (req, res) { 
     var next = (req.session.data.quantity_type == "area" || req.session.data.quantity_type == "rate") ? 'manure_value' : 'manure_incorporation_method';
@@ -17,6 +16,24 @@ router.get(/manner_quantity_handler/, function (req, res) {
     var next = (req.session.data.quantity_type == "area" || req.session.data.quantity_type == "rate") ? 'manure_value' : 'results';
     res.redirect(next);
 })
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//ADD A FARM//
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//start
+router.get(/start_router/, function (req, res) {
+    let next = (req.session.data.showinfo == false) ? '/farm/farms' : '/disclaimer'
+    res.redirect(next)
+})
+
+
 
 // Handlers //
 

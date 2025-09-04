@@ -74,7 +74,7 @@ router.get(/field_add_reset_handler/, callback_functions.hideSuccessMessage, fun
 
 //add a field view reset messages
 router.get(/field_copy_reset_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    res.redirect('add-field/copy_field');
+    res.redirect('/add-field/copy_field');
 })
 
 //field details view reset messages

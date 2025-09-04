@@ -22,7 +22,7 @@ router.get(/manner_quantity_handler/, function (req, res) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//ADD A FARM//
+//ADD A FARM
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -71,6 +71,47 @@ router.get(/add_farm_handler/, callback_functions.showSuccessMessage, function (
     res.redirect('/farm/hub');
 })
 
+//removes a farm
+router.get(/delete_handler/, callback_functions.showSuccessMessage, function (req, res) { 
+    req.session.data.successMessage = 2 //farm removed
+    req.session.data.oaktree_farm.setup = false;
+    res.redirect('/farm/farms');
+})
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//MANAGE PLANS
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// navigate from whole plan to filed level
+router.get(/field_level_plan_v5_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
+    req.session.data.chosen_group = req.query.fieldref
+    req.session.data.chosen_field = req.query.groupref
+    //group.reference 
+    req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.currentCropGroups, req.query.groupref)
+    //field reference
+    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)    
+    res.redirect('../field_plan/index')
+})
+
+router.get(/group_level_plan_v7_handler/, function (req, res) { 
+    req.session.data.chosen_group = req.query.groupref
+    req.session.data.chosen_year = req.query.year
+    //group.reference
+    req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.currentCropGroups, req.query.groupref)
+    req.session.data.show_success_message = false    
+    console.log(req.session.data.chosen_group)
+    var next = '../../update/crop/change_crop'
+    console.log(req.session.data.chosen_group.crop_reference)
+    if (req.session.data.chosen_group.crop_reference == 'grass') {
+        next = '../../update/grass/change_crop'
+    }
+    res.redirect(next)
+})
 
 
 //

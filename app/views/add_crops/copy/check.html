@@ -15,10 +15,10 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
     
-    <!-- {% include "templates/title_span.html" %} -->
     <h1 class="govuk-heading-l">
       Check your answers
     </h1>
@@ -28,7 +28,7 @@
     </h2>
 
     <div class="check-answers">
-        {% include "./check_content.html" %}
+      {% include "./templates/check_content.html" %}
     </div>
     
     <form action="copyplan_handler" method="post" novalidate>
@@ -36,9 +36,12 @@
         text: "Create plan"
       }) }}
     </form>
+
     <p class="govuk-body">
       <a href="field_plan">Cancel</a>
     </p>
+    
   </div>
 </div>
+
 {% endblock %}

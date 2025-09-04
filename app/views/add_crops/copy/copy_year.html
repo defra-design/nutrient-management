@@ -15,43 +15,41 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Which plan would you like to copy for 2026?
-      </h1>
+    <h1 class="govuk-heading-l">
+      Which plan would you like to copy for 2026?
+    </h1>
 
-      <form class="form" action="copy_items" method="post">
-
-        <div class="govuk-form-group">
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="previous" name="plan_copy" type="radio" value="previous">
-                <label class="govuk-label govuk-radios__label" for="previous">
-                  2025
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="new" name="plan_copy" type="radio" value="new">
-                <label class="govuk-label govuk-radios__label" for="new">
-                  2024
-                </label>
-              </div>
-            </div>
-          </fieldset>
+    <form class="form" action="copy_items" method="post">
+      <div class="govuk-form-group">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="previous" name="plan_copy" type="radio" value="previous">
+            <label class="govuk-label govuk-radios__label" for="previous">
+              2025
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="new" name="plan_copy" type="radio" value="new">
+            <label class="govuk-label govuk-radios__label" for="new">
+              2024
+            </label>
+          </div>
         </div>
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+      </div>
 
-      </form>
-
-    </div>
-  </div>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
 
   <p class="govuk-body">
     <a href="fields.html">Cancel</a>
   </p>
+
+  </div>
+</div>
 
 {% endblock %}

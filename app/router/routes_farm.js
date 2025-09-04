@@ -32,47 +32,6 @@ router.get(/group_level_plan_v7_handler/, function (req, res) {
     res.redirect(next)
 })
 
-//set defaults for farm details
-router.get(/set_farm_defaults_handler/, function (req, res) { 
-    //name
-    if (req.session.data.farm_name == "") {
-        req.session.data.farm_name = 'Oaktree Lane Farm';
-    }
-    //postcode
-    if (req.session.data.farm_postcode == "") {
-        req.session.data.farm_postcode = 'NE46 7LQ';
-    }
-    //NVZ
-    if (req.session.data.farm_nvz == "") {
-        req.session.data.farm_nvz = 'all';
-    }
-    //elevation
-    if (req.session.data.farm_elevation == "") {
-        req.session.data.farm_elevation = 'none';
-    }
-    //organic
-    // if (req.session.data.organic_producer == "" || req.session.data.organic_producer == 'no' ) {
-    //     req.session.data.organic_producer = false;
-    // } else {
-    //     req.session.data.organic_producer = true;
-    // }  
-    res.redirect('check');
-})
-
-//creates a farm
-router.get(/add_farm_handler/, callback_functions.showSuccessMessage, function (req, res) { 
-    req.session.data.successMessage = 1 //farm added
-
-    req.session.data.oaktree_farm.name = req.session.data.farm_name;
-    req.session.data.oaktree_farm.postcode = req.session.data.farm_postcode;
-    req.session.data.oaktree_farm.nvz = req.session.data.farm_nvz;
-    req.session.data.oaktree_farm.elevation = req.session.data.farm_elevation;
-    req.session.data.oaktree_farm.organic_producer = req.session.data.organic_producer;
-    req.session.data.oaktree_farm.setup = true;
-    req.session.data.oaktree_farm.latest_update = 'added'; //remove this
-    res.redirect('/farm/hub');
-})
-
 //removes a farm
 router.get(/delete_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 2 //farm removed

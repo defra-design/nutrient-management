@@ -27,13 +27,39 @@ router.get(/manner_quantity_handler/, function (req, res) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 //start
 router.get(/start_router/, function (req, res) {
     let next = (req.session.data.showinfo == false) ? '/farm/farms' : '/disclaimer'
     res.redirect(next)
 })
 
+//set default farm details
+router.get(/set_farm_defaults_handler/, function (req, res) { 
+    //name
+    if (req.session.data.farm_name == "") req.session.data.farm_name = 'Oaktree Lane Farm';
+    
+    //postcode
+    if (req.session.data.farm_postcode == "") req.session.data.farm_postcode = 'NE46 7LQ';
+    
+    //NVZ
+    if (req.session.data.farm_nvz == "") req.session.data.farm_nvz = 'all';
 
+    //elevation
+    if (req.session.data.farm_elevation == "") req.session.data.farm_elevation = 'none';
+
+    //organic
+    // if (req.session.data.organic_producer == "" || req.session.data.organic_producer == 'no' ) {
+    //     req.session.data.organic_producer = false;
+    // } else {
+    //     req.session.data.organic_producer = true;
+    // }  
+
+    res.redirect('check');
+})
+
+
+//
 
 // Handlers //
 

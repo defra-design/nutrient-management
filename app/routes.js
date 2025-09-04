@@ -161,15 +161,11 @@ router.get('/', function (req, res) {
 //import routes
 var  routes_prototype_setup = require('./router/routes_prototype_setup.js');
 var  message_reset_handlers = require('./router/routes_message_reset_handlers.js');
+var  routes_for_journeys = require('./router/routes_for_journeys.js');
 
-var  routes_manure = require('./router/routes_manure.js');
 var  reports_routes = require('./router/reports_routes.js');
 
-var  routes_field = require('./router/routes_field.js');
-var  routes_crop = require('./router/routes_crop.js');
-var  routes_updates = require('./router/routes_updates.js');
 
-var  livestock_storage_routes = require('./router/livestock_storage_routes.js');
 var  manner_routes = require('./router/manner_routes.js');
 
-router.use('/',routes_prototype_setup, message_reset_handlers, manner_routes, livestock_storage_routes, reports_routes, routes_field, routes_crop, routes_updates, routes_manure);
+router.use('/',routes_prototype_setup, message_reset_handlers, routes_for_journeys, manner_routes, reports_routes);

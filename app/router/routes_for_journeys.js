@@ -82,7 +82,7 @@ router.get(/delete_handler/, callback_functions.showSuccessMessage, function (re
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//ADD A FIELD
+//ADD / MANAGE A FIELD
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -170,6 +170,556 @@ router.get(/add_field_handler/, callback_functions.showSuccessMessage, function 
     req.session.data.field_nvz = null
     req.session.data.field_alt = null
     res.redirect('/farm/field/manage-fields');
+})
+
+router.get(/set_tempField_data_handler/, function (req, res) { 
+    if (req.session.data.total_area == null || req.session.data.total_area == "" ) {
+        req.session.data.total_area = '19'
+    }
+    if (req.session.data.cropped_area == null || req.session.data.cropped_area == "" ) {
+        req.session.data.cropped_area = '17'
+    }
+    if (req.session.data.non_spreading_area == null || req.session.data.non_spreading_area == "" ) {
+        req.session.data.non_spreading_area = '2'
+    }
+    if (req.session.data.soiltype == null || req.session.data.soiltype == "" ) {
+        req.session.data.soiltype = 'Medium'
+    }
+    if (req.session.data.field_nvz == null || req.session.data.field_nvz == "" ) {
+        req.session.data.field_nvz = 'Yes'
+    }
+    if (req.session.data.field_alt == null || req.session.data.field_alt == "" ) {
+        req.session.data.field_alt = 'No'
+    }
+    if (req.session.data.soilanalysis == null || req.session.data.soilanalysis == "" ) {
+        req.session.data.soilanalysis = 'yes'
+    }
+    if (req.session.data.ph_value == null || req.session.data.ph_value == "" ) {
+        req.session.data.ph_value = 2
+        req.session.data.phosphorus_index = 1
+        req.session.data.potassium_index = 2
+        req.session.data.magnesium_index = 1
+    }
+    // if (req.session.data.soilanalysis == null || req.session.data.soilanalysis == "" ) {
+    //     req.session.data.soilanalysis = 'yes'
+    // }
+    var next = 'add-field/check'
+    res.redirect(next);
+})
+
+
+router.get(/add_sns_handler/, function (req, res) { 
+    req.session.data.show_success_message = true;
+    req.session.data.successMessage = 17;
+    req.session.data.chosen_group.sns = true;
+    res.redirect('/farm/field_plan/index');
+})
+
+router.get(/copy_name_handler/, function (req, res) { 
+    // req.session.data.tempField.name = (req.session.data.temp_field_name == '') ? 'New Field' : req.session.data.temp_field_name
+    req.session.data.tempField.reference = req.session.data.all_fields.length + 1
+    if (req.session.data.temp_field_name == "") {
+        req.session.data.temp_field_name = 'New Field #' + req.session.data.tempField.reference 
+    }
+    req.session.data.tempField.name = req.session.data.temp_field_name
+    res.redirect('./analysis')
+})
+
+router.get(/field_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 
+    req.session.data.successMessage = 4 //field updated
+    req.session.data.oaktree_farm.latest_update = 'field_updated'
+    res.redirect('/farm/field/field-details')
+})
+
+router.get(/soil_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 
+    req.session.data.successMessage = 5 //soil updated
+    req.session.data.oaktree_farm.latest_update = 'field_updated'
+    res.redirect('/farm/field/field-details')
+})
+
+router.get(/split_field_router/, function (req, res) { 
+    var next = (req.session.data.splitmerge == "split") ? './split/number' : './merge/fields'
+    res.redirect(next)
+})
+
+router.get(/copy_field_router/, function (req, res) { 
+    req.session.data.show_success_message = false;
+    var next = (req.session.data.copy_field == 'yes') ? './copy/fields' : 'name';
+    res.redirect(next)
+})
+
+router.get(/previous_group_router/, function (req, res) { 
+    var next = 'crop_type_all'
+    if (req.session.data.crop_group == null) {
+        req.session.data.crop_group = 'cereals'
+    }
+    if (req.session.data.crop_group == 'other') {
+        req.session.data.chosen_crop = 'Other'
+        next = 'crop_type_all'
+    } 
+    if (req.session.data.crop_group == 'grass') {
+        req.session.data.chosen_crop = 'Grass'
+        next = 'previous-grass'
+    } 
+    if (req.session.data.crop_group == 'herbs') {
+        req.session.data.chosen_crop = 'Herbs'
+        next = 'check'
+    } 
+    if (req.session.data.crop_group == 'other') {
+        req.session.data.chosen_crop = 'Other'
+        next = 'check'
+    } 
+    res.redirect(next)
+})
+
+router.get(/previous_clover_router/, function (req, res) { 
+    var next = (req.session.data.previous_clover == "yes") ? 'check' : 'previous_nitrogen'
+    res.redirect(next)
+})
+
+router.get(/previous_cuts_router/, function (req, res) { 
+    var next = (req.session.data.previous_management == 'grazed') ? 'previous_clover' : 'previous_cuts_two'
+    res.redirect(next)
+})
+
+router.get(/sns_v3_router/, function (req, res) { 
+    var next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'set_tempField_data_handler';
+    res.redirect(next);
+})
+
+router.get(/mineralisation_router/, function (req, res) { 
+    var next = (req.session.data.mineralisation == "organic") ? 'organic' : 'adjustment'
+    res.redirect(next)
+})
+
+router.get(/fieldtype_router/, function (req, res) { 
+    var next = (req.session.data.fieldtype == "copy") ? './copy/fields' : 'name'
+    res.redirect(next)
+})
+
+router.get(/log_croptype_router/, function (req, res) {
+    if (req.session.data.sns_method == "no") {
+        res.redirect('../check')
+    } else {
+        if (req.session.data.crop_group == 'leafy' || req.session.data.crop_group == 'root') {
+            res.redirect('sample_depth')
+        //arable    
+        } else if (req.session.data.crop_group == 'cereals' || req.session.data.crop_group == 'arable-other') {
+            res.redirect('values')
+        } else {
+            res.redirect('organic_adjustment')
+        }    
+    }
+})
+
+
+router.get(/gaiheight_router/, function (req, res) { 
+    var next = (req.session.data.gaiheight == "gai") ? 'gai' : 'height'
+    res.redirect(next)
+})
+
+router.get(/crop_nitrogen_router/, function (req, res) { 
+    var next = (req.session.data.crop_nitrogen == "yes") ? 'shoots' : 'nitrogen_mineralisation'
+    res.redirect(next)
+})
+
+router.get(/mineral_router/, function (req, res) { 
+    var next = (req.session.data.nitrogen_mineralisation == "no") ? 'sns_index' : 'organic_adjustment'
+    res.redirect(next)
+})
+
+
+router.get(/add-grass-handler/, function (req, res) { 
+    var next = (req.session.data.previous_grass == 'yes') ? 'plough' : 'check'
+    res.redirect(next)
+})
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//ADD A CROP
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+router.get(/update_question_handler/, function (req, res) {
+    req.session.data.update_type = req.query.update_type
+    console.log(req.session.data.update_type)
+    var next
+    if (req.query.update_type == 'variety') {
+        next = 'variety'
+    }
+    if (req.query.update_type == 'date') {
+        next = 'date/date_question'
+    }
+    res.redirect(next)
+})
+
+router.get(/crop_group_update_v7_handler/, function (req, res) { 
+    req.session.data.show_success_message = true;
+    req.session.data.successMessage = 6;
+    if (req.session.data.update_type == 'date') {
+        //planting date update
+        var tempDate = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
+        for (var groupRef in req.session.data.currentCropGroups) {
+            if (req.session.data.currentCropGroups[groupRef].reference == req.session.data.chosen_group.reference) {
+                req.session.data.currentCropGroups[groupRef].planting_date = tempDate
+            }
+        }
+    }
+    if (req.session.data.update_type == 'variety') {
+        //variety update
+        for (var groupRef in req.session.data.currentCropGroups) {
+            if (req.session.data.currentCropGroups[groupRef].reference == req.session.data.chosen_group.reference) {
+                req.session.data.currentCropGroups[groupRef].variety = req.session.data.new_variety
+            }
+        }
+    }
+    //reset temp vars
+    req.session.data.new_variety = null
+    req.session.data.new_planting_date_day = null
+    req.session.data.new_planting_date_month = null
+    req.session.data.new_planting_date_year = null
+    res.redirect('/farm/crop_plan/plan_view')
+})
+
+router.get(/cover_handler/, function (req, res) { 
+    req.session.data.crop_group_2024.secondCropFields = []
+    for (var x in req.session.data.cover_fields) {
+        for (var y in req.session.data.all_fields) {
+            if (req.session.data.all_fields[y].reference == req.session.data.cover_fields[x]) {
+                req.session.data.cover_fields[x] = req.session.data.all_fields[y]
+            }
+        }
+    }
+    res.redirect('sowdate_two')
+})
+
+router.get(/v5_fields_handler/, function (req, res) { 
+    if (req.session.data.crop_fields === undefined) {
+        req.session.data.crop_fields = [11, 12, 13, 14, 15]
+    }
+    req.session.data.crop_fields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_fields, req.session.data.all_fields)
+    // if (req.session.data.crop_group == 'grass') {
+    //     res.redirect('grass/current_sward')
+    //  } else {
+    //     res.redirect('group_name')
+    // }
+    res.redirect('group_name')
+})
+
+router.get(/crops_V5_check_handler/, function (req, res) { 
+    var sowdate = null;
+    var yield = null;
+    req.session.data.show_success_message = true;
+    var newRef = req.session.data.currentCropGroups.length + 1
+    if (req.session.data.sow_date_day != null) {
+        sowdate = req.session.data.sow_date_day + '/' + req.session.data.sow_date_month + '/' + req.session.data.sow_date_year
+    }
+    if (req.session.data.chosen_crop == 'grass') {
+        yield = req.session.data.grass_total_yield
+        // console.log('yield ' + yield)
+        req.session.data.successMessage = 16
+    } else {
+        req.session.data.successMessage = 1
+        yield = '8 tonnes'
+    }
+    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(newRef, 2025, req.session.data.crop_fields, req.session.data.all_fields, req.session.data.chosen_crop, req.session.data.variety, req.session.data.groupname, yield, sowdate))
+    req.session.data.groupname = null;
+    req.session.data.variety = null;
+    req.session.data.sow_date_day = null;
+    req.session.data.sow_date_month = null;
+    req.session.data.sow_date_year = null;
+    yield = null;
+    res.redirect('/farm/crop_plan/plan_view')
+})
+
+
+router.get(/copyplan_handler/, function (req, res) { 
+    req.session.data.show_success_message = true;
+    req.session.data.successMessage = 17
+    req.session.data.oaktree_farm.planning_year = 2026
+    res.redirect('/farm/crop_plan/plan_view')
+})
+
+
+router.get(/grassyield_handler/, function (req, res) { 
+    if (req.session.data.defoliation_one == null) {
+        req.session.data.defoliation_one = 'Grazing'
+    }
+    if (req.session.data.defoliation_two == null) {
+        req.session.data.defoliation_two = 'Grazing'
+    }
+    if (req.session.data.defoliation_three == null) {
+        req.session.data.defoliation_three = 'Grazing'
+    }
+    if (req.session.data.defoliation_four == null) {
+        req.session.data.defoliation_four = 'Grazing'
+    }
+    if (req.session.data.weight_type == null) {
+        req.session.data.weight_type = 'Fresh cut weight'
+    }
+    res.redirect('add_crops/check')
+})
+
+
+router.get(/groupname_handler/, function (req, res) { 
+    var newRef = req.session.data.currentCropGroups.length + 1
+    if (req.session.data.groupname.length <= 0) {
+        req.session.data.groupname = 'Crop group ' + newRef
+    }
+    if (req.session.data.chosen_crop != 'grass') {
+        res.redirect('variety')
+    } else {
+        res.redirect('grass/current_sward')
+    }
+})
+
+
+router.get(/potato_type_handler/, function (req, res) { 
+    // for (var x in req.session.data.potato_details) {
+    //     if (req.session.data.potato_details[x].potatoVarietyId == req.session.data.chosen_crop) {
+    //         req.session.data.chosen_crop = req.session.data.potato_details[x].potatoVariety + " potatoes"
+    //     }
+    // }
+    req.session.data.chosen_crop = req.session.data.chosen_crop + " potato"
+    res.redirect('fields')
+})
+
+router.get(/variety_handler/, function (req, res) { 
+    if (req.session.data.crop_group == 'potatoes') { 
+        if (req.session.data.variety == '' || req.session.data.variety == null) {
+            req.session.data.variety = 'Maris Piper'
+        }
+        req.session.data.chosen_crop = req.session.data.variety + " potato"
+    } 
+    res.redirect('sowdate_question')
+})
+
+
+//Routers
+
+router.get(/v4_plancopy_router/, function (req, res) { 
+    var next = 'crop_group'
+    if (req.session.data.plan_copy == 'previous') {
+        next = './copy/copy_year'
+    }
+    res.redirect(next)
+})
+
+// ALPHA // add second crops 
+router.get(/another_crop_router/, function (req, res) { 
+    var next = (req.session.data.second_crop == 'new') ? 'crop_group' : 'second_crop/fields'
+    res.redirect(next)
+})
+
+// BETA // add second crops 
+router.get(/mvp_another_crop_router/, function (req, res) { 
+    if (req.session.data.crop_group == 'other') {
+        if (req.session.data.other_selected == 'yes') {
+            res.redirect('name_two')
+        } else {
+            res.redirect('check')
+
+        }
+    } else {
+        if (req.session.data.cover_crop == 'none') {
+            res.redirect('check')
+        } else {
+            res.redirect('variety_two')
+        }
+    }
+})
+
+router.get(/yield_question_router/, function (req, res) { 
+    var next = 'check'
+    if (req.session.data.yield_option_one != 'rb209') {
+        next = 'yield_value'
+    } else { 
+        if (req.session.data.crop_group == 'potatoes') {
+            next = 'growth'
+        }
+        if (req.session.data.crop_group == 'cereals') {
+            next = 'crop_use'
+        }
+    }
+    res.redirect(next)
+})
+
+router.get(/v7_grass_yield_handler/, callback_functions.default_grass_values, function (req, res) { 
+    res.redirect('../check');
+})
+
+
+router.get(/yield_questiontwo_router/, function (req, res) { 
+    var next = (req.session.data.yield_option_two != 'rb209') ? 'yield_value_two' : 'check';
+    res.redirect(next);
+})
+
+router.get(/yield_handler/, function (req, res) { 
+    var next = (req.session.data.chosen_crop == "Turnips-stubble") ? 'check' : 'crop_use'
+    res.redirect(next)
+})
+
+router.get(/sowdate_value_router/, function (req, res) { 
+    if (req.session.data.crop_group != 'grass') {
+        if (req.session.data.sow_option_one != 'no') {
+            next = 'sowdate_value'
+        } else {
+            next = 'yield_question'
+        }
+    } else {
+        if (req.session.data.sow_option_one != 'no') {
+            next = 'sowdate_value'
+        } else {
+            next = 'sward_type'
+        }
+    }
+    res.redirect(next);
+})
+
+router.get(/sowdatetwo_value_router/, function (req, res) { 
+    var next = (req.session.data.sow_option_two != 'no') ? 'sowdate_value_two' : 'yield_question_two';
+    res.redirect(next);
+})
+
+router.get(/cropmvp_handler/, function (req, res) { 
+    if (req.session.data.crop_group == 'grass') { 
+        req.session.data.chosen_crop = 'grass'
+        res.redirect('fields')
+    } else if (req.session.data.crop_group == 'potatoes') { 
+        res.redirect('crop_type_potato')
+    } else if (req.session.data.crop_group == null) { 
+        req.session.data.crop_group = 'cereals'
+        res.redirect('crop_type_all')
+    } else {
+        res.redirect('crop_type_all')
+    }
+})
+
+router.get(/mvp_crop_handler/, function (req, res) { 
+    // if (req.session.data.crop_group == 'potatoes') { 
+    //     res.redirect('crop_type_potato')
+    // }
+    if (req.session.data.chosen_crop == null || req.session.data.chosen_crop == '')  {
+        if (req.session.data.crop_group == 'other') {
+            req.session.data.chosen_crop = 'Flax'
+        } else {
+            req.session.data.chosen_crop = 'Winter Wheat'
+        }
+    }
+    res.redirect('fields')
+})
+
+router.get(/manner_crop_handler/, function (req, res) { 
+    // if (req.session.data.crop_group == 'potatoes') { 
+    //     res.redirect('crop_type_potato')
+    // }
+    if (req.session.data.chosen_crop == null || req.session.data.chosen_crop == '')  {
+        if (req.session.data.crop_group == 'other') {
+            req.session.data.chosen_crop = 'Flax'
+        } else {
+            req.session.data.chosen_crop = 'Winter Wheat'
+        }
+    }
+    res.redirect('manure_group')
+})
+
+// Routers
+
+router.get(/season_router/, function (req, res) { 
+    var next = (req.session.data.reseed == "yes" || req.session.data.reseed == "new" ) ? 'season' : 'sowdate_question'
+    res.redirect(next)
+})
+
+router.get(/grass_management_router/, function (req, res) { 
+    if (req.session.data.grass_management == 'grazing') {
+        req.session.data.defoliations = 'grazings'
+    } else if (req.session.data.grass_management == 'hay' || req.session.data.grass_management == 'silage') {
+        req.session.data.defoliations = 'cuts'
+    } else  {
+        req.session.data.defoliations = 'cuts and grazings'
+    }
+    res.redirect('defoliation')
+})
+
+router.get(/yield_total_router/, function (req, res) { 
+    var next = (req.session.data.yield_total == "multi") ? 'fresh_yield' : 'yield_fresh_single'
+    res.redirect(next)
+})
+
+router.get(/management_grass_router/, function (req, res) { 
+    var next = '../check'
+    if (req.session.data.grass_management == "grazinghay" || req.session.data.grass_management == "grazingsilage") {
+        next = 'defoliation_order'
+    } else {
+        if (req.session.data.sward_type == 'grass') {
+            next = 'yield_value_v5'
+        }
+    }
+    res.redirect(next)
+})
+
+router.get(/def_sequence_handler/, function (req, res) { 
+    var next = '../check'
+    if (req.session.data.sward_type == 'grass') {
+            next = 'yield_value_v5'
+        }
+    res.redirect(next)
+})
+
+router.get(/yield_loop_handler/, function (req, res) { 
+    var next = (req.session.data.crop_fields[1] == null) ? '../check' : 'yield_value_v5a'
+    res.redirect(next)
+})
+
+router.get(/weight_type_router/, function (req, res) { 
+    var next = 'yield_value_dry';
+    if (req.session.data.yield_type == "fresh") {
+        if (req.session.data.grass_management == 'grazinghay' || req.session.data.grass_management == 'grazingsilage' ) {
+            next = 'fresh_yield'
+        } else {
+            next = 'yield_total'
+        }
+    }
+    res.redirect(next)
+})
+
+router.get(/addcrops_handler/, function (req, res) { 
+    req.session.data.secondcrop_journey = true
+    res.redirect('add_crops/another_crop')
+})
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//UPDATE ROUTES
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+router.get(/manure_update_handler/, function (req, res) {
+    req.session.data.update_type = req.query.update_type
+    console.log(req.session.data.update_type)
+    var next = '../../update/manure/update'
+    res.redirect(next)
+})
+
+router.get(/manure_update_v6_handler/, function (req, res) {
+    req.session.data.show_success_message = true;
+    req.session.data.successMessage = 13;
+    var next = '/farm/crop_plan/plan_view'
+    res.redirect(next)
+})
+
+router.get(/fertiliser_update_v6_handler/, function (req, res) {
+    req.session.data.show_success_message = true;
+    req.session.data.successMessage = 14;
+    var next = '/farm/crop_plan/plan_view'
+    res.redirect(next)
 })
 
 

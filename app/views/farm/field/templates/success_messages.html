@@ -1,0 +1,61 @@
+<!-- field added -->
+{% if data.successMessage == 3 %}
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+        </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+                You have added {{data.temp_field_name}}
+            </h3>
+            <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_copy_reset_handler">Add another field</a>, or</p>  
+            <p class="govuk-body"><a class="govuk-notification-banner__link" href="../plans_records">View, create or update a nutrient management plan</a>
+            <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="../../manner/fields">Estimate nutrient supply from organic materials (MANNER-NPK)</a></p>   -->
+        </div>
+    </div>
+{% endif %}
+
+<!-- field updated -->
+{% if data.successMessage == 4 %}
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                Success
+            </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+            {% if data.oaktree_farm.latest_update == 'soil-added' %}
+                <h3 class="govuk-notification-banner__heading">
+                    You have added a new soil analysis for {{data.chosen_field}}
+                </h3>
+            {% elif data.oaktree_farm.latest_update == 'field_updated' %}
+                <h3 class="govuk-notification-banner__heading">
+                    You have updated {{data.chosen_field}}
+                </h3>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}
+
+<!-- soil updated -->
+{% if data.successMessage == 5 %}
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                Success
+            </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+                You have updated a soil analysis for {{data.chosen_field}}
+            </h3>
+        </div>
+    </div>
+{% endif %}
+
+
+
+
+

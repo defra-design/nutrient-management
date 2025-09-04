@@ -82,6 +82,100 @@ router.get(/delete_handler/, callback_functions.showSuccessMessage, function (re
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//ADD A FIELD
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//set the name for the field 
+router.get(/set_field_name_handler/, function (req, res) { 
+    req.session.data.tempField.reference = req.session.data.all_fields.length + 1;
+    if (req.session.data.temp_field_name == "") {
+        req.session.data.temp_field_name = 'New Field #' + req.session.data.tempField.reference;
+    }
+    req.session.data.tempField.name = req.session.data.temp_field_name;
+    res.redirect('./area');
+})
+
+//check if the farm is in an nvz or over 300m
+router.get(/soil_type_router/, function (req, res) { 
+    if (req.session.data.oaktree_farm.nvz == 'some' ) {
+        res.redirect('nvz');
+    } else if (req.session.data.oaktree_farm.elevation == 'some') {
+        res.redirect('elevation');
+    } else {
+        res.redirect('soil-one');
+    }
+})
+
+//check if the farm is over 300m
+router.get(/nvz_router/, function (req, res) { 
+    var next = (req.session.data.oaktree_farm.elevation == 'some') ? 'elevation' : 'soil-one';
+    res.redirect(next);
+})
+
+//add a soil analysis or not
+router.get(/analysis_option_router/, function (req, res) { 
+    var next = (req.session.data.soilanalysis == "yes") ? 'date' : 'previous_use'
+    res.redirect(next)
+})
+
+//how do you want to add your values
+router.get(/add_values_router/, function (req, res) { 
+    var next = (req.session.data.add_values == "add_values_index") ? './values_two' : './values_three'
+    res.redirect(next)
+})
+
+//has the field been used for grass previously
+router.get(/previous_use_router/, function (req, res) { 
+    if (req.session.data.use_2023 == 'yes') {
+        req.session.data.chosen_crop = 'Grass'
+        res.redirect('previous_use_two')
+    } else {
+        res.redirect('crop_group')
+    }
+})
+
+//which years was it used as grass
+router.get(/grass_years_handler/, function (req, res) {
+    let next = 'previous_lay'
+    for (var item in req.session.data.grass_years) {
+        if (req.session.data.grass_years[item] == '2024') {
+            next = 'previous_cuts'
+        }
+    }
+    res.redirect(next)
+})
+
+//add the field
+router.get(/add_field_handler/, callback_functions.showSuccessMessage, function (req, res) { 
+    req.session.data.successMessage = 3 //field added
+
+    var sowdate = null;
+    req.session.data.oaktree_farm.latest_update = 'field_added';
+    req.session.data.oaktree_farm.fields_added = true;
+    req.session.data.all_fields.push(req.session.data.tempField);
+    var newRef = req.session.data.currentCropGroups.length + 1
+    if (req.session.data.sow_date_day != null) {
+        sowdate = req.session.data.sow_date_day + '/' + req.session.data.sow_date_month + '/' + req.session.data.sow_date_year
+    }
+    console.log(req.session.data.tempField)
+    //reset temp vars
+    req.session.data.chosen_crop = null
+    req.session.data.total_area = null
+    req.session.data.cropped_area = null
+    req.session.data.non_spreading_area = null
+    req.session.data.soiltype = null
+    req.session.data.field_nvz = null
+    req.session.data.field_alt = null
+    res.redirect('/farm/field/manage-fields');
+})
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //MANAGE PLANS
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -114,9 +208,14 @@ router.get(/group_level_plan_v7_handler/, function (req, res) {
 })
 
 
-//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Handlers //
+//MANAGE MANURES
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 router.get(/manure_fields_v5_handler/, function (req, res) {
     var new_manure_fields = []

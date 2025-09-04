@@ -58,6 +58,20 @@ router.get(/set_farm_defaults_handler/, function (req, res) {
     res.redirect('check');
 })
 
+//create a farm
+router.get(/add_farm_handler/, callback_functions.showSuccessMessage, function (req, res) { 
+    req.session.data.successMessage = 1 //farm added
+    req.session.data.oaktree_farm.name = req.session.data.farm_name;
+    req.session.data.oaktree_farm.postcode = req.session.data.farm_postcode;
+    req.session.data.oaktree_farm.nvz = req.session.data.farm_nvz;
+    req.session.data.oaktree_farm.elevation = req.session.data.farm_elevation;
+    req.session.data.oaktree_farm.organic_producer = req.session.data.organic_producer;
+    req.session.data.oaktree_farm.setup = true;
+    req.session.data.oaktree_farm.latest_update = 'added'; //remove this
+    res.redirect('/farm/hub');
+})
+
+
 
 //
 

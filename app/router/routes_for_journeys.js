@@ -430,22 +430,16 @@ router.get(/groupname_handler/, function (req, res) {
 
 
 router.get(/potato_type_handler/, function (req, res) { 
-    // for (var x in req.session.data.potato_details) {
-    //     if (req.session.data.potato_details[x].potatoVarietyId == req.session.data.chosen_crop) {
-    //         req.session.data.chosen_crop = req.session.data.potato_details[x].potatoVariety + " potatoes"
-    //     }
-    // }
-    req.session.data.chosen_crop = req.session.data.chosen_crop + " potato"
     res.redirect('fields')
 })
 
 router.get(/variety_handler/, function (req, res) { 
-    if (req.session.data.crop_group == 'potatoes') { 
-        if (req.session.data.variety == '' || req.session.data.variety == null) {
-            req.session.data.variety = 'Maris Piper'
-        }
-        req.session.data.chosen_crop = req.session.data.variety + " potato"
-    } 
+    // if (req.session.data.crop_group == 'potatoes') { 
+    //     if (req.session.data.variety == '' || req.session.data.variety == null) {
+    //         req.session.data.variety = 'Maris Piper'
+    //     }
+    //     req.session.data.chosen_crop = req.session.data.variety + " potato"
+    // } 
     res.redirect('sowdate_question')
 })
 
@@ -547,6 +541,7 @@ router.get(/crop_choice_router/, function (req, res) {
         req.session.data.chosen_crop = 'grass'
         res.redirect('fields')
     } else if (req.session.data.crop_group == 'potatoes') { 
+        req.session.data.chosen_crop = 'potatoes'
         res.redirect('crop_type_potato')
     } else if (req.session.data.crop_group == null) { 
         req.session.data.crop_group = 'cereals'

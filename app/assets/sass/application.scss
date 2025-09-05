@@ -1144,6 +1144,22 @@ width: 35%
     }
 }
 
+.cattle_values {
+    padding: 0;
+    padding-top: 10px!important;
+    padding-bottom: 5px!important;
+    li {
+        list-style-type: none;
+        padding: 0 0 5px 0;
+        width: 100%;
+        span {
+            float: right;
+            text-align: left;
+            margin-right: 30%;
+        }
+    }
+}
+
 #header-group {
     // ::-webkit-scrollbar {
     //     display: none;

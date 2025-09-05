@@ -21,7 +21,7 @@
   {% if data.livestock_group != 'poultry' and data.livestock_group != 'pig' %}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">
-          How do you want to enter the numbers for this {{data.chosen_livestock.shortname}}?
+          How do you want to enter the numbers for this {{data.chosen_livestock.shortname}} type?
       </dt>
       <dd class="govuk-summary-list__value">{% if data.livestock_entry == 'monthly' %} Enter a number for each month {% else %} Enter the average number for the year {% endif %}</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
@@ -30,21 +30,21 @@
   
   {% if data.livestock_entry == 'monthly' %} 
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Total number of this {{data.chosen_livestock.shortname}}, per month</dt>
+      <dt class="govuk-summary-list__key">Monthly totals for this {{data.chosen_livestock.shortname}} type</dt>
         <dd class="govuk-summary-list__value">
-          <ul class="nutrient_values">
-            <li>January: <span>{{data.livestock_number_january}} {{data.chosen_livestock.shortname}}</span></li>
-            <li>February: <span>{{data.livestock_number_february}} {{data.chosen_livestock.shortname}}</span></li>
-            <li>March: <span>{{data.livestock_number_march}} {{data.chosen_livestock.shortname}}</span></li>
-            <li>April: <span>{{data.livestock_number_april}} {{data.chosen_livestock.shortname}}</span></li>
-            <li>May: <span>{{data.livestock_number_may}} {{data.chosen_livestock.shortname}}</span></li>
-            <li>June: <span>{{data.livestock_number_june}} {{data.chosen_livestock.shortname}}</span></li>
-            <li>July: <span>{{data.livestock_number_july}} {{data.chosen_livestock.shortname}}</span></li>
-            <li>August: <span>{{data.livestock_number_august}} {{data.chosen_livestock.shortname}}</span></li>
-            <li>September: <span>{{data.livestock_number_september}} {{data.chosen_livestock.shortname}}</span></li>
-            <li>October: <span>{{data.livestock_number_october}} {{data.chosen_livestock.shortname}}</span></li>
-            <li>November: <span>{{data.livestock_number_november}} {{data.chosen_livestock.shortname}}</span></li>
-            <li>December: <span>{{data.livestock_number_december}} {{data.chosen_livestock.shortname}}</span></li>
+          <ul class="cattle_values">
+            <li>January: <span>100</span></li>
+            <li>February: <span>100</span></li>
+            <li>March: <span>100</span></li>
+            <li>April: <span>100</span></li>
+            <li>May: <span>100</span></li>
+            <li>June: <span>100</span></li>
+            <li>July: <span>100</span></li>
+            <li>August: <span>100</span></li>
+            <li>September: <span>100</span></li>
+            <li>October: <span>100</span></li>
+            <li>November: <span>100</span></li>
+            <li>December: <span>100</span></li>
         </ul>
         </dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
@@ -86,7 +86,13 @@
       {% endif %}
     </dt>
     <dd class="govuk-summary-list__value">
-      83kg per 1000 places, per year
+      {% if data.livestock_group == 'poultry' %}
+        83kg per 1000 places, per year
+      {% elif data.livestock_group == 'pig' %}
+          83kg per place, per year
+      {% else %}
+          83kg per animal, per year
+      {% endif %}
     </dd>
     {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
@@ -99,8 +105,8 @@
   {% set total_n = data.chosen_livestock.nitrogen * data.livestock_number %}
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Total nitrogen (N)</dt>
-    <dd class="govuk-summary-list__value">{{total_n}}kg per year</dd>
+    <dt class="govuk-summary-list__key">Total nitrogen (N) per year</dt>
+    <dd class="govuk-summary-list__value">{{total_n}}kg</dd>
     {% if data.livestock_group == 'pig' and data.livestock_group == 'poultry' %}
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       {% else %}
@@ -110,17 +116,17 @@
 
   {% if data.oaktree_farm.derogation == true %}
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Phosphate (P2O5) standard per animal</dt>
+      <dt class="govuk-summary-list__key">Phosphate (P2O5) standard</dt>
       <dd class="govuk-summary-list__value">
-        83kg per year
+        83kg per animal, per year
       </dd>
       <dd class="govuk-summary-list__actions"> </dd>
     </div>
 
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Total Phosphate (P2O5)</dt>
+      <dt class="govuk-summary-list__key">Total Phosphate (P2O5), per year</dt>
       <dd class="govuk-summary-list__value">
-        1,1800kg per year
+        1,180kg
       </dd>
       <dd class="govuk-summary-list__actions"> </dd>
     </div>

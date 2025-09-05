@@ -19,8 +19,12 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        How would you like to enter your livestock numbers?
+        How do you want to enter the numbers for this cattle type?
       </h1>
+            
+      <p class="govuk-body">
+          Selected livestock type: {{data.chosen_livestock.name | capitalize}}.
+      </p>
 
       <p class="govuk-hint">Select one option.</p>
 

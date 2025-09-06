@@ -15,61 +15,61 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        What type of organic material are you {{data.imports_exports}}ing?
-      </h1>
+    <h1 class="govuk-heading-l">
+      What type of organic material are you {{data.imports_exports}}ing?
+    </h1>
 
-      <p class="govuk-hint">Select one option. These options come from the AHDB Nutrient Management Guide (RB209).</p>
+    <p class="govuk-hint">Select one option. These options come from the AHDB Nutrient Management Guide (RB209).</p>
 
-      <form class="form" action="manuregroup_handler" method="post">
+    <form class="form" action="manuregroup_handler" method="post">
 
-        <div class="govuk-form-group">
-          <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-form-group">
+        <div class="govuk-radios" data-module="govuk-radios">
 
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="livestock" name="manure_group_id" type="radio" value="livestock">
-              <label class="govuk-label govuk-radios__label" for="livestock">
-                Livestock manure
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="biosolids" name="manure_group_id" type="radio" value="biosolids">
-              <label class="govuk-label govuk-radios__label" for="biosolids">
-                Biosolids
-              </label>
-            </div>
-            
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="digestate" name="manure_group_id" type="radio" value="digestate">
-              <label class="govuk-label govuk-radios__label" for="digestate">
-                Digestate
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="other" name="manure_group_id" type="radio" value="other">
-              <label class="govuk-label govuk-radios__label" for="other">
-                Another type of organic material
-              </label>
-            </div>
-
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="livestock" name="manure_group_id" type="radio" value="livestock">
+            <label class="govuk-label govuk-radios__label" for="livestock">
+              Livestock manure
+            </label>
           </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="biosolids" name="manure_group_id" type="radio" value="biosolids">
+            <label class="govuk-label govuk-radios__label" for="biosolids">
+              Biosolids
+            </label>
+          </div>
+          
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="digestate" name="manure_group_id" type="radio" value="digestate">
+            <label class="govuk-label govuk-radios__label" for="digestate">
+              Digestate
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="other" name="manure_group_id" type="radio" value="other">
+            <label class="govuk-label govuk-radios__label" for="other">
+              Another type of organic material
+            </label>
+          </div>
+
         </div>
+      </div>
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-      </form>
-    </div>
+    </form>
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
-
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

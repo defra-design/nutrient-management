@@ -15,53 +15,53 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Do you want to add an import or an export?
-      </h1>
+    <h1 class="govuk-heading-l">
+      Do you want to add an import or an export?
+    </h1>
 
-      <p class="govuk-hint">Choose one option.</p>
+    <p class="govuk-hint">Choose one option.</p>
 
-      <form class="form" action="export_type_router" method="post">
+    <form class="form" action="export_type_router" method="post">
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="import" name="imports_exports" type="radio" value="import">
-                <label class="govuk-label govuk-radios__label" for="import">
-                  Import
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="export" name="imports_exports" type="radio" value="export">
-                <label class="govuk-label govuk-radios__label" for="export">
-                  Export
-                </label>
-              </div>
-              <div class="govuk-radios__divider">or</div>
-              <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="none" name="imports_exports" type="radio" value="none" {% if data.imports_exports == 'none' %} checked {% endif %}>
-              <label class="govuk-label govuk-radios__label" for="none">
-                There are no imports or exports in 2025
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="import" name="imports_exports" type="radio" value="import">
+              <label class="govuk-label govuk-radios__label" for="import">
+                Import
               </label>
             </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="export" name="imports_exports" type="radio" value="export">
+              <label class="govuk-label govuk-radios__label" for="export">
+                Export
+              </label>
+            </div>
+            <div class="govuk-radios__divider">or</div>
+            <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="none" name="imports_exports" type="radio" value="none" {% if data.imports_exports == 'none' %} checked {% endif %}>
+            <label class="govuk-label govuk-radios__label" for="none">
+              There are no imports or exports in 2025
+            </label>
           </div>
-          </fieldset>
         </div>
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-      </form>
+    </form>
 
-    </div>
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
+</div>
   
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
-
 {% endblock %}

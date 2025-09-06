@@ -15,60 +15,60 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        When did you {{data.imports_exports}} this livestock manure?
-      </h1>
+    <h1 class="govuk-heading-l">
+      When did you {{data.imports_exports}} this livestock manure?
+    </h1>
 
-      <form class="form" action="quantity" method="post">
+    <form class="form" action="quantity" method="post">
 
-        <div class="govuk-form-group">
-            <div class="govuk-hint">
-              The date format is '21 06 2025'.
-            </div>
-            <div class="govuk-date-input" id="exported">
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="exported_day">
-                    Day
-                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="exported_day" name="exported_day" type="text" autocomplete="off">
-                </div>
-              </div>
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="exported_month">
-                    Month
-                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="exported_month" name="exported_month" type="text" autocomplete="off">
-                </div>
-              </div>
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="exported_year">
-                    Year
-                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="exported_year" name="exported_year" type="text" autocomplete="off">
-                </div>
+      <div class="govuk-form-group">
+          <div class="govuk-hint">
+            The date format is '21 06 2025'.
+          </div>
+          <div class="govuk-date-input" id="exported">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="exported_day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="exported_day" name="exported_day" type="text" autocomplete="off">
               </div>
             </div>
-          </fieldset>
-        </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="exported_month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="exported_month" name="exported_month" type="text" autocomplete="off">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="exported_year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="exported_year" name="exported_year" type="text" autocomplete="off">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-      </form>
+    </form>
 
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>  
 
-    </div>
   </div>
+</div>
 
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
 
 {% endblock %}

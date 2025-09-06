@@ -16,54 +16,33 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-two-thirds">
-      
-      <form action="manure_defaults" method="post" novalidate="">
+    <h1 class="govuk-heading-l">How much did you {{data.imports_exports}}?</h1>
 
-        <!-- <h1 class="govuk-heading-l">About {{data.manure_type.name}}</h1> -->
-        <h1 class="govuk-heading-l">How much did you {{data.imports_exports}}?</h1>
-
-        <div class="govuk-form-group">
-          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="export_total" name="export_total" type="text" spellcheck="false" autocomplete="off">
-            {% if data.manure_type.liquid != true %}
-              <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
-            {% else %}
-              <div class="govuk-input__suffix" aria-hidden="true">cubic metres</div>
-            {% endif %}
-          </div>
-        </div>
-
-    
-        <!-- <div class="govuk-form-group">
-          <label class="govuk-label" for="export_total">
-            How much are you {{data.imports_exports}}ing?
-          </label>
-          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="export_total" name="export_total" type="text" spellcheck="false" autocomplete="off">
+    <form action="manure_defaults" method="post" novalidate="">
+      <div class="govuk-form-group">
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="export_total" name="export_total" type="text" spellcheck="false" autocomplete="off">
+          {% if data.manure_type.liquid != true %}
             <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
-          </div>
+          {% else %}
+            <div class="govuk-input__suffix" aria-hidden="true">cubic metres</div>
+          {% endif %}
         </div>
+      </div>
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="cropped_area">
-            What is the total nitrogen (N) content?
-          </label>
-          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="cropped_area" name="cropped_area" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">kg per tonne</div>
-          </div>
-        </div> -->
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
 
-        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Continue
-        </button>
+    </form>
 
-      </form>
-
-      <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
-
-    </div>
+    <p class="govuk-body cancel-link">
+      <a href="/farm/hub">Cancel</a>
+    </p>
 
   </div>
+</div>
 
 {% endblock %}

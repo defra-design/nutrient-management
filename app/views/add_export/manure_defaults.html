@@ -24,16 +24,12 @@
       </h1>
 
       <p class="govuk-hint">These typical figures come from the AHDB Nutrient Management Guide (RB209).</p>
-
-      <!-- <h2 class="govuk-heading-m">
-        {{data.manure_type.name}}
-      </h2> -->
       
       <div class="margin-bottom-forty">
-      {% if data.manure_type.liquid == true %}
-        {% include "/templates/manures/manure_defaults_liquid.html" %}
-      {% else %}
-       {% include "/templates/manures/manure_defaults_solid.html" %}
+        {% if data.manure_type.liquid == true %}
+          {% include "/templates/manures/manure_defaults_liquid.html" %}
+        {% else %}
+        {% include "/templates/manures/manure_defaults_solid.html" %}
       {% endif %}
       </div>
 
@@ -65,12 +61,11 @@
 
       </form>
 
-    </div>
-    
-  </div>
+      <p class="govuk-body">
+        <a href="fields.html">Cancel</a>
+      </p>
 
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+    </div>
+  </div>
 
 {% endblock %}

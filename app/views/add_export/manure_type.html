@@ -15,46 +15,42 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        What type of {{ data.manure_group_id | convert_manure_group_id | lower }} are you {{data.imports_exports}}ing?
-      </h1>
+    <h1 class="govuk-heading-l">
+      What type of {{ data.manure_group_id | convert_manure_group_id | lower }} are you {{data.imports_exports}}ing?
+    </h1>
 
-      <p class="govuk-hint">Select one option. These options come from the AHDB Nutrient Management Guide (RB209).</p>
+    <p class="govuk-hint">Select one option. These options come from the AHDB Nutrient Management Guide (RB209).</p>
 
-      <form class="form" action="get_manure_type_handler" method="post">
-
-        <div class="govuk-form-group">
-
-          <div class="govuk-radios" data-module="govuk-radios">
-            
-                {% for manure in data.manure_types %}
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="{{x.name}}" name="manure_type" type="radio" value="{{x.name}}">
-                    <label class="govuk-label govuk-radios__label" for="{{x.name}}">
-                      {{manure.display_name}}
-                    </label>
-                  </div>
-                {% endfor %}
-
-          </div>
+    <form class="form" action="get_manure_type_handler" method="post">
+      <div class="govuk-form-group">
+        <div class="govuk-radios" data-module="govuk-radios">
+          
+          {% for manure in data.manure_types %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="{{x.name}}" name="manure_type" type="radio" value="{{x.name}}">
+              <label class="govuk-label govuk-radios__label" for="{{x.name}}">
+                {{manure.display_name}}
+              </label>
+            </div>
+          {% endfor %}
 
         </div>
+      </div>
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-      </form>
+    </form>
 
-    </div>
-    
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
-
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

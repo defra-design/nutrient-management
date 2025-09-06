@@ -16,59 +16,63 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        {% if data.imports_exports == 'export' %}
-          Who are you exporting this livestock manure to?
-        {% else %}
-          Who are you importing this livestock manure from?
-        {% endif %}
-      </h1>
+    <h1 class="govuk-heading-l">
+      {% if data.imports_exports == 'export' %}
+        Who are you exporting this livestock manure to?
+      {% else %}
+        Who are you importing this livestock manure from?
+      {% endif %}
+    </h1>
 
-      <form action="set_export_defaults_handler" method="post" novalidate="">      
+    <form action="set_export_defaults_handler" method="post" novalidate="">      
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="address-line-1">Name</label>
-          <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
-        </div>
-
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="address-line-1">Address line 1  (optional)</label>
-          <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
-        </div>
-
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="address-line-1">Address line 2 (optional)</label>
-          <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
-        </div>
-
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="address-line-1">Town or city  (optional)</label>
-          <input class="govuk-input govuk-input--width-20" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
-        </div>
-
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="address-line-1">County  (optional)</label>
-          <input class="govuk-input govuk-input--width-20" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
-        </div>
-
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="address-line-1">Postcode  (optional)</label>
-          <input class="govuk-input govuk-input--width-10" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
-        </div>
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <br>
-            <button class="govuk-button" data-module="govuk-button">Continue</button>
-          </fieldset>
-        </div>
-
-          </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-line-1">Name</label>
+        <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
       </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-line-1">Address line 1  (optional)</label>
+        <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-line-1">Address line 2 (optional)</label>
+        <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-line-1">Town or city  (optional)</label>
+        <input class="govuk-input govuk-input--width-20" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-line-1">County  (optional)</label>
+        <input class="govuk-input govuk-input--width-20" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-line-1">Postcode  (optional)</label>
+        <input class="govuk-input govuk-input--width-10" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <br>
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+        </fieldset>
+      </div>
+
     </form>
+
+    <p class="govuk-body cancel-link">
+      <a href="">Cancel</a>
+    </p>
+
   </div>
+</div>
 
 {% endblock %}

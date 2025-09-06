@@ -16,35 +16,35 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-          Comments about this {{data.imports_exports}} (optional)
-      </h1>
+    <h1 class="govuk-heading-l">
+        Comments about this {{data.imports_exports}} (optional)
+    </h1>
 
-      <form action="check" method="post" novalidate="">      
+    <form action="check" method="post" novalidate="">      
 
-        <div class="govuk-form-group">
-          <!-- <h1 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--l" for="more-detail">
-              Can you provide more detail?
-            </label>
-          </h1> -->
-          <div id="more-detail-hint" class="govuk-hint">
-            Comments will be viewable on some reports. Do not include personal or financial information.
-          </div>
-          <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+      <div class="govuk-form-group">
+        <!-- <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="more-detail">
+            Can you provide more detail?
+          </label>
+        </h1> -->
+        <div id="more-detail-hint" class="govuk-hint">
+          Comments will be viewable on some reports. Do not include personal or financial information.
         </div>
+        <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+      </div>
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <br>
-            <button class="govuk-button" data-module="govuk-button">Continue</button>
-          </fieldset>
-        </div>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <br>
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+        </fieldset>
+      </div>
 
-    </form>
-  </div>
+  </form>
+</div>
 
 {% endblock %}

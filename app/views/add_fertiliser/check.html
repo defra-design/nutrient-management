@@ -14,16 +14,16 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
     
-
     <h1 class="govuk-heading-l">
       Check your answers
     </h1>
 
     <div class="check-answers">
-        {% include "./check_content.html" ignore missing %}
+        {% include "./templates/check_content.html" ignore missing %}
     </div>
 
     <form action="fertiliser_v5_handler" method="post" novalidate>
@@ -36,4 +36,5 @@
     </p>
   </div>
 </div>
+
 {% endblock %}

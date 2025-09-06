@@ -15,60 +15,57 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Which fields will you include in this inorganic fertiliser application?
-      </h1>
+    <h1 class="govuk-heading-l">
+      Which fields will you include in this inorganic fertiliser application?
+    </h1>
 
-      <form class="form" action="v5_fertiliser_handler" method="post">
+    <form class="form" action="v5_fertiliser_handler" method="post">
 
-        <div class="govuk-form-group">
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="all" name="fertiliser_fields" type="radio" value="all">
-                <label class="govuk-label govuk-radios__label" for="all">
-                  All fields in the 2025 plan
-                </label>
-              </div>
-              {% for group in data.currentCropGroups %}
-              <!-- {{group.crop_reference}} 
-              {% if group.variety %}
-                ({{group.variety}}) 
-              {% endif %}
-              {{group.groupname}} 
-              {{group.reference}}  -->
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id={{group.reference}} name="fertiliser_fields" type="radio" value={{group.reference}}>
-                <label class="govuk-label govuk-radios__label" for={{group.reference}}>
-                  The 
-                    {{group.crop_reference | nameconverter}}
-                  fields  
-                    ({{group.groupname | lower}})
-                </label>
-              </div>
-            {% endfor %} 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="specific" name="fertiliser_fields" type="radio" value="specific">
-                <label class="govuk-label govuk-radios__label" for="specific">
-                 Select specific fields
-                </label>
-              </div>
+      <div class="govuk-form-group">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="all" name="fertiliser_fields" type="radio" value="all">
+              <label class="govuk-label govuk-radios__label" for="all">
+                All fields in the 2025 plan
+              </label>
             </div>
-          </fieldset>
-        </div>
-        {{ govukButton({
-          text: "Continue"
-        }) }}
 
-      </form>
+            {% for group in data.currentCropGroups %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id={{group.reference}} name="fertiliser_fields" type="radio" value={{group.reference}}>
+              <label class="govuk-label govuk-radios__label" for={{group.reference}}>
+                The 
+                  {{group.crop_reference | nameconverter}}
+                fields  
+                  ({{group.groupname | lower}})
+              </label>
+            </div>
+          {% endfor %} 
 
-    </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="specific" name="fertiliser_fields" type="radio" value="specific">
+              <label class="govuk-label govuk-radios__label" for="specific">
+                Select specific fields
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="#">Cancel</a>
+    </p>
+
   </div>
-
-  <p class="govuk-body">
-    <a href="#">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

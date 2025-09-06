@@ -15,91 +15,72 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">How long is the gap between application and incorporation for your {{data.manure_type.name}}?</h1>
 
-      <h1 class="govuk-heading-l">
-        How long is the gap between application and incorporation for your {{data.manure_type.name}}?
-      </h1>
+    <form class="form" action="rain_defaults" method="post">
 
-      <p></p>
+      <div class="govuk-form-group">
 
-      <form class="form" action="rain_defaults" method="post">
+          <div class="govuk-radios" data-module="govuk-radios">
 
-        <div class="govuk-form-group">
-            <div class="govuk-form-group">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="2hours" name="manure_delay" type="radio" value="Hours">
+              <label class="govuk-label govuk-radios__label" for="2hours">
+                Less than 2 hours            
+              </label>
+            </div>
 
-              <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="4hours" name="manure_delay" type="radio" value="Days">
+              <label class="govuk-label govuk-radios__label" for="4hours">
+                2 to 4 hours
+              </label>
+            </div>  
 
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="2hours" name="manure_delay" type="radio" value="Hours">
-                  <label class="govuk-label govuk-radios__label" for="2hours">
-                    Less than 2 hours            
-                  </label>
-                </div>
-  
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="4hours" name="manure_delay" type="radio" value="Days">
-                  <label class="govuk-label govuk-radios__label" for="4hours">
-                    2 to 4 hours
-                  </label>
-                </div>  
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="6hours" name="manure_delay" type="radio" value="4 to 6 hours">
+              <label class="govuk-label govuk-radios__label" for="6hours">
+                4 to 6 hours            
+              </label>
+            </div>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="6hours" name="manure_delay" type="radio" value="4 to 6 hours">
-                <label class="govuk-label govuk-radios__label" for="6hours">
-                  4 to 6 hours            
-                </label>
-              </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="12hours" name="manure_delay" type="radio" value="6 to 12 hours">
+              <label class="govuk-label govuk-radios__label" for="12hours">
+                6 to 12 hours            
+              </label>
+            </div>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="12hours" name="manure_delay" type="radio" value="6 to 12 hours">
-                <label class="govuk-label govuk-radios__label" for="12hours">
-                  6 to 12 hours            
-                </label>
-              </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="24hours" name="manure_delay" type="radio" value="12 to 24 hours">
+              <label class="govuk-label govuk-radios__label" for="24hours">
+                12 to 24 hours            
+              </label>
+            </div>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="24hours" name="manure_delay" type="radio" value="12 to 24 hours">
-                <label class="govuk-label govuk-radios__label" for="24hours">
-                  12 to 24 hours            
-                </label>
-              </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="days" name="manure_delay" type="radio" value="1 to 2 days">
+              <label class="govuk-label govuk-radios__label" for="days">
+                1 to 2 days            
+              </label>
+            </div>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="days" name="manure_delay" type="radio" value="1 to 2 days">
-                <label class="govuk-label govuk-radios__label" for="days">
-                  1 to 2 days            
-                </label>
-              </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="3days" name="manure_delay" type="radio" value="More than 7 days">
+              <label class="govuk-label govuk-radios__label" for="3days">
+                3 to 7 days            
+              </label>
+            </div>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="3days" name="manure_delay" type="radio" value="More than 7 days">
-                <label class="govuk-label govuk-radios__label" for="3days">
-                  3 to 7 days            
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
+            <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="7days" name="manure_delay" type="radio" value="More than 7 days">
               <label class="govuk-label govuk-radios__label" for="7days">
                 More than 7 days            
               </label>
-            </div>
-<!-- 
-            <div class="govuk-radios__divider">or</div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="hours" name="manure_delay" type="radio" value="It won't be incorporated">
-              <label class="govuk-label govuk-radios__label" for="hours">
-                It won't be incorporated            
-              </label>
-            </div> -->
-
           </div>
-
-        </div>
 
       </div>
 
@@ -107,14 +88,13 @@
         text: "Continue"
       }) }}
 
-      </form>
+    </form>
 
-    </div>
-    
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
-
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

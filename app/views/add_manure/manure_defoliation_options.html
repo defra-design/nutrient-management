@@ -15,75 +15,74 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Which cut or grazing is this organic material application for in Long field?
-      </h1>
+    <h1 class="govuk-heading-l">
+      Which cut or grazing is this organic material application for in Long field?
+    </h1>
 
-      <!-- <p class="govuk-body">These are cuts and grazings that these fields share.</p> -->
+    <!-- <p class="govuk-body">These are cuts and grazings that these fields share.</p> -->
 
-      <form class="form" action="manure_date" method="post">
+    <form class="form" action="manure_date" method="post">
 
-        <div class="govuk-form-group margin-bottom-forty">
-            <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-form-group margin-bottom-forty">
+        <div class="govuk-radios" data-module="govuk-radios">
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="one" name="grass_d" type="radio" value="one">
-                <label class="govuk-label govuk-radios__label" for="one">
-                  One - cut      
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="two" name="grass_d" type="radio" value="two">
-                <label class="govuk-label govuk-radios__label" for="two">
-                  Two - grazing
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="three" name="grass_d" type="radio" value="three">
-                <label class="govuk-label govuk-radios__label" for="three">
-                  Three - cut
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="four" name="grass_d" type="radio" value="four">
-                <label class="govuk-label govuk-radios__label" for="four">
-                  Four - grazing
-                </label>
-              </div>
-
-              <!-- <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="default" name="grass_d" type="radio" value="default">
-                <label class="govuk-label govuk-radios__label" for="default">
-                  Use the typical application rate of 
-                  {% if data.manure_type.liquid == true %}
-                    30 m3/ha
-                  {% else %}
-                    20 t/ha
-                  {% endif %}
-                </label>
-              </div> -->
-
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="one" name="grass_d" type="radio" value="one">
+            <label class="govuk-label govuk-radios__label" for="one">
+              One - cut      
+            </label>
           </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="two" name="grass_d" type="radio" value="two">
+            <label class="govuk-label govuk-radios__label" for="two">
+              Two - grazing
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="three" name="grass_d" type="radio" value="three">
+            <label class="govuk-label govuk-radios__label" for="three">
+              Three - cut
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="four" name="grass_d" type="radio" value="four">
+            <label class="govuk-label govuk-radios__label" for="four">
+              Four - grazing
+            </label>
+          </div>
+
+          <!-- <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="default" name="grass_d" type="radio" value="default">
+            <label class="govuk-label govuk-radios__label" for="default">
+              Use the typical application rate of 
+              {% if data.manure_type.liquid == true %}
+                30 m3/ha
+              {% else %}
+                20 t/ha
+              {% endif %}
+            </label>
+          </div> -->
+
         </div>
+      </div>
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-      </form>
+    </form>
 
-    </div>
-    
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
-
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

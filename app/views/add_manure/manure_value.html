@@ -15,23 +15,18 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <h1 class="govuk-heading-l">
       {% if data.quantity_type == "area"  %}
-        <h1 class="govuk-heading-l">
-            Enter the area and quantity for Long field
-        </h1>
+        Enter the area and quantity for Long field
       {% else %}
-        <h1 class="govuk-heading-l">
-          Enter the application rate
-        </h1>
-        <!-- <p class="govuk-hint">
-          Enter a number from 0 to 250 to 1 decimal place
-        </p>   -->
+        Enter the application rate
       {% endif %}
-      
-      {% if data.quantity_type == "area"  %}
+    </h1>
+
+    {% if data.quantity_type == "area"  %}
       <table class="govuk-table margin-bottom-forty">
         <caption class="govuk-table__caption govuk-table__caption--m">Sizes entered at set up</caption>
         <thead class="govuk-table__head">
@@ -51,63 +46,62 @@
           </tr>
         </tbody>
       </table>
+    {% endif %}
+
+    <form class="form" action="manure_incorporation_method" method="post">
+      {% if data.quantity_type == "area"  %}
+      
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="width-20">
+            Spreading area
+          </label>
+          <div class="govuk-input__wrapper"><input value="57" class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">hectares</div>
+          </div>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="width-20">
+            Quantity
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">
+              {% if data.manure_type.liquid == true %}
+                cubic metres
+              {% else %}
+                tonnes
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        {% else %}
+
+        <div class="govuk-form-group">
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+            <div class="govuk-input__suffix" aria-hidden="true">
+              {% if data.manure_type.liquid == true %}
+                cubic metres per hectare
+              {% else %}
+                tonnes per hectare
+              {% endif %}
+            </div>
+          </div>
+        </div>
 
       {% endif %}
 
-      <form class="form" action="manure_incorporation_method" method="post">
-        {% if data.quantity_type == "area"  %}
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="width-20">
-              Spreading area
-            </label>
-            <div class="govuk-input__wrapper"><input value="57" class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
-              <div class="govuk-input__suffix" aria-hidden="true">hectares</div>
-            </div>
-          </div>
+    </form>
 
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="width-20">
-              Quantity
-            </label>
-            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
-              <div class="govuk-input__suffix" aria-hidden="true">
-                {% if data.manure_type.liquid == true %}
-                  cubic metres
-                {% else %}
-                  tonnes
-                {% endif %}
-              </div>
-            </div>
-          </div>
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
 
-          {% else %}
-
-          <div class="govuk-form-group">
-            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
-              <div class="govuk-input__suffix" aria-hidden="true">
-                {% if data.manure_type.liquid == true %}
-                  cubic metres per hectare
-                {% else %}
-                  tonnes per hectare
-                {% endif %}
-              </div>
-            </div>
-          </div>
-
-        {% endif %}
-
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-      </form>
-
-    </div>
-    
   </div>
-
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

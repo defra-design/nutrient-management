@@ -15,58 +15,46 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
+    <h1 class="govuk-heading-l">
+      Do you want to enter one value for Autumn crop nitrogen (N) uptake for all these fields, or for each field separately?
+    </h1>
 
-        Do you want to enter one value for 
-          {% if data.condition_question == 'nitrogen' %}
-            Autumn crop nitrogen (N) uptake 
-          {% else %}
-            Autumn crop nitrogen (N) uptake 
-          {% endif %}
-        for all these fields, or for each field separately?
-      </h1>
-
-      {% if data.condition_question == 'nitrogen' %}
-        <form class="form" action="manure_nitrogen" method="post">
-      {% else %}
-        <form class="form" action="manure_nitrogen" method="post">
-      {% endif %}
-      
-        <div class="govuk-form-group margin-bottom-forty">
-            <div class="govuk-radios" data-module="govuk-radios">
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rate" name="quantity_type" type="radio" value="rate">
-                <label class="govuk-label govuk-radios__label" for="rate">
-                  Enter one value for all these fields     
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="area" name="quantity_type" type="radio" value="area">
-                <label class="govuk-label govuk-radios__label" for="area">
-                  Enter a different value for each of these fields
-                </label>
-              </div>
-
-          </div>
-        </div>
-
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-
-      </form>
-
-    </div>
+    <form class="form" action="manure_nitrogen" method="post">
     
-  </div>
+      <div class="govuk-form-group margin-bottom-forty">
+        <div class="govuk-radios" data-module="govuk-radios">
 
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="rate" name="quantity_type" type="radio" value="rate">
+            <label class="govuk-label govuk-radios__label" for="rate">
+              Enter one value for all these fields     
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="area" name="quantity_type" type="radio" value="area">
+            <label class="govuk-label govuk-radios__label" for="area">
+              Enter a different value for each of these fields
+            </label>
+          </div>
+
+        </div>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
+  </div>
+</div>
 
 {% endblock %}

@@ -852,7 +852,7 @@ router.get(/manuredate_handler/, function (req, res) {
     if (req.query.notification == 'true') {
         req.session.data.show_manure_notification = true
     }
-    res.redirect('/version_2/add_manure/manure_datenotification')
+    res.redirect('/add_manure/manure_datenotification')
 })
 
 router.get(/livestock_type_v7_handler/, function (req, res) {

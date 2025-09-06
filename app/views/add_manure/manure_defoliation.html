@@ -15,60 +15,60 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Is this organic material application for the same cut or grazing in all the selected grass fields?
-      </h1>
+    <h1 class="govuk-heading-l">
+      Is this organic material application for the same cut or grazing in all the selected grass fields?
+    </h1>
 
-      <!-- <p class="govuk-body">If you use these values for all future applications you can change them at any time under farm and field details.</p> -->
+    <!-- <p class="govuk-body">If you use these values for all future applications you can change them at any time under farm and field details.</p> -->
 
-      <form class="form" action="manure_defoliation_options" method="post">
+    <form class="form" action="manure_defoliation_options" method="post">
 
-        <div class="govuk-form-group margin-bottom-forty">
-            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rate" name="quantity_type" type="radio" value="rate">
-                <label class="govuk-label govuk-radios__label" for="rate">
-                  Yes          
-                </label>
-              </div>
+      <div class="govuk-form-group margin-bottom-forty">
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="rate" name="quantity_type" type="radio" value="rate">
+              <label class="govuk-label govuk-radios__label" for="rate">
+                Yes          
+              </label>
+            </div>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="area" name="quantity_type" type="radio" value="area">
-                <label class="govuk-label govuk-radios__label" for="area">
-                  No  
-                </label>
-              </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="area" name="quantity_type" type="radio" value="area">
+              <label class="govuk-label govuk-radios__label" for="area">
+                No  
+              </label>
+            </div>
 
-              <!-- <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="default" name="quantity_type" type="radio" value="default">
-                <label class="govuk-label govuk-radios__label" for="default">
-                  Use the typical application rate of 
-                  {% if data.manure_type.liquid == true %}
-                    30 m3/ha
-                  {% else %}
-                    20 t/ha
-                  {% endif %}
-                </label>
-              </div> -->
+            <!-- <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="default" name="quantity_type" type="radio" value="default">
+              <label class="govuk-label govuk-radios__label" for="default">
+                Use the typical application rate of 
+                {% if data.manure_type.liquid == true %}
+                  30 m3/ha
+                {% else %}
+                  20 t/ha
+                {% endif %}
+              </label>
+            </div> -->
 
-          </div>
         </div>
+      </div>
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-      </form>
+    </form>
 
-    </div>
-    
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
+</div>
 
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
 
 {% endblock %}

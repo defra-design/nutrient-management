@@ -17,61 +17,61 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Nutrient values for {{data.manure_type.name}}
-      </h1>
+    <h1 class="govuk-heading-l">
+      Nutrient values for {{data.manure_type.name}}
+    </h1>
 
-      <p class="govuk-hint">These typical figures come from the AHDB Nutrient Management Guide (RB209).</p>
+    <p class="govuk-hint">These typical figures come from the AHDB Nutrient Management Guide (RB209).</p>
 
-      <!-- <h2 class="govuk-heading-m">
-        {{data.manure_type.name}}
-      </h2> -->
-      
-      <div class="margin-bottom-forty">
+    <!-- <h2 class="govuk-heading-m">
+      {{data.manure_type.name}}
+    </h2> -->
+    
+    <div class="margin-bottom-forty">
       {% if data.manure_type.liquid == true %}
         {% include "/templates/manures/manure_defaults_liquid.html" %}
       {% else %}
-       {% include "/templates/manures/manure_defaults_solid.html" %}
+        {% include "/templates/manures/manure_defaults_solid.html" %}
       {% endif %}
-      </div>
+    </div>
 
-      <p class="govuk-body">
-        Do you want to use these typical nutrient values?
-      </p>
+    <p class="govuk-body">
+      Do you want to use these typical nutrient values?
+    </p>
 
-      <form class="form" action="enter_manure_defualts_handler" method="post">
-        
-        <div class="govuk-form-group">
-          <div class="govuk-radios margin-bottom-forty" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="yes" name="edit_manure_defaults" type="radio" value="yes">
-              <label class="govuk-label govuk-radios__label" for="yes">
-                Yes, use these values          
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="no" name="edit_manure_defaults" type="radio" value="no">
-              <label class="govuk-label govuk-radios__label" for="no">
-                No, change these values
-              </label>
-            </div>
+    <form class="form" action="enter_manure_defualts_handler" method="post">
+      
+      <div class="govuk-form-group">
+        <div class="govuk-radios margin-bottom-forty" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="yes" name="edit_manure_defaults" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="yes">
+              Yes, use these values          
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="no" name="edit_manure_defaults" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="no">
+              No, change these values
+            </label>
           </div>
         </div>
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+      </div>
 
-      </form>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-    </div>
-    
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
-
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

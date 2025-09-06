@@ -16,56 +16,56 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      
-      <h1 class="govuk-heading-l">
-        Which fields would you like to plan an organic material application for?
-      </h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <h1 class="govuk-heading-l">
+      Which fields would you like to plan an organic material application for?
+    </h1>
 
-      <form class="form" action="manure_group" method="post">
+    <form class="form" action="manure_group" method="post">
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-            <div id="waste-hint" class="govuk-hint">
-              Select all that apply.
-            </div>
-            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <div id="waste-hint" class="govuk-hint">
+            Select all that apply.
+          </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
 
-            {% for group in data.currentCropGroups %}
-              {% for field in group.fields %}
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id={{field.reference}} name="manure_fields" type="checkbox" value={{field.reference}}>
-                <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
-                  {{field.name}} 
-                </label>
-              </div>
-              {% endfor %} 
-            {% endfor %} 
-
-            <div class="govuk-checkboxes__divider">or</div>
+          {% for group in data.currentCropGroups %}
+            {% for field in group.fields %}
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="" name="" type="checkbox" value="">
-              <label class="govuk-label govuk-checkboxes__label" for="">
-                Select all
+              <input class="govuk-checkboxes__input" id={{field.reference}} name="manure_fields" type="checkbox" value={{field.reference}}>
+              <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
+                {{field.name}} 
               </label>
             </div>
+            {% endfor %} 
+          {% endfor %} 
 
-            </div>
-          </fieldset>
-        </div>
+          <div class="govuk-checkboxes__divider">or</div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="" name="" type="checkbox" value="">
+            <label class="govuk-label govuk-checkboxes__label" for="">
+              Select all
+            </label>
+          </div>
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+          </div>
+        </fieldset>
+      </div>
 
-      </form>    
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-    </div>
+    </form>  
+    
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
-
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

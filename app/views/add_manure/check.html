@@ -14,6 +14,7 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
@@ -39,7 +40,7 @@
     </h1>
 
     <div class="check-answers">
-        {% include "./check_manure.html" %}
+      {% include "./templates/check_manure.html" %}
     </div>
 
     <!-- <br> -->
@@ -51,13 +52,17 @@
     </div> -->
 
     <form action="version5_manure_handler" method="post" novalidate>
+
       {{ govukButton({
         text: "Add to plan"
       }) }}
     </form>
+
     <p class="govuk-body">
       <a href="cancel">Cancel</a>
     </p>
+
   </div>
 </div>
+
 {% endblock %}

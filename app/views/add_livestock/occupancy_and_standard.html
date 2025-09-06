@@ -16,110 +16,83 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Occupancy and nitrogen (N) standard
+    </h1>
 
-        <h1 class="govuk-heading-l">
-          Occupancy and nitrogen (N) standard
-        </h1>
-        <p class="govuk-body">
-            Selected livestock type: {{data.chosen_livestock.name | capitalize}}
-        </p>
-        <details class="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              Help with occupancy and nitrogen (N) standard
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-        </p>
-        <p class="govuk-body strong">
-            Occupancy
-        </p>
-        <p class="govuk-body">
-            These animals are counted by the number of places for them on the farm. Occupancy means the proportion of the year that these places are occupied by animals. 
-        </p>
-        <p class="govuk-body">
-            For example, if your production cycle lasts 42 days, and the empty period is 7 days (total 49 days), then your occupancy is 86%.
-            If the occupancy on your farm is different to the value shown here, you can change it.        
-        </p>
-        <p class="govuk-body strong">
-            Nitrogen (N) standard
-        </p>
-        <p class="govuk-body">
-          The nitrogen (N) standard figure is the average nitrogen (N) produced by this type of animal
-        </p>
-        <p class="govuk-body">
-          This figure accounts for occupancy already, so if you change it, you must keep the occupancy value the same. You can only change one of these values.
-        </p>
+    <p class="govuk-body">Selected livestock type: {{data.chosen_livestock.name | capitalize}}</p>
 
-          </div>
-        </details>
-    
-    <!-- <h3 class="govuk-heading-s">
-      Occupancy and nitrogen (N) standard for this poultry type
-    </h3> -->
+    <details class="govuk-details">
 
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">Help with occupancy and nitrogen (N) standard</span>
+      </summary>
+      
+      <div class="govuk-details__text">
+        {% include "./templates/occupancy_content.html" ignore missing %}
+      </div>
+
+    </details>
+  
     <table class="govuk-table">
-        <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Occupancy</th>
-              <td class="govuk-table__cell">86% of the year</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Nitrogen (N) standard</th>
-              <td class="govuk-table__cell">83kg per 1000 places, per year</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Phosphate (P205) standard</th>
-              <td class="govuk-table__cell">83kg per 1000 places, per year</td>
-            </tr>
-        </tbody>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Occupancy</th>
+          <td class="govuk-table__cell">86% of the year</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Nitrogen (N) standard</th>
+          <td class="govuk-table__cell">83kg per 1000 places, per year</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Phosphate (P205) standard</th>
+          <td class="govuk-table__cell">83kg per 1000 places, per year</td>
+        </tr>
+      </tbody>
     </table>
 
     <p class="govuk-body">Do you want to use these values for this poultry type?</p>
     <p class="govuk-hint">The Phosphate (P205) standard can not be changed.</p>
 
-      <form action="occupancy_handler" method="post" novalidate="">
+    <form action="occupancy_handler" method="post" novalidate="">
 
-<div class="govuk-form-group margin-bottom-thirty">
-  <fieldset class="govuk-fieldset">
-    <div class="govuk-radios" data-module="govuk-radios">
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="occupancy" name="occupancy_value" type="radio" value="yes">
-        <label class="govuk-label govuk-radios__label" for="occupancy">
-          Yes, use these values
-        </label>
-      </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="occupancy-2" name="occupancy_value" type="radio" value="occupancy">
-        <label class="govuk-label govuk-radios__label" for="occupancy-2">
-          No, change the occupancy value
-        </label>
-      </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="occupancy-3" name="occupancy_value" type="radio" value="standard">
-        <label class="govuk-label govuk-radios__label" for="occupancy-3">
-          No, change the nitrogen (N) standard value
-        </label>
-      </div>
+    <div class="govuk-form-group margin-bottom-thirty">
+      <fieldset class="govuk-fieldset">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="occupancy" name="occupancy_value" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="occupancy">
+              Yes, use these values
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="occupancy-2" name="occupancy_value" type="radio" value="occupancy">
+            <label class="govuk-label govuk-radios__label" for="occupancy-2">
+              No, change the occupancy value
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="occupancy-3" name="occupancy_value" type="radio" value="standard">
+            <label class="govuk-label govuk-radios__label" for="occupancy-3">
+              No, change the nitrogen (N) standard value
+            </label>
+          </div>
+        </div>
+      </fieldset>
     </div>
-  </fieldset>
-</div>
 
+    <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+      Continue
+    </button>
 
+  </form>
 
-        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Continue
-        </button>
-
-      </form>
-
-      <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
-
-    </div>
+  <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
 
   </div>
+</div>
 
 {% endblock %}

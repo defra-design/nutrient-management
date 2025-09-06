@@ -15,53 +15,51 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Was there any livestock on {{data.oaktree_farm.name}} in 2025?
-      </h1>
+    <h1 class="govuk-heading-l">
+      Was there any livestock on {{data.oaktree_farm.name}} in 2025?
+    </h1>
 
-      <p class="govuk-hint">
-        <!-- Include, cattle, sheep, pigs, goats, horses and deer. Only include poultry where you have over 1000 of any single type. -->
-        Include cattle, sheep, pigs, poultry, goats, deer and horses.
-      </p>
+    <p class="govuk-hint">
+      Include cattle, sheep, pigs, poultry, goats, deer and horses.
+    </p>
 
-      <p class="govuk-hint">Select one option.</p>
+    <p class="govuk-hint">Select one option.</p>
 
+    <form class="form" action="livestock_loading_router" method="post">
 
-      <form class="form" action="livestock_loading_router" method="post">
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <div class="govuk-radios--inline" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="yes" name="livestock_loading" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="yes">
-                  Yes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="no" name="livestock_loading" type="radio" {% if data.oaktree_farm.livestock_loading == 'none' %} checked {% endif %} value="no">
-                <label class="govuk-label govuk-radios__label" for="no">
-                  No
-                </label>
-              </div>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="yes" name="livestock_loading" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="yes">
+                Yes
+              </label>
             </div>
-          </fieldset>
-        </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="no" name="livestock_loading" type="radio" {% if data.oaktree_farm.livestock_loading == 'none' %} checked {% endif %} value="no">
+              <label class="govuk-label govuk-radios__label" for="no">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-      </form>
+    </form>
 
-    </div>
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
-  
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

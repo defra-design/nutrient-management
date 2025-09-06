@@ -15,50 +15,32 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <!-- <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-        <div class="govuk-notification-banner__header">
-          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-            Planning
-          </h2>
-        </div>
-        <div class="govuk-notification-banner__content">
-          <p class="govuk-notification">
-            Select your first crop group and type for 2024.
-            You can then add the crop to one or more fields to create your plan.
-          </p>
-          <p class="govuk-notification">
-            You can create as many crop groups as you need to, for example you can group crops by how tHay will be treated
-          </p>
-        </div>
+    <h1 class="govuk-heading-l">
+      What type of livestock would you like to add?
+    </h1>
+
+    <p class="govuk-hint">Select one option.</p>
+
+    <form class="form" action="livestock_type" method="post">
+
+      <div class="govuk-form-group">
+        {% include "./templates/livestock_content" %}
       </div>
- -->
 
-      <h1 class="govuk-heading-l">
-        What type of livestock would you like to add?
-      </h1>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-      <p class="govuk-hint">Select one option.</p>
+    </form>
 
-      <form class="form" action="livestock_type" method="post">
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
 
-        <div class="govuk-form-group">
-            {% include "./livestock_content" %}
-          </fieldset>
-        </div>
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-
-      </form>
-
-    </div>
   </div>
+</div>
   
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
-
 {% endblock %}

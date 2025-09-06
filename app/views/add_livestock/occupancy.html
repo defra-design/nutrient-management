@@ -16,57 +16,53 @@
 
 {% block content %}
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  
+    <h1 class="govuk-heading-l">What is the occupancy for this livestock type in 2025?</h1>
+          
+    <p class="govuk-body">Selected livestock type: {{data.chosen_livestock.name | capitalize}}</p>
 
+    <details class="govuk-details">
 
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+         Help with occupancy
+        </span>
+      </summary>
 
-  <div class="govuk-grid-row">
-
-    <div class="govuk-grid-column-two-thirds">
-    
-      <h1 class="govuk-heading-l">
-        What is the occupancy for this livestock type in 2025?
-      </h1>
-            
-    <p class="govuk-body">
-        Selected livestock type: {{data.chosen_livestock.name | capitalize}}
-    </p>
-
-      <details class="govuk-details">
-        <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-            Help with occupancy
-            </span>
-        </summary>
-        <div class="govuk-details__text">
+      <div class="govuk-details__text">
         <p class="govuk-body">
-            These animals are counted by the number of places for them on the farm. Occupancy means the proportion of the year that these places are occupied by animals. 
+          These animals are counted by the number of places for them on the farm. Occupancy means the proportion of the year that these places are occupied by animals. 
         </p>
+        
         <p class="govuk-body">
-            For example, if your production cycle lasts 42 days, and the empty period is 7 days (total 49 days), then your occupancy is 86%.
-            If the occupancy on your farm is different to the value shown here, you can change it.        
+          For example, if your production cycle lasts 42 days, and the empty period is 7 days (total 49 days), then your occupancy is 86%.
+           If the occupancy on your farm is different to the value shown here, you can change it.        
         </p>
-        </div>
+      </div>
+
     </details>
 
-      <form action="check" method="post" novalidate="">
-        <div class="govuk-form-group">
-          <div class="govuk-input__wrapper">
-              <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" value="86" autocomplete="off">
-              <div class="govuk-input__suffix" aria-hidden="true">
-                  %
-              </div>
+    <form action="check" method="post" novalidate="">
+      <div class="govuk-form-group">
+        <div class="govuk-input__wrapper">
+          <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" value="86" autocomplete="off">
+          <div class="govuk-input__suffix" aria-hidden="true">
+              %
           </div>
         </div>
-        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Continue
-        </button>
+      </div>
+      
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
 
-      </form>
+    </form>
 
-      <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
-
-    </div>
+    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
 
   </div>
+</div>
 
 {% endblock %}

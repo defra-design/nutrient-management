@@ -16,41 +16,36 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+        What is the average number of places for this {{data.chosen_livestock.shortname}} type for 2025?
+    </h1>
 
-        <h1 class="govuk-heading-l">
-            What is the average number of places for this {{data.chosen_livestock.shortname}} type for 2025?
-        </h1>
+    <p class="govuk-body">Selected livestock type: {{data.chosen_livestock.name | capitalize}}</p>
 
-        <p class="govuk-body">
-            Selected livestock type: {{data.chosen_livestock.name | capitalize}}
-        </p>
+    <form action="occupancy_and_standard" method="post" novalidate="">
 
-        <form action="occupancy_and_standard" method="post" novalidate="">
-
-          <div class="govuk-form-group">
-            <p class="govuk-hint">For example, for 10,000 places enter 10</p>
-            <div class="govuk-input__wrapper">
-                <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
-                <div class="govuk-input__suffix" aria-hidden="true">
-                    thousand places
-                </div>
+      <div class="govuk-form-group">
+        <p class="govuk-hint">For example, for 10,000 places enter 10</p>
+        <div class="govuk-input__wrapper">
+            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">
+                thousand places
             </div>
-          </div>
+        </div>
+      </div>
 
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
 
-          <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-            Continue
-          </button>
+    </form>
 
-        </form>
-
-      <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
-
-    </div>
+    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
 
   </div>
+</div>
 
 {% endblock %}

@@ -16,38 +16,36 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-two-thirds">
-      
-      <form action="check" method="post" novalidate="">
+    <h1 class="govuk-heading-l">
+      {% if data.livestock_group == 'poultry' or data.livestock_group == 'pig' %} 
+        Number of places, occupancy and nitrogen (N) standard
+      {% else %} 
+        What is the average total number of this {{data.chosen_livestock.shortname}} type for 2025?
+      {% endif %} 
+    </h1>
 
-        <h1 class="govuk-heading-l">
-          {% if data.livestock_group == 'poultry' or data.livestock_group == 'pig' %} 
-            Number of places, occupancy and nitrogen (N) standard
-          {% else %} 
-            What is the average total number of this {{data.chosen_livestock.shortname}} type for 2025?
-          {% endif %} 
-        </h1>
+    <form action="check" method="post" novalidate="">
 
-        {% if data.livestock_group == 'poultry' %}
-          {% include "./poultry_content_v1.html" ignore missing %}
-        {% elif data.livestock_group == 'pig' %}
-          {% include "./pig_content.html" ignore missing %}
-        {% else %}
-          {% include "./cattle_content.html" ignore missing %}
-        {% endif %}
+      {% if data.livestock_group == 'poultry' %}
+        {% include "./poultry_content_v1.html" ignore missing %}
+      {% elif data.livestock_group == 'pig' %}
+        {% include "./templates/pig_content.html" ignore missing %}
+      {% else %}
+        {% include "./templates/cattle_content.html" ignore missing %}
+      {% endif %}
 
-        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Continue
-        </button>
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
 
-      </form>
+    </form>
 
-      <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
-
-    </div>
+    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
 
   </div>
+</div>
 
 {% endblock %}

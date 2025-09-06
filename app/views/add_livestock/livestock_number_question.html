@@ -15,51 +15,52 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        How do you want to enter the numbers for this cattle type?
-      </h1>
-            
-      <p class="govuk-body">
-          Selected livestock type: {{data.chosen_livestock.name | capitalize}}.
-      </p>
+    <h1 class="govuk-heading-l">
+      How do you want to enter the numbers for this cattle type?
+    </h1>
+          
+    <p class="govuk-body">
+        Selected livestock type: {{data.chosen_livestock.name | capitalize}}.
+    </p>
 
-      <p class="govuk-hint">Select one option.</p>
+    <p class="govuk-hint">Select one option.</p>
 
-      <form class="form" action="livestockentry_handler" method="post">
+    <form class="form" action="livestockentry_handler" method="post">
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <div class="govuk-radios" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="monthly" name="livestock_entry" type="radio" value="monthly">
-                  <label class="govuk-label govuk-radios__label" for="monthly">
-                    Enter a number for each month
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="annually" name="livestock_entry" type="radio" value="annually">
-                  <label class="govuk-label govuk-radios__label" for="annually">
-                    Enter the average number for the year
-                  </label>
-                </div>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="monthly" name="livestock_entry" type="radio" value="monthly">
+              <label class="govuk-label govuk-radios__label" for="monthly">
+                Enter a number for each month
+              </label>
             </div>
-          </fieldset>
-        </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="annually" name="livestock_entry" type="radio" value="annually">
+              <label class="govuk-label govuk-radios__label" for="annually">
+                Enter the average number for the year
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-      </form>
+    </form>
 
-    </div>
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
-  
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
+
 
 {% endblock %}

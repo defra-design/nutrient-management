@@ -15,80 +15,77 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Do you have any low risk run-off land between January and March 2025?
-      </h1>
+    <h1 class="govuk-heading-l">
+      Do you have any low risk run-off land between January and March 2025?
+    </h1>
 
-      <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            About low risk run off land
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <p class="govuk-body">
-            Low run-off risk land is land that:
-          </p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          About low risk run off land
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p class="govuk-body">
+          Low run-off risk land is land that:
+        </p>
 
-          <ul class="govuk-list govuk-list--bullet">
-            <li>has an average slope of less than 3 degrees</li>
-            <li>does not have land drains</li>
-            <li>is at least 50 metres from a watercourse or conduit leading to a watercourse</li>
-          </ul>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>has an average slope of less than 3 degrees</li>
+          <li>does not have land drains</li>
+          <li>is at least 50 metres from a watercourse or conduit leading to a watercourse</li>
+        </ul>
 
-          <p class="govuk-body">
-            The NVZ minimum manure storage requirement may be reduced by the volume of slurry or poultry manure that can always be applied to land with a low risk of run-off following the end of the closed period.
-          </p>
+        <p class="govuk-body">
+          The NVZ minimum manure storage requirement may be reduced by the volume of slurry or poultry manure that can always be applied to land with a low risk of run-off following the end of the closed period.
+        </p>
 
-          <p>This is provided that you:</p>
-          
-          <ul class="govuk-list govuk-list--bullet">
-            <li>comply with all other NVZ rules, including the requirement not to spread more than 50 cubic metres per hectare of slurry, or 8 tonnes per hectare of poultry manure in a single application between the end of the closed period and the end of February. You must allow at least 3 weeks between each individual application during this period.</li>
-            <li>mark the areas of low run-off risk land on your farm risk map for spreading organic manures.</li>
-            <li>provide, as a contingency arrangement, additional storage capacity equivalent to one week's worth production of manure. If you make any entry here, the tool will automatically calculate this extra requirement.</li>
-          </ul>
-        </div>
-      </details>
+        <p>This is provided that you:</p>
+        
+        <ul class="govuk-list govuk-list--bullet">
+          <li>comply with all other NVZ rules, including the requirement not to spread more than 50 cubic metres per hectare of slurry, or 8 tonnes per hectare of poultry manure in a single application between the end of the closed period and the end of February. You must allow at least 3 weeks between each individual application during this period.</li>
+          <li>mark the areas of low run-off risk land on your farm risk map for spreading organic manures.</li>
+          <li>provide, as a contingency arrangement, additional storage capacity equivalent to one week's worth production of manure. If you make any entry here, the tool will automatically calculate this extra requirement.</li>
+        </ul>
+      </div>
+    </details>
 
+    <p class="govuk-hint">Choose one option.</p>
 
-      <p class="govuk-body strong">
-      </p>
-      <p class="govuk-hint">Choose one option.</p>
+    <form class="form" action="low_risk_land_handler" method="post">
 
-      <form class="form" action="low_risk_land_handler" method="post">
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="yes" name="low_risk_land" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="yes">
-                  Yes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="no" name="low_risk_land" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="no">
-                  No
-                </label>
-              </div>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="yes" name="low_risk_land" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="yes">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="no" name="low_risk_land" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="no">
+                No
+              </label>
+            </div>
           </div>
-          </fieldset>
-        </div>
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-      </form>
+    </form>
 
-    </div>
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
-  
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

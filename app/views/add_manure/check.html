@@ -40,16 +40,12 @@
     </h1>
 
     <div class="check-answers">
-      {% include "./templates/check_manure.html" %}
+      {% if data.manure_type.liquid == true %}
+        {% include "./templates/check_manure_liquid.html" ignore missing %}
+      {% else %}
+        {% include "./templates/check_manure_solid.html" ignore missing %}
+      {% endif %}
     </div>
-
-    <!-- <br> -->
-    <!-- <h2 class="govuk-heading-m">
-      These values are based on your organic material choices
-    </h2>
-    <div class="check-answers">
-      {% include "./check_manure_values.html" ignore missing %}
-    </div> -->
 
     <form action="version5_manure_handler" method="post" novalidate>
 

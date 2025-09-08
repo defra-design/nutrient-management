@@ -84,7 +84,7 @@ router.get(/field_details_reset_handler/, callback_functions.hideSuccessMessage,
 
 //plan_view reset messages
 router.get(/planview_reset_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    res.redirect('../crop_plan/plan_view');
+    res.redirect('/farm/crop_plan/plan_view');
 })
 
 //change the livestock add / change journey to add for inventory livestock

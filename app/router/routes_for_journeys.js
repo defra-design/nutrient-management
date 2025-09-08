@@ -279,7 +279,6 @@ router.get(/log_croptype_router/, function (req, res) {
     }
 })
 
-
 router.get(/gaiheight_router/, function (req, res) { 
     var next = (req.session.data.gaiheight == "gai") ? 'gai' : 'height'
     res.redirect(next)

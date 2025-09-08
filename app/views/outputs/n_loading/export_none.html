@@ -15,52 +15,47 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Did you have any imports or exports of livestock manure at {{data.oaktree_farm.name}} in 2025?
-      </h1>
+    <h1 class="govuk-heading-l">
+      Did you have any imports or exports of livestock manure at {{data.oaktree_farm.name}} in 2025?
+    </h1>
 
-      <!-- <p class="govuk-body">
-        Include, cattle, sheep, pigs, goats, horses and deer. Only include poultry over <strong>X</strong> number of places.
-      </p> -->
+    <p class="govuk-hint">Select one option.</p>
 
-      <p class="govuk-hint">Select one option.</p>
+    <form class="form" action="export_type_router" method="post">
 
-
-      <form class="form" action="export_type_router" method="post">
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <div class="govuk-radios--inline" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="yes" name="imports_exports" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="yes">
-                  Yes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="no" name="imports_exports" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="no">
-                  No
-                </label>
-              </div>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="yes" name="imports_exports" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="yes">
+                Yes
+              </label>
             </div>
-          </fieldset>
-        </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="no" name="imports_exports" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="no">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-      </form>
+    </form>
 
-    </div>
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
   </div>
-  
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

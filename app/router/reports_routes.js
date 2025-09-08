@@ -448,11 +448,13 @@ router.get(/export_year_handler/, callback_functions.hideSuccessMessage, functio
 
 router.get(/get_manure_type_handler/, function (req, res) {
     //get object
+    console.log('manure type ' + req.session.data.manure_type)
     for (var x in req.session.data.manure_types ) {
         if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
             req.session.data.manure_type = req.session.data.manure_types[x]
         }
     }
+    console.log('manure type name' + req.session.data.manure_type.name)
     res.redirect('date')
 })
 

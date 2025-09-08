@@ -289,9 +289,9 @@ router.get(/system_inventory_handler/, callback_functions.hide_error, callback_f
 
 router.get(/water_inventory_handler/, callback_functions.hide_error, callback_functions.hideSuccessMessage, function (req, res) {
     let next = '/outputs/inventory/manage_water/index'
-    if (req.session.data.oaktree_farm.livestock_inventory != 'added') { 
-        next = '/add_livestock_inventory/livestock_none'
-    } 
+    // if (req.session.data.oaktree_farm.livestock_inventory != 2) { 
+    //     next = '/add_livestock_inventory/livestock_none'
+    // } 
     res.redirect(next);
 })
 

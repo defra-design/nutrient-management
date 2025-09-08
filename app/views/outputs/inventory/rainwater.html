@@ -16,70 +16,64 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-two-thirds">
-      
-      <form action="rainwater_area_handler" method="post" novalidate="">
+    <h1 class="govuk-heading-l">Rainwater collection areas</h1>
+    
+    <form action="rainwater_area_handler" method="post" novalidate="">
 
-        <h1 class="govuk-heading-l">Rainwater collection areas</h1>
-
-        <div class="govuk-form-group margin-bottom-thirty">
-          <label class="govuk-label" for="livestock_number">
-            Total area of fouled open concrete draining to slurry stores<br>
-            <span class="govuk-hint">Include uncovered solid manure stores, silage clamps, etc.</span>
-          </label>
-          <div class="govuk-input__wrapper">
-            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">metres squared</div>
-          </div>
+      <div class="govuk-form-group margin-bottom-thirty">
+        <label class="govuk-label" for="livestock_number">
+          Total area of fouled open concrete draining to slurry stores<br>
+          <span class="govuk-hint">Include uncovered solid manure stores, silage clamps, etc.</span>
+        </label>
+        <div class="govuk-input__wrapper">
+          <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+          <div class="govuk-input__suffix" aria-hidden="true">metres squared</div>
         </div>
+      </div>
 
-        <div class="govuk-form-group margin-bottom-thirty">
-          <label class="govuk-label" for="livestock_number">
-            Total area of clean concrete and roofs draining to slurry stores
-          </label>
-          <div class="govuk-input__wrapper">
-            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">metres squared</div>
-          </div>
+      <div class="govuk-form-group margin-bottom-thirty">
+        <label class="govuk-label" for="livestock_number">
+          Total area of clean concrete and roofs draining to slurry stores
+        </label>
+        <div class="govuk-input__wrapper">
+          <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+          <div class="govuk-input__suffix" aria-hidden="true">metres squared</div>
         </div>
+      </div>
 
-        <div class="govuk-form-group margin-bottom-thirty">
-          <label class="govuk-label" for="livestock_number">
-            Total area of fouled open concrete draining to dirty water stores<br>
-            <span class="govuk-hint">Include uncovered solid manure stores, silage clamps, etc.</span>
-          </label>
-          <div class="govuk-input__wrapper">
-            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">metres squared</div>
-          </div>
+      <!-- <div class="govuk-form-group margin-bottom-thirty">
+        <label class="govuk-label" for="livestock_number">
+          Total area of fouled open concrete draining to dirty water stores<br>
+          <span class="govuk-hint">Include uncovered solid manure stores, silage clamps, etc.</span>
+        </label>
+        <div class="govuk-input__wrapper">
+          <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+          <div class="govuk-input__suffix" aria-hidden="true">metres squared</div>
         </div>
+      </div> -->
 
-        <div class="govuk-form-group margin-bottom-thirty">
-          <label class="govuk-label" for="livestock_number">
-            Total area of clean concrete and roofs draining to dirty water stores
-          </label>
-          <div class="govuk-input__wrapper">
-            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">metres squared</div>
-          </div>
+      <!-- <div class="govuk-form-group margin-bottom-thirty">
+        <label class="govuk-label" for="livestock_number">
+          Total area of clean concrete and roofs draining to dirty water stores
+        </label>
+        <div class="govuk-input__wrapper">
+          <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+          <div class="govuk-input__suffix" aria-hidden="true">metres squared</div>
         </div>
+      </div> -->
 
-        <div class="margin-bottom-forty">
-          <p></p>
-        </div>
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
 
-        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Continue
-        </button>
+    </form>
 
-      </form>
-
-      <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
-
-    </div>
+    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
 
   </div>
+</div>
 
 {% endblock %}

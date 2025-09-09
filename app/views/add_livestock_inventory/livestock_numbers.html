@@ -17,7 +17,6 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
@@ -40,17 +39,17 @@
           </div>
         </div>
 
-        <div class="govuk-form-group margin-bottom-forty">
+        <div class="govuk-form-group margin-bottom-thirty">
           <label class="govuk-label" for="livestock_occupancy">
-            What percentage of time are the {{data.chosen_livestock.shortname}} housed during October?
+            What percentage of time are these {{data.chosen_livestock.shortname}} housed during October?
           </label>
           <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="80" id="livestock_occupancy" name="livestock_occupancy" type="text" spellcheck="false" autocomplete="off">
             <div class="govuk-input__suffix" aria-hidden="true">%</div>
           </div>
         </div>
 
-        <div class="govuk-form-group margin-bottom-thirty">
-          <div class="govuk-form-group">
+        {% if data.livestock_group != 'poultry' %}
+          <div class="govuk-form-group margin-bottom-thirty">
             <legend class="govuk-fieldset__legend">
               What is this livestock's main manure system in October?
             </legend>
@@ -64,17 +63,14 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="solid" name="mostly_manure" type="radio" value="solid">
                 <label class="govuk-label govuk-radios__label" for="solid">
-                   Mostly solid manure
+                    Mostly solid manure
                 </label>
               </div>
+            </div>
           </div>
-        </div>
+        {% endif %}
 
         <!-- {% include "/templates/reuse_figures.html" ignore missing %} -->
-
-        <div class="margin-bottom-forty">
-          <p></p>
-        </div>
 
         <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
           Continue
@@ -85,7 +81,6 @@
       <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
 
     </div>
-
   </div>
 
 {% endblock %}

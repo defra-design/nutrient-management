@@ -69,7 +69,7 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
     }
     // MANURE INVENTORY AND STORAGE
     if (req.session.data.export_type == '8') {
-        next = './inventory/separator'
+        next = './inventory/checklist'
     }
     res.redirect(next)
 })
@@ -188,7 +188,7 @@ router.get(/advanced_livestock_reference/, function (req, res) {
         req.session.data.livestock_entry = 'annually'
         next = 'livestock_numbers_average'
     }
-    res.redirect('livestock_numbers_jan')
+    res.redirect('livestock_numbers')
 })
 
 router.get(/add_livestock_handler/, function (req, res) {

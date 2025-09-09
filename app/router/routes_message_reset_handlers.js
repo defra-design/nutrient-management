@@ -99,11 +99,6 @@ router.get(/reset_add_loading_lstock/, callback_functions.hideSuccessMessage, fu
     res.redirect('/add_livestock/livestock_group');
 })
 
-//Reset the manure collection success message
-router.get(/reset_manure_collection_message/, callback_functions.hideSuccessMessage, function (req, res) { 
-    res.redirect('/outputs/inventory/manage_collection/index');
-})
-
 router.get(/plan_view_reset_router/, callback_functions.hideSuccessMessage, function (req, res) { 
     res.redirect('/farm/crop_plan/plan_view');
 })

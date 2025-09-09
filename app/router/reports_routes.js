@@ -539,17 +539,6 @@ router.get(/add_loadingnumbers_handler/, callback_functions.hide_error, function
     res.redirect(next);
 })
 
-router.get(/manure_numbers_handler/, callback_functions.hide_error, function (req, res) {
-    console.log(req.query.reference)
-        for (var reference in req.session.data.livestock_types ) {
-        if (req.session.data.livestock_types[reference].reference == req.query.reference) {
-            console.log('found ' + req.session.data.livestock_types[reference])
-            req.session.data.chosen_livestock = req.session.data.livestock_types[reference]
-        }
-    }
-    res.redirect('/outputs/inventory/manage_collection/manure_numbers');
-})
-
 router.get(/update_inventorynumbers_handler/, callback_functions.hide_error, function (req, res) {
     for (var reference in req.session.data.livestock_record_2025) {
         if (req.session.data.livestock_record_2025[reference].reference == req.query.reference) {

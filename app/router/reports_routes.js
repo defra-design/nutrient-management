@@ -512,8 +512,9 @@ router.get(/add_inventorynumbers_handler/, callback_functions.hide_error, functi
     console.log(req.query.reference)
     for (var reference in req.session.data.livestock_record_2025) {
         if (req.session.data.livestock_record_2025[reference].reference == req.query.reference) {
-            console.log('found ' + req.session.data.livestock_record_2025[reference])
+            console.log('found ' + req.session.data.livestock_record_2025[reference] + ' ' + req.session.data.livestock_record_2025[reference].type)
             req.session.data.chosen_livestock = req.session.data.livestock_record_2025[reference]
+            req.session.data.livestock_group = req.session.data.livestock_record_2025[reference].type
         }
     }
 	req.session.data.livestock_update_journey = true

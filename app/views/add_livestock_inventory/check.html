@@ -15,10 +15,10 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
     
-
     <h1 class="govuk-heading-l">
       Add livestock details for Oaktree Lane Farm between October 2024 and September 2025
     </h1>
@@ -28,21 +28,25 @@
     </h2>
 
     <div class="check-answers">
-        {% include "./check_content.html" %}
+      {% include "./templates/check_content.html" %}
     </div>
 
     {% set button_text = 'Add this livestock' %}
     {% if data.livestock_update_journey == true %}
       {% set button_text = 'Update this livestock' %}
     {% endif %}
+
     <form action="check_inventory_lstock_handler" method="post" novalidate>
       {{ govukButton({
         text: button_text
       }) }}
     </form>
+
     <p class="govuk-body">
       <a href="field_plan">Cancel</a>
     </p>
+
   </div>
 </div>
+
 {% endblock %}

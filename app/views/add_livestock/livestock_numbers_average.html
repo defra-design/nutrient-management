@@ -25,10 +25,8 @@
 
     <form action="livestock_poultry_router" method="post" novalidate="">
 
-      {% if data.livestock_group == 'poultry' %}
-        {% include "./templates/poultry_content_v3.html" ignore missing %}
-      {% elif data.livestock_group == 'pig' %}
-        {% include "./templates/pig_content_v2.html" ignore missing %}
+      {% if data.livestock_group == 'poultry' or data.livestock_group == 'pig' %}
+        {% include "./templates/poultry_pig_content.html" ignore missing %}
       {% else %}
         {% include "./templates/cattle_content.html" ignore missing %}
       {% endif %}

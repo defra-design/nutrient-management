@@ -641,7 +641,7 @@ router.get(/add_wash_water_details_handler/, callback_functions.hide_error, call
 
 
 router.get(/livestock_poultry_router/, function (req, res) {
-    let next = (req.session.data.livestock_group == 'poultry') ? 'occupancy_and_standard' : 'check'
+    let next = (req.session.data.livestock_group == 'poultry' || req.session.data.livestock_group == 'pig') ? 'occupancy_and_standard' : 'check'
     res.redirect(next);
 })
 

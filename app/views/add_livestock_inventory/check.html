@@ -28,7 +28,11 @@
     </h2>
 
     <div class="check-answers">
-      {% include "./templates/check_content.html" %}
+      {% if data.mostly_manure == 'slurry' %}
+        {% include "./templates/check_content_slurry.html" %}
+      {% else  %}
+        {% include "./templates/check_content_solid.html" %}
+      {% endif  %}
     </div>
 
     {% set button_text = 'Add this livestock' %}

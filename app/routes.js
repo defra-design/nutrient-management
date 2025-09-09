@@ -63,7 +63,6 @@ router.get('/', function (req, res) {
             req.session.data.oaktree_farm.imports_exports = null,
             req.session.data.oaktree_farm.rainfall = 600,
             req.session.data.oaktree_farm.derogation = null,
-            req.session.data.oaktree_farm.separator = null,
             req.session.data.oaktree_farm.ewr = null
         },
         print : function () {

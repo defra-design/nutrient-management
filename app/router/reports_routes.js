@@ -578,6 +578,7 @@ router.get(/check_inventory_lstock_handler/, function (req, res) {
   }
   req.session.data.show_success_message = true;
   req.session.data.oaktree_farm.livestock_inventory = 3;
+  req.session.data.mostly_manure = null
   // req.session.data.oaktree_farm.manure_system = 'not_answered';
   // req.session.data.nitrogen_standard = null
   // req.session.data.livestock_occupancy = null
@@ -682,13 +683,6 @@ router.get(/manure_slurry_handler/, function (req, res) {
     let next = (req.session.data.mostly_manure == 'slurry') ? 'slurry' : 'solid'
     res.redirect(next)
 })
-
-
-router.get(/separator_handler/, function (req, res) {
-    req.session.data.oaktree_farm.separator = (req.session.data.mech_separator == 'yes') ? true : false
-    res.redirect('checklist')
-})
-
 
 // router.get(/export_inventory_router/, callback_functions.hide_error, function (req, res) {
 //     req.session.data.oaktree_farm.manure_system_details = true

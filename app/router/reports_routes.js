@@ -298,13 +298,13 @@ router.get(/water_inventory_handler/, callback_functions.hide_error, callback_fu
 //inventory and storage routes 
 
 
-router.get(/slurry_separated_handler/, callback_functions.hideSuccessMessage, function (req, res) {
-    let next = 'livestock_numbers_jan_q2'
+// router.get(/slurry_separated_handler/, callback_functions.hideSuccessMessage, function (req, res) {
+//     let next = 'livestock_numbers_jan_q2'
     // if (req.session.data.manure_system == 'slurry') {
     //     next = 'add_livestock/check'
     // }
-    res.redirect(next)
-})
+//     res.redirect(next)
+// })
 
 router.get(/rainwater_area_handler/, callback_functions.hideSuccessMessage, function (req, res) {
     req.session.data.oaktree_farm.rainwater_area_added = true
@@ -517,7 +517,7 @@ router.get(/add_inventorynumbers_handler/, callback_functions.hide_error, functi
         }
     }
 	req.session.data.livestock_update_journey = true
-    res.redirect('/add_livestock_inventory/livestock_numbers_jan');
+    res.redirect('/add_livestock_inventory/livestock_numbers');
 })
 
 router.get(/add_loadingnumbers_handler/, callback_functions.hide_error, function (req, res) {

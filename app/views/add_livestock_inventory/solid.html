@@ -21,7 +21,11 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        October 2024 manure for this cattle type
+        {% if data.livestock_group != 'poultry' %}
+          Slurry and bedding for October 2024
+        {% else %}
+          Slurry for October 2024
+        {% endif %}
       </h1>
 
       <p class="govuk-body">
@@ -32,7 +36,7 @@
 
         <div class="govuk-form-group margin-bottom-thirty">
           <label class="govuk-label" for="livestock_number">
-            How much of this livestock's manure is collected as slurry?
+            How much of this livestock's manure is collected as slurry in October?
           </label>
           <div class="govuk-input__wrapper">
             <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" value="30" spellcheck="false" autocomplete="off">
@@ -40,25 +44,28 @@
           </div>
         </div>
 
-        <div class="govuk-form-group margin-bottom-thirty">
-          <label class="govuk-label" for="livestock_number">
-            Bedding factor
-          </label>
-          <div class="govuk-input__wrapper">
-            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+        {% if data.livestock_group != 'poultry' %}
+          <div class="govuk-form-group margin-bottom-thirty">
+            <label class="govuk-label" for="livestock_number">
+              What is the bedding factor?
+              <!-- <span class="hint">This is multiplied with the amount of undiluted slurry that is mixed with bedding to give the amount of solid manure produced.</span> -->
+            </label>
+            <div class="govuk-input__wrapper">
+              <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+              <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+            </div>
           </div>
-        </div>
 
-        <div class="govuk-form-group margin-bottom-thirty">
-          <label class="govuk-label" for="livestock_number">
-            Bedding per month
-          </label>
-          <div class="govuk-input__wrapper">
-            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
-          </div>
-        </div>
+          <!-- <div class="govuk-form-group margin-bottom-thirty">
+            <label class="govuk-label" for="livestock_number">
+              Bedding per month
+            </label>
+            <div class="govuk-input__wrapper">
+              <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+              <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+            </div>
+          </div> -->
+        {% endif %}
 
         {% include "/templates/reuse_figures.html" ignore missing %}
 

@@ -16,70 +16,60 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m">
+      Nitrate Vulnerable Zones (NVZs)
+    </h2>
 
-      <!-- <h1 class="govuk-heading-l">
-        Farming regulations in England
-      </h1> -->
+    <p class="govuk-body">
+      NVZs are areas designated as being at risk from agricultural nitrate pollution. They include about 55% of land in England.
+    </p>
 
-      
-      <h2 class="govuk-heading-m">
-        Nitrate Vulnerable Zones (NVZs)
-      </h2>
+    <p class="govuk-body">
+      If your land is in an NVZ, you must follow rules when you use nitrogen fertiliser. This tool will help you demonstrate compliance with the NVZ rules. It will also tell you if you are at risk of breaking the rules as you plan nutrient applications.
+    </p>
 
-      <p class="govuk-body">
-        NVZs are areas designated as being at risk from agricultural nitrate pollution. They include about 55% of land in England.
-      </p>
+    <p class="govuk-body">
+      Read more about
+      <a target="_blank" href="https://www.gov.uk/government/collections/nitrate-vulnerable-zones">
+        Nitrate vulnerable zones (NVZs)</a>
+        (opens in a new window)
+    </p>
 
-      <p class="govuk-body">
-        If your land is in an NVZ, you must follow rules when you use nitrogen fertiliser. This tool will help you demonstrate compliance with the NVZ rules. It will also tell you if you are at risk of breaking the rules as you plan nutrient applications.
-      </p>
+    <h2 class="govuk-heading-m">
+      Farming rules for water
+    </h2>
 
-      <p class="govuk-body">
-        Read more about
-        <a target="_blank" href="https://www.gov.uk/government/collections/nitrate-vulnerable-zones">
-          Nitrate vulnerable zones (NVZs)</a>
-          (opens in a new window)
-      </p>
+    <p class="govuk-body">
+      All agricultural land in England is subject to the Farming Rules for Water. These rules aim to reduce and prevent water pollution from agricultural sources.
+    </p>
 
+    <p class="govuk-body">
+      To comply with the rules, you must ensure that all applications of organic material or inorganic fertiliser are planned. This is so they do not exceed the needs of the soil and crop on that land, or create a significant risk of pollution.
+    </p>
 
-      <h2 class="govuk-heading-m">
-        Farming rules for water
-      </h2>
-
-      <p class="govuk-body">
-        All agricultural land in England is subject to the Farming Rules for Water. These rules aim to reduce and prevent water pollution from agricultural sources.
-      </p>
-
-      <p class="govuk-body">
-        To comply with the rules, you must ensure that all applications of organic material or inorganic fertiliser are planned. This is so they do not exceed the needs of the soil and crop on that land, or create a significant risk of pollution.
-      </p>
-
-      <p class="govuk-body">
+    <p class="govuk-body">
       Creating and following a nutrient management plan will help you comply with these rules.
     </p>
 
+    <p class="govuk-body margin-bottom-forty">
+      Read more about
+      <a target="_blank" href="https://www.gov.uk/guidance/rules-for-farmers-and-land-managers-to-prevent-water-pollution#assess-pollution-risks">
+        rules for farmers and land managers</a>
+        (opens in a new window)
+    </p>
 
-      <p class="govuk-body margin-bottom-forty">
-        Read more about
-        <a target="_blank" href="https://www.gov.uk/guidance/rules-for-farmers-and-land-managers-to-prevent-water-pollution#assess-pollution-risks">
-          rules for farmers and land managers</a>
-          (opens in a new window)
-      </p>
+    <form action="postcode" method="post" novalidate="">
+      <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
 
-      
-      <form action="postcode" method="post" novalidate="">
-        <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Continue
-        </button>
-      </form>
-
-      <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
+    <p class="govuk-body cancel-link"><a href="/farm/farms">Cancel</a></p>
 
   </div>
-
 </div>
 
 {% endblock %}

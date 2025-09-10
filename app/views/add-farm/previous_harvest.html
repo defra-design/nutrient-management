@@ -16,47 +16,47 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Last harvest year</h1>
 
-      <h1 class="govuk-heading-l">Last harvest year</h1>
-
-      <p class="govuk-body">To create plans and give recommendations we need information about your last harvest year.</p>
-      <p class="govuk-body">If you have harvested your crops and finished any grassland management for 2024, then use 2024 as your last harvest year.</p>
-      <form action="check" method="post" novalidate="">
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend">
-              What is your last harvest year?
-            </legend>        
-          <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
-            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="no" name="harvestyear" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="no">
-                  2024
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="yes" name="harvestyear" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="yes">
-                  2023
-                </label>
-              </div>
+    <p class="govuk-body">To create plans and give recommendations we need information about your last harvest year.</p>
+    <p class="govuk-body">If you have harvested your crops and finished any grassland management for 2024, then use 2024 as your last harvest year.</p>
+    
+    <form action="check" method="post" novalidate="">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend">
+            What is your last harvest year?
+          </legend>        
+        <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="no" name="harvestyear" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="no">
+                2024
+              </label>
             </div>
-          </fieldset>
-        </div>        
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="yes" name="harvestyear" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="yes">
+                2023
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>        
 
-        <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Continue
-        </button>
+      <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
 
-      </form>
+    </form>
 
-      <p class="govuk-body cancel-link"><a href="farms">Cancel</a></p>
+    <p class="govuk-body cancel-link"><a href="farms">Cancel</a></p>
 
-    </div>
   </div>
+</div>
 
 {% endblock %}

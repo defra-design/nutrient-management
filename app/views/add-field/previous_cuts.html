@@ -16,32 +16,32 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-       How was the grass typically managed each year?
-      </h1>
+    <h1 class="govuk-heading-l">
+      How was the grass typically managed each year?
+    </h1>
 
-      <form class="form" action="previous_cuts_router" method="post">
+    <form class="form" action="previous_cuts_router" method="post">
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="cut" name="previous_management" type="radio" value="cut">
-                <label class="govuk-label govuk-radios__label" for="cut">
-                  Cut only
-                </label>
-              </div>    
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="cut" name="previous_management" type="radio" value="cut">
+              <label class="govuk-label govuk-radios__label" for="cut">
+                Cut only
+              </label>
+            </div>    
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="grazed" name="previous_management" type="radio" value="grazed">
-                <label class="govuk-label govuk-radios__label" for="grazed">
-                  Grazed only
-                </label>
-              </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="grazed" name="previous_management" type="radio" value="grazed">
+              <label class="govuk-label govuk-radios__label" for="grazed">
+                Grazed only
+              </label>
+            </div>
 
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="both" name="previous_management" type="radio" value="both">
@@ -50,19 +50,17 @@
               </label>
             </div>
 
-          </fieldset> 
-        </div>
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+          </div>
+        </fieldset> 
+      </div>
 
-      </form>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
-    </div>
+    </form>
+
   </div>
-
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+</div>
 
 {% endblock %}

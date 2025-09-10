@@ -14,36 +14,35 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Soil Nitrogen Supply (SNS) index</h1>
 
-      <h1 class="govuk-heading-l">Soil Nitrogen Supply (SNS) index</h1>
+    <form action="check" method="post" novalidate="">
 
-      <form action="check" method="post" novalidate="">
-
-        <!-- <div class="govuk-form-group">
-          <label class="govuk-label" for="weight">
-            Phosphorus (P) per litre of soil
-          </label>
-          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
-            <div class="govuk-input__suffix" aria-hidden="true">Milligrams</div>
-          </div>
-        </div> -->
-
-        <div class="govuk-form-group">
-          <input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+      <!-- <div class="govuk-form-group">
+        <label class="govuk-label" for="weight">
+          Phosphorus (P) per litre of soil
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+          <div class="govuk-input__suffix" aria-hidden="true">Milligrams</div>
         </div>
-        
-        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Continue
-        </button>
+      </div> -->
 
-      </form>
-      <p class="govuk-body cancel-link"><a href="/mvp/field/field-details">Cancel</a></p>
+      <div class="govuk-form-group">
+        <input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+      </div>
+      
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
 
-    </div>
+    </form>
     
+    <p class="govuk-body cancel-link"><a href="/mvp/field/field-details">Cancel</a></p>
+
   </div>
+</div>
 
 {% endblock %}

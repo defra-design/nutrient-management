@@ -110,7 +110,7 @@ router.get(/add_values_router/, function (req, res) {
 
 //has the field been used for grass previously
 router.get(/previous_use_router/, function (req, res) { 
-    if (req.session.data.use_2023 == 'yes') {
+    if (req.session.data.previously_grass == 'yes') {
         req.session.data.chosen_crop = 'Grass'
         res.redirect('previous_use_two')
     } else {
@@ -235,6 +235,8 @@ router.get(/previous_group_router/, function (req, res) {
 })
 
 router.get(/previous_clover_router/, function (req, res) { 
+    // if 2024 not included in previous grass years then what was the previous crop in 2024?
+    //else previous clover == no > previous nitrogen
     let next = (req.session.data.previous_clover == "yes") ? 'check' : 'previous_nitrogen'
     res.redirect(next)
 })

@@ -16,41 +16,38 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Is {{data.temp_field_name}} more than 300 metres above sea level?</h1>
 
-      <form action="soil-one" method="post" novalidate="">
+    <form action="soil-one" method="post" novalidate="">
 
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h1 class="govuk-fieldset__heading">Is {{data.temp_field_name}} more than 300 metres above sea level?</h1>
-        </legend>
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-          <!-- <label class="govuk-label" for="nitrate">Is this field above 300m?</label> -->
-          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="yes" name="field_alt" type="radio" value="yes">
-              <label class="govuk-label govuk-radios__label" for="yes">Yes</label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="no" name="field_alt" type="radio" value="no">
-              <label class="govuk-label govuk-radios__label" for="no">No</label>
-            </div>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+        <!-- <label class="govuk-label" for="nitrate">Is this field above 300m?</label> -->
+        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="yes" name="field_alt" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="yes">Yes</label>
           </div>
-        </fieldset>
-      </div>
-
-      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-        Continue
-      </button>
-
-    </form>
-
-    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
-
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="no" name="field_alt" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="no">No</label>
+          </div>
+        </div>
+      </fieldset>
     </div>
+
+    <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+      Continue
+    </button>
+
+  </form>
+
+  <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+
   </div>
+</div>
 
 {% endblock %}

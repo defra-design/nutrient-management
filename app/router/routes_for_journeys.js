@@ -55,7 +55,6 @@ router.get(/add_farm_handler/, callback_functions.showSuccessMessage, function (
     req.session.data.oaktree_farm.elevation = req.session.data.farm_elevation;
     req.session.data.oaktree_farm.organic_producer = req.session.data.organic_producer;
     req.session.data.oaktree_farm.setup = true;
-    req.session.data.oaktree_farm.latest_update = 'added'; //remove this
     res.redirect('/farm/hub');
 })
 
@@ -140,7 +139,6 @@ router.get(/grass_years_handler/, function (req, res) {
 router.get(/add_field_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 3 //field added
     var sowdate = null;
-    req.session.data.oaktree_farm.latest_update = 'field_added';
     req.session.data.oaktree_farm.fields_added = true;
     req.session.data.all_fields.push(req.session.data.tempField);
     var newRef = req.session.data.currentCropGroups.length + 1
@@ -198,13 +196,17 @@ router.get(/copy_name_handler/, function (req, res) {
 
 router.get(/field_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 4 //field updated
-    req.session.data.oaktree_farm.latest_update = 'field_updated'
+    console.log('here ' + req.session.data.successMessage)
     res.redirect('/farm/field/field-details')
 })
 
 router.get(/soil_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 5 //soil updated
-    req.session.data.oaktree_farm.latest_update = 'field_updated'
+    res.redirect('/farm/field/field-details')
+})
+
+router.get(/soil_added_handler/, callback_functions.showSuccessMessage, function (req, res) { 
+    req.session.data.successMessage = 6 //soil added
     res.redirect('/farm/field/field-details')
 })
 

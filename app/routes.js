@@ -38,7 +38,6 @@ router.get('/', function (req, res) {
             req.session.data.oaktree_farm.nvz = "some",
             req.session.data.oaktree_farm.elevation = "some",
             req.session.data.oaktree_farm.organic_producer = false,
-            req.session.data.oaktree_farm.latest_update = null,
             req.session.data.oaktree_farm.use_mvp_fields = false,
             req.session.data.oaktree_farm.setup = false,
             req.session.data.oaktree_farm.fields_added = false,

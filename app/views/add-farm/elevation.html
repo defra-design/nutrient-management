@@ -16,51 +16,49 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      How many fields at {{data.oaktree_farm.name}} are more than 300 metres above sea level?
+    </h1>
 
-      <h1 class="govuk-heading-l">
-        How many fields at {{data.oaktree_farm.name}} are more than 300 metres above sea level?
-      </h1>
+    <form action="set_elevation_handler" method="post" novalidate="">
 
-      <form action="organic" method="post" novalidate="">
-
-        <div class="govuk-form-group margin-bottom-forty">
-          <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
-            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="all" name="farm_elevation" type="radio" value="all">
-                <label class="govuk-label govuk-radios__label" for="all">
-                  All the fields are above 300m
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="some" name="farm_elevation" type="radio" value="some">
-                <label class="govuk-label govuk-radios__label" for="some">
-                  Some of the fields are above 300m
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="zero" name="farm_elevation" type="radio" value="zero">
-                <label class="govuk-label govuk-radios__label" for="zero">
-                  None of the fields are above 300m
-                </label>
-              </div>
+      <div class="govuk-form-group margin-bottom-forty">
+        <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="all" name="farm_elevation" type="radio" value="all">
+              <label class="govuk-label govuk-radios__label" for="all">
+                All the fields are above 300m
+              </label>
             </div>
-          </fieldset>
-        </div>        
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="some" name="farm_elevation" type="radio" value="some">
+              <label class="govuk-label govuk-radios__label" for="some">
+                Some of the fields are above 300m
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="zero" name="farm_elevation" type="radio" value="zero">
+              <label class="govuk-label govuk-radios__label" for="zero">
+                None of the fields are above 300m
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>        
 
-        <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Continue
-        </button>
+      <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
 
-      </form>
+    </form>
 
-      <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
-
-    </div>
+    <p class="govuk-body cancel-link"><a href="/mvp/farms">Cancel</a></p>
 
   </div>
+</div>
 
 {% endblock %}

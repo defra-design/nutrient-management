@@ -20,7 +20,12 @@
 
     <h1 class="govuk-heading-l">
       Do you have a date for when you planted your
-      {{data.chosen_crop | nameconverter}}, or when you will plant it?
+      {{data.chosen_crop | nameconverter}}, or when you will plant 
+    {% if data.chosen_crop == 'potatoes' %}
+      them?
+    {% else %}
+      it?
+    {% endif %}
     </h1>
 
     <p>You can add or change a planting date later.</p>

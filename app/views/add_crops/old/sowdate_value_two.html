@@ -27,9 +27,9 @@
     
     <h1 class="govuk-heading-l">
       {% if data.sow_option_two == "single" %}
-        What is the Planting date for {{data.cover_crop | nameconverter}} in these fields?
+        What is the planting date for {{data.cover_crop | nameconverter}} in these fields?
       {% else %}
-        What is the Planting date for {{data.cover_crop | nameconverter}} in {{data.cover_fields[0].name | nameconverter}}?
+        What is the planting date for {{data.cover_crop | nameconverter}} in {{data.cover_fields[0].name | nameconverter}}?
       {% endif %}
     </h1>
 

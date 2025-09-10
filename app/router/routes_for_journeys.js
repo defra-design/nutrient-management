@@ -18,21 +18,23 @@ var callback_functions = require('./callbacks.js');
 
 //start
 router.get(/start_router/, function (req, res) {
-    let next = (req.session.data.showinfo == false) ? '/farm/farms' : '/disclaimer'
-    res.redirect(next)
+  let next = (req.session.data.showinfo == false) ? '/farm/farms' : '/disclaimer'
+  res.redirect(next)
 })
 
 router.get(/add_farm_name_handler/, function (req, res) {
-    let name = (req.session.data.farm_name == "") ? 'Oaktree Lane Farm' : req.session.data.farm_name
-    req.session.data.oaktree_farm.name = name
-    res.redirect('country')
+  if (req.session.data.farm_name != "") req.session.data.oaktree_farm.name = req.session.data.farm_name
+  res.redirect('country')
+})
+
+router.get(/add_postcode_handler/, function (req, res) {
+  if (req.session.data.farm_postcode != "") req.session.data.oaktree_farm.postcode = req.session.data.farm_postcode
+  res.redirect('address')
 })
 
 //set default farm details *
 router.get(/set_farm_defaults_handler/, function (req, res) { 
   function setFarmDefaults() {
-      if (req.session.data.farm_name == "") req.session.data.farm_name = 'Oaktree Lane Farm';
-      if (req.session.data.farm_postcode == "") req.session.data.farm_postcode = 'NE46 7LQ';
       if (req.session.data.farm_nvz == "") req.session.data.farm_nvz = 'all';
       if (req.session.data.farm_elevation == "") req.session.data.farm_elevation = 'none';
       if (req.session.data.organic_producer == "") req.session.data.organic_producer = false;
@@ -44,8 +46,6 @@ router.get(/set_farm_defaults_handler/, function (req, res) {
 //create a farm
 router.get(/add_farm_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 1 //farm added
-    req.session.data.oaktree_farm.name = req.session.data.farm_name;
-    req.session.data.oaktree_farm.postcode = req.session.data.farm_postcode;
     req.session.data.oaktree_farm.nvz = req.session.data.farm_nvz;
     req.session.data.oaktree_farm.elevation = req.session.data.farm_elevation;
     req.session.data.oaktree_farm.organic_producer = req.session.data.organic_producer;

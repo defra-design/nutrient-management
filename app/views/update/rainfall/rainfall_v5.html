@@ -21,12 +21,7 @@ Excess winter rainfall – {{ serviceName }}
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-l">
-          Rainfall for 
-          {%if data.farm_postcode != ""%}
-            {{data.farm_postcode}}
-          {% else %}
-            NE46 7LQ
-          {% endif %}  
+          Rainfall for {{data.oaktree_farm.postcode}}
         </h1>
 
         <p class="govuk-body">
@@ -43,7 +38,6 @@ Excess winter rainfall – {{ serviceName }}
 
 
         <table class="govuk-table">
-          <!-- <caption class="govuk-table__caption govuk-table__caption--l">Rainfall for {{data.farm_postcode}}</caption> -->
           <thead class="govuk-table__head">
             <!-- <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header">Month you apply</th>
@@ -70,7 +64,7 @@ Excess winter rainfall – {{ serviceName }}
         </table>
 
         <div class="text-group">
-          <h3 class="govuk-heading-s">Average annual rainfall for {{data.farm_postcode}}</h3>
+          <h3 class="govuk-heading-s">Average annual rainfall for {{data.oaktree_farm.postcode}}</h3>
           <p class="govuk-body">600mm</p>
           <p class="govuk-body"><a href="rainfall-manual">Change</a></p>
         </div>

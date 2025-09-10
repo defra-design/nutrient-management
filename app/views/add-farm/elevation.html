@@ -21,13 +21,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        How many fields at 
-        {%if data.farm_name != ""%}
-          {{data.farm_name}}
-        {% else %}
-          Oaktree Lane Farm
-        {% endif %}
-        are more than 300 metres above sea level?
+        How many fields at {{data.oaktree_farm.name}} are more than 300 metres above sea level?
       </h1>
 
       <form action="organic" method="post" novalidate="">

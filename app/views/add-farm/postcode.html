@@ -33,13 +33,7 @@ Add a farm - farm name – {{ serviceName }}
       </div>
       </div>
  -->
-      <h1 class="govuk-heading-l">What is 
-        {%if data.farm_name != ""%}
-          {{data.farm_name}}'s
-        {% else %}
-          Oaktree Lane Farm's
-        {% endif %}
-        postcode?
+      <h1 class="govuk-heading-l">What is {{data.oaktree_farm.name}} postcode?
       </h1>
       <!-- <p class="govuk-body">If you have more than one holding, it's best to add a separate farm for each.</p> -->
       

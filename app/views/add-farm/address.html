@@ -20,12 +20,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Select the address for 
-        {%if data.farm_name != ""%}
-          {{data.farm_name}}
-        {% else %}
-          Oaktree Lane Farm
-        {% endif %}
+        Select the address for {{data.oaktree_farm.name}}
       </h1>
 
       <div class="text-group">

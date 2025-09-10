@@ -22,6 +22,12 @@ router.get(/start_router/, function (req, res) {
     res.redirect(next)
 })
 
+router.get(/add_farm_name_handler/, function (req, res) {
+    let name = (req.session.data.farm_name == "") ? 'Oaktree Lane Farm' : req.session.data.farm_name
+    req.session.data.oaktree_farm.name = name
+    res.redirect('country')
+})
+
 //set default farm details *
 router.get(/set_farm_defaults_handler/, function (req, res) { 
   function setFarmDefaults() {

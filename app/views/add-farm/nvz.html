@@ -21,13 +21,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        How many fields at 
-        {%if data.farm_name != ""%}
-          {{data.farm_name}}
-        {% else %}
-          Oaktree Lane Farm
-        {% endif %}
-        are in a Nitrate Vulnerable Zone (NVZ)?
+        How many fields at {{data.oaktree_farm.name}} are in a Nitrate Vulnerable Zone (NVZ)?
       </h1>
 
       <form action="elevation" method="post" novalidate="">

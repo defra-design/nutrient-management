@@ -10,7 +10,7 @@ var callback_functions = require('./callbacks.js');
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//ADD A FARM
+//ADD A FARM *
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,16 +47,9 @@ router.get(/set_elevation_handler/, function (req, res) {
   res.redirect('organic')
 })
 
-
-  // function setFarmDefaults() {
-  //     if (req.session.data.organic_producer == "") req.session.data.organic_producer = false;
-  // }
-
-//create a farm
+//sets the farm to setup true
 router.get(/add_farm_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 1 //farm added
-    req.session.data.oaktree_farm.nvz = req.session.data.farm_nvz;
-    req.session.data.oaktree_farm.elevation = req.session.data.farm_elevation;
     req.session.data.oaktree_farm.setup = true;
     res.redirect('/farm/hub');
 })
@@ -81,39 +74,37 @@ router.get(/delete_handler/, callback_functions.showSuccessMessage, function (re
 //set the name for the field 
 router.get(/set_field_name_handler/, function (req, res) { 
     req.session.data.tempField.reference = req.session.data.all_fields.length + 1;
-    if (req.session.data.temp_field_name == "") {
-        req.session.data.temp_field_name = 'New Field #' + req.session.data.tempField.reference;
-    }
+    if (req.session.data.temp_field_name == "") req.session.data.temp_field_name = 'New Field #' + req.session.data.tempField.reference;
     req.session.data.tempField.name = req.session.data.temp_field_name;
     res.redirect('./area');
 })
 
 //check if the farm is in an nvz or over 300m
 router.get(/soil_type_router/, function (req, res) { 
-    if (req.session.data.oaktree_farm.nvz == 'some' ) {
-        res.redirect('nvz');
-    } else if (req.session.data.oaktree_farm.elevation == 'some') {
-        res.redirect('elevation');
-    } else {
-        res.redirect('soil-one');
-    }
+  let next = 'soil-one'
+  if (req.session.data.oaktree_farm.nvz == 'some' ) {
+      next = 'nvz';
+  } else if (req.session.data.oaktree_farm.elevation == 'some') {
+      next = 'elevation'
+  }
+  res.redirect(next);
 })
 
 //check if the farm is over 300m
 router.get(/nvz_router/, function (req, res) { 
-    var next = (req.session.data.oaktree_farm.elevation == 'some') ? 'elevation' : 'soil-one';
+    let next = (req.session.data.oaktree_farm.elevation == 'some') ? 'elevation' : 'soil-one';
     res.redirect(next);
 })
 
-//add a soil analysis or not
+//add a soil analysis
 router.get(/analysis_option_router/, function (req, res) { 
-    var next = (req.session.data.soilanalysis == "yes") ? 'date' : 'previous_use'
+    let next = (req.session.data.soilanalysis == "yes") ? 'date' : 'previous_use'
     res.redirect(next)
 })
 
 //how do you want to add your values
 router.get(/add_values_router/, function (req, res) { 
-    var next = (req.session.data.add_values == "add_values_index") ? './values_two' : './values_three'
+    let next = (req.session.data.add_values == "add_values_index") ? './values_two' : './values_three'
     res.redirect(next)
 })
 
@@ -177,7 +168,7 @@ router.get(/set_tempField_data_handler/, function (req, res) {
     // if (req.session.data.soilanalysis == null || req.session.data.soilanalysis == "" ) {
     //     req.session.data.soilanalysis = 'yes'
     // }
-    var next = 'add-field/check'
+    let next = 'add-field/check'
     res.redirect(next);
 })
 
@@ -213,18 +204,18 @@ router.get(/soil_added_handler/, callback_functions.showSuccessMessage, function
 })
 
 router.get(/split_field_router/, function (req, res) { 
-    var next = (req.session.data.splitmerge == "split") ? './split/number' : './merge/fields'
+    let next = (req.session.data.splitmerge == "split") ? './split/number' : './merge/fields'
     res.redirect(next)
 })
 
 router.get(/copy_field_router/, function (req, res) { 
     req.session.data.show_success_message = false;
-    var next = (req.session.data.copy_field == 'yes') ? './copy/fields' : 'name';
+    let next = (req.session.data.copy_field == 'yes') ? './copy/fields' : 'name';
     res.redirect(next)
 })
 
 router.get(/previous_group_router/, function (req, res) { 
-    var next = 'crop_type_all'
+    let next = 'crop_type_all'
     if (req.session.data.crop_group == null) {
         req.session.data.crop_group = 'cereals'
     }
@@ -244,27 +235,27 @@ router.get(/previous_group_router/, function (req, res) {
 })
 
 router.get(/previous_clover_router/, function (req, res) { 
-    var next = (req.session.data.previous_clover == "yes") ? 'check' : 'previous_nitrogen'
+    let next = (req.session.data.previous_clover == "yes") ? 'check' : 'previous_nitrogen'
     res.redirect(next)
 })
 
 router.get(/previous_cuts_router/, function (req, res) { 
-    var next = (req.session.data.previous_management == 'grazed') ? 'previous_clover' : 'previous_cuts_two'
+    let next = (req.session.data.previous_management == 'grazed') ? 'previous_clover' : 'previous_cuts_two'
     res.redirect(next)
 })
 
 router.get(/sns_v3_router/, function (req, res) { 
-    var next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'set_tempField_data_handler';
+    let next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'set_tempField_data_handler';
     res.redirect(next);
 })
 
 router.get(/mineralisation_router/, function (req, res) { 
-    var next = (req.session.data.mineralisation == "organic") ? 'organic' : 'adjustment'
+    let next = (req.session.data.mineralisation == "organic") ? 'organic' : 'adjustment'
     res.redirect(next)
 })
 
 router.get(/fieldtype_router/, function (req, res) { 
-    var next = (req.session.data.fieldtype == "copy") ? './copy/fields' : 'name'
+    let next = (req.session.data.fieldtype == "copy") ? './copy/fields' : 'name'
     res.redirect(next)
 })
 
@@ -284,23 +275,23 @@ router.get(/log_croptype_router/, function (req, res) {
 })
 
 router.get(/gaiheight_router/, function (req, res) { 
-    var next = (req.session.data.gaiheight == "gai") ? 'gai' : 'height'
+    let next = (req.session.data.gaiheight == "gai") ? 'gai' : 'height'
     res.redirect(next)
 })
 
 router.get(/crop_nitrogen_router/, function (req, res) { 
-    var next = (req.session.data.crop_nitrogen == "yes") ? 'shoots' : 'nitrogen_mineralisation'
+    let next = (req.session.data.crop_nitrogen == "yes") ? 'shoots' : 'nitrogen_mineralisation'
     res.redirect(next)
 })
 
 router.get(/mineral_router/, function (req, res) { 
-    var next = (req.session.data.nitrogen_mineralisation == "no") ? 'sns_index' : 'organic_adjustment'
+    let next = (req.session.data.nitrogen_mineralisation == "no") ? 'sns_index' : 'organic_adjustment'
     res.redirect(next)
 })
 
 
 router.get(/add-grass-handler/, function (req, res) { 
-    var next = (req.session.data.previous_grass == 'yes') ? 'plough' : 'check'
+    let next = (req.session.data.previous_grass == 'yes') ? 'plough' : 'check'
     res.redirect(next)
 })
 
@@ -316,7 +307,7 @@ router.get(/add-grass-handler/, function (req, res) {
 
 router.get(/update_question_handler/, function (req, res) {
     req.session.data.update_type = req.query.update_type
-    var next
+    let next
     if (req.query.update_type == 'variety') {
         next = 'variety'
     }
@@ -448,14 +439,14 @@ router.get(/variety_handler/, function (req, res) {
 //Routers
 
 router.get(/v4_plancopy_router/, function (req, res) { 
-    var next = 'crop_group'
+    let next = 'crop_group'
     if (req.session.data.plan_copy == 'previous') next = './copy/copy_year';
     res.redirect(next)
 })
 
 // ALPHA // add second crops 
 router.get(/another_crop_router/, function (req, res) { 
-    var next = (req.session.data.second_crop == 'new') ? 'crop_group' : 'second_crop/fields'
+    let next = (req.session.data.second_crop == 'new') ? 'crop_group' : 'second_crop/fields'
     res.redirect(next)
 })
 
@@ -478,7 +469,7 @@ router.get(/mvp_another_crop_router/, function (req, res) {
 })
 
 router.get(/yield_question_router/, function (req, res) { 
-    var next = 'check'
+    let next = 'check'
     if (req.session.data.yield_option_one != 'rb209') {
         next = 'yield_value'
     } else { 
@@ -493,7 +484,7 @@ router.get(/yield_question_router/, function (req, res) {
 })
 
 router.get(/crop_use_handler/, function (req, res) { 
-    var next = 'crop_use'
+    let next = 'crop_use'
     if (req.session.data.crop_group == 'potatoes') {
         next = 'growth'
     }
@@ -506,12 +497,12 @@ router.get(/v7_grass_yield_handler/, callback_functions.default_grass_values, fu
 
 
 router.get(/yield_questiontwo_router/, function (req, res) { 
-    var next = (req.session.data.yield_option_two != 'rb209') ? 'yield_value_two' : 'check';
+    let next = (req.session.data.yield_option_two != 'rb209') ? 'yield_value_two' : 'check';
     res.redirect(next);
 })
 
 router.get(/yield_handler/, function (req, res) { 
-    var next = (req.session.data.chosen_crop == "Turnips-stubble") ? 'check' : 'crop_use'
+    let next = (req.session.data.chosen_crop == "Turnips-stubble") ? 'check' : 'crop_use'
     res.redirect(next)
 })
 
@@ -533,7 +524,7 @@ router.get(/sowdate_value_router/, function (req, res) {
 })
 
 router.get(/sowdatetwo_value_router/, function (req, res) { 
-  var next = (req.session.data.sow_option_two != 'no') ? 'sowdate_value_two' : 'yield_question_two';
+  let next = (req.session.data.sow_option_two != 'no') ? 'sowdate_value_two' : 'yield_question_two';
   res.redirect(next);
 })
 
@@ -581,7 +572,7 @@ router.get(/manner_crop_handler/, function (req, res) {
 })
 
 router.get(/season_router/, function (req, res) { 
-    var next = (req.session.data.reseed == "yes" || req.session.data.reseed == "new" ) ? 'season' : 'sowdate_question'
+    let next = (req.session.data.reseed == "yes" || req.session.data.reseed == "new" ) ? 'season' : 'sowdate_question'
     res.redirect(next)
 })
 
@@ -597,12 +588,12 @@ router.get(/grass_management_router/, function (req, res) {
 })
 
 router.get(/yield_total_router/, function (req, res) { 
-    var next = (req.session.data.yield_total == "multi") ? 'fresh_yield' : 'yield_fresh_single'
+    let next = (req.session.data.yield_total == "multi") ? 'fresh_yield' : 'yield_fresh_single'
     res.redirect(next)
 })
 
 router.get(/management_grass_router/, function (req, res) { 
-    var next = '../check'
+    let next = '../check'
     if (req.session.data.grass_management == "grazinghay" || req.session.data.grass_management == "grazingsilage") {
         next = 'defoliation_order'
     } else {
@@ -614,7 +605,7 @@ router.get(/management_grass_router/, function (req, res) {
 })
 
 router.get(/def_sequence_handler/, function (req, res) { 
-    var next = '../check'
+    let next = '../check'
     if (req.session.data.sward_type == 'grass') {
             next = 'yield_value_v5'
         }
@@ -622,12 +613,12 @@ router.get(/def_sequence_handler/, function (req, res) {
 })
 
 router.get(/yield_loop_handler/, function (req, res) { 
-    var next = (req.session.data.crop_fields[1] == null) ? '../check' : 'yield_value_v5a'
+    let next = (req.session.data.crop_fields[1] == null) ? '../check' : 'yield_value_v5a'
     res.redirect(next)
 })
 
 router.get(/weight_type_router/, function (req, res) { 
-    var next = 'yield_value_dry';
+    let next = 'yield_value_dry';
     if (req.session.data.yield_type == "fresh") {
         if (req.session.data.grass_management == 'grazinghay' || req.session.data.grass_management == 'grazingsilage' ) {
             next = 'fresh_yield'
@@ -654,21 +645,21 @@ router.get(/addcrops_handler/, function (req, res) {
 
 router.get(/manure_update_handler/, function (req, res) {
     req.session.data.update_type = req.query.update_type
-    var next = '../../update/manure/update'
+    let next = '../../update/manure/update'
     res.redirect(next)
 })
 
 router.get(/manure_update_v6_handler/, function (req, res) {
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 13;
-    var next = '/farm/crop_plan/plan_view'
+    let next = '/farm/crop_plan/plan_view'
     res.redirect(next)
 })
 
 router.get(/fertiliser_update_v6_handler/, function (req, res) {
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 14;
-    var next = '/farm/crop_plan/plan_view'
+    let next = '/farm/crop_plan/plan_view'
     res.redirect(next)
 })
 
@@ -698,7 +689,7 @@ router.get(/group_level_plan_v7_handler/, function (req, res) {
     //group.reference
     req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.currentCropGroups, req.query.groupref)
     req.session.data.show_success_message = false    
-    var next = '../../update/crop/change_crop'
+    let next = '../../update/crop/change_crop'
     if (req.session.data.chosen_group.crop_reference == 'grass') next = '../../update/grass/change_crop';
     res.redirect(next)
 })
@@ -713,12 +704,12 @@ router.get(/group_level_plan_v7_handler/, function (req, res) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 router.get(/v2_quantity_handler/, function (req, res) { 
-    var next = (req.session.data.quantity_type == "area" || req.session.data.quantity_type == "rate") ? 'manure_value' : 'manure_incorporation_method';
+    let next = (req.session.data.quantity_type == "area" || req.session.data.quantity_type == "rate") ? 'manure_value' : 'manure_incorporation_method';
     res.redirect(next);
 })
 
 router.get(/manner_quantity_handler/, function (req, res) { 
-    var next = (req.session.data.quantity_type == "area" || req.session.data.quantity_type == "rate") ? 'manure_value' : 'results';
+    let next = (req.session.data.quantity_type == "area" || req.session.data.quantity_type == "rate") ? 'manure_value' : 'results';
     res.redirect(next);
 })
 
@@ -830,7 +821,7 @@ router.get(/manuregroup_handler/, callback_functions.setManureGroup, function (r
 })
 
 router.get(/enter_manure_defualts_handler/, function (req, res) {
-    var next = (req.session.data.edit_manure_defaults === "no") ? 'manure_defaults_update' : 'manure_quantity';
+    let next = (req.session.data.edit_manure_defaults === "no") ? 'manure_defaults_update' : 'manure_quantity';
     res.redirect(next);
 })
 
@@ -872,7 +863,7 @@ router.get(/livestock_type_export_handler/, function (req, res) {
 
 
 router.get(/incorporation_handler/, function (req, res) {
-    var next = (req.session.data.incorporation_method == "not_incorporated") ? 'rain_defaults' : 'manure_delay'
+    let next = (req.session.data.incorporation_method == "not_incorporated") ? 'rain_defaults' : 'manure_delay'
     res.redirect(next)
 })
 
@@ -926,7 +917,7 @@ router.get(/field-select-handler/, callback_functions.hideSuccessMessage, functi
 })
 
 router.get(/v5_fertiliser_handler/, function (req, res) {
-    var next = 'fertiliser_when'
+    let next = 'fertiliser_when'
     if (req.session.data.fertiliser_fields == 'all') next = 'defoliation';
     for (var group in req.session.data.currentCropGroups) {
         if (req.session.data.currentCropGroups[group].reference == req.session.data.fertiliser_fields ) {
@@ -982,7 +973,7 @@ router.get(/fertiliser_v5_handler/, callback_functions.showSuccessMessage, funct
         )
         req.session.data.allFertiliserApplications.push(applicationGroup)
     }
-    var next = '/farm/crop_plan/plan_view'
+    let next = '/farm/crop_plan/plan_view'
     if (req.session.data.fertiliser_journey == "multi") next = '/farm/crop_plan/plan_view';
     res.redirect(next)
 })

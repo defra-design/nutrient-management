@@ -17,14 +17,11 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-
     <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Field measurements for {{data.temp_field_name}}</h1>
       
       <form action="soil_type_router" method="post" novalidate="">
-
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h1 class="govuk-fieldset__heading">Field measurements for {{data.temp_field_name}}</h1>
-        </legend>
                 
         <div class="govuk-form-group">
           <label class="govuk-label" for="total_area">
@@ -62,7 +59,6 @@
       <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
 
     </div>
-
   </div>
 
 {% endblock %}

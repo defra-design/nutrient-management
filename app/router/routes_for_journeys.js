@@ -134,11 +134,11 @@ router.get(/add_field_handler/, callback_functions.showSuccessMessage, function 
     req.session.data.successMessage = 3 //field added
     var sowdate = null;
     req.session.data.oaktree_farm.fields_added = true;
-    req.session.data.all_fields.push(req.session.data.tempField);
     var newRef = req.session.data.currentCropGroups.length + 1
     if (req.session.data.sow_date_day != null) {
         sowdate = req.session.data.sow_date_day + '/' + req.session.data.sow_date_month + '/' + req.session.data.sow_date_year
     }
+    req.session.data.all_fields.push(req.session.data.tempField);
     console.log(req.session.data.tempField)
     //reset temp vars
     req.session.data.chosen_crop = null
@@ -168,8 +168,7 @@ router.get(/set_tempField_data_handler/, function (req, res) {
     // if (req.session.data.soilanalysis == null || req.session.data.soilanalysis == "" ) {
     //     req.session.data.soilanalysis = 'yes'
     // }
-    let next = 'add-field/check'
-    res.redirect(next);
+    res.redirect('check');
 })
 
 
@@ -237,7 +236,7 @@ router.get(/previous_group_router/, function (req, res) {
 router.get(/previous_clover_router/, function (req, res) { 
     // if 2024 not included in previous grass years then what was the previous crop in 2024?
     //else previous clover == no > previous nitrogen
-    let next = (req.session.data.previous_clover == "yes") ? 'check' : 'previous_nitrogen'
+    let next = (req.session.data.previous_clover == "yes") ? 'set_tempField_data_handler' : 'previous_nitrogen'
     res.redirect(next)
 })
 

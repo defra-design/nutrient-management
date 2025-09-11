@@ -45,6 +45,27 @@
       This field was merged with Short Field on 3 February 2025
     </div> -->
 
+    <!-- <table class="govuk-table recomendation-table data-table data-table">
+      <tbody class="govuk-table__body">
+        {% for field in data.all_fields %}
+          {% if field.name == data.chosen_field %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Name</td>
+              <td class="govuk-table__cell">{{field.name}}</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Date added</td>
+              <td class="govuk-table__cell">1 August 2025</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Field area</td>
+              <td class="govuk-table__cell">{{field.area}}</td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table> -->
+
     <table class="govuk-table recomendation-table data-table data-table">
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
@@ -53,27 +74,27 @@
         </tr>      
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Field area</td>
-          <td class="govuk-table__cell">10 hectares</td>
+          <td class="govuk-table__cell">19 hectares</td>
         </tr>      
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Cropped area</td>
-          <td class="govuk-table__cell">10 hectares</td>
+          <td class="govuk-table__cell">17 hectares</td>
         </tr>      
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Manure non spreading area</td>
-          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">2 hectares</td>
         </tr>      
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Soil type</td>
-          <td class="govuk-table__cell">Sandy</td>
+          <td class="govuk-table__cell">Medium</td>
         </tr>
-        <tr class="govuk-table__row">
+        <!-- <tr class="govuk-table__row">
           <td class="govuk-table__cell">Soil contains potash releasing clay</td>
           <td class="govuk-table__cell">No</td>
-        </tr>
+        </tr> -->
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Within an NVZ</td>
-          <td class="govuk-table__cell">No</td>
+          <td class="govuk-table__cell">Yes</td>
         </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Above 300 metres</td>

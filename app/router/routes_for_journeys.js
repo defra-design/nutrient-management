@@ -901,14 +901,8 @@ router.get(/fertiliser_loop_handler/, function (req, res) {
 
 //view the plan by year
 router.get(/crop_plan_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
+    req.session.data.oaktree_farm.planning_year = req.query.date
     res.redirect('./crop_plan/plan_view')
-})
-
-router.get(/mvpfield_plan_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field.reference)
-    req.session.data.chosen_crop = req.query.chosencrop
-    req.session.data.cover_crop = req.query.covercrop
-    res.redirect('../field_plan/index')
 })
 
 //select a field

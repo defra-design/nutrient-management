@@ -1,0 +1,14 @@
+{% if data.oaktree_farm.ewr == null %}
+    <p class="govuk-body">You have not added any excess winter rainfall. <a href="../../update/rainfall/update">Add excess winter rainfall for harvest year {{data.oaktree_farm.planning_year}}</a>.</p>
+{% else %}
+    <p class="govuk-body">Excess winter rainfall is 
+        {% if data.excess_rain == 'high' %}
+        High (250mm or more). 
+        {% elif data.excess_rain == 'moderate' %}
+        Moderate (150mm to 250mm). 
+        {% elif data.excess_rain == 'low' %}
+        Low (less than 150mm). 
+        {% endif %}
+        <a href="../../update/rainfall/update"> Update excess winter rainfall</a>
+    </p>
+{% endif %}

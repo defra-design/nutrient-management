@@ -1,0 +1,20 @@
+<div class="margin-bottom-forty">
+  <h2 class="govuk-heading-m non-standard">Organic material applications</h2>
+  {% if organics == false %}
+    <p class="govuk-body">You have no organic material applications planned.</p>
+  {% endif %} 
+  <form class="add-button" action="plan_manure_application_router?manurejourney=multi" method="post" novalidate="">    
+    <button class="govuk-button" data-module="govuk-button">
+      Add an organic material application
+    </button>
+  </form>
+</div>
+<hr class="separator_forty">
+{% if organics == true %}
+	<div class="margin-bottom-forty">
+		<h2 class="govuk-heading-m">All organic material applications for harvest year 2025</h2>
+		<p class="govuk-body-s">All amounts are per hectare</p>
+		<p class="govuk-body"><a href="#">Sort by field name</a> <span>&nbsp; </span> | <span> &nbsp;</span> <a href="#">sort by date</a><span> &nbsp;</span> | <span>&nbsp; </span> <a href="#">sort by crop</a></p>
+		{% include "./manure_applications_table.html" ignore missing %}
+	</div>
+{% endif %}

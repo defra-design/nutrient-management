@@ -1,0 +1,14 @@
+<h2 class="govuk-heading-m non-standard">Crops and fields</h2>
+<form class="add-button" action="../../add_crops/crop_group" method="post" novalidate="">    
+<button class="govuk-button" data-module="govuk-button">
+Add a crop
+</button>
+</form>
+<hr class="separator_forty">
+{% for group in cropGroups %}
+  {% if group.crop_reference == 'grass' %}
+    {% include "./crop_groups_grass.html" ignore missing %}
+  {% else %}  
+    {% include "./crop_groups.html" ignore missing %}
+  {% endif %}  
+{% endfor %}

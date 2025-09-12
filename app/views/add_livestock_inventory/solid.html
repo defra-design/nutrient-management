@@ -45,7 +45,7 @@
         </div>
 
         {% if data.livestock_group != 'poultry' %}
-          <div class="govuk-form-group margin-bottom-thirty">
+          <div class="govuk-form-group margin-bottom-forty">
             <label class="govuk-label" for="livestock_number">
               What is the bedding factor?
               <!-- <p class="hint">This is multiplied with the amount of undiluted slurry that is mixed with bedding to give the amount of solid manure produced.</p> -->
@@ -67,7 +67,7 @@
           </div> -->
         {% endif %}
 
-        {% include "/templates/reuse_figures.html" ignore missing %}
+        {% include "/templates/reuse_figures_radio.html" ignore missing %}
 
         <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
           Continue

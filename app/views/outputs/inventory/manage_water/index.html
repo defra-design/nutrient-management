@@ -42,7 +42,7 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Ki
       <div class="govuk-inset-text margin-bottom-forty">
         <p class="govuk-body">
           To create an organic manures inventory and NVZ organic material storage report, 
-          enter the wash water details for the chosen livestock types for October 2024 and September 2025.
+          enter the details of all areas that are used by livestock and then washed, between October 2024 and September 2025.
         </p>
         <p class="govuk-body">
           <a href="/outputs/inventory/checklist">Create an organic manures inventory and NVZ organic material storage report</a>
@@ -50,14 +50,13 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Ki
       </div>
     {% endif %}   
     
-    <!-- <form action="../manage_livestock/index" method="post" novalidate="">
-      <button type="submit" class="govuk-button govuk-button--secondary margin-bottom-fifty" data-module="govuk-button">
-        Add or remove livestock
+    <form action="../manage_livestock/index" method="post" novalidate="">
+      <button type="submit" class="govuk-button govuk-button margin-bottom-fifty" data-module="govuk-button">
+        Add a washed area
       </button>
-    </form> -->
+    </form>
 
-    <p class="govuk-body"><a href="reset_manage_livestock_inventory_handler">Add or remove livestock types for October 2024 and September 2025</a></p>
-    <p class="govuk-body"><a href="">Change the list of livestock with wash water</a></p>
+    <!-- <p class="govuk-body"><a href="reset_manage_livestock_inventory_handler">Add or remove livestock types for October 2024 and September 2025</a></p> -->
 
   </div>
 </div>
@@ -66,7 +65,7 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Ki
   <div class="govuk-grid-column-full">
 
     <hr class="margin-bottom-thirty">
-    {% include "./templates/table_manager.html" ignore missing %}
+    {% include "./templates/water_areas.html" ignore missing %}
 
   </div>
 </div>

@@ -695,7 +695,7 @@ router.get(/manure_slurry_handler/, function (req, res) {
 // })
 
 router.get(/monthly_volume_handler/, function (req, res) {
-    let next = (req.session.data.monthly_volume == 'yes') ? 'volume' : 'water_hose'
+    let next = (req.session.data.monthly_volume == 'yes') ? 'volume' : 'pause'
     res.redirect(next)
 })
 

@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Have you added the livestock types that use Big Parlour? 
+    </h1>
+
+    <p class="govuk-hint">To calculate the volume of water used on Big parlour this tool will use figures based on livestock details. Therefore all of your livestock details need to be added before you continue.</p>
+    
+    <!-- <p class="govuk-body margin-bottom-forty"><a href=""></p>
+    <p class="govuk-body margin-bottom-forty"><a href="">All livestock details are added, continue with calculations</p> -->
+
+    <form class="form" action="water_hose" method="post">
+    
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="monthly_volume-hint">
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="yes" name="monthly_volume" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="yes">
+                Yes, all livestock details are added, continue with calculations 
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="no" name="monthly_volume" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="no">
+                No, go back to add livestock details
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

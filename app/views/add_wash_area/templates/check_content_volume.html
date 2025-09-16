@@ -1,3 +1,34 @@
+{% macro monthitem(name, year) %}
+  <h2 class="govuk-heading-s">{{name}} {{year}}</h2>
+  <dl class="govuk-summary-list margin-bottom-forty">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Which of your cattle types use Big Parlour in {{name}} {{year}}?</dt>
+      <dd class="govuk-summary-list__value">Dairy cow from 12 months up to first calf</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">What is the number of Dairy cow from 12 months up to first calf using Big Parlour in {{name}} {{year}}?</dt>
+      <dd class="govuk-summary-list__value">100 cattle</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Total daily volume of water for all cattle types using Big Parlour in {{name}} {{year}}?</dt>
+      <dd class="govuk-summary-list__value">300 litres</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">How many days is Big Parlour washed in {{name}}?</dt>
+      <dd class="govuk-summary-list__value">31 days</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Total monthly volume of water used on Big Parlour in {{name}} {{year}}</dt>
+      <dd class="govuk-summary-list__value">200 litres</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""> <span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  </dl>
+{% endmacro %}
+    
 <dl class="govuk-summary-list margin-bottom-forty">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">What do you want to call this wash area?</dt>
@@ -6,34 +37,29 @@
   </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Do you know the amount of water used on Big Parlour each month?</dt>
-    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__value">No</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Monthly volume of water used on Big Parlour</dt>
-    <dd class="govuk-summary-list__value">
-      <ul class="nutrient_values">
-        <li>October 2024: <span>500 litres</span></li>
-        <li>November 2024: <span>500 litres</span></li>
-        <li>December 2024: <span>500 litres</span></li>
-        <li>January 2025: <span>500 litres</span></li>
-        <li>February 2025: <span>500 litres</span></li>
-        <li>March 2025: <span>300 litres</span></li>
-        <li>April 2025: <span>300 litres</span></li>
-        <li>May 2025: <span>300 litres</span></li>
-        <li>June 2025: <span>300 litres</span></li>
-        <li>July 2025: <span>300 litres</span></li>
-        <li>August 2025: <span>300 litres</span></li>
-        <li>September 2025: <span>300 litres</span></li>
-      </ul>
-    </dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What is the destination of the water?</dt>
+    <dt class="govuk-summary-list__key">Where does the water drain to from Big Parlour?</dt>
     <dd class="govuk-summary-list__value">Cattle slurry store</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+</dl>
+
+      {{ monthitem ("October", "2024") }}
+      {{ monthitem ("November", "2024") }}
+      {{ monthitem ("December", "2024") }}
+      {{ monthitem ("January", "2025") }}
+      {{ monthitem ("February", "2025") }}
+      {{ monthitem ("March", "2025") }}
+      {{ monthitem ("April", "2025") }}
+      {{ monthitem ("May", "2025") }}
+      {{ monthitem ("June", "2025") }}
+      {{ monthitem ("July", "2025") }}
+      {{ monthitem ("August", "2025") }}
+      {{ monthitem ("September", "2025") }}
+
 </dl>

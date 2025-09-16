@@ -709,5 +709,4 @@ router.get(/washed_livestock_type_handler/, function (req, res) {
     res.redirect(next)
 })
 
-
 module.exports = router

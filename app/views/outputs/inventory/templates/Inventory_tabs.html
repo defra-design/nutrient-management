@@ -1,0 +1,34 @@
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#nvz">
+        NVZ minimum storage requirement 
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#quantities">
+        Total manure quantities
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#values">
+        Total nutrient values
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-tabs__panel" id="nvz">
+    <h2 class="govuk-heading-m">NVZ minimum storage requirement</h2>
+    {% include "./inventory_table.html" ignore missing %}
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="quantities">
+    <h2 class="govuk-heading-m">Total manure quantities</h2>
+    {% include "./inventory_table.html" ignore missing %}
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="values">
+    <h2 class="govuk-heading-m">Total nutrient values</h2>
+  </div>
+</div>

@@ -20,12 +20,35 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Manure inventory
+      Manure inventory and storage
     </h1>
 
-    <h2 class="govuk-heading-m margin-bottom-thirty">
-      Manure quantities - October 2024 to September 2025
+    <h2 class="govuk-heading-s margin-bottom-forty">
+      October 2024 to September 2025
     </h2>
+
+    <p class="govuk-body"><a href="">View the total inventory</a></p>
+    <p class="govuk-body"><a href="">View the total nutrient values</a></p>
+    <p class="govuk-body margin-bottom-forty"><a href="report/report">Save or print the Organic manures inventory and NVZ manure storage report</a></p>
+
+    <h2 class="govuk-heading-m  non-standard">
+      NVZ minimum storage requirements
+    </h2>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          About NVZ minimum storage requirements
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p>The NVZ Action Programme requires that there is a minimum storage capacity requirement for livestock slurries and poultry manures.</p>
+        <p>The minimum storage capacity for slurry must include the volume of slurry collected and any dilution water such as wash water and rainfall that is collected in the slurry store during October to March (pig or poultry slurry) or October to February (cattle/other livestock slurry), allowing for exports of slurry.</p>
+        <p>The minimum storage requirement for poultry manure is 6 months production (October to March), allowing for imports and exports.</p>
+        <p>For further information see <a href="">GOV.UK</a> </p>
+      </div>
+    </details>
+    
+    <p>Data goes here</p>
 
     </div>
   </div>
@@ -33,18 +56,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      <div class="margin-bottom-forty">
-        <form class="form" action="final_nutrients" method="post">
-          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            View the nutrient values
-          </button>
-        </form>
-        <!-- <p class="govuk-body"><a href="final_nutrients">View nutrient values</a></p> -->
-        <p class="govuk-body"><a href="report/report">Save or print the Organic manures inventory and NVZ manure storage report</a></p>
-      </div>
       
-      {% include "./templates/inventory_table.html" ignore missing %}
-
   </div>
 </div>
 

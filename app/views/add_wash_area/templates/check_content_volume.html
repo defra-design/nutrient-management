@@ -1,29 +1,29 @@
-{% macro monthitem(name, year) %}
+{% macro monthitem(name, year, days, total) %}
   <h2 class="govuk-heading-s">{{name}} {{year}}</h2>
   <dl class="govuk-summary-list margin-bottom-forty">
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Which of your cattle types use Milk Parlour in {{name}} {{year}}?</dt>
+      <dt class="govuk-summary-list__key">Which cattle types use Milk Parlour in {{name}}?</dt>
       <dd class="govuk-summary-list__value">Dairy cow from 12 months up to first calf</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">What is the number of Dairy cow from 12 months up to first calf using Milk Parlour in {{name}} {{year}}?</dt>
+      <dt class="govuk-summary-list__key">Number of Dairy cow from 12 months up to first calf using Milk Parlour in {{name}}</dt>
       <dd class="govuk-summary-list__value">100 cattle</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Total daily volume of water for all cattle types using Milk Parlour in {{name}} {{year}}?</dt>
-      <dd class="govuk-summary-list__value">300 litres</dd>
+      <dt class="govuk-summary-list__key">Total litres of water per day for all cattle types</dt>
+      <dd class="govuk-summary-list__value">20 litres</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">How many days is Milk Parlour washed in {{name}}?</dt>
-      <dd class="govuk-summary-list__value">31 days</dd>
+      <dt class="govuk-summary-list__key">Wash days in {{name}}</dt>
+      <dd class="govuk-summary-list__value">{{days}} days</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Total monthly volume of water used on Milk Parlour in {{name}} {{year}}</dt>
-      <dd class="govuk-summary-list__value">200 litres</dd>
+      <dt class="govuk-summary-list__key">Total volume of water used on Milk Parlour in {{name}} {{year}}</dt>
+      <dd class="govuk-summary-list__value">{{total}} litres cubed</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""> <span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
   </dl>
@@ -49,17 +49,17 @@
   </div>
 </dl>
 
-      {{ monthitem ("October", "2024") }}
-      {{ monthitem ("November", "2024") }}
-      {{ monthitem ("December", "2024") }}
-      {{ monthitem ("January", "2025") }}
-      {{ monthitem ("February", "2025") }}
-      {{ monthitem ("March", "2025") }}
-      {{ monthitem ("April", "2025") }}
-      {{ monthitem ("May", "2025") }}
-      {{ monthitem ("June", "2025") }}
-      {{ monthitem ("July", "2025") }}
-      {{ monthitem ("August", "2025") }}
-      {{ monthitem ("September", "2025") }}
+{{ monthitem ("October", 2024, 31, 62) }}
+{{ monthitem ("November", 2024, 30, 60) }}
+{{ monthitem ("December", 2024, 31, 62) }}
+{{ monthitem ("January", 2025, 29, 58) }}
+{{ monthitem ("February", 2025, 31, 62) }}
+{{ monthitem ("March", 2025, 31, 62) }}
+{{ monthitem ("April", 2025, 30, 60) }}
+{{ monthitem ("May", 2025, 31, 62) }}
+{{ monthitem ("June", 2025, 30, 60) }}
+{{ monthitem ("July", 2025, 31, 62) }}
+{{ monthitem ("August", 2025, 31, 62) }}
+{{ monthitem ("September", 2025, 30, 60) }}
 
 </dl>

@@ -191,7 +191,27 @@ router.get(/exports_setup_handler/, function (req, res) {
     
     req.session.data.oaktree_farm.livestock_inventory = 3;
 
+    res.redirect('start')
+})
 
+router.get(/inventory_setup_handler/, function (req, res) { 
+    req.session.data.oaktree_farm.setup = true
+    req.session.data.oaktree_farm.fields_added = true
+    req.session.data.showinfo = false
+    req.session.data.all_fields = req.session.data.complete_field_list
+    req.session.data.oaktree_farm.area_added = true
+    req.session.data.oaktree_farm.manure_imports = true
+    req.session.data.oaktree_farm.manure_exports = true
+    req.session.data.oaktree_farm.imports_exports = 2
+    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(1, 2025, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Crop group 1', null, null, true))
+    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(2, 2025, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 2', '10 to 13', "12/03/2025", true))
+    req.session.data.currentCropGroups.push(allFunctions.createCropGroup(3, 2025, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', '12', null, false))
+    for (var x in req.session.data.all_fertiliser_applications) {
+        req.session.data.allFertiliserApplications.push(req.session.data.all_fertiliser_applications[x])
+    }
+    for (var y in req.session.data.manure_applications_list) {
+        req.session.data.allManureApplications_v2.push(req.session.data.manure_applications_list[y])
+    }
     res.redirect('start')
 })
 

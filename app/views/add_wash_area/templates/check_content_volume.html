@@ -1,0 +1,92 @@
+{% macro monthitem(name, year) %}
+  <h3 class="govuk-heading-s margin-top-thirty">{{name}} {{year}}</h3>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__value">Number</dt>
+      <dd class="govuk-summary-list__value">
+          100 {{data.chosen_livestock.shortname}}
+      </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__value">Time housed
+    </dt>
+      <dd class="govuk-summary-list__value">
+          80%
+      </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__value">What is this livestock's main manure system?
+    </dt>
+      <dd class="govuk-summary-list__value">
+          Mainly solid manure
+      </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__value">How much of this livestock's manure is collected as slurry?
+    </dt>
+      <dd class="govuk-summary-list__value">
+          30%
+      </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__value">How much of this slurry goes through mechanical separation
+    </dt>
+      <dd class="govuk-summary-list__value">
+          0%
+      </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__value">What is the bedding factor?
+    </dt>
+      <dd class="govuk-summary-list__value">
+          1.30
+      </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__value">Total bedding for {{name}}
+    </dt>
+      <dd class="govuk-summary-list__value">
+          27.7 tonnes
+      </dd>
+    <!-- <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd> -->
+  </div>
+
+{% endmacro %}
+
+
+<dl class="govuk-summary-list margin-bottom-forty">
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What type of livestock would you like to add?</dt>
+    <dd class="govuk-summary-list__value">{{data.livestock_group | capitalize}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What type of {{data.livestock_group }} would you like to add?</dt>
+    <dd class="govuk-summary-list__value">{{data.chosen_livestock.name | capitalize}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+        {{ monthitem ("October", "2024") }}
+        {{ monthitem ("November", "2024") }}
+        {{ monthitem ("December", "2024") }}
+        {{ monthitem ("January", "2025") }}
+        {{ monthitem ("February", "2025") }}
+        {{ monthitem ("March", "2025") }}
+        {{ monthitem ("April", "2025") }}
+        {{ monthitem ("May", "2025") }}
+        {{ monthitem ("June", "2025") }}
+        {{ monthitem ("July", "2025") }}
+        {{ monthitem ("August", "2025") }}
+        {{ monthitem ("September", "2025") }}
+
+</dl>

@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "/templates/signed-in.html" ignore missing %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "checklist"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Manure inventory
+    </h1>
+
+    <h2 class="govuk-heading-m margin-bottom-thirty">
+      Manure quantities - October 2024 to September 2025
+    </h2>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div class="margin-bottom-forty">
+        <form class="form" action="final_nutrients" method="post">
+          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            View the nutrient values
+          </button>
+        </form>
+        <!-- <p class="govuk-body"><a href="final_nutrients">View nutrient values</a></p> -->
+        <p class="govuk-body"><a href="report/report">Save or print the Organic manures inventory and NVZ manure storage report</a></p>
+      </div>
+      
+      {% include "./templates/final_numbers_table.html" ignore missing %}
+
+  </div>
+</div>
+
+{% endblock %}

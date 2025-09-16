@@ -81,11 +81,11 @@
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     <div class="govuk-task-list__name-and-hint">
       <a class="govuk-link govuk-task-list__link" href="water_inventory_handler">
-        Wash Water 
+        Wash water from areas used by livestock
       </a>
     </div>
     <div class="govuk-task-list__status">
-      {% if data.oaktree_farm.wash_water == true %}
+      {% if data.oaktree_farm.wash_water == true or data.oaktree_farm.livestock_inventory == 4 %}
         Completed
       {% else %}
         <strong class="govuk-tag govuk-tag--blue">

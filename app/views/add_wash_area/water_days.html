@@ -21,31 +21,27 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Daily volume and number of wash days
+       Total daily volume of water and number of wash days
       </h1>
 
-      <p class="govuk-body">
-        Selected livestock type: {{data.chosen_livestock.name | capitalize}}
-      </p>
-
-      <form action="water_volume" method="post" novalidate="">
+      <form action="store" method="post" novalidate="">
 
         <div class="govuk-form-group margin-bottom-thirty">
           <label class="govuk-label" for="livestock_number">
-            What is the daily volume?
+            Total daily volume of water for all cattle types using Big Parlour in October 2024?
           </label>
           <div class="govuk-input__wrapper">
-            <input class="govuk-input govuk-input--width-3" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <input class="govuk-input govuk-input--width-3" id="livestock_number" name="livestock_number" type="text" value="300" spellcheck="false" autocomplete="off">
             <div class="govuk-input__suffix" aria-hidden="true">Litres</div>
           </div>
         </div>
 
         <div class="govuk-form-group margin-bottom-thirty">
           <label class="govuk-label" for="livestock_number">
-            How many wash days?
+            How many days is Big Parlour washed in October?
           </label>
           <div class="govuk-input__wrapper">
-            <input class="govuk-input govuk-input--width-3" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <input class="govuk-input govuk-input--width-3" id="livestock_number" name="livestock_number" value="31" type="text" aria-valuemin="31" spellcheck="false" autocomplete="off">
             <div class="govuk-input__suffix" aria-hidden="true">Days</div>
           </div>
         </div>

@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Have you added all of your livestock types that use washed areas?
+    </h1>
+
+    <!-- <p class="govuk-body">
+      <a href="">Add livestock details</a>
+    </p>
+
+    <p class="govuk-body">
+      <a href="/add_wash_area/name">Continue</a>
+    </p> -->
+
+    <p class="govuk-body">
+      You can enter total monthly volumes of wash water for each washed area, or this tool can help you calculate the totals.
+    </p>
+
+    <p class="govuk-body">
+      To help calculate the total volume of water used you need to use your livestock numbers .
+    </p>
+
+
+    <!-- <form class="form" action="/add_wash_area/name" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="yes" name="livestock_inventory" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="yes">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="no" name="livestock_inventory" type="radio" value="no" {% if data.oaktree_farm.livestock_inventory == 4  %} checked='checked' {% endif %}>
+              <label class="govuk-label govuk-radios__label" for="no">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form> -->
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

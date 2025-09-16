@@ -289,9 +289,13 @@ router.get(/system_inventory_handler/, callback_functions.hide_error, callback_f
 
 router.get(/water_inventory_handler/, callback_functions.hide_error, callback_functions.hideSuccessMessage, function (req, res) {
     let next = 'water_none'
-    // if (req.session.data.oaktree_farm.livestock_inventory != 2) { 
-    //     next = '/add_livestock_inventory/livestock_none'
-    // } 
+    if (req.session.data.oaktree_farm.livestock_inventory == null) { 
+        next = 'livestock_inventory_handler'
+    } else if (req.session.data.oaktree_farm.livestock_inventory == 4) {
+        next = '/add_livestock_inventory/livestock_none'
+    } else if (req.session.data.oaktree_farm.wash_water == true) {
+        next = '/outputs/inventory/manage_water/index'
+    }    
     res.redirect(next);
 })
 
@@ -691,13 +695,18 @@ router.get(/manure_slurry_handler/, function (req, res) {
 // })
 
 router.get(/monthly_volume_handler/, function (req, res) {
-    let next = (req.session.data.monthly_volume == 'yes') ? 'volume' : 'size'
+    let next = (req.session.data.monthly_volume == 'yes') ? 'volume' : 'water_hose'
     res.redirect(next)
 })
 
 router.get(/add_wash_area_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.oaktree_farm.wash_water = true
     res.redirect('/outputs/inventory/manage_water/index')
+})
+
+router.get(/washed_livestock_type_handler/, function (req, res) {
+    let next = 'livestock_type'
+    res.redirect(next)
 })
 
 

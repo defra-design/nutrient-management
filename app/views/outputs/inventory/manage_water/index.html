@@ -33,7 +33,7 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Ki
     {% endif %}
     
     <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
-    <h1 class="govuk-heading-l add_sub" id="header">Wash water details</h1>
+    <h1 class="govuk-heading-l add_sub" id="header">Wash water from areas used by livestock</h1>
     <h2 class="govuk-heading-m margin-bottom-thirty">
         October 2024 and September 2025
     </h2>
@@ -50,7 +50,7 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Ki
       </div>
     {% endif %}   
     
-    <form action="../manage_livestock/index" method="post" novalidate="">
+    <form action="/add_wash_area/name" method="post" novalidate="">
       <button type="submit" class="govuk-button govuk-button margin-bottom-fifty" data-module="govuk-button">
         Add a washed area
       </button>

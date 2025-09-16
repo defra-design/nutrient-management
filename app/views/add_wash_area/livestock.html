@@ -1,0 +1,131 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+{% set show_cattle = false %}
+{% set show_pigs = false %}
+{% set show_poultry = false %}
+{% set show_sheep = false %}
+{% set show_other = false %}
+
+{% for livestock_type in data.livestock_record_2025 %}
+
+  {% if livestock_type.type == 'cattle' %}
+    {% if livestock_type.numbers_added_inventory != null %}
+      {% set show_cattle = true %}
+    {% endif %}
+  {% endif %}
+
+  {% if livestock_type.type == 'pig' %}
+    {% if livestock_type.numbers_added_inventory != null %}
+      {% set show_pigs = true %}
+    {% endif %}
+  {% endif %}
+
+  {% if livestock_type.type == 'poultry' %}
+    {% if livestock_type.numbers_added_inventory != null %}
+      {% set show_poultry = true %}
+    {% endif %}
+  {% endif %}
+
+  {% if livestock_type.type == 'sheep' %}
+    {% if livestock_type.numbers_added_inventory != null %}
+      {% set show_sheep = true %}
+    {% endif %}
+  {% endif %}
+
+  {% if livestock_type.type == 'other' %}
+    {% if livestock_type.numbers_added_inventory != null %}
+      {% set show_other = true %}
+    {% endif %}
+  {% endif %}
+
+{% endfor %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Which of your livestock types use this washed area?
+    </h1>
+
+    <p class="govuk-body">
+      You should add all of your livestock types before continuing.
+    </p>
+
+    <form class="form" action="washed_livestock_type_handler" method="post">
+    
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="washed_livestock_type-hint">
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+          {% if show_cattle == true %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="cattle" name="washed_livestock_type" type="radio" value="cattle">
+              <label class="govuk-label govuk-radios__label" for="cattle">
+                Cattle
+              </label>
+            </div>
+          {% endif %}
+          {% if show_pigs == true %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="pigs" name="washed_livestock_type" type="radio" value="pigs">
+              <label class="govuk-label govuk-radios__label" for="pigs">
+                Pigs
+              </label>
+            </div>
+          {% endif %}
+          {% if show_poultry == true %}  
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="poultry" name="washed_livestock_type" type="radio" value="poultry">
+              <label class="govuk-label govuk-radios__label" for="poultry">
+                Poultry
+              </label>
+            </div>
+          {% endif %}
+          {% if show_sheep == true %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sheep" name="washed_livestock_type" type="radio" value="sheep">
+              <label class="govuk-label govuk-radios__label" for="sheep">
+                Sheep
+              </label>
+            </div>
+          {% endif %}
+          {% if show_other == true %}  
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="other" name="washed_livestock_type" type="radio" value="other">
+              <label class="govuk-label govuk-radios__label" for="other">
+                Goats, deer or horses
+              </label>
+            </div>
+          </div>
+          {% endif %}
+        </fieldset>
+      </div>
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

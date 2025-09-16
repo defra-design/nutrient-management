@@ -20,7 +20,7 @@
   <div class="govuk-grid-column-two-thirds-from-desktop">
     
     <h1 class="govuk-heading-l">
-      Add livestock details for Oaktree Lane Farm between October 2024 and September 2025
+      Add details of washed areas on {{data.oaktree_farm.name}} October 2024 and September 2025
     </h1>
 
     <h2 class="govuk-heading-m">
@@ -28,21 +28,16 @@
     </h2>
 
     <div class="check-answers">
-      {% if data.mostly_manure == 'slurry' %}
+      {% if data.monthly_volume == 'yes' %}
         {% include "./templates/check_content_volume.html" %}
       {% else  %}
         {% include "./templates/check_content_size.html" %}
       {% endif  %}
     </div>
 
-    {% set button_text = 'Add this livestock' %}
-    {% if data.livestock_update_journey == true %}
-      {% set button_text = 'Update this livestock' %}
-    {% endif %}
-
-    <form action="" method="post" novalidate>
+    <form action="add_wash_area_handler" method="post" novalidate>
       {{ govukButton({
-        text: button_text
+        text: 'Add this washed area'
       }) }}
     </form>
 

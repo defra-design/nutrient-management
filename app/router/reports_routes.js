@@ -695,4 +695,10 @@ router.get(/monthly_volume_handler/, function (req, res) {
     res.redirect(next)
 })
 
+router.get(/add_wash_area_handler/, callback_functions.showSuccessMessage, function (req, res) {
+    req.session.data.oaktree_farm.wash_water = true
+    res.redirect('/outputs/inventory/manage_water/index')
+})
+
+
 module.exports = router

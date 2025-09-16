@@ -17,9 +17,18 @@
 {% block content %}
 
 {% macro monthitem(name, year) %}
+  <h2 class="govuk-heading-s">{{ name }} {{ year }}</h2>
   <div class="govuk-form-group">
     <label class="govuk-label" for="total_area">
-      Volume of water used in {{ name }} {{ year }}
+      Daily volume of water in {{ name }}
+    </label>
+    <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="total_area" name="total_area" type="text" spellcheck="false" autocomplete="off">
+      <div class="govuk-input__suffix" aria-hidden="true">litres</div>
+    </div>
+  </div>
+  <div class="govuk-form-group margin-bottom-forty">
+    <label class="govuk-label" for="total_area">
+      Number of wash days in {{ name }}
     </label>
     <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="total_area" name="total_area" type="text" spellcheck="false" autocomplete="off">
       <div class="govuk-input__suffix" aria-hidden="true">litres</div>
@@ -31,7 +40,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Monthly volume of water used on Big Parlour
+      Monthly volume of water used on Milk Parlour
     </h1>
     
     <form action="store" method="post" novalidate="">

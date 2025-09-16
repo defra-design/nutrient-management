@@ -19,15 +19,15 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Which of your cattle types use Big Parlour?
+      Which of your cattle types use Milk Parlour?
     </h1>
 
-    <p class="govuk-body">
+    <!-- <p class="govuk-body">
       You should add all of your cattle types before continuing.
-    </p>
+    </p> -->
 
     <form class="form" action="livestock_numbers" method="post">
-      <div class="govuk-form-group">
+      <div class="govuk-form-group margin-bottom-forty">
         <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
           <div id="waste-hint" class="govuk-hint">
             Select all that apply
@@ -45,8 +45,17 @@
               {% endfor %}
             </div>
         </fieldset>
+        {% if data.livestock_record_2025.length > 1 %}
+        <div class="govuk-checkboxes__divider margin-top-ten">or</div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="" name="" type="checkbox" value="">
+          <label class="govuk-label govuk-checkboxes__label" for="">
+            Select all
+          </label>
+        </div>
+        {% endif %}
       </div>
-      
+
       {{ govukButton({
         text: "Continue"
       }) }}

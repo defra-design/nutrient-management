@@ -1,39 +1,53 @@
+{% macro monthitem(name, year, days, volume) %}
+  <h2 class="govuk-heading-s">{{name}} {{year}}</h2>
+  <dl class="govuk-summary-list margin-bottom-forty">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Daily volume of water</dt>
+      <dd class="govuk-summary-list__value">20 litres</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Number of wash days</dt>
+      <dd class="govuk-summary-list__value">{{days}} days</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Monthly volume of water</dt>
+      <dd class="govuk-summary-list__value">{{volume}} metres cubed</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""> <span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  </dl>
+{% endmacro %}
+
 <dl class="govuk-summary-list margin-bottom-forty">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">What do you want to call this wash area?</dt>
-    <dd class="govuk-summary-list__value">Big Parlour</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Do you know the amount of water used on Big Parlour each month?</dt>
-    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__value">Milk Parlour</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Monthly volume of water used on Big Parlour</dt>
-    <dd class="govuk-summary-list__value">
-      <ul class="nutrient_values">
-        <li>October 2024: <span>500 litres</span></li>
-        <li>November 2024: <span>500 litres</span></li>
-        <li>December 2024: <span>500 litres</span></li>
-        <li>January 2025: <span>500 litres</span></li>
-        <li>February 2025: <span>500 litres</span></li>
-        <li>March 2025: <span>300 litres</span></li>
-        <li>April 2025: <span>300 litres</span></li>
-        <li>May 2025: <span>300 litres</span></li>
-        <li>June 2025: <span>300 litres</span></li>
-        <li>July 2025: <span>300 litres</span></li>
-        <li>August 2025: <span>300 litres</span></li>
-        <li>September 2025: <span>300 litres</span></li>
-      </ul>
-    </dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""> <span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Where does the water drain to from Big Parlour?</dt>
+    <dt class="govuk-summary-list__key">Where does the water drain to from Milk Parlour?</dt>
     <dd class="govuk-summary-list__value">Cattle slurry store</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Do you know the amount of water used on Milk Parlour each wash day?</dt>
+    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
 </dl>
+
+{{ monthitem ("October", 2024, 31, 62) }}
+{{ monthitem ("November", 2024, 30, 60) }}
+{{ monthitem ("December", 2024, 31, 62) }}
+{{ monthitem ("January", 2025, 29, 58) }}
+{{ monthitem ("February", 2025, 31, 62) }}
+{{ monthitem ("March", 2025, 31, 62) }}
+{{ monthitem ("April", 2025, 30, 60) }}
+{{ monthitem ("May", 2025, 31, 62) }}
+{{ monthitem ("June", 2025, 30, 60) }}
+{{ monthitem ("July", 2025, 31, 62) }}
+{{ monthitem ("August", 2025, 31, 62) }}
+{{ monthitem ("September", 2025, 30, 60) }}

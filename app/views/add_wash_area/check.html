@@ -20,7 +20,7 @@
   <div class="govuk-grid-column-two-thirds-from-desktop">
     
     <h1 class="govuk-heading-l">
-      Add a washed livestock area
+      Add a washed livestock area {{data.monthly_volume}}
     </h1>
 
     <h2 class="govuk-heading-m">
@@ -29,9 +29,9 @@
 
     <div class="check-answers">
       {% if data.monthly_volume == 'yes' %}
-        {% include "./templates/check_content_volume.html" %}
-      {% else  %}
         {% include "./templates/check_content_size.html" %}
+      {% else %}
+        {% include "./templates/check_content_volume.html" %}
       {% endif  %}
     </div>
 

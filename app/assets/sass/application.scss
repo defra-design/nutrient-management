@@ -1304,3 +1304,12 @@ th.wide, td.wide {
 .check-answers dd.govuk-summary-list__value {
     width: 41%;
 }
+
+.contents {
+    li {
+        font-size: 17px;
+        span {
+            margin-right: 10px;
+        }
+    }
+}

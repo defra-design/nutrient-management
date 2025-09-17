@@ -1,65 +1,109 @@
 {% macro yearitem(name) %}
-<table class="govuk-table data-table">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Month</th>
-      <th scope="col" class="govuk-table__header">Cattle</th>
-      <th scope="col" class="govuk-table__header">Pigs</th>
-      <th scope="col" class="govuk-table__header">Poultry</th>
-      <th scope="col" class="govuk-table__header">Sheep</th>
-      <th scope="col" class="govuk-table__header">Other</th>
-      <th scope="col" class="govuk-table__header">Imports</th>
-      <th scope="col" class="govuk-table__header">Exports</th>
-      <th scope="col" class="govuk-table__header">Clean rainfall</th>
-      <th scope="col" class="govuk-table__header">Dirty rainfall</th>
-      <th scope="col" class="govuk-table__header">Net total</th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    {{ monthitem('October', 12, 201, 189) }}
-    {{ monthitem('November', 11, 263, 252) }}
-    {{ monthitem('December', 11, 232, 221) }}
-    {{ monthitem('January', 11, 265, 254) }}
-    {{ monthitem('February', 8, 256, 248) }}
-    {{ monthitem('March', 9, 148, 139) }}
-    {{ monthitem('April', 9, 114, 105) }}
-    {{ monthitem('May', 8, 109, 100) }}
-    {{ monthitem('June', 11, 109, 38) }}
-    {{ monthitem('July', 9, 109, 100) }}
-    {{ monthitem('August', 10, 110, 100) }}
-    {{ monthitem('September', 10, 147, 137) }}
-      <tr class="govuk-table__row total_row">
-        <td class="govuk-table__cell">Total</td>
-        <td class="govuk-table__cell">1,885</td>
-        <td class="govuk-table__cell">0</td>
-        <td class="govuk-table__cell">0</td>
-        <td class="govuk-table__cell">0</td>
-        <td class="govuk-table__cell">0</td>
-        <td class="govuk-table__cell">0</td>
-        <td class="govuk-table__cell">0</td>
-        <td class="govuk-table__cell">118</td>
-        <td class="govuk-table__cell">0</td>
-        <td class="govuk-table__cell">2,063</td>
+  <table class="govuk-table data-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Month</th>
+        <th scope="col" class="govuk-table__header">Cattle</th>
+        <th scope="col" class="govuk-table__header">Pigs</th>
+        <th scope="col" class="govuk-table__header">Poultry</th>
+        <th scope="col" class="govuk-table__header">Sheep</th>
+        <th scope="col" class="govuk-table__header">Other</th>
+        <th scope="col" class="govuk-table__header">Imports</th>
+        <th scope="col" class="govuk-table__header">Exports</th>
+        <th scope="col" class="govuk-table__header">Clean rainfall</th>
+        <th scope="col" class="govuk-table__header">Dirty rainfall</th>
+        <th scope="col" class="govuk-table__header">Net total</th>
       </tr>
-  </tbody>
-</table>
+    </thead>
+    <tbody class="govuk-table__body">
+      {{ monthitem('October', 12, 201, 189) }}
+      {{ monthitem('November', 11, 263, 252) }}
+      {{ monthitem('December', 11, 232, 221) }}
+      {{ monthitem('January', 11, 265, 254) }}
+      {{ monthitem('February', 8, 256, 248) }}
+      {{ monthitem('March', 9, 148, 139) }}
+      {{ monthitem('April', 9, 114, 105) }}
+      {{ monthitem('May', 8, 109, 100) }}
+      {{ monthitem('June', 11, 109, 38) }}
+      {{ monthitem('July', 9, 109, 100) }}
+      {{ monthitem('August', 10, 110, 100) }}
+      {{ monthitem('September', 10, 147, 137) }}
+        <tr class="govuk-table__row total_row">
+          <td class="govuk-table__cell">Total</td>
+          <td class="govuk-table__cell">1,885</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">118</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">2,063</td>
+        </tr>
+    </tbody>
+  </table>
 {% endmacro %}
 
 {% macro monthitem(name, rainfall, total, value) %}
-<tr class="govuk-table__row">
-  <td class="govuk-table__cell">{{name}}</td>
-  <td class="govuk-table__cell">{{value}}</td>
-  <td class="govuk-table__cell">0</td>
-  <td class="govuk-table__cell">0</td>
-  <td class="govuk-table__cell">0</td>
-  <td class="govuk-table__cell">0</td>
-  <td class="govuk-table__cell">0</td>
-  <td class="govuk-table__cell">0</td>
-  <td class="govuk-table__cell">{{rainfall}}</td>
-  <td class="govuk-table__cell">0</td>
-  <td class="govuk-table__cell">{{total}}</td>
-</tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell">{{name}}</td>
+    <td class="govuk-table__cell">{{value}}</td>
+    <td class="govuk-table__cell">0</td>
+    <td class="govuk-table__cell">0</td>
+    <td class="govuk-table__cell">0</td>
+    <td class="govuk-table__cell">0</td>
+    <td class="govuk-table__cell">0</td>
+    <td class="govuk-table__cell">0</td>
+    <td class="govuk-table__cell">{{rainfall}}</td>
+    <td class="govuk-table__cell">0</td>
+    <td class="govuk-table__cell">{{total}}</td>
+  </tr>
 {% endmacro %}
+
+{% macro yearitem_water(name) %}
+  <table class="govuk-table data-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Month</th>
+        <th scope="col" class="govuk-table__header">Clean rainfall</th>
+        <th scope="col" class="govuk-table__header">Dirty rainfall</th>
+        <th scope="col" class="govuk-table__header">Net total</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      {{ monthitem_water('October', 3, 11, 8) }}
+      {{ monthitem_water('November', 3, 11, 8) }}
+      {{ monthitem_water('December', 3, 10, 8) }}
+      {{ monthitem_water('January', 3, 10, 7) }}
+      {{ monthitem_water('February', 2, 8, 6) }}
+      {{ monthitem_water('March', 2, 8, 6) }}
+      {{ monthitem_water('April', 2, 8, 6) }}
+      {{ monthitem_water('May', 2, 8, 6) }}
+      {{ monthitem_water('June', 3, 10, 8) }}
+      {{ monthitem_water('July', 2, 9, 6) }}
+      {{ monthitem_water('August', 2, 9, 7) }}
+      {{ monthitem_water('September', 3, 10, 7) }}
+        <tr class="govuk-table__row total_row">
+          <td class="govuk-table__cell">Total</td>
+          <td class="govuk-table__cell">83</td>
+          <td class="govuk-table__cell">30</td>
+          <td class="govuk-table__cell">113</td>
+        </tr>
+    </tbody>
+  </table>
+{% endmacro %}
+
+{% macro monthitem_water(name, rainfall, total, value) %}
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell">{{name}}</td>
+    <td class="govuk-table__cell">{{value}}</td>
+    <td class="govuk-table__cell">{{rainfall}}</td>
+    <td class="govuk-table__cell">{{total}}</td>
+  </tr>
+{% endmacro %}
+
+
 
 <div class="govuk-tabs" data-module="govuk-tabs">
 <h2 class="govuk-tabs__title">
@@ -71,11 +115,11 @@
       Slurry
     </a>
   </li>
-  <!-- <li class="govuk-tabs__list-item">
+  <li class="govuk-tabs__list-item">
     <a class="govuk-tabs__tab" href="#dirty-water">
       Dirty water
     </a>
-  </li> -->
+  </li>
   <li class="govuk-tabs__list-item">
     <a class="govuk-tabs__tab" href="#poultry-manure">
       Poultry layer manure
@@ -97,10 +141,10 @@
   <p class="govuk-body-s">These values are cubic metres</p>
   {{ yearitem () }}
 </div>
-<!-- <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="dirty-water">
+<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="dirty-water">
   <h2 class="govuk-heading-m">Dirty water</h2>
-  <p class="govuk-body">No details entered</p>
-</div> -->
+  {{ yearitem_water () }}
+</div>
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="poultry-manure">
   <h2 class="govuk-heading-m">Poultry layer manure</h2>
   <p class="govuk-body">No details entered</p>

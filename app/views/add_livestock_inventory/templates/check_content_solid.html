@@ -3,7 +3,12 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__value">Number</dt>
       <dd class="govuk-summary-list__value">
-          100 {{data.chosen_livestock.shortname}}
+          100 
+          {% if data.chosen_livestock.shortname == 'pig' or data.chosen_livestock.shortname == 'poultry'  %}
+            places
+          {% else %}
+            {{data.chosen_livestock.shortname}} 
+          {% endif %}
       </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>

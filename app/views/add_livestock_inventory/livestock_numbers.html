@@ -35,13 +35,21 @@
           </label>
           <div class="govuk-input__wrapper">
             <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">{{data.chosen_livestock.shortname}}</div>
+            <div class="govuk-input__suffix" aria-hidden="true">
+              {% if data.chosen_livestock.shortname == 'pig' or data.chosen_livestock.shortname == 'poultry'  %}
+                places
+              {% else %}
+                {{data.chosen_livestock.shortname}} 
+              {% endif %}
+            </div>
           </div>
         </div>
 
         <div class="govuk-form-group margin-bottom-thirty">
           <label class="govuk-label" for="livestock_occupancy">
-            What percentage of time are these {{data.chosen_livestock.shortname}} housed during October?
+            What percentage of time are these 
+            {{data.chosen_livestock.shortname}}{% if data.chosen_livestock.shortname == 'pig' %}s {% endif %} 
+            housed during October?
           </label>
           <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="80" id="livestock_occupancy" name="livestock_occupancy" type="text" spellcheck="false" autocomplete="off">
             <div class="govuk-input__suffix" aria-hidden="true">%</div>

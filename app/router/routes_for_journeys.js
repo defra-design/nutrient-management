@@ -240,10 +240,10 @@ router.get(/previous_clover_router/, function (req, res) {
     res.redirect(next)
 })
 
-router.get(/previous_cuts_router/, function (req, res) { 
-    let next = (req.session.data.previous_management == 'grazed') ? 'previous_clover' : 'previous_cuts_two'
-    res.redirect(next)
-})
+// router.get(/previous_cuts_router/, function (req, res) { 
+//     let next = (req.session.data.previous_management == 'grazed') ? 'previous_clover' : 'previous_cuts_two'
+//     res.redirect(next)
+// })
 
 router.get(/sns_v3_router/, function (req, res) { 
     let next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'set_tempField_data_handler';

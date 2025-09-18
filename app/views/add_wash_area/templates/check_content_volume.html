@@ -2,7 +2,7 @@
   <h2 class="govuk-heading-s">{{name}} {{year}}</h2>
   <dl class="govuk-summary-list margin-bottom-forty">
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Which cattle types use Milk Parlour in {{name}}?</dt>
+      <dt class="govuk-summary-list__key">Which cattle types use {{data.wash_area_name}} in {{name}}?</dt>
       <dd class="govuk-summary-list__value">Dairy cow from 12 months up to first calf</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
@@ -22,7 +22,7 @@
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Volume of water used on Milk Parlour in {{name}} {{year}}</dt>
+      <dt class="govuk-summary-list__key">Volume of water used on {{data.wash_area_name}} in {{name}} {{year}}</dt>
       <dd class="govuk-summary-list__value">{{total}} litres cubed</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""> <span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
@@ -32,21 +32,21 @@
 <dl class="govuk-summary-list margin-bottom-forty">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">What do you want to call this wash area?</dt>
-    <dd class="govuk-summary-list__value">Milk Parlour</dd>
+    <dd class="govuk-summary-list__value">{{data.wash_area_name}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Where does the water drain to from Milk Parlour?</dt>
+    <dt class="govuk-summary-list__key">Where does the water drain to from {{data.wash_area_name}}?</dt>
     <dd class="govuk-summary-list__value">Cattle slurry store</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Do you know the amount of water used on Milk Parlour each month?</dt>
+    <dt class="govuk-summary-list__key">Do you know the amount of water used on {{data.wash_area_name}} each month?</dt>
     <dd class="govuk-summary-list__value">No</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What type of hose is used to wash Milk Parlour?</dt>
+    <dt class="govuk-summary-list__key">What type of hose is used to wash {{data.wash_area_name}}?</dt>
     <dd class="govuk-summary-list__value">Low volume</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>

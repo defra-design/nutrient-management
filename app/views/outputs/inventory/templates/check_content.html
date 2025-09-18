@@ -31,6 +31,25 @@
     </div>
   </li>
 
+  
+  <!-- Rainwater collection -->
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="rainwater">
+        Rainwater collection areas
+      </a>
+    </div>
+    <div class="govuk-task-list__status">
+      {% if data.oaktree_farm.rainwater_area_added == 'added' or data.oaktree_farm.rainwater_area_added == true %}
+        Completed
+      {% else %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Incomplete
+        </strong>
+      {% endif %}
+    </div>
+  </li>
+
 
     <!-- Livestock  -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
@@ -94,25 +113,6 @@
       {% endif %}
     </div>
   </li>  
-
-
-  <!-- Rainwater collection -->
-  <li class="govuk-task-list__item govuk-task-list__item--with-link">
-    <div class="govuk-task-list__name-and-hint">
-      <a class="govuk-link govuk-task-list__link" href="rainwater">
-        Rainwater collection areas
-      </a>
-    </div>
-    <div class="govuk-task-list__status">
-      {% if data.oaktree_farm.rainwater_area_added == 'added' or data.oaktree_farm.rainwater_area_added == true %}
-        Completed
-      {% else %}
-        <strong class="govuk-tag govuk-tag--blue">
-          Incomplete
-        </strong>
-      {% endif %}
-    </div>
-  </li>
 
 
   <!-- Imports and exports -->

@@ -86,6 +86,8 @@ router.get('/', function (req, res) {
     req.session.data.extra_features = true
     req.session.data.imports_exports = null
     req.session.data.livestock_update_journey = false
+    req.session.data.wash_area_name = 'Washed area 1'
+    
 
     //content
     req.session.data.manure_types_digestate = manure_types_digestate

@@ -708,5 +708,12 @@ router.get(/washed_livestock_type_handler/, function (req, res) {
     let next = 'livestock_type'
     res.redirect(next)
 })
+router.get(/wash_area_name_handler/, function (req, res) {
+    if (req.session.data.wash_area_name == '' || req.session.data.wash_area_name == null) {
+        req.session.data.wash_area_name = 'Washed area 1'
+    }
+    res.redirect('store')
+})
+
 
 module.exports = router

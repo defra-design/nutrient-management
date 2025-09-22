@@ -142,7 +142,8 @@ router.get('/', function (req, res) {
     req.session.data.all_fields = all_fields
 
     // version 5
-    req.session.data.currentCropGroups = []
+    req.session.data.nextCropGroups = []
+    req.session.data.lastCropGroups = []
     req.session.data.allManureApplications_v2 = []
     req.session.data.allFertiliserApplications = []
     req.session.data.livestock_record_2025 = []

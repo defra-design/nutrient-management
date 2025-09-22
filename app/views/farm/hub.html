@@ -1,22 +1,11 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+  GOV.UK page template – "{{ serviceName }}" – GOV.UK Prototype Kit
 {% endblock %}
 
-{% block beforeContent %}
-  {% include "/templates/signed-in.html" ignore missing %}
-    {{ govukBreadcrumbs({
-      items: [
-        {
-          text: "All farms",
-          href: "farmsview_reset_handler" 
-        },
-        {
-          text: "Oaktree Lane Farm"
-        }
-      ]
-    }) }}
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
 {% endblock %}
 
 {% block content %}
@@ -36,6 +25,21 @@
           <p class="govuk-body">{{data.all_fields.length}} fields, 40 hectares in total.</p>
         {% endif %}
       </div>
+      
+      <ul class="menu-list govuk-list">
+        <li>
+          <a class="govuk-link" href="farm-details">Update farm details</a>
+        </li>
+        {% if data.oaktree_farm.fields_added == true %}
+          <li>
+            <a class="govuk-link" href="field_reset_handler">Update fields and soil analysis</a>
+          </li>
+        {% else %}
+        <li>
+          <a href="field_add_reset_handler">Add a field</a>
+        </li>
+        {% endif %}
+      </ul>
 
       <hr class="separator_thirty">
 
@@ -79,131 +83,10 @@
           {% else %}
             <p>To start creating estimates, <a href="field_add_reset_handler">add your fields</a></p>
           {% endif %}
-
-        <p></p>
-        <hr class="separator_thirty">
+        <!-- <hr class="separator_thirty"> -->
       </div>
 
       <div>
-        <h2 class="govuk-heading-m">Manage farm and field details</h2>
-        <p class="govuk-hint">Add or update the farm information.</p>
-        <ul class="menu-list govuk-list">
-          <li>
-            <a class="govuk-link" href="farm-details">Update farm details</a>
-          </li>
-
-        {% if data.oaktree_farm.fields_added == true %}
-          <li>
-            <a class="govuk-link" href="field_reset_handler">Update fields and soil analysis</a>
-          </li>
-        {% else %}
-          <li>
-            <a href="field_add_reset_handler">Add a field</a>
-          </li>
-        {% endif %}
-
-        {% if data.oaktree_farm.livestock_loading == 'added' %}
-          <li>
-            <a class="govuk-link" href="livestock/livestock_years">Update livestock details</a>
-          </li> 
-        <!-- {
-          else
-          <li>
-            <a class="govuk-link" href="livestock/livestock_years">Add livestock numbers</a>
-          </li>  
-          -->
-        {% endif %}
-
-        {% if data.oaktree_farm.imports_exports != null %}
-          <li>
-            <a class="govuk-link" href="exports/export_years">Update organic material imports and exports</a>
-          </li>
-        <!-- 
-          else
-          <li>
-            <a class="govuk-link" href="exports/export_years">Add organic material imports and exports</a>
-          </li> 
-          -->
-        {% endif %}
-
-        {% if data.oaktree_farm.storage_added == true %}
-          <li>
-            <a class="govuk-link" href="manage_storage_router">Update manure storage</a>
-          </li>
-        <!-- 
-          else
-          <li>
-            <a class="govuk-link" href="../add_storage/material_type">Add organic material storage</a>
-          </li> 
-          -->
-        {% endif %}
-
-        <!-- {% if data.oaktree_farm.low_risk_land_added == 2 %}
-          <li>
-            <a class="govuk-link" href="land/land_years">Update low run-off risk land</a>
-          </li>
-        {% endif %} -->
-
-        <!-- 
-        {% if data.oaktree_farm.bedding_added == true %}
-          <li>
-            <a class="govuk-link" href="">Update livestock bedding and wash water details</a>
-          </li>
-        else
-          <li>
-            <a class="govuk-link" href="">Add livestock bedding and wash water details</a>
-          </li>
-        {% endif %} 
-        -->
-
-        </uli>
-      </div>
-    
-      <hr class="separator_thirty">
-
-    <!-- <div>
-      <h2 class="govuk-heading-m">Manage livestock</h2>
-      <ul class="menu-list govuk-list govuk-list--spaced">
-        <li>
-          <a class="govuk-link" href="livestock/livestock_years">
-            {% if data.oaktree_farm.livestock_loading == 'added' %}
-              Update 
-            {% else %}
-              Add
-            {% endif %}
-            livestock numbers
-          </a>
-        </li> 
-      </ul>
-    </div> -->
-
-    <!-- <hr class="separator_thirty">
-
-    <div>
-      <h2 class="govuk-heading-m">Manage organic materials</h2>
-      <ul class="menu-list govuk-list govuk-list--spaced">
-        <li>
-          <a class="govuk-link" href="exports/export_years">
-            {% if data.oaktree_farm.manure_exports == true %}
-              Update 
-            {% else %}
-                Add
-            {% endif %}
-              organic material imports and exports
-          </a>
-        </li>
-          <li>
-          {% if data.oaktree_farm.storage_added == true %}
-            <a class="govuk-link" href="storage/manage_storage">Update manure storage</a>
-          {% else %}
-            <a class="govuk-link" href="../add_storage/material_type">Add organic material storage</a>
-          {% endif %}
-        </li>
-      </ul>
-    </div> -->
-
-    <!-- <hr class="separator_thirty"> -->
-
 
   </div>
 </div>

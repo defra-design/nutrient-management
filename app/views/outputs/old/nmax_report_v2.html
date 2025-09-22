@@ -3,12 +3,16 @@
 {% block pageTitle %}
   Oaktree lane farm - N-max limits 2025
 {% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
 {% block beforeContent %}
-
-{% include "/templates/signed-in.html" ignore missing %}
-
-<a href="../plan_view" class="noprint govuk-back-link">Back to your 2025 plan</a>
-
+  {{ govukBackLink({
+    text: "Back to your 2025 plan",
+    href: "/farm/crop_plan/plan_view"
+  }) }}
 {% endblock %}
 
 {% block content %}

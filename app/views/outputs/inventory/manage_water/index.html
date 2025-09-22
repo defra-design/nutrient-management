@@ -4,22 +4,24 @@
 Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
 {% block beforeContent %}
 
-{% include "/templates/signed-in.html" ignore missing %}
+  {% set back_url = 'hub_message_reset' %}
 
-{% set back_url = 'hub_message_reset' %}
+  {% if data.export_type == 8 %}
+    {% set back_url = '/outputs/inventory/checklist' %}
+  {% elif data.export_type == 4 %}
+    {% set back_url = '/outputs/n_loading/checklist' %}
+  {% endif %}  
 
-{% if data.export_type == 8 %}
-  {% set back_url = '/outputs/inventory/checklist' %}
-{% elif data.export_type == 4 %}
-  {% set back_url = '/outputs/n_loading/checklist' %}
-{% endif %}  
-
-{{ govukBackLink({
-  text: "Back",
-  href: back_url
-}) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: back_url
+  }) }}
 
 {% endblock %}
 

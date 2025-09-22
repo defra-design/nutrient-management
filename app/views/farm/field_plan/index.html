@@ -4,33 +4,15 @@
   Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
 {% block beforeContent %}
-{% include "/templates/signed-in.html" ignore missing %}
-<!-- {{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Oaktree Lane Farm",
-      href: "../hub"
-    },
-    {
-      text: "Plans and records",
-      href: "../plans_records"
-    },
-    {
-      text: "Harvest year " + data.oaktree_farm.planning_year,
-      href: "planview_reset_handler"
-    },
-    {
-      text: data.chosen_field.name
-    }
-  ]
-}) }} -->
-
-{{ govukBackLink({
-  text: "Back to the " + data.oaktree_farm.planning_year + " farm plan",
-  href: "plan_view_reset_router"
-}) }}
-
+  {{ govukBackLink({
+    text: "Back to the " + data.oaktree_farm.planning_year + " farm plan",
+    href: "plan_view_reset_router"
+  }) }}
 {% endblock %}
 
 {% block content %}
@@ -50,6 +32,7 @@
 
   <div class="govuk-grid-column-full">
     <div class="margin-bottom-forty">      
+      <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
       <h1 id="main-title" class="govuk-heading-l margin-bottom-forty">{{data.chosen_field.name}} plan {{data.oaktree_farm.planning_year}}</h1>
       <p class="govuk-body">Last updated 8 August 2025.</p>
     </div>

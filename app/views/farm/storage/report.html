@@ -5,12 +5,19 @@
 {% block pageTitle %}
   Oaktree lane farm - Existing manure storage capacity 2025
 {% endblock %}
-{% block beforeContent %}
 
-{% include "/templates/signed-in.html" ignore missing %}
 
 <a href="hub_message_reset" class="noprint govuk-back-link">{{data.oaktree_farm.name}}</a>
 
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
 {% endblock %}
 
 {% block content %}

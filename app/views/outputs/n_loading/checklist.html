@@ -4,13 +4,14 @@
   Create a livestock manure nitrogen (N) farm limit report 2025
 {% endblock %}
 
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
 {% block beforeContent %}
-
-{% include "/templates/signed-in.html" ignore missing %}
-
   {{ govukBackLink({
-    text: "Back to " + data.oaktree_farm.name,
-    href: "/farm/hub"
+    text: "Back",
+    href: "javascript:window.history.back()"
   }) }}
 {% endblock %}
 

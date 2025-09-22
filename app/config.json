@@ -1,3 +1,8 @@
 {
-  "serviceName": "Plan and manage nutrient applications"
+  "serviceName": "Plan and manage nutrient applications",
+  "plugins": {
+    "govuk-frontend": {
+      "rebrand": true
+    }
+  }
 }

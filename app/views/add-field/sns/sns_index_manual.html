@@ -4,17 +4,16 @@
 Add a farm - farm name – {{ serviceName }}
 {% endblock %}
 
-{% block beforeContent %}
-
-{% include "/templates/signed-in.html" ignore missing %}
-
-  {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
-
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
 {% endblock %}
 
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
 {% block content %}
 
   <div class="govuk-grid-row">

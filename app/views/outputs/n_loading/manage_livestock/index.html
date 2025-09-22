@@ -1,18 +1,18 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+  Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
 {% endblock %}
 
 {% block beforeContent %}
-
-{% include "/templates/signed-in.html" ignore missing %}
-
-{{ govukBackLink({
-  text: "Back",
-  href: '/outputs/n_loading/checklist'
-}) }}
-
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
 {% endblock %}
 
 {% block content %}

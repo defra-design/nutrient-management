@@ -5,12 +5,16 @@
 {% block pageTitle %}
   Oaktree lane farm - MANNER-NPK results 
 {% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
 {% block beforeContent %}
-
-{% include "/templates/signed-in.html" ignore missing %}
-
-<a href="manner_results_reset" class="noprint govuk-back-link">Results</a>
-
+  {{ govukBackLink({
+    text: "Results",
+    href: "manner_results_reset"
+  }) }}
 {% endblock %}
 
 {% block content %}

@@ -5,6 +5,25 @@
 
 // Add extra styles here
 
+.govuk-header {
+    border-bottom: 1px solid transparent;
+    background: #1d70b8;
+}
+
+.nav_left {
+    float: left;
+    width: 70%;
+}
+
+.nav_right {
+    float: right;
+    width: 30%;
+}
+
+#main-content {
+    padding-top: 30px;
+}
+
 #textp {
     font-size: 14px;
     color: #505a5f;
@@ -359,9 +378,9 @@ tr.right-last {
 }
 
 .govuk-breadcrumbs, .govuk-back-link {
-    font-size: 19px;
+    font-size: 17px;
     line-height: 1.25;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .crop_table {

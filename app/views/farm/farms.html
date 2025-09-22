@@ -4,12 +4,9 @@
   GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% block beforeContent %}
-
-{% include "/templates/signed-in.html" ignore missing %}
-
+{% block header %}
+  {% include "/templates/header_signed_in_first.html" ignore missing %}
 {% endblock %}
-
 
 {% block content %}
 

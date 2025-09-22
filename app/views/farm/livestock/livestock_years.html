@@ -4,18 +4,14 @@
   GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
 {% block beforeContent %}
-{% include "/templates/signed-in.html" ignore missing %}
-  {{ govukBreadcrumbs({
-    items: [
-      {
-        text: "Oaktree Lane Farm",
-        href: "hub_message_reset"
-      },
-      {
-        text: "Livestock details"
-      }
-    ]
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
   }) }}
 {% endblock %}
 

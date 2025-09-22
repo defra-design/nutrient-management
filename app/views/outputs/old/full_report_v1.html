@@ -4,16 +4,16 @@
   Question – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% block beforeContent %}
-
-{% include "/templates/signed-in.html" ignore missing %}
-
-  {{ govukBackLink({
-    text: "Back to your 2025 plan",
-    href: "../plan_view"
-  }) }}
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
 {% endblock %}
 
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back to your 2025 plan",
+    href: "/farm/crop_plan/plan_view"
+  }) }}
+{% endblock %}
 {% block content %}
 
   <div class="govuk-grid-row">

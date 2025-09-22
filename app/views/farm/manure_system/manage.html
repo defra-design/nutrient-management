@@ -4,29 +4,18 @@
   Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% block beforeContent %}
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
 
-{% include "/templates/signed-in.html" ignore missing %}
-  {{ govukBreadcrumbs({
-    items: [
-      {
-        text: "All farms", href: "../farms" 
-      },
-      {
-        text: "Oaktree Lane Farm", href: "hub_message_reset"
-      },
-      {
-        text: "Livestock numbers", href: "livestock_years"
-      },
-      {
-        text: "Livestock numbers for 2005"
-      }
-    ]
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
   }) }}
 {% endblock %}
 
 {% block content %}
-{{ plan_status }}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">

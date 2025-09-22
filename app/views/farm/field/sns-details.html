@@ -4,30 +4,14 @@
   Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
 {% block beforeContent %}
-{% include "/templates/signed-in.html" ignore missing %}
-  {{ govukBreadcrumbs({
-    items: [
-    {
-      text: "All farms",
-      href: "/version_2/farms.html"
-    },
-    {
-      text: "Oaktree Lane Farm",
-      href: "/version_2/hub.html"
-    },
-    {
-        text: "Fields",
-        href: "field_reset_handler"
-    },
-    {
-        text: data.chosen_field,
-        href: "field_details_reset_handler"
-    },
-    {
-        text: 'Soil analysis'
-    }
-    ]
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
   }) }}
 {% endblock %}
 

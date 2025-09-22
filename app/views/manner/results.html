@@ -4,20 +4,15 @@
   Results – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
 {% block beforeContent %}
-  {% include "/templates/signed-in.html" ignore missing %}
-    {{ govukBreadcrumbs({
-      items: [
-        {
-          text: "All farms",
-          href: "farmsview_reset_handler" 
-        },
-        {
-          text: "Oaktree Lane Farm",
-          href: "hub_message_reset"
-        }
-      ]
-    }) }}
+  {{ govukBackLink({
+    text: data.oaktree_farm.name,
+    href: "hub_message_reset"
+  }) }}
 {% endblock %}
 
 {% block content %}

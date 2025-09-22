@@ -4,12 +4,14 @@
   Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% block beforeContent %}
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
 
-{% include "/templates/signed-in.html" ignore missing %}
+{% block beforeContent %}
   {{ govukBackLink({
-    text: "Create an organic manure inventory and NVZ storage requirement report",
-    href: "/outputs/inventory/checklist"
+    text: "Back",
+    href: "/farm/hub"
   }) }}
 {% endblock %}
 

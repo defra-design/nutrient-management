@@ -27,34 +27,51 @@
       </thead>
       <tbody class="govuk-table__body">  
 
-        {% set currentcurrentCropCount = 0 %}
+        {% set currentCropCount = 0 %}
         {% for x in data.nextCropGroups %}
           {% set currentCropCount = currentCropCount + 1 %}
         {% endfor %}
 
+        {% set lastCropCount = 0 %}
+        {% for x in data.lastCropGroups %}
+          {% set lastCropCount = lastCropCount + 1 %}
+        {% endfor %}
+
+        <!-- 2026 and 2025 -->
         {% if currentCropCount != 0  %}
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">2026</td>
-          <td class="govuk-table__cell">-</td>
-          <td class="govuk-table__cell"><a href="2025-prompt">Start a 2026 plan</a></td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">2025</td>
-          <td class="govuk-table__cell">22 September 2025</td>
-          <td class="govuk-table__cell"><a href="crop_plan_year_handler?date=2025">View or edit the 2025 plan</a></td>
-        </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">2026</td>
+            <td class="govuk-table__cell">-</td>
+            <td class="govuk-table__cell"><a href="2025-prompt">Start a 2026 plan</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">2025</td>
+            <td class="govuk-table__cell">22 September 2025</td>
+            <td class="govuk-table__cell"><a href="crop_plan_year_handler?date=2025">View or edit the 2025 plan</a></td>
+          </tr>
         {% else %}
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">2025</td>
-          <td class="govuk-table__cell">-</td>
-          <td class="govuk-table__cell"><a href="start_plan_handler?date=2025">Start a 2025 plan</a></td>
-        </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">2025</td>
+            <td class="govuk-table__cell">-</td>
+            <td class="govuk-table__cell"><a href="start_plan_handler?date=2025">Start a 2025 plan</a></td>
+          </tr>
         {% endif %}
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">2024</td>
-          <td class="govuk-table__cell">-</td>
-          <td class="govuk-table__cell"><a href="crop_plan_year_handler?date=2024">Start a 2024 plan</a></td>
-        </tr>
+        <!-- 2024 -->
+        {% if lastCropCount != 0  %}
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">2024</td>
+            <td class="govuk-table__cell">22 September 2025</td>
+            <td class="govuk-table__cell"><a href="crop_plan_year_handler?date=2025">View or edit the 2024 plan</a></td>
+          </tr>
+        {% else %}
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">2024</td>
+            <td class="govuk-table__cell">-</td>
+            <td class="govuk-table__cell"><a href="start_plan_handler?date=2024">Start a 2024 plan</a></td>
+          </tr>
+        {% endif %}
+
+        
         <!-- <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">2023</td>
           <td class="govuk-table__cell">-</td>

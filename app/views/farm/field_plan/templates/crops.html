@@ -19,13 +19,13 @@
     {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' %}
 
       {% if data.oaktree_farm.planning_year == 2024 %}
-        {% include "./templates/arable_crop_details_empty.html" ignore missing %}
+        {% include ".//arable_crop_details_empty.html" ignore missing %}
       {% else %}
-        {% include "./templates/arable_crop_details.html" ignore missing %}
+        {% include ".//arable_crop_details.html" ignore missing %}
       {% endif %}
 
     {% else %}
-      {% include "./templates/grass-details.html" ignore missing %}
+      {% include ".//grass-details.html" ignore missing %}
     {% endif %}
   </div>
 
@@ -41,7 +41,7 @@
   {% endif %}
 
   {% if data.chosen_group.sns == true  %}
-    {% include "./templates/sns_details.html" ignore missing %}
+    {% include ".//sns_details.html" ignore missing %}
   {% endif %}
 
 </div>

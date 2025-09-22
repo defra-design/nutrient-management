@@ -5,7 +5,7 @@
     <p class="govuk-body">These are the organic material applications for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}</p>
     <p class="govuk-body"><a href="plan_manure_application_router?manurejourney=single">Add an organic material application for {{data.chosen_field.name}}</a></p>
     <p class="govuk-body-s">All amounts are per hectare.</p>
-    {% include "./templates/applications.html" ignore missing %}
+    {% include ".//applications.html" ignore missing %}
   {% else %}
     <p class="govuk-body">You have no organic material applications planned for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p>
     <p class="govuk-body"><a href="plan_manure_application_router?manurejourney=single">Add an organic material application for {{data.chosen_field.name}}</a></p>
@@ -17,7 +17,7 @@
     <p class="govuk-body">These are the inorganic fertiliser applications for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p>
     <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add an inorganic fertiliser application for {{data.chosen_field.name}}</a></p>
     <p class="govuk-body-s">All amounts are per hectare.</p>
-    {% include "./templates/fertiliser_applications.html" ignore missing %}
+    {% include ".//fertiliser_applications.html" ignore missing %}
   {% else %}
     <p class="govuk-body">You have no inorganic fertiliser applications planned for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p>
     <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add inorganic fertiliser applications for {{data.chosen_field.name}}</a></p>

@@ -34,7 +34,7 @@
     <div class="margin-bottom-forty">      
       <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
       <h1 id="main-title" class="govuk-heading-l margin-bottom-forty">{{data.chosen_field.name}} plan {{data.oaktree_farm.planning_year}}</h1>
-      <p class="govuk-body">Last updated 8 August 2025.</p>
+      <p class="govuk-body">Last updated 22 September 2025.</p>
     </div>
 
     <div class="govuk-tabs" data-module="govuk-tabs">
@@ -101,13 +101,13 @@
       {% endfor %}
 
       <!-- recs -->
-      {% include "./recommendations.html" ignore missing %}
+      {% include "./templates/recommendations.html" ignore missing %}
       
       <!-- manures -->
-      {% include "./manures.html" ignore missing %}
+      {% include "./templates/manures.html" ignore missing %}
 
       <!-- crops -->
-      {% include "./crops.html" ignore missing %}
+      {% include "./templates/crops.html" ignore missing %}
 
 
     </div>

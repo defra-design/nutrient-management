@@ -33,7 +33,7 @@
           </div>
           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
 
-          {% for group in data.nextCropGroups %}
+          {% for group in data.currentCropGroups %}
             {% for field in group.fields %}
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id={{field.reference}} name="fertiliser_fields" type="checkbox" value={{field.reference}}>

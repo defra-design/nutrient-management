@@ -18,7 +18,12 @@
 {% block content %}
 
 {% set totalFields = 0 %}
-{% set cropGroups = data.nextCropGroups %}
+
+<!-- //use the correct database for the chosen year -->
+{% set cropGroups = data.currentCropGroups %}
+{% if data.oaktree_farm.planning_year == 2024 %}
+  {% set cropGroups = data.lastCropGroups %}
+{% endif  %}
 
 {% for group in cropGroups %}
   {% for field in group.fields %}

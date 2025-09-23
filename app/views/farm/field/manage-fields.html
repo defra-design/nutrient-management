@@ -17,56 +17,54 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      {% if data.show_success_message == true %}
-        {% include "./templates/success_messages" ignore missing %}
-      {% endif %}
-  
-      <h1 class="govuk-heading-l">
-        {{ data.oaktree_farm.name }} 
-        fields
-      </h1>
+    {% if data.show_success_message == true %}
+      {% include "./templates/success_messages" ignore missing %}
+    {% endif %}
 
-      <p class="govuk-body"><a href="../../add-field/copy_field">Add a field</a></p>
+    <h1 class="govuk-heading-l">
+      {{ data.oaktree_farm.name }} 
+      fields
+    </h1>
 
-      <!-- <form class="" action="../../add-field/copy_field" method="post" novalidate="">    
-        <button class="govuk-button" data-module="govuk-button">
-          Add a field
-        </button>
-      </form>
- -->
+    <p class="govuk-body"><a href="../../add-field/copy_field">Add a field</a></p>
 
-      {% if data.oaktree_farm.fields_added == true %}
-        <table class="govuk-table">
-          <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
-          <thead class="govuk-table__head">
+    <!-- <form class="" action="../../add-field/copy_field" method="post" novalidate="">    
+      <button class="govuk-button" data-module="govuk-button">
+        Add a field
+      </button>
+    </form>-->
+
+    {% if data.oaktree_farm.fields_added == true %}
+      <table class="govuk-table">
+        <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th id="field_name" scope="col" class="govuk-table__header">Field name</th>
+            <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Action</span></th>
+            <th scope="col" class="govuk-table__header"> </th>
+            <th scope="col" class="govuk-table__header"> </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for field in data.all_fields %}
             <tr class="govuk-table__row">
-              <th id="field_name" scope="col" class="govuk-table__header">Field name</th>
-              <!-- <th scope="col" class="govuk-table__header">Last soil analysis</th> -->
-              <th scope="col" class="govuk-table__header"> </th>
-              <th scope="col" class="govuk-table__header"> </th>
+              <td class="govuk-table__cell">{{field.name}}</td>
+              <td class="govuk-table__cell">
+                <a href="field-select-handler?chosen_field={{field.name}}">View field and soil details</a>
+              </td>
             </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            {% for field in data.all_fields %}
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">{{field.name}}</td>
-                <td class="govuk-table__cell">
-                  <a href="field-select-handler?chosen_field={{field.name}}">Field and soil details</a>
-                </td>
-              </tr>
-            {% endfor %} 
-          </tbody>
-        </table>
-        {% else %}
-          <p class="govuk-body">You have not added any fields.</p>
-          <p class="govuk-body"><a class="govuk-notification-banner__link" href="../../add-field/copy_field">Add a field</a>
-        {% endif %}
-      
-    </div>
-
+          {% endfor %} 
+        </tbody>
+      </table>
+      {% else %}
+        <p class="govuk-body">You have not added any fields.</p>
+        <p class="govuk-body"><a class="govuk-notification-banner__link" href="../../add-field/copy_field">Add a field</a>
+      {% endif %}
+    
   </div>
+</div>
 
 {% endblock %}

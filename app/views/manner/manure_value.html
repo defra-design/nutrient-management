@@ -61,10 +61,10 @@
 
           <div class="govuk-form-group">
             <label class="govuk-label" for="width-20">
-              Spreading area
+              Spreading area<span class="govuk-visually-hidden">, in hectares</span>
             </label>
             <div class="govuk-input__wrapper"><input value="57" class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" autocomplete="off" spellcheck="false">
-              <div class="govuk-input__suffix" aria-hidden="true">hectares</div>
+              <div class="govuk-input__suffix" aria-hidden="true">Hectares</div>
             </div>
           </div>
 
@@ -75,9 +75,9 @@
             <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" autocomplete="off" spellcheck="false">
               <div class="govuk-input__suffix" aria-hidden="true">
                 {% if data.manure_type.liquid == true %}
-                  cubic metres
+                  Cubic metres
                 {% else %}
-                  tonnes
+                  Tonnes
                 {% endif %}
               </div>
             </div>
@@ -92,7 +92,7 @@
                 {% if data.manure_type.liquid == true %}
                   cubic metres per hectare
                 {% else %}
-                  tonnes per hectare
+                  Tonnes per hectare
                 {% endif %}
               </div>
             </div>

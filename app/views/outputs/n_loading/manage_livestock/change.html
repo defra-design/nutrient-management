@@ -1,8 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Check your answers 1 – {{ serviceName }} – GOV.UK
-{% endblock %}
+  Check your answers – {{ serviceName }} – GOV.UK{% endblock %}
 
 {% block header %}
   {% include "/templates/header_signed_in.html" ignore missing %}
@@ -41,7 +40,7 @@
 
     <form action="check_loading_lstock_handler" method="post" novalidate>
       {{ govukButton({
-        text: 'Back'
+        text: 'Update this livestock type'
       }) }}
     </form>
     

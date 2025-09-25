@@ -3,13 +3,13 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">What type of livestock would you like to add?</dt>
     <dd class="govuk-summary-list__value">Cattle</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">What type of cattle would you like to add?</dt>
     <dd class="govuk-summary-list__value">Dairy cow from 2 months and less than 12 months</dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
   {% if data.livestock_group != 'poultry' and data.livestock_group != 'pig' %}
@@ -24,7 +24,7 @@
           Enter the average number for the year 
         {% endif %}
       </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
   {% endif %}
   
@@ -47,18 +47,18 @@
             <li>December: <span>100</span></li>
         </ul>
         </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
   {% else %}
       <div class="govuk-summary-list__row">
         {% if data.livestock_group == 'poultry' or data.livestock_group == 'pig' %}
         <dt class="govuk-summary-list__key">What is the average total number of places for 2025?</dt>
         <dd class="govuk-summary-list__value">{{data.livestock_number}},000 places</dd>
-        <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       {% else %}
         <dt class="govuk-summary-list__key">What is the average total number of {{data.chosen_livestock.shortname}} for 2025?</dt>
         <dd class="govuk-summary-list__value">{{data.livestock_number}} {{data.chosen_livestock.shortname}}</dd>
-        <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       {% endif %}
     </div>
   {% endif %}
@@ -73,7 +73,7 @@
           {{data.livestock_occupancy}}%
         {% endif %}
       </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
   {% endif %}
 
@@ -95,7 +95,7 @@
       {% endif %}
     </dd>
     {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     {% else %}
       <dd class="govuk-summary-list__actions"> </dd>
     {% endif %}
@@ -108,7 +108,7 @@
     <dt class="govuk-summary-list__key">Total nitrogen (N) per year</dt>
     <dd class="govuk-summary-list__value">{{total_n}}kg</dd>
     {% if data.livestock_group == 'pig' and data.livestock_group == 'poultry' %}
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       {% else %}
       <dd class="govuk-summary-list__actions"> </dd>
     {% endif %}

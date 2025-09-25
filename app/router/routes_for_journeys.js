@@ -865,7 +865,7 @@ router.get(/fertiliser_remove_router/, callback_functions.showSuccessMessage, fu
 })
 
 router.get(/fertiliser_change_router/, callback_functions.getApplicationByReference, function (req, res) { 
-    res.redirect('update/fertiliser/update')
+    res.redirect('/update/fertiliser/update')
 })  
 
 router.get(/manuredate_handler/, function (req, res) { 

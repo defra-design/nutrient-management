@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  About Nitrate Vulnerable Zones – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      About Nitrate Vulnerable Zones (NVZs)
+    </h1>
+
+    <p class="govuk-body">
+      NVZs are areas designated as being at risk from agricultural nitrate pollution. There are currently five NVZs in Scotland:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Lower Nithsdale</li>
+      <li>Lothian and Borders</li>
+      <li>Strathmore and Fife (including Finavon)</li>
+      <li>Moray, Aberdeenshire/Banff and Buchan</li>
+      <li>Stranraer Lowlands</li>
+    </ul>
+
+    <p class="govuk-body">
+      If your land is in an NVZ, you must follow rules when you use nitrogen fertiliser. This tool will help you demonstrate compliance with the NVZ rules. It will also tell you if you are at risk of breaking the rules as you plan nutrient applications.
+    </p>
+
+    <p class="govuk-body margin-bottom-forty">
+      Read more about
+      <a target="_blank" href="https://www.gov.scot/policies/agriculture-and-the-environment/nvz/">
+        Nitrate vulnerable zones (NVZs)</a>
+        (opens in a new window)
+    </p>
+
+    <form action="postcode" method="post" novalidate="">
+      <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/farm/farms">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,167 @@
+<dl class="govuk-summary-list margin-bottom-forty">
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What type of livestock would you like to add?</dt>
+    <dd class="govuk-summary-list__value">Cattle</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What type of cattle would you like to add?</dt>
+    <dd class="govuk-summary-list__value">Dairy cow from 2 months and less than 12 months</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  {% if data.livestock_group != 'poultry' and data.livestock_group != 'pig' %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+          How do you want to enter the numbers for this cattle type?
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {% if data.livestock_entry == 'monthly' %} 
+          Enter a number for each month 
+        {% else %} 
+          Enter the average number for the year 
+        {% endif %}
+      </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% endif %}
+  
+  {% if data.livestock_entry == 'monthly' %} 
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Monthly totals for this {{data.chosen_livestock.shortname}} type</dt>
+        <dd class="govuk-summary-list__value">
+          <ul class="cattle_values">
+            <li>January: <span>100</span></li>
+            <li>February: <span>100</span></li>
+            <li>March: <span>100</span></li>
+            <li>April: <span>100</span></li>
+            <li>May: <span>100</span></li>
+            <li>June: <span>100</span></li>
+            <li>July: <span>100</span></li>
+            <li>August: <span>100</span></li>
+            <li>September: <span>100</span></li>
+            <li>October: <span>100</span></li>
+            <li>November: <span>100</span></li>
+            <li>December: <span>100</span></li>
+        </ul>
+        </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% else %}
+      <div class="govuk-summary-list__row">
+        {% if data.livestock_group == 'poultry' or data.livestock_group == 'pig' %}
+        <dt class="govuk-summary-list__key">What is the average total number of places for 2025?</dt>
+        <dd class="govuk-summary-list__value">{{data.livestock_number}},000 places</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      {% else %}
+        <dt class="govuk-summary-list__key">What is the average total number of {{data.chosen_livestock.shortname}} for 2025?</dt>
+        <dd class="govuk-summary-list__value">{{data.livestock_number}} {{data.chosen_livestock.shortname}}</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if data.livestock_group != 'cattle' %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Occupancy</dt>
+      <dd class="govuk-summary-list__value">
+        {% if data.livestock_occupancy == null or data.livestock_occupancy == '' %}
+          86%
+        {% else %}
+          {{data.livestock_occupancy}}%
+        {% endif %}
+      </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% endif %}
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
+        Nitrogen (N) standard
+      {% else %}
+          Nitrogen (N) standard per animal, per year
+      {% endif %}
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {% if data.livestock_group == 'poultry' %}
+        83kg per 1000 places, per year
+      {% elif data.livestock_group == 'pig' %}
+          83kg per place, per year
+      {% else %}
+          83kg per animal, per year
+      {% endif %}
+    </dd>
+    {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    {% else %}
+      <dd class="govuk-summary-list__actions"> </dd>
+    {% endif %}
+
+  </div>
+
+  {% set total_n = data.chosen_livestock.nitrogen * data.livestock_number %}
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Total nitrogen (N) per year</dt>
+    <dd class="govuk-summary-list__value">{{total_n}}kg</dd>
+    {% if data.livestock_group == 'pig' and data.livestock_group == 'poultry' %}
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""><!--Change--><span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      {% else %}
+      <dd class="govuk-summary-list__actions"> </dd>
+    {% endif %}
+  </div>
+
+  {% if data.oaktree_farm.derogation == true %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Phosphate (P2O5) standard</dt>
+      <dd class="govuk-summary-list__value">
+        83kg per animal, per year
+      </dd>
+      <dd class="govuk-summary-list__actions"> </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Total Phosphate (P2O5), per year</dt>
+      <dd class="govuk-summary-list__value">
+        1,180kg
+      </dd>
+      <dd class="govuk-summary-list__actions"> </dd>
+    </div>
+  {% endif %}
+
+</dl>
+
+    <!-- <div class="margin-bottom-forty">
+      <h2 class="govuk-heading-m">
+        Total nitrogen (N) 
+        {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
+          and phosphate (P2O5) 
+        {% endif %}
+        from this livestock type in 2025
+      </h2>
+      <table class="govuk-table">
+        <tbody>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Nitrogen (N) standard, per animal</th>
+            <td class="govuk-table__cell">{{data.chosen_livestock.nitrogen}}kg</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Total nitrogen (N) produced by this cattle type</th>
+            <td class="govuk-table__cell">60kg</td>
+          </tr>
+          {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Phosphate (P2O5) standard, per animal</th>
+              <td class="govuk-table__cell">60kg</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Total phosphate (P2O5) produced by this cattle type</th>
+              <td class="govuk-table__cell">32kg</td>
+            </tr>
+          {% endif %}
+        </tbody>
+      </table>  
+    </div> -->

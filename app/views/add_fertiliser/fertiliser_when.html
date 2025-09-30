@@ -29,30 +29,37 @@
       
 
       <h1 class="govuk-heading-l">
-        When are you applying inorganic fertiliser or Lime
-        {% if data.fertiliser_journey == "multi" %}
-            on these fields?
-        {% else %}
-          on {{data.chosen_field.name}}?
-        {% endif %}
+       Enter the inorganic fertiliser or Lime application date
       </h1>
+
+      <div id="closed-period">
+        <p class="">Your closed period for spreading inorganic fertilisers is:</p>
+        <h3 class="govuk-heading-s closed-date">1 September 2025 to 15 January 2026</h3>
+        <p>Based on your crop, soil type and farm details.</p>
+      </div>
+
+      <p class="govuk-body">
+        If you do not know the exact application date enter an estimate. You can change it later.
+      </p>
 
       <!-- <p>Enter the estimated date you first plan to apply organic material to the Winter Wheat fields, you can change the date for individual fields later.</p> -->
 
       <form class="form" action="fertiliser_date_handler" method="post">
 
         <div class="govuk-form-group">
-            <div id="closed-period">
-              <p class="">Your closed period for spreading inorganic fertilisers is:</p>
-              <h3 class="govuk-heading-s closed-date">1 September 2025 to 15 January 2026</h3>
-              <p>Based on your crop, soil type and farm details.</p>
-            </div>
-            <p class="govuk-body">
-              If you do not know the exact application date enter an estimate. You can change it later.
-            </p>
+          <label class="govuk-label" for="event-name">
+            When are you applying inorganic fertiliser or Lime
+            {% if data.fertiliser_journey == "multi" %}
+              on these fields?
+            {% else %}
+              on {{data.chosen_field.name}}?
+            {% endif %}
+          </label>
+
             <div class="govuk-hint">
-              The date format is 21 06 2024.
+              For example, 21 06 2024
             </div>
+
             <div class="govuk-date-input" id="passport-issued">
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
@@ -62,6 +69,7 @@
                   <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="fertiliser_date_day" name="fertiliser_date_day" type="text" inputmode="numeric" autocomplete="off">
                 </div>
               </div>
+
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-date-input__label" for="fertiliser_date_month">
@@ -70,6 +78,7 @@
                   <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="fertiliser_date_month" name="fertiliser_date_month" type="text" inputmode="numeric" autocomplete="off">
                 </div>
               </div>
+
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-date-input__label" for="fertiliser_date_year">
@@ -78,6 +87,7 @@
                   <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="fertiliser_date_year" name="fertiliser_date_year" type="text" inputmode="numeric" autocomplete="off">
                 </div>
               </div>
+              
             </div>
           </fieldset>
         </div>
@@ -89,7 +99,6 @@
       </form>
 
     </div>
-
   </div>
 
   <p class="govuk-body">

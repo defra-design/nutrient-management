@@ -22,7 +22,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Numbers for October 2024
+        Livestock numbers for October 2024
       </h1>
 
       <p class="govuk-body">
@@ -44,17 +44,6 @@
                 {{data.chosen_livestock.shortname}} 
               {% endif %}
             </div>
-          </div>
-        </div>
-
-        <div class="govuk-form-group margin-bottom-thirty">
-          <label class="govuk-label" for="livestock_occupancy">
-            What percentage of time are these 
-            {{data.chosen_livestock.shortname}}{% if data.chosen_livestock.shortname == 'pig' %}s {% endif %} 
-            housed during October?
-          </label>
-          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="80" id="livestock_occupancy" name="livestock_occupancy" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">%</div>
           </div>
         </div>
 

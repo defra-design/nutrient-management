@@ -22,13 +22,15 @@
         <p class="govuk-body address">South Road, Hexham, Northumberland NE46 7LQ</p>
     
         {% if data.oaktree_farm.fields_added == true %}
-          <p class="govuk-body">{{data.all_fields.length}} fields, 40 hectares in total.</p>
+          <p class="govuk-body">{{data.all_fields.length}} fields</p>
         {% endif %}
       </div>
-      
-      <ul class="menu-list govuk-list">
+
+      <!-- <h2 class="govuk-heading-m">Manage farm and field information</h2> -->
+
+      <ul class="menu-list govuk-list govuk-list--spaced">
         <li>
-          <a class="govuk-link" href="farm-details">Update farm details</a>
+          <a class="govuk-link" href="farm-details">Update the farm details</a>
         </li>
         {% if data.oaktree_farm.fields_added == true %}
           <li>
@@ -44,12 +46,17 @@
       <hr class="separator_thirty">
 
       <div>
-        <h2 class="govuk-heading-m">Nutrient management planning</h2>
-        <p class="govuk-hint">Create nutrient management plans, get nutrient recommendations from the AHDB Nutrient Management Guide (RB209), add organic material and inorganic fertiliser applications.</p>
+        <h2 class="govuk-heading-m">Create a nutrient management plan</h2>
+        <!-- <p class="govuk-hint">Create nutrient management plans, get nutrient recommendations from the AHDB Nutrient Management Guide (RB209), add organic material and inorganic fertiliser applications.</p> -->
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Plan crops</li>
+          <li>Get nutrient recommendations (from the AHDB Nutrient Management Guide RB209)</li>
+          <li>Plan organic material and inorganic fertiliser applications</li>
+        </ul>
         {% if data.oaktree_farm.fields_added == true  %}
         <ul class="menu-list govuk-list govuk-list--spaced">
           <li>
-            <a class="govuk-link" href="plans_records">View, create or update a plan</a>
+            <a class="govuk-link" href="plans_records">Create or update a plan</a>
           </li>
         </ul>
         {% else %}
@@ -60,18 +67,26 @@
 
       <!-- REPORTS -->
       <div>
-        <h2 class="govuk-heading-m">Reports and outputs</h2>
-        <p class="govuk-hint">Create reports for NVZ compliance (N-max, Livestock manure nitrogen (N) farm limit, organic material inventory and storage) and farm information and planning.</p>
+        <h2 class="govuk-heading-m">Create a report</h2>
+        <!-- <p class="govuk-hint">Create reports for NVZ compliance (N-max, Livestock manure nitrogen (N) farm limit, organic material inventory and storage) and farm information and planning.</p> -->
+        <p>You can create NVZ compliance reports for:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>N-max</li>
+          <li>Livestock manure nitrogen (N) farm limit</li>
+          <li>organic material inventory and storage</li>
+        </ul>
+        <p>You can also save reports that include information about the farm, fields, crops and nutrients.</p>
         <ul class="menu-list govuk-list govuk-list--spaced">
           <li>
             <a class="govuk-link" href="/outputs/export">Create a report</a>
           </li>
         </ul>
       </div>
+
       <hr class="separator_thirty">
 
       <!-- MANNER -->
-      <div>
+      <!-- <div>
         <h2 class="govuk-heading-m">Estimate nutrient supply from organic materials (MANNER-NPK)</h2>
         <p class="govuk-hint">Estimate crop-available nitrogen (N), phosphate (P2O5), potash (K2O), magnesium (MgO) and sulphur (SO3) supply from organic manures. Calculate the financial value of manure nutrients.</p>
         {% if data.oaktree_farm.fields_added == true  %}
@@ -82,11 +97,8 @@
           </ul>
           {% else %}
             <p>To start creating estimates, <a href="field_add_reset_handler">add your fields</a></p>
-          {% endif %}
-        <!-- <hr class="separator_thirty"> -->
-      </div>
-
-      <div>
+          {% endif %} 
+      </div>-->
 
   </div>
 </div>

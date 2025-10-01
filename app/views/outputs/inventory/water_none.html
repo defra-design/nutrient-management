@@ -21,26 +21,23 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      <!-- Do you collect any wash water on {{data.oaktree_farm.name}}? -->
-       Are there any areas that are used by livestock and then washed down on {{data.oaktree_farm.name}}?
+      Does wash water from areas used by livestock drain into the slurry stores on {{data.oaktree_farm.name}}?
+      <!-- Are there any areas that are used by livestock and then washed down on {{data.oaktree_farm.name}}? -->
     </h1>
 
     <p class="govuk-hint">
-      <!-- Include any area that is washed down, including yards, parlours, and hard standings. -->
-      For example, yards, parlours, and hard standings.
+      Only include areas that are manually washed. For example, yards, parlours, and hard standings.
     </p>
-
-    <p class="govuk-hint">Select one option.</p>
 
     <form class="form" action="/add_wash_area/name" method="post">
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
-          <div class="govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="yes" name="livestock_inventory" type="radio" value="yes">
               <label class="govuk-label govuk-radios__label" for="yes">
-                Yes
+                Yes, continue to add details of each area
               </label>
             </div>
             <div class="govuk-radios__item">

@@ -47,6 +47,9 @@
           <label class="govuk-label" for="livestock_number">
             How much of this livestock's manure is collected as slurry in October?
           </label>
+          <p class="govuk-hint">
+            This includes liquids draining from manure stored on an impermeable surface. This manure will be mixed with bedding and handled as solid manure.
+          </p>
           <div class="govuk-input__wrapper">
             <input class="govuk-input govuk-input--width-3" id="livestock_number" name="livestock_number" type="text" value="30" spellcheck="false" autocomplete="off">
             <div class="govuk-input__suffix" aria-hidden="true">%</div>
@@ -54,14 +57,14 @@
         </div>
 
         {% if data.livestock_group != 'poultry' %}
-        <h3 class="govuk-heading-s">Bedding Factor</h3>
-        <p class="govuk-hint">This value is multiplied with the amount of undiluted slurry that is mixed with bedding to give the amount of solid manure produced (slurry plus bedding).</p>
           <div class="govuk-form-group">
             <label class="govuk-label" for="livestock_number">
               What is the bedding factor?
-              <!-- <p class="hint">This is multiplied with the amount of undiluted slurry that is mixed with bedding to give the amount of solid manure produced.</p> -->
             </label>
-            <div class="govuk-input__wrapper margin-bottom-forty">
+            <p class="govuk-hint">
+              This factor is used to calculate the quantity of solid manure produced from the slurry and bedding combined. The amount of slurry is multiplied by the bedding factor to calculate the solid amount. You can change this value if you wish.            
+            </p>
+            <div class="govuk-input__wrapper">
               <input class="govuk-input govuk-input--width-3" id="livestock_number" name="livestock_number" type="text" value="1.30" spellcheck="false" autocomplete="off">
               <!-- <div class="govuk-input__suffix" aria-hidden="true">Tonnes</div> -->
             </div>
@@ -78,6 +81,7 @@
           </div> -->
         {% endif %}
 
+        {% include "/templates/reuse_figures_radio.html" ignore missing %}
 
         <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
           Continue

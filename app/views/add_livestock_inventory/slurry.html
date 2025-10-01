@@ -32,6 +32,17 @@
 
       <form action="add_manure_system_handler" method="post" novalidate="">
 
+      <div class="govuk-form-group margin-bottom-thirty">
+        <label class="govuk-label" for="livestock_occupancy">
+          What percentage of time are these 
+          {{data.chosen_livestock.shortname}}{% if data.chosen_livestock.shortname == 'pig' %}s {% endif %} 
+          housed during October?
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-3" value ="80" id="livestock_occupancy" name="livestock_occupancy" type="text" spellcheck="false" autocomplete="off">
+          <div class="govuk-input__suffix" aria-hidden="true">%</div>
+        </div>
+      </div>
+
         <div class="govuk-form-group margin-bottom-thirty">
           <label class="govuk-label" for="livestock_number">
             How much of this livestock's manure is collected as slurry in October?
@@ -51,6 +62,8 @@
             <div class="govuk-input__suffix" aria-hidden="true">%</div>
           </div>
         </div>
+
+        {% include "/templates/reuse_figures_radio.html" ignore missing %}
 
         <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
           Continue

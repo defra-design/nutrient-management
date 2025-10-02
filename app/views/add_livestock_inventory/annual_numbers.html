@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+{% macro monthitem(name, year) %}
+  <h3 class="govuk-heading-s margin-top-thirty">{{name}} {{year}}</h3>
+  <div class="govuk-form-group margin-bottom-thirty">
+    <label class="govuk-label" for="livestock_number">
+      What is the total number of this cattle type for {{name}} {{year}}?
+    </label>
+    <div class="govuk-input__wrapper">
+      <input class="govuk-input govuk-input--width-3" id="livestock_number" name="livestock_number" type="text" value="" spellcheck="false" autocomplete="off">
+        <div class="govuk-input__suffix" aria-hidden="true">
+          {% if data.chosen_livestock.shortname == 'pig' or data.chosen_livestock.shortname == 'poultry'  %}
+            places
+          {% else %}
+            {{data.chosen_livestock.shortname}} 
+          {% endif %}
+        </div>
+    </div>
+  </div>
+{% endmacro %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Livestock numbers
+    </h1>
+
+    <p class="govuk-body">
+      Selected livestock type: {{data.chosen_livestock.name | capitalize}}
+    </p>
+
+    <form action="annual_housing" method="post" novalidate="">
+
+    {{ monthitem ("October", "2024") }}
+    <a class="govuk-body" href="">Copy October's number to the following months</a>
+    {{ monthitem ("November", "2024") }}
+    {{ monthitem ("December", "2024") }}
+    {{ monthitem ("January", "2025") }}
+    {{ monthitem ("February", "2025") }}
+    {{ monthitem ("March", "2025") }}
+    {{ monthitem ("April", "2025") }}
+    {{ monthitem ("May", "2025") }}
+    {{ monthitem ("June", "2025") }}
+    {{ monthitem ("July", "2025") }}
+    {{ monthitem ("August", "2025") }}
+    <div class="margin-bottom-forty">
+      {{ monthitem ("September", "2025") }}
+    </div>
+
+    <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+      Continue
+    </button>
+
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

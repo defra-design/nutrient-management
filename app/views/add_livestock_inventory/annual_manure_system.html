@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      What is this livestock's main manure system?
+    </h1>
+
+    <p class="govuk-body">
+      Selected livestock type: {{data.chosen_livestock.name | capitalize}}. 
+    </p>
+
+    <form action="annual_numbers" method="post" novalidate="">
+
+      <div class="govuk-form-group margin-bottom-thirty">
+        <!-- <legend class="govuk-fieldset__legend">
+          What is this livestock's main manure system in October?
+        </legend> -->
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="slurry" name="mostly_manure"  type="radio" value="slurry">
+            <label class="govuk-label govuk-radios__label" for="slurry">
+              Mostly slurry
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="solid" name="mostly_manure" type="radio" value="solid">
+            <label class="govuk-label govuk-radios__label" for="solid">
+                Mostly solid manure
+            </label>
+          </div>
+        </div>
+      </div>
+
+    <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+      Continue
+    </button>
+
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -24,7 +24,7 @@
     {% if data.soiltype == "Deep clay" or data.soiltype == "Shallow" %}
       <h1 class="govuk-heading-l">About the soil in {{data.temp_field_name}}</h1>
     {% else %}
-      <h1 class="govuk-heading-l">Is sulphur (s) deficiency expected in the soil?</h1>
+      <h1 class="govuk-heading-l">Do you expect sulphur (S) deficiency in crops grown in {{data.temp_field_name}}?</h1>
     {% endif %}
 
     <form action="add_analysis" method="post" novalidate="">

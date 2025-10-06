@@ -1,0 +1,99 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Excess winter rainfall – {{ serviceName }}
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+          What is the excess winter rainfall for {{data.oaktree_farm.name}}?
+        </h1>
+
+        <p class="govuk-body">
+          AHDB publish excess winter rainfall data each season. <a target="_blank" href="https://ahdb.org.uk/knowledge-library/how-to-use-excess-winter-rainfall-data-to-plan-nitrogen-applications">View the AHDB excess winter rainfall data.</a> (Opens in a new window) 
+        </p>
+
+        <!-- <table class="govuk-table margin-bottom-forty">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Rainfall category</th>
+              <th scope="col" class="govuk-table__header">Excess winter rainfall</th>
+              <th scope="col" class="govuk-table__header">Annual rainfall</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Low</td>
+              <td class="govuk-table__cell">Less than 150mm</td>
+              <td class="govuk-table__cell">200mm or more</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Moderate</td>
+              <td class="govuk-table__cell">150mm to 260mm</td>
+              <td class="govuk-table__cell">600mm to 700mm</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">High</td>
+              <td class="govuk-table__cell">250mm or more</td>
+              <td class="govuk-table__cell">700mm or more</td>
+            </tr>
+          </tbody> 
+        </table>
+ -->
+        <!-- <p>What is the rainfall category for {{data.oaktree_farm.name}}?</p> -->
+        <form action="check_rain" method="post" novalidate="">      
+
+          <div class="govuk-form-group">
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="high" name="excess_rain" type="radio" value="high">
+                <label class="govuk-label govuk-radios__label" for="high">
+                  450mm or more
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="moderate" name="excess_rain" type="radio" value="moderate">
+                <label class="govuk-label govuk-radios__label" for="moderate">
+                  Less than 450mm
+                </label>
+              </div>            
+              <!-- <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="low" name="excess_rain" type="radio" value="low">
+                <label class="govuk-label govuk-radios__label" for="low">
+                  Low - Less than 150mm
+                </label>
+              </div> -->
+            
+            </div>
+          </div>
+  
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <button class="govuk-button" data-module="govuk-button">Continue</button>
+            </fieldset>
+          </div>
+  
+          <p class="govuk-body cancel-link"><a href="/farm/farms">Cancel</a></p>
+  
+            </div>
+        </div>
+      </form>
+
+      
+  </div>
+
+{% endblock %}

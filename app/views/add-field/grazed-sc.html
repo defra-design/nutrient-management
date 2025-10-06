@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Was {{data.temp_field_name}} grazed within 2 months of ploughing out, or grazed during September or October 2024?</h1>
+
+    <h1 class="govuk-body">Thick grass explanation</h1>
+
+    <form class="form" action="previous_cuts" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios--inline" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="cut" name="previous_lay" type="radio" value="2">
+              <label class="govuk-label govuk-radios__label" for="cut">
+                Yes
+              </label>
+            </div>    
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="grazed" name="previous_lay" type="radio" value="3">
+              <label class="govuk-label govuk-radios__label" for="grazed">
+                No
+              </label>
+            </div>
+
+        </fieldset> 
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

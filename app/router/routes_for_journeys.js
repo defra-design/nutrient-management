@@ -750,7 +750,6 @@ router.get(/fertiliser_update_v6_handler/, function (req, res) {
 router.get(/field_level_plan_v5_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
     console.log('here' + req.query.fieldref)
     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref) 
-    console.log(req.session.data.chosen_field)   
     res.redirect('../field_plan/index')
 })
 

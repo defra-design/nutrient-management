@@ -4,7 +4,7 @@ function field_count(field_references) {
 
 function getFieldByReference (allFields, referenceNumber) {
     for (let field in allFields) {
-      if (allFields[field].reference == referenceNumber) {
+      if (allFields[field].field_id == referenceNumber) {
           return allFields[field]
       }
     }

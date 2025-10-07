@@ -3,42 +3,42 @@
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Crop</td>
         <td class="govuk-table__cell">
-          {{data.chosen_group.crop_reference | nameconverter}}
+          {{data.chosen_field.crop_id | nameconverter}}
         </td>
     </tr>      
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Variety</td>
-      {% if data.chosen_group.variety.length > 0 %}
-        <td class="govuk-table__cell">{{data.chosen_group.variety}}</td>
+      {% if data.chosen_field.variety.length > 0 %}
+        <td class="govuk-table__cell">{{data.chosen_field.variety}}</td>
       {% else %}
         <td class="govuk-table__cell">Not entered</td>
       {% endif %}
     </tr>         
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Group</td>
-        <td class="govuk-table__cell">{{data.chosen_group.groupname}}</td>
+        <td class="govuk-table__cell">Crop group {{data.chosen_field.group_id}}</td>
     </tr>      
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Planting date</td>
       <td class="govuk-table__cell">
-        {% if data.chosen_group.planting_date == null %}
+        {% if data.chosen_field.planting_date == null %}
             Not entered
           {% else %}
-            {{data.chosen_group.planting_date}}
+            {{data.chosen_field.planting_date}}
         {% endif %}
       </td>
     </tr>      
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Estimated yield</td>
       <td class="govuk-table__cell">
-        {% if group.yield == null %}
+        {% if data.chosen_field.yield == null %}
           Not entered
         {% else %}
-          {{group.yield}} tonnes
+          {{data.chosen_field.yield}} tonnes
         {% endif %}
       </td>
     </tr>
-    {% if data.chosen_group.crop_reference == 'Wheat-Winter' %}
+    {% if data.chosen_field.crop_id == 'Wheat-Winter' %}
       <tr class="govuk-table__row">
         <td class="govuk-table__cell strong">Crop use</td>
         <td class="govuk-table__cell">Milling</td>

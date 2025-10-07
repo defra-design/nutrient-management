@@ -7,7 +7,7 @@
         {% endif %}
       </span> -->
     </h2>
-    <!-- <p class="govuk-body"><a href="change_cropgroup_handler?groupref={{group.reference}}&fieldref={{field.reference}}">Update this group</a></p> -->
+    <!-- <p class="govuk-body"><a href="change_cropgroup_handler?groupref={{group.reference}}&fieldref={{field.field_id}}">Update this group</a></p> -->
   </div>
 
   <div class="tab-right">
@@ -35,20 +35,20 @@
     {% set inorganicCount = 0 %}
 
     {% for manureitem in data.allManureApplications_v2 %}
-      {% if manureitem.fieldref == field.reference %}
+      {% if manureitem.fieldref == field.field_id %}
           {% set manureCount = manureCount + 1 %}
         {% endif %}
     {% endfor %}
 
     {% for fertitem in data.allFertiliserApplications %}
-    {% if fertitem.fieldref == field.reference %}
+    {% if fertitem.fieldref == field.field_id %}
         {% set inorganicCount = inorganicCount + 1 %}
       {% endif %}
     {% endfor %}
 
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell field-name">{{field.name}}</td>
+          <td class="govuk-table__cell field-name">{{field.field_name}}</td>
           <td class="govuk-table__cell field-name">
             Not entered
           </td>
@@ -67,7 +67,7 @@
               Cut, Graze, Graze, Graze
             {% endif %} -->
           </td>
-          <td class="grass-link govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}&year={{group.year}}">Update field or view recommendations</a></td>
+          <td class="grass-link govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.field_id}}&year={{group.year}}">Update field or view recommendations</a></td>
         </tr> 
     {% endfor %}
 

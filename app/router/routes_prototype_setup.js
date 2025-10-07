@@ -2,12 +2,13 @@ var express = require('express')
 var router = express.Router()
 var allFunctions = require('../functions/allFunctions.js');
 
+var fieldOne = {field_name: "Long Field", field_id: 1, nvz: true, elevation: false};
+var fieldTwo = {field_name: "Short Field", field_id: 2, nvz: true, elevation: false};
+
 router.get(/end_to_end_setup_handler/, function (req, res) { 
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
-    var fieldOne = {name: "Long Field",reference: 1, nvz: true,elevation: false};
-    var fieldTwo = {name: "Short Field",reference: 2,nvz: true,elevation: false};
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
     req.session.data.oaktree_farm.grass_setup = true,
@@ -72,13 +73,11 @@ router.get(/farm_setup_handler/, function (req, res) {
     res.redirect('start')
 })
 
-//Farm and fields added
+//Farm and fields added - this
 router.get(/end_to_end_field_handler/, function (req, res) { 
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
-    var fieldOne = {name: "Long Field",reference: 1, nvz: true,elevation: false};
-    var fieldTwo = {name: "Short Field",reference: 2,nvz: true,elevation: false};
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
     res.redirect('start')
@@ -89,9 +88,6 @@ router.get(/end_to_end_livestock_handler/, function (req, res) {
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
-    var fieldOne = {name: "Long Field",reference: 1, nvz: true,elevation: false};
-    var fieldTwo = {name: "Short Field",reference: 2,nvz: true,elevation: false};
-
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
     
@@ -123,8 +119,6 @@ router.get(/livestock_handler_inventory/, function (req, res) {
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
-    var fieldOne = {name: "Long Field",reference: 1, nvz: true,elevation: false};
-    var fieldTwo = {name: "Short Field",reference: 2,nvz: true,elevation: false};
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
     // Livestock
@@ -153,8 +147,6 @@ router.get(/manure_storage_setup_handler/, function (req, res) {
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
-    var fieldOne = {name: "Long Field",reference: 1, nvz: true,elevation: false};
-    var fieldTwo = {name: "Short Field",reference: 2,nvz: true,elevation: false};
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
     req.session.data.oaktree_farm.storage_added = true
@@ -165,8 +157,6 @@ router.get(/exports_setup_handler/, function (req, res) {
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
-    var fieldOne = {name: "Long Field",reference: 1, nvz: true,elevation: false};
-    var fieldTwo = {name: "Short Field",reference: 2,nvz: true,elevation: false};
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
     req.session.data.oaktree_farm.imports_exports = 2

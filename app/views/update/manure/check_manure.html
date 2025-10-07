@@ -5,7 +5,7 @@
     <!-- {% if data.manure_journey == 'multi' %}
       <dd class="govuk-summary-list__value">The winter wheat fields</dd>
     {% else %}
-      <dd class="govuk-summary-list__value">{{data.chosen_field.name}}</dd>
+      <dd class="govuk-summary-list__value">{{data.chosen_field.field_name}}</dd>
     {% endif %} -->
     <dd class="govuk-summary-list__value">
     </dd>
@@ -24,7 +24,7 @@
       {% if data.manure_journey == 'multi' %}
         these fields
       {% else %}
-        {{data.chosen_field.name}}
+        {{data.chosen_field.field_name}}
       {% endif %}
       again, in the same way? 
     </dt>

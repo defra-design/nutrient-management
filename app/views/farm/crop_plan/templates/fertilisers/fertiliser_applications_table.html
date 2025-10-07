@@ -72,7 +72,7 @@
 {% for application in data.allFertiliserApplications %}
   {{application.reference}}<br>
   {% for field in application.chosenFields %}
-    {{field.name}}<br>
+    {{field.field_name}}<br>
   {% endfor %}
   {{application.nutrients}}<br>
   {{application.rate}}<br>

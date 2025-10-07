@@ -46,9 +46,9 @@
 
             {% for field in data.all_fields %}
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id={{field.reference}} name="crop_fields" type="checkbox" value={{field.reference}}>
-                <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
-                  {{field.name}} 
+                <input class="govuk-checkboxes__input" id={{field.field_id}} name="crop_fields" type="checkbox" value={{field.field_id}}>
+                <label class="govuk-label govuk-checkboxes__label" for={{field.field_id}}>
+                  {{field.field_name}} 
                 </label>
               </div>
           {% endfor %}   

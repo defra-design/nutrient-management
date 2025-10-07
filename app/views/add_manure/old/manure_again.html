@@ -25,7 +25,7 @@
       {% if data.manure_journey == 'multi' %}
         Do you want to add this {{data.chosen_manure | lower}} to these fields again, in the same way?
       {% else %}
-        Do you want to add {{data.chosen_manure | lower}} to {{data.chosen_field.name}}, in the same way?
+        Do you want to add {{data.chosen_manure | lower}} to {{data.chosen_field.field_name}}, in the same way?
       {% endif %}
       </h1>
 

@@ -73,9 +73,9 @@ router.get(/delete_handler/, callback_functions.showSuccessMessage, function (re
 
 //set the name for the field 
 router.get(/set_field_name_handler/, function (req, res) { 
-    req.session.data.tempField.reference = req.session.data.all_fields.length + 1;
-    if (req.session.data.temp_field_name == "") req.session.data.temp_field_name = 'New Field #' + req.session.data.tempField.reference;
-    req.session.data.tempField.name = req.session.data.temp_field_name;
+    req.session.data.tempfield.field_id = req.session.data.all_fields.length + 1;
+    if (req.session.data.temp_field_name == "") req.session.data.temp_field_name = 'New Field #' + req.session.data.tempfield.field_id;
+    req.session.data.tempfield.field_name = req.session.data.temp_field_name;
     res.redirect('./area');
 })
 
@@ -196,10 +196,10 @@ router.get(/add_sns_handler/, function (req, res) {
 })
 
 router.get(/copy_name_handler/, function (req, res) { 
-    // req.session.data.tempField.name = (req.session.data.temp_field_name == '') ? 'New Field' : req.session.data.temp_field_name
-    req.session.data.tempField.reference = req.session.data.all_fields.length + 1
-    if (req.session.data.temp_field_name == "") req.session.data.temp_field_name = 'New Field #' + req.session.data.tempField.reference;
-    req.session.data.tempField.name = req.session.data.temp_field_name
+    // req.session.data.tempfield.field_name = (req.session.data.temp_field_name == '') ? 'New Field' : req.session.data.temp_field_name
+    req.session.data.tempfield.field_id = req.session.data.all_fields.length + 1
+    if (req.session.data.temp_field_name == "") req.session.data.temp_field_name = 'New Field #' + req.session.data.tempfield.field_id;
+    req.session.data.tempfield.field_name = req.session.data.temp_field_name
     res.redirect('./analysis')
 })
 
@@ -387,6 +387,7 @@ router.get(/v5_fields_handler/, function (req, res) {
     //  } else {
     //     res.redirect('group_name')
     // }
+    console.log(req.session.data.crop_fields)
     res.redirect('group_name')
 })
 
@@ -412,16 +413,11 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     var group_id = req.session.data.cropGroups.length + 1
 
     // create a new group and add each field reference to the group
-    var new_group = allFunctions.createCropGroup(group_name, group_id, year, crop_id, field_list)
+    // createCropGroup(group_name, group_id, year, crop_id, field_list, current_fields)
+    var new_group = allFunctions.createCropGroup(group_name, group_id, year, crop_id, field_list, req.session.data.all_fields)
     
-    // add crop details for each field
-    for (let current_field in req.session.data.crop_fields) {
-        for (let field in req.session.data.all_fields) {
-            if (req.session.data.crop_fields[current_field].field_id == req.session.data.all_fields[field].field_id) {
-                req.session.data.all_fields[field] = allFunctions.updateFieldCrop(req.session.data.all_fields[field], crop_id, year, variety, group_id)
-            }
-        }
-    }
+    // add crop details to each field
+    req.session.data.all_fields = allFunctions.updateFieldCrop(req.session.data.all_fields, field_list, crop_id, year, variety, group_id)
 
     // add this group to all crop groups
     req.session.data.cropGroups.push(new_group)
@@ -752,12 +748,9 @@ router.get(/fertiliser_update_v6_handler/, function (req, res) {
 
 // navigate from whole plan to filed level
 router.get(/field_level_plan_v5_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    req.session.data.chosen_group = req.query.fieldref
-    req.session.data.chosen_field = req.query.groupref
-    //group.reference
-    req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.cropGroups, req.query.groupref)
-    //field reference
-    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)    
+    console.log('here' + req.query.fieldref)
+    req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref) 
+    console.log(req.session.data.chosen_field)   
     res.redirect('../field_plan/index')
 })
 
@@ -888,7 +881,7 @@ router.get(/plan_manure_application_router/, function (req, res) {
         nextURL = '/add_manure/manure_fields'
     } else {
         req.session.data.manure_fields = []
-        req.session.data.manure_fields.push(req.session.data.chosen_field.reference)
+        req.session.data.manure_fields.push(req.session.data.chosen_field.field_id)
         nextURL = '/add_manure/manure_group'
     }
     res.redirect(nextURL)

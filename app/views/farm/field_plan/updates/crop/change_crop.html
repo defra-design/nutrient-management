@@ -20,12 +20,12 @@ Question – {{ serviceName }} – GOV.UK
   <div class="govuk-grid-column-two-thirds-from-desktop">
     
     <h1 class="govuk-heading-l">
-      Update the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} 
+      Update the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.field_name}} 
     </h1>
 
     <div class="govuk-inset-text margin-bottom-forty">
       <p class="govuk-body">
-        Changes here will be applied to {{data.chosen_field.name}} only. To change multiple fields at once you can <a href="../../updates/crop/change_crop">update this crop group</a>.
+        Changes here will be applied to {{data.chosen_field.field_name}} only. To change multiple fields at once you can <a href="../../updates/crop/change_crop">update this crop group</a>.
       </p>
     </div>
 
@@ -113,7 +113,7 @@ Question – {{ serviceName }} – GOV.UK
       </dl>    
     </div>
     
-    <p class="govuk-body margin-bottom-forty">You can also <a href="">remove {{data.chosen_group.crop_reference | nameconverter}} from {{data.chosen_field.name}} in 2025</a>.</p>
+    <p class="govuk-body margin-bottom-forty">You can also <a href="">remove {{data.chosen_group.crop_reference | nameconverter}} from {{data.chosen_field.field_name}} in 2025</a>.</p>
 
 
     <form action="crop_group_update_v7_handler" method="post" novalidate>

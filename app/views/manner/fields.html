@@ -44,9 +44,9 @@
 
             {% for field in data.all_fields %}
             <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id={{field.reference}} name="chosen_field" type="radio" value={{field.reference}}>
-                <label class="govuk-label govuk-radios__label" for={{field.reference}}>
-                    {{field.name}} 
+                <input class="govuk-radios__input" id={{field.field_id}} name="chosen_field" type="radio" value={{field.field_id}}>
+                <label class="govuk-label govuk-radios__label" for={{field.field_id}}>
+                    {{field.field_name}} 
                 </label>
             </div>
             {% endfor %} 

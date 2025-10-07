@@ -27,7 +27,7 @@
       ({{data.chosen_group.variety}}) 
     {% endif %}
     in
-    {{data.chosen_field.name}}
+    {{data.chosen_field.field_name}}
   </h2>
 
   <p class="govuk-body-s">Amounts are per hectare.</p>
@@ -66,12 +66,12 @@
         ({{second_group_variety}}) 
       {% endif %}
       in
-      {{data.chosen_field.name}}
+      {{data.chosen_field.field_name}}
     </h2>
     <p class="govuk-body-s">Amounts are per hectare.</p>
   
     {% if data.chosen_crop == 'Grass' or data.chosen_crop == 'grass' %}
-      <p class="govuk-body-s">These recommendations are for {{data.chosen_field.name}}, harvest year {{data.oaktree_farm.planning_year}}</p>
+      <p class="govuk-body-s">These recommendations are for {{data.chosen_field.field_name}}, harvest year {{data.oaktree_farm.planning_year}}</p>
       {% include ".//v4_grass_empty.html" ignore missing %}
     {% else %}
       {% if organics == true and inorganics == true %}
@@ -114,7 +114,7 @@
 
 <!-- TESTS IMPORTANT
 <p>group = {{data.chosen_group.reference}}</p>
-<p>field = {{data.chosen_field.name}}</p>
+<p>field = {{data.chosen_field.field_name}}</p>
 
 <p>appears_in_other_groups? = {{appears_in_other_groups}}</p>
 <p>reference? = {{second_crop_reference}}</p> -->

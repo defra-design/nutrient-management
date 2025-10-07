@@ -18,7 +18,6 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-
   <div class="govuk-grid-column-two-thirds">
     {% if data.show_success_message == true %}
       {% include "./templates/success_message.html" ignore missing %}
@@ -29,11 +28,11 @@
 </div>
 
 <div class="govuk-grid-row">
-
   <div class="govuk-grid-column-full">
+
     <div class="margin-bottom-forty">      
       <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
-      <h1 id="main-title" class="govuk-heading-l margin-bottom-forty">{{data.chosen_field.name}} plan {{data.oaktree_farm.planning_year}}</h1>
+      <h1 id="main-title" class="govuk-heading-l margin-bottom-forty">{{data.chosen_field.field_name}} plan {{data.oaktree_farm.planning_year}}</h1>
       <p class="govuk-body">Last updated 22 September 2025.</p>
     </div>
 
@@ -79,26 +78,6 @@
         {% endif %}
       {% endfor %}
 
-      {% set appears_in_other_groups = false %}
-      {% set second_crop_reference = null %}
-      {% set second_group_variety = null %}
-      {% set second_group_reference = null %}
-      {% set second_group_name = null %}
-
-      {% for group in data.cropGroups %}
-        {% if group.reference != data.chosen_group.reference %}
-          {% for field in group.fields %}
-            {% if field.reference == data.chosen_field.reference %}
-              {% set appears_in_other_groups = true %}
-              {% set second_group_reference = group.reference %}
-              {% set second_group_name = group.groupname %}
-              {% set second_group_variety = group.variety %}
-              {% set second_crop_reference = group.crop_reference %}
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-      {% endfor %}
-
       <!-- recs -->
       {% include "./templates/recommendations.html" ignore missing %}
       
@@ -112,8 +91,6 @@
     </div>
 
   </div>
-
 </div>
-
 
 {% endblock %}

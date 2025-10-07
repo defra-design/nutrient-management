@@ -1,7 +1,7 @@
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="crops">
 
   <h2 class="govuk-heading-m non-standard margin-bottom-forty">
-    Crop, field and soil details for {{data.chosen_field.name}}
+    Crop, field and soil details for {{data.chosen_field.field_name}}
   </h2>
 
   <!-- <p class="govuk-body"><a href="../../farm/field/split_merge">Split this field, or merge it with others</a></p> -->
@@ -26,9 +26,9 @@
   </div>
 
   {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' %}
-    <p class="govuk-body"><a href="updates/crop/change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}</a></p>
+    <p class="govuk-body"><a href="updates/crop/change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.field_name}} in {{data.oaktree_farm.planning_year}}</a></p>
   {% else %}
-    <p class="govuk-body"><a href="updates/grass/change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} </a></p>
+    <p class="govuk-body"><a href="updates/grass/change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.field_name}} </a></p>
     <p class="govuk-body"><a href="">View previous crop information for 2024</a></p>
   {% endif %}
 
@@ -40,7 +40,7 @@
       Field, previous crop and soil analysis details 
     </h2>
     <p class="govuk-body">
-      <a href="field-select-handler?chosen_field={{data.chosen_field.name}}">View field details, previous crop, and soil analysis for {{data.chosen_field.name}}</a>
+      <a href="field-select-handler?chosen_field={{data.chosen_field.field_name}}">View field details, previous crop, and soil analysis for {{data.chosen_field.field_name}}</a>
     </p>
   </div>
 
@@ -67,7 +67,7 @@
 
   <!-- TESTS IMPORTANT
   <p>group = {{data.chosen_group.reference}}</p>
-  <p>field = {{data.chosen_field.name}}</p>
+  <p>field = {{data.chosen_field.field_name}}</p>
 
   <p>appears_in_other_groups? = {{appears_in_other_groups}}</p>
   <p>reference? = {{second_crop_reference}}</p> -->

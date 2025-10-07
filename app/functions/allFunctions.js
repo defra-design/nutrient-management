@@ -2,27 +2,27 @@ function field_count(field_references) {
     return field_references.length;
   }
 
-function getFieldByReference (currentFarmFields, referenceNumber) {
-    for (let field in currentFarmFields) {
-      if (currentFarmFields[field].reference == referenceNumber) {
-          return currentFarmFields[field]
+function getFieldByReference (allFields, referenceNumber) {
+    for (let field in allFields) {
+      if (allFields[field].reference == referenceNumber) {
+          return allFields[field]
       }
     }
   };
 
-  function getGroupByReference (currentGroups, referenceNumber) {
-    for (let group in currentGroups) {
-      if (currentGroups[group].reference == referenceNumber) {
-          return currentGroups[group]
+  function getGroupByReference (cropGroups, referenceNumber) {
+    for (let group in cropGroups) {
+      if (cropGroups[group].reference == referenceNumber) {
+          return cropGroups[group]
       }
     }
   };
 
 
-//   function getFieldByReference (currentFarmFields, referenceNumber) {
-//     for (let field in currentFarmFields) {
-//       if (currentFarmFields[field].reference == referenceNumber) {
-//           return currentFarmFields[field]
+//   function getFieldByReference (allFields, referenceNumber) {
+//     for (let field in allFields) {
+//       if (allFields[field].reference == referenceNumber) {
+//           return allFields[field]
 //       }
 //     }
 //   };
@@ -72,8 +72,15 @@ function basicSetup (farm, mvpFields, manure, fertiliser) {
 //     return newGroup
 // }
 
-function createCropGroup(group_name, group_id, year, crop_id, field_list) {
-// function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, group, yield, date, sns) {
+function createCropGroup(group_name, group_id, year, crop_id, field_list, current_fields) {
+//    let new_list = []
+//     for (let x in field_list) {
+//         for (let y in current_fields) {
+//             if (field_list[x].reference == current_fields[y].reference) { 
+//                 new_list.push(current_fields[y])
+//             }
+//         }
+//     }
     var newGroup = {
         group_name: group_name,
         group_id: group_id,
@@ -81,14 +88,23 @@ function createCropGroup(group_name, group_id, year, crop_id, field_list) {
         crop_id: crop_id,
         field_list: field_list,
     }
+    console.log('create group = ' + field_list)
     return newGroup
 }
 
-function updateFieldCrop(field, crop_id, planning_year, variety, group_id) {
-    field.crop_id = crop_id
-    field.variety = variety
-    field.group_id = group_id
-    return field
+// req.session.data.all_fields = allFunctions.updateFieldCrop(req.session.data.all_fields, field_list, crop_id, year, variety, group_id)
+function updateFieldCrop(all_fields, field_list, crop_id, year, variety, group_id) {
+    for ( let x in field_list) {
+        for ( let y in all_fields) {
+            if (field_list[x] == all_fields[y].reference) {
+                all_fields[y].crop_id = crop_id
+                all_fields[y].variety = variety
+                all_fields[y].group_id = group_id
+            }
+        }
+    }
+    console.log('update fields = ' + all_fields)
+    return all_fields
 }
 
 function createLivestockItem (reference, amount) {

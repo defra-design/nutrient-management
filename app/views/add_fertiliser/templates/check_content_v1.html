@@ -54,7 +54,7 @@
       {% if data.fertiliser_journey == "multi" %}
         The Winter Wheat fields?
       {% else %}
-        {{data.chosen_field.name}}?
+        {{data.chosen_field.field_name}}?
       {% endif %}
     </dt>
       {% if data.fertiliser_count != 0 %}
@@ -84,7 +84,7 @@
         {% if data.fertiliser_journey == "multi" %}
           The Winter Wheat fields?
         {% else %}
-          {{data.chosen_field.name}}?
+          {{data.chosen_field.field_name}}?
         {% endif %}
       </dt>
       <dd class="govuk-summary-list__value">No</dd>

@@ -35,10 +35,10 @@
     <!-- <table class="govuk-table recomendation-table data-table data-table">
       <tbody class="govuk-table__body">
         {% for field in data.all_fields %}
-          {% if field.name == data.chosen_field %}
+          {% if field.field_name == data.chosen_field %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Name</td>
-              <td class="govuk-table__cell">{{field.name}}</td>
+              <td class="govuk-table__cell">{{field.field_name}}</td>
             </tr>
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Date added</td>

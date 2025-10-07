@@ -20,10 +20,7 @@
 {% set totalFields = 0 %}
 
 <!-- //use the correct database for the chosen year -->
-{% set cropGroups = data.currentCropGroups %}
-{% if data.oaktree_farm.planning_year == 2024 %}
-  {% set cropGroups = data.lastCropGroups %}
-{% endif  %}
+{% set cropGroups = data.cropGroups %}
 
 {% for group in cropGroups %}
   {% for field in group.fields %}

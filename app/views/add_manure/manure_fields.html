@@ -34,7 +34,7 @@
               All fields in the 2024 plan
             </label>
           </div>
-          {% for group in data.currentCropGroups %}
+          {% for group in data.cropGroups %}
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id={{group.reference}} name="manure_fields" type="radio" value={{group.reference}}>
               <label class="govuk-label govuk-radios__label" for={{group.reference}}> 

@@ -57,19 +57,38 @@ function basicSetup (farm, mvpFields, manure, fertiliser) {
     farm.use_mvp_fields = mvpFields
 };
 
-function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, group, yield, date, sns) {
+// function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, group, yield, date, sns) {
+//     var newGroup = {
+//         reference: reference,
+//         year: year,
+//         fields: getMultipleFieldsByReferences(field_references, current_fields),
+//         crop_reference: crop_reference,
+//         variety: variety, 
+//         groupname: group,
+//         yield: yield,
+//         planting_date: date,
+//         sns: sns
+//     }
+//     return newGroup
+// }
+
+function createCropGroup(group_name, group_id, year, crop_id, field_list) {
+// function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, group, yield, date, sns) {
     var newGroup = {
-        reference: reference,
+        group_name: group_name,
+        group_id: group_id,
         year: year,
-        fields: getMultipleFieldsByReferences(field_references, current_fields),
-        crop_reference: crop_reference,
-        variety: variety, 
-        groupname: group,
-        yield: yield,
-        planting_date: date,
-        sns: sns
+        crop_id: crop_id,
+        field_list: field_list,
     }
     return newGroup
+}
+
+function updateFieldCrop(field, crop_id, planning_year, variety, group_id) {
+    field.crop_id = crop_id
+    field.variety = variety
+    field.group_id = group_id
+    return field
 }
 
 function createLivestockItem (reference, amount) {
@@ -158,7 +177,6 @@ function showSucess (message) {
     req.session.data.successMessage = 3
 }
 
-
 function addFertiliserApplication_v2 (allFields, cropGroups, fieldReference, fertiliserDate, nitrogen, phosphate, potash, sulphur, lime, ref) {
     let fieldName = null
     let crop_reference = null
@@ -197,7 +215,6 @@ function addFertiliserApplication_v2 (allFields, cropGroups, fieldReference, fer
     }
     return newApplication
 }
-
 
 function addFertiliserApplication (fertiliserGroups, allFields, chosenFields, nutrients, rate, application_date) {
     let fieldObjects = []
@@ -252,7 +269,6 @@ function getManureFields(chosenFields) {
                   group.fourthCropFields)
   };
 
-
 module.exports.printCropGroup = printCropGroup;
 module.exports.getFieldByReference = getFieldByReference;
 module.exports.getGroupByReference = getGroupByReference;
@@ -266,5 +282,5 @@ module.exports.addFertiliserApplication = addFertiliserApplication;
 module.exports.addManureApplication_v2 = addManureApplication_v2;
 module.exports.addFertiliserApplication_v2 = addFertiliserApplication_v2;
 module.exports.createLivestockItem = createLivestockItem;
-
 module.exports.field_count = field_count;
+module.exports.updateFieldCrop = updateFieldCrop;

@@ -39,7 +39,7 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
     }
     // NMAX
     if (req.session.data.export_type == '3') {
-        if (req.session.data.all_fields.length == 0 || req.session.data.currentCropGroups.length == 0) {
+        if (req.session.data.all_fields.length == 0 || req.session.data.cropGroups.length == 0) {
             next = 'not_available_max'
         } else {
             next = 'export_crops'

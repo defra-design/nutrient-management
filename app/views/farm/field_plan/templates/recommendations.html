@@ -22,11 +22,7 @@
 
   <h2 id="cropone" class="govuk-heading-m">
     Nutrient and Lime recommendations for 
-    {{data.chosen_group.crop_reference | nameconverter}} 
-    {% if data.chosen_group.variety.length > 0 %}
-      ({{data.chosen_group.variety}}) 
-    {% endif %}
-    in
+    {{data.chosen_field.crop_id | nameconverter}} in
     {{data.chosen_field.field_name}}
   </h2>
 

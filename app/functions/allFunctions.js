@@ -88,22 +88,28 @@ function createCropGroup(group_name, group_id, year, crop_id, field_list, curren
         crop_id: crop_id,
         field_list: field_list,
     }
-    console.log('create group = ' + field_list)
+    // console.log('create group = ' + field_list)
     return newGroup
 }
 
 // req.session.data.all_fields = allFunctions.updateFieldCrop(req.session.data.all_fields, field_list, crop_id, year, variety, group_id)
 function updateFieldCrop(all_fields, field_list, crop_id, year, variety, group_id) {
-    for ( let x in field_list) {
-        for ( let y in all_fields) {
-            if (field_list[x] == all_fields[y].reference) {
+    console.log('all_fields = ' + all_fields)
+    console.log('field_list = ' + field_list)
+
+    for ( var x in field_list) {
+        for ( var y in all_fields) {
+            console.log('field_list x = ' + field_list[x])
+            console.log('all_fields[y].field_id = ' + all_fields[y].field_id)
+
+            if (field_list[x] == all_fields[y].field_id) {
                 all_fields[y].crop_id = crop_id
                 all_fields[y].variety = variety
                 all_fields[y].group_id = group_id
+                // console.log('update fields = ' + field_list)
             }
         }
     }
-    console.log('update fields = ' + all_fields)
     return all_fields
 }
 

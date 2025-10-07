@@ -5,8 +5,8 @@
   </button>
   </form>
 <hr class="separator_forty">
-{% for group in cropGroups %}
-  {% if group.crop_reference == 'grass' %}
+{% for group in data.cropGroups %}
+  {% if group.crop_id == 'grass' %}
     {% include "./crop_groups_grass.html" ignore missing %}
   {% else %}  
     {% include "./crop_groups.html" ignore missing %}

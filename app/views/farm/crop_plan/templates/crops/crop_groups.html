@@ -1,15 +1,15 @@
 <div class="tab-left margin-bottom-thirty">
   <h2 class="govuk-heading-m margin-bottom-ten">
-    {% if group.crop_reference == 'potatoes' %}
-      Potato variety group 1   <span class="govuk-body nonbold">- Crop group {{group.reference}}</span>
+    {% if group.crop_id == 'potatoes' %}
+      Potato variety group 1   <span class="govuk-body nonbold">- Crop group {{group.group_id}}</span>
     {% else %}
-      {{group.crop_reference | nameconverter }}  <span class="govuk-body nonbold">- Crop group {{group.reference}}</span>
+      {{group.crop_id | nameconverter }}  <span class="govuk-body nonbold">- Crop group {{group.group_id}}</span>
     {% endif %}
   </h2>
 </div>
 
 <div class="tab-right">
-  <form class="update-button" action="group_level_plan_v7_handler?groupref={{group.reference}}" method="post" novalidate="">
+  <form class="update-button" action="group_level_plan_v7_handler?groupref={{group.group_id}}" method="post" novalidate="">
     <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
       Update this group
     </button>
@@ -28,8 +28,7 @@
   </thead>
 
   <tbody class="govuk-table__body">
-    {% for field in group.fields %}
-
+    {% for field in group.field_list %}
     {% set manureCount = 0 %}
     {% set inorganicCount = 0 %}
 
@@ -68,7 +67,7 @@
             Not entered
           {% endif %}          
         </td>
-        <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}">Update field or view recommendations</a></td>
+        <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.group_id}}&fieldref={{field.reference}}">Update field or view recommendations</a></td>
       </tr> 
     {% endfor %}
 

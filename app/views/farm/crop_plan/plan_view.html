@@ -20,10 +20,9 @@
 {% set totalFields = 0 %}
 
 <!-- //use the correct database for the chosen year -->
-{% set cropGroups = data.cropGroups %}
 
-{% for group in cropGroups %}
-  {% for field in group.fields %}
+{% for group in data.cropGroups %}
+  {% for field in group.field_list %}
     {% set totalFields = totalFields + 1 %}
   {% endfor %}
 {% endfor %}

@@ -757,10 +757,12 @@ router.get(/group_level_plan_v7_handler/, function (req, res) {
     req.session.data.chosen_group = req.query.groupref
     req.session.data.chosen_year = req.query.year
     //group.reference
-    req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.cropGroups, req.query.groupref)
+    req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.cropGroups, req.query.group_id)
     req.session.data.show_success_message = false    
     let next = '../../update/crop/change_crop'
-    if (req.session.data.chosen_group.crop_reference == 'grass') next = '../../update/grass/change_crop';
+    if (req.session.data.chosen_group.crop_reference == 'grass') {
+        next = '../../update/grass/change_crop'
+    }
     res.redirect(next)
 })
 

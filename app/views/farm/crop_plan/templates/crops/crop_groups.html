@@ -26,7 +26,24 @@
       <th scope="col" class="govuk-table__header"> </th>
     </tr>
   </thead>
-  
+
+  <!-- set the manure applications -->
+  {% set manureCount = 0 %}
+  {% set inorganicCount = 0 %}
+
+  {% for field in group.field_list %}
+    {% for manureitem in data.allManureApplications_v2 %}
+      {% if manureitem.fieldref == field.field_id %}
+        {% set manureCount = manureCount + 1 %}
+      {% endif %}
+    {% endfor %}
+    {% for fertitem in data.allFertiliserApplications %}
+      {% if fertitem.fieldref == field.field_id %}
+        {% set inorganicCount = inorganicCount + 1 %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
   <tbody class="govuk-table__body">
     {% for x in group.field_list %}
       {% for field in data.all_fields %}

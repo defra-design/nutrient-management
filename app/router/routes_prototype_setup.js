@@ -11,8 +11,11 @@ router.get(/end_to_end_setup_handler/, function (req, res) {
     req.session.data.showinfo = false
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
-    req.session.data.oaktree_farm.grass_setup = true,
-    req.session.data.cropGroups.push(allFunctions.createCropGroup(1, 2025, [1,2], req.session.data.all_fields, 'grass', null, 'Crop group 1', '11', null, false))
+    req.session.data.oaktree_farm.grass_setup = true
+    // req.session.data.cropGroups.push(allFunctions.createCropGroup(1, 2025, [1,2], req.session.data.all_fields, 'grass', null, 'Crop group 1', '11', null, false))
+    let group_1 = allFunctions.createCropGroup(null, 1, 2025, 'grass', [1,2], req.session.data.all_fields)
+    req.session.data.cropGroups.push(group_1)
+
     var applicationOne = allFunctions.addFertiliserApplication_v2 (req.session.data.all_fields, req.session.data.cropGroups, 1, '01/03/2024', 60, 30, 30, 0, 0, 1)
     req.session.data.allFertiliserApplications.push(applicationOne)
     res.redirect('start')
@@ -23,7 +26,10 @@ router.get(/onecrop_v5_setup_handler/, function (req, res) {
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
     req.session.data.all_fields = req.session.data.complete_field_list
-    req.session.data.cropGroups.push(allFunctions.createCropGroup(1, 2025, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', '8', null, false))
+    // req.session.data.cropGroups.push(allFunctions.createCropGroup(1, 2025, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', '8', null, false))
+    let group_1 = allFunctions.createCropGroup(null, 1, 2025, 'Wheat-Winter', [1,2,3,4,5], req.session.data.all_fields)
+    req.session.data.cropGroups.push(group_1)
+
     res.redirect('start')
 })
 
@@ -50,9 +56,20 @@ router.get(/plan_setup/, function (req, res) {
     req.session.data.oaktree_farm.manure_exports = true
     req.session.data.oaktree_farm.imports_exports = 2
     req.session.data.oaktree_farm.storage_added = true
-    req.session.data.cropGroups.push(allFunctions.createCropGroup(1, 2025, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Crop group 1', null, null, true))
-    req.session.data.cropGroups.push(allFunctions.createCropGroup(2, 2025, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 2', '10 to 13', "12/03/2025", true))
-    req.session.data.cropGroups.push(allFunctions.createCropGroup(3, 2025, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', '12', null, false))
+    // req.session.data.cropGroups.push(allFunctions.createCropGroup(1, 2025, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Crop group 1', null, null, true))
+    // req.session.data.cropGroups.push(allFunctions.createCropGroup(2, 2025, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 2', '10 to 13', "12/03/2025", true))
+    // req.session.data.cropGroups.push(allFunctions.createCropGroup(3, 2025, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', '12', null, false))
+    // var new_group = allFunctions.createCropGroup(group_name, group_id, year, crop_id, field_list, req.session.data.all_fields)
+
+    let group_1 = allFunctions.createCropGroup(null, 1, 2025, 'Beans-Winter', [8, 12], req.session.data.all_fields)
+    req.session.data.cropGroups.push(group_1)
+
+    let group_2 = allFunctions.createCropGroup(null, 2, 2025, 'Wheat-Winter', [1, 4, 5, 6, 7, 14], req.session.data.all_fields)
+    req.session.data.cropGroups.push(group_2)
+
+    let group_3 = allFunctions.createCropGroup(null, 3, 2025, 'grass', [10, 11, 18, 19], req.session.data.all_fields)
+    req.session.data.cropGroups.push(group_3)
+
     for (var x in req.session.data.all_fertiliser_applications) {
         req.session.data.allFertiliserApplications.push(req.session.data.all_fertiliser_applications[x])
     }
@@ -193,9 +210,20 @@ router.get(/inventory_setup_handler/, function (req, res) {
     req.session.data.oaktree_farm.manure_imports = true
     req.session.data.oaktree_farm.manure_exports = true
     req.session.data.oaktree_farm.imports_exports = 2
-    req.session.data.cropGroups.push(allFunctions.createCropGroup(1, 2025, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Crop group 1', null, null, true))
-    req.session.data.cropGroups.push(allFunctions.createCropGroup(2, 2025, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 2', '10 to 13', "12/03/2025", true))
-    req.session.data.cropGroups.push(allFunctions.createCropGroup(3, 2025, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', '12', null, false))
+    
+    // req.session.data.cropGroups.push(group_1)
+    // req.session.data.cropGroups.push(group_2)
+    // req.session.data.cropGroups.push(group_3)
+
+    let group_1 = allFunctions.createCropGroup(null, 1, 2025, 'Beans-Winter', [8, 12], req.session.data.all_fields)
+    req.session.data.cropGroups.push(group_1)
+
+    let group_2 = allFunctions.createCropGroup(null, 2, 2025, 'Wheat-Winter', [1, 4, 5, 6, 7, 14], req.session.data.all_fields)
+    req.session.data.cropGroups.push(group_2)
+
+    let group_3 = allFunctions.createCropGroup(null, 3, 2025, 'grass', [10, 11, 18, 19], req.session.data.all_fields)
+    req.session.data.cropGroups.push(group_3)
+
     for (var x in req.session.data.all_fertiliser_applications) {
         req.session.data.allFertiliserApplications.push(req.session.data.all_fertiliser_applications[x])
     }

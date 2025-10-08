@@ -73,9 +73,9 @@ router.get(/delete_handler/, callback_functions.showSuccessMessage, function (re
 
 //set the name for the field 
 router.get(/set_field_name_handler/, function (req, res) { 
-    req.session.data.tempfield.field_id = req.session.data.all_fields.length + 1;
-    if (req.session.data.temp_field_name == "") req.session.data.temp_field_name = 'New Field #' + req.session.data.tempfield.field_id;
-    req.session.data.tempfield.field_name = req.session.data.temp_field_name;
+    req.session.data.temp_field.field_id = req.session.data.all_fields.length + 1;
+    if (req.session.data.temp_field_name == "") req.session.data.temp_field_name = 'New Field #' + req.session.data.temp_field.field_id;
+    req.session.data.temp_field.field_name = req.session.data.temp_field_name;
     res.redirect('./area');
 })
 
@@ -137,8 +137,8 @@ router.get(/add_field_handler/, callback_functions.showSuccessMessage, function 
     if (req.session.data.sow_date_day != null) {
         sowdate = req.session.data.sow_date_day + '/' + req.session.data.sow_date_month + '/' + req.session.data.sow_date_year
     }
-    req.session.data.all_fields.push(req.session.data.tempField);
-    console.log(req.session.data.tempField)
+    req.session.data.all_fields.push(req.session.data.temp_field);
+    console.log(req.session.data.temp_field)
     //add previous crop to last years plan
     // var yield = null;
     // var newRef = req.session.data.cropGroups.length + 1
@@ -167,7 +167,7 @@ router.get(/add_field_handler/, callback_functions.showSuccessMessage, function 
     res.redirect('/farm/field/manage-fields');
 })
 
-router.get(/set_tempField_data_handler/, function (req, res) { 
+router.get(/set_temp_field_data_handler/, function (req, res) { 
     if (req.session.data.total_area == null || req.session.data.total_area == "" ) req.session.data.total_area = '19';
     if (req.session.data.cropped_area == null || req.session.data.cropped_area == "" ) req.session.data.cropped_area = '17';
     if (req.session.data.non_spreading_area == null || req.session.data.non_spreading_area == "" ) req.session.data.non_spreading_area = '2';
@@ -196,10 +196,10 @@ router.get(/add_sns_handler/, function (req, res) {
 })
 
 router.get(/copy_name_handler/, function (req, res) { 
-    // req.session.data.tempfield.field_name = (req.session.data.temp_field_name == '') ? 'New Field' : req.session.data.temp_field_name
-    req.session.data.tempfield.field_id = req.session.data.all_fields.length + 1
-    if (req.session.data.temp_field_name == "") req.session.data.temp_field_name = 'New Field #' + req.session.data.tempfield.field_id;
-    req.session.data.tempfield.field_name = req.session.data.temp_field_name
+    // req.session.data.temp_field.field_name = (req.session.data.temp_field_name == '') ? 'New Field' : req.session.data.temp_field_name
+    req.session.data.temp_field.field_id = req.session.data.all_fields.length + 1
+    if (req.session.data.temp_field_name == "") req.session.data.temp_field_name = 'New Field #' + req.session.data.temp_field.field_id;
+    req.session.data.temp_field.field_name = req.session.data.temp_field_name
     res.redirect('./analysis')
 })
 
@@ -252,7 +252,7 @@ router.get(/previous_group_router/, function (req, res) {
 router.get(/previous_clover_router/, function (req, res) { 
     // if 2024 not included in previous grass years then what was the previous crop in 2024?
     //else previous clover == no > previous nitrogen
-    let next = (req.session.data.previous_clover == "yes") ? 'set_tempField_data_handler' : 'previous_nitrogen'
+    let next = (req.session.data.previous_clover == "yes") ? 'set_temp_field_data_handler' : 'previous_nitrogen'
     res.redirect(next)
 })
 
@@ -262,7 +262,7 @@ router.get(/previous_clover_router/, function (req, res) {
 // })
 
 router.get(/sns_v3_router/, function (req, res) { 
-    let next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'set_tempField_data_handler';
+    let next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'set_temp_field_data_handler';
     res.redirect(next);
 })
 

@@ -18,6 +18,17 @@ function getFieldByReference (allFields, referenceNumber) {
     }
   };
 
+  function setCropId (all_fields, chosenFields, chosenCrop) {
+    for (let x in all_fields) {
+        for (let y in chosenFields) {
+            if (all_fields[x].field_id == chosenFields[y]) {
+                all_fields[x].crop_id = chosenCrop
+            }
+        }
+    }
+    return all_fields
+  };
+
 
 //   function getFieldByReference (allFields, referenceNumber) {
 //     for (let field in allFields) {
@@ -306,3 +317,4 @@ module.exports.addFertiliserApplication_v2 = addFertiliserApplication_v2;
 module.exports.createLivestockItem = createLivestockItem;
 module.exports.field_count = field_count;
 module.exports.updateFieldCrop = updateFieldCrop;
+module.exports.setCropId = setCropId;

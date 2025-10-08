@@ -20,9 +20,9 @@ const allFunctions = require('./functions/allFunctions.js');
 /// create fields
 let all_fields = [];
 
-var tempField = {
-    name: "Short Field",
-    reference: "shortfield",
+var temp_field = {
+    field_name: "Short Field",
+    field_id: 1,
     nvz: false,
     elevation: false
 };
@@ -72,7 +72,8 @@ router.get('/', function (req, res) {
 
     // control vars  
     req.session.data.show_success_message = false
-    req.session.data.tempField = tempField
+    req.session.data.temp_field = temp_field
+    console.log(req.session.data.temp_field)
     req.session.data.chosen_field = null
     req.session.data.crop_group = null
     req.session.data.chosen_crop = null

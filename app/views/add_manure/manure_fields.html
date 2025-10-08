@@ -38,8 +38,8 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id={{group.reference}} name="manure_fields" type="radio" value={{group.reference}}>
               <label class="govuk-label govuk-radios__label" for={{group.reference}}> 
-              {{group.groupname | capitalize}} fields 
-              ({{group.crop_reference | nameconverter}})
+              Crop group {{group.group_id}} fields
+              ({{group.crop_id | nameconverter}})
               </label>
             </div>
           {% endfor %}

@@ -9,24 +9,24 @@
   <!-- current year crops -->
   <div class="tabs-thirds">
     <h2 class="govuk-heading-m">
-      {{data.oaktree_farm.planning_year}} crop details
+      {{data.oaktree_farm.planning_year}} crop details 
     </h2>
-    {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' %}
+    {% if data.chosen_field.crop_id != 'Grass' and data.chosen_field.crop_id != 'grass' %}
       {% if data.oaktree_farm.planning_year == 2024 %}
-        {% include ".//arable_crop_details_empty.html" ignore missing %}
+        {% include "./arable_crop_details_empty.html" ignore missing %}
       {% else %}
-        {% include ".//arable_crop_details.html" ignore missing %}
+        {% include "./arable_crop_details.html" ignore missing %}
       {% endif %}
     {% else %}
-      {% include ".//grass-details.html" ignore missing %}
+      {% include "./grass-details.html" ignore missing %}
     {% endif %}
   </div>
 
-  {% if data.chosen_group.crop_reference != 'Grass' and data.chosen_group.crop_reference != 'grass' %}
-    <p class="govuk-body"><a href="updates/crop/change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.field_name}} in {{data.oaktree_farm.planning_year}}</a></p>
+  {% if data.chosen_field.crop_id != 'Grass' and data.chosen_field.crop_id != 'grass' %}
+    <p class="govuk-body"><a href="updates/crop/change_crop">Change the {{data.chosen_field.crop_id | nameconverter}} details for {{data.chosen_field.field_name}} in {{data.oaktree_farm.planning_year}}</a></p>
   {% else %}
-    <p class="govuk-body"><a href="updates/grass/change_crop">Change the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.field_name}} </a></p>
-    <p class="govuk-body"><a href="">View previous crop information for 2024</a></p>
+    <p class="govuk-body"><a href="updates/grass/change_crop">Change the {{data.chosen_field.crop_id | nameconverter}} details for {{data.chosen_field.field_name}} </a></p>
+    <p class="govuk-body"><a href="/farm/field/field-details">View previous crop information for 2024</a></p>
   {% endif %}
 
   <hr class="separator_forty">
@@ -48,7 +48,7 @@
     <h2 class="govuk-heading-m">
       Soil Nitrogen Supply (SNS) analysis
     </h2>
-    {% if data.chosen_group.sns == true  %}
+    {% if data.chosen_field.sns == true  %}
       {% include "./sns_details.html" ignore missing %}
       <p class="govuk-body">
         <a href="sns/update_sns">Change the Soil Nitrogen Supply (SNS) analysis for {{data.oaktree_farm.planning_year}}</a>
@@ -63,10 +63,10 @@
 </div>
 
   <!-- TESTS IMPORTANT
-  <p>group = {{data.chosen_group.reference}}</p>
+  <p>group = {{data.chosen_field.reference}}</p>
   <p>field = {{data.chosen_field.field_name}}</p>
 
   <p>appears_in_other_groups? = {{appears_in_other_groups}}</p>
-  <p>reference? = {{second_crop_reference}}</p> -->
+  <p>reference? = {{second_crop_id}}</p> -->
 
   <!-- /farm/field_plan/sns/check.html /farm/field_plan/sns/check-details-sns.html -->

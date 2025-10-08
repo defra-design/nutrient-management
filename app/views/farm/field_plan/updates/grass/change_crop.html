@@ -20,7 +20,7 @@ Question – {{ serviceName }} – GOV.UK
   <div class="govuk-grid-column-two-thirds-from-desktop">
     
     <h1 class="govuk-heading-l">
-      Update the {{data.chosen_group.crop_reference}} details for {{data.chosen_field.field_name}} 
+      Update the {{data.chosen_group.crop_id}} details for {{data.chosen_field.field_name}} 
     </h1>
 
     <!-- <div class="govuk-inset-text margin-bottom-forty">
@@ -40,12 +40,12 @@ Question – {{ serviceName }} – GOV.UK
       <dl class="govuk-summary-list">     
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the crop type?</dt>
-          <dd class="govuk-summary-list__value">{{data.chosen_group.crop_reference | nameconverter}}</dd>
+          <dd class="govuk-summary-list__value">{{data.chosen_group.crop_id | nameconverter}}</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
       
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Do you have a date for when you planted your {{data.chosen_group.crop_reference | nameconverter}}, or when you will plant it?</dt>
+          <dt class="govuk-summary-list__key">Do you have a date for when you planted your {{data.chosen_group.crop_id | nameconverter}}, or when you will plant it?</dt>
           <dd class="govuk-summary-list__value">
             {% if data.new_planting_date_day == '' or data.new_planting_date_day == null %}
               {% if data.chosen_group.planting_date == '' or data.chosen_group.planting_date == null %}
@@ -166,7 +166,7 @@ Question – {{ serviceName }} – GOV.UK
       </dl>    
     </div>
     
-    <p class="govuk-body margin-bottom-forty">You can also <a href="">remove {{data.chosen_group.crop_reference | nameconverter}} from {{data.chosen_field.field_name}} in 2025</a>.</p>
+    <p class="govuk-body margin-bottom-forty">You can also <a href="">remove {{data.chosen_group.crop_id | nameconverter}} from {{data.chosen_field.field_name}} in 2025</a>.</p>
 
     <form action="crop_group_update_v7_handler" method="post" novalidate>
       {{ govukButton({

@@ -16,7 +16,7 @@
   </h2>
 
   <p class="govuk-body-s">Amounts are per hectare.</p>
-  {% if data.chosen_group.crop_reference == 'grass' %}
+  {% if data.chosen_group.crop_id == 'grass' %}
     {% if organics == true %}
       {% include "./v5_grass_one_application.html" ignore missing %}
     {% else %}
@@ -46,7 +46,7 @@
     <hr class="separator_forty">
     <h2 id="croptwo" class="govuk-heading-m">
       Nutrient and Lime recommendations for 
-      {{second_crop_reference | nameconverter}}
+      {{second_crop_id | nameconverter}}
       {% if second_group_variety.length > 0 %}
         ({{second_group_variety}}) 
       {% endif %}
@@ -78,7 +78,7 @@
     </div>
   {% endif %}
 
-  {% if appears_in_other_groups == true or data.chosen_group.crop_reference == 'grass' %}
+  {% if appears_in_other_groups == true or data.chosen_group.crop_id == 'grass' %}
     <p class="govuk-body"><a class="govuk-link" href="#">Back to the top</a></p>
   {% endif %} -->
 
@@ -89,7 +89,7 @@
     {% include "/templates/recommendations.html" ignore missing %}
   </div>
 
-  {% if data.chosen_group.crop_reference == 'grass' %}
+  {% if data.chosen_group.crop_id == 'grass' %}
   <p class="govuk-body"><a class="govuk-link" href="#">Back to the top</a></p>
 {% endif %}
 
@@ -102,4 +102,4 @@
 <p>field = {{data.chosen_field.field_name}}</p>
 
 <p>appears_in_other_groups? = {{appears_in_other_groups}}</p>
-<p>reference? = {{second_crop_reference}}</p> -->
+<p>reference? = {{second_crop_id}}</p> -->

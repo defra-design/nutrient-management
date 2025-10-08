@@ -36,8 +36,8 @@
           </div>
           {% for group in data.cropGroups %}
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id={{group.reference}} name="manure_fields" type="radio" value={{group.reference}}>
-              <label class="govuk-label govuk-radios__label" for={{group.reference}}> 
+              <input class="govuk-radios__input" id={{group.group_id}} name="manure_fields" type="radio" value={{group.group_id}}>
+              <label class="govuk-label govuk-radios__label" for={{group.group_id}}> 
               Crop group {{group.group_id}} fields
               ({{group.crop_id | nameconverter}})
               </label>

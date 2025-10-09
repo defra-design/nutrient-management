@@ -785,6 +785,10 @@ router.get(/manner_quantity_handler/, function (req, res) {
     res.redirect(next);
 })
 
+
+// needs to stop passing the actual fields about and just use the references
+// remove grass applications - its not used
+
 router.get(/manure_fields_v5_handler/, function (req, res) {
     var new_manure_fields = []
     if (req.session.data.manure_fields == 'specific') {

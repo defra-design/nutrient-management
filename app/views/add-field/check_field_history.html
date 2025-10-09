@@ -22,29 +22,26 @@
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
     <h1 class="govuk-heading-l">
-      Update {{data.chosen_field}}
+      Add 2024 crop history to {{data.chosen_field.name}}
     </h1>
 
-    <div class="govuk-inset-text">
-      <p class="govuk-body">Changing these details could update your nutrient recommendations.</p>
-    </div>
+    <h2 class="govuk-heading-m">
+      Check your answers
+    </h2>
 
     <div class="check-answers margin-bottom-forty">
       <dl class="govuk-summary-list">
-        {% include "./templates/update_details_field.html" ignore missing %}
-        {% include "./templates/update_details_grass.html" ignore missing %}
+        {% include "./templates/check_history.html" ignore missing %}
       </dl>
     </div>
 
-    <form action="field_update_handler" method="post" novalidate>
-
+    <form action="" method="post" novalidate>
       <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-        Update this field
+        Add crop history
       </button>
-
     </form>
 
-    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+    <p class="govuk-body cancel-link"><a href="">Cancel</a></p>
 
   </div>
 </div>

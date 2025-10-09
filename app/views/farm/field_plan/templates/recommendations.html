@@ -2,10 +2,10 @@
 
   <h2 class="govuk-heading-m non-standard">Nutrient and Lime recommendations</h2>
   
-  <div class="margin-bottom-forty">
+  <!-- <div class="margin-bottom-forty">
     <h2 class="govuk-heading-s">Private beta disclaimer</h2>
     {% include "/templates/beta_disclaimer.html" ignore missing %}
-  </div>
+  </div> -->
   
   <!-- {% if appears_in_other_groups == true %}
     <ul class="govuk-list govuk-list--spaced">
@@ -31,71 +31,35 @@
   </h2>
 
   <p class="govuk-body-s">Amounts are per hectare.</p>
-  {% if data.chosen_group.crop_reference == 'grass' %}
-    {% if organics == true %}
-      {% include "./v5_grass_one_application.html" ignore missing %}
-    {% else %}
-      {% include "./v5_grass_empty.html" ignore missing %}
-    {% endif %}
+  {% if data.oaktree_farm.planning_year == 2024 %}
+    {% include "./v5_nutrients_empty_v2.html" ignore missing %}
   {% else %}
-    {% if organics == true and inorganics == true %}
-      {% include ".//v4_nutrients_both.html" ignore missing %}
-    {% elif organics == true and inorganics == false %}
-      {% include ".//v4_nutrients_one_organic.html" ignore missing %}
-    {% elif organics == false and inorganics == true %}
-      {% include ".//v5_nutrients_one_fertiliser.html" ignore missing %}
+    {% if data.chosen_group.crop_reference == 'grass' %}
+      {% if organics == true %}
+        {% include "./v5_grass_one_application.html" ignore missing %}
+      {% else %}
+        {% include "./v5_grass_empty.html" ignore missing %}
+      {% endif %}
     {% else %}
-      {% include ".//v5_nutrients_empty.html" ignore missing %}
+      {% if organics == true and inorganics == true %}
+        {% include "./v4_nutrients_both.html" ignore missing %}
+      {% elif organics == true and inorganics == false %}
+        {% include "./v4_nutrients_one_organic.html" ignore missing %}
+      {% elif organics == false and inorganics == true %}
+        {% include "./v5_nutrients_one_fertiliser.html" ignore missing %}
+      {% else %}
+        {% include "./v5_nutrients_empty.html" ignore missing %}
+      {% endif %}
     {% endif %}
   {% endif %}
   <p class="govuk-body-s margin-bottom-forty">Crop need is calculated using AHDB Nutrient Management Guide (RB209). Supply from manures calculated using<br> MANNER-NPK (Nutrient Calculation Engine).</p>
 
-  {% include ".//v5_rolling_balance.html" ignore missing %}
+  {% include "./v5_rolling_balance.html" ignore missing %}
 
   {% if data.chosen_crop != 'Grass' and data.chosen_crop != 'grass' and data.oaktree_farm.planning_year != 2024 %}
-    {% include ".//v5_guidance.html" ignore missing %}
+    {% include "./v5_guidance.html" ignore missing %}
   {% endif %}
 
-
-  <!-- {% if appears_in_other_groups == true %}
-    <hr class="separator_forty">
-    <h2 id="croptwo" class="govuk-heading-m">
-      Nutrient and Lime recommendations for 
-      {{second_crop_reference | nameconverter}}
-      {% if second_group_variety.length > 0 %}
-        ({{second_group_variety}}) 
-      {% endif %}
-      in
-      {{data.chosen_field.name}}
-    </h2>
-    <p class="govuk-body-s">Amounts are per hectare.</p>
-  
-    {% if data.chosen_crop == 'Grass' or data.chosen_crop == 'grass' %}
-      <p class="govuk-body-s">These recommendations are for {{data.chosen_field.name}}, harvest year {{data.oaktree_farm.planning_year}}</p>
-      {% include ".//v4_grass_empty.html" ignore missing %}
-    {% else %}
-      {% if organics == true and inorganics == true %}
-        {% include ".//v4_nutrients_both.html" ignore missing %}
-      {% elif organics == true and inorganics == false %}
-        {% include ".//v4_nutrients_one_organic.html" ignore missing %}
-      {% elif organics == false and inorganics == true %}
-        {% include ".//v4_nutrients_one_fertiliser.html" ignore missing %}
-      {% else %}
-        {% include ".//v4_nutrients_empty.html" ignore missing %}
-      {% endif %}
-    {% endif %}
-    <h2 class="govuk-heading-m">Guidance</h2>
-    <h3 class="govuk-heading-s">Nitrogen</h3>
-    <div class="guidance">
-      <p class="govuk-body">
-        Apply no more than 100kg N/ha at sowing or transplanting then apply N according to crop growth, e.g. up to 60kg N/ha per month in the south-west and 20kg N/ha in the north. Where seedbed SNS exceeds 4 and crops are likely to be harvested in April or later, top-dress N at the start of spring growth allowing for any over-winter losses of N.
-      </p>
-    </div>
-  {% endif %}
-
-  {% if appears_in_other_groups == true or data.chosen_group.crop_reference == 'grass' %}
-    <p class="govuk-body"><a class="govuk-link" href="#">Back to the top</a></p>
-  {% endif %} -->
 
   <hr class="separator_forty">
 
@@ -105,9 +69,8 @@
   </div>
 
   {% if data.chosen_group.crop_reference == 'grass' %}
-  <p class="govuk-body"><a class="govuk-link" href="#">Back to the top</a></p>
-{% endif %}
-
+    <p class="govuk-body"><a class="govuk-link" href="#">Back to the top</a></p>
+  {% endif %}
 
 </div>
 

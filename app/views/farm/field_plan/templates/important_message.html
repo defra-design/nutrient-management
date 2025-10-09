@@ -1,3 +1,28 @@
+<!-- <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Important
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+    Recommendations not available
+    </p>
+    <p class="govuk-body">
+      To get a recommendation for 2024, you need to add crop details for {{data.chosen_field.name}} in 2023.
+    </p>
+    <p class="govuk-body">
+      <a class="govuk-notification-banner__link" href="">Add basic 2023 crop details for {{data.chosen_field.name}}.</a>
+    </p>
+    <p class="govuk-body">
+      <a class="govuk-notification-banner__link" href="/farm/plans_records">Create a 2023 plan for {{data.chosen_field.name}}</a>
+    </p>
+    <p class="govuk-body">
+      This will be available under plans and records. You can also add organic and inorganic material applications.
+    </p>
+  </div>
+</div> -->
+
 <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__header">
     <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -5,36 +30,14 @@
     </h2>
   </div>
   <div class="govuk-notification-banner__content">
-    {% if data.chosen_group.crop_id != 'Grass' and data.chosen_group.crop_id != 'grass' %}
-      <p class="govuk-notification-banner__heading">
-      Recommendations not available
-      </p>
-      <p class="govuk-body">
-        You need to add the crop details for 2023, or Soil Mineral Nitrogen supply (SNS) analysis results to create recommendations for this field.
-      </p>
-      <p class="govuk-body">
-        <a class="govuk-notification-banner__link" href="sns/date">Add SNS analysis results for this crop</a>.
-      </p>
-      <p class="govuk-body">
-        <a class="govuk-notification-banner__link" href="">Add 2023 crop details</a>.
-      </p>
-
-    {% else %}
-
     <p class="govuk-notification-banner__heading">
-      Recommendations not available
-      </p>
-      <p class="govuk-body">
-        To create recommendations for this field you need to add: 
-      </p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>grass management details for 2024</li>
-        <li>crop details for 2023</li>
-      </ul>
-      <p class="govuk-body">
-        <a class="govuk-notification-banner__link" href="#crops">Add 2023 and 2024 crop details</a>.
-      </p>
-    {% endif %}
+    Recommendations not available
+    </p>
+    <p class="govuk-body">
+      To get recommendations for {{data.chosen_group.crop_reference | nameconverter}} in 2024, you need to add the crop details for {{data.chosen_field.name}} in 2023.
+    </p>
+    <p class="govuk-body">
+      <a class="govuk-notification-banner__link" href="">Add 2023 crop details for {{data.chosen_field.name}}</a>
+    </p>
   </div>
 </div>
-

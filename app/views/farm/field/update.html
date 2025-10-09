@@ -17,34 +17,36 @@
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-l">
-        Update {{data.chosen_field}}
-      </h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <div class="govuk-inset-text">
-        <p class="govuk-body">Changing these details could change your nutrient recommendations for 2024 and future years.</p>
-      </div>
+    <h1 class="govuk-heading-l">
+      Update {{data.chosen_field}}
+    </h1>
 
-      <div class="check-answers margin-bottom-forty">
-        <dl class="govuk-summary-list">
-          {% include "./templates/update_details_field.html" ignore missing %}
-          {% include "./templates/update_details_grass.html" ignore missing %}
-        </dl>
-      </div>
-
-      <form action="field_update_handler" method="post" novalidate>
-
-        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Update this field
-        </button>
-  
-      </form>
-
-      <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
-
+    <div class="govuk-inset-text">
+      <p class="govuk-body">Changing these details could change your nutrient recommendations for 2024 and future years.</p>
     </div>
+
+    <div class="check-answers margin-bottom-forty">
+      <dl class="govuk-summary-list">
+        {% include "./templates/update_details_field.html" ignore missing %}
+        {% include "./templates/update_details_grass.html" ignore missing %}
+      </dl>
+    </div>
+
+    <form action="field_update_handler" method="post" novalidate>
+
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Update this field
+      </button>
+
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+
   </div>
+</div>
+
 {% endblock %}

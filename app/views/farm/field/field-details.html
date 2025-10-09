@@ -28,6 +28,10 @@
       {{data.chosen_field}}
     </h1>
 
+    <p class="govuk-body"><a href="update">Change field details</a></p>      
+    <p class="govuk-body"><a href="remove">Remove {{data.chosen_field}}</a></p>
+    <!-- <p class="govuk-body"><a href="">Split this field or merge it with another</a></p> -->
+
     <!-- <div class="govuk-inset-text">
       This field was merged with Short Field on 3 February 2025
     </div> -->
@@ -52,7 +56,7 @@
         {% endfor %}
       </tbody>
     </table> -->
-
+    <h3 class="govuk-heading-s">Field details</h3>
     <table class="govuk-table recomendation-table data-table data-table">
       <tbody class="govuk-table__body">
         <!-- <tr class="govuk-table__row">
@@ -100,23 +104,19 @@
           <td class="govuk-table__cell">Grass</td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Typical grass management in 2022 and 2023</td>
+          <td class="govuk-table__cell">Typical grass management</td>
           <td class="govuk-table__cell">Grazed and cut</td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">High clover content in 2022 and 2023</td>
+          <td class="govuk-table__cell">High clover content</td>
           <td class="govuk-table__cell">No</td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Typical nitrogen use in 2022 and 2023</td>
+          <td class="govuk-table__cell">Typical nitrogen use</td>
           <td class="govuk-table__cell">Up to 100kg</td>
         </tr>
       </tbody>
     </table>   
-
-    <p class="govuk-body"><a href="update">Change field details</a></p>      
-    <p class="govuk-body"><a href="">Split this field or merge it with another</a></p>
-    <p class="govuk-body margin-bottom-forty"><a href="remove">Remove {{data.chosen_field}}</a></p>
 
     <hr class="big_separator">
 

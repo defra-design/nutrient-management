@@ -144,7 +144,7 @@ router.get('/', function (req, res) {
 
     // version 5
     req.session.data.cropGroups = []
-    req.session.data.allManureApplications_v2 = []
+    req.session.data.manureGroups = []
     req.session.data.allFertiliserApplications = []
     req.session.data.livestock_record_2025 = []
 

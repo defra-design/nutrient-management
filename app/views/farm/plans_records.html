@@ -28,6 +28,7 @@
       <tbody class="govuk-table__body">  
 
         {% set currentCropCount = 0 %}
+        {% set lastCropCount = 0 %}
         {% for x in data.cropGroups %}
           {% set currentCropCount = currentCropCount + 1 %}
         {% endfor %}

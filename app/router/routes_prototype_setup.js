@@ -80,7 +80,7 @@ router.get(/plan_setup/, function (req, res) {
         req.session.data.allFertiliserApplications.push(req.session.data.all_fertiliser_applications[x])
     }
     for (var y in req.session.data.manure_applications_list) {
-        req.session.data.allManureApplications_v2.push(req.session.data.manure_applications_list[y])
+        req.session.data.manureGroups.push(req.session.data.manure_applications_list[y])
     }
     res.redirect('start')
 })
@@ -238,7 +238,7 @@ router.get(/inventory_setup_handler/, function (req, res) {
         req.session.data.allFertiliserApplications.push(req.session.data.all_fertiliser_applications[x])
     }
     for (var y in req.session.data.manure_applications_list) {
-        req.session.data.allManureApplications_v2.push(req.session.data.manure_applications_list[y])
+        req.session.data.manureGroups.push(req.session.data.manure_applications_list[y])
     }
     res.redirect('start')
 })

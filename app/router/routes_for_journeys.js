@@ -865,16 +865,27 @@ router.get(/manure_date_v5_handler/, function (req, res) {
     }
 })
 
-router.get(/version5_manure_handler/, callback_functions.showSuccessMessage, function (req, res) { 
-    req.session.data.successMessage = 2
-    var manureType = req.session.data.manure_type.name
-    var manure_fields = req.session.data.manure_fields
-    var manureDate = req.session.data.manure_date_day + '/' + req.session.data.manure_date_month + '/' + req.session.data.manure_date_year
-    for (var x in manure_fields) {
-        var applicationGroup = allFunctions.addManureApplication_v2 (req.session.data.all_fields, req.session.data.cropGroups, manure_fields[x], manureDate, manureType)
-        req.session.data.allManureApplications_v2.push(applicationGroup)
+router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function (req, res) { 
+    let group_id = req.session.data.manureGroups.length + 1
+    let manure_id = req.session.data.manure_type.name
+    let year = 2024
+    let field_list = req.session.data.manure_fields
+    let application_date = req.session.data.manure_date_day + '/' + req.session.data.manure_date_month + '/' + req.session.data.manure_date_year
+
+    // let manureType = req.session.data.manure_type.name
+    // let manure_fields = req.session.data.manure_fields
+    // let manureDate = req.session.data.manure_date_day + '/' + req.session.data.manure_date_month + '/' + req.session.data.manure_date_year
+
+    for (let x in field_list) {
+        let applicationGroup = allFunctions.add_manure_application (group_id, year, field_list[x], application_date, manure_id)
+        req.session.data.manureGroups.push(applicationGroup)
     }
-    manure_fields = null
+    group_id = null
+    manure_id = null
+    year = null
+    req.session.data.successMessage = 2
+    field_list = null
+    application_date = null
     req.session.data.manure_fields = null
     res.redirect('/farm/crop_plan/plan_view')
 })

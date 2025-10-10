@@ -13,7 +13,7 @@
   <tbody class="govuk-table__body">
 
     {% set issuecounter = 1 %}
-    {% for application in data.allManureApplications_v2 %}        
+    {% for application in data.manureGroups %}        
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"> {{application.date}}</td>
         <td class="govuk-table__cell field-name">{{application.field}}</td>

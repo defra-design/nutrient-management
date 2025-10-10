@@ -158,28 +158,15 @@ function addManureApplication (fertiliserGroups, cropGroups, chosenFields, organ
     return newGroup
 }
 
-function addManureApplication_v2 (allFields, cropGroups, fieldReference, manureDate, manureType) {
-    let fieldName = null
-    let crop_reference = null
-    for (var x in allFields) {
-        if (allFields[x].reference == fieldReference) {
-            fieldName = allFields[x].name
-            fieldName = allFields[x].name
-        }
-    }
-    for (var y in cropGroups) {
-        for (var z in cropGroups[y].fields) {
-            if (cropGroups[y].fields[z].reference == fieldReference ) {
-                crop_reference = cropGroups[y].crop_reference
-            }
-        }
-    }
+// let applicationGroup = allFunctions.add_manure_application (group_id, year, req.session.data.all_fields, req.session.data.cropGroups, field_list[x], application_date, manure_id)
+function add_manure_application (group_id, year, field_id, application_date, manure_id) {
+    let crop_id = null
     var newApplication = {
-        "Field": fieldName,
-        "fieldref": fieldReference,
-        "Crop": crop_reference,
-        "date": manureDate,
-        "type": manureType,
+        "group_id": group_id,
+        "year": year,
+        "field_id": field_id,
+        "application_date": application_date,
+        "manure_id": manure_id,
         "rate": "20",
         "method": "Discharge spreader",
         "incorporation": "Mouldboard plough",
@@ -313,7 +300,7 @@ module.exports.createCropGroup = createCropGroup;
 module.exports.getManureFields = getManureFields;
 module.exports.addManureApplication = addManureApplication;
 module.exports.addFertiliserApplication = addFertiliserApplication;
-module.exports.addManureApplication_v2 = addManureApplication_v2;
+module.exports.add_manure_application = add_manure_application;
 module.exports.addFertiliserApplication_v2 = addFertiliserApplication_v2;
 module.exports.createLivestockItem = createLivestockItem;
 module.exports.field_count = field_count;

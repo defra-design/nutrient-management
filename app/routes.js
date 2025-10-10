@@ -105,9 +105,9 @@ router.get('/', function (req, res) {
     req.session.data.show_error = false;
     req.session.data.defoliations = "Cuts and grazings";
 
-    req.session.data.selected_fields = [{"reference":"1", "name":"Long Field", "planStatus":false, "crop": null, "soil": null},
-    {"reference":"2", "name":"Barn Field", "planStatus":false, "crop": null, "soil": null},
-    {"reference":"3", "name":"Orchard", "planStatus":false, "crop": null, "soil": null}]
+    req.session.data.selected_fields = [{"reference":"1", "name":"Long Field",  "crop": null, "soil": null},
+    {"reference":"2", "name":"Barn Field",  "crop": null, "soil": null},
+    {"reference":"3", "name":"Orchard",  "crop": null, "soil": null}]
 
     //set Alpha planning status
     req.session.data.alpha_planning = 0 //0 = not started, 1 = recs, 2 = completed

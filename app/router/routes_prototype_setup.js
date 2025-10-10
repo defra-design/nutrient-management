@@ -82,6 +82,7 @@ router.get(/plan_setup/, function (req, res) {
     for (var y in req.session.data.manure_applications_list) {
         req.session.data.manureGroups.push(req.session.data.manure_applications_list[y])
     }
+    console.log(req.session.data.manureGroups)
     res.redirect('start')
 })
 
@@ -240,6 +241,7 @@ router.get(/inventory_setup_handler/, function (req, res) {
     for (var y in req.session.data.manure_applications_list) {
         req.session.data.manureGroups.push(req.session.data.manure_applications_list[y])
     }
+    console.log(req.session.data.manureGroups)
     res.redirect('start')
 })
 

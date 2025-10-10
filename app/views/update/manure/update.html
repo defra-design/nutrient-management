@@ -39,7 +39,13 @@
             Which fields do you want to update this organic manure application for?
           </dt>
           <dd class="govuk-summary-list__value">
-            Poplar
+          {% set field = null %}
+          {% for x in data.all_fields %}
+            {% if x.field_id == data.chosen_field_id %}
+              {% set field = x %}
+              {% endif %}
+          {% endfor %} 
+          {{field.field_name}}
           </dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>

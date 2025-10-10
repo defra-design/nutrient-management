@@ -719,6 +719,8 @@ router.get(/addcrops_handler/, function (req, res) {
 
 router.get(/manure_update_handler/, function (req, res) {
     req.session.data.update_type = req.query.update_type
+    req.session.data.chosen_application = req.query.application_id
+    req.session.data.chosen_field_id = req.query.field
     let next = '../../update/manure/update'
     res.redirect(next)
 })

@@ -1,12 +1,6 @@
 <div class="govuk-tabs__panel" id="recs">
-
-  <h2 class="govuk-heading-m non-standard">Nutrient and Lime recommendations</h2>
   
-  <!-- <div class="margin-bottom-forty">
-    <h2 class="govuk-heading-s">Private beta disclaimer</h2>
-    {% include "/templates/beta_disclaimer.html" ignore missing %}
-  </div> -->
-  
+<<<<<<< HEAD
   <hr class="separator_forty">
 
   <h2 id="cropone" class="govuk-heading-m">
@@ -15,13 +9,42 @@
     {{data.chosen_field.field_name}}
   </h2>
 
-  <p class="govuk-body-s">Amounts are per hectare.</p>
+=======
+
+  <!-- <h2 id="cropone" class="govuk-heading-m">
+    Nutrient and Lime recommendations for 
+    {{data.chosen_group.crop_reference | nameconverter}} 
+    {% if data.chosen_group.variety.length > 0 %}
+      ({{data.chosen_group.variety}}) 
+    {% endif %}
+    in
+    {{data.chosen_field.name}}
+  </h2> -->
+
+  {% if data.chosen_group.crop_reference == 'grass' %}
+    <p>There are four cuts and grazings in 2025, with a recommendation for each one.</p>
+    <p>Go to:</p>
+    <ul class="govuk-list govuk-list--spaced">
+      <li><a href="#rec1">Recommendations 1 - Cut</a></li>
+      <li><a href="#rec2">Recommendations 2 - Grazing</a></li>
+      <li><a href="#rec3">Recommendations 3 - Grazing</a></li>
+      <li><a href="#rec4">Recommendations 4 - Grazing</a></li>
+      <li><a href="#balance">Phosphate (P2O5) and Potash (K2O) balance</a></li>
+      <li><a href="#guidance">View guidance</a></li>
+    </ul>
+    <hr class="separator_forty">
+  {% endif %}
+  
   {% if data.chosen_group.crop_id == 'grass' %}
     {% if organics == true %}
       {% include "./v5_grass_one_application.html" ignore missing %}
     {% else %}
       {% include "./v5_grass_empty.html" ignore missing %}
     {% endif %}
+
+  {% if data.oaktree_farm.planning_year == 2024 %}
+    {% include "./v5_nutrients_empty_v2.html" ignore missing %}
+>>>>>>> working
   {% else %}
     {% if organics == true and inorganics == true %}
       {% include "./v4_nutrients_both.html" ignore missing %}
@@ -71,7 +94,9 @@
   {% endif %}
   <p class="govuk-body-s margin-bottom-forty">Crop need is calculated using AHDB Nutrient Management Guide (RB209). Supply from manures calculated using<br> MANNER-NPK (Nutrient Calculation Engine).</p>
 
+  <!-- rolling_balance -->
   {% include "./v5_rolling_balance.html" ignore missing %}
+<<<<<<< HEAD
 
   {% if data.chosen_crop != 'Grass' and data.chosen_crop != 'grass' and data.oaktree_farm.planning_year != 2024 %}
     {% include "./v5_guidance.html" ignore missing %}
@@ -80,6 +105,11 @@
   {% if appears_in_other_groups == true or data.chosen_group.crop_id == 'grass' %}
     <p class="govuk-body"><a class="govuk-link" href="#">Back to the top</a></p>
   {% endif %} -->
+=======
+  
+  <!-- guidance -->
+  {% include "./v5_guidance.html" ignore missing %}
+>>>>>>> working
 
   <hr class="separator_forty">
 
@@ -94,7 +124,6 @@
 
 
 </div>
-
 
 <!-- TESTS IMPORTANT
 <p>group = {{data.chosen_group.reference}}</p>

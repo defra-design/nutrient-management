@@ -21,7 +21,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Which year would you like to create an {{data.export_type | convert_export_type | lower}} report for?
+        Which year would you like to create an {{data.export_type | convert_export_type}} report for?
       </h1>
 
       {% if data.export_type == 8 %}
@@ -56,6 +56,8 @@
           <fieldset class="govuk-fieldset" aria-describedby="output_year-hint">
             <div class="govuk-radios govuk-radios" data-module="govuk-radios">
 
+              <!-- {{ monthitem(2027, 2028)}}
+              {{ monthitem(2026, 2027)}} -->
               {{ monthitem(2025, 2026)}}
               {{ monthitem(2024, 2025)}}
               {{ monthitem(2023, 2024)}}

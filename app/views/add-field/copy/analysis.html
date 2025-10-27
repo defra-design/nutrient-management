@@ -15,52 +15,69 @@
   }) }}
 {% endblock %}
 
-
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Soil analysis for {{data.temp_field_name}}
+    </h1>
 
-      <h1 class="govuk-heading-l">
-        Do you want to add a soil analysis for {{data.temp_field_name}}?
-      </h1>
-        
-      <p class="govuk-body">
-        You should sample the soil from your fields every 3 to 4 years.
-      </p>
+    <p class="govuk-body">Good management of pH, soil phosphate, potash and magnesium depends on soil sampling and analysis.
+      Soil sampling and analysis should be carried out every 3 to 5 years, at an appropriate time in the crop rotation.
+    </p>
 
-      <p class="govuk-body">
-        If you do not enter a soil analysis, or if your most recent soil analysis is more than 5 years old, any recommendations we give will be based on the target soil pH and nutrient indices for your crop, which may not be accurate for your soil or crop.
-      </p>
+    <p class="govuk-body">You must follow the appropriate soil analysis regulations for your region.</p>
 
-      <form action="copy-field-check" method="post" novalidate="">
+    <p class="govuk-body margin-bottom-forty">
+      If you do not enter a soil analysis, or if your most recent soil analysis is more than 5 years old, any recommendations we give will be based on the target soil pH and nutrient indices for your crop, which may not be accurate for your soil or crop.
+    </p>
 
-          <div class="govuk-form-group margin-bottom-forty">
-            <fieldset class="govuk-fieldset">
-              <div class="govuk-radios govuk-radios govuk-radios--inline" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="analysis" name="soilanalysis" type="radio" value="yes">
-                  <label class="govuk-label govuk-radios__label" for="analysis">Yes</label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="analysis-2" name="soilanalysis" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="analysis-2">No</label>
-                </div>
-              </div>
-            </fieldset>
+    <!-- <h2 class="govuk-heading-s">Why a soil sample is important</h2>
+    <p class="govuk-body">Good management of pH, soil phosphate, potash and magnesium depends on soil sampling and analysis.</p>
+    <p class="govuk-body">Soil sampling and analysis should be carried out every 3 to 5 years, at an appropriate time in the crop rotation.</p>
+    <p class="govuk-body">You must follow the appropriate soil analysis regulations for your region.</p>
+    <h2 class="govuk-heading-s">If you do not enter a soil analysis, or if your most recent soil analysis is more than 5 years old</p>
+    <p class="govuk-body">Recommendations will be based on the target soil pH and nutrient indices for your crop. These may not be accurate for the actual soil or crop.</p> -->
+
+    <!-- <p class="govuk-body">
+      You should sample the soil from your fields every 3 to 4 years.
+    </p>
+
+    <p class="govuk-body">
+      If you do not enter a soil analysis, or if your most recent soil analysis is more than 5 years old, any recommendations given will be based on the target soil pH and nutrient indices for your crop, which may not be accurate for your soil or crop.
+    </p> -->
+
+    <form action="copy-field-check" method="post" novalidate="">
+
+      <div class="govuk-form-group margin-bottom-forty">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend">
+            Do you want to add a soil analysis for {{data.temp_field_name}}?
+          </legend>
+          <div class="govuk-radios govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="analysis" name="soilanalysis" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="analysis">Yes</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="analysis-2" name="soilanalysis" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="analysis-2">No</label>
+            </div>
           </div>
+        </fieldset>
+      </div>
 
-        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
-          Continue
-        </button>
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
 
-      </form>
+    </form>
 
-      <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
-
-    </div>
+    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
 
   </div>
+</div>
 
 {% endblock %}

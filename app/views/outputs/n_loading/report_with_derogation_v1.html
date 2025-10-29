@@ -28,12 +28,6 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full margin-bottom-ten">
-    
-    <hr class="margin-bottom-thirty">
-    <h2 class="govuk-heading-l margin-top-none">
-      Summary
-    </h2>
-
     <h2 class="govuk-heading-m">
       Compliance with NVZ livestock manure nitrogen (N) farm limit
     </h2>
@@ -57,10 +51,6 @@
       <h2 class="govuk-heading-m">
         Farm area
       </h2>
-      <p class="govuk-body-s">
-        The farm area does not include surface waters, areas of hardstanding, buildings or woodland (unless the woodland is used for grazing), and any land covered by a greenhouse.
-      </p>
-
       {% include "./templates/farm_area_derogation.html" ignore missing %}
 
     </div>
@@ -82,11 +72,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
 
-      <h2 class="govuk-heading-l">Manure total nitrogen (N) and phosphate (P2O5) production</h2>
-
-      <h3 class="govuk-heading-s">
+      <h2 class="govuk-heading-m">
         Grazing livestock manure total nitrogen (N) and phosphate (P2O5) production
-      </h3>
+      </h2>
         <p class="govuk-body-s">
           Home-produced manures from any cattle (excluding veal calves), sheep, deer, goats, or horses, regardless of whether the animals are housed or not.
         </p>
@@ -98,9 +86,9 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full margin-bottom-ten">
-        <h3 class="govuk-heading-s">
+        <h2 class="govuk-heading-m">
           Non-grazing livestock manure total nitrogen (N) and phosphate (P2O5) production
-        </h3>
+        </h2>
         <p class="govuk-body-s">
           Home-produced manures from any pigs, poultry, or veal calves, regardless of whether the animals are housed or not.
         </p>
@@ -108,70 +96,38 @@
       </div>
     </div>
 
-  <div id="printbreak"></div>
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
 
-      <h2 class="govuk-heading-l">
+      <h2 class="govuk-heading-m">
         Imports and exports of livestock manure
       </h2>
-
-      <p class="govuk-body strong">
+      <p class="govuk-body">
         Livestock manure imports and exports net total: <span class="">+90,000kg of nitrogen (N)</span>
       </p>
 
-      <!-- <h2 class="govuk-heading-m">
-        Imports
-      </h2> -->
-      
-      <h3 class="govuk-heading-m">
-        Imports of livestock manure from grazing livestock
+      <h3 class="govuk-heading-s">
+        Imports of livestock manure 
       </h3>
-      <p class="govuk-body-s">
-        Imported manures from any cattle (excluding veal calves), sheep, deer, goats, or horses.
-      </p>
+
       {% include "./templates/imports_derogation.html" ignore missing %}
-
-      <h3 class="govuk-heading-m">
-        Imports of livestock manure from non-grazing livestock
+      <h3 class="govuk-heading-s">
+        There are no exports of livestock manure
       </h3>
-
-      <p class="govuk-body">
-        There are no imports of livestock manure from any pigs, poultry, or veal calves.
-      </p>
-
-      <hr class="separator_thirty">
-
-      <!-- <h2 class="govuk-heading-m">
-        Exports
-      </h2> -->
-
-      <h3 class="govuk-heading-m">
-        Exports of livestock manure from grazing livestock
-      </h3>
-      <p class="govuk-body">
-        There are no exports of livestock manure from any cattle (excluding veal calves), sheep, deer, goats, or horses.
-      </p>
-      
-      <hr class="margin-bottom-thirty">
-
-      <h3 class="govuk-heading-m">
-        Exports of livestock manure from non-grazing livestock
-      </h3>
-
-      <p class="govuk-body-s">
-        Exported manures from any pigs, poultry, or veal calves.
-      </p>
-      {% include "./templates/exports_derogation.html" ignore missing %}
-
-
     </div>
   </div>
   
+  <!-- <div id="printbreak"></div> -->
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <hr class="margin-bottom-forty">
+      <h2 class="govuk-heading-s">
+        About farm area
+      </h2>
+      <p class="govuk-body-s">
+        The farm area does not include surface waters, areas of hardstanding, buildings or woodland (unless the woodland is used for grazing), and any land covered by a greenhouse.
+      </p>
       <h2 class="govuk-heading-s">
         About recommendations, guidance, and advice
       </h2>

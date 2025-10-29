@@ -22,8 +22,10 @@
         
         <p class="govuk-body address">South Road, Hexham, Northumberland NE46 7LQ</p>
     
-        {% if data.oaktree_farm.fields_added == true %}
-          <p class="govuk-body">{{data.all_fields.length}} fields, 40 hectares in total</p>
+        {% if data.all_fields.length == 0 %}
+            <p class="govuk-body">This farm has no fields.</p>
+          {% else %}
+            <p class="govuk-body">This farm has {{data.all_fields.length}} fields.</p>
         {% endif %}
       </div>
       
@@ -46,7 +48,7 @@
 
       <div>
         <h2 class="govuk-heading-m">Create a nutrient management plan</h2>
-        <p class="govuk-body">Add crops, organic and inorganic material applications, and get recommendations from the Nutrient Management Guide (RB209)</p>
+        <p class="govuk-body">Add crops, organic and inorganic material applications, and get nutrient and lime recommendations from the Nutrient Management Guide (RB209)</p>
 
         <!-- <p class="govuk-hint">Create nutrient management plans, get nutrient recommendations from the AHDB Nutrient Management Guide (RB209), add organic material and inorganic fertiliser applications.</p> -->
         {% if data.oaktree_farm.fields_added == true  %}
@@ -63,16 +65,16 @@
 
       <!-- REPORTS -->
       <div>
-        <h2 class="govuk-heading-m">Check compliance for Nitrate Vulnerable Zone (NVZ) regulations</h2>
+        <h2 class="govuk-heading-m">Check compliance with Nitrate Vulnerable Zone (NVZ) regulations</h2>
         <p class="govuk-body">
           Check compliance and create field and crop level reports, including:
         </p>
 
         <ul class="govuk-list govuk-list--bullet">
           <li>N-max</li>
-          <li>livestock manure nitrogen (N) farm limit</li>
-          <li>existing manure storage capacity</li>
-          <li>organic material inventory and storage</li>
+          <li>Livestock manure nitrogen (N) farm limit</li>
+          <li>Existing manure storage capacity</li>
+          <li>Organic manure inventory and storage requirement</li>
         </ul>
 
         <ul class="menu-list govuk-list govuk-list--spaced">

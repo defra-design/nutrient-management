@@ -20,31 +20,35 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <div>
-        <h1 class="govuk-heading-l">
-          {% if data.all_fields | length == 0 %}
-            You have not entered any field or crop information for {{data.oaktree_farm.planning_year}}
-          {% else %}
-            You have not entered any crop information for {{data.oaktree_farm.planning_year}}
-          {% endif %}
-        </h1>
-        <p class="govuk-body">An N-max report is not available. You need to add your crop information, and information about any organic or inorganic material applied.</p>          
-          {% if data.all_fields | length == 0 %}
-            <form class="form" action="../../add-field/name" method="post">
-              {{ govukButton({
-                text: "Add fields"
-              }) }}
-            </form>
-          {% else %}
-            <form class="form" action="../../add-crop/crop_group" method="post">
-              {{ govukButton({
-                text: "Add crops"
-              }) }}
-            </form>
-          {% endif %}
+      <h1 class="govuk-heading-l">
+        An N-max report is not available
+      </h1>
 
+      {% if data.all_fields | length == 0 %}
+      <p class="govuk-body margin-bottom-thirty">
+        You need to enter details about your fields.
+      </p>
 
-      </div>
+      {% else %}
+        <p class="govuk-body margin-bottom-thirty">
+          You need to enter your crop details and information about any organic or inorganic material applied for {{data.oaktree_farm.planning_year}}.
+        </p>
+      {% endif %}
+
+          
+        {% if data.all_fields | length == 0 %}
+          <form class="form" action="../../add-field/name" method="post">
+            {{ govukButton({
+              text: "Add fields"
+            }) }}
+          </form>
+        {% else %}
+          <form class="form" action="../../add-crop/crop_group" method="post">
+            {{ govukButton({
+              text: "Add crops"
+            }) }}
+          </form>
+        {% endif %}
 
     </div>
   </div>

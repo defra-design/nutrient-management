@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+          An N-max report is not available
+        </h1>
+
+        <p class="govuk-body">
+          You have not planned any crops for {{data.oaktree_farm.planning_year}} that require an N-max report.
+        </p>
+
+        <p class="govuk-body margin-bottom-thirty">
+          You can <a href="#">check the farm set-up</a> and change whether your whole farm, or some fields, are in a nitrate vulnerable zone (NVZ).
+        </p>
+
+        <p class="govuk-body margin-bottom-thirty">
+          You can also <a href="#">check your {{data.oaktree_farm.planning_year}} plan</a>.
+        </p>
+
+        <!-- <form class="form" action="../../add-crop/crop_group" method="post">
+          {{ govukButton({
+            text: "Check the farm set-up"
+          }) }}
+        </form> -->
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

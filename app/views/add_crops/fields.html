@@ -25,14 +25,14 @@
     </h1>
 
     {% if data.chosen_crop == 'grass' %}
-    <div class="govuk-inset-text">
+    <!-- <div class="govuk-inset-text"> -->
       <p class="govuk-body">
         You can group fields that will have the same grass type, and the same cuts and grazings. This makes it easier to plan and manage them.
       </p>
       <p class="govuk-body">
-        You can add more fields or change any information later. You can add as many groups of fields as you need.
+        You can add more fields to the group, and change any information in each field's plan later. You can add as many groups of fields as you need.
       </p>
-    </div>
+    <!-- </div> -->
     {% endif %}
 
     <form class="form" action="v5_fields_handler" method="post">
@@ -52,7 +52,15 @@
                 </label>
               </div>
           {% endfor %}   
-    
+          
+          <div id="crop_use_or" class="govuk-checkboxes__divider">or</div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="" name="" type="checkbox" value="">
+            <label class="govuk-label govuk-checkboxes__label" for="">
+              Select all
+            </label>
+          </div>
+
           </div>
         </fieldset>
       </div>

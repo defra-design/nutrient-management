@@ -484,7 +484,8 @@ router.get(/crops_V5_check_handler/, function (req, res) {
 router.get(/copyplan_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 17
-    req.session.data.oaktree_farm.planning_year = 2026
+    req.session.data.oaktree_farm.plan_2026 = true
+    req.session.data.oaktree_farm.plan_2025 = true
     res.redirect('/farm/crop_plan/plan_view')
 })
 

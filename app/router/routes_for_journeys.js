@@ -323,8 +323,14 @@ router.get(/add-grass-handler/, function (req, res) {
 
 
 router.get(/start_plan_handler/, function (req, res) {
-    req.session.data.oaktree_farm.planning_year = req.query.date
+  req.session.data.oaktree_farm.planning_year = req.query.date
     res.redirect('/add_crops/crop_group')
+})
+
+//view the plan by year
+router.get(/crop_plan_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
+    req.session.data.oaktree_farm.planning_year = req.query.date
+    res.redirect('./crop_plan/plan_view')
 })
 
 router.get(/update_question_handler/, function (req, res) {
@@ -429,7 +435,16 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     } else {
         req.session.data.successMessage = 1
     }
-    
+
+    //set plan year to true
+    if (req.session.data.oaktree_farm.planning_year == 2026) {
+        req.session.data.oaktree_farm.plan_2026 = true
+    }  else if (req.session.data.oaktree_farm.planning_year == 2025) {
+        req.session.data.oaktree_farm.plan_2025 = true
+    } else if (req.session.data.oaktree_farm.planning_year == 2024) {
+        req.session.data.oaktree_farm.plan_2024 = true
+    }
+
     //reset vars and redirect
     yield = null;
     req.session.data.group_name = null;
@@ -985,12 +1000,6 @@ router.get(/fertiliser_loop_handler/, function (req, res) {
         req.session.data.fertiliser_count++
         res.redirect('fertiliser_when')
     }
-})
-
-//view the plan by year
-router.get(/crop_plan_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    req.session.data.oaktree_farm.planning_year = req.query.date
-    res.redirect('./crop_plan/plan_view')
 })
 
 //select a field

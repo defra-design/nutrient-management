@@ -524,12 +524,18 @@ router.get(/variety_handler/, function (req, res) {
     res.redirect('sowdate_question')
 })
 
+router.get(/create_next_handler/, function (req, res) { 
+    req.session.data.oaktree_farm.planning_year = req.query.date
+    res.redirect('/add_crops/create_next')
+})
 
-//Routers
+
+
+
 
 router.get(/v4_plancopy_router/, function (req, res) { 
-    let next = 'crop_group'
-    if (req.session.data.plan_copy == 'previous') next = './copy/copy_year';
+    let next = '/add_crops/crop_group'
+    if (req.session.data.plan_copy == 'yes') next = '/add_crops/copy/copy_year';
     res.redirect(next)
 })
 

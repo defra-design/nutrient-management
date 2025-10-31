@@ -65,7 +65,11 @@
           <td class="govuk-table__cell"><a href="crop_plan_year_handler?date=2024">View or edit the 2024 plan</a></td>
         {% else %}
           <td class="govuk-table__cell">-</td>
-          <td class="govuk-table__cell"><a href="start_plan_handler?date=2024">Start a 2024 plan</a></td>
+          {% if data.oaktree_farm.plan_2025 == true or data.oaktree_farm.plan_2026 == true %}
+            <td class="govuk-table__cell"><a href="create_next_handler?date=2024">Start a 2024 plan</a></td>
+          {% else %}
+            <td class="govuk-table__cell"><a href="start_plan_handler?date=2024">Start a 2024 plan</a></td>
+          {% endif %}
         {% endif %}
       </tr>
 

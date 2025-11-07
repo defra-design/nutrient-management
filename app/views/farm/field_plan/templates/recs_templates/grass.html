@@ -13,14 +13,16 @@
   
 {% include "../v5_rolling_balance.html" ignore missing %}
 
-  <hr class="separator_forty">
+{% include "../v5_guidance.html" ignore missing %}
 
-  <div class="margin-bottom-forty">
-    <h2 class="govuk-heading-s">About recommendations, guidance, and advice</h2>
-    {% include "/templates/recommendations.html" ignore missing %}
-  </div>
+<hr class="separator_forty">
 
-  {% if data.chosen_group.crop_id == 'grass' %}
+<div class="margin-bottom-forty">
+  <h2 class="govuk-heading-s">About recommendations, guidance, and advice</h2>
+  {% include "/templates/recommendations.html" ignore missing %}
+</div>
+
+{% if data.chosen_group.crop_id == 'grass' %}
   <p class="govuk-body"><a class="govuk-link" href="#">Back to the top</a></p>
 {% endif %}
 

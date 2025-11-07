@@ -1,22 +1,3 @@
-<div class="govuk-tabs__panel" id="recs">
-
-  <h2 id="cropone" class="govuk-heading-m">
-    Nutrient and Lime recommendations for 
-    {{data.chosen_group.crop_reference | nameconverter}} 
-    {% if data.chosen_group.variety.length > 0 %}
-      ({{data.chosen_group.variety}}) 
-    {% endif %}
-    in
-    {{data.chosen_field.field_name}}
-  </h2>
-
-  {% if data.chosen_group.crop_reference == 'grass' %}
-    {% include "./recs_templates/grass.html" ignore missing %}
-  {% else %}
-    {% include "./recs_templates/arable.html" ignore missing %}
-  {% endif %}
-
-</div>
 
 <!-- TESTS IMPORTANT
 <p>group = {{data.chosen_group.reference}}</p>

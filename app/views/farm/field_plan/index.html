@@ -79,7 +79,19 @@
       {% endfor %}
 
       <!-- recs -->
-      {% include "./templates/recommendations.html" ignore missing %}
+      <div class="govuk-tabs__panel" id="recs">
+        <h2 id="cropone" class="govuk-heading-m">
+          Nutrient and Lime recommendations for 
+          {{data.chosen_field.crop_id | nameconverter}} 
+          in
+          {{data.chosen_field.field_name}}
+        </h2>
+        {% if data.chosen_field.crop_id == 'grass' %}
+          {% include "./templates/recs_templates/grass.html" ignore missing %}
+        {% else %}
+          {% include "./templates/recs_templates/arable.html" ignore missing %}
+        {% endif %}
+      </div>
       
       <!-- manures -->
       {% include "./templates/manures.html" ignore missing %}

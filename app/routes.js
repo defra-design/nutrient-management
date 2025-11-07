@@ -76,7 +76,6 @@ router.get('/', function (req, res) {
     // control vars  
     req.session.data.show_success_message = false
     req.session.data.temp_field = temp_field
-    console.log(req.session.data.temp_field)
     req.session.data.chosen_field = null
     req.session.data.crop_group = null
     req.session.data.chosen_crop = null

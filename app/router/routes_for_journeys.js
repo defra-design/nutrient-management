@@ -386,14 +386,14 @@ router.get(/cover_handler/, function (req, res) {
 })
 
 router.get(/v5_fields_handler/, function (req, res) { 
-    if (req.session.data.crop_fields === undefined) req.session.data.crop_fields = [11, 12, 13, 14, 15];
+    if (req.session.data.crop_fields === undefined) req.session.data.crop_fields = [1, 2, 11, 12, 13, 14, 15];
     req.session.data.crop_fields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_fields, req.session.data.all_fields)
     // if (req.session.data.crop_group == 'grass') {
     //     res.redirect('grass/current_sward')
     //  } else {
     //     res.redirect('group_name')
     // }
-    console.log(req.session.data.crop_fields)
+    // console.log(req.session.data.crop_fields)
     res.redirect('group_name')
 })
 
@@ -403,9 +403,9 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     let group_name = (req.session.data.groupname == null || req.session.data.groupname == '') ? 'Crop group ' + (req.session.data.cropGroups.length + 1) : req.session.data.groupname
     let year = req.session.data.oaktree_farm.planning_year
     let crop_id = req.session.data.chosen_crop
-    console.log(crop_id)
+    // console.log(crop_id)
     let field_list = req.session.data.crop_fields
-    console.log(field_list)
+    // console.log(field_list)
     let variety = null
 
     // set correct yield
@@ -474,9 +474,9 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     // req.session.data.sow_date_month = null;
     // req.session.data.sow_date_year = null;
     // yield = null;
-    console.log(field_list)
-    console.log(req.session.data.cropGroups)
-    console.log(req.session.data.all_fields)
+    // console.log(field_list)
+    // console.log(req.session.data.cropGroups)
+    // console.log(req.session.data.all_fields)
     res.redirect('/farm/crop_plan/plan_view')
 })
 
@@ -772,7 +772,7 @@ router.get(/fertiliser_update_v6_handler/, function (req, res) {
 
 // navigate from whole plan to filed level
 router.get(/field_level_plan_v5_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    console.log('here' + req.query.fieldref)
+    // console.log('here' + req.query.fieldref)
     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref) 
     res.redirect('../field_plan/index')
 })

@@ -1,4 +1,30 @@
-<div class="govuk-tabs__panel" id="recs">
+{% if data.oaktree_farm.planning_year == 2024 %}
+  {% include "./v5_nutrients_empty_v2.html" ignore missing %}
+{% else %}
+  {% if organics == true and inorganics == true %}
+    {% include "../v4_nutrients_both.html" ignore missing %}
+  {% elif organics == true and inorganics == false %}
+    {% include "../v4_nutrients_one_organic.html" ignore missing %}
+  {% elif organics == false and inorganics == true %}
+    {% include "../v5_nutrients_one_fertiliser.html" ignore missing %}
+  {% else %}
+    {% include "../v5_nutrients_empty.html" ignore missing %}
+  {% endif %}
+{% endif %}
 
-  
+<p class="govuk-body-s margin-bottom-forty">Crop need is calculated using AHDB Nutrient Management Guide (RB209). Supply from manures calculated using<br> MANNER-NPK (Nutrient Calculation Engine).</p>
+
+{% include "../v5_rolling_balance.html" ignore missing %}
+
+{% include "../v5_guidance.html" ignore missing %}
+
+<hr class="separator_forty">
+
+<div class="margin-bottom-forty">
+  <h2 class="govuk-heading-s">About recommendations, guidance, and advice</h2>
+  {% include "/templates/recommendations.html" ignore missing %}
 </div>
+
+{% if data.chosen_group.crop_id == 'grass' %}
+  <p class="govuk-body"><a class="govuk-link" href="#">Back to the top</a></p>
+{% endif %}

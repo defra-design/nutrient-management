@@ -8,7 +8,7 @@ var fieldTwo = {field_name: "Short Field", field_id: 2, nvz: true, elevation: fa
 router.get(/end_to_end_setup_handler/, function (req, res) { 
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
-    req.session.data.oaktree_farm.plan_2025 = true
+    req.session.data.oaktree_farm.years_planned.push(2025)
     req.session.data.showinfo = false
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
@@ -32,7 +32,7 @@ router.get(/onecrop_v5_setup_handler/, function (req, res) {
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [1,2,3,4,5], 'Wheat-Winter', 1)
     let group_1 = allFunctions.createCropGroup(null, 1, 2025, 'Wheat-Winter', [1,2,3,4,5], req.session.data.all_fields)
     req.session.data.cropGroups.push(group_1)
-    req.session.data.oaktree_farm.plan_2025 = true
+    req.session.data.oaktree_farm.years_planned.push(2025)
     res.redirect('start')
 })
 
@@ -40,7 +40,7 @@ router.get(/onecrop_v5_setup_handler/, function (req, res) {
 router.get(/plan_setup/, function (req, res) { 
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
-    req.session.data.oaktree_farm.plan_2025 = true
+    req.session.data.oaktree_farm.years_planned.push(2025)
     req.session.data.showinfo = false
     req.session.data.extra_features = true
     req.session.data.all_fields = req.session.data.complete_field_list
@@ -213,7 +213,7 @@ router.get(/exports_setup_handler/, function (req, res) {
 router.get(/inventory_setup_handler/, function (req, res) { 
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
-    req.session.data.oaktree_farm.plan_2025 = true
+    req.session.data.oaktree_farm.years_planned.push(2025)
     req.session.data.showinfo = false
     req.session.data.all_fields = req.session.data.complete_field_list
     req.session.data.oaktree_farm.area_added = true

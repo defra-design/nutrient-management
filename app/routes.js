@@ -34,10 +34,8 @@ router.get('/', function (req, res) {
             req.session.data.oaktree_farm.created = true,
             req.session.data.oaktree_farm.name = "Oaktree Lane Farm",
             req.session.data.oaktree_farm.postcode = "NE46 7LQ",
-            req.session.data.oaktree_farm.planning_year = 2025,
-            req.session.data.oaktree_farm.plan_2024 = false,
-            req.session.data.oaktree_farm.plan_2025 = false,
-            req.session.data.oaktree_farm.plan_2026 = false,
+            req.session.data.oaktree_farm.planning_year = 2026,
+            req.session.data.oaktree_farm.years_planned = []
             req.session.data.oaktree_farm.nvz = "some",
             req.session.data.oaktree_farm.elevation = "some",
             req.session.data.oaktree_farm.use_mvp_fields = false,
@@ -138,8 +136,6 @@ router.get('/', function (req, res) {
     req.session.data.defoliation_five = null
     req.session.data.defoliation_size = null
     req.session.data.weight_type = null
-    req.session.data.grass_total_yield = null
-    req.session.data.grass_total_yield_figure = null
 
     // new fields management
     req.session.data.all_fields = all_fields

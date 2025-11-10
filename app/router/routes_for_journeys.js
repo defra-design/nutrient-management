@@ -409,9 +409,7 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     let variety = null
 
     // set correct yield
-    if (req.session.data.chosen_crop == 'grass') {
-        yield = req.session.data.grass_total_yield
-    } else {
+    if (req.session.data.chosen_crop != 'grass') {
         req.session.data.successMessage = 1
     }
 
@@ -437,12 +435,10 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     }
 
     //set plan year to true
-    if (req.session.data.oaktree_farm.planning_year == 2026) {
-        req.session.data.oaktree_farm.plan_2026 = true
-    }  else if (req.session.data.oaktree_farm.planning_year == 2025) {
-        req.session.data.oaktree_farm.plan_2025 = true
-    } else if (req.session.data.oaktree_farm.planning_year == 2024) {
-        req.session.data.oaktree_farm.plan_2024 = true
+    for (var y in req.session.data.oaktree_farm.years_planned) {
+        if (req.session.data.oaktree_farm.planning_year != req.session.data.oaktree_farm.years_planned[y]) {
+            req.session.data.oaktree_farm.years_planned.push(req.session.data.oaktree_farm.planning_year)
+        }
     }
 
     //reset vars and redirect
@@ -484,8 +480,8 @@ router.get(/crops_V5_check_handler/, function (req, res) {
 router.get(/copyplan_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 17
-    req.session.data.oaktree_farm.plan_2026 = true
-    req.session.data.oaktree_farm.plan_2025 = true
+    req.session.data.oaktree_farm.years_planned.push(2025)
+    req.session.data.oaktree_farm.years_planned.push(2026)
     res.redirect('/farm/crop_plan/plan_view')
 })
 

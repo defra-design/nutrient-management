@@ -10,6 +10,20 @@
 
 {% block content %}
 
+{% set plan_2025 = false %}
+{% set plan_2026 = false %}
+{% set plan_2027 = false %}
+{% for x in data.oaktree_farm.years_planned %}
+  {% if x == 2025 %}
+    {% set plan_2025 = true %}
+  {% elseif x == 2026 %}
+    {% set plan_2026 = true %}
+  {% elseif x == 2027 %}
+    {% set plan_2027 = true %}
+  {% endif %}
+{% endfor %}
+
+
 <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
 <h1 class="govuk-heading-l">Plan and record crops and nutrient use</h1>
 
@@ -28,10 +42,10 @@
       <tbody class="govuk-table__body">  
 
       <!-- 2026 -->
-      {% if data.oaktree_farm.plan_2025 == true %}
+      {% if plan_2025 == true %}
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">2026</td>
-          {% if data.oaktree_farm.plan_2026 == true %}
+          {% if plan_2026 == true %}
             <td class="govuk-table__cell">22 September 2025</td>
             <td class="govuk-table__cell"><a href="crop_plan_year_handler?date=2026">View or edit the 2026 plan</a></td>
           {% else %}
@@ -44,12 +58,12 @@
       <!-- 2025 -->
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header">2025</td>
-        {% if data.oaktree_farm.plan_2025 == true %}
+        {% if plan_2025 == true %}
           <td class="govuk-table__cell">22 September 2025</td>
           <td class="govuk-table__cell"><a href="crop_plan_year_handler?date=2025">View or edit the 2025 plan</a></td>
         {% else %}
           <td class="govuk-table__cell">-</td>
-          {% if data.oaktree_farm.plan_2024 == true %}
+          {% if plan_2024 == true %}
             <td class="govuk-table__cell"><a href="check_prompt">Start a 2025 plan</a></td>
           {% else %}
             <td class="govuk-table__cell"><a href="start_plan_handler?date=2025">Start a 2025 plan</a></td>
@@ -60,12 +74,12 @@
       <!-- 2024 -->
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header">2024</td>
-        {% if data.oaktree_farm.plan_2024 == true %}
+        {% if plan_2024 == true %}
           <td class="govuk-table__cell">22 September 2025</td>
           <td class="govuk-table__cell"><a href="crop_plan_year_handler?date=2024">View or edit the 2024 plan</a></td>
         {% else %}
           <td class="govuk-table__cell">-</td>
-          {% if data.oaktree_farm.plan_2025 == true or data.oaktree_farm.plan_2026 == true %}
+          {% if plan_2025 == true or plan_2026 == true %}
             <td class="govuk-table__cell"><a href="create_next_handler?date=2024">Start a 2024 plan</a></td>
           {% else %}
             <td class="govuk-table__cell"><a href="start_plan_handler?date=2024">Start a 2024 plan</a></td>

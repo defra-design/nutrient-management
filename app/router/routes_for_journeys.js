@@ -122,7 +122,7 @@ router.get(/previous_use_router/, function (req, res) {
 router.get(/grass_years_handler/, function (req, res) {
     let next = 'previous_lay'
     for (var item in req.session.data.grass_years) {
-        if (req.session.data.grass_years[item] == '2024') {
+        if (req.session.data.grass_years[item] == '2025') {
             next = 'previous_cuts'
         }
     }

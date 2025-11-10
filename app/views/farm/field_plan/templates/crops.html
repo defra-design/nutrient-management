@@ -12,7 +12,7 @@
       {{data.oaktree_farm.planning_year}} crop details 
     </h2>
     {% if data.chosen_field.crop_id != 'Grass' and data.chosen_field.crop_id != 'grass' %}
-      {% if data.oaktree_farm.planning_year == 2024 %}
+      {% if data.oaktree_farm.planning_year == 2025 %}
         {% include "./arable_crop_details_empty.html" ignore missing %}
       {% else %}
         {% include "./arable_crop_details.html" ignore missing %}
@@ -26,7 +26,7 @@
     <p class="govuk-body"><a href="updates/crop/change_crop">Change the {{data.chosen_field.crop_id | nameconverter}} details for {{data.chosen_field.field_name}} in {{data.oaktree_farm.planning_year}}</a></p>
   {% else %}
     <p class="govuk-body"><a href="updates/grass/change_crop">Change the {{data.chosen_field.crop_id | nameconverter}} details for {{data.chosen_field.field_name}} </a></p>
-    <p class="govuk-body"><a href="/farm/field/field-details">View previous crop information for 2024</a></p>
+    <p class="govuk-body"><a href="/farm/field/field-details">View previous crop information for 2025</a></p>
   {% endif %}
 
   <hr class="separator_forty">

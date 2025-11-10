@@ -39,9 +39,9 @@
       <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span> 
       <h1 class="govuk-heading-l margin-bottom-ten">Manure storage</h1>
       {% if data.export_type == 8 %}
-        <h2 class="govuk-heading-m">October 2024 and September 2025</h2>
+        <h2 class="govuk-heading-m">October 2025 and September 2026</h2>
       {% else %}
-        <h2 class="govuk-heading-m">2025</h2>
+        <h2 class="govuk-heading-m">2026</h2>
       {% endif %}
     </div>
 
@@ -49,13 +49,13 @@
       <div class="govuk-inset-text margin-bottom-forty">
         {% if data.export_type == 8 %}
           <p class="govuk-body">
-            To create an organic manures inventory and NVZ storage report, add all the Manure storage on {{data.oaktree_farm.name}} between October 2024 and September 2025.
+            To create an organic manures inventory and NVZ storage report, add all the Manure storage on {{data.oaktree_farm.name}} between October 2025 and September 2026.
           </p>
           <p class="govuk-body">
             <a href="/outputs/inventory/checklist">Create an organic manures inventory and NVZ storage report</a>
           </p>
         {% else %}
-          <p class="govuk-body">To create an existing manure storage capacity report, enter the manure storage on {{data.oaktree_farm.name}} in 2025.</p>
+          <p class="govuk-body">To create an existing manure storage capacity report, enter the manure storage on {{data.oaktree_farm.name}} in 2026.</p>
           <p class="govuk-body"><a href="report">Create an existing manure storage capacity report</a></p>
         {% endif %}
       </div>

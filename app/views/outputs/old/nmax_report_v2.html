@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Oaktree lane farm - N-max limits 2025
+  Oaktree lane farm - N-max limits {{data.oaktree_farm.planning_year}}
 {% endblock %}
 
 {% block header %}
@@ -10,7 +10,7 @@
 
 {% block beforeContent %}
   {{ govukBackLink({
-    text: "Back to your 2025 plan",
+    text: "Back to your " + data.oaktree_farm.planning_year + " plan",
     href: "/farm/crop_plan/plan_view"
   }) }}
 {% endblock %}
@@ -36,8 +36,8 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full nmax_header">
-    <h1 class="govuk-heading-xl">N-max limits for {{data.oaktree_farm.name}} 2025</h1>
-    <p class="govuk-body">Created on 17 February 2025</p>
+    <h1 class="govuk-heading-xl">N-max limits for {{data.oaktree_farm.name}} {{data.oaktree_farm.planning_year}}</h1>
+    <p class="govuk-body">Created on 17 February {{data.oaktree_farm.planning_year}}</p>
   </div>
 </div>
 

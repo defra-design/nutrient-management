@@ -250,9 +250,9 @@ router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage,
 router.get(/livestock_copy_for_loading_handler/, function (req, res) {
   let next = '/outputs/n_loading/manage_livestock/index'
   if (req.session.data.copy_inventory == 'yes') {
-      for (let x in req.session.data.livestock_record_2025) {
-          if (req.session.data.livestock_record_2025[x].numbers_added_inventory == 2) {
-              req.session.data.livestock_record_2025[x].numbers_added_nloading = 1
+      for (let x in req.session.data.livestock_record_plan_year) {
+          if (req.session.data.livestock_record_plan_year[x].numbers_added_inventory == 2) {
+              req.session.data.livestock_record_plan_year[x].numbers_added_nloading = 1
           }
       }
       req.session.data.oaktree_farm.livestock_loading = null
@@ -265,9 +265,9 @@ router.get(/livestock_copy_for_loading_handler/, function (req, res) {
 router.get(/livestock_copy_for_inventory_handler/, function (req, res) {
   let next = '/outputs/inventory/manage_livestock/index'
   if (req.session.data.copy_loading == 'yes') {
-      for (let x in req.session.data.livestock_record_2025) {
-          if (req.session.data.livestock_record_2025[x].numbers_added_nloading == 2) {
-              req.session.data.livestock_record_2025[x].numbers_added_inventory = 1
+      for (let x in req.session.data.livestock_record_plan_year) {
+          if (req.session.data.livestock_record_plan_year[x].numbers_added_nloading == 2) {
+              req.session.data.livestock_record_plan_year[x].numbers_added_inventory = 1
           }
       }
       req.session.data.oaktree_farm.livestock_inventory = 2
@@ -515,11 +515,11 @@ router.get(/export_type_router/, callback_functions.hide_error, function (req, r
 
 router.get(/add_inventorynumbers_handler/, callback_functions.hide_error, function (req, res) {
     console.log(req.query.reference)
-    for (var reference in req.session.data.livestock_record_2025) {
-        if (req.session.data.livestock_record_2025[reference].reference == req.query.reference) {
-            console.log('found ' + req.session.data.livestock_record_2025[reference] + ' ' + req.session.data.livestock_record_2025[reference].type)
-            req.session.data.chosen_livestock = req.session.data.livestock_record_2025[reference]
-            req.session.data.livestock_group = req.session.data.livestock_record_2025[reference].type
+    for (var reference in req.session.data.livestock_record_plan_year) {
+        if (req.session.data.livestock_record_plan_year[reference].reference == req.query.reference) {
+            console.log('found ' + req.session.data.livestock_record_plan_year[reference] + ' ' + req.session.data.livestock_record_plan_year[reference].type)
+            req.session.data.chosen_livestock = req.session.data.livestock_record_plan_year[reference]
+            req.session.data.livestock_group = req.session.data.livestock_record_plan_year[reference].type
         }
     }
 	req.session.data.livestock_update_journey = true
@@ -527,11 +527,11 @@ router.get(/add_inventorynumbers_handler/, callback_functions.hide_error, functi
 })
 
 router.get(/add_loadingnumbers_handler/, callback_functions.hide_error, function (req, res) {
-    for (var reference in req.session.data.livestock_record_2025) {
-        if (req.session.data.livestock_record_2025[reference].reference == req.query.reference) {
-            console.log('found ' + req.session.data.livestock_record_2025[reference])
-            req.session.data.chosen_livestock = req.session.data.livestock_record_2025[reference]
-            req.session.data.livestock_group = req.session.data.livestock_record_2025[reference].type
+    for (var reference in req.session.data.livestock_record_plan_year) {
+        if (req.session.data.livestock_record_plan_year[reference].reference == req.query.reference) {
+            console.log('found ' + req.session.data.livestock_record_plan_year[reference])
+            req.session.data.chosen_livestock = req.session.data.livestock_record_plan_year[reference]
+            req.session.data.livestock_group = req.session.data.livestock_record_plan_year[reference].type
         }
     }
 	req.session.data.livestock_update_journey = true
@@ -545,10 +545,10 @@ router.get(/add_loadingnumbers_handler/, callback_functions.hide_error, function
 })
 
 router.get(/update_inventorynumbers_handler/, callback_functions.hide_error, function (req, res) {
-    for (var reference in req.session.data.livestock_record_2025) {
-        if (req.session.data.livestock_record_2025[reference].reference == req.query.reference) {
-            console.log('found ' + req.session.data.livestock_record_2025[reference])
-            req.session.data.chosen_livestock = req.session.data.livestock_record_2025[reference]
+    for (var reference in req.session.data.livestock_record_plan_year) {
+        if (req.session.data.livestock_record_plan_year[reference].reference == req.query.reference) {
+            console.log('found ' + req.session.data.livestock_record_plan_year[reference])
+            req.session.data.chosen_livestock = req.session.data.livestock_record_plan_year[reference]
         }
     }
 	req.session.data.livestock_update_journey = true
@@ -556,10 +556,10 @@ router.get(/update_inventorynumbers_handler/, callback_functions.hide_error, fun
 })
 
 router.get(/update_loadingnumbers_handler/, callback_functions.hide_error, function (req, res) {
-    for (var reference in req.session.data.livestock_record_2025) {
-        if (req.session.data.livestock_record_2025[reference].reference == req.query.reference) {
-            console.log('found ' + req.session.data.livestock_record_2025[reference])
-            req.session.data.chosen_livestock = req.session.data.livestock_record_2025[reference]
+    for (var reference in req.session.data.livestock_record_plan_year) {
+        if (req.session.data.livestock_record_plan_year[reference].reference == req.query.reference) {
+            console.log('found ' + req.session.data.livestock_record_plan_year[reference])
+            req.session.data.chosen_livestock = req.session.data.livestock_record_plan_year[reference]
         }
     }
 	req.session.data.livestock_update_journey = true
@@ -571,15 +571,15 @@ router.get(/check_inventory_lstock_handler/, function (req, res) {
       req.session.data.chosen_livestock.total = req.session.data.livestock_number
   }
   if (req.session.data.livestock_update_journey == true) {
-      for (let livestock_type in req.session.data.livestock_record_2025) {
-          if (req.session.data.livestock_record_2025[livestock_type].reference == req.session.data.chosen_livestock.reference) {
-              req.session.data.livestock_record_2025[livestock_type].numbers_added_inventory = 2
+      for (let livestock_type in req.session.data.livestock_record_plan_year) {
+          if (req.session.data.livestock_record_plan_year[livestock_type].reference == req.session.data.chosen_livestock.reference) {
+              req.session.data.livestock_record_plan_year[livestock_type].numbers_added_inventory = 2
           }
       }
   } else {
       //function get livestock
       req.session.data.chosen_livestock.numbers_added_inventory = 2
-      req.session.data.livestock_record_2025.push(req.session.data.chosen_livestock)
+      req.session.data.livestock_record_plan_year.push(req.session.data.chosen_livestock)
   }
   req.session.data.show_success_message = true;
   req.session.data.oaktree_farm.livestock_inventory = 3;
@@ -595,15 +595,15 @@ router.get(/check_loading_lstock_handler/, function (req, res) {
     req.session.data.chosen_livestock.total = req.session.data.livestock_number
   }
   if (req.session.data.livestock_update_journey == true) {
-    for (let livestock_type in req.session.data.livestock_record_2025) {
-      if (req.session.data.livestock_record_2025[livestock_type].reference == req.session.data.chosen_livestock.reference) {
-        req.session.data.livestock_record_2025[livestock_type].numbers_added_nloading = 2
+    for (let livestock_type in req.session.data.livestock_record_plan_year) {
+      if (req.session.data.livestock_record_plan_year[livestock_type].reference == req.session.data.chosen_livestock.reference) {
+        req.session.data.livestock_record_plan_year[livestock_type].numbers_added_nloading = 2
       }
     }
   } else {
       //function get livestock
       req.session.data.chosen_livestock.numbers_added_nloading = 2
-      req.session.data.livestock_record_2025.push(req.session.data.chosen_livestock)
+      req.session.data.livestock_record_plan_year.push(req.session.data.chosen_livestock)
   }
   req.session.data.show_success_message = true;
   req.session.data.oaktree_farm.livestock_loading = 3;

@@ -23,7 +23,7 @@
 {% set show_sheep = false %}
 {% set show_other = false %}
 
-{% for livestock_type in data.livestock_record_2025 %}
+{% for livestock_type in data.livestock_record_plan_year %}
 
   {% if livestock_type.type == 'cattle' %}
     {% if livestock_type.numbers_added_inventory != null %}

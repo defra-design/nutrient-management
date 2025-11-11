@@ -55,7 +55,7 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK
                 <a href="/outputs/inventory/checklist">Create an organic manures inventory and NVZ organic material storage report</a>
               </p>
             {% else %}
-              <p class="govuk-body">To create a livestock manure nitrogen (N) farm limit report, enter the livestock on {{data.oaktree_farm.name}} in 2025.</p>
+              <p class="govuk-body">To create a livestock manure nitrogen (N) farm limit report, enter the livestock on {{data.oaktree_farm.name}} in {{data.oaktree_farm.planning_year}}.</p>
               <p class="govuk-body"><a href="/outputs/n_loading/checklist">Create a livestock manure nitrogen (N) farm limit report</a></p>
             {% endif %}
           </div>

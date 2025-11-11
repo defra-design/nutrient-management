@@ -31,7 +31,7 @@
 
   
     <form action="water_days" method="post" novalidate="">
-      {% for livestock_type in data.livestock_record_2025 %}
+      {% for livestock_type in data.livestock_record_plan_year %}
         {% if livestock_type.type == 'cattle' %}
           <div class="govuk-form-group">
             <label class="govuk-label" for="total_area">

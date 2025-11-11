@@ -5,7 +5,7 @@
 {% set other_added = false %}
 
 <!-- show the right livestock -->
-{% for livestock_type in data.livestock_record_2025 %}
+{% for livestock_type in data.livestock_record_plan_year %}
 
   {% if livestock_type.type == 'cattle' %}
     {% set cattle_added = true %}

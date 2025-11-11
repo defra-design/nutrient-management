@@ -16,13 +16,12 @@
 {% for x in data.oaktree_farm.years_planned %}
   {% if x == 2025 %}
     {% set plan_2025 = true %}
-  {% elseif x == 2026 %}
+  {% elif x == 2026 %}
     {% set plan_2026 = true %}
-  {% elseif x == 2027 %}
+  {% elif x == 2027 %}
     {% set plan_2027 = true %}
   {% endif %}
 {% endfor %}
-
 
 <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
 <h1 class="govuk-heading-l">Plan and record crops and nutrient use</h1>

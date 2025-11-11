@@ -59,15 +59,15 @@
                 <tbody class="govuk-table__body">
                   <tr class="govuk-table__row">
                     <td class="govuk-table__cell">Winter Wheat</td>
-                    <td class="govuk-table__cell">1 October 2025 to 31 January 2026</td>
+                    <td class="govuk-table__cell">1 October {{data.oaktree_farm.planning_year}} to 31 January {{data.oaktree_farm.planning_year + 1}}</td>
                   </tr>
                   <tr class="govuk-table__row">
                     <td class="govuk-table__cell">Winter Beans</td>
-                    <td class="govuk-table__cell">1 October 2025 to 31 January 2026</td>
+                    <td class="govuk-table__cell">1 October {{data.oaktree_farm.planning_year}} to 31 January {{data.oaktree_farm.planning_year + 1}}</td>
                   </tr>
                   <tr class="govuk-table__row">
                     <td class="govuk-table__cell">Grass</td>
-                    <td class="govuk-table__cell">1 November 2025 to 1 March 2026</td>
+                    <td class="govuk-table__cell">1 November {{data.oaktree_farm.planning_year}} to 1 March {{data.oaktree_farm.planning_year + 1}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -79,7 +79,7 @@
               If you do not know the exact application date enter an estimate. You can change it later.
             </p>
             <div class="govuk-hint">
-              The date format is 21 06 2025.
+              The date format is 21 06 {{data.oaktree_farm.planning_year}}.
             </div>
           <!-- </div> -->
             <div class="govuk-date-input" id="manure-date">

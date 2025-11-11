@@ -89,6 +89,8 @@ router.get('/', function (req, res) {
     req.session.data.imports_exports = null
     req.session.data.livestock_update_journey = false
     req.session.data.wash_area_name = 'Washed area 1'
+    req.session.data.example_date = "27 3 2026"
+    req.session.data.update_date = "22 September 2025"
     
 
     //content

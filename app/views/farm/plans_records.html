@@ -14,7 +14,7 @@
 {% set plan_2026 = false %}
 {% set plan_2027 = false %}
 {% for x in data.oaktree_farm.years_planned %}
- <!-- {{x}} -->
+ {{x}}
   {% if x == 2025 %}
     {% set plan_2025 = true %}
   {% elif x == 2026 %}
@@ -51,7 +51,7 @@
             <td class="govuk-table__cell"><a href="crop_plan_year_handler?date=2027">View or edit the 2027 plan</a></td>
           {% else %}
             <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell"><a href="check_prompt">Start a 2027 plan</a></td>
+            <td class="govuk-table__cell"><a href="checkprompt_handler?date=2027">Start a 2027 plan</a></td>
           {% endif %}
         </tr>
       {% endif %}
@@ -65,7 +65,7 @@
         {% else %}
           <td class="govuk-table__cell">-</td>
           {% if plan_2025 == true %}
-            <td class="govuk-table__cell"><a href="check_prompt">Start a 2026 plan</a></td>
+            <td class="govuk-table__cell"><a href="checkprompt_handler?date=2026>Start a 2026 plan</a></td>
           {% else %}
             <td class="govuk-table__cell"><a href="start_plan_handler?date=2026">Start a 2026 plan</a></td>
           {% endif %}

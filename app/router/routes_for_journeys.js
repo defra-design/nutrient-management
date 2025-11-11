@@ -434,15 +434,17 @@ router.get(/crops_V5_check_handler/, function (req, res) {
         req.session.data.successMessage = 1
     }
 
-    //set plan year to true
-    console.log('here 1 ' + req.session.data.oaktree_farm.years_planned)
-    for (var y in req.session.data.oaktree_farm.years_planned) {
-
-        if (req.session.data.oaktree_farm.planning_year != req.session.data.oaktree_farm.years_planned[y]) {
-            req.session.data.oaktree_farm.years_planned.push(req.session.data.oaktree_farm.planning_year)
-            console.log('here 2 ' + req.session.data.oaktree_farm.years_planned)
+    //update the years planned array
+    if (req.session.data.oaktree_farm.years_planned.length == 0) {
+        req.session.data.oaktree_farm.years_planned.push(req.session.data.oaktree_farm.planning_year)
+    } else {
+        for (var y in req.session.data.oaktree_farm.years_planned) {
+            if (req.session.data.oaktree_farm.planning_year != req.session.data.oaktree_farm.years_planned[y]) {
+                req.session.data.oaktree_farm.years_planned.push(req.session.data.oaktree_farm.planning_year)
+            }
         }
     }
+    console.log('here 2 ' + req.session.data.oaktree_farm.years_planned)
 
     //reset vars and redirect
     yield = null;
@@ -480,14 +482,10 @@ router.get(/crops_V5_check_handler/, function (req, res) {
 })
 
 
-router.get(/copyplan_handler/, function (req, res) { 
-    req.session.data.show_success_message = true;
-    req.session.data.successMessage = 17
-    req.session.data.oaktree_farm.years_planned.push(2025)
-    req.session.data.oaktree_farm.years_planned.push(2026)
-    res.redirect('/farm/crop_plan/plan_view')
+router.get(/checkprompt_handler/, function (req, res) { 
+  req.session.data.oaktree_farm.planning_year = req.query.date
+  res.redirect('check_prompt')
 })
-
 
 router.get(/grassyield_handler/, function (req, res) { 
     if (req.session.data.defoliation_one == null) req.session.data.defoliation_one = 'Grazing';

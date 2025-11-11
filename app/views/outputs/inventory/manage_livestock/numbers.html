@@ -23,7 +23,7 @@
         {% include "./templates/numbers/success_message.html" ignore missing %}
       {% endif %}
       
-      <h1 class="govuk-heading-l">Add all the livestock on {{ data.oaktree_farm.name }}, between October 2025 and September 2026</h1>
+      <h1 class="govuk-heading-l">Add all the livestock on {{ data.oaktree_farm.name }}, between October {{data.oaktree_farm.harvest_year}}and September {{data.oaktree_farm.harvest_year + 1}}</h1>
       <!-- <p class="govuk-body margin-bottom-thirty"><a href="/add_livestock_inventory/livestock_group">Add another livestock type</a></p> -->
 
       <form action="/add_livestock_inventory/livestock_group" method="post" novalidate="">

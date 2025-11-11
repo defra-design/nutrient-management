@@ -444,7 +444,6 @@ router.get(/crops_V5_check_handler/, function (req, res) {
             }
         }
     }
-    console.log('here 2 ' + req.session.data.oaktree_farm.years_planned)
 
     //reset vars and redirect
     yield = null;
@@ -481,10 +480,22 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     res.redirect('/farm/crop_plan/plan_view')
 })
 
-
 router.get(/checkprompt_handler/, function (req, res) { 
   req.session.data.oaktree_farm.planning_year = req.query.date
   res.redirect('check_prompt')
+})
+
+router.get(/copyplan_handler/, function (req, res) { 
+    if (req.session.data.oaktree_farm.years_planned.length == 0) {
+        req.session.data.oaktree_farm.years_planned.push(req.session.data.oaktree_farm.planning_year)
+    } else {
+        for (var y in req.session.data.oaktree_farm.years_planned) {
+            if (req.session.data.oaktree_farm.planning_year != req.session.data.oaktree_farm.years_planned[y]) {
+                req.session.data.oaktree_farm.years_planned.push(req.session.data.oaktree_farm.planning_year)
+            }
+        }
+    }
+    res.redirect('/farm/crop_plan/plan_view')
 })
 
 router.get(/grassyield_handler/, function (req, res) { 

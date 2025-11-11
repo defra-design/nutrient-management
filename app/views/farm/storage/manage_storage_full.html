@@ -41,7 +41,7 @@
       {% if data.export_type == 8 %}
         <h2 class="govuk-heading-m">October {{data.oaktree_farm.harvest_year}}and September {{data.oaktree_farm.harvest_year + 1}}</h2>
       {% else %}
-        <h2 class="govuk-heading-m">2025</h2>
+        <h2 class="govuk-heading-m">{{data.oaktree_farm.planning_year}}</h2>
       {% endif %}
     </div>
 
@@ -49,7 +49,7 @@
       <div class="govuk-inset-text margin-bottom-forty">
         {% if data.export_type == 8 %}
           <p class="govuk-body">
-            To create an organic manures inventory and NVZ storage report, add all the Manure storage on {{data.oaktree_farm.name}} between October 2025 and September 2025.
+            To create an organic manures inventory and NVZ storage report, add all the Manure storage on {{data.oaktree_farm.name}} between October {{data.oaktree_farm.planning_year}} and September {{data.oaktree_farm.planning_year +1}}.
           </p>
           <p class="govuk-body">
             <a href="/outputs/inventory/checklist">Create an organic manures inventory and NVZ storage report</a>

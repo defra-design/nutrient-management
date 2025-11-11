@@ -9,7 +9,7 @@
     Recommendations not available
     </p>
     <p class="govuk-body">
-      To get a recommendation for 2025, you need to add crop details for {{data.chosen_field.field_name}} in 2023.
+      To get a recommendation for {{data.oaktree_farm.planning_year}}, you need to add crop details for {{data.chosen_field.field_name}} in 2023.
     </p>
     <p class="govuk-body">
       <a class="govuk-notification-banner__link" href="">Add basic 2023 crop details for {{data.chosen_field.field_name}}.</a>
@@ -34,10 +34,10 @@
     Recommendations not available
     </p>
     <p class="govuk-body">
-      To get recommendations for {{data.chosen_group.crop_reference | nameconverter}} in 2025, you need to add the crop details for {{data.chosen_field.field_name}} in 2023.
+      To get recommendations for {{data.chosen_group.crop_reference | nameconverter}} in {{data.oaktree_farm.planning_year}}, you need to add the crop details for {{data.chosen_field.field_name}} in {{data.oaktree_farm.planning_year-1}}.
     </p>
     <p class="govuk-body">
-      <a class="govuk-notification-banner__link" href="">Add 2023 crop details for {{data.chosen_field.field_name}}</a>
+      <a class="govuk-notification-banner__link" href="">Add {{data.oaktree_farm.planning_year-1}} crop details for {{data.chosen_field.field_name}}</a>
     </p>
   </div>
 </div>

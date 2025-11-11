@@ -4,7 +4,7 @@
     <dt class="govuk-summary-list__key">Which fields would you like to plan organic material applications for?</dt>
     <dd class="govuk-summary-list__value">
       {% if data.manure_fields == 'all' %}
-        All fields in the 2025 plan
+        All fields in the {{data.oaktree_farm.planning_year}} plan
       {% elif data.manure_fields == 1 %}
         The Wheat-Winter (Skyfall) fields
       {% else %}
@@ -102,7 +102,7 @@
 
 <div class="govuk-summary-list__row">
   <dt class="govuk-summary-list__key">End of soil drainage</dt>
-  <dd class="govuk-summary-list__value">31 March 2025</dd>
+  <dd class="govuk-summary-list__value">31 March {{data.oaktree_farm.planning_year}}</dd>
   <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
 </div>
 

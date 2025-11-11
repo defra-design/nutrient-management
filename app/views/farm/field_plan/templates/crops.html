@@ -26,7 +26,7 @@
     <p class="govuk-body"><a href="updates/crop/change_crop">Change the {{data.chosen_field.crop_id | nameconverter}} details for {{data.chosen_field.field_name}} in {{data.oaktree_farm.planning_year}}</a></p>
   {% else %}
     <p class="govuk-body"><a href="updates/grass/change_crop">Change the {{data.chosen_field.crop_id | nameconverter}} details for {{data.chosen_field.field_name}} </a></p>
-    <p class="govuk-body"><a href="/farm/field/field-details">View previous crop information for 2025</a></p>
+    <p class="govuk-body"><a href="/farm/field/field-details">View previous crop information for {{data.oaktree_farm.planning_year-1}}</a></p>
   {% endif %}
 
   <hr class="separator_forty">

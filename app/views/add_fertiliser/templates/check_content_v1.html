@@ -5,7 +5,7 @@
 
       {% if data.fertiliser_journey == "multi" %}
           {% if data.fertiliser_fields == "all" %}
-            All fields in the 2025 plan
+            All fields in the {{data.oaktree_farm.planning_year}} plan
           {% else %} 
             {% for x in data.fertiliser_fields %}
             {{x}}

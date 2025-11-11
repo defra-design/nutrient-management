@@ -19,9 +19,9 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">When did you {{data.imports_exports}} this livestock manure?</dt>
     {% if data.imports_exports == 'import' %}
-      <dd class="govuk-summary-list__value">10 January 2025</dd>
+      <dd class="govuk-summary-list__value">10 January {{data.oaktree_farm.planning_year}}</dd>
     {% else %}
-      <dd class="govuk-summary-list__value">16 March 2025</dd>
+      <dd class="govuk-summary-list__value">16 March {{data.oaktree_farm.planning_year}}</dd>
     {% endif %}
 
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>

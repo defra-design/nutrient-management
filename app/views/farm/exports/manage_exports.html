@@ -27,7 +27,7 @@
     <h1 class="govuk-heading-l add_sub" id="header">Organic material imports and exports</h1>
     <h2 class="govuk-heading-m margin-bottom-thirty">
       {% if data.export_type == 4 %}
-       2026
+       {{data.oaktree_farm.planning_year+1}}
       {% else %}
         October {{data.oaktree_farm.harvest_year}}and September {{data.oaktree_farm.harvest_year + 1}}
       {% endif %}
@@ -69,19 +69,19 @@
 
       <div class="govuk-tabs__panel" id="imports">
         <h2 class="govuk-heading-m non-standard">Imports</h2>
-        <p class="govuk-hint">October 2025 to September 2026</p>
+        <p class="govuk-hint">October {{data.oaktree_farm.planning_year}} to September {{data.oaktree_farm.planning_year+1}}</p>
         {% include "./templates/imports.html" ignore missing %}
       </div>
 
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="exports">
         <h2 class="govuk-heading-m non-standard">Exports</h2>
-        <p class="govuk-hint">October 2025 to September 2026</p>
+        <p class="govuk-hint">October {{data.oaktree_farm.planning_year}} to September {{data.oaktree_farm.planning_year+1}}</p>
         {% include "./templates/exports.html" ignore missing %}
       </div>
 
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="totals">
         <h2 class="govuk-heading-m non-standard">Total nitrogen (N) imports and exports</h2>
-        <p class="govuk-hint">October 2025 to September 2026</p>
+        <p class="govuk-hint">October {{data.oaktree_farm.planning_year}} to September {{data.oaktree_farm.planning_year+1}}</p>
         {% include "./templates/totals.html" ignore missing %}
       </div>
 

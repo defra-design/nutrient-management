@@ -27,14 +27,14 @@
       {% endif %}
 
       <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
-      <h1 class="govuk-heading-xl" id="header">Low run-off risk land and manure use 2025</h1>
+      <h1 class="govuk-heading-xl" id="header">Low run-off risk land and manure use {{data.oaktree_farm.planning_year}}</h1>
     </div>
   </div>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
     {% if data.oaktree_farm.low_risk_land_added == 2 %}
-      <h2 class="govuk-heading-m margin-bottom-forty">Total area of low run-off risk land in 2025: 10 hectares</h2>
+      <h2 class="govuk-heading-m margin-bottom-forty">Total area of low run-off risk land in {{data.oaktree_farm.planning_year}}: 10 hectares</h2>
       <h2 class="govuk-heading-m">Manure use in low run-off risk land</h2>
       {% include "./templates/land_table.html" ignore missing %}
       <form class="" action="" method="post" novalidate="">    

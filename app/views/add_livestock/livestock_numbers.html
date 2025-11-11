@@ -35,7 +35,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
-      Monthly totals for this {{data.chosen_livestock.shortname}} type between October 2025 and September 2025
+      Monthly totals for this {{data.chosen_livestock.shortname}} type between October {{data.oaktree_farm.planning_year}} and September {{data.oaktree_farm.planning_year + 1}}
     </h1>
 
     <p class="govuk-body">
@@ -52,18 +52,18 @@
         {% endif %}
       </div>
 
-      {{ monthitem ("January 2025") }}
-      {{ monthitem ("February 2025") }}
-      {{ monthitem ("March 2025") }}
-      {{ monthitem ("April 2025") }}
-      {{ monthitem ("May 2025") }}
-      {{ monthitem ("June 2025") }}
-      {{ monthitem ("July 2025") }}
-      {{ monthitem ("August 2025") }}
-      {{ monthitem ("September 2025") }}
-      {{ monthitem ("October 2025") }}
-      {{ monthitem ("November 2025") }}
-      {{ monthitem ("December 2025") }}
+      {{ monthitem ("January " + data.oaktree_farm.planning_year) }}
+      {{ monthitem ("February " + data.oaktree_farm.planning_year) }}
+      {{ monthitem ("March " + data.oaktree_farm.planning_year) }}
+      {{ monthitem ("April " + data.oaktree_farm.planning_year) }}
+      {{ monthitem ("May " + data.oaktree_farm.planning_year) }}
+      {{ monthitem ("June " + data.oaktree_farm.planning_year) }}
+      {{ monthitem ("July " + data.oaktree_farm.planning_year) }}
+      {{ monthitem ("August " + data.oaktree_farm.planning_year) }}
+      {{ monthitem ("September " + data.oaktree_farm.planning_year) }}
+      {{ monthitem ("October " + data.oaktree_farm.planning_year) }}
+      {{ monthitem ("November " + data.oaktree_farm.planning_year) }}
+      {{ monthitem ("December " + data.oaktree_farm.planning_year) }}
 
       <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
         Continue

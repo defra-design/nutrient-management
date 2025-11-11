@@ -25,7 +25,7 @@ Question – {{ serviceName }} – GOV.UK
 
     <!-- <div class="govuk-inset-text margin-bottom-forty">
       <p class="govuk-body">
-        Changes here will be applied to all of these fields. To change a single field select it from your crop plan. <a href="../../plan_view">View the 2025 crop plan</a>.
+        Changes here will be applied to all of these fields. To change a single field select it from your crop plan. <a href="../../plan_view">View the {{data.oaktree_farm.planning_year}} crop plan</a>.
       </p>
     </div> -->
 
@@ -112,7 +112,7 @@ Question – {{ serviceName }} – GOV.UK
         </div>
 
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">What is the sward in 2025?</dt>
+          <dt class="govuk-summary-list__key">What is the sward in {{data.oaktree_farm.planning_year}}?</dt>
           <dd class="govuk-summary-list__value">Spring sown</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
@@ -128,13 +128,13 @@ Question – {{ serviceName }} – GOV.UK
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the sowing date?</dt>
           <dd class="govuk-summary-list__value">
-            21 June 2025
+            21 June {{data.oaktree_farm.planning_year}}
           </dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="update_question_handler?update_type=date">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
       
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">What is the sward type in 2025?</dt>
+          <dt class="govuk-summary-list__key">What is the sward type in {{data.oaktree_farm.planning_year}}?</dt>
           <dd class="govuk-summary-list__value">Grass</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
@@ -166,7 +166,7 @@ Question – {{ serviceName }} – GOV.UK
       </dl>    
     </div>
     
-    <p class="govuk-body margin-bottom-forty">You can also <a href="">remove {{data.chosen_group.crop_id | nameconverter}} from {{data.chosen_field.field_name}} in 2025</a>.</p>
+    <p class="govuk-body margin-bottom-forty">You can also <a href="">remove {{data.chosen_group.crop_id | nameconverter}} from {{data.chosen_field.field_name}} in {{data.oaktree_farm.planning_year}}</a>.</p>
 
     <form action="crop_group_update_v7_handler" method="post" novalidate>
       {{ govukButton({

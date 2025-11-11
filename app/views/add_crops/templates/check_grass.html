@@ -31,7 +31,7 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What is the sward in these fields in 2025?</dt>
+    <dt class="govuk-summary-list__key">What is the sward in these fields in {{data.oaktree_farm.planning_year}}?</dt>
     <dd class="govuk-summary-list__value">
       {% if data.season_name == 'summer' %}
         Summer or autumn sown
@@ -73,7 +73,7 @@
   {% endif %}
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key"> What is the sward type in these fields in 2025?</dt>
+    <dt class="govuk-summary-list__key"> What is the sward type in these fields in {{data.oaktree_farm.planning_year}}?</dt>
     <dd class="govuk-summary-list__value">{{data.sward_type | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>

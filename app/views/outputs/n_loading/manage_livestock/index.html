@@ -27,13 +27,13 @@
     <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
     <h1 class="govuk-heading-l add_sub" id="header">Livestock details</h1>
     <h2 class="govuk-heading-m margin-bottom-thirty">
-        2025
+        {{data.oaktree_farm.planning_year}}
     </h2>
     
     {% if data.show_success_message != true %}
       <div class="govuk-inset-text margin-bottom-forty">
         <p class="govuk-body">
-          To create a livestock manure nitrogen (N) farm limit report, enter the livestock on Oaktree Lane Farm in 2025.
+          To create a livestock manure nitrogen (N) farm limit report, enter the livestock on {{ data.oaktree_farm.name }} in {{data.oaktree_farm.planning_year}}.
         </p>
         <p class="govuk-body">
           <a href="/outputs/n_loading/checklist">Create a livestock manure nitrogen (N) farm limit report</a>

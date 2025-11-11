@@ -435,9 +435,12 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     }
 
     //set plan year to true
+    console.log('here 1 ' + req.session.data.oaktree_farm.years_planned)
     for (var y in req.session.data.oaktree_farm.years_planned) {
+
         if (req.session.data.oaktree_farm.planning_year != req.session.data.oaktree_farm.years_planned[y]) {
             req.session.data.oaktree_farm.years_planned.push(req.session.data.oaktree_farm.planning_year)
+            console.log('here 2 ' + req.session.data.oaktree_farm.years_planned)
         }
     }
 

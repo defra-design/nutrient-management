@@ -8,7 +8,7 @@ const addFilter = govukPrototypeKit.views.addFilter
 
 // const allFunctions = require('../functions/allFunctions.js');
 
-const crop_types = require('./data/crops.json');
+const crop_types_data = require('./data/crop_types.json');
 const fields = require('./data/field_list');
 
 // addFilter('uppercase', function (content) {
@@ -30,9 +30,9 @@ addFilter('removewhite', function (content) {
 })
 
 addFilter('nameconverter', function (crop_name) {
-    for (var x in crop_types) {
-        if (crop_name == crop_types[x].reference) {
-            crop_name = crop_types[x].prettyname;
+    for (var x in crop_types_data) {
+        if (crop_name == crop_types_data[x].reference) {
+            crop_name = crop_types_data[x].prettyname;
         }
     }
     return crop_name

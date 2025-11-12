@@ -161,10 +161,10 @@ router.get(/livestock_values_handler/, function (req, res) {
 router.get(/get_livestock_reference/, function (req, res) {
     let next = 'livestock_number_question'
     //function get livestock
-    for (var reference in req.session.data.livestock_types ) {
-        if (req.session.data.livestock_types[reference].reference == req.session.data.livestock_reference) {
-            // console.log('found ' + req.session.data.livestock_types[reference])
-            req.session.data.chosen_livestock = req.session.data.livestock_types[reference]
+    for (var reference in req.session.data.livestock_types_data ) {
+        if (req.session.data.livestock_types_data[reference].reference == req.session.data.livestock_reference) {
+            // console.log('found ' + req.session.data.livestock_types_data[reference])
+            req.session.data.chosen_livestock = req.session.data.livestock_types_data[reference]
         }
     }
     // res.redirect("how_to_enter")
@@ -177,10 +177,10 @@ router.get(/get_livestock_reference/, function (req, res) {
 
 router.get(/advanced_livestock_reference/, function (req, res) {
     // console.log('get livestock reference ' + req.session.data.livestock_reference)
-    for (var reference in req.session.data.livestock_types ) {
-        if (req.session.data.livestock_types[reference].reference == req.session.data.livestock_reference) {
-            // console.log('found ' + req.session.data.livestock_types[reference])
-            req.session.data.chosen_livestock = req.session.data.livestock_types[reference]
+    for (var reference in req.session.data.livestock_types_data ) {
+        if (req.session.data.livestock_types_data[reference].reference == req.session.data.livestock_reference) {
+            // console.log('found ' + req.session.data.livestock_types_data[reference])
+            req.session.data.chosen_livestock = req.session.data.livestock_types_data[reference]
         }
     }
     // res.redirect("how_to_enter")
@@ -620,10 +620,10 @@ router.get(/add_manure_system_handler/, callback_functions.hide_error, callback_
 
 router.get(/numbers_handler/, callback_functions.hide_error, function (req, res) {
     console.log(req.query.reference)
-        for (var reference in req.session.data.livestock_types ) {
-        if (req.session.data.livestock_types[reference].reference == req.query.reference) {
-            console.log('found ' + req.session.data.livestock_types[reference])
-            req.session.data.chosen_livestock = req.session.data.livestock_types[reference]
+        for (var reference in req.session.data.livestock_types_data ) {
+        if (req.session.data.livestock_types_data[reference].reference == req.query.reference) {
+            console.log('found ' + req.session.data.livestock_types_data[reference])
+            req.session.data.chosen_livestock = req.session.data.livestock_types_data[reference]
         }
     }
     res.redirect('/outputs/inventory/manage_water/numbers');

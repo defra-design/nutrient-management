@@ -1107,9 +1107,9 @@ router.get(/change_cropgroup_handler/, callback_functions.hideSuccessMessage, fu
     req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.cropGroups, req.query.groupref)
     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)
     //go through the crops for x
-    for (var crop in req.session.data.crop_types) {
-        if (req.session.data.crop_types[crop].reference == req.session.data.chosen_group.crop_reference ) {
-            req.session.data.chosen_crop_group = req.session.data.crop_types[crop].type
+    for (var crop in req.session.data.crop_types_data) {
+        if (req.session.data.crop_types_data[crop].reference == req.session.data.chosen_group.crop_reference ) {
+            req.session.data.chosen_crop_group = req.session.data.crop_types_data[crop].type
         }
     }
     //if the reference == req.session.data.chosen_group.crop

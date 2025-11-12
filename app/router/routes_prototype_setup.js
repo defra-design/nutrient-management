@@ -78,10 +78,12 @@ router.get(/plan_setup/, function (req, res) {
     let group_3 = allFunctions.createCropGroup(null, 3, 2026, 'grass', [10, 11, 18, 19], req.session.data.all_fields)
     req.session.data.cropGroups.push(group_3)
 
+    // manure applications
     for (var y in req.session.data.manure_applications_data) {
         req.session.data.manureApplications.push(req.session.data.manure_applications_data[y])
     }
 
+    // fertiliser applications
     for (var x in req.session.data.fertiliser_applications_data) {
         req.session.data.fertiliserApplications.push(req.session.data.fertiliser_applications_data[x])
     }

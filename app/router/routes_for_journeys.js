@@ -821,34 +821,58 @@ router.get(/manner_quantity_handler/, function (req, res) {
 // needs to stop passing the actual fields about and just use the references
 // remove grass applications - its not used
 
+// 1 select all fields
+// 2 select fields in a group
+// 3 select specific fields
+
 router.get(/manure_fields_v5_handler/, function (req, res) {
-    var new_manure_fields = []
-    if (req.session.data.manure_fields == 'specific') {
-        res.redirect('manure_fields_two')
-    } else if (req.session.data.manure_fields == 'all') {
-        for (var x in req.session.data.cropGroups) {
-            for (var y in req.session.data.cropGroups[x].fields ) {
-                new_manure_fields.push(req.session.data.cropGroups[x].fields[y].reference)
-                req.session.data.manure_fields = new_manure_fields
-            }
+    let next = 'manure_group'
+    // console.log("1" + req.session.data.manure_field_option)
+    // console.log("2" + req.session.data.chosen_manure_fields)
+    if (req.session.data.manure_field_option == 'specific') {
+      next = 'manure_fields_two'
+    } else if (req.session.data.manure_field_option == 'all') {
+      // go through all crop groups
+      // get the field references from the group
+      // add them to the chosen_manure_fields array
+      for (var x in req.session.data.cropGroups) {
+        console.log("3 " + req.session.data.cropGroups[x].field_list)
+        for (var y in req.session.data.cropGroups[x].field_list ) {
+          req.session.data.chosen_manure_fields.push(req.session.data.cropGroups[x].field_list[y])
+          console.log("4 " + req.session.data.cropGroups[x].field_list[y])
         }
-        res.redirect('manure_group')
-    } else {
-        for (var a in req.session.data.cropGroups) {
-            if (req.session.data.cropGroups[a].reference == req.session.data.manure_fields ) {
-                if (req.session.data.cropGroups[a].crop_reference == 'grass') {
-                    req.session.data.grass_applications = true
-                } else {
-                    req.session.data.grass_applications = false
-                }
-                for (var b in req.session.data.cropGroups[a].fields ) {
-                    new_manure_fields.push(req.session.data.cropGroups[a].fields[b].reference)
-                    req.session.data.manure_fields = new_manure_fields;
-                }
-            }
-        }
-        res.redirect('manure_group')
+      }
     }
+
+
+
+      
+    // if (req.session.data.manure_field_option == 'specific') {
+    //   next = 'manure_fields_two'
+    // } else if (req.session.data.manure_field_option == 'all') {
+    //   for (var x in req.session.data.cropGroups) {
+    //     for (var y in req.session.data.cropGroups[x].fields ) {
+    //         new_manure_fields.push(req.session.data.cropGroups[x].fields[y].reference)
+    //         req.session.data.manure_fields = new_manure_fields
+    //     }
+    //   }
+    // } else {
+    //   for (var a in req.session.data.cropGroups) {
+    //     if (req.session.data.cropGroups[a].reference == req.session.data.manure_fields ) {
+    //       if (req.session.data.cropGroups[a].crop_reference == 'grass') {
+    //           req.session.data.grass_applications = true
+    //       } else {
+    //           req.session.data.grass_applications = false
+    //       }
+    //       for (var b in req.session.data.cropGroups[a].fields ) {
+    //           new_manure_fields.push(req.session.data.cropGroups[a].fields[b].reference)
+    //           req.session.data.manure_fields = new_manure_fields;
+    //       }
+    //     }
+    //   }
+    // }
+    console.log("5 " + req.session.data.chosen_manure_fields)
+    res.redirect(next)
 })
 
 router.get(/manuretype_v7_handler/, function (req, res) {

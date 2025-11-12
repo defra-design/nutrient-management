@@ -29,14 +29,14 @@
       <div class="govuk-form-group">
         <div class="govuk-radios" data-module="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="all" name="manure_fields" type="radio" value="all">
+            <input class="govuk-radios__input" id="all" name="manure_field_option" type="radio" value="all">
             <label class="govuk-label govuk-radios__label" for="all">
               All fields in the {{data.oaktree_farm.planning_year}} plan
             </label>
           </div>
           {% for group in data.cropGroups %}
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id={{group.group_id}} name="manure_fields" type="radio" value={{group.group_id}}>
+              <input class="govuk-radios__input" id={{group.group_id}} name="manure_field_option" type="radio" value={{group.group_id}}>
               <label class="govuk-label govuk-radios__label" for={{group.group_id}}> 
               Crop group {{group.group_id}} fields
               ({{group.crop_id | nameconverter}})
@@ -44,7 +44,7 @@
             </div>
           {% endfor %}
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="specific" name="manure_fields" type="radio" value="specific">
+              <input class="govuk-radios__input" id="specific" name="manure_field_option" type="radio" value="specific">
               <label class="govuk-label govuk-radios__label" for="specific">
                 Select specific fields
               </label>

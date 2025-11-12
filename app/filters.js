@@ -102,8 +102,8 @@ addFilter('cropgroupconverter', function (group_name) {
 addFilter('fieldnameconverter', function (field_reference) {
     let field_name = ''
     for (var x in fields) {
-        if (field_reference == fields[x].reference) {
-            field_name = fields[x].name;
+        if (field_reference == fields[x].field_id) {
+            field_name = fields[x].field_name;
         }
     }
     if (field_name == '') {

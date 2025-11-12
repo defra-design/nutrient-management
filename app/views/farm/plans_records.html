@@ -41,6 +41,15 @@
       </thead>
       <tbody class="govuk-table__body">  
 
+      <!-- 2028 -->
+      {% if plan_2027 == true %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">2028</td>
+            <td class="govuk-table__cell">-</td>
+            <td class="govuk-table__cell"><a href="">Start a 2028 plan</a></td>
+        </tr>
+      {% endif %}
+
       <!-- 2027 -->
       {% if plan_2026 == true %}
         <tr class="govuk-table__row">
@@ -88,6 +97,15 @@
           {% endif %}
         {% endif %}
       </tr>
+
+      <!-- 2024 -->
+      {% if plan_2025 == true %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">2024</td>
+            <td class="govuk-table__cell">-</td>
+            <td class="govuk-table__cell"><a href="">Start a 2024 plan</a></td>
+        </tr>
+      {% endif %}
 
         {% set currentCropCount = 0 %}
         {% set lastCropCount = 0 %}

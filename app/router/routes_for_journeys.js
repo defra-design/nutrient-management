@@ -817,10 +817,6 @@ router.get(/manner_quantity_handler/, function (req, res) {
     res.redirect(next);
 })
 
-
-// needs to stop passing the actual fields about and just use the references
-// remove grass applications - its not used
-
 // 1 select all fields
 // 2 select fields in a group
 // 3 select specific fields
@@ -836,17 +832,21 @@ router.get(/manure_fields_v5_handler/, function (req, res) {
       // get the field references from the group
       // add them to the chosen_manure_fields array
       for (var x in req.session.data.cropGroups) {
-        console.log("3 " + req.session.data.cropGroups[x].field_list)
+        // console.log("3 " + req.session.data.cropGroups[x].field_list)
         for (var y in req.session.data.cropGroups[x].field_list ) {
           req.session.data.chosen_manure_fields.push(req.session.data.cropGroups[x].field_list[y])
-          console.log("4 " + req.session.data.cropGroups[x].field_list[y])
+          // console.log("4 " + req.session.data.cropGroups[x].field_list[y])
+        }
+      }
+    } else {
+      for (var a in req.session.data.cropGroups) {
+        if (req.session.data.cropGroups[a].group_id == req.session.data.manure_field_option) {
+          for (var b in req.session.data.cropGroups[a].field_list ) {
+            req.session.data.chosen_manure_fields.push(req.session.data.cropGroups[a].field_list[b])
+          }
         }
       }
     }
-
-
-
-      
     // if (req.session.data.manure_field_option == 'specific') {
     //   next = 'manure_fields_two'
     // } else if (req.session.data.manure_field_option == 'all') {
@@ -871,7 +871,7 @@ router.get(/manure_fields_v5_handler/, function (req, res) {
     //     }
     //   }
     // }
-    console.log("5 " + req.session.data.chosen_manure_fields)
+    // console.log("5 " + req.session.data.chosen_manure_fields)
     res.redirect(next)
 })
 

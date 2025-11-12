@@ -323,13 +323,13 @@ router.get(/add-grass-handler/, function (req, res) {
 
 
 router.get(/start_plan_handler/, function (req, res) {
-  req.session.data.oaktree_farm.planning_year = req.query.date
+  req.session.data.oaktree_farm.planning_year = parseInt(req.query.date)
     res.redirect('/add_crops/crop_group')
 })
 
 //view the plan by year
 router.get(/crop_plan_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    req.session.data.oaktree_farm.planning_year = req.query.date
+    req.session.data.oaktree_farm.planning_year = parseInt(req.query.date)
     res.redirect('./crop_plan/plan_view')
 })
 
@@ -481,11 +481,11 @@ router.get(/crops_V5_check_handler/, function (req, res) {
 })
 
 router.get(/checkprompt_handler/, function (req, res) { 
-  req.session.data.oaktree_farm.planning_year = req.query.date
+  req.session.data.oaktree_farm.planning_year = parseInt(req.query.date)
   res.redirect('check_prompt')
 })
 
-router.get(/copyplan_handler/, function (req, res) { 
+router.get(/copyplan_handler/, function (req, res) {
     if (req.session.data.oaktree_farm.years_planned.length == 0) {
         req.session.data.oaktree_farm.years_planned.push(req.session.data.oaktree_farm.planning_year)
     } else {
@@ -534,7 +534,7 @@ router.get(/variety_handler/, function (req, res) {
 })
 
 router.get(/create_next_handler/, function (req, res) { 
-    req.session.data.oaktree_farm.planning_year = req.query.date
+    req.session.data.oaktree_farm.planning_year = parseInt(req.query.date)
     res.redirect('/add_crops/create_next')
 })
 
@@ -900,7 +900,7 @@ router.get(/manure_date_v5_handler/, function (req, res) {
 router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     let group_id = req.session.data.manureGroups.length + 1
     let manure_id = req.session.data.manure_type.name
-    let year = 2024
+    let year = req.session.data.oaktree_farm.planning_year
     let field_list = req.session.data.manure_fields
     let application_date = req.session.data.manure_date_day + '/' + req.session.data.manure_date_month + '/' + req.session.data.manure_date_year
 

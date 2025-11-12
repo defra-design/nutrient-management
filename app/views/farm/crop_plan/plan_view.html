@@ -28,12 +28,12 @@
 {% endfor %}
 
 {% set organics = false %}
-{% if data.manureGroups.length > 0 %}
+{% if data.manureApplications.length > 0 %}
   {% set organics = true %}
 {% endif %}
 
 {% set inorganics = false %}
-{% if data.allFertiliserApplications.length > 0 %}
+{% if data.fertiliserApplications.length > 0 %}
   {% set inorganics = true %}
 {% endif %}
 

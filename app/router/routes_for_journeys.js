@@ -450,7 +450,7 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     req.session.data.group_name = null;
     req.session.data.group_id = null;
     req.session.data.crop_id = null;
-    req.session.data.field_list = null;
+    req.session.data.field_list_data = null;
 
     // var sowdate = null;
     // var yield = null;
@@ -898,7 +898,7 @@ router.get(/manure_date_v5_handler/, function (req, res) {
 })
 
 router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function (req, res) { 
-    let group_id = req.session.data.manureGroups.length + 1
+    let group_id = req.session.data.manureApplications.length + 1
     let manure_id = req.session.data.manure_type.name
     let year = req.session.data.oaktree_farm.planning_year
     let field_list = req.session.data.manure_fields
@@ -910,7 +910,7 @@ router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function
 
     for (let x in field_list) {
         let applicationGroup = allFunctions.add_manure_application (group_id, year, field_list[x], application_date, manure_id)
-        req.session.data.manureGroups.push(applicationGroup)
+        req.session.data.manureApplications.push(applicationGroup)
     }
     group_id = null
     manure_id = null
@@ -961,9 +961,9 @@ router.get(/manuredate_handler/, function (req, res) {
 })
 
 router.get(/livestock_type_v7_handler/, function (req, res) {
-    for (var x in req.session.data.manure_types_livestock) {
-        if (req.session.data.manure_types_livestock[x].name == req.session.data.manure_type) {
-            req.session.data.manure_type = req.session.data.manure_types_livestock[x]
+    for (var x in req.session.data.manure_type_livestock_data) {
+        if (req.session.data.manure_type_livestock_data[x].name == req.session.data.manure_type) {
+            req.session.data.manure_type = req.session.data.manure_type_livestock_data[x]
         }
     }
     res.redirect("manure_date")
@@ -971,9 +971,9 @@ router.get(/livestock_type_v7_handler/, function (req, res) {
 })
 
 router.get(/livestock_type_export_handler/, function (req, res) {
-    for (var x in req.session.data.manure_types_livestock) {
-        if (req.session.data.manure_types_livestock[x].name == req.session.data.manure_type) {
-            req.session.data.manure_type = req.session.data.manure_types_livestock[x]
+    for (var x in req.session.data.manure_type_livestock_data) {
+        if (req.session.data.manure_type_livestock_data[x].name == req.session.data.manure_type) {
+            req.session.data.manure_type = req.session.data.manure_type_livestock_data[x]
         }
     }
     res.redirect("date")
@@ -1063,8 +1063,8 @@ router.get(/fertiliser_v5_handler/, callback_functions.showSuccessMessage, funct
     var fertiliser_fields = req.session.data.fertiliser_fields
     var ref
     for (var x in fertiliser_fields) {
-        for (var appl in req.session.data.allFertiliserApplications) {
-            ref = req.session.data.allFertiliserApplications[appl].ref +1
+        for (var appl in req.session.data.fertiliserApplications) {
+            ref = req.session.data.fertiliserApplications[appl].ref +1
         }
         var applicationGroup = allFunctions.addFertiliserApplication_v2 (
             req.session.data.all_fields, 
@@ -1078,7 +1078,7 @@ router.get(/fertiliser_v5_handler/, callback_functions.showSuccessMessage, funct
             req.session.data.lime,
             ref
         )
-        req.session.data.allFertiliserApplications.push(applicationGroup)
+        req.session.data.fertiliserApplications.push(applicationGroup)
     }
     let next = '/farm/crop_plan/plan_view'
     if (req.session.data.fertiliser_journey == "multi") next = '/farm/crop_plan/plan_view';

@@ -66,13 +66,13 @@
       {% set organics = false %}
       {% set inorganics = false %}
 
-      {% for manureapp in data.manureGroups %}
+      {% for manureapp in data.manureApplications %}
         {% if manureapp.fieldref == data.fieldref %}
           {% set organics = true %}
         {% endif %}
       {% endfor %}
 
-      {% for fertapp in data.allFertiliserApplications %}
+      {% for fertapp in data.fertiliserApplications %}
         {% if fertapp.fieldref == data.fieldref %}
           {% set inorganics = true %}
         {% endif %}

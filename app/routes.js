@@ -3,14 +3,14 @@ const  router = govukPrototypeKit.requests.setupRouter()
 
 ///external data
 
-const  all_fertiliser_applications = require('./data/fertiliser_applications.json');
-const  manure_applications_list = require('./data/manure_applications.json');
-const  complete_field_list = require('./data/complete_field_list.json');
-const  manure_types_digestate = require('./data/manure_types_digestate.json');
-const  manure_types_other = require('./data/manure_types_other.json');
-const  manure_types_biosolid = require('./data/manure_types_biosolid.json');
-const  manure_types_livestock = require('./data/manure_types_livestock.json');
-const  manure_types_livestock_groups = require('./data/manure_types_livestock_groups.json');
+const  fertiliser_applications_data = require('./data/fertiliser_applications.json');
+const  manure_applications_data = require('./data/manure_applications.json');
+const  field_list_data = require('./data/field_list.json');
+const  manure_type_digestate_data = require('./data/manure_type_digestate.json');
+const  manure_type_other_data = require('./data/manure_type_other.json');
+const  manure_type_biosolid_data = require('./data/manure_type_biosolid.json');
+const  manure_type_livestock_data = require('./data/manure_type_livestock.json');
+const  manure_type_livestock_groups_data = require('./data/manure_type_livestock_groups.json');
 const  potato_details = require('./data/potatoes.json');
 const  crop_types = require('./data/crops.json');
 const  livestock_types = require('./data/livestock.json');
@@ -94,17 +94,17 @@ router.get('/', function (req, res) {
     
 
     //content
-    req.session.data.manure_types_digestate = manure_types_digestate
-    req.session.data.manure_types_other = manure_types_other
-    req.session.data.manure_types_biosolid = manure_types_biosolid
-    req.session.data.manure_types_livestock = manure_types_livestock
-    req.session.data.manure_types_livestock_groups = manure_types_livestock_groups
-    req.session.data.complete_field_list = complete_field_list
+    req.session.data.manure_type_digestate_data = manure_type_digestate_data
+    req.session.data.manure_type_other_data = manure_type_other_data
+    req.session.data.manure_type_biosolid_data = manure_type_biosolid_data
+    req.session.data.manure_type_livestock_data = manure_type_livestock_data
+    req.session.data.manure_type_livestock_groups_data = manure_type_livestock_groups_data
+    req.session.data.field_list_data = field_list_data
     req.session.data.potato_details = potato_details
     req.session.data.crop_types = crop_types
     req.session.data.livestock_types = livestock_types
-    req.session.data.all_fertiliser_applications = all_fertiliser_applications
-    req.session.data.manure_applications_list = manure_applications_list
+    req.session.data.fertiliser_applications_data = fertiliser_applications_data
+    req.session.data.manure_applications_data = manure_applications_data
     req.session.data.show_error = false;
     req.session.data.defoliations = "Cuts and grazings";
 
@@ -145,8 +145,8 @@ router.get('/', function (req, res) {
 
     // version 5
     req.session.data.cropGroups = []
-    req.session.data.manureGroups = []
-    req.session.data.allFertiliserApplications = []
+    req.session.data.manureApplications = []
+    req.session.data.fertiliserApplications = []
     req.session.data.livestock_record_plan_year = []
 
     //planviews

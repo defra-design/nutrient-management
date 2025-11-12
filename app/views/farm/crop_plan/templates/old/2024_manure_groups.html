@@ -23,7 +23,7 @@
       {% set manureCount = 0 %}
       {% set inorganicCount = 0 %}
 
-      {% for manureGroup in data.manureGroups %}
+      {% for manureGroup in data.manureApplications %}
         {% for groupref in manureGroup.crop_group_references %}
           {% if groupref == group.reference %}
             {% if manureGroup.organic == true %}

@@ -19,7 +19,7 @@ router.get(/end_to_end_setup_handler/, function (req, res) {
     req.session.data.cropGroups.push(group_1)
 
     var applicationOne = allFunctions.addFertiliserApplication_v2 (req.session.data.all_fields, req.session.data.cropGroups, 1, '01/03/2024', 60, 30, 30, 0, 0, 1)
-    req.session.data.allFertiliserApplications.push(applicationOne)
+    req.session.data.fertiliserApplications.push(applicationOne)
     res.redirect('start')
 })
 
@@ -27,7 +27,7 @@ router.get(/onecrop_v5_setup_handler/, function (req, res) {
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
-    req.session.data.all_fields = req.session.data.complete_field_list
+    req.session.data.all_fields = req.session.data.field_list_data
     // req.session.data.cropGroups.push(allFunctions.createCropGroup(1, 2026, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', '8', null, false))
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [1,2,3,4,5], 'Wheat-Winter', 1)
     let group_1 = allFunctions.createCropGroup(null, 1, 2026, 'Wheat-Winter', [1,2,3,4,5], req.session.data.all_fields)
@@ -43,7 +43,7 @@ router.get(/plan_setup/, function (req, res) {
     req.session.data.oaktree_farm.years_planned.push(2026)
     req.session.data.showinfo = false
     req.session.data.extra_features = true
-    req.session.data.all_fields = req.session.data.complete_field_list
+    req.session.data.all_fields = req.session.data.field_list_data
     req.session.data.oaktree_farm.area_added = true
     req.session.data.oaktree_farm.livestock_loading = 2
     req.session.data.oaktree_farm.livestock_inventory = 2
@@ -78,13 +78,14 @@ router.get(/plan_setup/, function (req, res) {
     let group_3 = allFunctions.createCropGroup(null, 3, 2026, 'grass', [10, 11, 18, 19], req.session.data.all_fields)
     req.session.data.cropGroups.push(group_3)
 
-    for (var x in req.session.data.all_fertiliser_applications) {
-        req.session.data.allFertiliserApplications.push(req.session.data.all_fertiliser_applications[x])
+    for (var y in req.session.data.manure_applications_data) {
+        req.session.data.manureApplications.push(req.session.data.manure_applications_data[y])
     }
-    for (var y in req.session.data.manure_applications_list) {
-        req.session.data.manureGroups.push(req.session.data.manure_applications_list[y])
+
+    for (var x in req.session.data.fertiliser_applications_data) {
+        req.session.data.fertiliserApplications.push(req.session.data.fertiliser_applications_data[x])
     }
-    console.log(req.session.data.manureGroups)
+
     res.redirect('start')
 })
 
@@ -215,7 +216,7 @@ router.get(/inventory_setup_handler/, function (req, res) {
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.oaktree_farm.years_planned.push(2026)
     req.session.data.showinfo = false
-    req.session.data.all_fields = req.session.data.complete_field_list
+    req.session.data.all_fields = req.session.data.field_list_data
     req.session.data.oaktree_farm.area_added = true
     req.session.data.oaktree_farm.manure_imports = true
     req.session.data.oaktree_farm.manure_exports = true
@@ -238,13 +239,13 @@ router.get(/inventory_setup_handler/, function (req, res) {
     let group_3 = allFunctions.createCropGroup(null, 3, 2026, 'grass', [10, 11, 18, 19], req.session.data.all_fields)
     req.session.data.cropGroups.push(group_3)
 
-    for (var x in req.session.data.all_fertiliser_applications) {
-        req.session.data.allFertiliserApplications.push(req.session.data.all_fertiliser_applications[x])
+    for (var x in req.session.data.fertiliser_applications_data) {
+        req.session.data.fertiliserApplications.push(req.session.data.fertiliser_applications_data[x])
     }
-    for (var y in req.session.data.manure_applications_list) {
-        req.session.data.manureGroups.push(req.session.data.manure_applications_list[y])
+    for (var y in req.session.data.manure_applications_data) {
+        req.session.data.manureApplications.push(req.session.data.manure_applications_data[y])
     }
-    console.log(req.session.data.manureGroups)
+    console.log(req.session.data.manureApplications)
     res.redirect('start')
 })
 

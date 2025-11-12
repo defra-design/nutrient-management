@@ -15,13 +15,13 @@ const hideSuccessMessage = function (req, res, next) {
 
 const setManureGroup = function (req, res, next) {
     if (req.session.data.manure_group_id == "livestock") {
-        req.session.data.manure_types = req.session.data.manure_types_livestock
+        req.session.data.manure_types = req.session.data.manure_type_livestock_data
     } else if (req.session.data.manure_group_id == "biosolids") {
-        req.session.data.manure_types = req.session.data.manure_types_biosolid
+        req.session.data.manure_types = req.session.data.manure_type_biosolid_data
     } else if (req.session.data.manure_group_id == "other") {
-        req.session.data.manure_types = req.session.data.manure_types_other
+        req.session.data.manure_types = req.session.data.manure_type_other_data
     } else if (req.session.data.manure_group_id == "digestate") {
-        req.session.data.manure_types = req.session.data.manure_types_digestate
+        req.session.data.manure_types = req.session.data.manure_type_digestate_data
     }
     // console.log('manure types = ' + req.session.data.manure_types)
     next()

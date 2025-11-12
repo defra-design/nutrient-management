@@ -10,7 +10,7 @@
       </tr>
   </thead>
   <tbody class="govuk-table__body">
-    {% for application in data.allFertiliserApplications %}
+    {% for application in data.fertiliserApplications %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell"> {{application.date}}</td>
           <td class="govuk-table__cell">{{application.field}}</td>
@@ -60,7 +60,7 @@
   </tbody>
 </table>
 
-<!-- {% for x in data.allFertiliserApplications %}
+<!-- {% for x in data.fertiliserApplications %}
    {{x.Field}}
 {% endfor %} -->
 
@@ -69,7 +69,7 @@
 
 
 <!-- TEST
-{% for application in data.allFertiliserApplications %}
+{% for application in data.fertiliserApplications %}
   {{application.reference}}<br>
   {% for field in application.chosenFields %}
     {{field.field_name}}<br>

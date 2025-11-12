@@ -14,7 +14,8 @@
 
     {% set issuecounter = 1 %}
     {% set field = null %}
-    {% for application in data.manureGroups %}
+
+    {% for application in data.manureApplications %}
       {% for x in data.all_fields %}
         {% if x.field_id == application.field_id %}
           {% set field = x %}

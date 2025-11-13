@@ -10,10 +10,18 @@
       </tr>
   </thead>
   <tbody class="govuk-table__body">
+
+    {% set field = null %}
     {% for application in data.fertiliserApplications %}
+      {% for x in data.all_fields %}
+        {% if x.field_id == application.field_id %}
+          {% set field = x %}
+        {% endif %}
+      {% endfor %} 
+
         <tr class="govuk-table__row">
           <td class="govuk-table__cell"> {{application.date}}</td>
-          <td class="govuk-table__cell">{{application.field}}</td>
+          <td class="govuk-table__cell">{{field.field_name}}</td>
           <td class="govuk-table__cell"> {{application.crop | nameconverter}}</td>
 
           <!-- <td class="govuk-table__cell">

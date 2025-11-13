@@ -1050,64 +1050,55 @@ router.get(/field-select-handler/, callback_functions.hideSuccessMessage, functi
 })
 
 router.get(/v5_fertiliser_handler/, function (req, res) {
-    let next = 'fertiliser_when'
-    if (req.session.data.fertiliser_fields == 'all') next = 'defoliation';
-    for (var group in req.session.data.cropGroups) {
-        if (req.session.data.cropGroups[group].reference == req.session.data.fertiliser_fields ) {
-            if (req.session.data.fertiliser_fields == 'all' || req.session.data.cropGroups[group].crop_reference == 'grass') {
-                next = 'defoliation'
-            }
-        }
+  let next = 'fertiliser_when'
+  if (req.session.data.fertiliser_fields_option == 'specific') {
+    next = 'fertiliser_fields_two'
+  } else if (req.session.data.fertiliser_fields_option == 'all') {
+    for (var x in req.session.data.cropGroups) {
+      for (var y in req.session.data.cropGroups[x].field_list ) {
+        req.session.data.chosen_manure_fields.push(req.session.data.cropGroups[x].field_list[y])
+      }
     }
-    var new_fertiliser_fields = []
-    if (req.session.data.fertiliser_fields == 'specific') {
-        next = 'fertiliser_fields_two'
-    } else if (req.session.data.fertiliser_fields == 'all') {
-        for (var x in req.session.data.cropGroups) {
-            for (var y in req.session.data.cropGroups[x].fields ) {
-                new_fertiliser_fields.push(req.session.data.cropGroups[x].fields[y].reference)
-                req.session.data.fertiliser_fields = new_fertiliser_fields
-            }
+  } else {
+    for (var a in req.session.data.cropGroups) {
+      if (req.session.data.cropGroups[a].group_id == req.session.data.fertiliser_fields_option) {
+        for (var b in req.session.data.cropGroups[a].field_list ) {
+          req.session.data.chosen_manure_fields.push(req.session.data.cropGroups[a].field_list[b])
         }
-    } else {
-        for (var a in req.session.data.cropGroups) {
-            if (req.session.data.cropGroups[a].reference == req.session.data.fertiliser_fields ) {
-                for (var b in req.session.data.cropGroups[a].fields ) {
-                    new_fertiliser_fields.push(req.session.data.cropGroups[a].fields[b].reference)
-                    req.session.data.fertiliser_fields = new_fertiliser_fields
-                }
-            }
-        }
+      }
     }
-    res.redirect(next)
+  }
+  res.redirect(next)
 })
 
 //set fertiliser
 router.get(/fertiliser_v5_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 3
     var fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
-    var fertiliser_fields = req.session.data.fertiliser_fields
     var ref
-    for (var x in fertiliser_fields) {
-        for (var appl in req.session.data.fertiliserApplications) {
-            ref = req.session.data.fertiliserApplications[appl].ref +1
-        }
-        var applicationGroup = allFunctions.addFertiliserApplication_v2 (
-            req.session.data.all_fields, 
-            req.session.data.cropGroups, 
-            fertiliser_fields[x], 
-            fertiliserDate, 
-            req.session.data.nitrogen, 
-            req.session.data.phosphate, 
-            req.session.data.potash, 
-            req.session.data.sulphur, 
-            req.session.data.lime,
-            ref
-        )
-        req.session.data.fertiliserApplications.push(applicationGroup)
+    for (var x in req.session.data.chosen_manure_fields) {
+      for (var appl in req.session.data.fertiliserApplications) {
+          ref = req.session.data.fertiliserApplications[appl].ref +1
+      }
+      // function addFertiliserApplication_v2 (group_id, year, field_id, date, nitrogen, phosphate, potash, sulphur, lime) {
+      var applicationGroup = allFunctions.addFertiliserApplication_v2 (
+          1, //temp group id
+          req.session.data.oaktree_farm.planning_year,
+          req.session.data.chosen_manure_fields[x], 
+          fertiliserDate, 
+          req.session.data.nitrogen, 
+          req.session.data.phosphate, 
+          req.session.data.potash, 
+          req.session.data.sulphur, 
+          req.session.data.lime
+      )
+      req.session.data.fertiliserApplications.push(applicationGroup)
     }
+    req.session.data.chosen_manure_fields = []
     let next = '/farm/crop_plan/plan_view'
-    if (req.session.data.fertiliser_journey == "multi") next = '/farm/crop_plan/plan_view';
+    // if (req.session.data.fertiliser_journey == "multi") {
+    //    next = '/farm/crop_plan/plan_view'
+    // }
     res.redirect(next)
 })
 

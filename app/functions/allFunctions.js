@@ -183,7 +183,6 @@ function add_manure_application (group_id, year, field_id, application_date, man
         "MgO": "1.8",
         "SO3": "2.4"
     }
-    console.log(newApplication)
     return newApplication
 }
 
@@ -199,31 +198,17 @@ function showSucess (message) {
     req.session.data.successMessage = 3
 }
 
-function addFertiliserApplication_v2 (allFields, cropGroups, fieldReference, fertiliserDate, nitrogen, phosphate, potash, sulphur, lime, ref) {
-    let fieldName = null
-    let crop_reference = null
+function addFertiliserApplication_v2 (group_id, year, field_id, date, nitrogen, phosphate, potash, sulphur, lime) {
     nitrogen = convertNutrient(nitrogen)
     phosphate = convertNutrient(phosphate)
     potash = convertNutrient(potash)
     sulphur = convertNutrient(sulphur)
     lime = convertNutrient(lime)
-    for (var x in allFields) {
-        if (allFields[x].reference == fieldReference) {
-            fieldName = allFields[x].name
-        }
-    }
-    for (var y in cropGroups) {
-        for (var z in cropGroups[y].fields) {
-            if (cropGroups[y].fields[z].reference == fieldReference ) {
-                crop_reference = cropGroups[y].crop_reference
-            }
-        }
-    }
     var newApplication = {
-        "field": fieldName,
-        "fieldref": fieldReference,
-        "crop": crop_reference,
-        "date": fertiliserDate,
+        "group_id": group_id,
+        "year": year,
+        "field_id": field_id,
+        "date": date,
         "analysis": "0:20:20:0:0:0",
         "rate": "280",
         "nitrogen": nitrogen,
@@ -233,8 +218,8 @@ function addFertiliserApplication_v2 (allFields, cropGroups, fieldReference, fer
         "SO3": sulphur,
         "Na2O": "0",
         "Lime": lime,
-        "ref": ref
     }
+    console.log(newApplication)
     return newApplication
 }
 

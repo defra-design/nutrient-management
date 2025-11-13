@@ -25,30 +25,26 @@
     </h1>
 
     <form class="form" action="v5_fertiliser_handler" method="post">
-
+    
       <div class="govuk-form-group">
-          <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="all" name="fertiliser_fields_option" type="radio" value="all">
+            <label class="govuk-label govuk-radios__label" for="all">
+              All fields in the {{data.oaktree_farm.planning_year}} plan
+            </label>
+          </div>
+          {% for group in data.cropGroups %}
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="all" name="fertiliser_fields" type="radio" value="all">
-              <label class="govuk-label govuk-radios__label" for="all">
-                All fields in the {{data.oaktree_farm.planning_year}} plan
+              <input class="govuk-radios__input" id={{group.group_id}} name="fertiliser_fields_option" type="radio" value={{group.group_id}}>
+              <label class="govuk-label govuk-radios__label" for={{group.group_id}}> 
+              Crop group {{group.group_id}} fields
+              ({{group.crop_id | nameconverter}})
               </label>
             </div>
-
-            {% for group in data.cropGroups %}
+          {% endfor %}
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id={{group.reference}} name="fertiliser_fields" type="radio" value={{group.reference}}>
-              <label class="govuk-label govuk-radios__label" for={{group.reference}}>
-                The 
-                  {{group.crop_reference | nameconverter}}
-                fields  
-                  ({{group.groupname | lower}})
-              </label>
-            </div>
-          {% endfor %} 
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="specific" name="fertiliser_fields" type="radio" value="specific">
+              <input class="govuk-radios__input" id="specific" name="fertiliser_fields_option" type="radio" value="specific">
               <label class="govuk-label govuk-radios__label" for="specific">
                 Select specific fields
               </label>
@@ -56,7 +52,7 @@
           </div>
         </fieldset>
       </div>
-
+      
       {{ govukButton({
         text: "Continue"
       }) }}

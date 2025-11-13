@@ -59,7 +59,7 @@ Guide (RB209).</p>
 
               {% else %}
 
-                {% for crop in data.crop_types %}
+                {% for crop in data.crop_types_data %}
                   {% if crop.type == data.crop_group %}
                     <div class="govuk-radios__item">
                       <input class="govuk-radios__input" id={{crop.reference}} name="chosen_crop" type="radio" value={{crop.reference}}>

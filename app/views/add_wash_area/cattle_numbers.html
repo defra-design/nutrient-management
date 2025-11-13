@@ -22,7 +22,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      How many of each cattle type are using areas that are manually washed in October 2024?
+      How many of each cattle type are using areas that are manually washed in October {{data.oaktree_farm.planning_year}}?
     </h1>
 
     <p class="govuk-hint">
@@ -31,7 +31,7 @@
 
     <form action="water_days" method="post" novalidate="">
       <div class="margin-bottom-forty">
-        {% for livestock_type in data.livestock_record_2025 %}
+        {% for livestock_type in data.livestock_record_plan_year %}
           {% if livestock_type.type == 'cattle' %}
             <div class="govuk-form-group">
               <label class="govuk-label" for="total_area">

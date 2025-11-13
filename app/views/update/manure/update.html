@@ -19,7 +19,7 @@
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
     <h1 class="govuk-heading-l">
-      Update an organic material application for harvest year 2025
+      Update an organic material application for harvest year {{data.oaktree_farm.planning_year}}
     </h1>
 
     <!-- <div class="govuk-inset-text margin-bottom-forty">
@@ -39,7 +39,13 @@
             Which fields do you want to update this organic manure application for?
           </dt>
           <dd class="govuk-summary-list__value">
-            Poplar
+          {% set field = null %}
+          {% for x in data.all_fields %}
+            {% if x.field_id == data.chosen_field_id %}
+              {% set field = x %}
+              {% endif %}
+          {% endfor %} 
+          {{field.field_name}}
           </dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
@@ -113,7 +119,7 @@
         
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">End of soil drainage</dt>
-          <dd class="govuk-summary-list__value">31 March 2025</dd>
+          <dd class="govuk-summary-list__value">31 March {{data.oaktree_farm.planning_year}}</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
         

@@ -10,20 +10,20 @@
     </h3>
     {% if data.export_type == 4 %}
       <p class="govuk-body">
-        To create a livestock manure nitrogen (N) farm limit report, enter the livestock on {{data.oaktree_farm.name}} in 2025
+        To create a livestock manure nitrogen (N) farm limit report, enter the livestock on {{data.oaktree_farm.name}} in {{data.oaktree_farm.planning_year}}
       </p>  
     {% else %}
       <p class="govuk-body">
-        To create an organic manures inventory and storage report, enter the livestock on {{data.oaktree_farm.name}} from October 2025 to September 2026
+        To create an organic manures inventory and storage report, enter the livestock on {{data.oaktree_farm.name}} from October {{data.oaktree_farm.planning_year}} to September {{data.oaktree_farm.planning_year+1}}
       </p>  
     {% endif %}
     
     <p class="govuk-body"><a class="govuk-notification-banner__link" href="/add_livestock/livestock_group">Add more livestock</a></p>  
     
     {% if data.export_type == 4 %}
-      <p class="govuk-body"><a class="govuk-notification-banner__link" href="reset_nloading_checklist_message_handler">Continue to create a Livestock manure nitrogen (N) farm limit report for 2025</a></p>  
+      <p class="govuk-body"><a class="govuk-notification-banner__link" href="reset_nloading_checklist_message_handler">Continue to create a Livestock manure nitrogen (N) farm limit report for {{data.oaktree_farm.planning_year}}</a></p>  
     {% else %}
-      <p class="govuk-body"><a class="govuk-notification-banner__link" href="reset_inventory_checklist_message_handler">Continue to create an Organic manures inventory and storage report for 2025</a></p>  
+      <p class="govuk-body"><a class="govuk-notification-banner__link" href="reset_inventory_checklist_message_handler">Continue to create an Organic manures inventory and storage report for {{data.oaktree_farm.planning_year}}</a></p>  
     {% endif %}
   </div>
 </div>

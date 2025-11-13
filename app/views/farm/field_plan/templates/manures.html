@@ -1,26 +1,26 @@
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="manures">
 
   <h2 class="govuk-heading-m non-standard">Organic material applications</h2>
-  {% if organics == true and data.oaktree_farm.planning_year != 2024 %}
-    <p class="govuk-body"><a href="plan_manure_application_router?manurejourney=single">Add an organic material application for {{data.chosen_field.name}}</a></p>
-    <p class="govuk-body">These are the organic material applications for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}</p>
+  {% if organics == true and data.oaktree_farm.planning_year != 2025 %}
+    <p class="govuk-body"><a href="plan_manure_application_router?manurejourney=single">Add an organic material application for {{data.chosen_field.field_name}}</a></p>
+    <p class="govuk-body">These are the organic material applications for {{data.chosen_field.field_name}} in {{data.oaktree_farm.planning_year}}</p>
     <p class="govuk-body-s">All amounts are per hectare.</p>
     {% include ".//applications.html" ignore missing %}
   {% else %}
-    <p class="govuk-body">You have no organic material applications planned for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p>
-    <p class="govuk-body"><a href="plan_manure_application_router?manurejourney=single">Add an organic material application for {{data.chosen_field.name}}</a></p>
+    <p class="govuk-body">You have no organic material applications planned for {{data.chosen_field.field_name}} in {{data.oaktree_farm.planning_year}}.</p>
+    <p class="govuk-body"><a href="plan_manure_application_router?manurejourney=single">Add an organic material application for {{data.chosen_field.field_name}}</a></p>
     <hr class="separator_forty">
   {% endif %}
 
   <h2 class="govuk-heading-m non-standard">Inorganic fertiliser applications</h2>
-  {% if inorganics == true and data.oaktree_farm.planning_year != 2024 %}
-    <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add an inorganic fertiliser application for {{data.chosen_field.name}}</a></p>
-    <p class="govuk-body">These are the inorganic fertiliser applications for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p>
+  {% if inorganics == true and data.oaktree_farm.planning_year != 2025 %}
+    <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add an inorganic fertiliser application for {{data.chosen_field.field_name}}</a></p>
+    <p class="govuk-body">These are the inorganic fertiliser applications for {{data.chosen_field.field_name}} in {{data.oaktree_farm.planning_year}}.</p>
     <p class="govuk-body-s">All amounts are per hectare.</p>
     {% include ".//fertiliser_applications.html" ignore missing %}
   {% else %}
-    <p class="govuk-body">You have no inorganic fertiliser applications planned for {{data.chosen_field.name}} in {{data.oaktree_farm.planning_year}}.</p>
-    <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add inorganic fertiliser applications for {{data.chosen_field.name}}</a></p>
+    <p class="govuk-body">You have no inorganic fertiliser applications planned for {{data.chosen_field.field_name}} in {{data.oaktree_farm.planning_year}}.</p>
+    <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add inorganic fertiliser applications for {{data.chosen_field.field_name}}</a></p>
   {% endif %}
 
 </div>

@@ -12,7 +12,7 @@
 
 {% block beforeContent %}
   {{ govukBackLink({
-    text: "Back to your 2025 plan",
+    text: "Back to your " + data.oaktree_farm.planning_year + " plan",
     href: "/farm/crop_plan/plan_view"
   }) }}
 {% endblock %}
@@ -37,8 +37,8 @@
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-full">
-      <h1 class="govuk-heading-l">N-max limits 2025</h1>
-      <p class="govuk-body">Created on 30 October 2025.</p>
+      <h1 class="govuk-heading-l">N-max limits {{data.oaktree_farm.planning_year}}</h1>
+      <p class="govuk-body">Created on 30 October {{data.oaktree_farm.planning_year}}.</p>
     </div>
 
   </div>

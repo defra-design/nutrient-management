@@ -34,7 +34,7 @@
 
       <div id="closed-period">
         <p class="">Your closed period for spreading inorganic fertilisers is:</p>
-        <h3 class="govuk-heading-s closed-date">1 September 2025 to 15 January 2026</h3>
+        <h3 class="govuk-heading-s closed-date">1 September {{data.oaktree_farm.harvest_year}} to 15 January {{data.oaktree_farm.harvest_year + 1}}</h3>
         <p>Based on your crop, soil type and farm details.</p>
       </div>
 
@@ -52,12 +52,12 @@
             {% if data.fertiliser_journey == "multi" %}
               on these fields?
             {% else %}
-              on {{data.chosen_field.name}}?
+              on {{data.chosen_field.field_name}}?
             {% endif %}
           </label>
 
             <div class="govuk-hint">
-              For example, 21 06 2024
+              For example, 21 06 {{data.oaktree_farm.planning_year}}
             </div>
 
             <div class="govuk-date-input" id="passport-issued">

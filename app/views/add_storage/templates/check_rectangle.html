@@ -1,9 +1,10 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
+      What is the 
       {% if data.storage_type == 'earth banked' %}
-        Length at top
+        length at top?
       {% else %}
-        Length
+        length?
       {% endif %}
     </dt>
       <dd class="govuk-summary-list__value">
@@ -14,10 +15,11 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
+      What is the 
       {% if data.storage_type == 'earth banked' %}
-        Width at top
+        width at top?
       {% else %}
-        Width
+        width?
       {% endif %}
     </dt>
       <dd class="govuk-summary-list__value">
@@ -28,9 +30,12 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
+      What is the 
       {% if data.material_type != 'solid manure' %}
-        Total depth<br>
+        total depth<br>
         (including the freeboard)
+      {% else %}
+        depth?
       {% endif %}
     </dt>
       <dd class="govuk-summary-list__value">
@@ -38,6 +43,16 @@
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+
+  {% if data.material_type == 'solid manure' %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">What is the weight capacity?</dt>
+        <dd class="govuk-summary-list__value">
+          22 tonnes
+      </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% endif %}
 
   {% if data.material_type == 'solid manure' %}
     <div class="govuk-summary-list__row">
@@ -65,15 +80,6 @@
     </div>
   {% endif %}
 
-  {% if data.material_type == 'solid manure' %}
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">What is the weight capacity?</dt>
-        <dd class="govuk-summary-list__value">
-          22 tonnes
-      </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
-  {% endif %}
 
   {% if data.material_type != 'solid manure' %}
     <div class="govuk-summary-list__row">

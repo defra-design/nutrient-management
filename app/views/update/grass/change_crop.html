@@ -20,12 +20,12 @@ Question – {{ serviceName }} – GOV.UK
   <div class="govuk-grid-column-two-thirds-from-desktop">
     
     <h1 class="govuk-heading-l">
-      Update crop group {{data.chosen_group.reference}} for harvest year 2025
+      Update crop group {{data.chosen_group.reference}} for harvest year {{data.oaktree_farm.planning_year}}
     </h1>
 
     <div class="govuk-inset-text margin-bottom-forty">
       <p class="govuk-body">
-        Changes here will be applied to all of these fields. To change a single field select it from your crop plan. <a href="planview_reset_handler">View the 2025 crop plan</a>.
+        Changes here will be applied to all of these fields. To change a single field select it from your crop plan. <a href="planview_reset_handler">View the {{data.oaktree_farm.planning_year}} crop plan</a>.
       </p>
     </div>
 
@@ -61,7 +61,7 @@ Question – {{ serviceName }} – GOV.UK
         </div>
 
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">What is the sward in these fields in 2025?</dt>
+          <dt class="govuk-summary-list__key">What is the sward in these fields in {{data.oaktree_farm.planning_year}}?</dt>
           <dd class="govuk-summary-list__value">Spring sown</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
@@ -83,7 +83,7 @@ Question – {{ serviceName }} – GOV.UK
         </div>
       
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">What is the sward type in these fields in 2025?</dt>
+          <dt class="govuk-summary-list__key">What is the sward type in these fields in {{data.oaktree_farm.planning_year}}?</dt>
           <dd class="govuk-summary-list__value">Grass</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
@@ -108,13 +108,13 @@ Question – {{ serviceName }} – GOV.UK
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the total annual target dry matter yield for Long Field?</dt>
-          <dd class="govuk-summary-list__value">10 Tonnes per hectare</dd>
+          <dd class="govuk-summary-list__value">10 tonnes per hectare</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the total annual target dry matter yield for Short Field?</dt>
-          <dd class="govuk-summary-list__value">9 Tonnes per hectare</dd>
+          <dd class="govuk-summary-list__value">9 tonnes per hectare</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 

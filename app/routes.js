@@ -3,76 +3,78 @@ const  router = govukPrototypeKit.requests.setupRouter()
 
 ///external data
 
-const  all_fertiliser_applications = require('./data/fertiliser_applications.json');
-const  manure_applications_list = require('./data/manure_applications.json');
-const  complete_field_list = require('./data/complete_field_list.json');
-const  manure_types_digestate = require('./data/manure_types_digestate.json');
-const  manure_types_other = require('./data/manure_types_other.json');
-const  manure_types_biosolid = require('./data/manure_types_biosolid.json');
-const  manure_types_livestock = require('./data/manure_types_livestock.json');
-const  manure_types_livestock_groups = require('./data/manure_types_livestock_groups.json');
-const  potato_details = require('./data/potatoes.json');
-const  crop_types = require('./data/crops.json');
-const  livestock_types = require('./data/livestock.json');
+const  fertiliser_applications_data = require('./data/fertiliser_applications.json');
+const  manure_applications_data = require('./data/manure_applications.json');
+const  field_list_data = require('./data/field_list.json');
+const  manure_type_digestate_data = require('./data/manure_type_digestate.json');
+const  manure_type_other_data = require('./data/manure_type_other.json');
+const  manure_type_biosolid_data = require('./data/manure_type_biosolid.json');
+const  manure_type_livestock_data = require('./data/manure_type_livestock.json');
+const  manure_type_livestock_groups_data = require('./data/manure_type_livestock_groups.json');
+const  potato_details_data = require('./data/potato_types.json');
+const  crop_types_data = require('./data/crop_types.json');
+const  livestock_types_data = require('./data/livestock_types.json');
 
 const allFunctions = require('./functions/allFunctions.js');
 
 /// create fields
 let all_fields = [];
 
-var tempField = {
-    name: "Short Field",
-    reference: "shortfield",
+var temp_field = {
+    field_name: "Short Field",
+    field_id: 1,
     nvz: false,
     elevation: false
 };
 
 //index route
 router.get('/', function (req, res) { 
-    req.session.data.oaktree_farm = {
-        resetFarm : function () {
-            req.session.data.oaktree_farm.created = true,
-            req.session.data.oaktree_farm.name = "Oaktree Lane Farm",
-            req.session.data.oaktree_farm.postcode = "NE46 7LQ",
-            req.session.data.oaktree_farm.planning_year = 2025,
-            req.session.data.oaktree_farm.nvz = "some",
-            req.session.data.oaktree_farm.elevation = "some",
-            req.session.data.oaktree_farm.use_mvp_fields = false,
-            req.session.data.oaktree_farm.setup = false,
-            req.session.data.oaktree_farm.fields_added = false,
-            req.session.data.oaktree_farm.grass_setup = false,
-            // livestock statuses
-            // 1 Nothing added = null (incomplete)
-            // 2 Copied from loading = copied (incomplete)
-            // 3 Added for inventory = added (complete)
-            req.session.data.oaktree_farm.livestock_loading = null,
-            req.session.data.oaktree_farm.livestock_inventory = null,
-            req.session.data.oaktree_farm.storage_added = false,
-            req.session.data.oaktree_farm.rainwater_area_added = false,
-            req.session.data.oaktree_farm.storage_figures = false,
-            req.session.data.oaktree_farm.low_risk_land_added = null,
-            req.session.data.oaktree_farm.area_added = false,
-            req.session.data.oaktree_farm.manure_exports = false,
-            req.session.data.oaktree_farm.manure_imports = false,
-            req.session.data.oaktree_farm.manure_system = null,
-            req.session.data.oaktree_farm.manure_system_details = false,
-            req.session.data.oaktree_farm.wash_water = false,
-            req.session.data.oaktree_farm.imports_exports = null,
-            req.session.data.oaktree_farm.rainfall = 600,
-            req.session.data.oaktree_farm.derogation = null,
-            req.session.data.oaktree_farm.ewr = null
-        },
-        print : function () {
-            console.log(this);
-        }
+  req.session.data.oaktree_farm = {
+    resetFarm : function () {
+      req.session.data.oaktree_farm.created = true,
+      req.session.data.oaktree_farm.name = "Oaktree Lane Farm",
+      req.session.data.oaktree_farm.postcode = "NE46 7LQ",
+      req.session.data.oaktree_farm.planning_year = 2026,
+      req.session.data.oaktree_farm.harvest_year = 2026,
+      req.session.data.oaktree_farm.years_planned = []
+      req.session.data.oaktree_farm.nvz = "some",
+      req.session.data.oaktree_farm.elevation = "some",
+      req.session.data.oaktree_farm.use_mvp_fields = false,
+      req.session.data.oaktree_farm.setup = false,
+      req.session.data.oaktree_farm.fields_added = false,
+      req.session.data.oaktree_farm.grass_setup = false,
+      // livestock statuses
+      // 1 Nothing added = null (incomplete)
+      // 2 Copied from loading = copied (incomplete)
+      // 3 Added for inventory = added (complete)
+      req.session.data.oaktree_farm.livestock_loading = null,
+      req.session.data.oaktree_farm.livestock_inventory = null,
+      req.session.data.oaktree_farm.storage_added = false,
+      req.session.data.oaktree_farm.rainwater_area_added = false,
+      req.session.data.oaktree_farm.storage_figures = false,
+      req.session.data.oaktree_farm.low_risk_land_added = null,
+      req.session.data.oaktree_farm.area_added = false,
+      req.session.data.oaktree_farm.manure_exports = false,
+      req.session.data.oaktree_farm.manure_imports = false,
+      req.session.data.oaktree_farm.manure_system = null,
+      req.session.data.oaktree_farm.manure_system_details = false,
+      req.session.data.oaktree_farm.wash_water = false,
+      req.session.data.oaktree_farm.imports_exports = null,
+      req.session.data.oaktree_farm.rainfall = 600,
+      req.session.data.oaktree_farm.derogation = null,
+      req.session.data.oaktree_farm.ewr = null
+  },
+  print : function () {
+      console.log(this);
     }
+}
 
     req.session.data.oaktree_farm.resetFarm()
     // req.session.data.oaktree_farm.print()
 
     // control vars  
     req.session.data.show_success_message = false
-    req.session.data.tempField = tempField
+    req.session.data.temp_field = temp_field
     req.session.data.chosen_field = null
     req.session.data.crop_group = null
     req.session.data.chosen_crop = null
@@ -87,26 +89,28 @@ router.get('/', function (req, res) {
     req.session.data.imports_exports = null
     req.session.data.livestock_update_journey = false
     req.session.data.wash_area_name = 'Washed area 1'
+    req.session.data.example_date = "27 3 2026"
+    req.session.data.update_date = "22 September 2025"
     
 
     //content
-    req.session.data.manure_types_digestate = manure_types_digestate
-    req.session.data.manure_types_other = manure_types_other
-    req.session.data.manure_types_biosolid = manure_types_biosolid
-    req.session.data.manure_types_livestock = manure_types_livestock
-    req.session.data.manure_types_livestock_groups = manure_types_livestock_groups
-    req.session.data.complete_field_list = complete_field_list
-    req.session.data.potato_details = potato_details
-    req.session.data.crop_types = crop_types
-    req.session.data.livestock_types = livestock_types
-    req.session.data.all_fertiliser_applications = all_fertiliser_applications
-    req.session.data.manure_applications_list = manure_applications_list
+    req.session.data.manure_type_digestate_data = manure_type_digestate_data
+    req.session.data.manure_type_other_data = manure_type_other_data
+    req.session.data.manure_type_biosolid_data = manure_type_biosolid_data
+    req.session.data.manure_type_livestock_data = manure_type_livestock_data
+    req.session.data.manure_type_livestock_groups_data = manure_type_livestock_groups_data
+    req.session.data.field_list_data = field_list_data
+    req.session.data.potato_details_data = potato_details_data
+    req.session.data.crop_types_data = crop_types_data
+    req.session.data.livestock_types_data = livestock_types_data
+    req.session.data.fertiliser_applications_data = fertiliser_applications_data
+    req.session.data.manure_applications_data = manure_applications_data
     req.session.data.show_error = false;
     req.session.data.defoliations = "Cuts and grazings";
 
-    req.session.data.selected_fields = [{"reference":"1", "name":"Long Field", "planStatus":false, "crop": null, "soil": null},
-    {"reference":"2", "name":"Barn Field", "planStatus":false, "crop": null, "soil": null},
-    {"reference":"3", "name":"Orchard", "planStatus":false, "crop": null, "soil": null}]
+    req.session.data.selected_fields = [{"reference":"1", "name":"Long Field",  "crop": null, "soil": null},
+    {"reference":"2", "name":"Barn Field",  "crop": null, "soil": null},
+    {"reference":"3", "name":"Orchard",  "crop": null, "soil": null}]
 
     //set Alpha planning status
     req.session.data.alpha_planning = 0 //0 = not started, 1 = recs, 2 = completed
@@ -117,6 +121,7 @@ router.get('/', function (req, res) {
     req.session.data.manure_journey = null //multi or single
     req.session.data.manure_count = 0
     req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'
+    req.session.data.chosen_manure_fields = []
 
     req.session.data.secondcrop_journey = null //true for second crop
 
@@ -135,18 +140,15 @@ router.get('/', function (req, res) {
     req.session.data.defoliation_five = null
     req.session.data.defoliation_size = null
     req.session.data.weight_type = null
-    req.session.data.grass_total_yield = null
-    req.session.data.grass_total_yield_figure = null
 
     // new fields management
     req.session.data.all_fields = all_fields
 
     // version 5
-    req.session.data.currentCropGroups = []
-    req.session.data.lastCropGroups = []
-    req.session.data.allManureApplications_v2 = []
-    req.session.data.allFertiliserApplications = []
-    req.session.data.livestock_record_2025 = []
+    req.session.data.cropGroups = []
+    req.session.data.manureApplications = []
+    req.session.data.fertiliserApplications = []
+    req.session.data.livestock_record_plan_year = []
 
     //planviews
     req.session.data.plan_version = 2

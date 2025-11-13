@@ -41,7 +41,7 @@
     </h1>
 
     <!-- <p>Enter the estimated date you first plan to apply organic material to the Winter Wheat fields, you can change the date for individual fields later.</p> -->
-    <p>If you do not know the exact date, enter an estimated date, for example, <br>27 3 2023</span>. You can change the date for each field later.</p>
+    <p>If you do not know the exact date, enter an estimated date, for example, <br>{{ data.example_date }}</span>. You can change the date for each field later.</p>
     <p>Remember, based on your crop and soil type, your closed period for spreading manures with high readily available nitrogen is 1 October to 31 January.</p>
 
     <form class="form" action="manuredate_handler?notification=true" method="post">
@@ -78,7 +78,7 @@
                 Year
               </label>
               {% if data.show_manure_notification == true %}
-              <input value="2024" class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+              <input value="2025" class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
               {% else %}
               <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
               {% endif %}

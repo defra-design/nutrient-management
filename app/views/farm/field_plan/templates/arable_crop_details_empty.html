@@ -3,7 +3,7 @@
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Crop</td>
         <td class="govuk-table__cell">
-          {{data.chosen_group.crop_reference | nameconverter}}
+          {{data.chosen_field.crop_id | nameconverter}}
         </td>
     </tr>      
     <tr class="govuk-table__row">
@@ -12,7 +12,7 @@
     </tr>         
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Group</td>
-        <td class="govuk-table__cell">{{data.chosen_group.groupname}}</td>
+        <td class="govuk-table__cell">Crop group {{data.chosen_field.group_id}}</td>
     </tr>      
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Planting date</td>
@@ -21,14 +21,10 @@
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Estimated yield</td>
       <td class="govuk-table__cell">
-        {% if group.yield == null %}
-          Not entered
-        {% else %}
-          {{group.yield}} tonnes
-        {% endif %}
+        10 tonnes
       </td>
     </tr>
-    {% if data.chosen_group.crop_reference == 'Wheat-Winter' %}
+    {% if data.chosen_field.crop_id == 'Wheat-Winter' %}
       <tr class="govuk-table__row">
         <td class="govuk-table__cell strong">Crop use</td>
         <td class="govuk-table__cell">Not entered</td>

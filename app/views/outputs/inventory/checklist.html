@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Create a livestock manure nitrogen (N) farm limit report 2025
+  Create a livestock manure nitrogen (N) farm limit report {{data.oaktree_farm.planning_year}}
 {% endblock %}
 
 {% block header %}
@@ -27,7 +27,7 @@
       </h1>
 
       <h2 class="govuk-heading-m">
-        October 2024 to September 2025
+        October {{data.oaktree_farm.planning_year}} to September {{data.oaktree_farm.planning_year + 1}}
       </h2>
 
       <p class="govuk-hint">

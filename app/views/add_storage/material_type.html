@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-   Question – Add organic material storage -  {{ serviceName }} – GOV.UK
+   Question – Add manure storage -  {{ serviceName }} – GOV.UK
 {% endblock %}
 
 {% block header %}
@@ -21,7 +21,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        What kind of manure storage do you want to add?
+        What type of manure storage do you want to add?
       </h1>
 
       <p class="govuk-hint">Choose one option.</p>
@@ -34,7 +34,7 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="manure" name="material_type" type="radio" value="solid manure">
                 <label class="govuk-label govuk-radios__label" for="manure">
-                  Solid manure storage
+                  Solid manure storage (on concrete or in livestock housing)
                 </label>
               </div>
               <div class="govuk-radios__item">
@@ -43,12 +43,12 @@
                   Slurry storage
                 </label>
               </div>
-              <div class="govuk-radios__item">
+              <!-- <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="dirty_water" name="material_type" type="radio" value="dirty water">
                 <label class="govuk-label govuk-radios__label" for="dirty_water">
                   Dirty water storage
                 </label>
-              </div>
+              </div> -->
             </div>
           </fieldset>
         </div>

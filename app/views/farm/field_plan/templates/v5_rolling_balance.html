@@ -8,14 +8,14 @@
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Nutrient</th>
-        <th scope="col" class="govuk-table__header">Balance from 2024</th>
+        <th scope="col" class="govuk-table__header">Balance from {{data.oaktree_farm.planning_year-1}}</th>
       </tr>
     </thead>
     <tbody class="govuk-table__body">
       <tr class="govuk-table__row">
         <td class="govuk-table__cell">Phosphate (P2O5)</td>
         <td class="govuk-table__cell">
-            {% if data.oaktree_farm.planning_year == 2024 %}
+            {% if data.oaktree_farm.planning_year == 2025 %}
               Not available
             {% else %}
             0
@@ -25,7 +25,7 @@
       <tr class="govuk-table__row">
         <td class="govuk-table__cell">Potash (K2O)</td>
         <td class="govuk-table__cell">
-          {% if data.oaktree_farm.planning_year == 2024 %}
+          {% if data.oaktree_farm.planning_year == 2025 %}
             Not available
           {% else %}
             0

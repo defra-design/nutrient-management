@@ -45,15 +45,15 @@
         </p>
         <ul class="govuk-list govuk-list--bullet">
           {% if data.oaktree_farm.livestock_loading == false %}
-            <li>Livestock numbers for 2025</li>
+            <li>Livestock numbers for {{data.oaktree_farm.planning_year}}</li>
           {% endif %}
 
           {% if data.oaktree_farm.manure_exports == false %}
-            <li>Any imports or exports of livestock manure for 2025</li>
+            <li>Any imports or exports of livestock manure for {{data.oaktree_farm.planning_year}}</li>
           {% endif %}
 
           <!-- {% if data.oaktree_farm.derogation == null %}
-            <li>If {{data.oaktree_farm.name}} has a derogation for 2025</li>
+            <li>If {{data.oaktree_farm.name}} has a derogation for {{data.oaktree_farm.planning_year}}</li>
           {% endif %} -->
 
         </ul>

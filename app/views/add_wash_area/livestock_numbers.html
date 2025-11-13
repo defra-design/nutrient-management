@@ -22,16 +22,16 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      What is the number of each cattle type using {{data.wash_area_name}} in October 2024?
+      What is the number of each cattle type using {{data.wash_area_name}} in October {{data.oaktree_farm.planning_year}}?
     </h1>
 
     <p class="govuk-body">
-      These are the numbers you added for October 2024 when you added this cattle type.
+      These are the numbers you added for October {{data.oaktree_farm.planning_year}} when you added this cattle type.
     </p>
 
   
     <form action="water_days" method="post" novalidate="">
-      {% for livestock_type in data.livestock_record_2025 %}
+      {% for livestock_type in data.livestock_record_plan_year %}
         {% if livestock_type.type == 'cattle' %}
           <div class="govuk-form-group">
             <label class="govuk-label" for="total_area">

@@ -40,7 +40,7 @@
           <fieldset class="govuk-fieldset">
             <div class="govuk-radios" data-module="govuk-radios">
 
-              {% for animal in data.livestock_types %}
+              {% for animal in data.livestock_types_data %}
                 {% if animal.type == data.livestock_group %}
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="{{animal.reference}}" name="livestock_reference" type="radio" value="{{animal.reference}}">

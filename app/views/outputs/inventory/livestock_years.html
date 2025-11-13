@@ -21,7 +21,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Manure systems 2025
+        Manure systems {{data.oaktree_farm.planning_year}}
       </h1>
 
       <p class="govuk-body">
@@ -37,7 +37,7 @@
       </h2>
       <div class="check-answers margin-bottom-forty">
         <ul class="govuk-task-list">
-        {% for livestock_type in data.livestock_record_2025 %}
+        {% for livestock_type in data.livestock_record_plan_year %}
           {% if livestock_type.type == 'cattle' %}
             <li class="govuk-task-list__item govuk-task-list__item--with-link">
               <div class="govuk-task-list__name-and-hint">

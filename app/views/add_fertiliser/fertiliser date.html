@@ -41,13 +41,13 @@
         {% if data.manure_journey == 'multi' %}
           When are you applying {{data.manure_type.name}} on these fields?
         {% else %}
-          When are you applying {{data.manure_type.name}} on {{data.chosen_field.name}}?
+          When are you applying {{data.manure_type.name}} on {{data.chosen_field.field_name}}?
         {% endif %}
       {% else %}
         {% if data.manure_journey == 'multi' %}
           When are you applying {{data.manure_type.name}} on these fields?
         {% else %}
-          When are you applying {{data.manure_type.name}} on {{data.chosen_field.name}}?
+          When are you applying {{data.manure_type.name}} on {{data.chosen_field.field_name}}?
         {% endif %}
       {% endif %}
     </h1>
@@ -58,14 +58,14 @@
         <!-- <div class="govuk-inset-text"> -->
           <div id="closed-period">
             <p class="">Your closed period for spreading organic materials with high readily available nitrogen is:</p>
-            <h3 class="govuk-heading-s closed-date">1 October 2024 to 31 January 2025</h3>
+            <h3 class="govuk-heading-s closed-date">1 October {{data.oaktree_farm.harvest_year}} to 31 January {{data.oaktree_farm.harvest_year + 1}}</h3>
             <p>Based on your crop, soil type and farm details.</p>
           </div>
           <p class="govuk-body">
             If you do not know the exact application date enter an estimate. You can change it later.
           </p>
           <div class="govuk-hint">
-            The date format is 21 06 2024.
+            The date format is 21 06 {{data.oaktree_farm.planning_year}}.
           </div>
         <!-- </div> -->
           <div class="govuk-date-input" id="passport-issued">

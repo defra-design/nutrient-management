@@ -31,7 +31,7 @@
 
       {% set total_n = 0 %}
 
-      {% for animal in data.livestock_record_2025 %}
+      {% for animal in data.livestock_record_plan_year %}
         {% if animal.type == livestock_type %}
           {% set animal_total = animal.total * animal.nitrogen %}
           {% set total_n = total_n + animal_total %}

@@ -25,14 +25,14 @@
     <form action="storage_figures_handler" method="post" novalidate="">
 
       <h1 class="govuk-heading-l">Manure storage capacity </h1>
-      <p class="govuk-body">October 2024 to September 2025</p>
+      <p class="govuk-body">October {{data.oaktree_farm.planning_year}} to September {{data.oaktree_farm.planning_year + 1}}</p>
 
       {% if data.oaktree_farm.storage_added == true %}
         <p class="govuk-body">
-          These values are taken from your 2025 existing manure inventory report. 
+          These values are taken from your {{data.oaktree_farm.planning_year}} existing manure inventory report. 
         </p>
         <p class="govuk-body">
-          Changing these values here will not update your 2025 existing manure inventory report.
+          Changing these values here will not update your {{data.oaktree_farm.planning_year}} existing manure inventory report.
         </p>
       {% endif %}
       

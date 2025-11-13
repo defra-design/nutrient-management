@@ -57,13 +57,13 @@
             <div class="govuk-radios govuk-radios" data-module="govuk-radios">
 
               <!-- {{ monthitem(2027, 2028)}}
-              {{ monthitem(2026, 2027)}} -->
-              {{ monthitem(2025, 2026)}}
-              {{ monthitem(2024, 2025)}}
-              {{ monthitem(2023, 2024)}}
-              {{ monthitem(2022, 2023)}}
-              {{ monthitem(2021, 2022)}}
-              {{ monthitem(2020, 2021)}}
+              {{ monthitem(data.oaktree_farm.planning_year+1, 2027)}} -->
+              {{ monthitem(data.oaktree_farm.planning_year, data.oaktree_farm.planning_year +1) }}
+              {{ monthitem(data.oaktree_farm.planning_year-1, data.oaktree_farm.planning_year) }}
+              {{ monthitem(data.oaktree_farm.planning_year-2, data.oaktree_farm.planning_year-1) }}
+              {{ monthitem(data.oaktree_farm.planning_year-3, data.oaktree_farm.planning_year-2) }}
+              {{ monthitem(data.oaktree_farm.planning_year-4, data.oaktree_farm.planning_year-3) }}
+              {{ monthitem(data.oaktree_farm.planning_year-5, data.oaktree_farm.planning_year-4) }}
 
             </div>
           </fieldset>

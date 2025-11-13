@@ -20,12 +20,12 @@ Question – {{ serviceName }} – GOV.UK
   <div class="govuk-grid-column-two-thirds-from-desktop">
     
     <h1 class="govuk-heading-l">
-      Update the {{data.chosen_group.crop_reference | nameconverter}} details for {{data.chosen_field.name}} 
+      Update the {{data.chosen_field.crop_id | nameconverter}} details for {{data.chosen_field.field_name}} 
     </h1>
 
     <div class="govuk-inset-text margin-bottom-forty">
       <p class="govuk-body">
-        Changes here will be applied to {{data.chosen_field.name}} only. To change multiple fields at once you can <a href="../../updates/crop/change_crop">update this crop group</a>.
+        Changes here will be applied to {{data.chosen_field.field_name}} only. To change multiple fields at once you can <a href="../../updates/crop/change_crop">update this crop group</a>.
       </p>
     </div>
 
@@ -46,19 +46,19 @@ Question – {{ serviceName }} – GOV.UK
  -->
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the crop type?</dt>
-          <dd class="govuk-summary-list__value">{{data.chosen_group.crop_reference | nameconverter}}</dd>
+          <dd class="govuk-summary-list__value">{{data.chosen_field.crop_id | nameconverter}}</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 
-        {% if data.chosen_group.crop_reference != 'grass' %}
+        {% if data.chosen_field.crop_id != 'grass' %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">What is the variety name (optional)?</dt>
             <dd class="govuk-summary-list__value">   
               {% if  data.new_variety != null %}
                 {{data.new_variety}}
               {% else %}
-                {% if data.chosen_group.variety.length > 0 %}
-                  {{data.chosen_group.variety}}
+                {% if data.chosen_field.variety.length > 0 %}
+                  {{data.chosen_field.variety}}
                 {% else %}
                   Not entered
                 {% endif %}
@@ -76,17 +76,17 @@ Question – {{ serviceName }} – GOV.UK
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Crop group</dt>
-          <dd class="govuk-summary-list__value">Crop Group 3</dd>
+          <dd class="govuk-summary-list__value">Crop Group {{data.chosen_field.group_id}}</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="./group/group_question">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Do you have a date for when you planted your {{data.chosen_group.crop_reference | nameconverter}}, or when you will plant it?</dt>
+          <dt class="govuk-summary-list__key">Do you have a date for when you planted your {{data.chosen_field.crop_id | nameconverter}}, or when you will plant it?</dt>
           <dd class="govuk-summary-list__value">
-            {% if data.chosen_group.planting_date == null %}
+            {% if data.chosen_field.planting_date == null %}
               Not entered
             {% else %}
-              {{data.chosen_group.planting_date}}
+              {{data.chosen_field.planting_date}}
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="updates/crop/date/change_date_value">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
@@ -113,7 +113,7 @@ Question – {{ serviceName }} – GOV.UK
       </dl>    
     </div>
     
-    <p class="govuk-body margin-bottom-forty">You can also <a href="">remove {{data.chosen_group.crop_reference | nameconverter}} from {{data.chosen_field.name}} in 2025</a>.</p>
+    <p class="govuk-body margin-bottom-forty">You can also <a href="">remove {{data.chosen_field.crop_id | nameconverter}} from {{data.chosen_field.field_name}} in {{data.oaktree_farm.planning_year}}</a>.</p>
 
 
     <form action="crop_group_update_v7_handler" method="post" novalidate>

@@ -8,8 +8,8 @@ const addFilter = govukPrototypeKit.views.addFilter
 
 // const allFunctions = require('../functions/allFunctions.js');
 
-const crop_types = require('./data/crops.json');
-const fields = require('./data/complete_field_list');
+const crop_types_data = require('./data/crop_types.json');
+const fields = require('./data/field_list');
 
 // addFilter('uppercase', function (content) {
 //   return content.toUpperCase()
@@ -30,9 +30,9 @@ addFilter('removewhite', function (content) {
 })
 
 addFilter('nameconverter', function (crop_name) {
-    for (var x in crop_types) {
-        if (crop_name == crop_types[x].reference) {
-            crop_name = crop_types[x].prettyname;
+    for (var x in crop_types_data) {
+        if (crop_name == crop_types_data[x].reference) {
+            crop_name = crop_types_data[x].prettyname;
         }
     }
     return crop_name
@@ -102,8 +102,8 @@ addFilter('cropgroupconverter', function (group_name) {
 addFilter('fieldnameconverter', function (field_reference) {
     let field_name = ''
     for (var x in fields) {
-        if (field_reference == fields[x].reference) {
-            field_name = fields[x].name;
+        if (field_reference == fields[x].field_id) {
+            field_name = fields[x].field_name;
         }
     }
     if (field_name == '') {

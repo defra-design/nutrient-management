@@ -33,20 +33,20 @@
     <!-- <p class="govuk-body"><a href="">Split this field or merge it with another</a></p> -->
 
     <!-- <div class="govuk-inset-text">
-      This field was merged with Short Field on 3 February 2025
+      This field was merged with Short Field on 3 February 2026
     </div> -->
 
     <!-- <table class="govuk-table recomendation-table data-table data-table">
       <tbody class="govuk-table__body">
         {% for field in data.all_fields %}
-          {% if field.name == data.chosen_field %}
+          {% if field.field_name == data.chosen_field %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Name</td>
-              <td class="govuk-table__cell">{{field.name}}</td>
+              <td class="govuk-table__cell">{{field.field_name}}</td>
             </tr>
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Date added</td>
-              <td class="govuk-table__cell">22 August 2025</td>
+              <td class="govuk-table__cell">22 August 2026</td>
             </tr>
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Field area</td>
@@ -61,7 +61,7 @@
       <tbody class="govuk-table__body">
         <!-- <tr class="govuk-table__row">
           <td class="govuk-table__cell">Date added</td>
-          <td class="govuk-table__cell">22 September 2025</td>
+          <td class="govuk-table__cell">22 September 2026</td>
         </tr>       -->
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Field area</td>
@@ -92,15 +92,15 @@
           <td class="govuk-table__cell">No</td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Crop in 2024</td>
+          <td class="govuk-table__cell">Crop in {{data.oaktree_farm.planning_year}}</td>
           <td class="govuk-table__cell">Winter Wheat</td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Crop in 2023</td>
+          <td class="govuk-table__cell">Crop in {{data.oaktree_farm.planning_year-1}}</td>
           <td class="govuk-table__cell">Grass</td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Crop in 2022</td>
+          <td class="govuk-table__cell">Crop in {{data.oaktree_farm.planning_year-2}}</td>
           <td class="govuk-table__cell">Grass</td>
         </tr>
         <tr class="govuk-table__row">
@@ -135,7 +135,7 @@
         </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row right-last">
-            <td class="govuk-table__cell">13 March 2023</td>
+            <td class="govuk-table__cell">13 March {{data.oaktree_farm.planning_year}}</td>
             <td class="govuk-table__cell">
               <a href="change_soil">Change</a>
             </td>

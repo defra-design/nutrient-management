@@ -24,7 +24,7 @@
       {% endif %}
       
       <h1 class="govuk-heading-l">
-        Add all the organic material storage on {{data.oaktree_farm.name}}, between October 2024 and September 2025
+        Add all the manure storage on {{data.oaktree_farm.name}}, between October {{data.oaktree_farm.planning_year}} and September {{data.oaktree_farm.planning_year +1}}
       </h1>
 
     </div>
@@ -37,7 +37,7 @@
       <div class="margin-bottom-twenty">
         <form action="../../add_storage/material_type" method="post" novalidate="">
           <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            Add organic material storage
+            Add manure storage
           </button>
         </form>
       </div>

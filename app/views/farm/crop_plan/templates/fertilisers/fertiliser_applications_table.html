@@ -10,7 +10,7 @@
       </tr>
   </thead>
   <tbody class="govuk-table__body">
-    {% for application in data.allFertiliserApplications %}
+    {% for application in data.fertiliserApplications %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell"> {{application.date}}</td>
           <td class="govuk-table__cell">{{application.field}}</td>
@@ -60,7 +60,7 @@
   </tbody>
 </table>
 
-<!-- {% for x in data.allFertiliserApplications %}
+<!-- {% for x in data.fertiliserApplications %}
    {{x.Field}}
 {% endfor %} -->
 
@@ -69,10 +69,10 @@
 
 
 <!-- TEST
-{% for application in data.allFertiliserApplications %}
+{% for application in data.fertiliserApplications %}
   {{application.reference}}<br>
   {% for field in application.chosenFields %}
-    {{field.name}}<br>
+    {{field.field_name}}<br>
   {% endfor %}
   {{application.nutrients}}<br>
   {{application.rate}}<br>
@@ -95,7 +95,7 @@
 
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">25 acres</td>
-      <td class="govuk-table__cell">20/09/2023</td>
+      <td class="govuk-table__cell">20/09/{{data.oaktree_farm.planning_year-1}}</td>
       <td class="govuk-table__cell">288kg</td>
       <td class="govuk-table__cell">
         56kg Potash (K2O)
@@ -105,7 +105,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Barns</td>
-      <td class="govuk-table__cell">20/09/2023</td>
+      <td class="govuk-table__cell">20/09/{{data.oaktree_farm.planning_year-1}}</td>
       <td class="govuk-table__cell">280kg</td>
       <td class="govuk-table__cell">
         56kg Phosphate (P2O5)
@@ -117,7 +117,7 @@
 
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Hops 1</td>
-      <td class="govuk-table__cell">01/09/2023</td>
+      <td class="govuk-table__cell">01/09/{{data.oaktree_farm.planning_year-1}}</td>
       <td class="govuk-table__cell">280kg</td>
       <td class="govuk-table__cell">
         56kg Phosphate (P2O5)
@@ -127,7 +127,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Hops 1</td>
-      <td class="govuk-table__cell">01/03/2025</td>
+      <td class="govuk-table__cell">01/03/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">120kg</td>
       <td class="govuk-table__cell">
         41kg Nitrogen (N)
@@ -136,7 +136,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Hops 1</td>
-      <td class="govuk-table__cell">22/03/2025</td>
+      <td class="govuk-table__cell">22/03/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">200kg</td>
       <td class="govuk-table__cell">
         69kg Nitrogen (N)
@@ -145,7 +145,7 @@
     </tr>
       <tr class="govuk-table__row">
       <td class="govuk-table__cell">Hops 1</td>
-      <td class="govuk-table__cell">02/04/2025</td>
+      <td class="govuk-table__cell">02/04/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">200kg</td>
       <td class="govuk-table__cell">
         69kg Nitrogen (N)
@@ -156,7 +156,7 @@
 
     <tr class="govuk-table__row"></tr>
       <td class="govuk-table__cell">Long field</td>
-      <td class="govuk-table__cell">01/09/2023</td>
+      <td class="govuk-table__cell">01/09/{{data.oaktree_farm.planning_year-1}}</td>
       <td class="govuk-table__cell">280kg</td>
       <td class="govuk-table__cell">
         56kg Phosphate (P2O5)
@@ -166,7 +166,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Long field</td>
-      <td class="govuk-table__cell">01/03/2025</td>
+      <td class="govuk-table__cell">01/03/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">120kg</td>
       <td class="govuk-table__cell">
         41kg Nitrogen (N)
@@ -175,7 +175,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Long field</td>
-      <td class="govuk-table__cell">22/03/2025</td>
+      <td class="govuk-table__cell">22/03/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">200kg</td>
       <td class="govuk-table__cell">
         69kg Nitrogen (N)
@@ -184,7 +184,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Long field</td>
-      <td class="govuk-table__cell">02/04/2025</td>
+      <td class="govuk-table__cell">02/04/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">200kg</td>
       <td class="govuk-table__cell">
         69kg Nitrogen (N)
@@ -195,7 +195,7 @@
 
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Narrow land</td>
-      <td class="govuk-table__cell">12/09/2023</td>
+      <td class="govuk-table__cell">12/09/{{data.oaktree_farm.planning_year-1}}</td>
       <td class="govuk-table__cell">288kg</td>
       <td class="govuk-table__cell">
         60kg Phosphate (P2O5)
@@ -205,7 +205,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Narrow land</td>
-      <td class="govuk-table__cell">01/03/2025</td>
+      <td class="govuk-table__cell">01/03/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">288kg</td>
       <td class="govuk-table__cell">
         40kg Nitrogen (N)
@@ -215,7 +215,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Narrow land</td>
-      <td class="govuk-table__cell">02/04/2025</td>
+      <td class="govuk-table__cell">02/04/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">288kg</td>
       <td class="govuk-table__cell">
         70kg Nitrogen (N)
@@ -224,7 +224,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Narrow land</td>
-      <td class="govuk-table__cell">26/04/2025</td>
+      <td class="govuk-table__cell">26/04/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">288kg</td>
       <td class="govuk-table__cell">
         70kg Nitrogen (N)
@@ -235,7 +235,7 @@
 
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Oaks</td>
-      <td class="govuk-table__cell">12/09/2023</td>
+      <td class="govuk-table__cell">12/09/{{data.oaktree_farm.planning_year-1}}</td>
       <td class="govuk-table__cell">288kg</td>
       <td class="govuk-table__cell">
         60kg Phosphate (P2O5)
@@ -245,7 +245,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Oaks</td>
-      <td class="govuk-table__cell">01/03/2025</td>
+      <td class="govuk-table__cell">01/03/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">288kg</td>
       <td class="govuk-table__cell">
         40kg Nitrogen (N)
@@ -255,7 +255,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Oaks</td>
-      <td class="govuk-table__cell">02/04/2025</td>
+      <td class="govuk-table__cell">02/04/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">288kg</td>
       <td class="govuk-table__cell">
         70kg Nitrogen (N)
@@ -264,7 +264,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Oaks</td>
-      <td class="govuk-table__cell">26/04/2025</td>
+      <td class="govuk-table__cell">26/04/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">288kg</td>
       <td class="govuk-table__cell">
         70kg Nitrogen (N)
@@ -275,7 +275,7 @@
 
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Poplar</td>
-      <td class="govuk-table__cell">01/03/2025</td>
+      <td class="govuk-table__cell">01/03/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">288kg</td>
       <td class="govuk-table__cell">
         40kg Nitrogen (N)
@@ -286,7 +286,7 @@
     <tr class="govuk-table__row">
       <tr class="govuk-table__row">
       <td class="govuk-table__cell">Poplar</td>
-      <td class="govuk-table__cell">01/04/2025</td>
+      <td class="govuk-table__cell">01/04/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">288kg</td>
       <td class="govuk-table__cell">
         70kg Nitrogen (N)
@@ -295,7 +295,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Poplar</td>
-      <td class="govuk-table__cell">01/05/2025</td>
+      <td class="govuk-table__cell">01/05/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">288kg</td>
       <td class="govuk-table__cell">
         70kg Nitrogen (N)
@@ -306,7 +306,7 @@
     </tr>
       <tr class="govuk-table__row">
       <td class="govuk-table__cell">Valley</td>
-      <td class="govuk-table__cell">01/09/2023</td>
+      <td class="govuk-table__cell">01/09/{{data.oaktree_farm.planning_year-1}}</td>
       <td class="govuk-table__cell">288kg</td>
       <td class="govuk-table__cell">
         70kg Nitrogen (N)
@@ -315,7 +315,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Valley</td>
-      <td class="govuk-table__cell">01/03/2025</td>
+      <td class="govuk-table__cell">01/03/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">288kg</td>
       <td class="govuk-table__cell">
         40kg Nitrogen (N)
@@ -324,7 +324,7 @@
       <td class="govuk-table__cell"><a href="">Change</a></td>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Valley</td>
-      <td class="govuk-table__cell">01/05/2025</td>
+      <td class="govuk-table__cell">01/05/{{data.oaktree_farm.planning_year}}</td>
       <td class="govuk-table__cell">288kg</td>
       <td class="govuk-table__cell">
         70kg Nitrogen (N)

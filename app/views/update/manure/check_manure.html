@@ -5,7 +5,7 @@
     <!-- {% if data.manure_journey == 'multi' %}
       <dd class="govuk-summary-list__value">The winter wheat fields</dd>
     {% else %}
-      <dd class="govuk-summary-list__value">{{data.chosen_field.name}}</dd>
+      <dd class="govuk-summary-list__value">{{data.chosen_field.field_name}}</dd>
     {% endif %} -->
     <dd class="govuk-summary-list__value">
     </dd>
@@ -24,7 +24,7 @@
       {% if data.manure_journey == 'multi' %}
         these fields
       {% else %}
-        {{data.chosen_field.name}}
+        {{data.chosen_field.field_name}}
       {% endif %}
       again, in the same way? 
     </dt>
@@ -41,7 +41,7 @@
   {% if data.manure_count != 0 %}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">When will you next apply {{data.manure_type}} to these fields?</dt>
-      <dd class="govuk-summary-list__value">30 August 2024</dd>
+      <dd class="govuk-summary-list__value">30 August {{data.oaktree_farm.planning_year}}</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
     {% endif %}

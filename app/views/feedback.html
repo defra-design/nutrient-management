@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_not_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Give feedback
+    </h1>
+
+    <p class="govuk-body">
+      We use your feedback to improve our services.
+    </p>
+    <p class="govuk-body">
+      See the DEFRA Privacy Notice for details about how we collect, use, protect and secure your personal information.
+    </p>
+    <p class="govuk-body">
+      The survey takes about 1 minute to complete. There are [] questions and they are all optional.
+    </p>
+
+    <form class="form" action="feedback_done" method="post">
+    
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+            <label class="govuk-label" for="event-name">
+              Were you able to complete your task today?
+            </label>
+
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="changedName">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="changedName-2">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      
+      {{ govukButton({
+        text: "Submit"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

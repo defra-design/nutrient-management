@@ -47,20 +47,20 @@
 
     <form action="annual_separator" method="post" novalidate="">
 
-    {{ monthitem ("October", "2024") }}
+    {{ monthitem ("October", data.oaktree_farm.planning_year) }}
     <!-- <a class="govuk-body" href="">Copy October's number to the following months</a> -->
-    {{ monthitem ("November", "2024") }}
-    {{ monthitem ("December", "2024") }}
-    {{ monthitem ("January", "2025") }}
-    {{ monthitem ("February", "2025") }}
-    {{ monthitem ("March", "2025") }}
-    {{ monthitem ("April", "2025") }}
-    {{ monthitem ("May", "2025") }}
-    {{ monthitem ("June", "2025") }}
-    {{ monthitem ("July", "2025") }}
-    {{ monthitem ("August", "2025") }}
+    {{ monthitem ("November", data.oaktree_farm.planning_year) }}
+    {{ monthitem ("December", data.oaktree_farm.planning_year) }}
+    {{ monthitem ("January", data.oaktree_farm.planning_year + 1) }}
+    {{ monthitem ("February", data.oaktree_farm.planning_year + 1) }}
+    {{ monthitem ("March", data.oaktree_farm.planning_year + 1) }}
+    {{ monthitem ("April", data.oaktree_farm.planning_year + 1) }}
+    {{ monthitem ("May", data.oaktree_farm.planning_year + 1) }}
+    {{ monthitem ("June", data.oaktree_farm.planning_year + 1) }}
+    {{ monthitem ("July", data.oaktree_farm.planning_year + 1) }}
+    {{ monthitem ("August", data.oaktree_farm.planning_year + 1) }}
     <div class="margin-bottom-forty">
-      {{ monthitem ("September", "2025") }}
+      {{ monthitem ("September", data.oaktree_farm.planning_year) }}
     </div>
 
     <button class="govuk-button margin-bottom-forty" data-module="govuk-button">

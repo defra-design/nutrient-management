@@ -21,7 +21,7 @@
     <div class="govuk-grid-column-two-thirds">
       {% set manureName = '' %}
 
-      {% for x in data.manure_types_livestock_groups %}
+      {% for x in data.manure_type_livestock_groups_data %}
         {% if x.type == data.manure_type %}
           {% set manureName = x.name %}
         {% endif %}

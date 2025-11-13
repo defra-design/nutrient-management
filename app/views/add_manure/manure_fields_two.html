@@ -33,12 +33,12 @@
           </div>
           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
 
-          {% for group in data.currentCropGroups %}
-            {% for field in group.fields %}
+          {% for group in data.cropGroups %}
+            {% for field in group.field_list %}
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id={{field.reference}} name="manure_fields" type="checkbox" value={{field.reference}}>
-              <label class="govuk-label govuk-checkboxes__label" for={{field.reference}}>
-                {{field.name}} 
+              <input class="govuk-checkboxes__input" id={{field}} name="chosen_manure_fields" type="checkbox" value={{field}}>
+              <label class="govuk-label govuk-checkboxes__label" for={{field}}>
+                {{field | fieldnameconverter}} 
               </label>
             </div>
             {% endfor %} 

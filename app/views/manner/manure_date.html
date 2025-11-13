@@ -48,14 +48,14 @@
           <!-- <div class="govuk-inset-text"> -->
             <div id="closed-period">
               <p class="">Your closed period for spreading organic materials with high readily available nitrogen is:</p>
-              <h3 class="govuk-heading-s">1 October 2024 to 31 January 2025</h3>
+              <h3 class="govuk-heading-s">1 October {{data.oaktree_farm.planning_year}} to 31 January {{data.oaktree_farm.planning_year + 1}}</h3>
               <p>Based on your crop, soil type and farm details.</p>
             </div>
             <p class="govuk-body">
               If you do not know the exact application date enter an estimate. You can change it later.
             </p>
             <div class="govuk-hint">
-              The date format is 21 06 2024.
+              The date format is 21 06 {{data.oaktree_farm.planning_year}}.
             </div>
           <!-- </div> -->
             <div class="govuk-date-input" id="manure-date">

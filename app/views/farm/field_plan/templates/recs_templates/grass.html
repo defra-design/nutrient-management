@@ -1,0 +1,28 @@
+<p>There are four cuts and grazings in {{data.oaktree_farm.planning_year}}, with nutrient and lime recommendations for each one.</p>
+<hr class="separator_forty">
+
+{% if data.chosen_field.crop_id == 'grass' %}
+  {% if organics == true %}
+    {% include "../v5_grass_one_application.html" ignore missing %}
+  {% else %}
+    {% include "../v5_grass_empty.html" ignore missing %}
+  {% endif %}
+{% endif %}
+
+<p class="govuk-body-s margin-bottom-forty">Crop need is calculated using AHDB Nutrient Management Guide (RB209). Supply from manures calculated using<br> MANNER-NPK (Nutrient Calculation Engine).</p>
+  
+{% include "../v5_rolling_balance.html" ignore missing %}
+
+{% include "../v5_guidance.html" ignore missing %}
+
+<hr class="separator_forty">
+
+<div class="margin-bottom-forty">
+  <h2 class="govuk-heading-s">About recommendations, guidance, and advice</h2>
+  {% include "/templates/recommendations.html" ignore missing %}
+</div>
+
+{% if data.chosen_group.crop_id == 'grass' %}
+  <p class="govuk-body"><a class="govuk-link" href="#">Back to the top</a></p>
+{% endif %}
+

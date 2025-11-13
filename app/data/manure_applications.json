@@ -1,10 +1,10 @@
 [
     {
-        "field": "Poplar",
-        "fieldref": 5,
-        "Crop": "Wheat-Winter",
-        "date": "09/02/2023",
-        "type": "Cattle FYM - old",
+        "group_id": 1,
+        "year": 2025,
+        "field_id": 5,
+        "application_date": "10/09/2025",
+        "manure_id": "Cattle FYM - old",
         "rate": "20",
         "method": "Discharge spreader",
         "incorporation": "Mouldboard plough",
@@ -22,11 +22,11 @@
         "SO3": "2.4"
     },
     {
-        "field": "Valley",
-        "fieldref": 4,
-        "Crop": "Wheat-Winter",
-        "date": "09/02/2023",
-        "type": "Cattle FYM - old",
+        "group_id": 2,
+        "year": 2025,
+        "field_id": 4,
+        "application_date": "09/05/2026",
+        "manure_id": "Cattle FYM - old",
         "rate": "20",
         "method": "Discharge spreader",
         "incorporation": "Mouldboard plough",

@@ -1,5 +1,5 @@
 <h2 class="govuk-heading-m">
-    {{group.crop_reference | nameconverter  }} 
+    {{group.crop_id | nameconverter  }} 
     <span class="nonbold">
       {% if group.variety.length > 0 %}
         ({{group.variety}})
@@ -23,7 +23,7 @@
       {% set manureCount = 0 %}
       {% set inorganicCount = 0 %}
 
-      {% for manureGroup in data.allManureApplications_v2 %}
+      {% for manureGroup in data.manureApplications %}
         {% for groupref in manureGroup.crop_group_references %}
           {% if groupref == group.reference %}
             {% if manureGroup.organic == true %}
@@ -39,7 +39,7 @@
 
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">{{field.name}}</td>
+            <td class="govuk-table__cell">{{field.field_name}}</td>
 
             <td class="govuk-table__cell" class="govuk-table__header">
                 {% if manureCount == 0 %}
@@ -58,7 +58,7 @@
             </td>
 
             <td class="govuk-table__cell">None</td>
-            <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}">View field plan</a></td>
+            <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.field_id}}">View field plan</a></td>
           
           </tr> 
         {% endfor %}

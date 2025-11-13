@@ -24,21 +24,21 @@
     </h1>
 
     <p class="govuk-hint">
-      This will copy the crop and field data. Any planting or sowing dates will be updated to harvest year 2026. All details can be changed later.
+      This will copy the crop and field data. Any planting or sowing dates will be updated to harvest year {{data.oaktree_farm.harvest_year + 1}}. All details can be changed later.
     </p>
 
     <form class="form" action="v4_plancopy_router" method="post">
       <div class="govuk-form-group">
         <div class="govuk-radios--inline" data-module="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="previous" name="plan_copy" type="radio" value="previous">
-            <label class="govuk-label govuk-radios__label" for="previous">
+            <input class="govuk-radios__input" id="yes" name="plan_copy" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="yes">
               Yes
             </label>
           </div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="new" name="plan_copy" type="radio" value="new">
-            <label class="govuk-label govuk-radios__label" for="new">
+            <input class="govuk-radios__input" id="no" name="plan_copy" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="no">
               No
             </label>
           </div>

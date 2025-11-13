@@ -20,24 +20,20 @@
 {% set totalFields = 0 %}
 
 <!-- //use the correct database for the chosen year -->
-{% set cropGroups = data.currentCropGroups %}
-{% if data.oaktree_farm.planning_year == 2024 %}
-  {% set cropGroups = data.lastCropGroups %}
-{% endif  %}
 
-{% for group in cropGroups %}
-  {% for field in group.fields %}
+{% for group in data.cropGroups %}
+  {% for field in group.field_list %}
     {% set totalFields = totalFields + 1 %}
   {% endfor %}
 {% endfor %}
 
 {% set organics = false %}
-{% if data.allManureApplications_v2.length > 0 %}
+{% if data.manureApplications.length > 0 %}
   {% set organics = true %}
 {% endif %}
 
 {% set inorganics = false %}
-{% if data.allFertiliserApplications.length > 0 %}
+{% if data.fertiliserApplications.length > 0 %}
   {% set inorganics = true %}
 {% endif %}
 
@@ -58,7 +54,7 @@
     </h1>
 
     <div id="summary-header" class="margin-bottom-forty">
-      <p class="govuk-body">Last updated 22 September 2025. There are {{totalFields}} fields in this plan.</p>
+      <p class="govuk-body">Last updated {{data.update_date}}. There are {{totalFields}} fields in this plan.</p>
       {% include "./templates/ewr.html" ignore missing %}
       <p class="govuk-body"><a href="/outputs/export">Save or print a report from this plan</a></p>
     </div>

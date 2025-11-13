@@ -21,14 +21,14 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      How much nitrogen (N) has been applied to {{data.temp_field_name}} in 2024?
+      How much nitrogen (N) has been applied to {{data.temp_field_name}} in {{data.oaktree_farm.harvest_year -1}}?
     </h1>
 
     <div id="event-name-hint" class="govuk-hint">
       Include nitrogen (N) from inorganic material, and crop available nitrogen (N) from organic material.
     </div>
 
-    <form class="form" action="set_tempField_data_handler" method="post">
+    <form class="form" action="set_temp_field_data_handler" method="post">
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">

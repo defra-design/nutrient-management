@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody class="govuk-table__body">
-      {% for animal in data.livestock_record_2025 %}
+      {% for animal in data.livestock_record_plan_year %}
         {% if animal.type == livestock_type %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">{{animal.name | capitalize}}</td>

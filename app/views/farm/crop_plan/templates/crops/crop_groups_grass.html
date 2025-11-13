@@ -1,75 +1,76 @@
 <div class="tab-left margin-bottom-thirty">
   <h2 class="govuk-heading-m margin-bottom-ten">
-      {{group.crop_reference | nameconverter }} <span class="govuk-body nonbold">- Crop group {{group.reference}}</span>
-      <!-- <span class="nonbold">
-        {% if group.variety.length > 0 %}
-          ({{group.variety}})
-        {% endif %}
-      </span> -->
-    </h2>
-    <!-- <p class="govuk-body"><a href="change_cropgroup_handler?groupref={{group.reference}}&fieldref={{field.reference}}">Update this group</a></p> -->
-  </div>
+    {% if group.crop_id == 'potatoes' %}
+      Potato variety group 1   <span class="govuk-body nonbold">- Crop group {{group.group_id}}</span>
+    {% else %}
+      {{group.crop_id | nameconverter }}  <span class="govuk-body nonbold">- Crop group {{group.group_id}}</span>
+    {% endif %}
+  </h2>
+</div>
 
-  <div class="tab-right">
-    <form class="update-button" action="group_level_plan_v7_handler?groupref={{group.reference}}&year={{group.year}}" method="post" novalidate="">
-      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-        Update this group
-      </button>
-    </form>
-  </div>
+<div class="tab-right">
+  <form class="update-button" action="group_level_plan_v7_handler?groupref={{group.group_id}}" method="post" novalidate="">
+    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Update this group
+    </button>
+  </form>
+</div>
 
-  <table class="group_table govuk-table govuk-table-small margin-bottom-forty">
-    <thead class="govuk-table__head">
-      <tr class="govuk-table__row">
-        <th scope="col" class="govuk-table__header">Field</th>
-        <th scope="col" class="govuk-table__header">Sowing date</th>
-        <th scope="col" class="govuk-table__header">Target yield (per hectare)</th>
-        <th scope="col" class="govuk-table__header">Management</th>
-        <th scope="col" class="govuk-table__header"> </th>
-      </tr>
-    </thead>
+<table class="group_table govuk-table govuk-table-small margin-bottom-forty">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Field</th>
+      <th scope="col" class="govuk-table__header">Sowing date</th>
+      <th scope="col" class="govuk-table__header">Target yield<br>(per hectare)</th>
+      <th scope="col" class="govuk-table__header">Management</th>
+      <th scope="col" class="govuk-table__header"> </th>
+    </tr>
+  </thead>
 
-    {% for field in group.fields %}
+  <!-- set the manure applications -->
+  {% set manureCount = 0 %}
+  {% set inorganicCount = 0 %}
 
-    {% set manureCount = 0 %}
-    {% set inorganicCount = 0 %}
-
-    {% for manureitem in data.allManureApplications_v2 %}
-      {% if manureitem.fieldref == field.reference %}
-          {% set manureCount = manureCount + 1 %}
-        {% endif %}
+  {% for field in group.field_list %}
+    {% for manureitem in data.manureApplications %}
+      {% if manureitem.fieldref == field.field_id %}
+        {% set manureCount = manureCount + 1 %}
+      {% endif %}
     {% endfor %}
-
-    {% for fertitem in data.allFertiliserApplications %}
-    {% if fertitem.fieldref == field.reference %}
+    {% for fertitem in data.fertiliserApplications %}
+      {% if fertitem.fieldref == field.field_id %}
         {% set inorganicCount = inorganicCount + 1 %}
       {% endif %}
     {% endfor %}
+  {% endfor %}
 
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell field-name">{{field.name}}</td>
-          <td class="govuk-table__cell field-name">
-            Not entered
-          </td>
-          <td class="govuk-table__cell field-name">
-            {% if group.yield == null %}
-              Not entered
-            {% else %}
-              {{group.yield}} tonnes
-            {% endif %}
-          </td>
-          <td class="govuk-table__cell">
-            Cut, Graze, Graze, Graze
-            <!-- {% if group.year == 2024 %}
-              Not entered
-            {% else %}
-              Cut, Graze, Graze, Graze
-            {% endif %} -->
-          </td>
-          <td class="grass-link govuk-table__cell"><a href="field_level_plan_v5_handler?groupref={{group.reference}}&fieldref={{field.reference}}&year={{group.year}}">Update field or view recommendations</a></td>
-        </tr> 
+  <tbody class="govuk-table__body">
+    {% for x in group.field_list %}
+      {% for field in data.all_fields %}
+        {% if x == field.field_id %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{field.field_name}}</td>
+            <td class="govuk-table__cell field-name">
+              {% if field.planting_date == null %}
+                Not entered
+              {% else %}
+              {{field.planting_date}}
+              {% endif %}
+            </td>
+            <td class="govuk-table__cell field-name">
+                10 tonnes
+            </td>
+            <td class="govuk-table__cell" class="govuk-table__header">
+              {% if group.variety.length > 0 %}
+                {{field.variety}}
+              {% else %}
+                Not entered
+              {% endif %}          
+            </td>
+            <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?fieldref={{field.field_id}}">Update field or view recommendations</a></td>
+          </tr> 
+        {% endif %}
+      {% endfor %}
     {% endfor %}
-
   </tbody>
 </table>

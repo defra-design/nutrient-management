@@ -37,13 +37,13 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="no" name="harvestyear" type="radio" value="no">
               <label class="govuk-label govuk-radios__label" for="no">
-                2024
+                {{data.oaktree_farm.harvest_year - 1}}
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="yes" name="harvestyear" type="radio" value="yes">
               <label class="govuk-label govuk-radios__label" for="yes">
-                2023
+                {{data.oaktree_farm.harvest_year - 2}}
               </label>
             </div>
           </div>

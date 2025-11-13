@@ -22,7 +22,7 @@
       
 
       <h1 class="govuk-heading-l">
-        What is the planting date for {{data.chosen_group.crop_reference | nameconverter}} in these fields?
+        What is the planting date for {{data.chosen_group.crop_id | nameconverter}} in these fields?
       </h1>
 
       <form class="form" action="../change_crop" method="post" autocomplete="off">
@@ -35,7 +35,7 @@
               </h1>
             </legend> -->
             <div id="new_planting_date-hint" class="govuk-hint">
-              For example, 27 3 2023
+              For example, {{ data.example_date }}
             </div>
             <div class="govuk-date-input" id="new_planting_date">
               <div class="govuk-date-input__item">

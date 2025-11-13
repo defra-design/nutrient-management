@@ -1,7 +1,7 @@
 {% extends "govuk-prototype-kit/layouts/unbranded.html" %}
 
 {% block pageTitle %}
-  2025 Nutrient applications
+  {{data.oaktree_farm.planning_year}} Nutrient applications
 {% endblock %}
 
 {% block header %}
@@ -10,7 +10,7 @@
 
 {% block beforeContent %}
   {{ govukBackLink({
-    text: "Back to your 2025 plan",
+    text: "Back to your " + data.oaktree_farm.planning_year + " plan",
     href: "/farm/crop_plan/plan_view"
   }) }}
 {% endblock %}
@@ -52,7 +52,7 @@
     <div class="govuk-grid-column-full">
       
       <h1 class="govuk-heading-xl margin-bottom-twenty">Nutrient application worksheet</h1>
-      <p class="govuk-body">Created on 22 September 2025</p>
+      <p class="govuk-body">Created on 22 September {{data.oaktree_farm.planning_year}}</p>
     </div>
 
   </div>
@@ -96,7 +96,7 @@
         <td class="govuk-table__cell">Winter Wheat</td>
         <td class="govuk-table__cell">Cattle Farmyard Manure - Fresh</td>
         <td class="govuk-table__cell">20kg</td>
-        <td class="govuk-table__cell">01 March 2025</td>
+        <td class="govuk-table__cell">01 March {{data.oaktree_farm.planning_year}}</td>
         <td class="govuk-table__cell border"> </td>
         <td class="govuk-table__cell border"> </td>
       </tr>
@@ -106,7 +106,7 @@
         <td class="govuk-table__cell">Winter Wheat</td>
         <td class="govuk-table__cell">Cattle Farmyard Manure - Fresh</td>
         <td class="govuk-table__cell">20kg</td>
-        <td class="govuk-table__cell">01 March 2025</td>
+        <td class="govuk-table__cell">01 March {{data.oaktree_farm.planning_year}}</td>
         <td class="govuk-table__cell border"> </td>
         <td class="govuk-table__cell border"> </td>
       </tr>
@@ -137,7 +137,7 @@
         <td class="govuk-table__cell">Winter Wheat</td>
         <td class="govuk-table__cell">Nitrogen</td>
         <td class="govuk-table__cell">41kg</td>
-        <td class="govuk-table__cell">01 March 2025</td>
+        <td class="govuk-table__cell">01 March {{data.oaktree_farm.planning_year}}</td>
         <td class="govuk-table__cell border"> </td>
         <td class="govuk-table__cell border"> </td>
       </tr>
@@ -147,7 +147,7 @@
         <td class="govuk-table__cell">Winter Wheat</td>
         <td class="govuk-table__cell">Nitrogen</td>
         <td class="govuk-table__cell">41kg</td>
-        <td class="govuk-table__cell">01 March 2025</td>
+        <td class="govuk-table__cell">01 March {{data.oaktree_farm.planning_year}}</td>
         <td class="govuk-table__cell border"> </td>
         <td class="govuk-table__cell border"> </td>
       </tr>

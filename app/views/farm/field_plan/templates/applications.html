@@ -11,7 +11,7 @@
   </thead>
   <tbody class="govuk-table__body">
 
-    {% for manureapp in data.allManureApplications_v2 %}
+    {% for manureapp in data.manureApplications %}
       {% if manureapp.fieldref == data.fieldref %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">{{manureapp.date}}</td>

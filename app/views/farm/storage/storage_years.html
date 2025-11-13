@@ -40,15 +40,15 @@
         <tbody class="govuk-table__body"> 
           {% if data.oaktree_farm.storage_added == true %} 
             <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">2025</td>
-                <td class="govuk-table__cell">22 September 2025</td>
-                <td class="govuk-table__cell"><a href="storage_year_handler">Update 2025 storage</a></td>
+              <th scope="row" class="govuk-table__header">{{data.oaktree_farm.planning_year}}</td>
+                <td class="govuk-table__cell">22 September {{data.oaktree_farm.planning_year}}</td>
+                <td class="govuk-table__cell"><a href="storage_year_handler">Update {{data.oaktree_farm.planning_year}} storage</a></td>
               </tr>
             {% else %}
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">2025</td>
+                <th scope="row" class="govuk-table__header">{{data.oaktree_farm.planning_year}}</td>
                 <td class="govuk-table__cell">-</td>
-                <td class="govuk-table__cell"><a href="storage_year_handler">Add 2025 storage</a></td>
+                <td class="govuk-table__cell"><a href="storage_year_handler">Add {{data.oaktree_farm.planning_year}} storage</a></td>
               </tr>
             {% endif %}
           </tbody>

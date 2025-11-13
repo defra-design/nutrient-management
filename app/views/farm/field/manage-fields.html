@@ -49,9 +49,9 @@
         <tbody class="govuk-table__body">
           {% for field in data.all_fields %}
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">{{field.name}}</td>
+              <td class="govuk-table__cell">{{field.field_name}}</td>
               <td class="govuk-table__cell  action_link">
-                <a href="field-select-handler?chosen_field={{field.name}}">View field and soil details</a>
+                <a href="field-select-handler?chosen_field={{field.field_name}}">View field and soil details</a>
               </td>
             </tr>
           {% endfor %} 

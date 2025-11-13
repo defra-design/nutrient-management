@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
- Question – Add organic material storage -  {{ serviceName }} – GOV.UK
+ Question – Add manure storage -  {{ serviceName }} – GOV.UK
 {% endblock %}
 
 {% block header %}
@@ -20,7 +20,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      What kind of storage is {{data.storage_name}}?
+      What type of storage is {{data.storage_name}}?
     </h1>
 
     <p class="govuk-hint">Choose one option.</p>
@@ -35,7 +35,7 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="square" name="storage_type" type="radio" value="square">
                 <label class="govuk-label govuk-radios__label" for="square">
-                  Square or rectangular tank
+                  Square or rectangular store
                 </label>
               </div>
 
@@ -49,7 +49,7 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="circular" name="storage_type" type="radio" value="circular">
                 <label class="govuk-label govuk-radios__label" for="circular">
-                  Circular tank
+                  Circular store
                 </label>
               </div>
 

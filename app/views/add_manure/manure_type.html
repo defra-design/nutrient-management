@@ -21,7 +21,11 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      What type of {{ data.manure_group_id | convert_manure_group_id }} are you using in this application?
+      {% if  data.manure_group_id == 'other'%}
+        What type of organic material are you using in this application?
+      {% else %}
+        What type of {{ data.manure_group_id | convert_manure_group_id }} are you using in this application?
+      {% endif %}
     </h1>
 
     <p class="govuk-hint">Select one option. These options come from the AHDB Nutrient Management Guide (RB209).</p>

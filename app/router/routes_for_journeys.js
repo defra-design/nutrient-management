@@ -925,7 +925,8 @@ router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function
     let group_id = req.session.data.manureApplications.length + 1
     let manure_id = req.session.data.manure_type.name
     let year = req.session.data.oaktree_farm.planning_year
-    let field_list = req.session.data.manure_fields
+    let field_list = req.session.data.chosen_manure_fields
+                    console.log('here' + field_list)
     let application_date = req.session.data.manure_date_day + '/' + req.session.data.manure_date_month + '/' + req.session.data.manure_date_year
 
     // let manureType = req.session.data.manure_type.name
@@ -943,6 +944,7 @@ router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function
     field_list = null
     application_date = null
     req.session.data.manure_fields = null
+    console.log(req.session.data.manureApplications)
     res.redirect('/farm/crop_plan/plan_view')
 })
 

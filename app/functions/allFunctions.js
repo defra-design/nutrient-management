@@ -183,6 +183,7 @@ function add_manure_application (group_id, year, field_id, application_date, man
         "MgO": "1.8",
         "SO3": "2.4"
     }
+    console.log(newApplication)
     return newApplication
 }
 

@@ -188,7 +188,7 @@ router.get(/advanced_livestock_reference/, function (req, res) {
         req.session.data.livestock_entry = 'annually'
         next = 'livestock_numbers_average'
     }
-    res.redirect('annual_manure_system')
+    res.redirect('annual_numbers')
     // res.redirect('livestock_numbers')
 })
 
@@ -523,7 +523,7 @@ router.get(/add_inventorynumbers_handler/, callback_functions.hide_error, functi
         }
     }
 	req.session.data.livestock_update_journey = true
-    res.redirect('/add_livestock_inventory/livestock_numbers');
+    res.redirect('/add_livestock_inventory/annual_numbers');
 })
 
 router.get(/add_loadingnumbers_handler/, callback_functions.hide_error, function (req, res) {
@@ -715,6 +715,12 @@ router.get(/wash_area_name_handler/, function (req, res) {
     }
     res.redirect('store')
 })
+
+router.get(/annual_housing_handler/, function (req, res) {
+    req.session.data.chosen_month = req.query.month
+    res.redirect('annual_housing_single')
+})
+
 
 
 module.exports = router

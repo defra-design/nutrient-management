@@ -22,8 +22,10 @@
     <td class="govuk-table__cell">{{name}}</td>
     <td class="govuk-table__cell">{{amount}}%</td>
     <td class="govuk-table__cell">{{amount}}%</td>
-    <td class="govuk-table__cell">1.3</td>
-    <td class="govuk-table__cell"><a href="">Change</a></td>
+    {% if data.livestock_group != 'poultry' and data.livestock_group != 'pig' %}
+      <td class="govuk-table__cell">1.3</td>
+    {% endif %}
+    <td class="govuk-table__cell"><a href="annual_housing_handler?month={{name}}">Change</a></td>
   </tr>
 {% endmacro %}
 
@@ -41,17 +43,19 @@
     <p class="govuk-body">
       These are standard figures for this livestock type, you can change them if you need to.
     </p>
-
-    <details class="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          About bedding factor
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-       This factor is used to calculate the quantity of solid manure produced from the slurry and bedding combined. The amount of slurry is multiplied by the bedding factor to calculate the solid amount.
-      </div>
-    </details>
+    
+    {% if data.livestock_group != 'poultry' and data.livestock_group != 'pig' %}
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            About bedding factor
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+        This factor is used to calculate the quantity of solid manure produced from the slurry and bedding combined. The amount of slurry is multiplied by the bedding factor to calculate the solid amount.
+        </div>
+      </details>
+    {% endif %}
 
     <table class="govuk-table data-table">
       <caption class="govuk-table__caption govuk-table__caption--s margin-bottom-twenty">Standard figures for the selected livestock type</caption>
@@ -60,7 +64,9 @@
           <th scope="col" class="govuk-table__header">Month</th>
           <th scope="col" class="govuk-table__header">Percentage of time housed</th>
           <th scope="col" class="govuk-table__header">Percentage of slurry collected</th>
-          <th scope="col" class="govuk-table__header">Bedding factor</th>
+          {% if data.livestock_group != 'poultry' and data.livestock_group != 'pig' %}
+            <th scope="col" class="govuk-table__header">Bedding factor</th>
+          {% endif %}
           <th scope="col" class="govuk-table__header"><span class="display-none">Action</span></th>
         </tr>
       </thead>
@@ -80,7 +86,7 @@
       </tbody>
     </table>
 
-    <form action="annual_slurry" method="post" novalidate="">
+    <form action="annual_separator" method="post" novalidate="">
       <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
         Continue
       </button>

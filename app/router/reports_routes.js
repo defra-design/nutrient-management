@@ -696,7 +696,7 @@ router.get(/manure_slurry_handler/, function (req, res) {
 // })
 
 router.get(/monthly_volume_handler/, function (req, res) {
-    let next = (req.session.data.monthly_volume == 'yes') ? 'volume' : 'pause'
+    let next = (req.session.data.monthly_volume == 'yes') ? 'volume' : 'livestock_type'
     res.redirect(next)
 })
 
@@ -705,10 +705,11 @@ router.get(/add_wash_area_handler/, callback_functions.showSuccessMessage, funct
     res.redirect('/outputs/inventory/manage_water/index')
 })
 
-router.get(/washed_livestock_type_handler/, function (req, res) {
-    let next = 'livestock_type'
-    res.redirect(next)
-})
+// router.get(/washed_livestock_type_handler/, function (req, res) {
+//     let next = 'livestock_type'
+//     res.redirect(next)
+// })
+
 router.get(/wash_area_name_handler/, function (req, res) {
     if (req.session.data.wash_area_name == '' || req.session.data.wash_area_name == null) {
         req.session.data.wash_area_name = 'Washed area 1'

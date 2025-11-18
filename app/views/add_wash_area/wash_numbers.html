@@ -1,0 +1,117 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+{% macro monthitem(name, amount) %}
+<tr class="govuk-table__row">
+  <td class="govuk-table__cell">Calf (all categories) younger than 2 months</td>
+  <td class="govuk-table__cell">100</td>
+  <td class="govuk-table__cell">Change</td>
+</tr>
+{% endmacro %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      October
+    </h1>
+
+    <!-- <p class="govuk-body">
+      These are standard figures for this livestock type, you can change them if you need to.
+    </p> -->
+    
+    <table class="govuk-table data-table">
+      <caption class="govuk-table__caption govuk-table__caption--s margin-bottom-twenty">Livestock numbers for October</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Type</th>
+          <th scope="col" class="govuk-table__header">Number</th>
+          <th scope="col" class="govuk-table__header"> </th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Calf (all categories) younger than 2 months</td>
+          <td class="govuk-table__cell">100</td>
+          <td class="govuk-table__cell">Change</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Dairy cow from 2 months and less than 12 months</td>
+          <td class="govuk-table__cell">100</td>
+          <td class="govuk-table__cell">Change</td>
+        </tr>
+
+        <!-- {{ monthitem ("October", "100") }}
+        {{ monthitem ("November", "100") }}
+        {{ monthitem ("December", "100") }}
+        {{ monthitem ("January", "100") }}
+        {{ monthitem ("February", "100") }}
+        {{ monthitem ("March", "100") }}
+        {{ monthitem ("April", "100") }}
+        {{ monthitem ("May", "100") }}
+        {{ monthitem ("June", "100") }}
+        {{ monthitem ("July", "100") }}
+        {{ monthitem ("August", "100") }}
+        {{ monthitem ("September", "100") }} -->
+      </tbody>
+    </table>
+
+      <table class="govuk-table data-table">
+      <caption class="govuk-table__caption govuk-table__caption--s margin-bottom-twenty">Total water used in October</caption>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Total water</th>
+          <th scope="col" class="govuk-table__header">100</th>
+          <td class="govuk-table__cell">Change</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Total wash days</th>
+          <th scope="col" class="govuk-table__header">100</th>
+          <td class="govuk-table__cell">Change</td>
+        </tr>
+        <!-- {{ monthitem ("October", "100") }}
+        {{ monthitem ("November", "100") }}
+        {{ monthitem ("December", "100") }}
+        {{ monthitem ("January", "100") }}
+        {{ monthitem ("February", "100") }}
+        {{ monthitem ("March", "100") }}
+        {{ monthitem ("April", "100") }}
+        {{ monthitem ("May", "100") }}
+        {{ monthitem ("June", "100") }}
+        {{ monthitem ("July", "100") }}
+        {{ monthitem ("August", "100") }}
+        {{ monthitem ("September", "100") }} -->
+      </tbody>
+    </table>
+
+    Do you want to use these numbers for November?
+    You can change them on the next screen.
+
+    <form action="check" method="post" novalidate="">
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

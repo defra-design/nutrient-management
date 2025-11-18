@@ -26,7 +26,7 @@
        Total daily volume of water and number of wash days in October {{data.oaktree_farm.planning_year}}
       </h1>
 
-      <form action="check" method="post" novalidate="">
+      <form action="copy" method="post" novalidate="">
 
         <div class="govuk-form-group margin-bottom-thirty">
           <label class="govuk-label" for="livestock_number">
@@ -47,8 +47,6 @@
             <div class="govuk-input__suffix" aria-hidden="true">Days</div>
           </div>
         </div>
-
-        {% include "/templates/reuse_figures_radio.html" ignore missing %}
 
         <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
           Continue

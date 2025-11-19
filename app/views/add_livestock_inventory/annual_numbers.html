@@ -18,11 +18,13 @@
 {% block content %}
 
 {% macro monthitem(name, year) %}
-  <h3 class="govuk-heading-s margin-top-thirty">{{name}} {{year}}</h3>
   <div class="govuk-form-group margin-bottom-thirty">
     <label class="govuk-label" for="livestock_number">
-      What is the total number of this cattle type for {{name}} {{year}}?
+      {{name}} {{year}}
     </label>
+    <div class="govuk-hint" for="livestock_number">
+      Enter the total number of this cattle type in {{name}} {{year}}
+    </div>
     <div class="govuk-input__wrapper">
       <input class="govuk-input govuk-input--width-3" id="livestock_number" name="livestock_number" type="text" value="" spellcheck="false" autocomplete="off">
         <div class="govuk-input__suffix" aria-hidden="true">
@@ -40,7 +42,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Enter the monthly numbers for the selected livestock type
+      Monthly numbers for the selected livestock type
     </h1>
 
     <p class="govuk-body">
@@ -50,7 +52,7 @@
     <form action="annual_housing_list" method="post" novalidate="">
 
     {{ monthitem ("October", data.oaktree_farm.planning_year) }}
-    <a class="govuk-body" href="">Copy October's number to the following months</a>
+    <p class="govuk-body margin-bottom-thirty"><a href="">Copy October's number to the following months</a></p>
     {{ monthitem ("November", data.oaktree_farm.planning_year) }}
     {{ monthitem ("December", data.oaktree_farm.planning_year) }}
     {{ monthitem ("January", data.oaktree_farm.planning_year + 1) }}

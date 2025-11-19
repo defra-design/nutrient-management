@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+{% macro monthitem(name, year) %}
+  <h2 class="govuk-heading-s">{{ name }} {{ year }}</h2>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="total_area">
+      What is the daily volume of water used each wash day in {{ name }}?
+    </label>
+    <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="total_area" name="total_area" type="text" spellcheck="false" autocomplete="off">
+      <div class="govuk-input__suffix" aria-hidden="true">litres</div>
+    </div>
+  </div>
+  <div class="govuk-form-group margin-bottom-forty">
+    <label class="govuk-label" for="total_area">
+      What is the number of wash days in {{ name }}?
+    </label>
+    <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="total_area" name="total_area" type="text" spellcheck="false" autocomplete="off">
+      <div class="govuk-input__suffix" aria-hidden="true">litres</div>
+    </div>
+  </div>
+{% endmacro %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Daily volume of water used on {{data.wash_area_name}}
+    </h1>
+    
+    <form action="check" method="post" novalidate="">
+              
+      {{ monthitem ("October", data.oaktree_farm.planning_year) }}
+      {{ monthitem ("November", data.oaktree_farm.planning_year) }}
+      {{ monthitem ("December", data.oaktree_farm.planning_year) }}
+      {{ monthitem ("January", data.oaktree_farm.planning_year + 1) }}
+      {{ monthitem ("February", data.oaktree_farm.planning_year + 1) }}
+      {{ monthitem ("March", data.oaktree_farm.planning_year + 1) }}
+      {{ monthitem ("April", data.oaktree_farm.planning_year + 1) }}
+      {{ monthitem ("May", data.oaktree_farm.planning_year + 1) }}
+      {{ monthitem ("June", data.oaktree_farm.planning_year + 1) }}
+      {{ monthitem ("July", data.oaktree_farm.planning_year + 1) }}
+      {{ monthitem ("August", data.oaktree_farm.planning_year + 1) }}
+      {{ monthitem ("September", data.oaktree_farm.planning_year + 1) }}
+
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

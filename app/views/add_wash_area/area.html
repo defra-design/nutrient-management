@@ -21,13 +21,15 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">How much low run-off risk land do you want to include between October {{data.oaktree_farm.harvest_year}} and September {{data.oaktree_farm.harvest_year + 1}}?</h1>
+    <h1 class="govuk-heading-l">
+      What is the area of the floor washed?
+    </h1>
 
-    <form action="january" method="post" novalidate="">
+    <form action="check" method="post" novalidate="">
       <div class="govuk-form-group margin-bottom-forty">
         <div class="govuk-input__wrapper">
           <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
-          <div class="govuk-input__suffix" aria-hidden="true">Hectares</div>
+          <div class="govuk-input__suffix" aria-hidden="true">Square meters</div>
         </div>
       </div>
 

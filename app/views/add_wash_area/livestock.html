@@ -64,109 +64,97 @@
       Which of your livestock types use {{data.wash_area_name}}?
     </h1>
 
-    <form class="form" action="volume_question" method="post">
+    <form class="form" action="inventory_livestock_handler" method="post">
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-          <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading">
-              Which types of waste do you transport?
-            </h1>
-          </legend> -->
-
-          <div id="waste-hint" class="govuk-hint">
+        <fieldset class="govuk-fieldset" aria-describedby="livestock-hint">
+          <div id="livestock-hint" class="govuk-hint">
             Select one option
           </div>
-
-          <div class="govuk-radios" data-module="govuk-radios">
-            {% if show_cattle == true %}
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                <label class="govuk-label govuk-radios__label" for="waste">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
                   Cattle
-                </label>
+                </h1>
+              </legend> -->
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="cattle" name="inventory_livestock" type="radio" value="cattle">
+                  <label class="govuk-label govuk-radios__label" for="cattle">
+                    Cattle
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pigs" name="inventory_livestock" type="radio" value="pigs">
+                  <label class="govuk-label govuk-radios__label" for="pigs">
+                    Pigs
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="poultry" name="inventory_livestock" type="radio" value="poultry">
+                  <label class="govuk-label govuk-radios__label" for="poultry">
+                    Poultry
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="sheep" name="inventory_livestock" type="radio" value="sheep">
+                  <label class="govuk-label govuk-radios__label" for="sheep">
+                    Sheep
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="other" name="inventory_livestock" type="radio" value="other">
+                  <label class="govuk-label govuk-radios__label" for="other">
+                    Goats, Deer or Horses
+                  </label>
+                </div>
               </div>
-            {% endif %}
-            {% if show_pigs == true %}
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                <label class="govuk-label govuk-radios__label" for="waste">
-                  Pigs
-                </label>
-              </div>
-            {% endif %}
-            {% if show_poultry == true %}  
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                <label class="govuk-label govuk-radios__label" for="waste">
-                  Poultry
-                </label>
-              </div>
-            {% endif %}
-            {% if show_sheep == true %}
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                <label class="govuk-label govuk-radios__label" for="waste">
-                  Sheep
-                </label>
-              </div>
-            {% endif %}
-            {% if show_other == true %}
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                <label class="govuk-label govuk-radios__label" for="waste">
-                  Goats, deer or horses
-                </label>
-              </div>
-            {% endif %}
+            </fieldset>
           </div>
         </fieldset>
       </div>
     
-      <!-- <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="washed_livestock_type-hint">
-          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
-          {% if show_cattle == true %}
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="cattle" name="washed_livestock_type" type="radio" value="cattle">
-              <label class="govuk-label govuk-radios__label" for="cattle">
-                Cattle
-              </label>
-            </div>
-          {% endif %}
-          {% if show_pigs == true %}
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="pigs" name="washed_livestock_type" type="radio" value="pigs">
-              <label class="govuk-label govuk-radios__label" for="pigs">
-                Pigs
-              </label>
-            </div>
-          {% endif %}
-          {% if show_poultry == true %}  
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="poultry" name="washed_livestock_type" type="radio" value="poultry">
-              <label class="govuk-label govuk-radios__label" for="poultry">
-                Poultry
-              </label>
-            </div>
-          {% endif %}
-          {% if show_sheep == true %}
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="sheep" name="washed_livestock_type" type="radio" value="sheep">
-              <label class="govuk-label govuk-radios__label" for="sheep">
-                Sheep
-              </label>
-            </div>
-          {% endif %}
-          {% if show_other == true %}  
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="other" name="washed_livestock_type" type="radio" value="other">
-              <label class="govuk-label govuk-radios__label" for="other">
-                Goats, deer or horses
-              </label>
-            </div>
+      <!-- <div class="govuk-radios" data-module="govuk-radios">
+        {% if show_cattle == true %}
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="livestock" name="livestock" type="checkbox" value="carcasses">
+            <label class="govuk-label govuk-radios__label" for="livestock">
+              Cattle
+            </label>
           </div>
-          {% endif %}
-        </fieldset>
+        {% endif %}
+        {% if show_pigs == true %}
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="livestock" name="livestock" type="checkbox" value="carcasses">
+            <label class="govuk-label govuk-radios__label" for="livestock">
+              Pigs
+            </label>
+          </div>
+        {% endif %}
+        {% if show_poultry == true %}  
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="livestock" name="livestock" type="checkbox" value="carcasses">
+            <label class="govuk-label govuk-radios__label" for="livestock">
+              Poultry
+            </label>
+          </div>
+        {% endif %}
+        {% if show_sheep == true %}
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="livestock" name="livestock" type="checkbox" value="carcasses">
+            <label class="govuk-label govuk-radios__label" for="livestock">
+              Sheep
+            </label>
+          </div>
+        {% endif %}
+        {% if show_other == true %}
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="livestock" name="livestock" type="checkbox" value="carcasses">
+            <label class="govuk-label govuk-radios__label" for="livestock">
+              Goats, deer or horses
+            </label>
+          </div>
+        {% endif %}
       </div> -->
       
       {{ govukButton({

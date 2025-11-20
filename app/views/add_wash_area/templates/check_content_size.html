@@ -1,40 +1,53 @@
-{% macro monthitem(name, year, days, volume) %}
+{% macro monthitem(name, year, days, total) %}
   <h2 class="govuk-heading-s">{{name}} {{year}}</h2>
   <dl class="govuk-summary-list margin-bottom-forty">
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Daily volume of water</dt>
+      <dt class="govuk-summary-list__key">Which cattle types use {{data.wash_area_name}} in {{name}}?</dt>
+      <dd class="govuk-summary-list__value">Dairy cow from 12 months up to first calf</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Number of Dairy cow from 12 months up to first calf in {{name}}</dt>
+      <dd class="govuk-summary-list__value">100</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Total litres of water per day for all cattle types</dt>
       <dd class="govuk-summary-list__value">20 litres</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Number of wash days</dt>
+      <dt class="govuk-summary-list__key">Wash days in {{name}}</dt>
       <dd class="govuk-summary-list__value">{{days}} days</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Monthly volume of water</dt>
-      <dd class="govuk-summary-list__value">{{volume}} cubic metres</dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href=""> <span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      <dt class="govuk-summary-list__key">Volume of water used on {{data.wash_area_name}} in {{name}} {{year}}</dt>
+      <dd class="govuk-summary-list__value">{{total}} litres cubed</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
   </dl>
 {% endmacro %}
-
+    
 <dl class="govuk-summary-list margin-bottom-forty">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">What do you want to call this wash area?</dt>
     <dd class="govuk-summary-list__value">{{data.wash_area_name}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
-
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Where does the water drain to from {{data.wash_area_name}}?</dt>
     <dd class="govuk-summary-list__value">Cattle slurry store</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
-
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Do you know the amount of water used on {{data.wash_area_name}} each wash day?</dt>
-    <dd class="govuk-summary-list__value">Yes</dd>
+    <dt class="govuk-summary-list__key">Do you know the amount of water used on {{data.wash_area_name}} each month?</dt>
+    <dd class="govuk-summary-list__value">No</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What type of hose is used to wash {{data.wash_area_name}}?</dt>
+    <dd class="govuk-summary-list__value">Low volume</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 </dl>
@@ -51,3 +64,5 @@
 {{ monthitem ("July", data.oaktree_farm.planning_year + 1, 31, 62) }}
 {{ monthitem ("August", data.oaktree_farm.planning_year + 1, 31, 62) }}
 {{ monthitem ("September", data.oaktree_farm.planning_year + 1, 30, 60) }}
+
+</dl>

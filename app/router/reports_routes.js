@@ -696,7 +696,7 @@ router.get(/manure_slurry_handler/, function (req, res) {
 // })
 
 router.get(/monthly_volume_handler/, function (req, res) {
-    let next = (req.session.data.monthly_volume == 'yes') ? 'monthly_volume' : 'water_hose'
+    let next = (req.session.data.monthly_volume == 'yes') ? 'monthly_volume' : 'livestock'
     res.redirect(next)
 })
 
@@ -722,17 +722,15 @@ router.get(/annual_housing_handler/, function (req, res) {
     res.redirect('annual_housing_single')
 })
 
-
-router.get(/inventory_livestock_handler/, function (req, res) {
-    let next = 'monthly_volume'
-    if (req.session.data.inventory_livestock == 'cattle') {
-        next = 'volume_question'
-    }
-    if (req.session.data.inventory_livestock == 'poultry') {
-        next = 'area'
-    }
-    res.redirect(next)
-})
-
+// router.get(/inventory_livestock_handler/, function (req, res) {
+//     let next = 'monthly_volume'
+//     if (req.session.data.inventory_livestock == 'cattle') {
+//         next = 'volume_question'
+//     }
+//     if (req.session.data.inventory_livestock == 'poultry') {
+//         next = 'area'
+//     }
+//     res.redirect(next)
+// })
 
 module.exports = router

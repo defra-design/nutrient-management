@@ -22,14 +22,17 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Do you want to use October's answers to complete the following months?
+      Calculating the monthly water volume for {{data.wash_area_name}}
     </h1>
 
-    <form action="check" method="post" novalidate="">
+    <p class="govuk-body">
+      If you choose yes, the number of livestock per month previously entered will be used plus the umner of wahing days and the volume of water
+      You can check and change the numbers before you save them.
+    </p>
 
+    <form action="livestock_numbers" method="post" novalidate="">
+      Use standard figures for the selected cattle types to calculate monthly water volume?
       <div class="govuk-form-group margin-bottom-forty">  
-        <p class="govuk-body"></p>
-        <p class="govuk-hint">You can check and change the numbers before you save them.</p>
           <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">

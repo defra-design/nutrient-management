@@ -1,0 +1,103 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      October 2025
+    </h1>
+    
+    <form action="pre_check" method="post" novalidate="">
+
+      <h2 class="govuk-heading-s">Dairy cow from 2 months and less than 12 months</h2>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="total_area">
+          Number of Dairy cow from 2 months and less than 12 months
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="total_area" name="total_area" type="text" value="100" spellcheck="false" autocomplete="off">
+          <div class="govuk-input__suffix" aria-hidden="true">cattle</div>
+        </div>
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="total_area">
+          Water per animal, per day
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="total_area" name="total_area" type="text" value="2" spellcheck="false" autocomplete="off">
+          <div class="govuk-input__suffix" aria-hidden="true">litres</div>
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-s">Dairy cow from 12 months up to first calf</h2>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="total_area">
+          Number of Dairy cow from 12 months up to first calf
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="total_area" name="total_area" type="text" value="100" spellcheck="false" autocomplete="off">
+          <div class="govuk-input__suffix" aria-hidden="true">cattle</div>
+        </div>
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="total_area">
+          Water per animal, per day
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="total_area" name="total_area" type="text" value="2" spellcheck="false" autocomplete="off">
+          <div class="govuk-input__suffix" aria-hidden="true">litres</div>
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-s">Dairy cow after first calf (6,000 to 9,000 litres milk yield)</h2>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="total_area">
+          Number of Dairy cow after first calf (6,000 to 9,000 litres milk yield)
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="total_area" name="total_area" type="text" value="100" spellcheck="false" autocomplete="off">
+          <div class="govuk-input__suffix" aria-hidden="true">cattle</div>
+        </div>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="total_area">
+          Water per animal, per day
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="total_area" name="total_area" type="text" value="2" spellcheck="false" autocomplete="off">
+          <div class="govuk-input__suffix" aria-hidden="true">litres</div>
+        </div>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="total_area">
+          Total wash water for October
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="total_area" name="total_area" type="text" value="60" spellcheck="false" autocomplete="off">
+          <div class="govuk-input__suffix" aria-hidden="true">litres</div>
+        </div>
+      </div>
+
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -29,9 +29,13 @@
 
     <div class="check-answers">
       {% if data.monthly_volume == 'yes' %}
-        {% include "./templates/check_content_size.html" %}
-      {% else %}
         {% include "./templates/check_content_volume.html" %}
+      {% else %}
+        {% if data.inventory_livestock == "cattle" %}
+          {% include "./templates/check_content_size_cattle.html" %}
+        {% else %}
+          {% include "./templates/check_content_size.html" %}
+        {% endif %}
       {% endif  %}
     </div>
 

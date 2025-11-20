@@ -28,7 +28,7 @@
       These are the numbers you added for October {{data.oaktree_farm.planning_year}} when you added this cattle type.
     </p>
 
-    <form action="water_days" method="post" novalidate="">
+    <form action="water_hose" method="post" novalidate="">
       {% for livestock_type in data.livestock_record_plan_year %}
         {% if livestock_type.type == 'cattle' %}
           <div class="govuk-form-group">

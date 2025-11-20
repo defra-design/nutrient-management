@@ -11,7 +11,7 @@
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: "javascript:window.history.back()"
+    href: "/outputs/inventory/checklist"
   }) }}
 {% endblock %}
 {% block content %}
@@ -31,7 +31,7 @@
       <p>Contents</p>
       <ul class="govuk-list govuk-list--spaced">
         <li><span>— </span><a href="inventory">NVZ storage requirements</a></li>
-        <li><span>— </span>Total manure quantities</li>
+        <li class="strong"><span>— </span>Total manure quantities</li>
         <li><span>— </span><a href="final_nutrients">Total nutrient values</a></li>
       </ul>
     </div>

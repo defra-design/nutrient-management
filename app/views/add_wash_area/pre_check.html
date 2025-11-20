@@ -1,0 +1,117 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers – {{ serviceName }} – GOV.UK{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row margin-bottom-twenty">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Total volume of wash water used on {{data.wash_area_name}}
+    </h1>
+
+    <h2 class="govuk-heading-m">
+      720 litres between October 2025 to September 2026
+    </h2>
+
+    <p class="govuk-hint margin-bottom-none">
+      The volume of water is based on RB209 figures for each cattle type. You can change these numbers if you need to.
+    </p>
+
+  </div>
+</div>  
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+    {% macro monthitem(name, year) %}
+      <div class="margin-bottom-forty">
+        <h2 class="govuk-heading-m">{{name}} {{year}}</h2>
+        <p class="govuk-body"><a href="change_month">Change these numbers for {{name}}</a></p>
+        <!-- <p class="govuk-body">Number of wash days in {{ name }}: 31  <a href="">Change</a></p> -->
+        <table class="govuk-table data-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Cattle type</th>
+              <th scope="col" class="govuk-table__header">Number using this area</th>
+              <th scope="col" class="govuk-table__header">Water per animal, per day</th>
+              <th scope="col" class="govuk-table__header"></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Dairy cow from 2 months and less than 12 months</td>
+              <td class="govuk-table__cell">10</td>
+              <td class="govuk-table__cell">2 litres</td>
+              <!-- <td class="govuk-table__cell"><a href="">Change</a></td> -->
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Dairy cow from 12 months up to first calf</td>
+              <td class="govuk-table__cell">10</td>
+              <td class="govuk-table__cell">2 litres</td>
+              <!-- <td class="govuk-table__cell"><a href="">Change</a></td> -->
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Dairy cow after first calf (6,000 to 9,000 litres milk yield)</td>
+              <td class="govuk-table__cell">10</td>
+              <td class="govuk-table__cell">2 litres</td>
+              <!-- <td class="govuk-table__cell"><a href="">Change</a></td> -->
+            </tr>
+            <!-- <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Number of wah days in {{name}}</td>
+              <td class="govuk-table__cell">31</td>
+              <td class="govuk-table__cell">-</td>
+              <td class="govuk-table__cell"><a class="font-normal"href="">Change</a></td>
+            </tr> -->
+            <tr class="govuk-table__row total_row">
+              <td class="govuk-table__cell">Total wash water for {{name}}</td>
+              <td class="govuk-table__cell">60 litres</td>
+              <td class="govuk-table__cell"> </td>
+              <!-- <td class="govuk-table__cell"><a class="font-normal"href="">Change</a></td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    {% endmacro %}
+
+      {{ monthitem ("October", data.oaktree_farm.planning_year-1) }}
+      {{ monthitem ("November", data.oaktree_farm.planning_year-1) }}
+      {{ monthitem ("December", data.oaktree_farm.planning_year-1) }}
+      {{ monthitem ("January", data.oaktree_farm.planning_year) }}
+      {{ monthitem ("February", data.oaktree_farm.planning_year) }}
+      {{ monthitem ("March", data.oaktree_farm.planning_year) }}
+      {{ monthitem ("April", data.oaktree_farm.planning_year) }}
+      {{ monthitem ("May", data.oaktree_farm.planning_year) }}
+      {{ monthitem ("June", data.oaktree_farm.planning_year) }}
+      {{ monthitem ("July", data.oaktree_farm.planning_year) }}
+      {{ monthitem ("August", data.oaktree_farm.planning_year) }}
+      {{ monthitem ("September", data.oaktree_farm.planning_year)}}
+
+
+    <form action="check" method="post" novalidate>
+      {{ govukButton({
+        text: 'Next'
+      }) }}
+    </form>
+
+    <p class="govuk-body">
+      <a href="field_plan">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

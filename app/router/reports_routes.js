@@ -696,19 +696,23 @@ router.get(/manure_slurry_handler/, function (req, res) {
 // })
 
 router.get(/monthly_volume_handler/, function (req, res) {
-    let next = (req.session.data.monthly_volume == 'yes') ? 'monthly_volume' : 'livestock'
+    let next = (req.session.data.monthly_volume == 'yes') ? 'monthly_volume' : 'livestock_type'
     res.redirect(next)
 })
 
 router.get(/add_wash_area_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.oaktree_farm.wash_water = true
+    req.session.data.monthly_volume = null
     res.redirect('/outputs/inventory/manage_water/index')
 })
 
-// router.get(/washed_livestock_type_handler/, function (req, res) {
-//     let next = 'livestock_type'
-//     res.redirect(next)
-// })
+router.get(/livestock_type_handler/, function (req, res) {
+    let next = 'size'
+    if (req.session.data.inventory_livestock == 'cattle') {
+        next = 'water_hose'
+    }
+    res.redirect(next)
+})
 
 router.get(/wash_area_name_handler/, function (req, res) {
     if (req.session.data.wash_area_name == '' || req.session.data.wash_area_name == null) {
@@ -722,15 +726,14 @@ router.get(/annual_housing_handler/, function (req, res) {
     res.redirect('annual_housing_single')
 })
 
-// router.get(/inventory_livestock_handler/, function (req, res) {
-//     let next = 'monthly_volume'
-//     if (req.session.data.inventory_livestock == 'cattle') {
-//         next = 'volume_question'
-//     }
-//     if (req.session.data.inventory_livestock == 'poultry') {
-//         next = 'area'
-//     }
-//     res.redirect(next)
-// })
+router.get(/inventory_livestock_handler/, function (req, res) {
+    let next = 'monthly_volume'
+    if (req.session.data.inventory_livestock == 'cattle') {
+        next = 'volume_question'
+    } else {
+        req.session.data.monthly_volume = 'yes'
+    }
+    res.redirect(next)
+})
 
 module.exports = router

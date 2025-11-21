@@ -15,15 +15,24 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Where does the water drain to from {{data.wash_area_name}}?</dt>
-    <dd class="govuk-summary-list__value">Cattle slurry store</dd>
+    <dd class="govuk-summary-list__value">{{data.slurry_store}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
-
+  
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Do you know the amount of water used on {{data.wash_area_name}} each wash day?</dt>
-    <dd class="govuk-summary-list__value">Yes</dd>
+    <dt class="govuk-summary-list__key">Which of your livestock types use {{data.wash_area_name}}?</dt>
+    <dd class="govuk-summary-list__value">{{data.inventory_livestock | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+  
+  {% if data.inventory_livestock == 'cattle' and data.monthly_volume != 'no' %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Do you know the amount of water used on {{data.wash_area_name}} each wash day?</dt>
+      <dd class="govuk-summary-list__value">Yes</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% endif %}
+
 
     {{ monthitem ("October", data.oaktree_farm.planning_year, 31, 62) }}
     {{ monthitem ("November", data.oaktree_farm.planning_year, 30, 60) }}

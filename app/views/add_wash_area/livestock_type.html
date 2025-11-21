@@ -21,14 +21,14 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Which of your cattle types use {{data.wash_area_name}}?
+      Which of your {{data.inventory_livestock}} types use {{data.wash_area_name}}?
     </h1>
 
     <!-- <p class="govuk-body">
       You should add all of your cattle types before continuing.
     </p> -->
 
-    <form class="form" action="water_hose" method="post">
+    <form class="form" action="livestock_type_handler" method="post">
       <div class="govuk-form-group margin-bottom-forty">
         <fieldset class="govuk-fieldset" aria-describedby="livestock_types-hint">
           <div id="livestock_types-hint" class="govuk-hint">
@@ -36,7 +36,7 @@
           </div>
           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
             {% for livestock_type in data.livestock_record_plan_year %}
-              {% if livestock_type.type == 'cattle' %}
+              {% if livestock_type.type == data.inventory_livestock %}
                   <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input" id="{{livestock_type.name}}" name="livestock_types" type="checkbox" value="{{livestock_type.name}}">
                     <label class="govuk-label govuk-checkboxes__label" for="{{livestock_type.name}}">

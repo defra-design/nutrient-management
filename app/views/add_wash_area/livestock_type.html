@@ -30,16 +30,16 @@
 
     <form class="form" action="water_hose" method="post">
       <div class="govuk-form-group margin-bottom-forty">
-        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-          <div id="waste-hint" class="govuk-hint">
+        <fieldset class="govuk-fieldset" aria-describedby="livestock_types-hint">
+          <div id="livestock_types-hint" class="govuk-hint">
             Select all that apply
           </div>
           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
             {% for livestock_type in data.livestock_record_plan_year %}
               {% if livestock_type.type == 'cattle' %}
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    <input class="govuk-checkboxes__input" id="{{livestock_type.name}}" name="livestock_types" type="checkbox" value="{{livestock_type.name}}">
+                    <label class="govuk-label govuk-checkboxes__label" for="{{livestock_type.name}}">
                       {{livestock_type.name | capitalize }}
                     </label>
                   </div>

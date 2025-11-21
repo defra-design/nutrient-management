@@ -1,7 +1,7 @@
 {% macro monthitem(name, year, days, volume) %}
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">{{name}} {{year}}</dt>
-      <dd class="govuk-summary-list__value">{{volume}} cubic metres</dd>
+    <dt class="govuk-summary-list__key">Volume of water used in {{name}} {{year}}</dt>
+      <dd class="govuk-summary-list__value">{{volume}} litres</dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
 {% endmacro %}
@@ -24,10 +24,7 @@
     <dd class="govuk-summary-list__value">Yes</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
-</dl>
 
-<h2 class="govuk-heading-s">Total volume of wash water used on {{data.wash_area_name}} each month</h2>
-  <dl class="govuk-summary-list margin-bottom-forty">
     {{ monthitem ("October", data.oaktree_farm.planning_year, 31, 62) }}
     {{ monthitem ("November", data.oaktree_farm.planning_year, 30, 60) }}
     {{ monthitem ("December", data.oaktree_farm.planning_year, 31, 62) }}

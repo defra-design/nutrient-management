@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Do you want to copy these numbers to other months? (Optional)
+    </h1>
+
+    {% macro monthitem(name, year) %}
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="{{name}}" name="months" type="checkbox" value="{{name}}">
+          <label class="govuk-label govuk-checkboxes__label" for="{{name}}">
+            {{name}} {{year}}
+          </label>
+        </div>
+    {% endmacro %}
+
+    <form action="pre_check" method="post" novalidate="">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="months-hint">
+          <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          </legend> -->
+
+          <div id="months-hint" class="govuk-hint">
+            Select all that apply
+          </div>
+
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            {{ monthitem("November", "2025") }}
+            {{ monthitem("December", "2025") }}
+            {{ monthitem("January", "2026") }}
+            {{ monthitem("February", "2026") }}
+            {{ monthitem("March", "2026") }}
+            {{ monthitem("April", "2026") }}
+            {{ monthitem("May", "2026") }}
+            {{ monthitem("June", "2026") }}
+            {{ monthitem("July", "2026") }}
+            {{ monthitem("August", "2026") }}
+            {{ monthitem("September", "2026") }}
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__divider">or</div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="months-5" name="months" type="checkbox" value="none" data-behaviour="exclusive">
+              <label class="govuk-label govuk-checkboxes__label" for="months-5">
+                No, don't copy these numbers
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>     
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="pre_check">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

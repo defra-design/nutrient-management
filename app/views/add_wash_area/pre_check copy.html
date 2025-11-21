@@ -16,7 +16,7 @@
 
 {% block content %}
 
-<div class="govuk-grid-row">
+<div class="govuk-grid-row margin-bottom-twenty">
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
@@ -39,15 +39,14 @@
     
     {% macro monthitem(name, year) %}
       <div class="margin-bottom-forty">
-        <h2 class="govuk-heading-m margin-top-thirty">{{data.wash_area_name}} wash water in {{name}} {{year}}</h2>
-        <p class="govuk-body">31 wash days</p>
-
-        <h3 class="govuk-heading-s">Wash water per cattle type in {{name}}</h3>
+        <h2 class="govuk-heading-m">{{name}} {{year}}</h2>
+        <!-- <p class="govuk-body"><a href="change_month">Change these numbers for {{name}}</a></p> -->
+        <!-- <p class="govuk-body">Number of wash days in {{ name }}: 31  <a href="">Change</a></p> -->
         <table class="govuk-table data-table">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header">Cattle type</th>
-              <th scope="col" class="govuk-table__header">Number of this cattle type {{name}}</th>
+              <th scope="col" class="govuk-table__header">Number using this area</th>
               <th scope="col" class="govuk-table__header">Water per animal, per day</th>
               <th scope="col" class="govuk-table__header"></th>
             </tr>
@@ -55,56 +54,50 @@
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Dairy cow from 2 months and less than 12 months</td>
-              <td class="govuk-table__cell">100</td>
+              <td class="govuk-table__cell">10</td>
               <td class="govuk-table__cell">2 litres</td>
-              <!-- <td class="govuk-table__cell"><a href="change_month_numbers">Change</a></td> -->
+              <td class="govuk-table__cell"><a href="change_month_numbers">Change</a></td>
             </tr>
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Dairy cow from 12 months up to first calf</td>
-              <td class="govuk-table__cell">100</td>
+              <td class="govuk-table__cell">10</td>
               <td class="govuk-table__cell">2 litres</td>
-              <!-- <td class="govuk-table__cell"><a href="change_month_numbers">Change</a></td> -->
+              <td class="govuk-table__cell"><a href="change_month_numbers">Change</a></td>
             </tr>
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Dairy cow after first calf (6,000 to 9,000 litres milk yield)</td>
-              <td class="govuk-table__cell">100</td>
+              <td class="govuk-table__cell">10</td>
               <td class="govuk-table__cell">2 litres</td>
-              <!-- <td class="govuk-table__cell"><a href="change_month_numbers">Change</a></td> -->
+              <td class="govuk-table__cell"><a href="change_month_numbers">Change</a></td>
             </tr>
+            <!-- <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Number of wah days in {{name}}</td>
+              <td class="govuk-table__cell">31</td>
+              <td class="govuk-table__cell">-</td>
+              <td class="govuk-table__cell"><a class="font-normal"href="">Change</a></td>
+            </tr> -->
             <tr class="govuk-table__row total_row">
               <td class="govuk-table__cell">Total wash water for {{name}}</td>
-              <td class="govuk-table__cell">600 litres</td>
+              <td class="govuk-table__cell">60 litres</td>
               <td class="govuk-table__cell"> </td>
-              <!-- <td class="govuk-table__cell"><a class="font-normal"href="change_month_total">Change</a></td> -->
+              <td class="govuk-table__cell"><a class="font-normal"href="change_month_total">Change</a></td>
             </tr>
           </tbody>
         </table>
-        <p class="govuk-body"><a href="change_month_numbers">Change the wash water for {{name}}</a></p>
       </div>
     {% endmacro %}
 
       {{ monthitem ("October", data.oaktree_farm.planning_year-1) }}
-      <hr>
       {{ monthitem ("November", data.oaktree_farm.planning_year-1) }}
-      <hr>
       {{ monthitem ("December", data.oaktree_farm.planning_year-1) }}
-      <hr>
       {{ monthitem ("January", data.oaktree_farm.planning_year) }}
-      <hr>
       {{ monthitem ("February", data.oaktree_farm.planning_year) }}
-      <hr>
       {{ monthitem ("March", data.oaktree_farm.planning_year) }}
-      <hr>
       {{ monthitem ("April", data.oaktree_farm.planning_year) }}
-      <hr>
       {{ monthitem ("May", data.oaktree_farm.planning_year) }}
-      <hr>
       {{ monthitem ("June", data.oaktree_farm.planning_year) }}
-      <hr>
       {{ monthitem ("July", data.oaktree_farm.planning_year) }}
-      <hr>
       {{ monthitem ("August", data.oaktree_farm.planning_year) }}
-      <hr>
       {{ monthitem ("September", data.oaktree_farm.planning_year)}}
 
 

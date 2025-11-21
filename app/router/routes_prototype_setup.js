@@ -163,8 +163,6 @@ router.get(/livestock_handler_inventory/, function (req, res) {
     req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[1])
     req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[2])
     req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[3])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[4])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[5])
     req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[24])
     
     req.session.data.oaktree_farm.livestock_inventory = 3;

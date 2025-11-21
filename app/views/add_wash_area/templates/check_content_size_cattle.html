@@ -1,21 +1,11 @@
 {% macro monthitem(name, year, days, volume) %}
-<dl class="govuk-summary-list margin-bottom-forty">
-    <h2 class="govuk-heading-s">{{ name }} {{ year }}</h2>
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Wash days</dt>
+    <dt class="govuk-summary-list__key">Volume of water used in {{name}} {{year}}</dt>
     <dd class="govuk-summary-list__value">
-      {{ days }}
+      {{volume}} litres
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
-    <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Total volume of water</dt>
-    <dd class="govuk-summary-list__value">
-      60 litres
-    </dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-  </div>
-  </dl>
 {% endmacro %}
 
 <dl class="govuk-summary-list margin-bottom-forty">
@@ -48,18 +38,16 @@
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
-</dl>
-<h2 class="govuk-heading-m">Total volume of wash water used on {{data.wash_area_name}} each month</h2>
-    {{ monthitem ("October", data.oaktree_farm.planning_year, 31, 62) }}
-    {{ monthitem ("November", data.oaktree_farm.planning_year, 30, 60) }}
-    {{ monthitem ("December", data.oaktree_farm.planning_year, 31, 62) }}
-    {{ monthitem ("January", data.oaktree_farm.planning_year + 1, 29, 58) }}
-    {{ monthitem ("February", data.oaktree_farm.planning_year + 1, 31, 62) }}
-    {{ monthitem ("March", data.oaktree_farm.planning_year + 1, 31, 62) }}
-    {{ monthitem ("April", data.oaktree_farm.planning_year + 1, 30, 60) }}
-    {{ monthitem ("May", data.oaktree_farm.planning_year + 1, 31, 62) }}
-    {{ monthitem ("June", data.oaktree_farm.planning_year + 1, 30, 60) }}
-    {{ monthitem ("July", data.oaktree_farm.planning_year + 1, 31, 62) }}
-    {{ monthitem ("August", data.oaktree_farm.planning_year + 1, 31, 62) }}
-    {{ monthitem ("September", data.oaktree_farm.planning_year + 1, 30, 60) }}
+    {{ monthitem ("October", data.oaktree_farm.planning_year-1, 31, 62) }}
+    {{ monthitem ("November", data.oaktree_farm.planning_year-1, 30, 60) }}
+    {{ monthitem ("December", data.oaktree_farm.planning_year-1, 31, 62) }}
+    {{ monthitem ("January", data.oaktree_farm.planning_year, 29, 58) }}
+    {{ monthitem ("February", data.oaktree_farm.planning_year, 31, 62) }}
+    {{ monthitem ("March", data.oaktree_farm.planning_year, 31, 62) }}
+    {{ monthitem ("April", data.oaktree_farm.planning_year, 30, 60) }}
+    {{ monthitem ("May", data.oaktree_farm.planning_year, 31, 62) }}
+    {{ monthitem ("June", data.oaktree_farm.planning_year, 30, 60) }}
+    {{ monthitem ("July", data.oaktree_farm.planning_year, 31, 62) }}
+    {{ monthitem ("August", data.oaktree_farm.planning_year, 31, 62) }}
+    {{ monthitem ("September", data.oaktree_farm.planning_year, 30, 60) }}
 </dl>

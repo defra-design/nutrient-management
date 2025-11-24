@@ -105,6 +105,7 @@ router.get(/plan_view_reset_router/, callback_functions.hideSuccessMessage, func
 
 //farms reset messages
 router.get(/farmsview_reset_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
+    req.session.data.oaktree_farm.name = "Oaktree Lane Farm"
     res.redirect('/farm/farms');
 })
 

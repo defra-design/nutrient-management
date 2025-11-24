@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/templates/header_not_signed_in.html" ignore missing %}
+  {% include "/templates/header_signed_out.html" ignore missing %}
 {% endblock %}
 
 {% block content %}
@@ -18,7 +18,7 @@
     </h1>
 
     <p class="govuk-body">
-      We use your feedback to improve our services.
+      <a href="https://www.gov.uk/">Return to the GOV.UK home page</a>
     </p>
 
   </div>

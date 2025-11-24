@@ -14,45 +14,170 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Give feedback
+      Give feedback on the plan and manage nutrient applications tool
     </h1>
 
-    <p class="govuk-body">
+    <p class="govuk-body margin-bottom-thirty">
+      We use your feedback to improve our services. There are 4 questions and they are all optional.
+    </p> 
+
+
+    <!-- <p class="govuk-body">
       We use your feedback to improve our services.
     </p>
     <p class="govuk-body">
       See the DEFRA Privacy Notice for details about how we collect, use, protect and secure your personal information.
-    </p>
-    <p class="govuk-body">
-      The survey takes about 1 minute to complete. There are [] questions and they are all optional.
-    </p>
+    </p> -->
 
     <form class="form" action="feedback_done" method="post">
     
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
-            <label class="govuk-label" for="event-name">
-              Were you able to complete your task today?
-            </label>
-
-          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend-size strong">
+              Which best describes your role today?
+          </legend>
+          <div class="govuk-hint">
+            Select one option
+          </div>
+          <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
-              <label class="govuk-label govuk-radios__label" for="changedName">
-                Yes
+              <input class="govuk-radios__input" id="farmer" name="role" type="radio" value="farmer" data-aria-controls="conditional-farmer">
+              <label class="govuk-label govuk-radios__label" for="farmer">
+                Farmer
+              </label>
+            </div>
+            <div id="conditional-farmer">
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="advisor" name="role" type="radio" value="advisor" data-aria-controls="conditional-advisor">
+              <label class="govuk-label govuk-radios__label" for="advisor">
+                Advisor
+              </label>
+            </div>
+            <div id="conditional-advisor">
+            </div>
+            
+            <!-- <div class="govuk-radios__divider">or</div> -->
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="other" name="role" type="radio" value="other" data-aria-controls="conditional-other">
+              <label class="govuk-label govuk-radios__label" for="other">
+                Another role
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-other">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-text">
+                  What is your role?
+                </label>
+                <input class="govuk-input" id="contact-by-text" name="contactByText" type="tel" autocomplete="tel">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>      
+
+      <div class="govuk-form-group margin-bottom-forty">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend-size strong">
+              How would you rate your experience using the service today?
+          </legend>
+          <div class="govuk-hint">
+            Select one option
+          </div>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="satisfaction" name="satisfaction" type="radio" value="1">
+              <label class="govuk-label govuk-radios__label" for="satisfaction">
+                Very satisfied
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
-              <label class="govuk-label govuk-radios__label" for="changedName-2">
-                No
+              <input class="govuk-radios__input" id="satisfaction-2" name="satisfaction" type="radio" value="2">
+              <label class="govuk-label govuk-radios__label" for="satisfaction-2">
+                Satisfied
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="satisfaction-3" name="satisfaction" type="radio" value="3">
+              <label class="govuk-label govuk-radios__label" for="satisfaction-3">
+                Neither satisfied or dissatisfied
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="satisfaction-4" name="satisfaction" type="radio" value="4">
+              <label class="govuk-label govuk-radios__label" for="satisfaction-4">
+                Dissatisfied
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="satisfaction-5" name="satisfaction" type="radio" value="5">
+              <label class="govuk-label govuk-radios__label" for="satisfaction-5">
+                Very dissatisfied
               </label>
             </div>
           </div>
         </fieldset>
       </div>
-      
-      {{ govukButton({
+
+      <div class="govuk-form-group margin-bottom-forty">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend-size strong">
+          How could we improve this service?
+        </legend>
+      <div id="more-detail-hint" class="govuk-hint">
+        Do not include personal or sensitive information for example your name, farm or business name, field names, or financial details.
+      </div>
+      <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+    </div>
+
+    <!-- <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend-size strong">
+            Would you be happy for us to contact you about your feedback?
+        </legend>
+        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="changedName">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="changedName-2">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div> -->
+    <div class="margin-bottom-forty">
+      <p class="gov-body strong">
+        Take part in further research for the plan and manage nutrient applications tool
+      </p>
+
+      <p class="gov-body">
+        If you would be happy for us to contact you about your feedback, or take part in further research, enter an email address or phone number below
+      </p>
+        
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="contact-by-phone">
+            Email address
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="contact-by-phone" name="contactByPhone" type="tel" autocomplete="tel">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="contact-by-phone">
+            Phone number
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="contact-by-phone" name="contactByPhone" type="tel" autocomplete="tel">
+        </div>
+
+    </div>
+
+  {{ govukButton({
         text: "Submit"
       }) }}
 

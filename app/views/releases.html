@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Release schedule for the plan and manage nutrient applications tool
+    </h1>
+
+<p class="gov-body">Last updated x November 2025 </p>
+
+<h2 class="govuk-heading-m">
+  Public Beta release, December 2025
+</h2>
+
+<p class="gov-body">
+  The first functionality in the nutrient management planning tool is ready for use by the public in England and Wales. This has had approximately eight months of user testing.  
+</p>
+
+<p class="gov-body">
+  The first public release helps users to;  
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>create a nutrient management plan for arable crops and grassland </li>
+  <li>get nutrient recommendations from RB209   </li>
+  <li>plan organic and inorganic material applications, which include MANNER - NPK calculations</li>
+  <li>see warning messages where applications may breach Nitrate Vulnerable Zone (NVZ) rules</li>
+  <li>update plans and record what happens at a field level</li>
+</ul>
+
+<p class="gov-body">
+  This version also helps to create NVZ reports for:
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>N-max </li>
+  <li>Livestock manure nitrogen (N) farm limit </li>
+</ul>
+
+<h2 class="govuk-heading-m">
+  Next releases, early 2026
+</h2>
+
+<h3 class="govuk-heading-s">
+  Launch in Scotland
+</h3> 
+
+<p class="gov-body">
+  The Scottish version of the nutrient management planning tool is currently in   
+  development. This will be released to all users in early 2026, after user testing.  
+  This version will give recommendations based on the Scottish Technical Notes. It   
+  will help users to create NVZ reports based on Scottish rules.  
+</p>
+
+<h3 class="govuk-heading-s">
+  Next available functionality
+</h3>
+
+<p class="gov-body">
+  Upcoming releases available in England, Scotland and Wales will include the ability   
+  to:  
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>create an NVZ report for existing manure storage capacity</li>
+  <li>calculate NVZ organic manure storage requirements and manure inventory</li>
+  <li>use MANNER NPK to create quick estimates of nitrogen (N) value and losses</li>  
+  <li>import data from existing PLANET files</li>  
+</ul>
+
+<p class="gov-body">
+  The current functionality will continue to be updated based on feedback from our   
+  users.  
+</p>
+
+<p class="gov-body margin-bottom-forty">
+  You can <a href="help_feedback">get help or give your feedback</a>.
+</p>
+  </div>
+</div>
+
+{% endblock %}

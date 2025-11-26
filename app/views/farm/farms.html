@@ -18,13 +18,12 @@
       {% include "./templates/success_messages" ignore missing %}
     {% endif %}
 
-    <h1 class="govuk-heading-l">
+    <h1 class="govuk-heading-xl margin-bottom-forty">
       Plan and manage nutrient applications
     </h1>
 
-    <p>Create a nutrient management plan, or an NVZ report, for a farm.</p>
-
     <h2 class="govuk-heading-m">Your farms</h2>
+    <!-- <p>Create a nutrient management plan, or an NVZ report, for a farm.</p> -->
 
       {% if data.oaktree_farm.setup == false %}
         <p class="govuk-body">
@@ -44,12 +43,13 @@
           }) }}
         </form> -->
       {% else %}
-      
+
+        <!-- <p class="govuk-hint">You have 7 farms.</p> -->
         <div class="margin-bottom-forty">
           <p class="govuk-body">
             <a class="govuk-notification-banner__link" href="hub_message_reset">{{data.oaktree_farm.name}}</a> 
           </p>
-          <p class="govuk-body">
+          <!-- <p class="govuk-body">
             <a class="govuk-notification-banner__link" href="farm_name_setter?name=Shaw House">Shaw House</a> 
           </p>
           <p class="govuk-body">
@@ -60,10 +60,10 @@
           </p>
           <p class="govuk-body">
             <a class="govuk-notification-banner__link" href="farm_name_setter?name=Longridge">Longridge</a> 
-          </p>
+          </p> -->
         </div>
 
-        <nav class="govuk-pagination" aria-label="Pagination">
+        <!-- <nav class="govuk-pagination" aria-label="Pagination">
           <ul class="govuk-pagination__list">
             <li class="govuk-pagination__item govuk-pagination__item--current">
               <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
@@ -87,7 +87,7 @@
             </a>
           </div>
         </nav>
-
+ -->
         <hr class="separator_forty">
 
         <div class="margin-bottom-forty">

@@ -14,6 +14,14 @@ var callback_functions = require('./callbacks.js');
 //     res.redirect(next);
 // });
 
+router.get(/use_existing_farm_handler/, callback_functions.showSuccessMessage, function (req, res) {
+    let next = 'farm'
+    if (req.session.data.use_existing_farm == 'no') {
+        next = 'name'
+    }
+    res.redirect(next)
+})
+
 router.get(/manner_copy_router/, callback_functions.showSuccessMessage, function (req, res) {
     let next = 'results'
     let tempApplication = req.session.data.manner_applications[0]

@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Add a farm - farm name – {{ serviceName }}
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_manner.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">What is {{data.oaktree_farm.name}} postcode?</h1>
+    
+    <form action="rainfall" method="post" novalidate="" autocomplete="off">      
+      <div class="govuk-form-group">
+        <input class="govuk-input govuk-input--width-5" id="farm_postcode" name="farm_postcode" type="text" autocomplete="">
+      </div>
+
+      <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="farms">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

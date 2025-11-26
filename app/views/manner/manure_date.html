@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/templates/header_signed_in.html" ignore missing %}
+  {% include "/templates/header_manner.html" ignore missing %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -37,7 +37,7 @@
       {% endif %} -->
 
       <h1 class="govuk-heading-l">
-        When are you applying {{data.manure_type.name}} on {{data.chosen_field | fieldnameconverter}}?
+        When are you applying {{data.manure_type.name}} on {{data.temp_field.field_name}}?
       </h1>
 
       <!-- <p>Enter the estimated date you first plan to apply organic material to the Winter Wheat fields, you can change the date for individual fields later.</p> -->

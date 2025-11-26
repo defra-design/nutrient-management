@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – Add a field -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_manner.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Is {{data.temp_field_name}} inside a Nitrate Vulnerable Zone (NVZ)?</h1>
+
+      <form action="soil-one" method="post" novalidate="">
+
+        <div class="govuk-form-group margin-bottom-forty">
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="yes" name="field_nvz" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="yes">Yes</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="no" name="field_nvz" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="no">No</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

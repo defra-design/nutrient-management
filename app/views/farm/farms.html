@@ -109,15 +109,12 @@
       <div>
         <h2 class="govuk-heading-m">Estimate nutrient supply from organic materials (MANNER-NPK)</h2>
         <p class="govuk-body">Estimate crop-available nitrogen (N), phosphate (P2O5), potash (K2O), magnesium (MgO) and sulphur (SO3) supply from organic manures. Calculate the financial value of manure nutrients.</p>
-        {% if data.oaktree_farm.fields_added == true  %}
           <ul class="menu-list govuk-list govuk-list--spaced">
             <li>
               <a class="govuk-link" href="../manner/about">Create a nutrient supply estimate</a>
             </li>
           </ul>
-          {% else %}
-            <p><a href="field_add_reset_handler">Create a nutrient estimate</a></p>
-          {% endif %}
+            <!-- <p><a href="field_add_reset_handler">Create a nutrient estimate</a></p> -->
       </div>
 
       

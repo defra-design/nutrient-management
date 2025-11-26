@@ -38,11 +38,6 @@ router.get(/add_postcode_handler/, function (req, res) {
   res.redirect('address')
 })
 
-router.get(/add_postcode_handler/, function (req, res) {
-  if (req.session.data.farm_postcode != "") req.session.data.oaktree_farm.postcode = req.session.data.farm_postcode
-  res.redirect('address')
-})
-
 router.get(/set_nvz_handler/, function (req, res) {
   if (req.session.data.farm_nvz != "") req.session.data.oaktree_farm.nvz = req.session.data.farm_nvz
   res.redirect('elevation')

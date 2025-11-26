@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/templates/header_signed_in.html" ignore missing %}
+  {% include "/templates/header_manner.html" ignore missing %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -83,7 +83,7 @@
       You can save your estimates as a PDF and print them if you wish.
     </p>
 
-    <form class="form margin-top-forty" action="existing" method="post">
+    <form class="form margin-top-forty" action="manner_setup_handler" method="post">
             <div class="govuk-form-group margin-bottom-forty">
         <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
           <div class="govuk-checkboxes" data-module="govuk-checkboxes">

@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – Add a farm -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_manner.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Which country is {{data.oaktree_farm.name}} in?
+    </h1>
+    
+    <form action="water_rules" method="post" novalidate="">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="country" name="country" type="radio" value="england">
+              <label class="govuk-label govuk-radios__label" for="country">
+                England
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="country-2" name="country" type="radio" value="scotland">
+              <label class="govuk-label govuk-radios__label" for="country-2">
+                Scotland
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="country-3" name="country" type="radio" value="wales">
+              <label class="govuk-label govuk-radios__label" for="country-3">
+                Wales
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/farm/farms">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

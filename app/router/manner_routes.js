@@ -14,6 +14,21 @@ var callback_functions = require('./callbacks.js');
 //     res.redirect(next);
 // });
 
+router.get(/manner_setup_handler/, callback_functions.showSuccessMessage, function (req, res) {
+    let next = 'name'
+    if (req.session.data.oaktree_farm.setup == true) {
+        next = 'existing'
+    }
+    res.redirect(next)
+})
+
+router.get(/set_mannerfield_name_handler/, function (req, res) { 
+    req.session.data.temp_field.field_id = req.session.data.all_fields.length + 1;
+    if (req.session.data.temp_field_name == "") req.session.data.temp_field_name = 'New Field #' + req.session.data.temp_field.field_id;
+    req.session.data.temp_field.field_name = req.session.data.temp_field_name;
+    res.redirect('nvz');
+})
+
 router.get(/use_existing_farm_handler/, callback_functions.showSuccessMessage, function (req, res) {
     let next = 'farm'
     if (req.session.data.use_existing_farm == 'no') {

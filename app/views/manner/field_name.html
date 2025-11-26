@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – Add a field -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_manner.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">What is the field name?</h1>
+
+    <form action="set_mannerfield_name_handler" method="post" novalidate="" autocomplete="off">      
+      <div class="govuk-form-group">
+        <input class="govuk-input" id="temp_field_name" name="temp_field_name" type="text">
+      </div>
+
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

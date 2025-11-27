@@ -51,11 +51,11 @@ router.get(/plan_setup/, function (req, res) {
     req.session.data.oaktree_farm.manure_system_details = 2
     req.session.data.oaktree_farm.storage_added = true
     req.session.data.oaktree_farm.derogation = false
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[1])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[2])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[3])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[4])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[5])
+    let livestock_list = [1,2,3,4,5]
+    for (let x in livestock_list) {
+        req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[livestock_list[x]])
+    }
+
     req.session.data.oaktree_farm.manure_imports = true
     req.session.data.oaktree_farm.manure_exports = true
     req.session.data.oaktree_farm.imports_exports = 2
@@ -121,25 +121,21 @@ router.get(/end_to_end_livestock_handler/, function (req, res) {
     req.session.data.all_fields.push(fieldTwo)
     
     // Livestock
-    req.session.data.livestock_types_data[0].numbers_added_nloading = 2;
-    req.session.data.livestock_types_data[1].numbers_added_nloading = 2;
-    req.session.data.livestock_types_data[2].numbers_added_nloading = 2;
-    req.session.data.livestock_types_data[3].numbers_added_nloading = 2;
-    req.session.data.livestock_types_data[4].numbers_added_nloading = 2;
-    req.session.data.livestock_types_data[5].numbers_added_nloading = 2;
+    // req.session.data.livestock_type_data[0].numbers_for_nloading = 2;
+    // req.session.data.livestock_type_data[1].numbers_for_nloading = 2;
+    // req.session.data.livestock_type_data[2].numbers_for_nloading = 2;
+    // req.session.data.livestock_type_data[3].numbers_for_nloading = 2;
+    // req.session.data.livestock_type_data[4].numbers_for_nloading = 2;
+    // req.session.data.livestock_type_data[5].numbers_for_nloading = 2;
+    // req.session.data.livestock_type_data[24].numbers_for_nloading = 2;
 
-    req.session.data.livestock_types_data[24].numbers_added_nloading = 2;
+    let livestock_list = [0,1,2,3,4,5,24]
+    for (let x in livestock_list) {
+        req.session.data.livestock_type_data[livestock_list[x]].numbers_for_nloading = 2
+        req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[livestock_list[x]])
+    }
 
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[0])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[1])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[2])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[3])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[4])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[5])
-
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[24])
     req.session.data.oaktree_farm.livestock_loading = 3;
-
     res.redirect('start')
 })
 
@@ -151,19 +147,18 @@ router.get(/livestock_handler_inventory/, function (req, res) {
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
     // Livestock
-    req.session.data.livestock_types_data[0].numbers_added_inventory = 2;
-    req.session.data.livestock_types_data[1].numbers_added_inventory = 2;
-    req.session.data.livestock_types_data[2].numbers_added_inventory = 2;
-    req.session.data.livestock_types_data[3].numbers_added_inventory = 2;
-    req.session.data.livestock_types_data[4].numbers_added_inventory = 2;
-    req.session.data.livestock_types_data[5].numbers_added_inventory = 2;
-    req.session.data.livestock_types_data[24].numbers_added_inventory = 2;
+    req.session.data.livestock_type_data[0].numbers_for_inventory = 2;
+    req.session.data.livestock_type_data[1].numbers_for_inventory = 2;
+    req.session.data.livestock_type_data[2].numbers_for_inventory = 2;
+    req.session.data.livestock_type_data[3].numbers_for_inventory = 2;
+    req.session.data.livestock_type_data[4].numbers_for_inventory = 2;
+    req.session.data.livestock_type_data[5].numbers_for_inventory = 2;
+    req.session.data.livestock_type_data[24].numbers_for_inventory = 2;
 
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[0])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[1])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[2])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[3])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[24])
+    let livestock_list = [0,1,2,3,24]
+    for (let x in livestock_list) {
+        req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[livestock_list[x]])
+    }
     
     req.session.data.oaktree_farm.livestock_inventory = 3;
 
@@ -190,22 +185,19 @@ router.get(/exports_setup_handler/, function (req, res) {
     req.session.data.oaktree_farm.storage_added = true
     req.session.data.oaktree_farm.storage_figures = true
 
-    req.session.data.livestock_types_data[0].numbers_added_inventory = 4;
-    req.session.data.livestock_types_data[1].numbers_added_inventory = 4;
-    req.session.data.livestock_types_data[2].numbers_added_inventory = 4;
-    req.session.data.livestock_types_data[3].numbers_added_inventory = 4;
-    req.session.data.livestock_types_data[4].numbers_added_inventory = 4;
-    req.session.data.livestock_types_data[5].numbers_added_inventory = 4;
-    req.session.data.livestock_types_data[24].numbers_added_inventory = 4;
-
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[0])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[1])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[2])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[3])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[4])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[5])
-    req.session.data.livestock_record_plan_year.push(req.session.data.livestock_types_data[24])
+    req.session.data.livestock_type_data[0].numbers_for_inventory = 4;
+    req.session.data.livestock_type_data[1].numbers_for_inventory = 4;
+    req.session.data.livestock_type_data[2].numbers_for_inventory = 4;
+    req.session.data.livestock_type_data[3].numbers_for_inventory = 4;
+    req.session.data.livestock_type_data[4].numbers_for_inventory = 4;
+    req.session.data.livestock_type_data[5].numbers_for_inventory = 4;
+    req.session.data.livestock_type_data[24].numbers_for_inventory = 4;
     
+    let livestock_list = [0,1,2,3,4,5,24]
+    for (let x in livestock_list) {
+        req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[livestock_list[x]])
+    }
+
     req.session.data.oaktree_farm.livestock_inventory = 3;
 
     res.redirect('start')

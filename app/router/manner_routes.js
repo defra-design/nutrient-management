@@ -6,7 +6,6 @@ var callback_functions = require('./callbacks.js');
 
 // const { checkout } = require('./routes_message_reset_handlers.js');
 
-
 // Routes
 
 // router.get(/manner_copy_handler/, function (req, res) {

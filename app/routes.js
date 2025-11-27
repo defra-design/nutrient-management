@@ -13,7 +13,7 @@ const  manure_type_livestock_data = require('./data/manure_type_livestock.json')
 const  manure_type_livestock_groups_data = require('./data/manure_type_livestock_groups.json');
 const  potato_details_data = require('./data/potato_types.json');
 const  crop_types_data = require('./data/crop_types.json');
-const  livestock_types_data = require('./data/livestock_types.json');
+const  livestock_type_data = require('./data/livestock_types.json');
 
 const allFunctions = require('./functions/allFunctions.js');
 
@@ -102,7 +102,7 @@ router.get('/', function (req, res) {
     req.session.data.field_list_data = field_list_data
     req.session.data.potato_details_data = potato_details_data
     req.session.data.crop_types_data = crop_types_data
-    req.session.data.livestock_types_data = livestock_types_data
+    req.session.data.livestock_type_data = livestock_type_data
     req.session.data.fertiliser_applications_data = fertiliser_applications_data
     req.session.data.manure_applications_data = manure_applications_data
     req.session.data.show_error = false;

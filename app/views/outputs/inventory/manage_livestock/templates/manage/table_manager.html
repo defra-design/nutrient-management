@@ -8,31 +8,31 @@
 {% for livestock_type in data.livestock_record_plan_year %}
 
   {% if livestock_type.type == 'cattle' %}
-    {% if livestock_type.numbers_added_inventory != null %}
+    {% if livestock_type.numbers_for_inventory != null %}
       {% set show_cattle = true %}
     {% endif %}
   {% endif %}
 
   {% if livestock_type.type == 'pig' %}
-    {% if livestock_type.numbers_added_inventory != null %}
+    {% if livestock_type.numbers_for_inventory != null %}
       {% set show_pigs = true %}
     {% endif %}
   {% endif %}
 
   {% if livestock_type.type == 'poultry' %}
-    {% if livestock_type.numbers_added_inventory != null %}
+    {% if livestock_type.numbers_for_inventory != null %}
       {% set show_poultry = true %}
     {% endif %}
   {% endif %}
 
   {% if livestock_type.type == 'sheep' %}
-    {% if livestock_type.numbers_added_inventory != null %}
+    {% if livestock_type.numbers_for_inventory != null %}
       {% set show_sheep = true %}
     {% endif %}
   {% endif %}
 
   {% if livestock_type.type == 'other' %}
-    {% if livestock_type.numbers_added_inventory != null %}
+    {% if livestock_type.numbers_for_inventory != null %}
       {% set show_other = true %}
     {% endif %}
   {% endif %}

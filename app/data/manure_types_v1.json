@@ -44,6 +44,6 @@
 {"name": "Distillery effluent/sludge", "displayname": "Distillery effluent/sludge", "group_id": "20"},
 {"name": "Brewery wash water", "displayname": "Brewery wash water", "group_id": "21"},
 {"name": "Straw mulch", "displayname": "Straw mulch", "group_id": "22"},
-{"name": "Other - Solid materials", "displayname": "Solid materials", "group_id": "23"},
-{"name": "Other - Liquid materials", "displayname": "Liquid materials", "group_id": "23" }
+{"name": "Other solid material", "displayname": "Solid materials", "group_id": "23"},
+{"name": "Other liquid material", "displayname": "Liquid materials", "group_id": "23" }
 ]

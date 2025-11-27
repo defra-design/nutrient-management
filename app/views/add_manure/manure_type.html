@@ -36,12 +36,15 @@
         <div class="govuk-radios" data-module="govuk-radios">
           
           {% for x in data.manure_types %}
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="{{x.name}}" name="manure_type" type="radio" value="{{x.name}}">
-            <label class="govuk-label govuk-radios__label" for="{{x.name}}">
-              {{x.display_name}}
-            </label>
-          </div>
+            {% if x.name == 'Other solid material' %}
+              <div class="govuk-radios__divider">or</div>
+            {% endif  %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="{{x.name}}" name="manure_type" type="radio" value="{{x.name}}">
+              <label class="govuk-label govuk-radios__label" for="{{x.name}}">
+                {{x.display_name}}
+              </label>
+            </div>
         {% endfor %}
 
         </div>

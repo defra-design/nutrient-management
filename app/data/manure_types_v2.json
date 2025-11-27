@@ -40,6 +40,6 @@
     {"name": "Food Waste - Brewing", "liquid": true, "displayname": "Food Waste - Brewing", "group_id": "28"},
     {"name": "Food Waste - General", "liquid": true, "displayname": "Food Waste - General", "group_id": "28"},
     {"name": "Straw mulch", "liquid": false, "displayname": "Straw mulch", "group_id": "28"},
-    {"name": "Other - Solid materials", "liquid": false, "displayname": "Other - Solid materials", "group_id": "28"},
-    {"name": "Other - Liquid materials", "liquid": true, "displayname": "Other - Liquid materials", "group_id": "28" }
+    {"name": "Other solid material", "liquid": false, "displayname": "Other solid material", "group_id": "28"},
+    {"name": "Other liquid material", "liquid": true, "displayname": "Other liquid material", "group_id": "28" }
     ]

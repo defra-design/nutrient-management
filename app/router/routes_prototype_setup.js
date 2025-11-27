@@ -13,7 +13,6 @@ router.get(/end_to_end_setup_handler/, function (req, res) {
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
     req.session.data.oaktree_farm.grass_setup = true
-    // req.session.data.cropGroups.push(allFunctions.createCropGroup(1, 2026, [1,2], req.session.data.all_fields, 'grass', null, 'Crop group 1', '11', null, false))
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [1,2], 'grass', 1)
     let group_1 = allFunctions.createCropGroup(null, 1, 2026, 'grass', [1,2], req.session.data.all_fields)
     req.session.data.cropGroups.push(group_1)
@@ -28,7 +27,6 @@ router.get(/onecrop_v5_setup_handler/, function (req, res) {
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
     req.session.data.all_fields = req.session.data.field_list_data
-    // req.session.data.cropGroups.push(allFunctions.createCropGroup(1, 2026, [1,2,3,4,5], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 1', '8', null, false))
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [1,2,3,4,5], 'Wheat-Winter', 1)
     let group_1 = allFunctions.createCropGroup(null, 1, 2026, 'Wheat-Winter', [1,2,3,4,5], req.session.data.all_fields)
     req.session.data.cropGroups.push(group_1)
@@ -51,6 +49,8 @@ router.get(/plan_setup/, function (req, res) {
     req.session.data.oaktree_farm.manure_system_details = 2
     req.session.data.oaktree_farm.storage_added = true
     req.session.data.oaktree_farm.derogation = false
+    
+    // livestock
     let livestock_list = [1,2,3,4,5]
     for (let x in livestock_list) {
         req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[livestock_list[x]])
@@ -60,10 +60,6 @@ router.get(/plan_setup/, function (req, res) {
     req.session.data.oaktree_farm.manure_exports = true
     req.session.data.oaktree_farm.imports_exports = 2
     req.session.data.oaktree_farm.storage_added = true
-    // req.session.data.cropGroups.push(allFunctions.createCropGroup(1, 2026, [8, 12], req.session.data.all_fields, 'Beans-Winter', 'Vespa', 'Crop group 1', null, null, true))
-    // req.session.data.cropGroups.push(allFunctions.createCropGroup(2, 2026, [1, 4, 5, 6, 7, 14], req.session.data.all_fields, 'Wheat-Winter', 'Skyfall', 'Crop group 2', '10 to 13', "12/03/2026", true))
-    // req.session.data.cropGroups.push(allFunctions.createCropGroup(3, 2026, [10, 11, 18, 19], req.session.data.all_fields, 'grass', null, 'Crop group 3', '12', null, false))
-    // var new_group = allFunctions.createCropGroup(group_name, group_id, year, crop_id, field_list, req.session.data.all_fields)
     
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [8, 12], 'Beans-Winter', 1)
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [1, 4, 5, 6, 7, 14], 'Wheat-Winter', 2)
@@ -121,14 +117,6 @@ router.get(/end_to_end_livestock_handler/, function (req, res) {
     req.session.data.all_fields.push(fieldTwo)
     
     // Livestock
-    // req.session.data.livestock_type_data[0].numbers_for_nloading = 2;
-    // req.session.data.livestock_type_data[1].numbers_for_nloading = 2;
-    // req.session.data.livestock_type_data[2].numbers_for_nloading = 2;
-    // req.session.data.livestock_type_data[3].numbers_for_nloading = 2;
-    // req.session.data.livestock_type_data[4].numbers_for_nloading = 2;
-    // req.session.data.livestock_type_data[5].numbers_for_nloading = 2;
-    // req.session.data.livestock_type_data[24].numbers_for_nloading = 2;
-
     let livestock_list = [0,1,2,3,4,5,24]
     for (let x in livestock_list) {
         req.session.data.livestock_type_data[livestock_list[x]].numbers_for_nloading = 2
@@ -146,17 +134,11 @@ router.get(/livestock_handler_inventory/, function (req, res) {
     req.session.data.showinfo = false
     req.session.data.all_fields.push(fieldOne)
     req.session.data.all_fields.push(fieldTwo)
+    
     // Livestock
-    req.session.data.livestock_type_data[0].numbers_for_inventory = 2;
-    req.session.data.livestock_type_data[1].numbers_for_inventory = 2;
-    req.session.data.livestock_type_data[2].numbers_for_inventory = 2;
-    req.session.data.livestock_type_data[3].numbers_for_inventory = 2;
-    req.session.data.livestock_type_data[4].numbers_for_inventory = 2;
-    req.session.data.livestock_type_data[5].numbers_for_inventory = 2;
-    req.session.data.livestock_type_data[24].numbers_for_inventory = 2;
-
     let livestock_list = [0,1,2,3,24]
     for (let x in livestock_list) {
+        req.session.data.livestock_type_data[livestock_list[x]].numbers_for_inventory = 2
         req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[livestock_list[x]])
     }
     
@@ -184,17 +166,11 @@ router.get(/exports_setup_handler/, function (req, res) {
     req.session.data.oaktree_farm.imports_exports = 2
     req.session.data.oaktree_farm.storage_added = true
     req.session.data.oaktree_farm.storage_figures = true
-
-    req.session.data.livestock_type_data[0].numbers_for_inventory = 4;
-    req.session.data.livestock_type_data[1].numbers_for_inventory = 4;
-    req.session.data.livestock_type_data[2].numbers_for_inventory = 4;
-    req.session.data.livestock_type_data[3].numbers_for_inventory = 4;
-    req.session.data.livestock_type_data[4].numbers_for_inventory = 4;
-    req.session.data.livestock_type_data[5].numbers_for_inventory = 4;
-    req.session.data.livestock_type_data[24].numbers_for_inventory = 4;
     
+    // livestock
     let livestock_list = [0,1,2,3,4,5,24]
     for (let x in livestock_list) {
+        req.session.data.livestock_type_data[livestock_list[x]].numbers_for_inventory = 4
         req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[livestock_list[x]])
     }
 
@@ -214,10 +190,6 @@ router.get(/inventory_setup_handler/, function (req, res) {
     req.session.data.oaktree_farm.manure_exports = true
     req.session.data.oaktree_farm.imports_exports = 2
     
-    // req.session.data.cropGroups.push(group_1)
-    // req.session.data.cropGroups.push(group_2)
-    // req.session.data.cropGroups.push(group_3)
-
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [8, 12], 'Beans-Winter', 1)
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [1, 4, 5, 6, 7, 14], 'Wheat-Winter', 2)
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [10, 11, 18, 19], 'grass', 3)
@@ -241,6 +213,4 @@ router.get(/inventory_setup_handler/, function (req, res) {
     res.redirect('start')
 })
 
-
 module.exports = router
-

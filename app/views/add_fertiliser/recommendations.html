@@ -1,0 +1,34 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_out.html" ignore missing %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Recommendation for grass in Orchard {{data.oaktree_farm.planning_year}}
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="margin-bottom-forty">
+      {% include "/farm/field_plan/templates/v4_nutrients_one_organic.html" ignore missing %}
+    </div>
+    <form class="" action="" method="post">
+      {{ govukButton({
+        text: "Close this window"
+      }) }}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

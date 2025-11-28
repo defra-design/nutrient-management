@@ -29,47 +29,47 @@ var temp_field = {
 
 //index route
 router.get('/', function (req, res) { 
-  req.session.data.oaktree_farm = {
-    resetFarm : function () {
-      req.session.data.oaktree_farm.created = true,
-      req.session.data.oaktree_farm.name = "Oaktree Lane Farm",
-      req.session.data.oaktree_farm.postcode = "NE46 7LQ",
-      req.session.data.oaktree_farm.planning_year = 2026,
-      req.session.data.oaktree_farm.harvest_year = 2026,
-      req.session.data.oaktree_farm.years_planned = []
-      req.session.data.oaktree_farm.nvz = "some",
-      req.session.data.oaktree_farm.elevation = "some",
-      req.session.data.oaktree_farm.use_mvp_fields = false,
-      req.session.data.oaktree_farm.setup = false,
-      req.session.data.oaktree_farm.fields_added = false,
-      req.session.data.oaktree_farm.grass_setup = false,
-      // livestock statuses
-      // 1 Nothing added = null (incomplete)
-      // 2 Copied from loading = copied (incomplete)
-      // 3 Added for inventory = added (complete)
-      req.session.data.oaktree_farm.livestock_loading = null,
-      req.session.data.oaktree_farm.livestock_inventory = null,
-      req.session.data.oaktree_farm.storage_added = false,
-      req.session.data.oaktree_farm.rainwater_area_added = false,
-      req.session.data.oaktree_farm.storage_figures = false,
-      req.session.data.oaktree_farm.low_risk_land_added = null,
-      req.session.data.oaktree_farm.area_added = false,
-      req.session.data.oaktree_farm.manure_exports = false,
-      req.session.data.oaktree_farm.manure_imports = false,
-      req.session.data.oaktree_farm.manure_system = null,
-      req.session.data.oaktree_farm.manure_system_details = false,
-      req.session.data.oaktree_farm.wash_water = false,
-      req.session.data.oaktree_farm.imports_exports = null,
-      req.session.data.oaktree_farm.rainfall = 600,
-      req.session.data.oaktree_farm.derogation = null,
-      req.session.data.oaktree_farm.ewr = null
-  },
-  print : function () {
-      console.log(this);
-    }
-}
+  // req.session.data.oaktree_farm = {
+  //   resetFarm : function () {
+  //     req.session.data.oaktree_farm.created = true,
+  //     req.session.data.oaktree_farm.name = "Oaktree Lane Farm",
+  //     req.session.data.oaktree_farm.postcode = "NE46 7LQ",
+  //     req.session.data.oaktree_farm.planning_year = 2026,
+  //     req.session.data.oaktree_farm.harvest_year = 2026,
+  //     req.session.data.oaktree_farm.years_planned = []
+  //     req.session.data.oaktree_farm.nvz = "some",
+  //     req.session.data.oaktree_farm.elevation = "some",
+  //     req.session.data.oaktree_farm.use_mvp_fields = false,
+  //     req.session.data.oaktree_farm.setup = false,
+  //     req.session.data.oaktree_farm.fields_added = false,
+  //     req.session.data.oaktree_farm.grass_setup = false,
+  //     // livestock statuses
+  //     // 1 Nothing added = null (incomplete)
+  //     // 2 Copied from loading = copied (incomplete)
+  //     // 3 Added for inventory = added (complete)
+  //     req.session.data.oaktree_farm.livestock_loading = null,
+  //     req.session.data.oaktree_farm.livestock_inventory = null,
+  //     req.session.data.oaktree_farm.storage_added = false,
+  //     req.session.data.oaktree_farm.rainwater_area_added = false,
+  //     req.session.data.oaktree_farm.storage_figures = false,
+  //     req.session.data.oaktree_farm.low_risk_land_added = null,
+  //     req.session.data.oaktree_farm.area_added = false,
+  //     req.session.data.oaktree_farm.manure_exports = false,
+  //     req.session.data.oaktree_farm.manure_imports = false,
+  //     req.session.data.oaktree_farm.manure_system = null,
+  //     req.session.data.oaktree_farm.manure_system_details = false,
+  //     req.session.data.oaktree_farm.wash_water = false,
+  //     req.session.data.oaktree_farm.imports_exports = null,
+  //     req.session.data.oaktree_farm.rainfall = 600,
+  //     req.session.data.oaktree_farm.derogation = null,
+  //     req.session.data.oaktree_farm.ewr = null
+  // },
+  // print : function () {
+  //     console.log(this);
+  //   }
+  // }
 
-    req.session.data.oaktree_farm.resetFarm()
+    // req.session.data.oaktree_farm.resetFarm()
     // req.session.data.oaktree_farm.print()
 
     // control vars  

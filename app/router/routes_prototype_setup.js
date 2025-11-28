@@ -2,10 +2,49 @@ var express = require('express')
 var router = express.Router()
 var allFunctions = require('../functions/allFunctions.js');
 
-var fieldOne = {field_name: "Long Field", field_id: 1, nvz: true, elevation: false};
-var fieldTwo = {field_name: "Short Field", field_id: 2, nvz: true, elevation: false};
+let oaktree_farm = {
+      created: true,
+      name:  "Oaktree Lane Farm",
+      postcode:  "NE46 7LQ",
+      planning_year:  2026,
+      harvest_year:  2026,
+      years_planned:  [],
+      nvz:  "some",
+      elevation: "some",
+      use_mvp_fields: false,
+      setup: false,
+      fields_added: false,
+      grass_setup: false,
+      // livestock statuses
+      // 1 Nothing added: null (incomplete)
+      // 2 Copied from loading: copied (incomplete)
+      // 3 Added for inventory: added (complete)
+      livestock_loading: null,
+      livestock_inventory: null,
+      storage_added: false,
+      rainwater_area_added: false,
+      storage_figures: false,
+      low_risk_land_added: null,
+      area_added: false,
+      manure_exports: false,
+      manure_imports: false,
+      manure_system: null,
+      manure_system_details: false,
+      wash_water: false,
+      imports_exports: null,
+      rainfall: 600,
+      derogation: null,
+      ewr: null,
+    print : function () {
+      console.log(this);
+    }
+  }
+
+let fieldOne = {field_name: "Long Field", field_id: 1, nvz: true, elevation: false};
+let fieldTwo = {field_name: "Short Field", field_id: 2, nvz: true, elevation: false};
 
 router.get(/end_to_end_setup_handler/, function (req, res) { 
+    req.session.data.oaktree_farm = oaktree_farm
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.oaktree_farm.years_planned.push(2026)
@@ -23,6 +62,7 @@ router.get(/end_to_end_setup_handler/, function (req, res) {
 })
 
 router.get(/onecrop_v5_setup_handler/, function (req, res) { 
+    req.session.data.oaktree_farm = oaktree_farm
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
@@ -36,6 +76,8 @@ router.get(/onecrop_v5_setup_handler/, function (req, res) {
 
 //full setup
 router.get(/plan_setup/, function (req, res) { 
+    req.session.data.oaktree_farm = oaktree_farm
+    
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.oaktree_farm.years_planned.push(2026)
@@ -88,10 +130,14 @@ router.get(/plan_setup/, function (req, res) {
 })
 
 router.get(/start_setup_handler/, function (req, res) { 
+    req.session.data.oaktree_farm = oaktree_farm
+    
     res.redirect('start')
 })
 
 router.get(/farm_setup_handler/, function (req, res) { 
+    req.session.data.oaktree_farm = oaktree_farm
+    
     req.session.data.showinfo = false
     req.session.data.extra_features = true
     req.session.data.oaktree_farm.setup = true
@@ -100,6 +146,8 @@ router.get(/farm_setup_handler/, function (req, res) {
 
 //Farm and fields added - this
 router.get(/end_to_end_field_handler/, function (req, res) { 
+    req.session.data.oaktree_farm = oaktree_farm
+    
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
@@ -110,6 +158,8 @@ router.get(/end_to_end_field_handler/, function (req, res) {
 
 //Farm fields livestock added
 router.get(/end_to_end_livestock_handler/, function (req, res) { 
+    req.session.data.oaktree_farm = oaktree_farm
+    
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
@@ -129,6 +179,8 @@ router.get(/end_to_end_livestock_handler/, function (req, res) {
 
 //Farm fields livestock added
 router.get(/livestock_handler_inventory/, function (req, res) { 
+    req.session.data.oaktree_farm = oaktree_farm
+    
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
@@ -148,6 +200,8 @@ router.get(/livestock_handler_inventory/, function (req, res) {
 })
 
 router.get(/manure_storage_setup_handler/, function (req, res) { 
+    req.session.data.oaktree_farm = oaktree_farm
+    
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
@@ -158,6 +212,8 @@ router.get(/manure_storage_setup_handler/, function (req, res) {
 })
 
 router.get(/exports_setup_handler/, function (req, res) { 
+    req.session.data.oaktree_farm = oaktree_farm
+    
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.showinfo = false
@@ -180,6 +236,8 @@ router.get(/exports_setup_handler/, function (req, res) {
 })
 
 router.get(/inventory_setup_handler/, function (req, res) { 
+    req.session.data.oaktree_farm = oaktree_farm
+    
     req.session.data.oaktree_farm.setup = true
     req.session.data.oaktree_farm.fields_added = true
     req.session.data.oaktree_farm.years_planned.push(2026)

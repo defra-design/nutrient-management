@@ -21,34 +21,34 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        An N-max report is not available
+        An N-max report is not available for {{data.oaktree_farm.planning_year}} 
       </h1>
+      <p class="govuk-body">You need to enter details first about:</p>
+
+        <!-- <h2 class="govuk-heading-m">
+          You have not entered any field or crop details
+        </h2> -->
+        <ul class="govuk-list govuk-list--bullet margin-bottom-forty">
+          {% if data.all_fields | length == 0 %}
+            <li>your fields</li>
+          {% endif %}
+          <li>your crops</li>
+          <li>any organic material, or inorganic fertiliser used</li>
+        </ul>
 
       {% if data.all_fields | length == 0 %}
-      <p class="govuk-body margin-bottom-thirty">
-        You need to enter details about your fields.
-      </p>
-
+        <form class="form" action="../../add-field/name" method="post">
+          {{ govukButton({
+            text: "Add fields"
+          }) }}
+        </form>
       {% else %}
-        <p class="govuk-body margin-bottom-thirty">
-          You need to enter your crop details and information about any organic or inorganic material applied for {{data.oaktree_farm.planning_year}}.
-        </p>
+        <form class="form" action="../../add-crop/crop_group" method="post">
+          {{ govukButton({
+            text: "Add crops"
+          }) }}
+        </form>
       {% endif %}
-
-          
-        {% if data.all_fields | length == 0 %}
-          <form class="form" action="../../add-field/name" method="post">
-            {{ govukButton({
-              text: "Add fields"
-            }) }}
-          </form>
-        {% else %}
-          <form class="form" action="../../add-crop/crop_group" method="post">
-            {{ govukButton({
-              text: "Add crops"
-            }) }}
-          </form>
-        {% endif %}
 
     </div>
   </div>

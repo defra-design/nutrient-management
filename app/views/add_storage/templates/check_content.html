@@ -33,7 +33,7 @@
   {% endif %}
 
   <!-- circular dimensions -->
-  {% if data.storage_type == 'circular' %}
+  {% if data.storage_type == 'circular store' %}
     {% include "./check_circle.html" ignore missing %}
   
   <!-- capacity -->
@@ -41,7 +41,7 @@
     {% include "./check_capacity.html" ignore missing %}
 
   <!-- sloped sides -->
-  {% elif data.storage_type == 'earth banked' %}
+  {% elif data.storage_type == 'earth banked lagoon' %}
     {% include "./check_slope.html" ignore missing %}
   
   <!-- everything else = rectangle -->

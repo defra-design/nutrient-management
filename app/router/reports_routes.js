@@ -89,7 +89,7 @@ router.get(/manage_storage_router/, callback_functions.hideSuccessMessage, funct
 
 router.get(/storage_sizes_handler/, function (req, res) {
   let next = 'check'
-  if (req.session.data.storage_type == 'earth banked') {
+  if (req.session.data.storage_type == 'earth banked lagoon') {
       next = 'slope_question'
   } else if (req.session.data.material_type == 'solid manure'){
       next = 'weight'
@@ -125,7 +125,6 @@ router.get(/check_storage_handler/, function (req, res) {
   // function createStorage(store_type, store_name, store_material)
   let store_1 = allFunctions.createStorage(req.session.data.material_type, req.session.data.storage_name, req.session.data.storage_type)
   req.session.data.manure_storage.push(store_1)
-  console.log(req.session.data.manure_storage)
   // req.session.data.successMessage = 2;
   let next = '/farm/storage/manage_storage'
   res.redirect(next)

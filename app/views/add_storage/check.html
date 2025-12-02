@@ -20,7 +20,7 @@
     
 
     <h1 class="govuk-heading-l">
-     Add storage for {{data.oaktree_farm.planning_year}}
+     Add manure storage
     </h1>
 
     <h2 class="govuk-heading-m">
@@ -30,6 +30,7 @@
     <div class="check-answers margin-bottom-forty">
       {% include "./templates/check_content.html" %}
     </div>
+
     <form action="check_storage_handler" method="post" novalidate>
       {{ govukButton({
         text: "Add this manure storage"

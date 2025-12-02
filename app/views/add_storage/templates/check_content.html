@@ -12,10 +12,25 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What type of storage is {{data.storage_name}}?</dt>
+    <dt class="govuk-summary-list__key">
+      {% if data.material_type == 'solid manure' %}
+        What type of solid manure is My Storage used for?
+      {% else %}
+        What type of storage is {{data.storage_name}}?
+      {% endif %}
+    </dt>
       <dd class="govuk-summary-list__value">{{data.storage_type | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+
+   <!-- poultry bulk density -->
+  {% if data.storage_type == 'poultry manure' %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">What is the bulk density of your poultry manure?</dt>
+        <dd class="govuk-summary-list__value">{{data.bulk_density_value}}%</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% endif %}
 
   <!-- circular dimensions -->
   {% if data.storage_type == 'circular' %}

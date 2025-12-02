@@ -22,51 +22,38 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Do you want to use the standard bulk density figure for poultry manure to calculate the capacity of My Storage?
+      What is the bulk density of your poultry manure?
     </h1>
 
-    <h2 class="govuk-heading-m">
-      The standard bulk density for poultry manure is [value]
-    </h2>
+    <p class="govuk-hint">We use this to calculate the capacity of My Storage</p>
 
-
-    <!-- <details class="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">Help with occupancy and nitrogen (N) standard</span>
-      </summary>
-      
-    </details> -->
-  <!-- <h2 class="govuk-heading-s">Standard values for poultry</h2>
-    <table class="govuk-table">
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Occupancy</th>
-          <td class="govuk-table__cell">86% of the year</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Nitrogen (N) standard</th>
-          <td class="govuk-table__cell">83kg per 1000 places, per year</td>
-        </tr>
-      </tbody>
-    </table> -->
-
-    <!-- <p class="govuk-body">Do you want to this value for this poultry type?</p> -->
-
-    <form action="occupancy_handler" method="post" novalidate="">
+    <form action="sizes" method="post" novalidate="">
 
     <div class="govuk-form-group margin-bottom-thirty">
       <fieldset class="govuk-fieldset">
         <div class="govuk-radios" data-module="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="occupancy" name="occupancy_value" type="radio" value="yes">
-            <label class="govuk-label govuk-radios__label" for="occupancy">
-              Yes, use this value
+            <input class="govuk-radios__input" id="20" name="bulk_density_value" type="radio" value="20">
+            <label class="govuk-label govuk-radios__label" for="20">
+              20% solid material
             </label>
           </div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="occupancy-2" name="occupancy_value" type="radio" value="occupancy">
-            <label class="govuk-label govuk-radios__label" for="occupancy-2">
-              No, change the value
+            <input class="govuk-radios__input" id="40" name="bulk_density_value" type="radio" value="40">
+            <label class="govuk-label govuk-radios__label" for="40">
+              40% solid material
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="60" name="bulk_density_value" type="radio" value="60">
+            <label class="govuk-label govuk-radios__label" for="60">
+              60% solid material
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="80" name="bulk_density_value" type="radio" value="80">
+            <label class="govuk-label govuk-radios__label" for="80">
+              80% solid material
             </label>
           </div>
         </div>

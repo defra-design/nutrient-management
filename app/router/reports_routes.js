@@ -8,6 +8,16 @@ var callback_functions = require('./callbacks.js');
 
 // Routes
 
+
+router.get(/report_type_handler/, function (req, res) {
+    let next = 'years'
+  if (req.session.data.export_type == '7') {
+      next = 'output_router'
+  }
+  res.redirect(next);
+})
+
+
 router.get(/derogation_add_router/, function (req, res) {
   if (req.session.data.derogation == 'no') {
       req.session.data.oaktree_farm.derogation = false
@@ -88,9 +98,9 @@ router.get(/storage_sizes_handler/, function (req, res) {
 })
 
 router.get(/storage_type_handler/, function (req, res) {
-  let next = 'size_question'
-  if (req.session.data.material_type == 'solid manure') {
-      next = 'storage_type_solid'
+  let next = 'sizes'
+  if (req.session.data.storage_type == 'poultry manure') {
+      next = 'bulk_density'
   }
   res.redirect(next)
 })

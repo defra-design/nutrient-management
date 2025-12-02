@@ -85,23 +85,24 @@ function basicSetup (farm, mvpFields, manure, fertiliser) {
 // }
 
 function createCropGroup(group_name, group_id, year, crop_id, field_list, current_fields) {
-//    let new_list = []
-//     for (let x in field_list) {
-//         for (let y in current_fields) {
-//             if (field_list[x].reference == current_fields[y].reference) { 
-//                 new_list.push(current_fields[y])
-//             }
-//         }
-//     }
-    var newGroup = {
-        group_name: group_name,
-        group_id: group_id,
-        year: year,
-        crop_id: crop_id,
-        field_list: field_list,
-    }
-    // console.log('create group = ' + field_list)
-    return newGroup
+  var newGroup = {
+      group_name: group_name,
+      group_id: group_id,
+      year: year,
+      crop_id: crop_id,
+      field_list: field_list,
+  }
+  // console.log('create group = ' + field_list)
+  return newGroup
+}
+
+function createStorage(store_type, store_name, store_material) {
+  var newGroup = {
+      store_type: store_type,
+      store_name: store_name,
+      store_material: store_material
+  }
+  return newGroup
 }
 
 // req.session.data.all_fields = allFunctions.updateFieldCrop(req.session.data.all_fields, field_list, crop_id, year, variety, group_id)
@@ -292,3 +293,4 @@ module.exports.createLivestockItem = createLivestockItem;
 module.exports.field_count = field_count;
 module.exports.updateFieldCrop = updateFieldCrop;
 module.exports.setCropAndGroupId = setCropAndGroupId;
+module.exports.createStorage = createStorage;

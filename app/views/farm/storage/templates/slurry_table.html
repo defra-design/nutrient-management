@@ -1,0 +1,30 @@
+<table class="govuk-table data-table store-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Name</th>
+      <th scope="col" class="govuk-table__header">Storage type</th>
+      <th scope="col" class="govuk-table__header">Total capacity</th>
+      <th scope="col" class="govuk-table__header"> </th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+
+    {% for store in data.manure_storage %}
+      {% if store.store_type == 'slurry' %}
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{store.store_name}}</td>
+        <td class="govuk-table__cell">{{store.store_type}}</td>
+        <td class="govuk-table__cell">256 cubic metres</td>
+        <td class="govuk-table__cell"><a href="./change">Change</a></td>
+      </tr>
+      {% endif %}
+    {% endfor %}
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell strong">Slurry storage total</td>
+      <td class="govuk-table__cell">&nbsp;</td>
+      <td class="govuk-table__cell strong">256 cubic metres</td>
+      <td class="govuk-table__cell">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>

@@ -122,11 +122,14 @@ router.get(/storage_size_handler/, function (req, res) {
 router.get(/check_storage_handler/, function (req, res) {
   req.session.data.show_success_message = true;
   req.session.data.oaktree_farm.storage_added = true;
+  // function createStorage(store_type, store_name, store_material)
+  let store_1 = allFunctions.createStorage(req.session.data.material_type, req.session.data.storage_name, req.session.data.storage_type)
+  req.session.data.manure_storage.push(store_1)
+  console.log(req.session.data.manure_storage)
   // req.session.data.successMessage = 2;
   let next = '/farm/storage/manage_storage'
   res.redirect(next)
 })
-
 
 // Livestock routes
 

@@ -654,9 +654,17 @@ router.get(/storage_name_handler/, function (req, res) {
 
 router.get(/storage_totals_handler/, function (req, res) {
   let next = 'storage_none'
-  if (req.session.data.oaktree_farm.storage_figures == true || req.session.data.oaktree_farm.storage_added == true) {
-      next = 'storage_values'
+  if (req.session.data.oaktree_farm.storage_added == true) {
+      next = '/farm/storage/manage_storage'
   }
+  res.redirect(next);
+})
+
+router.get(/inventory_storage_handler/, function (req, res) {
+  let next = '/add_storage/material_type'
+//   if (req.session.data.Y.length() != 0) {
+//       next = '..farm/storage/manage_storage'
+//   }
   res.redirect(next);
 })
 

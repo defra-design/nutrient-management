@@ -6,15 +6,22 @@
 
 {% set solid_storage = false %}
 {% set slurry_storage = false %}
+{% set slurry_store_total = 0 %}
+{% set solid_store_total = 0 %}
+{% set solid_weight_total = 0 %}
 
 {% for item in data.manure_storage %}
   {% if item.store_type == 'slurry' %}
+    {% set slurry_store_total = slurry_store_total + 256 %}
     {% set slurry_storage = true %}
   {% endif %}
   {% if item.store_type == 'solid manure' %}
+    {% set solid_store_total = solid_store_total + 256 %}
     {% set solid_storage = true %}
   {% endif %}
 {% endfor %}
+
+{% set solid_weight_total = (solid_store_total / 2) /10 %}
 
 <div class="govuk-tabs" data-module="govuk-tabs">
 

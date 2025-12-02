@@ -645,7 +645,8 @@ router.get(/occupancy_handler/, function (req, res) {
 })
 
 router.get(/storage_name_handler/, function (req, res) {
-  req.session.data.storage_name = (req.session.data.storage_name == '') ? 'My Storage' : req.session.data.storage_name
+  let temp_name = (req.session.data.material_type == "solid manure") ? "Shed" : "Tank"
+  req.session.data.storage_name = (req.session.data.storage_name == '') ? temp_name : req.session.data.storage_name
   res.redirect('storage_type');
 })
 

@@ -21,7 +21,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      How was the grass typically managed each year?
+      Has the grass been grazed in the last three years?
     </h1>
 
     <form class="form" action="previous_clover" method="post">
@@ -31,25 +31,25 @@
           <div class="govuk-radios" data-module="govuk-radios">
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="cut" name="previous_management" type="radio" value="cut">
-              <label class="govuk-label govuk-radios__label" for="cut">
-                Cut only
-              </label>
-            </div>    
-
-            <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="grazed" name="previous_management" type="radio" value="grazed">
               <label class="govuk-label govuk-radios__label" for="grazed">
-                Grazed only
+                Yes, grazed only
               </label>
             </div>
 
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="both" name="previous_management" type="radio" value="both">
               <label class="govuk-label govuk-radios__label" for="both">
-                Grazed and cut
+                Yes, grazed and cut
               </label>
             </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="cut" name="previous_management" type="radio" value="cut">
+              <label class="govuk-label govuk-radios__label" for="cut">
+                No, cut only
+              </label>
+            </div>    
 
           </div>
         </fieldset> 

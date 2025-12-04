@@ -131,7 +131,7 @@ router.get(/plan_setup/, function (req, res) {
 
 router.get(/start_setup_handler/, function (req, res) { 
     req.session.data.oaktree_farm = oaktree_farm
-    
+    req.session.data.oaktree_farm.setup = false
     res.redirect('start')
 })
 

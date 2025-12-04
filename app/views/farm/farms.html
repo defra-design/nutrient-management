@@ -11,17 +11,24 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-
-  <div id="all-plans-table" class="govuk-grid-column-two-thirds">
-
+  <div class="govuk-grid-column-two-thirds-from-desktop">
     {% if data.show_success_message == true %}
       {% include "./templates/success_messages" ignore missing %}
     {% endif %}
+  </div>
+</div>
 
-    <h2 class="govuk-heading-l">Your farms</h2>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">Plan and manage nutrient applications</h1>
+  </div>
+</div>
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m">Your farms</h2>
       {% if data.oaktree_farm.setup == false %}
-        <p class="govuk-body">
+        <p class="govuk-body margin-bottom-thirty">
           You have not added any farms.
         </p>
         <form class="form" action="/add-farm/name" method="post">
@@ -30,26 +37,34 @@
           }) }}
         </form>
       {% else %}
-      
-        <div class="margin-bottom-forty">
-            <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub_message_reset">Oaktree Lane Farm</a> </p>
-        </div>
-
-        <hr class="separator_forty">
-        <div class="margin-bottom-forty">
-          <h2 class="govuk-heading-m">Add a new farm</h2>
-          <p class="govuk-body">
-            <a class="govuk-link" href="../add-farm/name">Manually add a farm</a>
-          </p>
-          <p class="govuk-body">
-            <a class="govuk-link" href="">Import a farm from PLANET data</a>
-          </p>
-        </div>
+        <p class="govuk-hint">
+          Select a farm to create or update it's nutrient management plans<br>or to save a report.
+        </p>
+        <h3 class="govuk-heading-s"> 
+          <a class="govuk-notification-banner__link" href="hub_message_reset">Manage {{data.oaktree_farm.name}}</a> 
+        </h3>
+        <h3 class="govuk-heading-s"> 
+          <a class="govuk-notification-banner__link" href="hub_message_reset">Manage Dusty Farm</a> 
+        </h3>
+        <h3 class="govuk-heading-s"> 
+          <a class="govuk-notification-banner__link" href="hub_message_reset">Manage Hopper's Farm</a> 
+        </h3>
       {% endif %}
-      
-
   </div>
-
+  <div class="govuk-grid-column-one-third">
+    <h2 class="govuk-heading-s padding-top-five">Options</h2>
+    <ul class="govuk-list govuk-list--spaced">
+        <li>
+          <a class="govuk-link" href="../add-farm/name">Add a new farm</a>
+        </li>
+      <li>
+        <a class="govuk-link" href="">Import data from a PLANET file</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="../manner/about">Create a nutrient supply estimate (Manner-NPK)</a>
+      </li>
+    </ul>
+  </div>
 </div>
 
 {% endblock %}

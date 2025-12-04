@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in_first.html" ignore missing %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div id="all-plans-table" class="govuk-grid-column-two-thirds">
+
+    {% if data.show_success_message == true %}
+      {% include "./templates/success_messages" ignore missing %}
+    {% endif %}
+
+    <h2 class="govuk-heading-l">Your farms</h2>
+
+      {% if data.oaktree_farm.setup == false %}
+        <p class="govuk-body">
+          You have not added any farms.
+        </p>
+        <form class="form" action="/add-farm/name" method="post">
+          {{ govukButton({
+            text: "Add a farm"
+          }) }}
+        </form>
+      {% else %}
+      
+        <div class="margin-bottom-forty">
+            <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub_message_reset">Oaktree Lane Farm</a> </p>
+        </div>
+
+        <hr class="separator_forty">
+        <div class="margin-bottom-forty">
+          <h2 class="govuk-heading-m">Add a new farm</h2>
+          <p class="govuk-body">
+            <a class="govuk-link" href="../add-farm/name">Manually add a farm</a>
+          </p>
+          <p class="govuk-body">
+            <a class="govuk-link" href="">Import a farm from PLANET data</a>
+          </p>
+        </div>
+      {% endif %}
+      
+  </div>
+
+</div>
+
+{% endblock %}

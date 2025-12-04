@@ -108,7 +108,8 @@ router.get(/manner_values_router/, callback_functions.showSuccessMessage, functi
 })
 
 router.get(/copy_estimate_handler/, callback_functions.showSuccessMessage, function (req, res) {
-    res.redirect('estimates_list')
+    let next = req.session.data.copy_estimate == 'yes' ? 'estimates_list' : 'existing';
+    res.redirect(next)
 })
 
 

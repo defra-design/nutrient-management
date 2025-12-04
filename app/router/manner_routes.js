@@ -96,9 +96,9 @@ router.get(/manner_results_handler/, callback_functions.showSuccessMessage, func
     if (req.session.data.manure_rate == null || req.session.data.manure_rate == "" ) {
         req.session.data.manure_rate = 20
     }
-    let tempApplication = {date:'01/01/2025', manuretype: req.session.data.manure_type, rate: req.session.data.manure_rate }
+    let tempApplication = {date:'01/01/2026', manuretype: req.session.data.manure_type, rate: req.session.data.manure_rate }
     req.session.data.manner_applications.push(tempApplication)
-    // console.log(req.session.data.manner_applications)
+    console.log("here " + req.session.data.manner_applications.length)
     res.redirect('results')
 })
 
@@ -106,5 +106,10 @@ router.get(/manner_values_router/, callback_functions.showSuccessMessage, functi
     req.session.data.successMessage = 2 //recalculation
     res.redirect('results#value')
 })
+
+router.get(/copy_estimate_handler/, callback_functions.showSuccessMessage, function (req, res) {
+    res.redirect('estimates_list')
+})
+
 
 module.exports = router

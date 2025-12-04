@@ -8,7 +8,7 @@ var callback_functions = require('./callbacks.js');
 // Reset handlers for messages
 
 router.get(/manner_results_reset/, callback_functions.hideSuccessMessage, function (req, res) {
-    res.redirect('manner/results')
+    res.redirect('/manner/results')
 })
 
 router.get(/hub_message_reset/, callback_functions.hideSuccessMessage, function (req, res) {

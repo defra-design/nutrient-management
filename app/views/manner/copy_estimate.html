@@ -1,11 +1,11 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question – Add a farm -  {{ serviceName }} – GOV.UK
+  Question – {{ serviceName }} – GOV.UK
 {% endblock %}
 
 {% block header %}
-  {% include "/templates/header_signed_in_first.html" ignore missing %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,16 +15,21 @@
   }) }}
 {% endblock %}
 
-
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">Would you like to import an existing farm from PLANET?</h1>
+    <h1 class="govuk-heading-l">
+     Do you want to start with a copy on an existing estimate?
+    </h1>
 
-    <form action="name" method="post" novalidate="">
+    <p class="govuk-body">
+      You can change any of the details in the copy
+    </p>
 
+    <form class="form" action="copy_estimate_handler" method="post">
+    
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
           <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
@@ -43,14 +48,16 @@
           </div>
         </fieldset>
       </div>
-
-      <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
-        Continue
-      </button>
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
     </form>
 
-    <p class="govuk-body cancel-link"><a href="/farm/farms">Cancel</a></p>
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
 
   </div>
 </div>

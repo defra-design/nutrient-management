@@ -84,6 +84,7 @@ router.get('/', function (req, res) {
     req.session.data.crop_count = 0
     req.session.data.manure_spreads = 0
     req.session.data.fertiliser_spreads = 0
+    // req.session.data.manner_setup = false
     req.session.data.manner_applications = []
     req.session.data.extra_features = true
     req.session.data.imports_exports = null

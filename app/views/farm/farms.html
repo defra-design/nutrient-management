@@ -54,14 +54,20 @@
   <div class="govuk-grid-column-one-third">
     <h2 class="govuk-heading-s padding-top-five">Options</h2>
     <ul class="govuk-list govuk-list--spaced">
+      {% if data.oaktree_farm.setup == true %}
         <li>
           <a class="govuk-link" href="../add-farm/name">Add a new farm</a>
         </li>
+      {% endif %}
       <li>
-        <a class="govuk-link" href="">Import data from a PLANET file</a>
+        <a class="govuk-link" href="/manner/previous_calculations">Import data from a PLANET file</a>
       </li>
       <li>
-        <a class="govuk-link" href="../manner/about">Create a nutrient supply estimate (Manner-NPK)</a>
+        {% if data.manner_applications.length == 0 %}
+          <a class="govuk-link" href="../manner/about">Create a nutrient supply estimate (Manner-NPK)</a>
+        {% else %}
+          <a class="govuk-link" href="../manner/previous_calculations">Create a nutrient supply estimate (Manner-NPK)</a>
+        {% endif %}
       </li>
     </ul>
   </div>

@@ -1,0 +1,185 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – Add a field -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Add soil analysis for {{data.temp_field_name}}</h1>
+
+    <p class="govuk-hint">Enter the values of your soil analysis. You must enter at least one value.</p>
+    <p class="govuk-hint">If your soil analysis does not include results for a particular nutrient, leave it blank.</p>
+
+    <!-- <div class="govuk-inset-text">
+      Enter your soil nutrient values. As your soil sample is more than five years old, your crop need recommendations will be based on standard figures for your soil type. 
+    </div> -->
+
+    <form action="previous_use" method="post" novalidate="">
+
+      <div class="govuk-form-group margin-bottom-forty">
+        <label class="govuk-label" for="ph">pH value (optional)</label>
+        <input class="govuk-input govuk-input--width-5" id="ph" name="ph_value" type="text" autocomplete="off">
+      </div>
+
+      <div class="govuk-form-group margin-bottom-forty">
+        <label class="govuk-label" for="nitrate">What was the Phosphorus (P) index (optional)</label>
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="rb209" name="method" type="radio" value="rb209">
+              <label class="govuk-label govuk-radios__label" for="rb209">
+                Very low (VL)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                Low (L)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                Moderate minus (M-)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                Moderate plus (M+)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                High (H)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                Very high (VH)
+              </label>
+            </div>
+        </fieldset>
+      </div>
+      
+      <!-- <div class="govuk-form-group margin-bottom-forty">
+        <label class="govuk-label" for="nitrate">What soil analysis method was used to test Phosphorus (P)?</label>
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="rb209" name="method" type="radio" value="rb209">
+              <label class="govuk-label govuk-radios__label" for="rb209">
+                RB209
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                SAC (Modified Morgan's extraction)
+              </label>
+            </div>
+        </fieldset>
+      </div> -->
+
+      <div class="govuk-form-group margin-bottom-forty">
+        <label class="govuk-label" for="nitrate">What was the Potassium (K) index (optional)</label>
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="rb209" name="method" type="radio" value="rb209">
+              <label class="govuk-label govuk-radios__label" for="rb209">
+                Very low (VL)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                Low (L)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                Moderate (M)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                High (H)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                Very high (VH)
+              </label>
+            </div>
+        </fieldset>
+      </div>
+      
+      <div class="govuk-form-group margin-bottom-forty">
+        <label class="govuk-label" for="nitrate">What was the Magnesium (Mg) index (optional)</label>
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="rb209" name="method" type="radio" value="rb209">
+              <label class="govuk-label govuk-radios__label" for="rb209">
+                Very low (VL)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                Low (L)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                Moderate (M)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                High (H)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                Very high (VH)
+              </label>
+            </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/mvp/field/field-details">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

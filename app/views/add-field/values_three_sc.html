@@ -1,0 +1,151 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – Add a field -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Add soil analysis for {{data.temp_field_name}}</h1>
+
+    <p class="govuk-hint">Enter one or more value. If your soil analysis does not include results for a nutrient leave it blank.</p>
+
+    <form action="previous_use" method="post" novalidate="">
+
+      <!-- <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <label class="govuk-label" for="nitrate">What was the phosphorus (P) analysis type?</label>
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="nitrate" name="nitrate" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="nitrate">Olsen's</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="nitrate-2" name="nitrate" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="nitrate-2">Resin</label>
+            </div>
+          </div>
+        </fieldset>
+      </div> -->
+
+      <div class="govuk-form-group margin-bottom-forty">
+        <label class="govuk-label" for="ph_valuea">pH value (optional)</label>
+        <input class="govuk-input govuk-input--width-5" id="ph_value" name="ph_value" type="text" autocomplete="off">
+      </div>
+
+      <h2 class="govuk-heading-s"> Phosphorus (P)</h2>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="phosphorus_index">
+          Phosphorus (P) per litre of soil (optional)
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="phosphorus_index" name="phosphorus_index" type="text" autocomplete="off" spellcheck="false">
+          <div class="govuk-input__suffix" aria-hidden="true">Milligrams</div>
+        </div>
+      </div>
+
+      <div class="govuk-form-group margin-bottom-forty">
+        <label class="govuk-label" for="nitrate">What soil analysis method was used to test Phosphorus (P)?</label>
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="rb209" name="method" type="radio" value="rb209">
+              <label class="govuk-label govuk-radios__label" for="rb209">
+                RB209
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                SAC (Modified Morgan's extraction)
+              </label>
+            </div>
+        </fieldset>
+      </div>
+
+      <h2 class="govuk-heading-s">Potassium (K)</h2>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="potassium_index">
+          Potassium (K) per litre of soil (optional)
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="potassium_index" name="potassium_index" type="text" autocomplete="off" spellcheck="false">
+          <div class="govuk-input__suffix" aria-hidden="true">Milligrams</div>
+        </div>
+      </div>
+
+      <div class="govuk-form-group margin-bottom-forty">
+        <label class="govuk-label" for="nitrate">What soil analysis method was used to test Potassium (K)?</label>
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="rb209" name="method" type="radio" value="rb209">
+              <label class="govuk-label govuk-radios__label" for="rb209">
+                RB209
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                SAC (Modified Morgan's extraction)
+              </label>
+            </div>
+        </fieldset>
+      </div>
+
+      <h2 class="govuk-heading-s">Magnesium (Mg)</h2>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="magnesium_index">
+          Magnesium (Mg) per litre of soil (optional)
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="magnesium_index" name="magnesium_index" type="text" autocomplete="off" spellcheck="false">
+          <div class="govuk-input__suffix" aria-hidden="true">Milligrams</div>
+        </div>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="nitrate">What soil analysis method was used to test Potassium (K)?</label>
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="rb209" name="method" type="radio" value="rb209">
+              <label class="govuk-label govuk-radios__label" for="rb209">
+                RB209
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                SAC (Modified Morgan's extraction)
+              </label>
+            </div>
+        </fieldset>
+      </div>
+
+      
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/mvp/field/field-details">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

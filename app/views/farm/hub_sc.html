@@ -1,0 +1,108 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – "{{ serviceName }}" – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if data.show_success_message == true %}
+        {% include "./templates/success_messages" ignore missing %}
+      {% endif %}
+
+      <div id="farm-title">
+        <h1 class="govuk-heading-xl">{{data.oaktree_farm.name}}</h1>
+        
+        <p class="govuk-body address">South Road, Hexham, Northumberland NE46 7LQ</p>
+    
+        {% if data.all_fields.length == 0 %}
+            <p class="govuk-body">This farm has no fields.</p>
+          {% else %}
+            <p class="govuk-body">This farm has {{data.all_fields.length}} fields.</p>
+        {% endif %}
+      </div>
+      
+      <ul class="menu-list govuk-list">
+        <li>
+          <a class="govuk-link" href="farm-details">Update farm details</a>
+        </li>
+        {% if data.oaktree_farm.fields_added == true %}
+          <li>
+            <a class="govuk-link" href="field_reset_handler">Add or update fields and soil analysis</a>
+          </li>
+        {% else %}
+        <li>
+          <a href="field_add_reset_handler">Add a field</a>
+        </li>
+        {% endif %}
+      </ul>
+
+      <hr class="separator_thirty">
+
+      <div>
+        <h2 class="govuk-heading-m">Create a nutrient management plan</h2>
+        <p class="govuk-body">Add crops, organic and inorganic material applications, and get nutrient and lime recommendations from Scotland's Rural College (SRUC) technical notes</p>
+
+        <!-- <p class="govuk-hint">Create nutrient management plans, get nutrient recommendations from the AHDB Nutrient Management Guide (RB209), add organic material and inorganic fertiliser applications.</p> -->
+        {% if data.oaktree_farm.fields_added == true  %}
+        <ul class="menu-list govuk-list govuk-list--spaced">
+          <li>
+            <a class="govuk-link" href="plans_records">View, create or update a nutrient management plan</a>
+          </li>
+        </ul>
+        {% else %}
+          <p>To start creating plans and recording details, <a href="field_add_reset_handler">add your fields</a></p>
+        {% endif %}
+        <hr class="separator_thirty">
+      </div>
+
+      <!-- REPORTS -->
+      <div>
+        <h2 class="govuk-heading-m">Create Nitrate Vulnerable Zone (NVZ) reports</h2>
+        <p class="govuk-body">
+         Create field and crop level reports, including:
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>N-max</li>
+          <li>Livestock manure nitrogen (N) farm limit</li>
+          <li>Existing manure storage capacity</li>
+          <li>Organic manure inventory and storage requirement</li>
+        </ul>
+
+        <ul class="menu-list govuk-list govuk-list--spaced">
+          <li>
+            <a class="govuk-link" href="/outputs/export">Create an NVZ report</a>
+          </li>
+        </ul>
+      </div>
+      <!-- <hr class="separator_thirty"> -->
+
+      <!-- MANNER -->
+      <!-- <div>
+        <h2 class="govuk-heading-m">Estimate nutrient supply from organic materials (MANNER-NPK)</h2>
+        <p class="govuk-body">Estimate crop-available nitrogen (N), phosphate (P2O5), potash (K2O), magnesium (MgO) and sulphur (SO3) supply from organic manures. Calculate the financial value of manure nutrients.</p>
+        {% if data.oaktree_farm.fields_added == true  %}
+          <ul class="menu-list govuk-list govuk-list--spaced">
+            <li>
+              <a class="govuk-link" href="../manner/about">Create a nutrient supply estimate</a>
+            </li>
+          </ul>
+          {% else %}
+            <p>To start creating estimates, <a href="field_add_reset_handler">add your fields</a></p>
+          {% endif %}
+      </div> -->
+
+      <div>
+
+  </div>
+</div>
+
+{% endblock %}

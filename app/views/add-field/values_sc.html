@@ -1,0 +1,83 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – Add a field -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">What soil analysis method was used?</h1>
+
+    <form action="values_three_sc" method="post" novalidate="">
+
+      <!-- <label class="govuk-label" for="nitrate">What soil analysis method was used?</label> -->
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="rb209" name="method" type="radio" value="rb209">
+              <label class="govuk-label govuk-radios__label" for="rb209">
+                RB209 (Olsen's extraction)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sac" name="method" type="radio" value="sac">
+              <label class="govuk-label govuk-radios__label" for="sac">
+                SAC (Modified Morgan's extraction)
+              </label>
+            </div>
+            <!-- <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="both" name="method" type="radio" value="both">
+              <label class="govuk-label govuk-radios__label" for="both">
+               Both RB209 and SAC (Modified Morgan's extraction)
+              </label>
+            </div>
+          </div> -->
+        </fieldset>
+      </div>
+
+      <!-- <label class="govuk-label" for="nitrate">How would you like to enter your soil nutrient values?</label>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="index" name="add_values" type="radio" value="index">
+              <label class="govuk-label govuk-radios__label" for="index">
+                As an index
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="milligrams" name="add_values" type="radio" value="milligrams">
+              <label class="govuk-label govuk-radios__label" for="milligrams">
+                In milligrams per litre
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div> -->
+      
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+    
+    <p class="govuk-body cancel-link"><a href="/mvp/field/field-details">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

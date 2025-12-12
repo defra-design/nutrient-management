@@ -21,11 +21,12 @@ Excess winter rainfall – {{ serviceName }}
 
         <h1 class="govuk-heading-l">
           What is the excess winter rainfall for {{data.oaktree_farm.name}}?
+          <!-- Was the excess winter rainfall for {{data.oaktree_farm.name}} 450mm or more? -->
         </h1>
 
-        <p class="govuk-body">
+        <!-- <p class="govuk-body">
           AHDB publish excess winter rainfall data each season. <a target="_blank" href="https://ahdb.org.uk/knowledge-library/how-to-use-excess-winter-rainfall-data-to-plan-nitrogen-applications">View the AHDB excess winter rainfall data.</a> (Opens in a new window) 
-        </p>
+        </p> -->
 
         <!-- <table class="govuk-table margin-bottom-forty">
           <thead class="govuk-table__head">
@@ -55,7 +56,38 @@ Excess winter rainfall – {{ serviceName }}
         </table>
  -->
         <!-- <p>What is the rainfall category for {{data.oaktree_farm.name}}?</p> -->
-        <form action="check_rain" method="post" novalidate="">      
+        <!-- <form action="check_rain" method="post" novalidate="">      
+
+          <div class="govuk-form-group">
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="high" name="excess_rain" type="radio" value="high">
+                <label class="govuk-label govuk-radios__label" for="high">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="moderate" name="excess_rain" type="radio" value="moderate">
+                <label class="govuk-label govuk-radios__label" for="moderate">
+                  No
+                </label>
+              </div>                        
+            </div>
+          </div>
+  
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <button class="govuk-button" data-module="govuk-button">Continue</button>
+            </fieldset>
+          </div>
+  
+          <p class="govuk-body cancel-link"><a href="/farm/farms">Cancel</a></p>
+  
+            </div>
+        </div>
+      </form> -->
+        
+      <form action="check_rain" method="post" novalidate="">      
 
           <div class="govuk-form-group">
             <div class="govuk-radios" data-module="govuk-radios">
@@ -71,12 +103,6 @@ Excess winter rainfall – {{ serviceName }}
                   Less than 450mm
                 </label>
               </div>            
-              <!-- <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="low" name="excess_rain" type="radio" value="low">
-                <label class="govuk-label govuk-radios__label" for="low">
-                  Low - Less than 150mm
-                </label>
-              </div> -->
             
             </div>
           </div>

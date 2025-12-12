@@ -65,9 +65,9 @@
           <div class="govuk-checkboxes" data-module="govuk-checkboxes">          
             {% for group in cropGroups %}
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id={{group.crop_reference}} name="nmax_crop" type="checkbox" value={{group.crop_reference}}>
+                <input class="govuk-checkboxes__input" id={{group.crop_reference}} name="nmax_crop" type="checkbox" value={{group.crop_id}}>
                 <label class="govuk-label govuk-checkboxes__label" for={{group.crop_reference}}>
-                  {{group.crop_reference | nameconverter }}
+                  {{group.crop_id | nameconverter }}
                 </label>
               </div>
           {% endfor %}  

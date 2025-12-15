@@ -1,17 +1,19 @@
-    <p class="govuk-body">
-        Selected livestock type: {{data.chosen_livestock.name | capitalize}}
-    </p>
+<p class="govuk-body">
+    Selected livestock type: {{data.chosen_livestock.name | capitalize}}
+</p>
 
-    <p class="govuk-body">Nitrogen (N) standard: {{data.chosen_livestock.nitrogen}}kg per animal, per year.</p>
+<p class="govuk-body margin-bottom-thirty">
+    Nitrogen (N) standard: {{data.chosen_livestock.nitrogen}}kg per animal, per year.
+</p>
 
-        <div class="govuk-form-group">
-        <!-- <label class="govuk-label" for="livestock_number">
-            What is the average number of this {{data.chosen_livestock.shortname}} type in {{data.oaktree_farm.planning_year}}?
-        </label> -->
-        <div class="govuk-input__wrapper">
-            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
-            <div class="govuk-input__suffix" aria-hidden="true">
-                {{data.chosen_livestock.shortname}}
-            </div>
+<div class="govuk-form-group">
+    <label class="govuk-label" for="livestock_number">
+        What is the average total number of this {{data.chosen_livestock.shortname}} type in {{data.oaktree_farm.planning_year}}?
+    </label>
+    <div class="govuk-input__wrapper">
+        <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+        <div class="govuk-input__suffix" aria-hidden="true">
+            {{data.chosen_livestock.shortname}}
         </div>
     </div>
+</div>

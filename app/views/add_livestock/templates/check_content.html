@@ -1,8 +1,8 @@
 <dl class="govuk-summary-list margin-bottom-forty">
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Does {{data.oaktree_farm.name}} have derogation for {{data.oaktree_farm.planning_year}}?</dt>
-    <dd class="govuk-summary-list__value">{{data.oaktree_farm.derogation | convert_true_false}}</dd>
+    <dt class="govuk-summary-list__key">Did you have any livestock on {{data.oaktree_farm.name}} in {{data.oaktree_farm.planning_year}}?</dt>
+    <dd class="govuk-summary-list__value">Yes</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
@@ -105,8 +105,8 @@
   {% set total_n = data.chosen_livestock.nitrogen * data.livestock_number %}
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Total nitrogen (N) per year</dt>
-    <dd class="govuk-summary-list__value">{{total_n}}kg</dd>
+    <dt class="govuk-summary-list__key">Total nitrogen (N) produced</dt>
+    <dd class="govuk-summary-list__value">{{total_n}}kg per year</dd>
     {% if data.livestock_group == 'pig' and data.livestock_group == 'poultry' %}
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       {% else %}

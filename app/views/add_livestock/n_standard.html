@@ -22,7 +22,7 @@
   <div class="govuk-grid-column-two-thirds">
   
     <h1 class="govuk-heading-l">
-      What is the nitrogen (N) standard for this  {{data.chosen_livestock.type }}type in {{data.oaktree_farm.planning_year}}?
+      Nitrogen (N) standard for this {{data.chosen_livestock.type }} type
     </h1>
           
     <p class="govuk-body">
@@ -45,6 +45,12 @@
 
     <form action="check" method="post" novalidate="">
       <div class="govuk-form-group">
+        <label class="govuk-label">
+          What is the nitrogen (N) standard for this  {{data.chosen_livestock.type }} type in {{data.oaktree_farm.planning_year}}?
+        </label>
+        <div class="govuk-hint">
+          This value is from the NVZ regulation and takes into account livestock occupancy.
+        </div>
         <div class="govuk-input__wrapper">
           <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" value="83" autocomplete="off">
           <div class="govuk-input__suffix" aria-hidden="true">

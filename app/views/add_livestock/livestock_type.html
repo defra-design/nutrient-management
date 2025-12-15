@@ -27,9 +27,9 @@
       <p class="govuk-hint">Select one livestock type. You can add more livestock types later.</p>
     {% else %}
       <h1 class="govuk-heading-l">
-          What type of {{data.livestock_group}} would you like to add?
+          What type of {{data.livestock_group | lower}} would you like to add?
       </h1>
-      <p class="govuk-hint">Select one option. You can add more later.</p>
+      <p class="govuk-hint">Select one option. You can add more later {{data.livestock_group}} types later.</p>
     {% endif %}
 
     <form class="form" action="get_livestock_reference" method="post">

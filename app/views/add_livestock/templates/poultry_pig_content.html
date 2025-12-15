@@ -4,6 +4,9 @@
 
 <div class="margin-bottom-thirty">
   <div class="govuk-form-group">
+    <label class="govuk-label" for="livestock_number">
+      What is the average total number of this {{data.chosen_livestock.shortname}} type in {{data.oaktree_farm.planning_year}}?
+    </label>
     {% if data.livestock_group == 'poultry' %}
       <p class="govuk-hint">For example, for 10,000 places enter 10</p>
     {% endif %}

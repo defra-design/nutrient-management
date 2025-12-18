@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – Add a farm -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in_first.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+{% set nvzOptions = [
+  "Lower Nithsdale",
+  "Lothian and Borders",
+  "Strathmore and Fife (including Finavon)",
+  "Moray, Aberdeenshire/Banff and Buchan",
+  "Stranraer Lowlands"] %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Which Nitrate Vulnerable Zone (NVZ) are the fields at {{data.oaktree_farm.name}} in?
+    </h1>
+
+    <form action="nvz_sc_3" method="post" novalidate="">
+
+      <div class="govuk-form-group margin-bottom-forty">
+        <fieldset class="govuk-fieldset" aria-describedby="farm_nvz-hint">
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+            {% for option in nvzOptions %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id={{option}} name="farm_nvz" type="radio" value={{option}}>
+                <label class="govuk-label govuk-radios__label" for={{option}}>
+                  {{option}}
+                </label>
+              </div>
+            {% endfor %}
+          </div>
+        </fieldset>
+      </div>        
+
+      <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/farm/farms">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

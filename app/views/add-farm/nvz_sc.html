@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – Add a farm -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in_first.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      How many fields at {{data.oaktree_farm.name}} are in a Nitrate Vulnerable Zone (NVZ)?
+    </h1>
+
+    <p class="govuk-hint">You can add fields to different NVZs later if you need to.</p>
+
+    <form action="nvz_sc_2" method="post" novalidate="">
+
+      <div class="govuk-form-group margin-bottom-forty">
+        <fieldset class="govuk-fieldset" aria-describedby="farm_nvz-hint">
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="all" name="farm_nvz" type="radio" value="all">
+              <label class="govuk-label govuk-radios__label" for="all">
+                All the fields are in an NVZ
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="some" name="farm_nvz" type="radio" value="some">
+              <label class="govuk-label govuk-radios__label" for="some">
+                Some of the fields are in an NVZ
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="zero" name="farm_nvz" type="radio" value="zero">
+              <label class="govuk-label govuk-radios__label" for="zero">
+                None of the fields are in an NVZ
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>        
+
+      <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/farm/farms">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

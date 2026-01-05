@@ -4,7 +4,7 @@
     Field name
   </dt>
   <dd class="govuk-summary-list__value">
-    {{data.temp_field_name}}
+    {{data.temp_field.field_name}}
   </dd>
   <dd class="govuk-summary-list__actions">
     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"></span></a>
@@ -94,7 +94,7 @@
 {% if data.soiltype == "Deep Clay" %}
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Does {{data.temp_field_name}} contain potash releasing clay?
+      Does {{data.temp_field.field_name}} contain potash releasing clay?
     </dt>
     <dd class="govuk-summary-list__value">
       No
@@ -107,7 +107,7 @@
 
 <div class="govuk-summary-list__row">
   <dt class="govuk-summary-list__key">
-    Do you want to add a soil analysis for {{data.temp_field_name}}?
+    Do you want to add a soil analysis for {{data.temp_field.field_name}}?
   </dt>
   <dd class="govuk-summary-list__value">
     {{data.soilanalysis | capitalize}}
@@ -260,7 +260,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Has {{data.temp_field_name}} been used for grass in any of the last 3 years?
+      Has {{data.temp_field.field_name}} been used for grass in any of the last 3 years?
     </dt>
     <dd class="govuk-summary-list__value">
       {{data.previously_grass | capitalize}}

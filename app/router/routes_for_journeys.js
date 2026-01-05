@@ -73,23 +73,15 @@ router.get(/delete_handler/, callback_functions.showSuccessMessage, function (re
 
 //set the name for the field 
 router.get(/set_field_name_handler/, function (req, res) { 
-    req.session.data.temp_field.field_id = req.session.data.all_fields.length + 1
-    if (req.session.data.temp_field_name == "") {
-        req.session.data.temp_field_name = 'New Field #' + req.session.data.temp_field.field_id
-    }
-    req.session.data.temp_field.field_name = req.session.data.temp_field_name
-    res.redirect('./area')
+  req.session.data.temp_field = allFunctions.setFieldName(req.session.data.temp_field, req.session.data.temp_field_name, req.session.data.all_fields.length);
+  res.redirect('./area')
 })
 
-//check if the farm is in an nvz or over 300m
+//set field sizes
 router.get(/field_size_router/, function (req, res) { 
   req.session.data.temp_field = allFunctions.setFieldSizes(req.session.data.temp_field, req.session.data.total_area, req.session.data.cropped_area, req.session.data.non_spreading_area);
-  let next = 'soil-one'
-  if (req.session.data.oaktree_farm.nvz == 'some' ) {
-      next = 'nvz';
-  } else if (req.session.data.oaktree_farm.elevation == 'some') {
-      next = 'elevation'
-  }
+  const farm = req.session.data.oaktree_farm;
+  let next = farm.nvz === 'some' ? 'nvz' : (farm.elevation === 'some' ? 'elevation' : 'soil-one');
   res.redirect(next);
 })
 
@@ -140,33 +132,27 @@ router.get(/add_field_handler/, callback_functions.showSuccessMessage, function 
     if (req.session.data.sow_date_day != null) {
         sowdate = req.session.data.sow_date_day + '/' + req.session.data.sow_date_month + '/' + req.session.data.sow_date_year
     }
-    req.session.data.all_fields.push(req.session.data.temp_field);
-    console.log(req.session.data.temp_field)
+    req.session.data.all_fields.push(req.session.data.temp_field);    
     
     //reset temp vars
-    req.session.data.chosen_crop = null
-    req.session.data.total_area = null
-    req.session.data.cropped_area = null
-    req.session.data.non_spreading_area = null
-    req.session.data.soiltype = null
-    req.session.data.field_nvz = null
-    req.session.data.field_alt = null
+    req.session.data.chosen_crop = req.session.data.total_area = req.session.data.cropped_area = req.session.data.non_spreading_area = null
+    req.session.data.soiltype = req.session.data.field_nvz = req.session.data.field_alt = req.session.data.field_alt = null
     res.redirect('/farm/field/manage-fields');
 })
 
-router.get(/set_temp_field_data_handler/, function (req, res) { 
-    if (req.session.data.total_area == null || req.session.data.total_area == "" ) req.session.data.total_area = '19';
-    if (req.session.data.cropped_area == null || req.session.data.cropped_area == "" ) req.session.data.cropped_area = '17';
-    if (req.session.data.non_spreading_area == null || req.session.data.non_spreading_area == "" ) req.session.data.non_spreading_area = '2';
-    if (req.session.data.soiltype == null || req.session.data.soiltype == "" ) req.session.data.soiltype = 'Medium';
-    if (req.session.data.field_nvz == null || req.session.data.field_nvz == "" ) req.session.data.field_nvz = 'Yes';
-    if (req.session.data.field_alt == null || req.session.data.field_alt == "" ) req.session.data.field_alt = 'No';
-    if (req.session.data.soilanalysis == null || req.session.data.soilanalysis == "" ) req.session.data.soilanalysis = 'yes';
-    // if (req.session.data.soilanalysis == null || req.session.data.soilanalysis == "" ) {
-    //     req.session.data.soilanalysis = 'yes'
-    // }
-    res.redirect('check');
-})
+// router.get(/set_temp_field_data_handler/, function (req, res) { 
+//     // if (req.session.data.total_area == null || req.session.data.total_area == "" ) req.session.data.total_area = '19';
+//     // if (req.session.data.cropped_area == null || req.session.data.cropped_area == "" ) req.session.data.cropped_area = '17';
+//     // if (req.session.data.non_spreading_area == null || req.session.data.non_spreading_area == "" ) req.session.data.non_spreading_area = '2';
+//     // if (req.session.data.soiltype == null || req.session.data.soiltype == "" ) req.session.data.soiltype = 'Medium';
+//     // if (req.session.data.field_nvz == null || req.session.data.field_nvz == "" ) req.session.data.field_nvz = 'Yes';
+//     // if (req.session.data.field_alt == null || req.session.data.field_alt == "" ) req.session.data.field_alt = 'No';
+//     // if (req.session.data.soilanalysis == null || req.session.data.soilanalysis == "" ) req.session.data.soilanalysis = 'yes';
+//     // if (req.session.data.soilanalysis == null || req.session.data.soilanalysis == "" ) {
+//     //     req.session.data.soilanalysis = 'yes'
+//     // }
+//     res.redirect('check');
+// })
 
 router.get(/add_sns_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
@@ -230,7 +216,7 @@ router.get(/previous_group_router/, function (req, res) {
 })
 
 router.get(/previous_clover_router/, function (req, res) { 
-    let next = (req.session.data.previous_clover == "yes") ? 'set_temp_field_data_handler' : 'previous_nitrogen'
+    let next = (req.session.data.previous_clover == "yes") ? 'check' : 'previous_nitrogen'
     res.redirect(next)
 })
 
@@ -240,7 +226,7 @@ router.get(/previous_clover_router/, function (req, res) {
 // })
 
 router.get(/sns_v3_router/, function (req, res) { 
-    let next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'set_temp_field_data_handler';
+    let next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'check';
     res.redirect(next);
 })
 

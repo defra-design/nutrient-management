@@ -22,9 +22,9 @@
   <div class="govuk-grid-column-two-thirds">
 
     {% if data.soiltype == "Deep clay" or data.soiltype == "Shallow" %}
-      <h1 class="govuk-heading-l">About the soil in {{data.temp_field_name}}</h1>
+      <h1 class="govuk-heading-l">About the soil in {{data.temp_field.field_name}}</h1>
     {% else %}
-      <h1 class="govuk-heading-l">Do you expect sulphur (S) deficiency in crops grown in {{data.temp_field_name}}?</h1>
+      <h1 class="govuk-heading-l">Do you expect sulphur (S) deficiency in crops grown in {{data.temp_field.field_name}}?</h1>
     {% endif %}
 
     <form action="add_analysis" method="post" novalidate="">

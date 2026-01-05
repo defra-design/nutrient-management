@@ -140,20 +140,6 @@ router.get(/add_field_handler/, callback_functions.showSuccessMessage, function 
     res.redirect('/farm/field/manage-fields');
 })
 
-// router.get(/set_temp_field_data_handler/, function (req, res) { 
-//     // if (req.session.data.total_area == null || req.session.data.total_area == "" ) req.session.data.total_area = '19';
-//     // if (req.session.data.cropped_area == null || req.session.data.cropped_area == "" ) req.session.data.cropped_area = '17';
-//     // if (req.session.data.non_spreading_area == null || req.session.data.non_spreading_area == "" ) req.session.data.non_spreading_area = '2';
-//     // if (req.session.data.soiltype == null || req.session.data.soiltype == "" ) req.session.data.soiltype = 'Medium';
-//     // if (req.session.data.field_nvz == null || req.session.data.field_nvz == "" ) req.session.data.field_nvz = 'Yes';
-//     // if (req.session.data.field_alt == null || req.session.data.field_alt == "" ) req.session.data.field_alt = 'No';
-//     // if (req.session.data.soilanalysis == null || req.session.data.soilanalysis == "" ) req.session.data.soilanalysis = 'yes';
-//     // if (req.session.data.soilanalysis == null || req.session.data.soilanalysis == "" ) {
-//     //     req.session.data.soilanalysis = 'yes'
-//     // }
-//     res.redirect('check');
-// })
-
 router.get(/add_sns_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 17;
@@ -162,11 +148,8 @@ router.get(/add_sns_handler/, function (req, res) {
 })
 
 router.get(/copy_name_handler/, function (req, res) { 
-    // req.session.data.temp_field.field_name = (req.session.data.temp_field_name == '') ? 'New Field' : req.session.data.temp_field_name
-    req.session.data.temp_field.field_id = req.session.data.all_fields.length + 1
-    if (req.session.data.temp_field_name == "") req.session.data.temp_field_name = 'New Field #' + req.session.data.temp_field.field_id;
-    req.session.data.temp_field.field_name = req.session.data.temp_field_name
-    res.redirect('./analysis')
+  req.session.data.temp_field = allFunctions.setFieldName(req.session.data.temp_field, req.session.data.temp_field_name, req.session.data.all_fields.length);
+  res.redirect('./analysis')
 })
 
 router.get(/field_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 

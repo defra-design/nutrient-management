@@ -907,7 +907,11 @@ router.get(/fertiliser_loop_handler/, function (req, res) {
 
 //select a field
 router.get(/field-select-handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-	req.session.data.chosen_field = req.query.chosen_field
+  for (let field in req.session.data.all_fields) {
+    if (req.session.data.all_fields[field].field_id == req.query.chosen_field) {
+      req.session.data.chosen_field = req.session.data.all_fields[field]
+    }
+  }
 	res.redirect('/farm/field/field-details')
 })
 

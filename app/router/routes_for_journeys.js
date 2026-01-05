@@ -161,12 +161,6 @@ router.get(/set_temp_field_data_handler/, function (req, res) {
     if (req.session.data.field_nvz == null || req.session.data.field_nvz == "" ) req.session.data.field_nvz = 'Yes';
     if (req.session.data.field_alt == null || req.session.data.field_alt == "" ) req.session.data.field_alt = 'No';
     if (req.session.data.soilanalysis == null || req.session.data.soilanalysis == "" ) req.session.data.soilanalysis = 'yes';
-    if (req.session.data.ph_value == null || req.session.data.ph_value == "" ) {
-        req.session.data.ph_value = 2
-        req.session.data.phosphorus_index = 1
-        req.session.data.potassium_index = 2
-        req.session.data.magnesium_index = 1
-    }
     // if (req.session.data.soilanalysis == null || req.session.data.soilanalysis == "" ) {
     //     req.session.data.soilanalysis = 'yes'
     // }

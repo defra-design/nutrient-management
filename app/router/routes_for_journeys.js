@@ -311,10 +311,7 @@ router.get(/crop_group_update_v7_handler/, function (req, res) {
         }
     }
     //reset temp vars
-    req.session.data.new_variety = null
-    req.session.data.new_planting_date_day = null
-    req.session.data.new_planting_date_month = null
-    req.session.data.new_planting_date_year = null
+    req.session.data.new_variety = req.session.data.new_planting_date_day = req.session.data.new_planting_date_month = req.session.data.new_planting_date_year = null
     res.redirect('/farm/crop_plan/plan_view')
 })
 
@@ -343,17 +340,12 @@ router.get(/v5_fields_handler/, function (req, res) {
 })
 
 router.get(/crops_V5_check_handler/, function (req, res) { 
-    // set correct vars
     let yield = null
     let group_name = (req.session.data.groupname == null || req.session.data.groupname == '') ? 'Crop group ' + (req.session.data.cropGroups.length + 1) : req.session.data.groupname
     let year = req.session.data.oaktree_farm.planning_year
     let crop_id = req.session.data.chosen_crop
-    // console.log(crop_id)
     let field_list = req.session.data.crop_fields
-    // console.log(field_list)
     let variety = null
-
-    // set correct yield
     if (req.session.data.chosen_crop != 'grass') {
         req.session.data.successMessage = 1
     }
@@ -362,7 +354,6 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     var group_id = req.session.data.cropGroups.length + 1
 
     // create a new group and add each field reference to the group
-    // createCropGroup(group_name, group_id, year, crop_id, field_list, current_fields)
     var new_group = allFunctions.createCropGroup(group_name, group_id, year, crop_id, field_list, req.session.data.all_fields)
     
     // add crop details to each field
@@ -391,12 +382,7 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     }
 
     //reset vars and redirect
-    yield = null;
-    req.session.data.group_name = null;
-    req.session.data.group_id = null;
-    req.session.data.crop_id = null;
-    req.session.data.field_list_data = null;
-
+    yield = req.session.data.group_name = req.session.data.group_id = req.session.data.crop_id = req.session.data.field_list_data = null;
     res.redirect('/farm/crop_plan/plan_view')
 })
 

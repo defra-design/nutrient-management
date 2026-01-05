@@ -105,6 +105,20 @@ function createStorage(store_type, store_name, store_material) {
   return newGroup
 }
 
+function setFieldSizes(temp_field, total_area, cropped_area, non_spreading_area) {
+  if (total_area !== '' || total_area != null) {
+    temp_field.total_area = total_area;
+  }
+  if (cropped_area !== '' || cropped_area != null) {
+    temp_field.cropped_area = cropped_area;
+  }
+  if (non_spreading_area !== '' || non_spreading_area != null) {
+    temp_field.non_spreading_area = non_spreading_area;
+  }
+  return temp_field;
+}
+
+
 // req.session.data.all_fields = allFunctions.updateFieldCrop(req.session.data.all_fields, field_list, crop_id, year, variety, group_id)
 function updateFieldCrop(all_fields, field_list, crop_id, year, variety, group_id) {
     // console.log('all_fields = ' + all_fields)
@@ -294,3 +308,4 @@ module.exports.field_count = field_count;
 module.exports.updateFieldCrop = updateFieldCrop;
 module.exports.setCropAndGroupId = setCropAndGroupId;
 module.exports.createStorage = createStorage;
+module.exports.setFieldSizes = setFieldSizes;

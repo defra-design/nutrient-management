@@ -82,7 +82,8 @@ router.get(/set_field_name_handler/, function (req, res) {
 })
 
 //check if the farm is in an nvz or over 300m
-router.get(/soil_type_router/, function (req, res) { 
+router.get(/field_size_router/, function (req, res) { 
+  req.session.data.temp_field = allFunctions.setFieldSizes(req.session.data.temp_field, req.session.data.total_area, req.session.data.cropped_area, req.session.data.non_spreading_area);
   let next = 'soil-one'
   if (req.session.data.oaktree_farm.nvz == 'some' ) {
       next = 'nvz';

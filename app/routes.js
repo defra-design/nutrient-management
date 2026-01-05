@@ -22,10 +22,19 @@ let all_fields = [];
 
 var temp_field = {
     field_name: "Short Field",
+    total_area: '19',
+    cropped_area:'17',
+    non_spreading_area: '2',
+    soil_type: 'Medium',
     field_id: 1,
-    nvz: false,
-    elevation: false
+    field_nvz: true,
+    field_alt: false,
+    soil_analysis: true
 };
+
+  // if (req.session.data.field_nvz == null || req.session.data.field_nvz == "" ) req.session.data.field_nvz = 'Yes';
+  // if (req.session.data.field_alt == null || req.session.data.field_alt == "" ) req.session.data.field_alt = 'No';
+  // if (req.session.data.soilanalysis == null || req.session.data.soilanalysis == "" ) req.session.data.soilanalysis = 'yes';
 
 //index route
 router.get('/', function (req, res) { 

@@ -18,6 +18,22 @@ function getFieldByReference (allFields, referenceNumber) {
     }
   };
 
+  function getCropTypeByReference (cropTypes, referenceNumber) {
+    for (let type in cropTypes) {
+      if (cropTypes[type].reference == referenceNumber) {
+          return cropTypes[type].type
+      }
+    }
+  };
+
+  function getManureTypeByReference (manureTypes, selectedType) {
+    for (let x in manureTypes ) {
+      if (manureTypes[x].name == selectedType) {
+        return manureTypes[x]
+      }
+    }
+  };
+
   function setCropAndGroupId (all_fields, chosenFields, chosenCrop, chosenGroup) {
     for (let x in all_fields) {
         for (let y in chosenFields) {
@@ -314,3 +330,5 @@ module.exports.setCropAndGroupId = setCropAndGroupId;
 module.exports.createStorage = createStorage;
 module.exports.setFieldName = setFieldName;
 module.exports.setFieldSizes = setFieldSizes;
+module.exports.getCropTypeByReference = getCropTypeByReference;
+module.exports.getManureTypeByReference = getManureTypeByReference;

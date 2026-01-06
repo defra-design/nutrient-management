@@ -34,6 +34,14 @@ function getFieldByReference (allFields, referenceNumber) {
     }
   };
 
+  function getLivestockByReference (livestockTypes, selectedType) {
+    for (let x in livestockTypes ) {
+      if (livestockTypes[x].reference == selectedType) {
+        return livestockTypes[x]
+      }
+    }
+  };
+
   function setCropAndGroupId (all_fields, chosenFields, chosenCrop, chosenGroup) {
     for (let x in all_fields) {
         for (let y in chosenFields) {
@@ -278,16 +286,6 @@ function addFertiliserApplication (fertiliserGroups, allFields, chosenFields, nu
     return newGroup
 }
 
-function getCropByReference (referenceNumber, crops) {
-    let cropToReturn
-    for (let crop in crops) {
-        if (crops[crop].reference == referenceNumber ) {
-            cropToReturn = crops[crop]
-        }
-    }
-    return cropToReturn
-};
-
 function getManureFields(chosenFields) {
     let fieldsToReturn = null
     if (chosenFields == 'all') {
@@ -332,3 +330,4 @@ module.exports.setFieldName = setFieldName;
 module.exports.setFieldSizes = setFieldSizes;
 module.exports.getCropTypeByReference = getCropTypeByReference;
 module.exports.getManureTypeByReference = getManureTypeByReference;
+module.exports.getLivestockByReference = getLivestockByReference;

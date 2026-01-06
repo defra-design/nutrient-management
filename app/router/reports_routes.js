@@ -8,31 +8,19 @@ var callback_functions = require('./callbacks.js');
 
 // Routes
 
-
 router.get(/report_type_handler/, function (req, res) {
-    let next = 'years'
-  if (req.session.data.export_type == '7') {
-      next = 'output_router'
-  }
+  let next = req.session.data.export_type == '7' ? 'output_router' : 'years';
   res.redirect(next);
 })
 
 
 router.get(/derogation_add_router/, function (req, res) {
-  if (req.session.data.derogation == 'no') {
-      req.session.data.oaktree_farm.derogation = false
-  } else {
-      req.session.data.oaktree_farm.derogation = true
-  }
+  req.session.data.oaktree_farm.derogation = req.session.data.derogation == 'no' ? false : true;
   res.redirect('livestock_group');
 })
 
 router.get(/derogation_router/, function (req, res) {
-  if (req.session.data.derogation == 'no') {
-      req.session.data.oaktree_farm.derogation = false
-  } else {
-      req.session.data.oaktree_farm.derogation = true
-  }
+  req.session.data.oaktree_farm.derogation = req.session.data.derogation == 'no' ? false : true;
   res.redirect('checklist');
 })
 
@@ -98,10 +86,7 @@ router.get(/storage_sizes_handler/, function (req, res) {
 })
 
 router.get(/storage_type_handler/, function (req, res) {
-  let next = 'sizes'
-  if (req.session.data.storage_type == 'poultry manure') {
-      next = 'bulk_density'
-  }
+  let next = req.session.data.storage_type == 'poultry manure' ? 'bulk_density' : 'sizes';
   res.redirect(next)
 })
 
@@ -126,8 +111,7 @@ router.get(/check_storage_handler/, function (req, res) {
   let store_1 = allFunctions.createStorage(req.session.data.material_type, req.session.data.storage_name, req.session.data.storage_type)
   req.session.data.manure_storage.push(store_1)
   // req.session.data.successMessage = 2;
-  let next = '/farm/storage/manage_storage'
-  res.redirect(next)
+  res.redirect('/farm/storage/manage_storage')
 })
 
 // Livestock routes
@@ -170,14 +154,8 @@ router.get(/livestock_values_handler/, function (req, res) {
 
 router.get(/get_livestock_reference/, function (req, res) {
   let next = 'livestock_number_question'
-  //function get livestock
-  for (var reference in req.session.data.livestock_type_data ) {
-      if (req.session.data.livestock_type_data[reference].reference == req.session.data.livestock_reference) {
-          // console.log('found ' + req.session.data.livestock_type_data[reference])
-          req.session.data.chosen_livestock = req.session.data.livestock_type_data[reference]
-      }
-  }
-  // res.redirect("how_to_enter")
+  req.session.data.chosen_livestock = allFunctions.getLivestockByReference(req.session.data.livestock_type_data, req.session.data.livestock_reference)
+  
   if (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry' ) {
       req.session.data.livestock_entry = 'annually'
       next = 'livestock_numbers_average'
@@ -186,20 +164,12 @@ router.get(/get_livestock_reference/, function (req, res) {
 })
 
 router.get(/advanced_livestock_reference/, function (req, res) {
-  // console.log('get livestock reference ' + req.session.data.livestock_reference)
-  for (var reference in req.session.data.livestock_type_data ) {
-      if (req.session.data.livestock_type_data[reference].reference == req.session.data.livestock_reference) {
-          // console.log('found ' + req.session.data.livestock_type_data[reference])
-          req.session.data.chosen_livestock = req.session.data.livestock_type_data[reference]
-      }
-  }
-  // res.redirect("how_to_enter")
+  req.session.data.chosen_livestock = allFunctions.getLivestockByReference(req.session.data.livestock_type_data, req.session.data.livestock_reference)
   if (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry' ) {
       req.session.data.livestock_entry = 'annually'
       next = 'livestock_numbers_average'
   }
   res.redirect('annual_numbers')
-  // res.redirect('livestock_numbers')
 })
 
 router.get(/add_livestock_handler/, function (req, res) {

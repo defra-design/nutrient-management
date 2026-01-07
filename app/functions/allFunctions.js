@@ -10,34 +10,18 @@ function getFieldByReference (allFields, referenceNumber) {
     }
   };
 
-  function getGroupByReference (cropGroups, referenceNumber) {
-    for (let group in cropGroups) {
-      if (cropGroups[group].reference == referenceNumber) {
-          return cropGroups[group]
-      }
-    }
-  };
+  // function getGroupByReference (cropGroups, referenceNumber) {
+  //   for (let group in cropGroups) {
+  //     if (cropGroups[group].reference == referenceNumber) {
+  //         return cropGroups[group]
+  //     }
+  //   }
+  // };
 
-  function getCropTypeByReference (cropTypes, referenceNumber) {
-    for (let type in cropTypes) {
-      if (cropTypes[type].reference == referenceNumber) {
-          return cropTypes[type].type
-      }
-    }
-  };
-
-  function getManureTypeByReference (manureTypes, selectedType) {
-    for (let x in manureTypes ) {
-      if (manureTypes[x].name == selectedType) {
-        return manureTypes[x]
-      }
-    }
-  };
-
-  function getLivestockByReference (livestockTypes, selectedType) {
-    for (let x in livestockTypes ) {
-      if (livestockTypes[x].reference == selectedType) {
-        return livestockTypes[x]
+  function getByReference (types, referenceValue) {
+    for (let x in types ) {
+      if (types[x].name == referenceValue || types[x].reference == referenceValue) {
+        return types[x]
       }
     }
   };
@@ -311,7 +295,6 @@ function getManureFields(chosenFields) {
 
 module.exports.printCropGroup = printCropGroup;
 module.exports.getFieldByReference = getFieldByReference;
-module.exports.getGroupByReference = getGroupByReference;
 module.exports.getMultipleFieldsByReferences = getMultipleFieldsByReferences;
 module.exports.totalFieldsCount = totalFieldsCount;
 module.exports.basicSetup = basicSetup;
@@ -328,6 +311,4 @@ module.exports.setCropAndGroupId = setCropAndGroupId;
 module.exports.createStorage = createStorage;
 module.exports.setFieldName = setFieldName;
 module.exports.setFieldSizes = setFieldSizes;
-module.exports.getCropTypeByReference = getCropTypeByReference;
-module.exports.getManureTypeByReference = getManureTypeByReference;
-module.exports.getLivestockByReference = getLivestockByReference;
+module.exports.getByReference = getByReference;

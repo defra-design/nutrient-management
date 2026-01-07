@@ -667,7 +667,7 @@ router.get(/group_level_plan_v7_handler/, function (req, res) {
   req.session.data.chosen_group = req.query.groupref
   req.session.data.chosen_year = req.query.year
   //group.reference
-  req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.cropGroups, req.query.group_id)
+  req.session.data.chosen_group = allFunctions.getByReference(req.session.data.cropGroups, req.query.group_id)
   req.session.data.show_success_message = false    
   let next = '/update/crop/change_crop'
   if (req.session.data.chosen_group.crop_reference == 'grass') {
@@ -718,7 +718,7 @@ router.get(/manure_fields_v5_handler/, function (req, res) {
 })
 
 router.get(/manuretype_v7_handler/, function (req, res) {
-    req.session.data.manure_type = allFunctions.getManureTypeByReference(req.session.data.manure_types, req.session.data.manure_type)
+    req.session.data.manure_type = allFunctions.getByReference(req.session.data.manure_types, req.session.data.manure_type)
     let next = 'manure_date'
     if (req.session.data.oaktree_farm.grass_setup == true) {
         next = 'manure_defoliation'
@@ -727,7 +727,7 @@ router.get(/manuretype_v7_handler/, function (req, res) {
 })
 
 router.get(/manuretype_manner_handler/, function (req, res) {
-    req.session.data.manure_type = allFunctions.getManureTypeByReference(req.session.data.manure_types, req.session.data.manure_type)
+    req.session.data.manure_type = allFunctions.getByReference(req.session.data.manure_types, req.session.data.manure_type)
     res.redirect('manure_date')
 })
 
@@ -814,12 +814,12 @@ router.get(/manuredate_handler/, function (req, res) {
 })
 
 router.get(/livestock_type_v7_handler/, function (req, res) {
-  req.session.data.manure_type = allFunctions.getManureTypeByReference(req.session.data.manure_type_livestock_data, req.session.data.manure_type)
+  req.session.data.manure_type = allFunctions.getByReference(req.session.data.manure_type_livestock_data, req.session.data.manure_type)
 	res.redirect("manure_date")
 })
 
 router.get(/livestock_type_export_handler/, function (req, res) {
-  req.session.data.manure_type = allFunctions.getManureTypeByReference(req.session.data.manure_type_livestock_data, req.session.data.manure_type)
+  req.session.data.manure_type = allFunctions.getByReference(req.session.data.manure_type_livestock_data, req.session.data.manure_type)
 	res.redirect("date")
 })
 
@@ -959,9 +959,9 @@ router.get(/fertiliser_date_handler/, function (req, res) {
 })
 
 // router.get(/change_cropgroup_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-//     req.session.data.chosen_group = allFunctions.getGroupByReference(req.session.data.cropGroups, req.query.groupref)
+//     req.session.data.chosen_group = allFunctions.getByReference(req.session.data.cropGroups, req.query.groupref)
 //     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)
-//     req.session.data.chosen_crop_group = allFunctions.getCropTypeByReference(req.session.data.crop_types_data, req.session.data.chosen_group.crop_reference)
+//     req.session.data.chosen_crop_group = allFunctions.getByReference(req.session.data.crop_types_data, req.session.data.chosen_group.crop_reference)
 //     res.redirect('change_crop')
 // })
 

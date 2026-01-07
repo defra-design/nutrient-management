@@ -28,7 +28,7 @@
     <dd class="govuk-summary-list__value">
       <ul class="govuk-list">
         {% for field in data.crop_fields %}
-          <li>{{field.field_name}}</li>
+          <li>{{field | fieldnameconverter}}</li>
           {% endfor %}   
       </ul>
     </dd>

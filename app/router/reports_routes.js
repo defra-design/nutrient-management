@@ -154,7 +154,7 @@ router.get(/livestock_values_handler/, function (req, res) {
 
 router.get(/get_livestock_reference/, function (req, res) {
   let next = 'livestock_number_question'
-  req.session.data.chosen_livestock = allFunctions.getLivestockByReference(req.session.data.livestock_type_data, req.session.data.livestock_reference)
+  req.session.data.chosen_livestock = allFunctions.getByReference(req.session.data.livestock_type_data, req.session.data.livestock_reference)
   
   if (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry' ) {
       req.session.data.livestock_entry = 'annually'
@@ -164,7 +164,7 @@ router.get(/get_livestock_reference/, function (req, res) {
 })
 
 router.get(/advanced_livestock_reference/, function (req, res) {
-  req.session.data.chosen_livestock = allFunctions.getLivestockByReference(req.session.data.livestock_type_data, req.session.data.livestock_reference)
+  req.session.data.chosen_livestock = allFunctions.getByReference(req.session.data.livestock_type_data, req.session.data.livestock_reference)
   if (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry' ) {
       req.session.data.livestock_entry = 'annually'
       next = 'livestock_numbers_average'

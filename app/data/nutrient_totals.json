@@ -1,0 +1,15 @@
+[
+
+{"name": "25 acres", "area": 5.5, "crop": "winter-beans", "nitrogen" : null, "phosphate": 56,  "potash": 56, "magnesium": null, "sulphur": 40,  "sodium": null, "lime": null},
+
+{"name": "Barns", "area": 10.2, "crop": "winter-beans", "nitrogen" : 179, "phosphate": 56,  "potash": 56,"magnesium": null,  "sulphur": null, "sodium": null, "lime": null},
+
+{"name": "High meadow", "area": 20, "crop": "grass", "nitrogen" : 180, "phosphate": null,  "potash": null,  "magnesium": null,  "sulphur": null, "sodium": null, "lime": null},
+
+{"name": "Park 2", "area": 6.3, "crop": "grass", "nitrogen" : 140, "phosphate":140, "potash": 30, "sulphur": null,  "magnesium": null "calcium": null,}
+
+{"name": "Hops 1", "area": 5.5, "crop": "winter-wheat", "nitrogen" : 180, "phosphate":179, "potash": 56,  "magnesium": null, "sodium": null, "lime": null},
+
+{"name": "Long field", "area": 5, "crop": "winter-wheat", "nitrogen" : 180, "phosphate":179, "potash": 56, "magnesium": null, "sodium": null, "lime": null}
+
+]

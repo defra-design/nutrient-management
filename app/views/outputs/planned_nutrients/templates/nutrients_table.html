@@ -1,0 +1,260 @@
+{% macro application_headers() %}
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header field-name">Field</th>
+      <th scope="col" class="govuk-table__header">Cropped area (hectares)</th>
+      <th scope="col" class="govuk-table__header">Nitrogen (N)</th>
+      <th scope="col" class="govuk-table__header">Phosphate (P2o5)</th>
+      <th scope="col" class="govuk-table__header">Potash (K2O)</th>
+      <th scope="col" class="govuk-table__header">Sulphur (SO3)</th>
+      <th scope="col" class="govuk-table__header">Magnesium (MgO)</th>
+      <th scope="col" class="govuk-table__header">Lime</th>
+    </tr>
+  </thead>
+{% endmacro %}
+
+{% macro application_field(name, size, n, p, k, s, mg, lime) %}
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell">{{ name }}</td>
+    <td class="govuk-table__cell ">{{ size }}</td>
+    <td class="govuk-table__cell ">{{ n }}</td>
+    <td class="govuk-table__cell ">{{ p }}</td>
+    <td class="govuk-table__cell ">{{ k }}</td>
+    <td class="govuk-table__cell ">{{ s }}</td>
+    <td class="govuk-table__cell ">{{ mg }}</td>
+    <td class="govuk-table__cell ">{{ lime }}</td>
+  </tr>
+{% endmacro %}
+
+<div class="govuk-grid-row margin-bottom-thirty">
+  <div class="govuk-grid-column-full">
+<!-- govuk-table__header--numeric -->
+
+<h2 class="govuk-heading-m margin-bottom-ten">Planned nutrients for winter beans</h3>
+<p class="govuk-body-s">Values are per hectare</p>
+<table class="govuk-table data-table margin-bottom-fifty">
+  {{ application_headers() }}
+  <tbody class="govuk-table__body">
+    {{ application_field('25 acres', 5.50, '-', '56kg', '56kg', '-', '-', '-', '-') }}
+    {{ application_field('Barns', 5.50, '-', '56kg', '56kg', '-', '-', '-', '-') }}
+    <tr class="govuk-table__row total_row">
+      <td class="govuk-table__cell">Totals</td>
+      <td class="govuk-table__cell ">15.7</td>
+      <td class="govuk-table__cell ">112kg</td>
+      <td class="govuk-table__cell ">112kg</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="govuk-heading-m margin-bottom-ten">Planned nutrients for grass</h3>
+<p class="govuk-body-s">Values are per hectare</p>
+<table class="govuk-table data-table margin-bottom-fifty">
+  {{ application_headers() }}
+  <tbody class="govuk-table__body">
+    {{ application_field('Park 1', 19.5, 140, '30kg', '30kg', '-', '-', '-', '-') }}
+    {{ application_field('Park 2', 15.00, 140, '30kg', '30kg', '-', '-', '-', '-') }}
+    <tr class="govuk-table__row total_row">
+      <td class="govuk-table__cell">Totals</td>
+      <td class="govuk-table__cell ">15.7</td>
+      <td class="govuk-table__cell ">112kg</td>
+      <td class="govuk-table__cell ">112kg</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="govuk-heading-m margin-bottom-ten">Planned nutrients for winter wheat</h3>
+<p class="govuk-body-s">Values are per hectare</p>
+<table class="govuk-table data-table margin-bottom-twenty">
+  {{ application_headers() }}
+  <tbody class="govuk-table__body">
+    {{ application_field('Hops 1', 6.20, 179, '56kg', '56kg', '-', '-', '-', '-') }}
+    {{ application_field('Long Field', 12.00, '179kg', '56kg', '56kg', '-', '-', '-', '-') }}
+    {{ application_field('Oaks', 4.00, '180kg', '50kg', '50kg', '40kg', '-', '-', '-') }}
+    <tr class="govuk-table__row total_row">
+      <td class="govuk-table__cell">Totals</td>
+      <td class="govuk-table__cell ">15.7</td>
+      <td class="govuk-table__cell ">112kg</td>
+      <td class="govuk-table__cell ">112kg</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+<!-- <table class="govuk-table data-table margin-bottom-fifty">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Field name</th>
+      <th scope="col" class="govuk-table__header">Crop type</th>
+      <th scope="col" class="govuk-table__header">Cropped area</th>
+      <th scope="col" class="govuk-table__header">Nitrogen (N)</th>
+      <th scope="col" class="govuk-table__header">Phosphate(P O ) 2 5</th>
+      <th scope="col" class="govuk-table__header">Potash (as K O) 2(kg/ha)</th>
+      <th scope="col" class="govuk-table__header">Magnesium (as MgO)</th>
+      <th scope="col" class="govuk-table__header">Sulphur (as SO )3</th>
+      <th scope="col" class="govuk-table__header">Sodium (as Na O) 2</th>
+      <th scope="col" class="govuk-table__header">Lime (as CaCO )3 (t/ha)</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">25 acres</td>
+      <td class="govuk-table__cell">W beans</td>
+      <td class="govuk-table__cell ">5.50</td>
+      <td class="govuk-table__cell ">56</td>
+      <td class="govuk-table__cell ">56</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Barns</td>
+      <td class="govuk-table__cell">W beans</td>
+      <td class="govuk-table__cell ">10.20</td>
+      <td class="govuk-table__cell ">56</td>
+      <td class="govuk-table__cell ">56</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">High meadow</td>
+      <td class="govuk-table__cell">Grass</td>
+      <td class="govuk-table__cell ">20.20</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Hops 1</td>
+      <td class="govuk-table__cell">W wheat</td>
+      <td class="govuk-table__cell ">6.20</td>
+      <td class="govuk-table__cell ">179</td>
+      <td class="govuk-table__cell ">56</td>
+      <td class="govuk-table__cell ">56</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Long</td>
+      <td class="govuk-table__cell">W wheat</td>
+      <td class="govuk-table__cell ">12.80</td>
+      <td class="govuk-table__cell ">179</td>
+      <td class="govuk-table__cell ">56</td>
+      <td class="govuk-table__cell ">56</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Low meadow</td>
+      <td class="govuk-table__cell">Grass</td>
+      <td class="govuk-table__cell ">18.20</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Narrow land</td>
+      <td class="govuk-table__cell">W wheat</td>
+      <td class="govuk-table__cell ">12.60</td>
+      <td class="govuk-table__cell ">180</td>
+      <td class="govuk-table__cell ">60</td>
+      <td class="govuk-table__cell ">60</td>
+      <td class="govuk-table__cell ">40</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Oaks</td>
+      <td class="govuk-table__cell">W wheat</td>
+      <td class="govuk-table__cell ">4.80</td>
+      <td class="govuk-table__cell ">180</td>
+      <td class="govuk-table__cell ">60</td>
+      <td class="govuk-table__cell ">60</td>
+      <td class="govuk-table__cell ">40</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Park 1</td>
+      <td class="govuk-table__cell">Grass</td>
+      <td class="govuk-table__cell ">19.50</td>
+      <td class="govuk-table__cell ">140</td>
+      <td class="govuk-table__cell ">30</td>
+      <td class="govuk-table__cell ">30</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Park 2</td>
+      <td class="govuk-table__cell">Grass</td>
+      <td class="govuk-table__cell ">15.00</td>
+      <td class="govuk-table__cell ">140</td>
+      <td class="govuk-table__cell ">30</td>
+      <td class="govuk-table__cell ">30</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Poplar</td>
+      <td class="govuk-table__cell">W wheat</td>
+      <td class="govuk-table__cell ">15.00</td>
+      <td class="govuk-table__cell ">180</td>
+      <td class="govuk-table__cell ">40</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Valley</td>
+      <td class="govuk-table__cell">W wheat</td>
+      <td class="govuk-table__cell ">12.00</td>
+      <td class="govuk-table__cell ">180</td>
+      <td class="govuk-table__cell ">40</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">-</td>
+    </tr>
+  </tbody>
+</table> -->
+
+  </div>
+</div>

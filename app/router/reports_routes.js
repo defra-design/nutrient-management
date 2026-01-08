@@ -67,6 +67,11 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   if (req.session.data.export_type == '8') {
       next = './inventory/checklist'
   }
+    // Planned nutrients report
+  if (req.session.data.export_type == '9') {
+      next = '/outputs/planned_nutrients'
+  }
+
   res.redirect(next)
 })
 

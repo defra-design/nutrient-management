@@ -39,13 +39,13 @@
     {{ application_field('Barns', 5.50, '-', '56kg', '56kg', '-', '-', '-', '-') }}
     <tr class="govuk-table__row total_row">
       <td class="govuk-table__cell">Totals</td>
-      <td class="govuk-table__cell ">15.7</td>
-      <td class="govuk-table__cell ">112kg</td>
-      <td class="govuk-table__cell ">112kg</td>
-      <td class="govuk-table__cell ">-</td>
-      <td class="govuk-table__cell ">-</td>
-      <td class="govuk-table__cell ">-</td>
-      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell">11</td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell">112kg</td>
+      <td class="govuk-table__cell">112kg</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
+      <td class="govuk-table__cell">0</td>
     </tr>
   </tbody>
 </table>
@@ -55,17 +55,17 @@
 <table class="govuk-table data-table margin-bottom-fifty">
   {{ application_headers() }}
   <tbody class="govuk-table__body">
-    {{ application_field('Park 1', 19.5, 140, '30kg', '30kg', '-', '-', '-', '-') }}
-    {{ application_field('Park 2', 15.00, 140, '30kg', '30kg', '-', '-', '-', '-') }}
+    {{ application_field('Park 1', 19, "140kg", '30kg', '30kg', '-', '-', '-', '-') }}
+    {{ application_field('Park 2', 15, "140kg", '30kg', '30kg', '-', '-', '-', '-') }}
     <tr class="govuk-table__row total_row">
       <td class="govuk-table__cell">Totals</td>
-      <td class="govuk-table__cell ">15.7</td>
-      <td class="govuk-table__cell ">112kg</td>
-      <td class="govuk-table__cell ">112kg</td>
-      <td class="govuk-table__cell ">-</td>
-      <td class="govuk-table__cell ">-</td>
-      <td class="govuk-table__cell ">-</td>
-      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">34</td>
+      <td class="govuk-table__cell ">280kg</td>
+      <td class="govuk-table__cell ">60kg</td>
+      <td class="govuk-table__cell ">60kg</td>
+      <td class="govuk-table__cell ">0</td>
+      <td class="govuk-table__cell ">0</td>
+      <td class="govuk-table__cell ">0</td>
     </tr>
   </tbody>
 </table>
@@ -75,18 +75,18 @@
 <table class="govuk-table data-table margin-bottom-twenty">
   {{ application_headers() }}
   <tbody class="govuk-table__body">
-    {{ application_field('Hops 1', 6.20, 179, '56kg', '56kg', '-', '-', '-', '-') }}
-    {{ application_field('Long Field', 12.00, '179kg', '56kg', '56kg', '-', '-', '-', '-') }}
-    {{ application_field('Oaks', 4.00, '180kg', '50kg', '50kg', '40kg', '-', '-', '-') }}
+    {{ application_field('Hops 1', 6, "140kg", '56kg', '56kg', '-', '-', '-', '-') }}
+    {{ application_field('Long Field', 12, '140kg', '56kg', '56kg', '-', '-', '-', '-') }}
+    {{ application_field('Oaks', 4.5, '180kg', '50kg', '50kg', '40kg', '-', '-', '-') }}
     <tr class="govuk-table__row total_row">
       <td class="govuk-table__cell">Totals</td>
-      <td class="govuk-table__cell ">15.7</td>
-      <td class="govuk-table__cell ">112kg</td>
-      <td class="govuk-table__cell ">112kg</td>
-      <td class="govuk-table__cell ">-</td>
-      <td class="govuk-table__cell ">-</td>
-      <td class="govuk-table__cell ">-</td>
-      <td class="govuk-table__cell ">-</td>
+      <td class="govuk-table__cell ">22.5</td>
+      <td class="govuk-table__cell ">460kg</td>
+      <td class="govuk-table__cell ">162kg</td>
+      <td class="govuk-table__cell ">162kg</td>
+      <td class="govuk-table__cell ">40kg</td>
+      <td class="govuk-table__cell ">0</td>
+      <td class="govuk-table__cell ">0</td>
     </tr>
 
   </tbody>
@@ -149,7 +149,7 @@
       <td class="govuk-table__cell">Hops 1</td>
       <td class="govuk-table__cell">W wheat</td>
       <td class="govuk-table__cell ">6.20</td>
-      <td class="govuk-table__cell ">179</td>
+      <td class="govuk-table__cell ">"140kg"</td>
       <td class="govuk-table__cell ">56</td>
       <td class="govuk-table__cell ">56</td>
       <td class="govuk-table__cell ">-</td>
@@ -161,7 +161,7 @@
       <td class="govuk-table__cell">Long</td>
       <td class="govuk-table__cell">W wheat</td>
       <td class="govuk-table__cell ">12.80</td>
-      <td class="govuk-table__cell ">179</td>
+      <td class="govuk-table__cell ">"140kg"</td>
       <td class="govuk-table__cell ">56</td>
       <td class="govuk-table__cell ">56</td>
       <td class="govuk-table__cell ">-</td>
@@ -209,7 +209,7 @@
       <td class="govuk-table__cell">Park 1</td>
       <td class="govuk-table__cell">Grass</td>
       <td class="govuk-table__cell ">19.50</td>
-      <td class="govuk-table__cell ">140</td>
+      <td class="govuk-table__cell ">"140kg"</td>
       <td class="govuk-table__cell ">30</td>
       <td class="govuk-table__cell ">30</td>
       <td class="govuk-table__cell ">-</td>
@@ -221,7 +221,7 @@
       <td class="govuk-table__cell">Park 2</td>
       <td class="govuk-table__cell">Grass</td>
       <td class="govuk-table__cell ">15.00</td>
-      <td class="govuk-table__cell ">140</td>
+      <td class="govuk-table__cell ">"140kg"</td>
       <td class="govuk-table__cell ">30</td>
       <td class="govuk-table__cell ">30</td>
       <td class="govuk-table__cell ">-</td>

@@ -10,8 +10,8 @@
 
 {% block beforeContent %}
   {{ govukBackLink({
-    text: "Back to your " + data.oaktree_farm.planning_year + " plan",
-    href: "plan_view_reset_router"
+    text: "Back to " + data.oaktree_farm.name ,
+    href: "hub_message_reset"
   }) }}
 {% endblock %}
 
@@ -19,9 +19,9 @@
 
   {% include "./templates/print.html" ignore missing %}
   {% include "./templates/farm.html" ignore missing %}
-  
-  {% include "./templates/totals.html" ignore missing %}
+
   {% include "./templates/nutrients_table.html" ignore missing %}
+  {% include "./templates/totals.html" ignore missing %}
 
   <hr class="margin-bottom-forty">
   <h2 class="govuk-heading-s">About recommendations, guidance, and advice</h2>

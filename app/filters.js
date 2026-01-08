@@ -64,6 +64,8 @@ addFilter('convert_export_type', function (export_ref) {
         break;
     case '8':
         export_title = 'Organic manures inventory and storage';
+    case '9':
+        export_title = 'Planned nutrients report';
         break;
     default:
         export_title = '';

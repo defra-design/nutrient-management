@@ -1,0 +1,140 @@
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Farm name"
+      },
+      value: {
+        text: data.oaktree_farm.name
+      },
+      actions: {
+        items: [
+          {
+            href: "name",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Which country is Oaktree Lane Farm in?"
+      },
+      value: {
+        text: "Scotland"
+      },
+      actions: {
+        items: [
+          {
+            href: "rainfall",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Farm address"
+      },
+      value: {
+        text: "Queensferry, South Queensferry EH30 9AR"
+      },
+      actions: {
+        items: [
+          {
+            href: "address",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Average annual rainfall"
+      },
+      value: {
+        text: "600mm"
+      },
+      actions: {
+        items: [
+          {
+            href: "rainfall",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "How many fields at Oaktree Lane Farm are in a Nitrate Vulnerable Zone (NVZ)?"
+      },
+      value: {
+        text: "All of the fields are in an NVZ"
+      },
+      actions: {
+        items: [
+          {
+            href: "nvz",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Are the fields in the same NVZ?"
+      },
+      value: {
+        text: "Yes"
+      },
+      actions: {
+        items: [
+          {
+            href: "nvz",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Which NVZ are the fields at Oaktree Lane Farm in?"
+      },
+      value: {
+        text: "Lothian and Borders"
+      },
+      actions: {
+        items: [
+          {
+            href: "nvz",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "How many fields at Oaktree Lane Farm are above 300 metres?"
+      },
+      value: {
+        text: "All of the fields are above 300m"
+      },
+      actions: {
+        items: [
+          {
+            href: "elevation",
+            text: "Change",
+            visuallyHiddenText: ""
+          }
+        ]
+      }
+    }
+  ]
+}) }}

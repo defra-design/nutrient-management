@@ -71,6 +71,10 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   if (req.session.data.export_type == '9') {
       next = '/outputs/planned_nutrients'
   }
+    // Planned nutrients report
+  if (req.session.data.export_type == '10') {
+      next = '/outputs/recommendations'
+  }
 
   res.redirect(next)
 })

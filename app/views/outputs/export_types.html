@@ -1,150 +1,160 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question – {{ serviceName }} – GOV.UK
+Question – {{ serviceName }} – GOV.UK
 {% endblock %}
 
 {% block header %}
-  {% include "/templates/header_signed_in.html" ignore missing %}
+{% include "/templates/header_signed_in.html" ignore missing %}
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-       Which
-       {% if data.report_type == 'nvz' %}
-        NVZ 
-       {% else %}
-        farm information and planning
-       {% endif  %}
-       report do you want to create?
-      </h1>
+    <h1 class="govuk-heading-l">
+      Which
+      {% if data.report_type == 'nvz' %}
+      NVZ 
+      {% else %}
+      farm information and planning
+      {% endif  %}
+      report do you want to create?
+    </h1>
 
-      <form class="form" action="report_type_handler" method="post">
-      <div class="govuk-form-group">
+    <form class="form" action="report_type_handler" method="post">
+    <div class="govuk-form-group">
 
-        <div class="govuk-radios govuk-radios" data-module="govuk-radios">
-          
-          {% if data.report_type == 'nvz' %}
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="max" name="export_type" type="radio" value="3">
-              <label class="govuk-label govuk-radios__label" for="max">
-                N-max report
-              </label>
-              <!-- <div class="govuk-hint govuk-radios__hint">
-                Check compliance with the N-max limit for each crop
-              </div> -->
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="loading" name="export_type" type="radio" value="4">
-              <label class="govuk-label govuk-radios__label" for="loading">
-                Livestock manure nitrogen (N) farm limit report 
-              </label>
-              <!-- <div class="govuk-hint govuk-radios__hint">
-                Check compliance with the livestock manure nitrogen (N) farm limit for the farm
-              </div> -->
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="storage" name="export_type" type="radio" value="7">
-              <label class="govuk-label govuk-radios__label" for="storage">
-                Existing manure storage capacity report
-              </label>
-              <!-- <div class="govuk-hint govuk-radios__hint"> 
-                Check compliance with rules for organic manure storage
-              </div> -->
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="inventory" name="export_type" type="radio" value="8">
-              <label class="govuk-label govuk-radios__label" for="inventory">
-                Organic material inventory and storage requirement report
-              </label>
-              <!-- <div class="govuk-hint govuk-radios__hint"> 
-                Check compliance with rules for manure inventory and NVZ storage requirements
-              </div> -->
-            </div>
-
-          {% else  %}
+      <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+        
+        {% if data.report_type == 'nvz' %}
 
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="history" name="export_type" type="radio" value="1">
-            <label class="govuk-label govuk-radios__label" for="history">
-              Crop and field management report
+            <input class="govuk-radios__input" id="max" name="export_type" type="radio" value="3">
+            <label class="govuk-label govuk-radios__label" for="max">
+              N-max report
             </label>
-            <div class="govuk-hint govuk-radios__hint">
-              All crop, field and nutrient information for a harvest year
-            </div>
+            <!-- <div class="govuk-hint govuk-radios__hint">
+              Check compliance with the N-max limit for each crop
+            </div> -->
           </div>
 
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="nutrients" name="export_type" type="radio" value="9">
-            <label class="govuk-label govuk-radios__label" for="nutrients">
-              Planned nutrients report
+            <input class="govuk-radios__input" id="loading" name="export_type" type="radio" value="4">
+            <label class="govuk-label govuk-radios__label" for="loading">
+              Livestock manure nitrogen (N) farm limit report 
             </label>
-            <div class="govuk-hint govuk-radios__hint">
-              Total planned nutrients for a harvest year 
-            </div>
+            <!-- <div class="govuk-hint govuk-radios__hint">
+              Check compliance with the livestock manure nitrogen (N) farm limit for the farm
+            </div> -->
           </div>
 
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="recommendations" name="export_type" type="radio" value="10">
-            <label class="govuk-label govuk-radios__label" for="recommendations">
-              Recommendations report
+            <input class="govuk-radios__input" id="storage" name="export_type" type="radio" value="7">
+            <label class="govuk-label govuk-radios__label" for="storage">
+              Existing manure storage capacity report
             </label>
-            <div class="govuk-hint govuk-radios__hint">
-              All nutrient recommendations for a harvest year
-            </div>
+            <!-- <div class="govuk-hint govuk-radios__hint"> 
+              Check compliance with rules for organic manure storage
+            </div> -->
           </div>
-
-          <!-- <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="livestock" name="export_type" type="radio" value="5">
-            <label class="govuk-label govuk-radios__label" for="livestock"> 
-              Livestock numbers
-            </label>
-            <div class="govuk-hint govuk-radios__hint">
-              Total livestock numbers for a harvest year
-            </div>
-          </div> -->
 
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="imports" name="export_type" type="radio" value="6">
-            <label class="govuk-label govuk-radios__label" for="imports">
-              Imports and exports
+            <input class="govuk-radios__input" id="inventory" name="export_type" type="radio" value="8">
+            <label class="govuk-label govuk-radios__label" for="inventory">
+              Organic material inventory and storage requirement report
             </label>
-            <div class="govuk-hint govuk-radios__hint">
-              All imports and exports of nutrients for a harvest year
-            </div>
+            <!-- <div class="govuk-hint govuk-radios__hint"> 
+              Check compliance with rules for manure inventory and NVZ storage requirements
+            </div> -->
           </div>
 
-        {% endif %}
+        {% else  %}
 
-      </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="history" name="export_type" type="radio" value="1">
+          <label class="govuk-label govuk-radios__label" for="history">
+            Crop and field management report
+          </label>
+          <div class="govuk-hint govuk-radios__hint">
+            All field, crop and nutrient information for a single harvest year
+          </div>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="confirmed" name="export_type" type="radio" value="11">
+          <label class="govuk-label govuk-radios__label" for="confirmed">
+            Confirmed field history for one or more fields
+          </label>
+          <div class="govuk-hint govuk-radios__hint">
+            All field, crop and nutrient information for all harvest years
+          </div>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="nutrients" name="export_type" type="radio" value="9">
+          <label class="govuk-label govuk-radios__label" for="nutrients">
+            Planned nutrients report
+          </label>
+          <div class="govuk-hint govuk-radios__hint">
+            Total planned nutrients for a harvest year 
+          </div>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="recommendations" name="export_type" type="radio" value="10">
+          <label class="govuk-label govuk-radios__label" for="recommendations">
+            Recommendations report
+          </label>
+          <div class="govuk-hint govuk-radios__hint">
+            All nutrient recommendations for a harvest year
+          </div>
+        </div>
+
+        <!-- <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="livestock" name="export_type" type="radio" value="5">
+          <label class="govuk-label govuk-radios__label" for="livestock"> 
+            Livestock numbers
+          </label>
+          <div class="govuk-hint govuk-radios__hint">
+            Total livestock numbers for a harvest year
+          </div>
+        </div> -->
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="imports" name="export_type" type="radio" value="6">
+          <label class="govuk-label govuk-radios__label" for="imports">
+            Imports and exports
+          </label>
+          <div class="govuk-hint govuk-radios__hint">
+            All imports and exports of nutrients for a harvest year
+          </div>
+        </div>
+
+      {% endif %}
+
     </div>
+  </div>
 
-      {{ govukButton({
-        text: "Continue"
-      }) }}
+    {{ govukButton({
+      text: "Continue"
+    }) }}
 
-    </form>
+  </form>
 
-      </div>
     </div>
+  </div>
 
-  <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
-  </p>
+<p class="govuk-body">
+  <a href="fields.html">Cancel</a>
+</p>
 
 {% endblock %}

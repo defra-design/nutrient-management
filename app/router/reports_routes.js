@@ -67,16 +67,26 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   if (req.session.data.export_type == '8') {
       next = './inventory/checklist'
   }
-    // Planned nutrients report
+  // Planned nutrients report
   if (req.session.data.export_type == '9') {
       next = '/outputs/planned_nutrients'
   }
-    // Planned nutrients report
+  // Planned nutrients report
   if (req.session.data.export_type == '10') {
       next = '/outputs/recommendations'
   }
+  // Confirmed field history report
+  if (req.session.data.export_type == '11') {
+      next = 'export_fields'
+  }
 
   res.redirect(next)
+})
+
+
+router.get(/export_fields_handler/, callback_functions.hideSuccessMessage, function (req, res) {
+  let next = req.session.data.export_type == '11' ? '/outputs/field_history/' : '/outputs/full_report/';
+  res.redirect(next);
 })
 
 router.get(/manage_storage_router/, callback_functions.hideSuccessMessage, function (req, res) {

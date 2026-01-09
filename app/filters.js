@@ -71,6 +71,9 @@ addFilter('convert_export_type', function (export_ref) {
     case '10':
         export_title = 'Recommendations report';
         break;
+    case '11':
+        export_title = 'Confirmed field history report';
+        break;
     default:
         export_title = '';
     }

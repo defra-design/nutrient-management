@@ -21,10 +21,10 @@
     <div class="govuk-grid-column-two-thirds">
       
       <h1 class="govuk-heading-l">
-        Which fields would you like to create a {{data.oaktree_farm.planning_year}} crop and field management report for?
+        Which fields would you like to create a {{data.oaktree_farm.planning_year}} {{data.export_type | convert_export_type}} for?
       </h1>
 
-        <form class="form" action="/outputs/full_report/" method="post">
+        <form class="form" action="export_fields_handler" method="post">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="waste-hint">

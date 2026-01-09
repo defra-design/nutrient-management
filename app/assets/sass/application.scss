@@ -1357,3 +1357,37 @@ th.wide, td.wide {
         }
     }
 }
+
+#field-history-crops {
+    //year
+    th:nth-child(1) {
+        width: 7.5%;
+    }
+    //crop
+    th:nth-child(2) {
+        width: 14%;
+    }
+    //date
+    th:nth-child(3) {
+        width: 13%;
+    }
+    //yield
+    th:nth-child(4) {
+        width: 13%;
+    }
+    //info
+    th:nth-child(5) {
+        width: 9%;
+    }
+}
+
+#field-history-recs {
+    //year
+    th:nth-child(1) {
+        width: 7.5%;
+    }
+    //crop
+    th:nth-child(2) {
+        width: 14%;
+    }
+}

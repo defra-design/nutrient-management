@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+   Question – Add crops -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      What is the sward type for these fields in {{data.oaktree_farm.harvest_year}}?
+    </h1>
+
+    <p class="govuk-hint">
+      Select one option.
+    </p>
+
+    <form class="form" action="management" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="grass" name="sward_type" type="radio" value="grass">
+              <label class="govuk-label govuk-radios__label" for="grass">
+                Grass with high clover
+              </label>
+            </div>    
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="clover" name="sward_type" type="radio" value="clover">
+              <label class="govuk-label govuk-radios__label" for="clover">
+                Grass with low clover
+              </label>
+            </div>    
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="redclover" name="sward_type" type="radio" value="red clover">
+              <label class="govuk-label govuk-radios__label" for="redclover">
+                Red clover
+              </label>
+            </div>                        
+            <!-- <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="lucerne" name="sward_type" type="radio" value="lucerne">
+              <label class="govuk-label govuk-radios__label" for="lucerne">
+                Lucerne
+              </label>
+            </div> -->
+          </div>
+        </fieldset>        
+      </div>
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

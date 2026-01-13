@@ -14,11 +14,8 @@ var callback_functions = require('./callbacks.js');
 // });
 
 router.get(/manner_setup_handler/, callback_functions.showSuccessMessage, function (req, res) {
-    let next = 'name'
-    if (req.session.data.oaktree_farm.setup == true) {
-        next = 'existing'
-    }
-    res.redirect(next)
+  let next = (req.session.data.oaktree_farm.setup == true) ? 'existing' : 'name'
+  res.redirect(next)
 })
 
 router.get(/set_mannerfield_name_handler/, function (req, res) { 
@@ -29,11 +26,8 @@ router.get(/set_mannerfield_name_handler/, function (req, res) {
 })
 
 router.get(/use_existing_farm_handler/, callback_functions.showSuccessMessage, function (req, res) {
-    let next = 'farm'
-    if (req.session.data.use_existing_farm == 'no') {
-        next = 'name'
-    }
-    res.redirect(next)
+  let next = (req.session.data.use_existing_farm == 'no') ? 'name' : 'farm'
+  res.redirect(next)
 })
 
 router.get(/manner_copy_router/, callback_functions.showSuccessMessage, function (req, res) {
@@ -44,7 +38,6 @@ router.get(/manner_copy_router/, callback_functions.showSuccessMessage, function
     } else {
         req.session.data.manner_applications.push(tempApplication)
     }
-    console.log('check');
     res.redirect(next);
 })
 
@@ -81,7 +74,7 @@ router.get(/manuretype_update_handler/, callback_functions.showSuccessMessage, f
     }
     req.session.data.manner_applications[1].manuretype = req.session.data.manure_type
     // console.log(req.session.data.manure_type.name)
-    res.redirect('manner/results')
+    res.redirect('/manner/results')
 })
 
 router.get(/manner_update_handler/, callback_functions.showSuccessMessage, function (req, res) {
@@ -111,6 +104,5 @@ router.get(/copy_estimate_handler/, callback_functions.showSuccessMessage, funct
     let next = req.session.data.copy_estimate == 'yes' ? 'estimates_list' : 'existing';
     res.redirect(next)
 })
-
 
 module.exports = router

@@ -19,8 +19,8 @@
 
 {% macro result(ref_number) %}
   <h2 class="govuk-heading-l">Application {{ref_number}} details</h2>
-  <h2 class="govuk-heading-m">Field and crop</h3>
-  <p class="govuk-hint">Field and crop choices are for all applications.</p>
+  <h2 class="govuk-heading-m">Farm, field and crop</h3>
+  <p class="govuk-hint">Farm, field and crop choices are for all applications. Changing any details here will only update this estimate.</p>
   <div class="check-answers">
     {% include "./templates/field_crop.html ignore missing" %}
   </div>  

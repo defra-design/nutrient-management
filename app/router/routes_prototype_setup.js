@@ -133,6 +133,10 @@ router.get(/plan_setup/, function (req, res) {
         req.session.data.fertiliserApplications.push(req.session.data.fertiliser_applications_data[x])
     }
 
+    //manner
+    let tempApplication = {date:'01/06/2026', manuretype: 'Pig slurry', rate: 30 }
+    req.session.data.manner_applications.push(tempApplication)
+
     res.redirect('start')
 })
 

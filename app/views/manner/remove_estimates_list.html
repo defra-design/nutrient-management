@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Which estimates would you like to remove?
+    </h1>
+
+    <form class="form" action="previous_calculations" method="post">
+    
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <div id="waste-hint" class="govuk-hint">
+            Select all that apply
+          </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                Estimate 1 - Oaktree Lane Farm - Updated 1 December 2025
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="previous_calculations">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

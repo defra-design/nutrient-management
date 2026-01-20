@@ -19,122 +19,88 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row noprint">
-    <div class="govuk-grid-column-two-thirds">
-
-      <h2 class="govuk-heading-m">Print or save as a PDF</h2>
-      <ol class="govuk-list govuk-list--number">
-        <li>To save as a PDF choose 'Print or save as a PDF',</li>
-        <li>Select, 'Save as PDF', where you are asked to select a printer,</li>
-        <li>Select, 'Print', then choose where to save the PDF.</li>
-      </ol>
-      <form class="" action="" method="post" novalidate="">    
-        <button onclick="window.print()" class="govuk-button" data-module="govuk-button">
-          Print or save as a PDF
-        </button>
-      </form>
-
-    </div>
+<div class="govuk-grid-row noprint">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m">Print or save as a PDF</h2>
+    <ol class="govuk-list govuk-list--number">
+      <li>To save as a PDF choose 'Print or save as a PDF',</li>
+      <li>Select, 'Save as PDF', where you are asked to select a printer,</li>
+      <li>Select, 'Print', then choose where to save the PDF.</li>
+    </ol>
+    <form class="" action="" method="post" novalidate="">    
+      <button onclick="window.print()" class="govuk-button" data-module="govuk-button">
+        Print or save as a PDF
+      </button>
+    </form>
   </div>
+</div>
 
-  <div class="govuk-grid-row noprint margin-bottom-thirty">
-    <div class="govuk-grid-column-full">
-      <hr>
-    </div>
+<div class="govuk-grid-row noprint margin-bottom-thirty">
+  <div class="govuk-grid-column-full">
+    <hr>
   </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full nmax_header">
+    <h1 class="govuk-heading-xl">Estimate nutrient supply from organic materials (MANNER-NPK)</h1>
+    <p class="govuk-body">Created on 22 September {{data.oaktree_farm.planning_year}}</p>
+  </div>
+</div>
+
+<div class="govuk-grid-row margin-bottom-twenty">
+  <div class="govuk-grid-column-one-third">
+    <p class="govuk-body">Oaktree Lane Farm, <br>
+      24 South Road<br> 
+      Hexham<br>  
+      Northumberland<br> 
+      NE46 7LQ</p>
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">CPH number: 123456789<br>
+      Single Business Identifier: 123456789<br>
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full margin-bottom-ten">
+    <h2 class="govuk-heading-l">Field and crop details</h2>
+    {% include "./templates/farm_details.html" ignore missing %}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full margin-bottom-ten">
+    <h2 class="govuk-heading-l">Organic material applications</h2>
+    {% include "./templates/application_1_details.html" ignore missing %}
+  </div>
+</div>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full nmax_header">
-
-      <h1 class="govuk-heading-xl">Estimate nutrient supply from organic materials (MANNER-NPK)</h1>
-      <p class="govuk-body">Created on 22 September {{data.oaktree_farm.planning_year}}</p>
-
-    </div>
+  <div class="govuk-grid-column-full margin-bottom-ten">
+    <h2 class="govuk-heading-m">
+      MANNER-NPK results 
+    </h2>
+    {% include "./templates/nitrogen_table.html ignore missing" %}
   </div>
+</div>
 
-  <div class="govuk-grid-row margin-bottom-twenty">
-    <div class="govuk-grid-column-one-third">
-      <p class="govuk-body">Oaktree Lane Farm, <br>
-        24 South Road<br> 
-        Hexham<br>  
-        Northumberland<br> 
-        NE46 7LQ</p>
-    </div>
-      
-    <div class="govuk-grid-column-two-thirds">
-      <p class="govuk-body">CPH number: 123456789<br>
-        Single Business Identifier: 123456789<br>
-      </p>
-
-    </div>
-
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-m">Organic material value</h2>
+    {% include "./templates/manure_value_table.html ignore missing" %}
   </div>
-
-    <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-ten">
-      <h2 class="govuk-heading-l">
-        MANNER-NPK results 
-      </h2>
-      {% include "../templates/nitrogen_table.html ignore missing" %}
-    </div>
-  </div>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-ten">
-      {% include "../templates/manure_value_table.html ignore missing" %}
-    </div>
-  </div>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-ten">
-      <h2 class="govuk-heading-l">
-        Field and crop details
-      </h2>
-        {% include "./templates/farm_details.html" ignore missing %}
-    </div>
-  </div>
+</div>
   
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-ten">
-      <h2 class="govuk-heading-l">
-        Organic material applications
-      </h2>
-    </div>
-    </div>
-      
-    <div class="govuk-grid-row">
-     <div class="govuk-grid-column-full margin-bottom-ten">
-        {% include "./templates/application_1_details.html" ignore missing %}
-      </div>
-    </div>
-    <div id="printbreak"></div>
-    <div class="govuk-grid-row">
-     <div class="govuk-grid-column-full margin-bottom-ten">
-        {% include "./templates/application_2_details.html" ignore missing %}
-    </div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <hr class="margin-bottom-forty">
+    <h2 class="govuk-heading-s">
+      About recommendations, guidance, and advice
+    </h2>
+    {% include "/templates/recommendations.html" ignore missing %}
   </div>
-  
-
-  <!-- <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-ten">
-      <h2 class="govuk-heading-m non-standard">
-        Manure analysis
-      </h2>
-      <p class="govuk-body-s negative-10">Values are  per cubic metre.</p>
-        {% include "./templates/manure_analysis.html" ignore missing %}
-    </div>
-  </div>
- -->
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <hr class="margin-bottom-forty">
-      <h2 class="govuk-heading-s">
-        About recommendations, guidance, and advice
-      </h2>
-      {% include "/templates/recommendations.html" ignore missing %}
-    </div>
 </div>
 
 {% endblock %}

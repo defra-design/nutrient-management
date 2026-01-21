@@ -42,15 +42,23 @@ function startFarm(type) {
     obj.fields_added = true;
     console.log('Farm setup complete')
   }
-  let print_farm = function () {
-    console.log(this);
-  }
-  obj.print = print_farm;
   return obj;
 }
 
 function print_storage(farm) {
   console.log(farm.storage_added);
+}
+
+function print_farm(farm, info) {
+  if (info === null || info === undefined) {
+    console.log(farm);
+  } else {
+      for (let key in farm) {
+        if (key === info) {
+          console.log(info + ' = ' + farm[key]);
+        }
+      }
+  }
 }
 
 
@@ -77,7 +85,8 @@ router.get(/end_to_end_setup_handler/, function (req, res) {
 router.get(/onecrop_v5_setup_handler/, function (req, res) { 
     
     req.session.data.oaktree_farm = startFarm('basic')
-    req.session.data.oaktree_farm.print()
+    print_farm(req.session.data.oaktree_farm, null)
+    print_farm(req.session.data.oaktree_farm, 'storage_added')
     print_storage(req.session.data.oaktree_farm)
     req.session.data.showinfo = false
     req.session.data.all_fields = req.session.data.field_list_data

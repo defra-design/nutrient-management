@@ -57,11 +57,11 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   }
   // EXISTING MANURE STORAGE
   if (req.session.data.export_type == '7') {
-      if (req.session.data.oaktree_farm.storage_added != true) {
-          next = 'not_available_storage'
-      } else {
-          next = '/farm/storage/manage_storage'
-      }
+    if (req.session.data.oaktree_farm.storage_added != true) {
+        next = 'not_available_storage'
+    } else {
+        next = '/farm/storage/manage_storage'
+    }
   }
   // MANURE INVENTORY AND STORAGE
   if (req.session.data.export_type == '8') {

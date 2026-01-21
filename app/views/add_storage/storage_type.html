@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
- Question – Add manure storage -  {{ serviceName }} – GOV.UK
+ Question – Add a manure store -  {{ serviceName }} – GOV.UK
 {% endblock %}
 
 {% block header %}
@@ -21,7 +21,7 @@
 
     <h1 class="govuk-heading-l">
       {% if data.material_type != 'solid manure' %}
-        What type of storage is {{data.storage_name}}?
+        What type of store is {{data.storage_name}}?
       {% else %}
         What type of solid manure is {{data.storage_name}} used for?
       {% endif %}
@@ -52,9 +52,9 @@
               </div> -->
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="circular" name="storage_type" type="radio" value="circular store">
+                <input class="govuk-radios__input" id="circular" name="storage_type" type="radio" value="Circular tank">
                 <label class="govuk-label govuk-radios__label" for="circular">
-                  Circular store
+                  Circular tank
                 </label>
               </div>
 

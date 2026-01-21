@@ -1,0 +1,101 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Crop and nutrient plan {{data.oaktree_farm.planning_year}} – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back to planning and recording",
+    href: "/farm/plans_records"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+{% set totalFields = 0 %}
+
+<!-- //use the correct database for the chosen year -->
+
+{% for group in data.cropGroups %}
+  {% for field in group.field_list %}
+    {% set totalFields = totalFields + 1 %}
+  {% endfor %}
+{% endfor %}
+
+{% set organics = false %}
+<!-- {{data.manureApplications.length}} -->
+{% if data.manureApplications.length > 0 %}
+  {% set organics = true %}
+{% endif %}
+
+{% set inorganics = false %}
+{% if data.fertiliserApplications.length > 0 %}
+  {% set inorganics = true %}
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% if data.show_success_message == true %}
+        {% include "./templates/success_message.html" ignore missing %}
+      {% endif %}
+   </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 id="main-title" class="govuk-heading-l">
+      <span class="govuk-caption-l">{{data.oaktree_farm.name}} </span>
+      Crop and nutrient plan {{data.oaktree_farm.planning_year}}
+    </h1>
+
+    <div id="summary-header" class="margin-bottom-forty">
+      <p class="govuk-body">Last updated {{data.update_date}}. There are {{totalFields}} fields in this plan.</p>
+      {% include "./templates/ewr_sc.html" ignore missing %}
+      <p class="govuk-body"><a href="/outputs/export">Save or print a report from this plan</a></p>
+    </div>
+
+    <div class="govuk-tabs" data-module="govuk-tabs">
+
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#crops">
+            Crops and fields
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#organic">
+            Organic material applications
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#inorganic">
+            Inorganic fertiliser applications
+          </a>
+        </li>
+      </ul>
+
+      <!-- crops -->
+      <div class="govuk-tabs__panel" id="crops">
+        {% include "./templates/crops/crops.html" ignore missing %}
+      </div>
+
+      <!-- manures -->
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="organic">
+        {% include "./templates/manures/manures.html" ignore missing %}
+      </div>
+
+      <!-- inorganics -->        
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="inorganic">
+      {% include "./templates/fertilisers/fertilisers.html" ignore missing %}
+    </div>
+      
+  </div>
+</div>
+
+{% endblock %}

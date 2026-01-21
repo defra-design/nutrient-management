@@ -1,6 +1,6 @@
 <dl class="govuk-summary-list nutrient_list">
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What type of manure storage do you want to add?</dt>
+    <dt class="govuk-summary-list__key">What type of manure store do you want to add?</dt>
     <dd class="govuk-summary-list__value">{{data.material_type | capitalize}}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
@@ -16,7 +16,7 @@
       {% if data.material_type == 'solid manure' %}
         What type of solid manure is {{data.storage_name}} used for?
       {% else %}
-        What type of storage is {{data.storage_name}}?
+        What type of store is {{data.storage_name}}?
       {% endif %}
     </dt>
       <dd class="govuk-summary-list__value">{{data.storage_type | capitalize}}</dd>
@@ -33,7 +33,7 @@
   {% endif %}
 
   <!-- circular dimensions -->
-  {% if data.storage_type == 'circular store' %}
+  {% if data.storage_type == 'Circular tank' %}
     {% include "./check_circle.html" ignore missing %}
   
   <!-- capacity -->

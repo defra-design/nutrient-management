@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/templates/header_signed_in_first.html" ignore missing %}
+  {% include "/templates/headers/header_signed_in_first.html" ignore missing %}
 {% endblock %}
 
 {% block content %}
@@ -24,15 +24,13 @@
 {% endfor %}
 
 <div class="govuk-grid-row">
-  <div id="all-plans-table" class="govuk-grid-column-two-thirds">
-    
+  <div id="all-plans-table" class="govuk-grid-column-full">
     <h1 class="govuk-heading-l">Nutrient supply estimates (Manner-NPK)</h1>   
-
   </div>
 </div>
 
 <div class="govuk-grid-row">
-  <div id="all-plans-table" class="govuk-grid-column-full">
+  <div id="all-plans-table" class="govuk-grid-column-two-thirds">
 
     <form class="form" action="copy_estimate" method="post">
       {{ govukButton({
@@ -40,10 +38,13 @@
       }) }}
     </form>
 
+    <p class="govuk-body margin-bottom-thirty">You can also <a href="remove_estimates_list">remove an estimate</a></p>
+
+    <h2 class="govuk-heading-s">Previous estimates</h2>   
+
     <table class="govuk-table data-table">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Estimate</th>
           <th scope="col" class="govuk-table__header">Farm</th>
           <th scope="col" class="govuk-table__header">Last updated</th>
           <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Update or make a copy</span></th>
@@ -51,14 +52,12 @@
       </thead>
       <tbody class="govuk-table__body">  
         <tr class="govuk-table__row">
-            <td class="govuk-table__cell">1</td>
             <td class="govuk-table__cell">Oaktree Lane Farm</td>
             <td class="govuk-table__cell">01 December 2025</td>
             <td class="govuk-table__cell"><a href="manner_results_reset">View or change</a> </td>
         </tr>
       </tbody>
     </table>     
-    <p>You can also <a href="remove_estimates_list">remove an estimate</p>
   </div>
 </div>
 

@@ -172,7 +172,18 @@ router.get(/farm_setup_handler/, function (req, res) {
     res.redirect('start')
 })
 
-//Farm and fields added - this
+
+//Manner calc added
+router.get(/manner_added_handler/, function (req, res) {
+    req.session.data.oaktree_farm = startFarm()
+    req.session.data.showinfo = false
+    let tempApplication = {date:'01/06/2026', manuretype: 'Pig slurry', rate: 30 }
+    req.session.data.manner_applications.push(tempApplication)
+    res.redirect('start')
+})
+
+
+//Farm and fields added
 router.get(/end_to_end_field_handler/, function (req, res) { 
 
     req.session.data.oaktree_farm = startFarm('basic')

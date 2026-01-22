@@ -18,7 +18,7 @@ var callback_functions = require('./callbacks.js');
 
 //start
 router.get(/start_router/, function (req, res) {
-  let next = (req.session.data.showinfo == false) ? '/farm/farms' : '/disclaimer'
+  let next = (req.session.data.showinfo == false) ? '/farm/get_started' : '/disclaimer'
   res.redirect(next)
 })
 

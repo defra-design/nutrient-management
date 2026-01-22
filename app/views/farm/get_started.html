@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – "{{ serviceName }}" – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/header_signed_in_planning.html" ignore missing %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Plan and manage nutrient applications</h1>
+        
+      <h2 class="govuk-heading-m">Create nutrient management plans and NVZ reports</h2>
+      {% if data.oaktree_farm.setup == false %}
+        <p class="govuk-body">Add a farm to start creating nutrient management plans.</p>
+        <p class="govuk-body">You can create NVZ reports and other farm management reports once you have added a farm.</p>
+        <p class="govuk-body"><a class="govuk-notification-banner__link" href="/add-farm/name">Add a farm</a></p>
+      {% else %}
+        <p class="govuk-body">Select a farm to create or update it's nutrient management plans or to create a report.</p>
+        <h3 class="govuk-heading-s margin-top-none">Your farms</h3>
+        <p class="govuk-body"><a class="govuk-notification-banner__link" href="hub">Oaktree Lane Farm</a></p>
+        <p class="govuk-body">You can also <a class="govuk-notification-banner__link" href="farms">add a new farm</a></p>
+      {% endif %}
+      <!-- <p class="govuk-body">You can also <a class="govuk-notification-banner__link" href="">import farm data from PLANET</a></p> -->
+      <hr class="separator_thirty">
+
+      <h2 class="govuk-heading-m">Create a nutrient supply estimate (Manner-NPK)</h2>
+      <p class="govuk-body">Compare different organic material applications to see how nutrient supply could be affected (scenario planning).</p>
+      <p class="govuk-body">You can see the financial value of organic material applications, and how much you could save compared to buying inorganic fertiliser.</p>
+      <p class="govuk-body"><a class="govuk-notification-banner__link" href="/manner/about">Create a nutrient supply estimate</a></p>
+      <hr class="separator_thirty">
+
+  </div>
+</div>
+
+{% endblock %}

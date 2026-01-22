@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var allFunctions = require('../functions/allFunctions.js');
+var callback_functions = require('./callbacks.js');
 
 function startFarm(type) {
   let obj = {
@@ -64,6 +65,14 @@ function print_farm(farm, info) {
 
 let fieldOne = {field_name: "Long Field", field_id: 1, nvz: true, elevation: false};
 let fieldTwo = {field_name: "Short Field", field_id: 2, nvz: true, elevation: false};
+
+//no farm setup
+router.get(/start_setup_handler/, callback_functions.showSuccessMessage, function (req, res) { 
+    req.session.data.successMessage = 0 //first use
+    req.session.data.oaktree_farm = startFarm()
+    print_storage(req.session.data.oaktree_farm)    
+    res.redirect('start')
+})
 
 router.get(/end_to_end_setup_handler/, function (req, res) { 
     req.session.data.oaktree_farm = startFarm('basic')
@@ -149,12 +158,6 @@ router.get(/plan_setup/, function (req, res) {
     //manner
     let tempApplication = {date:'01/06/2026', manuretype: 'Pig slurry', rate: 30 }
     req.session.data.manner_applications.push(tempApplication)
-    print_storage(req.session.data.oaktree_farm)    
-    res.redirect('start')
-})
-
-router.get(/start_setup_handler/, function (req, res) { 
-    req.session.data.oaktree_farm = startFarm()
     print_storage(req.session.data.oaktree_farm)    
     res.redirect('start')
 })

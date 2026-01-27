@@ -123,6 +123,7 @@
         {% for x in data.manner_applications %}
           {% set chosen_application = x %}
           <h3 class="govuk-heading-m">Application {{count}}</h3>
+          {% set chosen_application = data.manner_applications[count] %}
           {% include "./templates/answers.html ignore missing" %}
           {% set count = count+1 %}
         {% endfor %}

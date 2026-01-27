@@ -73,19 +73,11 @@
 
       <table id="conditions_table" class="govuk-table">
         <tbody class="govuk-table__body">
-          {% if data.manure_journey == 'multi' %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Autumn crop nitrogen (N) uptake</th>
-              <td class="govuk-table__cell">The amount is different for each of these fields</td>
-              <td class="govuk-table__cell"><a href="manure_uptake_total">Change</a></td>
-            </tr>
-          {% else %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Autumn crop nitrogen (N) uptake</th>
               <td class="govuk-table__cell">10kg per per hectare</td>
               <td class="govuk-table__cell"><a href="manure_nitrogen">Change</a></td>
             </tr>
-          {% endif %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">End of soil drainage</th>
             <td class="govuk-table__cell">31 March {{data.oaktree_farm.planning_year}}</td>
@@ -96,11 +88,6 @@
             <td class="govuk-table__cell">0 mm</td>
             <td class="govuk-table__cell"><a href="manure_rain_six">Change</a></td>
           </tr>
-          <!-- <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Effective rainfall after application</th>
-            <td class="govuk-table__cell">This is different for each of these fields, the average is 326mm</td>
-            <td class="govuk-table__cell"><a href="manure_rain_total">View</a></td>
-          </tr> -->
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">Windspeed during application</th>
             <td class="govuk-table__cell">Calm/gentle (0 - 3 Beaufort scale)</td>

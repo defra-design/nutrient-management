@@ -32,10 +32,10 @@ router.get(/use_existing_farm_handler/, callback_functions.showSuccessMessage, f
 
 router.get(/manner_copy_router/, callback_functions.showSuccessMessage, function (req, res) {
     let next = 'results'
-    let tempApplication = req.session.data.manner_applications[0]
     if (req.session.data.copy_manner == 'no') {
         next = 'manure_group'
     } else {
+        let tempApplication = {ref: req.session.data.manner_applications.length + 1, date:'01/06/2026', manuretype: req.session.data.manner_applications[0].manuretype, rate: 30 }
         req.session.data.manner_applications.push(tempApplication)
     }
     res.redirect(next);
@@ -90,15 +90,7 @@ router.get(/manner_results_handler/, callback_functions.showSuccessMessage, func
         req.session.data.manure_rate = 20
     }
     let reference = req.session.data.manner_applications.length + 1
-    console.log(req.session.data.manure_type)
-    // let manure
-    // for (let x in req.session.data.manure_types) {
-    //     if (req.session.data.manure_type == req.session.data.manure_types ) {
-
-    //     }
-
-    // }
-    let tempApplication = {reference, date:'01/01/2026', manuretype: req.session.data.manure_type, rate: req.session.data.manure_rate }
+    let tempApplication = {ref: reference, date:'01/01/2026', manuretype: req.session.data.manure_type, rate: req.session.data.manure_rate }
     req.session.data.manner_applications.push(tempApplication)
     console.log("here " + req.session.data.manner_applications.length)
     res.redirect('results')

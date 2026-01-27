@@ -20,7 +20,7 @@
 				<td class="govuk-table__cell">52kg</td>
 				<td class="govuk-table__cell">1kg</td>
 			</tr>
-			{% if (data.manner_applications | length) == 2 %}
+			{% if (data.manner_applications | length) >= 2 %}
 			<tr>
 				<td class="govuk-table__cell">2</td>
 				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
@@ -29,7 +29,16 @@
 				<td class="govuk-table__cell">7kg</td>
 			</tr>
 			{% endif %}
-			{% if (data.manner_applications | length) >= 2 %}
+			{% if (data.manner_applications | length) >= 3 %}
+			<tr>
+				<td class="govuk-table__cell">3</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
+				<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+				<td class="govuk-table__cell">180kg</td>
+				<td class="govuk-table__cell">7kg</td>
+			</tr>
+			{% endif %}
+			{% if (data.manner_applications | length) > 2 %}
 				<tr class="total_row">
 					<th scope="row" class="govuk-table__header">Totals</th>
 					<th scope="row" class="govuk-table__header">-</th>
@@ -64,7 +73,7 @@
 					<td class="govuk-table__cell">2kg</td>
 					<td class="govuk-table__cell">2kg</td>
 				</tr>
-			{% if (data.manner_applications | length) == 2 %}
+			{% if (data.manner_applications | length) >= 2 %}
 				<tr>
 				<td class="govuk-table__cell">2</td>
 				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
@@ -74,7 +83,17 @@
 					<td class="govuk-table__cell">9kg</td>
 				</tr>
 			{% endif %}
-			{% if (data.manner_applications | length) >= 2 %}
+			{% if (data.manner_applications | length) >= 3 %}
+				<tr>
+				<td class="govuk-table__cell">3</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
+					<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+					<td class="govuk-table__cell">31kg</td>
+					<td class="govuk-table__cell">3kg</td>
+					<td class="govuk-table__cell">9kg</td>
+				</tr>
+			{% endif %}
+			{% if (data.manner_applications | length) > 2 %}
 				<tr class="total_row">
 					<th scope="row" class="govuk-table__header">Totals</th>
 					<th scope="row" class="govuk-table__header">-</th>
@@ -110,7 +129,7 @@
 				<td class="govuk-table__cell">1kg</td>
 				<td class="govuk-table__cell">22%</td>
 			</tr>
-			{% if (data.manner_applications | length) == 2 %}
+			{% if (data.manner_applications | length) >= 2 %}
 				<tr>
 				<td class="govuk-table__cell">2</td>
 				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
@@ -120,7 +139,17 @@
 					<td class="govuk-table__cell">49%</td>
 				</tr>
 			{% endif %}
-			{% if (data.manner_applications | length) >= 2 %}
+			{% if (data.manner_applications | length) >= 3 %}
+				<tr>
+				<td class="govuk-table__cell">3</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
+					<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+					<td class="govuk-table__cell">88kg</td>
+					<td class="govuk-table__cell">2kg</td>
+					<td class="govuk-table__cell">49%</td>
+				</tr>
+			{% endif %}
+			{% if (data.manner_applications | length) > 2 %}
 				<tr class="total_row">
 					<th scope="row" class="govuk-table__header">Totals</th>
 					<th scope="row" class="govuk-table__header">-</th>
@@ -166,7 +195,7 @@
 				<td class="govuk-table__cell">14kg</td>
 				<td class="govuk-table__cell">12kg</td>
 			</tr>
-			{% if (data.manner_applications | length) == 2 %}
+			{% if (data.manner_applications | length) >= 2 %}
 				<tr>
 				<td class="govuk-table__cell">2</td>
 				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
@@ -180,7 +209,21 @@
 					<td class="govuk-table__cell">35kg</td>
 				</tr>
 			{% endif %}
-			{% if (data.manner_applications | length) >= 2 %}
+			{% if (data.manner_applications | length) >= 3 %}
+				<tr>
+				<td class="govuk-table__cell">3</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
+					<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+					<td class="govuk-table__cell">90kg</td>
+					<td class="govuk-table__cell">45kg</td>
+					<td class="govuk-table__cell">120kg</td>
+					<td class="govuk-table__cell">108kg</td>
+					<td class="govuk-table__cell">50kg</td>
+					<td class="govuk-table__cell">50kg</td>
+					<td class="govuk-table__cell">35kg</td>
+				</tr>
+			{% endif %}
+			{% if (data.manner_applications | length) > 2 %}
 				<tr class="total_row">
 					<th scope="row" class="govuk-table__header">Totals</th>
 					<th scope="row" class="govuk-table__header">-</th>

@@ -17,17 +17,6 @@
 
 {% block content %}
 
-{% macro result(ref_number) %}
-  <h2 class="govuk-heading-l">Application {{ref_number}} details</h2>
-  <h2 class="govuk-heading-m">Farm, field and crop</h3>
-  <p class="govuk-hint">Farm, field and crop choices are for all applications. Changing any details here will only update this estimate.</p>
-  <div class="check-answers">
-    {% include "./templates/field_crop.html ignore missing" %}
-  </div>  
-  <h2 class="govuk-heading-m">Application details</h2>
-  <p class="govuk-hint">These details are for application {{ref_number}} only.</p>
-{% endmacro %}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
     {% if data.show_success_message == true %}
@@ -55,19 +44,8 @@
       <p class="govuk-body"><a href="">Remove an application from this calculation</a></p>
     {% endif %}
 
-  <!-- {% if (data.manner_applications | length) == 3 %} 
-    <p class="govuk-body"><a href="manner_remove_application?application=3">Remove application 3</a></p>
-    <p class="govuk-body"><a href="manner_remove_application?application=2">Remove application 2</a></p>
-    <p class="govuk-body"><a href="manner_remove_application?application=1">Remove application 1</a></p>
-  {% endif %} 
-
-  {% if (data.manner_applications | length) == 2 %} 
-    <p class="govuk-body"><a href="manner_remove_application?application=2">Remove application 2</a></p>
-    <p class="govuk-body"><a href="manner_remove_application?application=1">Remove application 1</a></p>
-  {% endif %}  -->
-
    <p class="govuk-body"><a href="report/report">Export or print these results</a></p>
-   <p class="govuk-body"><a href="">Create a new estimate</a></p>
+   <p class="govuk-body"><a href="/manner/previous_calculations">Create a new estimate</a></p>
    </div>
 </div>
 
@@ -85,7 +63,12 @@
       </li>
       <li class="govuk-tabs__list-item">
         <a class="govuk-tabs__tab" href="#value">
-          Organic material value
+          Financial value
+        </a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#farm">
+          Farm, field and crop
         </a>
       </li>
 
@@ -110,85 +93,49 @@
         </li>
       {% endif %}
 
-      {% if (data.manner_applications | length) == 3 %} 
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#answers1">
-            Application 1 details
-          </a>
-        </li>
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#answers2">
-            Application 2 details
-          </a>
-        </li>
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#answers3">
-            Application 3 details
-          </a>
-        </li>
-      {% endif %}
     </ul>
 
+    <!-- nutrients -->
     <div class="govuk-tabs__panel" id="nutrients">
       <h2 class="govuk-heading-l">Nutrients</h2>
-        {% include "./templates/nitrogen_table.html ignore missing" %}
+      {% include "./templates/nitrogen_table.html ignore missing" %}
     </div>
 
-    <!-- VALUE -->
+    <!-- value -->
     <div class="govuk-tabs__panel clearfix govuk-tabs__panel--hidden" id="value">
       {% include "./templates/manure_value_table.html ignore missing" %}
       {% include "./templates/price_data.html ignore missing" %}
     </div>
 
+    <!-- farm -->
+    <div class="govuk-tabs__panel" id="farm">
+      <h2 class="govuk-heading-l">Farm, field and crop</h2>
+      <p class="govuk-body">Changing any details here will only update this estimate.</p>
+      {% include "./templates/field_crop.html ignore missing" %}
+    </div>
+
+    <!-- applications -->
     {% if (data.manner_applications | length) <= 1 %} 
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
-        {{ result (1) }}
-        {% set chosen_application = data.manner_applications[0] %}
-        <div class="check-answers">
-          {% include "./templates/answers_1.html ignore missing" %}     
-        </div>
+        <h2 class="govuk-heading-l">Application 1 details</h2>
+        {% include "./templates/answers_1.html ignore missing" %}     
       </div> 
     {% endif %}
 
     {% if (data.manner_applications | length) == 2 %} 
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
-        {{ result (1) }}
-        {% set chosen_application = data.manner_applications[0] %}
-        <div class="check-answers">
-          {% include "./templates/answers_1.html ignore missing" %}     
-        </div>
+        <h2 class="govuk-heading-l">Application 1 details</h2>
+        {% include "./templates/answers_1.html ignore missing" %}     
       </div> 
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers2">
-        {{ result (2) }}
-        {% set chosen_application = data.manner_applications[1] %}
+        <h2 class="govuk-heading-l">Application 2 details</h2>
         <div class="check-answers">
-          {% include "./templates/answers_2.html ignore missing" %}     
+        {% include "./templates/answers_2.html ignore missing" %}     
         </div>
       </div> 
     {% endif %}
 
     {% if (data.manner_applications | length) >= 3 %} 
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
-        {{ result (1) }}
-        {% set chosen_application = data.manner_applications[0] %}
-        <div class="check-answers">
-          {% include "./templates/answers_1.html ignore missing" %}     
-        </div>
-      </div> 
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers2">
-        {{ result (2) }}
-        {% set chosen_application = data.manner_applications[1] %}
-        <div class="check-answers">
-          {% include "./templates/answers_2.html ignore missing" %}     
-        </div>
-      </div> 
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers3">
-        {{ result (3) }}
-        {% set chosen_application = data.manner_applications[1] %}
-        <div class="check-answers">
-          {% include "./templates/answers_2.html ignore missing" %}     
-        </div>
-      </div> 
     {% endif %}
 
   </div>

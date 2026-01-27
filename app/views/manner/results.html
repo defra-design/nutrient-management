@@ -55,44 +55,32 @@
   <div class="govuk-grid-column-full">
 
    <div class="govuk-tabs" data-module="govuk-tabs">
+
     <ul class="govuk-tabs__list">
       <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-        <a class="govuk-tabs__tab" href="#nutrients">
-          Nutrients
-        </a>
+        <a class="govuk-tabs__tab" href="#nutrients">Nutrients</a>
       </li>
       <li class="govuk-tabs__list-item">
-        <a class="govuk-tabs__tab" href="#value">
-          Financial value
-        </a>
+        <a class="govuk-tabs__tab" href="#value">Financial value</a>
       </li>
       <li class="govuk-tabs__list-item">
-        <a class="govuk-tabs__tab" href="#farm">
-          Farm, field and crop
-        </a>
+        <a class="govuk-tabs__tab" href="#farm">Farm, field and crop</a>
       </li>
 
-      {% if (data.manner_applications | length) == 1 %} 
+      {% if (data.manner_applications | length) <= 2 %} 
         <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#answers1">
-            Application 1 details
-          </a>
+          <a class="govuk-tabs__tab" href="#answers1">Application 1 details</a>
+        </li>
+        {% if (data.manner_applications | length) == 2 %} 
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#answers2">Application 2 details</a>
+          </li>
+        {% endif %}
+      {% else %}
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#answers1">Application details</a>
         </li>
       {% endif %}
-
-      {% if (data.manner_applications | length) == 2 %} 
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#answers1">
-            Application 1 details
-          </a>
-        </li>
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#answers2">
-            Application 2 details
-          </a>
-        </li>
-      {% endif %}
-
     </ul>
 
     <!-- nutrients -->
@@ -115,27 +103,30 @@
     </div>
 
     <!-- applications -->
-    {% if (data.manner_applications | length) <= 1 %} 
+    {% if (data.manner_applications | length) <= 2 %} 
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
         <h2 class="govuk-heading-l">Application 1 details</h2>
-        {% include "./templates/answers_1.html ignore missing" %}     
+        {% set chosen_application = data.manner_applications[0] %}
+        {% include "./templates/answers.html ignore missing" %}
       </div> 
-    {% endif %}
-
-    {% if (data.manner_applications | length) == 2 %} 
+      {% if (data.manner_applications | length) == 2 %} 
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers2">
+          <h2 class="govuk-heading-l">Application 2 details</h2>
+          {% set chosen_application = data.manner_applications[1] %}
+          {% include "./templates/answers.html ignore missing" %}     
+        </div> 
+      {% endif %}
+    {% else %}
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
-        <h2 class="govuk-heading-l">Application 1 details</h2>
-        {% include "./templates/answers_1.html ignore missing" %}     
+        <h2 class="govuk-heading-l">Application details</h2>
+        {% set count = 1 %}
+        {% for x in data.manner_applications %}
+          {% set chosen_application = x %}
+          <h3 class="govuk-heading-m">Application {{count}}</h3>
+          {% include "./templates/answers.html ignore missing" %}
+          {% set count = count+1 %}
+        {% endfor %}
       </div> 
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers2">
-        <h2 class="govuk-heading-l">Application 2 details</h2>
-        <div class="check-answers">
-        {% include "./templates/answers_2.html ignore missing" %}     
-        </div>
-      </div> 
-    {% endif %}
-
-    {% if (data.manner_applications | length) >= 3 %} 
     {% endif %}
 
   </div>

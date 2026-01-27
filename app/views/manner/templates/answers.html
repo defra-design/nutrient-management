@@ -1,0 +1,66 @@
+{% macro nutrients() %}
+  <ul class="nutrient_values">
+    <li>Dry Matter content: <span>6%</span></span>
+    <li>Total Nitrogen: <span>2.6kg</span></span>
+    <li>Ammonium-N:	<span>1.2kg</span></span>
+    <li>Uric acid N:	<span>0kg</span></span>
+    <li>Nitrate-N:	<span>0kg</span></span>
+    <li>Total phosphate (P2O5):	<span>1.2kg</span></span>
+    <li>Total potassium (K2O):	<span>3.2kg</span></span>
+    <li>Total sulphur (SO3):	<span>0.7g</span></span>
+    <li>Total magnesium oxide (MgO):	<span>0.6kg</span></li>
+  </ul>  
+{% endmacro %}
+
+{% macro answer_row(key, value, link) %}
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">{{key}}</dt>
+    <dd class="govuk-summary-list__value">{{value}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href={{link}}>Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>  
+{% endmacro %}
+
+
+<!-- Check your answers -->
+
+<div class="check-answers">
+  <dl class="govuk-summary-list margin-bottom-forty">
+
+    {% if chosen_application.reference != 0 %}
+      {{ answer_row ( 'What type of organic material would you like to use?', chosen_application.manuretype.name, '/update/manner/manure_group' ) }}
+    {% else %}
+      {{ answer_row ( 'What type of organic material would you like to use?', chosen_application.manuretype.name ) }}
+    {% endif %}
+
+    {{ answer_row ( 'When are you applying this organic material?', chosen_application.date ) }}
+    {{ answer_row ( 'Do you want to use the standard nutrient values for this organic material?', 'Yes' ) }}
+    {{ answer_row ( 'Nutrient values for ' + chosen_application.manuretype, nutrients() ) }}
+    {{ answer_row ( 'How would you like to enter the application rate for this organic material?', 'Use a typical application rate' ) }}
+    
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Application rate</dt>
+      <dd class="govuk-summary-list__value">
+        {% if data.manure_type.liquid == true %}
+          30 cubic metres per hectare</dd>
+        {% else %}
+          30 Tonnes per hectare
+        {% endif %}
+      </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link"  href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+    
+    {% if data.manure_type.liquid == true %}
+      {{ answer_row ( 'How will the manure be incorporated?', 'Discs' ) }}
+    {% endif %}
+
+    {{ answer_row ( 'How would you like to enter the application rate for this organic material?', 'Use a typical application rate' ) }}
+    {{ answer_row ( 'How many days will there be before the manure is incorporated?', '1 to 2 days' ) }}
+    {{ answer_row ( 'Autumn crop nitrogen(N) uptake', '10kg per hectare' ) }}
+    {{ answer_row ( 'End of soil drainage', '31 March ' +data.oaktree_farm.planning_year ) }}
+    {{ answer_row ( 'Rainfall within 6 hours of application', '0' ) }}
+    {{ answer_row ( 'Total rainfall since application', '328mm' ) }}
+    {{ answer_row ( 'Windspeed at application', 'Calm/gentle (0 - 3 Beaufort scale)' ) }}
+    {{ answer_row ( 'Topsoil moisture', 'Moist' ) }}
+
+  </dl>
+</div>

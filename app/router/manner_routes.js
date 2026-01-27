@@ -72,7 +72,7 @@ router.get(/manuretype_update_handler/, callback_functions.showSuccessMessage, f
             req.session.data.manure_type = req.session.data.manure_types[x]
         }
     }
-    req.session.data.manner_applications[1].manuretype = req.session.data.manure_type
+    req.session.data.manner_applications[1] = req.session.data.manure_type
     // console.log(req.session.data.manure_type.name)
     res.redirect('/manner/results')
 })
@@ -89,7 +89,16 @@ router.get(/manner_results_handler/, callback_functions.showSuccessMessage, func
     if (req.session.data.manure_rate == null || req.session.data.manure_rate == "" ) {
         req.session.data.manure_rate = 20
     }
-    let tempApplication = {date:'01/01/2026', manuretype: req.session.data.manure_type, rate: req.session.data.manure_rate }
+    let reference = req.session.data.manner_applications.length + 1
+    console.log(req.session.data.manure_type)
+    // let manure
+    // for (let x in req.session.data.manure_types) {
+    //     if (req.session.data.manure_type == req.session.data.manure_types ) {
+
+    //     }
+
+    // }
+    let tempApplication = {reference, date:'01/01/2026', manuretype: req.session.data.manure_type, rate: req.session.data.manure_rate }
     req.session.data.manner_applications.push(tempApplication)
     console.log("here " + req.session.data.manner_applications.length)
     res.redirect('results')
@@ -104,5 +113,12 @@ router.get(/copy_estimate_handler/, callback_functions.showSuccessMessage, funct
     let next = req.session.data.copy_estimate == 'yes' ? 'estimates_list' : 'existing';
     res.redirect(next)
 })
+
+router.get(/update_manner_manure_handler/, callback_functions.showSuccessMessage, function (req, res) {
+    res.redirect('/update/manner/manure_group')
+})
+
+
+
 
 module.exports = router

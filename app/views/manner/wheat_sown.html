@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+   Question – Estimate nutrient supply from organic materials (MANNER-NPK) -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_manner.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        When is the wheat sown?
+      </h1>
+
+      <form class="form" action="manuregroup_handler" method="post">
+
+        <div class="govuk-form-group">
+          <div class="govuk-radios" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="livestock" name="manure_group_id" type="radio" value="livestock">
+              <label class="govuk-label govuk-radios__label" for="livestock">
+                Late August to mid-September (Early sown)
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="other" name="manure_group_id" type="radio" value="other">
+              <label class="govuk-label govuk-radios__label" for="other">
+                Mid-september to Late August (Late sown)
+              </label>
+            </div>
+
+          </div>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

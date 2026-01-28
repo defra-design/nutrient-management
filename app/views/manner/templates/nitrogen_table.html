@@ -38,7 +38,7 @@
 				<td class="govuk-table__cell">7kg</td>
 			</tr>
 			{% endif %}
-			{% if (data.manner_applications | length) > 2 %}
+			{% if (data.manner_applications | length) >= 2 %}
 				<tr class="total_row">
 					<th scope="row" class="govuk-table__header">Totals</th>
 					<th scope="row" class="govuk-table__header">-</th>
@@ -93,7 +93,7 @@
 					<td class="govuk-table__cell">9kg</td>
 				</tr>
 			{% endif %}
-			{% if (data.manner_applications | length) > 2 %}
+			{% if (data.manner_applications | length) >= 2 %}
 				<tr class="total_row">
 					<th scope="row" class="govuk-table__header">Totals</th>
 					<th scope="row" class="govuk-table__header">-</th>
@@ -149,7 +149,7 @@
 					<td class="govuk-table__cell">49%</td>
 				</tr>
 			{% endif %}
-			{% if (data.manner_applications | length) > 2 %}
+			{% if (data.manner_applications | length) >= 2 %}
 				<tr class="total_row">
 					<th scope="row" class="govuk-table__header">Totals</th>
 					<th scope="row" class="govuk-table__header">-</th>
@@ -223,7 +223,7 @@
 					<td class="govuk-table__cell">35kg</td>
 				</tr>
 			{% endif %}
-			{% if (data.manner_applications | length) > 2 %}
+			{% if (data.manner_applications | length) >= 2 %}
 				<tr class="total_row">
 					<th scope="row" class="govuk-table__header">Totals</th>
 					<th scope="row" class="govuk-table__header">-</th>

@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+{% include "/templates/headers/header_manner.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop ">
+
+    <h1 class="govuk-heading-l">Which nitrogen (N) product are you using?</h1>
+    
+    <form action="nitrogen_value_two" method="post" novalidate="">
+      <div class="govuk-form-group">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="ammonium" name="n_product" type="radio"  checked="checked" value="ammonium">
+            <label class="govuk-label govuk-radios__label" for="ammonium">
+              Ammonium nitrate
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="calcium" name="n_product" type="radio" value="calcium">
+            <label class="govuk-label govuk-radios__label" for="calcium">
+              Calcium ammonium nitrate
+            </label>
+          </div>
+        </div>
+      </div>
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+
+  <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

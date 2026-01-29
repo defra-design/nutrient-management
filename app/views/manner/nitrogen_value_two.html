@@ -23,11 +23,13 @@
 
       <h1 class="govuk-heading-l">
         {% if data.n_product == 'calcium' %}
-          Calcium ammonium nitrate
+          Update Calcium ammonium  values
         {% else %}
-          Ammonium nitrate
+           Update Ammonium nitrate values
         {% endif %}
       </h1>
+
+      <p class="govuk-body">You can also <a href="manner_values_router">reset these values to the default values</a>.</p>
       
       <form action="manner_values_router" method="post" novalidate="">
 

@@ -1,5 +1,6 @@
 {% if data.oaktree_farm.ewr == null %}
-    <p class="govuk-body">Winter rainfall is less than 420mm. <a href="../../update/rainfall/update">Change winter rainfall for harvest year {{data.oaktree_farm.planning_year}}</a>.</p>
+    <!-- <p class="govuk-body">Winter rainfall is less than 420mm. <a href="../../update/rainfall/update">Change winter rainfall for harvest year {{data.oaktree_farm.planning_year}}</a>.</p> -->
+    <p class="govuk-body">You have not entered winter rainfall. <a href="../../update/rainfall/update_sc">Enter winter rainfall for harvest year 2026</a>.</p>
 {% else %}
     <p class="govuk-body">Winter rainfall is 
         {% if data.excess_rain == 'high' %}

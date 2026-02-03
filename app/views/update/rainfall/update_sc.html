@@ -41,7 +41,7 @@ Excess winter rainfall – {{ serviceName }}
               <th scope="row" class="govuk-table__header">Winter rainfall (1 October 2025 to 1 March 2026)</th>
               <td class="govuk-table__cell">
                 {% if data.oaktree_farm.ewr == null %}
-                  Less than 450mm
+                  Not entered
                 {% else %}
                   450mm or more
               {% endif %}
@@ -55,9 +55,9 @@ Excess winter rainfall – {{ serviceName }}
           </tbody>
         </table>
 
-        <form action="rainfall_update" method="post" novalidate="">      
+        <form action="rainfall_update_sc" method="post" novalidate="">      
             <fieldset class="govuk-fieldset">
-              <button class="govuk-button" data-module="govuk-button">Change winter rainfall</button>
+              <button class="govuk-button" data-module="govuk-button">Update winter rainfall</button>
             </fieldset>
       </form>
 

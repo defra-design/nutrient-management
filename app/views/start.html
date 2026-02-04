@@ -34,8 +34,12 @@
     </ul>
 
     <p class="gov-body">
-      You must follow the appropriate regulations, depending on where your farm is.
+      This service was developed in conjunction with ADAS, AHDB and RSK.
     </p>
+
+    <!-- <p class="gov-body">
+      You must follow the appropriate regulations, depending on where your farm is.
+    </p> -->
 
     <!-- <h3 class="govuk-heading-s">England:</h3>
     <ul class="govuk-list govuk-list--bullet">
@@ -90,20 +94,20 @@
     <h2 class="govuk-heading-m">Your data</h2>
 
     <p class="gov-body">
-      We only gather the data required to provide you with the appropriate recommendations.
+      This tool only gathers the data required to provide you with nutrient recommendations.
     </p>
 
     <p class="gov-body">
       This tool will never share your data with any other organisations.
-    </p>
-
-    <p class="gov-body">
       In particular, please note that this tool does not share data with the Rural Payments Agency (RPA).
     </p>
 
-    <p class="gov-body">
-      This service was developed in conjunction with ADAS, AHDB and RSK.
-    </p>
+  <form class="form margin-top-forty" action="start_router" method="post">
+    {{ govukButton({
+      text: "Start now",
+      isStartButton: true
+    }) }}
+  </form>    
 
     <h2 class="govuk-heading-m">
       Release schedule
@@ -112,14 +116,6 @@
     <p class="gov-body margin-bottom-forty">
       <a href="releases">Read the release schedule for testing and new features</a>
     </p>
-
-    <form class="form margin-top-forty" action="start_router" method="post">
-
-    {{ govukButton({
-      text: "Start now",
-      isStartButton: true
-    }) }}
-  </form>
 
   </div>
 </div>

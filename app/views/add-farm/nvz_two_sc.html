@@ -28,12 +28,31 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Which Nitrate Vulnerable Zone (NVZ) are the fields at {{data.oaktree_farm.name}} in?
+      Which Nitrate Vulnerable Zones (NVZ) are the fields at {{data.oaktree_farm.name}} in?
     </h1>
 
-    <form action="nvz_sc_3" method="post" novalidate="">
+    <p class="govuk-body"><a href="https://www.gov.scot/publications/nitrate-vulnerable-zones-maps/">View a map of Nitrate Vulnerable Zones (NVZ)</a> (opens in a new window)</p>
 
-      <div class="govuk-form-group margin-bottom-forty">
+
+    <form action="" method="post" novalidate="">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset margin-bottom-forty" aria-describedby="waste-hint">
+          <div id="waste-hint" class="govuk-hint">
+            Select all that apply
+          </div>
+          {% for option in nvzOptions %}
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id= {{option}} name="waste" type="checkbox" value= {{option}}>
+              <label class="govuk-label govuk-checkboxes__label" for={{option}}>
+                 {{option}}
+              </label>
+            </div>
+          {% endfor %}
+        </fieldset>
+        </div>
+
+      <!-- <div class="govuk-form-group margin-bottom-forty">
         <fieldset class="govuk-fieldset" aria-describedby="farm_nvz-hint">
           <div class="govuk-radios govuk-radios" data-module="govuk-radios">
             {% for option in nvzOptions %}
@@ -46,7 +65,7 @@
             {% endfor %}
           </div>
         </fieldset>
-      </div>        
+      </div>         -->
 
       <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
         Continue

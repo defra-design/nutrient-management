@@ -110,7 +110,4 @@ router.get(/update_manner_manure_handler/, callback_functions.showSuccessMessage
     res.redirect('/update/manner/manure_group')
 })
 
-
-
-
 module.exports = router

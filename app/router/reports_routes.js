@@ -83,7 +83,6 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   res.redirect(next)
 })
 
-
 router.get(/export_fields_handler/, callback_functions.hideSuccessMessage, function (req, res) {
   let next = req.session.data.export_type == '11' ? '/outputs/field_history/' : '/outputs/full_report/';
   res.redirect(next);

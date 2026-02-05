@@ -22,11 +22,6 @@ router.get(/start_router/, function (req, res) {
   res.redirect(next)
 })
 
-router.get(/farm_name_setter/, function (req, res) {
-  req.session.data.oaktree_farm.name = req.query.name
-  res.redirect("/farm/hub")
-})
-
 router.get(/add_farm_name_handler/, function (req, res) {
   if (req.session.data.farm_name != "") req.session.data.oaktree_farm.name = req.session.data.farm_name
   res.redirect('country')

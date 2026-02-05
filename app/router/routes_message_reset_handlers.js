@@ -90,7 +90,7 @@ router.get(/planview_reset_handler/, callback_functions.hideSuccessMessage, func
 //change the livestock add / change journey to add for inventory livestock
 router.get(/reset_add_inventory_lstock/, callback_functions.hideSuccessMessage, function (req, res) { 
     req.session.data.livestock_update_journey = false;
-    res.redirect('/add_livestock_inventory/livestock_group');
+    res.redirect('/manure_inventory/livestock_group');
 })
 
 //change the livestock add / change journey to add for n_loading livestock

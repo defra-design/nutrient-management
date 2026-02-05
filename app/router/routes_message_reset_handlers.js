@@ -44,7 +44,7 @@ router.get(/reset_manage_storage_message_handler/, callback_functions.hide_error
 
 // INVENTORY CHECKLIST
 router.get(/reset_inventory_checklist_message_handler/, callback_functions.hide_error, function (req, res) { 
-    res.redirect('/outputs/inventory/checklist')
+    res.redirect('/manure_inventory/checklist')
 })
 
 // MANAGE LOW RUN-OFF RISK LAND 
@@ -54,12 +54,12 @@ router.get(/reset_manage_land_message_handler/, callback_functions.hideSuccessMe
 
 // MANAGE LIVESTOCK NUMBERS - INVENTORY
 router.get(/reset_numbers_livestock_inventory_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    res.redirect('/outputs/inventory/manage_livestock/numbers')
+    res.redirect('/manure_inventory/manage_livestock/numbers')
 })
 
 // MANAGE LIVESTOCK MANAGE - INVENTORY
 router.get(/reset_manage_livestock_inventory_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    res.redirect('/outputs/inventory/manage_livestock/index')
+    res.redirect('/manure_inventory/manage_livestock/index')
 })
 
 //manage fields view reset messages

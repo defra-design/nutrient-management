@@ -17,7 +17,7 @@
   {% else %}  
     {{ govukBackLink({
       text: "Back",
-      href: "/outputs/inventory/checklist"
+      href: "/manure_inventory/checklist"
     }) }}
   {% endif %}  
 {% endblock %}
@@ -52,7 +52,7 @@
             To create an organic manures inventory and NVZ storage report, add all the Manure storage on {{data.oaktree_farm.name}} between October {{data.oaktree_farm.planning_year}} and September {{data.oaktree_farm.planning_year +1}}.
           </p>
           <p class="govuk-body">
-            <a href="/outputs/inventory/checklist">Create an organic manures inventory and NVZ storage report</a>
+            <a href="/manure_inventory/checklist">Create an organic manures inventory and NVZ storage report</a>
           </p>
         {% else %}
           <p class="govuk-body">To create an existing manure storage capacity report, enter the manure storage on {{data.oaktree_farm.name}}.</p>

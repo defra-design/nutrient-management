@@ -64,7 +64,7 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   }
   // MANURE INVENTORY AND STORAGE
   if (req.session.data.export_type == '8') {
-      next = './inventory/checklist'
+      next = '/manure_inventory/checklist'
   }
   // Planned nutrients report
   if (req.session.data.export_type == '9') {
@@ -223,12 +223,12 @@ router.get(/livestock_loading_handler/, callback_functions.hideSuccessMessage, c
 
 // is there any livestock checklist link INVENTORY
 router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
-    let next = '/manure_inventory/livestock_none'
+    let next = '/manure_inventory/add_livestock/livestock_none'
     if (req.session.data.oaktree_farm.livestock_inventory == 2 || req.session.data.oaktree_farm.livestock_inventory == 3) { 
-        next = '/outputs/inventory/manage_livestock/index'
+        next = '/manure_inventory/manage_livestock/index'
     } else {
         if (req.session.data.oaktree_farm.livestock_loading == 3) {
-            next = '/outputs/inventory/manage_livestock/copy'
+            next = '/manure_inventory/manage_livestock/copy'
         }
     }
     res.redirect(next);

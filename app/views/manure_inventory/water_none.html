@@ -21,28 +21,27 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Do you want to start with your livestock list from your loading report?
+      Does wash water from areas used by livestock drain into slurry stores on {{data.oaktree_farm.name}}?
+      <!-- Are there any areas that are used by livestock and then washed down on {{data.oaktree_farm.name}}? -->
     </h1>
 
     <p class="govuk-hint">
-      Include cattle, sheep, pigs, poultry, goats, deer and horses.
+      Only include areas that are manually washed. For example, yards, parlours, and hard standings.
     </p>
 
-    <p class="govuk-hint">Select one option.</p>
-
-    <form class="form" action="/outputs/inventory/checklist" method="post">
+    <form class="form" action="./add_wash_area/name" method="post">
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <div class="govuk-radios--inline" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="yes" name="livestock_loading" type="radio" value="yes">
+              <input class="govuk-radios__input" id="yes" name="livestock_inventory" type="radio" value="yes">
               <label class="govuk-label govuk-radios__label" for="yes">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="no" name="livestock_loading" type="radio" {% if data.oaktree_farm.livestock_loading == 'none' %} checked {% endif %} value="no">
+              <input class="govuk-radios__input" id="no" name="livestock_inventory" type="radio" value="no" {% if data.oaktree_farm.livestock_inventory == 4  %} checked='checked' {% endif %}>
               <label class="govuk-label govuk-radios__label" for="no">
                 No
               </label>

@@ -13,7 +13,7 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK
   {% set back_url = 'hub_message_reset' %}
 
   {% if data.export_type == 8 %}
-    {% set back_url = '/outputs/inventory/checklist' %}
+    {% set back_url = '/manure_inventory/checklist' %}
   {% elif data.export_type == 4 %}
     {% set back_url = '/outputs/n_loading/checklist' %}
   {% endif %}  
@@ -47,7 +47,7 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK
           enter the details of all areas that are used by livestock, washed, and then drain to slurry stores.
         </p>
         <p class="govuk-body">
-          <a href="/outputs/inventory/checklist">Continue to create an organic manure inventory storage report</a>
+          <a href="/manure_inventory/checklist">Continue to create an organic manure inventory storage report</a>
         </p>
       </div>
     {% endif %}   

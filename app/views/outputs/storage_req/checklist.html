@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Create a livestock manure nitrogen (N) farm limit report {{data.oaktree_farm.planning_year}}
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+       {% include "./message.html" %}
+
+      <h1 class="govuk-heading-l">
+        Create an organic material NVZ storage requirement report
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        October {{data.oaktree_farm.planning_year}} to April {{data.oaktree_farm.planning_year + 1}}
+      </h2>
+
+      <p class="govuk-hint">
+        Complete each section to create the report.
+      </p>
+
+      <!-- <p class="govuk-hint">
+        Nutrient prices have been added based on [...].
+      </p> -->
+
+      <div class="check-answers margin-bottom-forty">
+        {% include "./templates/check_content.html" %}
+      </div>
+
+      <!-- <p class="govuk-body margin-bottom-forty">
+       Financial value of manures retained on the farm will be based on inorganic fertiliser prices. You can <a class="govuk-link" href="nutrients">view or update nutrient prices</a>.
+      </p> -->
+
+      <!-- <form class="form" action="export_options" method="post"> -->
+      <form class="form" action="inventory" method="post">
+      <!-- <form class="form" action="inventory_submit_router" method="post"> -->
+        {{ govukButton({
+          text: "Create report"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+{% macro monthitem(name, amount) %}
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell">{{name}}</td>
+    <td class="govuk-table__cell">{{amount}}%</td>
+    <td class="govuk-table__cell">{{amount}}%</td>
+    {% if data.livestock_group != 'poultry' and data.livestock_group != 'pig' %}
+      <td class="govuk-table__cell">1.3</td>
+    {% endif %}
+    <td class="govuk-table__cell"><a href="annual_housing_handler?month={{name}}">Change</a></td>
+  </tr>
+{% endmacro %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Percentage of time housed and slurry collected each month
+    </h1>
+
+    <p class="govuk-body">
+      Selected livestock type: {{data.chosen_livestock.name | capitalize}}. 
+    </p>
+
+    <p class="govuk-body">
+      These are standard figures for this livestock type, you can change them if you need to.
+    </p>
+    
+    {% if data.livestock_group != 'poultry' and data.livestock_group != 'pig' %}
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            About bedding factor
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+        This factor is used to calculate the quantity of solid manure produced from the slurry and bedding combined. The amount of slurry is multiplied by the bedding factor to calculate the solid amount.
+        </div>
+      </details>
+    {% endif %}
+
+    <table class="govuk-table data-table">
+      <caption class="govuk-table__caption govuk-table__caption--s margin-bottom-twenty">Standard figures for the selected livestock type</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Month</th>
+          <th scope="col" class="govuk-table__header">Percentage of time housed</th>
+          <th scope="col" class="govuk-table__header">Percentage of slurry collected</th>
+          {% if data.livestock_group != 'poultry' and data.livestock_group != 'pig' %}
+            <th scope="col" class="govuk-table__header">Bedding factor</th>
+          {% endif %}
+          <th scope="col" class="govuk-table__header"><span class="display-none">Action</span></th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {{ monthitem ("October", "100") }}
+        {{ monthitem ("November", "100") }}
+        {{ monthitem ("December", "100") }}
+        {{ monthitem ("January", "100") }}
+        {{ monthitem ("February", "100") }}
+        {{ monthitem ("March", "100") }}
+        {{ monthitem ("April", "100") }}
+        {{ monthitem ("May", "100") }}
+        {{ monthitem ("June", "100") }}
+        {{ monthitem ("July", "100") }}
+        {{ monthitem ("August", "100") }}
+        {{ monthitem ("September", "100") }}
+      </tbody>
+    </table>
+
+    <form action="annual_separator" method="post" novalidate="">
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

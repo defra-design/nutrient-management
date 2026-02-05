@@ -68,14 +68,18 @@ Question – {{ serviceName }} – GOV.UK
           </div>
 
           <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="inventory" name="export_type" type="radio" value="12">
+            <label class="govuk-label govuk-radios__label" for="inventory">
+              Organic material storage requirement report
+            </label>
+          </div>
+
+          <!-- <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="inventory" name="export_type" type="radio" value="8">
             <label class="govuk-label govuk-radios__label" for="inventory">
               Organic material inventory and storage requirement report
             </label>
-            <!-- <div class="govuk-hint govuk-radios__hint"> 
-              Check compliance with rules for manure inventory and NVZ storage requirements
-            </div> -->
-          </div>
+          </div> -->
 
         {% else  %}
 

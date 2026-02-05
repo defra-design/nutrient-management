@@ -74,6 +74,9 @@ addFilter('convert_export_type', function (export_ref) {
     case '11':
         export_title = 'Confirmed field history report';
         break;
+    case '12':
+        export_title = 'Organic material storage requirement report';
+        break;
     default:
         export_title = '';
     }

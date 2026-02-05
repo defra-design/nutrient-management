@@ -1,0 +1,44 @@
+
+<h2 class="govuk-heading-m">About manure collection</h2>
+
+<dl class="govuk-summary-list  margin-bottom-forty">
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What is the manure system for this livestock type?</dt>
+    <dd class="govuk-summary-list__value">{{data.manure_system | capitalize}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How much is of this livestock type's manure is collected as slurry?</dt>
+    <dd class="govuk-summary-list__value">{{data.slurry_percentage}}%</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Is the slurry separated by mechanical separation?</dt>
+    <dd class="govuk-summary-list__value">{{data.slurry_separated | capitalize}}</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How much is collected?</dt>
+    <dd class="govuk-summary-list__value">90%</dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+
+  {% if data.manure_system == 'solid' %} 
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">What is the bedding factor?</dt>
+      <dd class="govuk-summary-list__value">1.15</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">How much bedding per month? </dt>
+      <dd class="govuk-summary-list__value">1.1 tonnes</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% endif %} 
+
+</dl>

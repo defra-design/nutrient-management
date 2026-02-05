@@ -79,6 +79,10 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   if (req.session.data.export_type == '11') {
       next = 'export_fields'
   }
+  // Confirmed field history report
+  if (req.session.data.export_type == '12') {
+      next = './storage_req/checklist'
+  }
 
   res.redirect(next)
 })
@@ -231,7 +235,7 @@ router.get(/livestock_loading_handler/, callback_functions.hideSuccessMessage, c
     res.redirect(next);
 })
 
-// is there any livestock checklist link
+// is there any livestock checklist link INVENTORY
 router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
     let next = '/add_livestock_inventory/livestock_none'
     if (req.session.data.oaktree_farm.livestock_inventory == 2 || req.session.data.oaktree_farm.livestock_inventory == 3) { 
@@ -239,6 +243,19 @@ router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage,
     } else {
         if (req.session.data.oaktree_farm.livestock_loading == 3) {
             next = '/outputs/inventory/manage_livestock/copy'
+        }
+    }
+    res.redirect(next);
+})
+
+// is there any livestock checklist link REQUIREMENT
+router.get(/livestock_requirement_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
+    let next = '/add_livestock_requirement/livestock_none'
+    if (req.session.data.oaktree_farm.livestock_requirement == 2 || req.session.data.oaktree_farm.livestock_requirement == 3) { 
+        next = '/outputs/storage_req/manage_livestock/index'
+    } else {
+        if (req.session.data.oaktree_farm.livestock_loading == 3) {
+            next = '/outputs/storage_req/manage_livestock/copy'
         }
     }
     res.redirect(next);

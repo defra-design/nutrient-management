@@ -1,0 +1,95 @@
+<ul class="govuk-task-list">
+
+  <!-- Livestock  -->
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="livestock_requirement_handler">
+        Livestock details
+      </a>
+    </div>
+    <div class="govuk-task-list__status">
+      {% if data.oaktree_farm.livestock_inventory >= 3 %}
+        Completed
+      {% else %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Incomplete
+        </strong>
+      {% endif %}
+    </div>
+  </li>
+
+    <!-- Water collection -->
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="rainwater">
+        Water draining to slurry stores
+      </a>
+    </div>
+    <div class="govuk-task-list__status">
+      {% if data.oaktree_farm.rainwater_area_added == 'added' or data.oaktree_farm.rainwater_area_added == true %}
+        Completed
+      {% else %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Incomplete
+        </strong>
+      {% endif %}
+    </div>
+  </li>
+
+  <!-- Imports and exports -->
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="inventory_importexport_handler">
+        Imports and exports of organic material
+      </a>
+    </div>
+    <div class="govuk-task-list__status">
+      {% if data.oaktree_farm.imports_exports != null %}
+        Completed
+      {% else %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Incomplete
+        </strong>
+      {% endif %}
+    </div>
+  </li>
+
+
+  <!-- Low risk land -->
+  <!-- <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="lowrisk_land_handler">
+        Low run-off risk land
+      </a>
+    </div>
+    <div class="govuk-task-list__status">
+      {% if data.oaktree_farm.low_risk_land_added != null %}
+        Completed
+      {% else %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Incomplete
+        </strong>
+      {% endif %}
+    </div> -->
+  </li>
+
+
+  <!-- Manure storage -->
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="reset_manage_storage_message_handler">
+        Manure storage
+      </a>
+    </div>
+    <div class="govuk-task-list__status">
+      {% if data.oaktree_farm.storage_added == true %}
+        Completed
+      {% else %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Incomplete
+        </strong>
+      {% endif %}
+    </div>
+  </li>  
+
+</ul>

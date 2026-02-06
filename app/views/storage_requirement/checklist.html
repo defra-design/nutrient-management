@@ -20,14 +20,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-       {% include "./message.html" %}
+       {% include "./templates/message.html" %}
 
       <h1 class="govuk-heading-l">
-        Create an organic material NVZ storage requirement report
+        Create an organic manure inventory and NVZ storage requirement report
       </h1>
 
       <h2 class="govuk-heading-m">
-        October {{data.oaktree_farm.planning_year}} to April {{data.oaktree_farm.planning_year + 1}}
+        October {{data.oaktree_farm.planning_year}} to September {{data.oaktree_farm.planning_year + 1}}
       </h2>
 
       <p class="govuk-hint">
@@ -42,15 +42,15 @@
         {% include "./templates/check_content.html" %}
       </div>
 
-      <!-- <p class="govuk-body margin-bottom-forty">
+      <p class="govuk-body margin-bottom-forty">
        Financial value of manures retained on the farm will be based on inorganic fertiliser prices. You can <a class="govuk-link" href="nutrients">view or update nutrient prices</a>.
-      </p> -->
+      </p>
 
       <!-- <form class="form" action="export_options" method="post"> -->
       <form class="form" action="inventory" method="post">
       <!-- <form class="form" action="inventory_submit_router" method="post"> -->
         {{ govukButton({
-          text: "Create report"
+          text: "View inventory and nutrient values"
         }) }}
       </form>
 

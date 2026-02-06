@@ -1,0 +1,28 @@
+{% if data.show_error == true %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+    <div role="alert">
+      <h2 class="govuk-error-summary__title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          {% if data.oaktree_farm.area_added != true %}
+            <li>
+              <a class="nolink" href="area">Farm area for {{data.oaktree_farm.planning_year}} must be completed</a>
+            </li>
+          {% endif %}
+          {% if data.oaktree_farm.livestock_loading == false %}
+            <li>
+              <a class="nolink" href="..//add_livestock/livestock_group">Livestock numbers for {{data.oaktree_farm.planning_year}} must be completed</a>
+            </li>
+          {% endif %}
+          {% if data.oaktree_farm.imports_exports == null %}
+            <li>
+              <a class="nolink" href="../../../add_export/export_type_none">Any imports or exports for {{data.oaktree_farm.planning_year}} must be completed</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endif %}

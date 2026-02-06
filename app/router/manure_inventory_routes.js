@@ -14,9 +14,9 @@ router.get(/livestock_inventory_router/, callback_functions.hide_error, function
     if (req.session.data.livestock_inventory == 'no') { 
         req.session.data.oaktree_farm.livestock_inventory = 4
         req.session.data.oaktree_farm.manure_system = 4
-        next = '/manure_inventory/checklist'
+        next = 'checklist'
     } else {
-        next = '/manure_inventory/add_livestock/livestock_group'
+        next = 'livestock_group'
     }
     res.redirect(next);
 })
@@ -332,7 +332,7 @@ router.get(/check_requirement_lstock_handler/, function (req, res) {
       req.session.data.livestock_record_plan_year.push(req.session.data.chosen_livestock)
   }
   req.session.data.show_success_message = true;
-  req.session.data.oaktree_farm.livestock_requirement = 3;
+  req.session.data.oaktree_farm.livestock_inventory = 3;
   req.session.data.mostly_manure = null
   // req.session.data.oaktree_farm.manure_system = 'not_answered';
   // req.session.data.nitrogen_standard = null

@@ -1,14 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-   Question – Add livestock -  {{ serviceName }} – GOV.UK
-{% endblock %}
-
-{% block header %}
-  {% include "/templates/headers/header_farm.html" ignore missing %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
@@ -26,21 +24,23 @@
 
     <!-- <p class="govuk-hint">
       Include cattle, sheep, pigs, poultry, goats, deer and horses.
-    </p> -->
+    </p>
+ -->
+    <p class="govuk-hint">Select one option.</p>
 
-    <form class="form" action="livestock_requirement_router" method="post">
+    <form class="form" action="livestock_inventory_router" method="post">
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <div class="govuk-radios--inline" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="yes" name="livestock_requirement" type="radio" value="yes">
+              <input class="govuk-radios__input" id="yes" name="livestock_inventory" type="radio" value="yes">
               <label class="govuk-label govuk-radios__label" for="yes">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="no" name="livestock_requirement" type="radio" value="no" {% if data.oaktree_farm.livestock_inventory == 4  %} checked='checked' {% endif %}>
+              <input class="govuk-radios__input" id="no" name="livestock_inventory" type="radio" value="no" {% if data.oaktree_farm.livestock_inventory == 4  %} checked='checked' {% endif %}>
               <label class="govuk-label govuk-radios__label" for="no">
                 No
               </label>

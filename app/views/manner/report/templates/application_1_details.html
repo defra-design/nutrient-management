@@ -1,12 +1,15 @@
 <div class="margin-bottom-forty">
-  <h2 class="govuk-heading-s">Application details</h2>
+  <h2 class="govuk-heading-m">Application details</h2>
+  <p class="govuk-body-s">Values are per hectare.</p>
   <table class="govuk-table data-table">
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
+      {% if data.manner_applications | length > 1 %}
         <th scope="col" class="govuk-table__header">Application</th>
+      {% endif %}
         <th scope="col" class="govuk-table__header">Manure type</th>
         <th scope="col" class="govuk-table__header">Date</th>
-        <th scope="col" class="govuk-table__header">Application rate (per hectare)</th>
+        <th scope="col" class="govuk-table__header">Application rate</th>
         <th scope="col" class="govuk-table__header">Application method</th>
         <th scope="col" class="govuk-table__header">Incorporation method</th>  
         <th scope="col" class="govuk-table__header">Incorporation delay</th>
@@ -14,34 +17,41 @@
     </thead>
     <tbody class="govuk-table__body">
       <tr class="govuk-table__row">
+      {% if data.manner_applications | length > 1 %}
         <td class="govuk-table__cell">1</td>
-        <td class="govuk-table__cell">Cattle farmyard manure - fresh</td>
+      {% endif %}
+        <td class="govuk-table__cell">Cattle slurry</td>
         <td class="govuk-table__cell">21/3/2026</td>
         <td class="govuk-table__cell">20 cubic metres</td>
         <td class="govuk-table__cell">Trailing hose</td>
         <td class="govuk-table__cell">Plough</td>
         <td class="govuk-table__cell">12 to 24 hours</td>
       </tr>
-      <tr class="govuk-table__row">
-        <td class="govuk-table__cell">2</td>
-        <td class="govuk-table__cell">Cattle farmyard manure - fresh</td>
-        <td class="govuk-table__cell">1/6/2026</td>
-        <td class="govuk-table__cell">20 cubic metres</td>
-        <td class="govuk-table__cell">Trailing hose</td>
-        <td class="govuk-table__cell">Plough</td>
-        <td class="govuk-table__cell">12 to 24 hours</td>
-      </tr>
+      {% if data.manner_applications | length > 1 %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">2</td>
+          <td class="govuk-table__cell">Cattle slurry</td>
+          <td class="govuk-table__cell">1/6/2026</td>
+          <td class="govuk-table__cell">20 cubic metres</td>
+          <td class="govuk-table__cell">Trailing hose</td>
+          <td class="govuk-table__cell">Plough</td>
+          <td class="govuk-table__cell">12 to 24 hours</td>
+        </tr>
+      {% endif %}
     </tbody>
   </table>
 </div>
 
 <div class="margin-bottom-thirty">
-  <h2 class="govuk-heading-s">Conditions at the time of application</h2>
+  <h2 class="govuk-heading-m">Conditions at the time of application</h2>
+  <p class="govuk-body-s">Values are per hectare.</p>
   <table class="govuk-table data-table">
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <tr class="govuk-table__row">
-        <th scope="col" class="govuk-table__header">Application</th>
+        {% if data.manner_applications | length > 1 %}
+          <th scope="col" class="govuk-table__header">Application</th>
+        {% endif %}
         <th scope="col" class="govuk-table__header">Autumn crop nitrogen (N) uptake</th>
         <th scope="col" class="govuk-table__header">End of soil drainage</th>
         <th scope="col" class="govuk-table__header">Rainfall post application</th>
@@ -52,33 +62,39 @@
     </thead>
     <tbody class="govuk-table__body">
       <tr class="govuk-table__row">
-      <td class="govuk-table__cell">1</td>
-      <td class="govuk-table__cell">10kg per hectare</td>
-      <td class="govuk-table__cell">31/03/2026</td>
-      <td class="govuk-table__cell">393mm</td>
-      <td class="govuk-table__cell">Calm/gentle (0.3 Beaufort scale)</td>
-      <td class="govuk-table__cell">0mm</td>
-      <td class="govuk-table__cell">Moist</td>
+        {% if data.manner_applications | length > 1 %}
+          <td class="govuk-table__cell">1</td>
+        {% endif %}
+        <td class="govuk-table__cell">10kg</td>
+        <td class="govuk-table__cell">31/03/2026</td>
+        <td class="govuk-table__cell">393mm</td>
+        <td class="govuk-table__cell">Calm/gentle (0.3 Beaufort scale)</td>
+        <td class="govuk-table__cell">0mm</td>
+        <td class="govuk-table__cell">Moist</td>
       </tr>
-      <tr class="govuk-table__row">
-      <td class="govuk-table__cell">2</td>
-      <td class="govuk-table__cell">10kg per hectare</td>
-      <td class="govuk-table__cell">31/03/2026</td>
-      <td class="govuk-table__cell">393mm</td>
-      <td class="govuk-table__cell">Calm/gentle (0.3 Beaufort scale)</td>
-      <td class="govuk-table__cell">0mm</td>
-      <td class="govuk-table__cell">Moist</td>
-      </tr>
+      {% if data.manner_applications | length > 1 %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">2</td>
+          <td class="govuk-table__cell">10kg</td>
+          <td class="govuk-table__cell">31/03/2026</td>
+          <td class="govuk-table__cell">393mm</td>
+          <td class="govuk-table__cell">Calm/gentle (0.3 Beaufort scale)</td>
+          <td class="govuk-table__cell">0mm</td>
+          <td class="govuk-table__cell">Moist</td>
+        </tr>
+      {% endif %}
     </tbody>
   </table>
 </div>
 
-<div class="margin-bottom-thirty">
-<h2 class="govuk-heading-s">Manure analysis</h2>
+<h2 class="govuk-heading-m">Manure analysis</h2>
+<p class="govuk-body-s">Values are per cubic metre.</p>
 <table class="govuk-table data-table">
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Application</th>
+      {% if data.manner_applications | length > 1 %}
+        <th scope="col" class="govuk-table__header">Application</th>
+      {% endif %}
       <th scope="col" class="govuk-table__header">Dry matter content</th>
       <th scope="col" class="govuk-table__header">Total nitrogen (N)</th>
       <th scope="col" class="govuk-table__header">Ammonium-N</th>
@@ -92,7 +108,9 @@
     </tr>
     <tbody class="govuk-table__body">
       <tr class="govuk-table__row">
+      {% if data.manner_applications | length > 1 %}
         <td class="govuk-table__cell">1</td>
+      {% endif %}
         <td class="govuk-table__cell">6%</td>
         <td class="govuk-table__cell">2.6kg</td>
         <td class="govuk-table__cell">1.2kg</td>
@@ -104,19 +122,20 @@
         <td class="govuk-table__cell">0.6kg</td>
         <td class="govuk-table__cell">0</td>
       </tr>
-      <tr class="govuk-table__row">
-        <td class="govuk-table__cell">2</td>
-        <td class="govuk-table__cell">6%</td>
-        <td class="govuk-table__cell">2.6kg</td>
-        <td class="govuk-table__cell">1.2kg</td>
-        <td class="govuk-table__cell">0</td>
-        <td class="govuk-table__cell">0</td>
-        <td class="govuk-table__cell">1.2kg</td>
-        <td class="govuk-table__cell">3.2kg</td>
-        <td class="govuk-table__cell">0.7kg</td>
-        <td class="govuk-table__cell">0.6kg</td>
-        <td class="govuk-table__cell">0</td>
-      </tr>
+      {% if data.manner_applications | length > 1 %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">2</td>
+          <td class="govuk-table__cell">6%</td>
+          <td class="govuk-table__cell">2.6kg</td>
+          <td class="govuk-table__cell">1.2kg</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">1.2kg</td>
+          <td class="govuk-table__cell">3.2kg</td>
+          <td class="govuk-table__cell">0.7kg</td>
+          <td class="govuk-table__cell">0.6kg</td>
+          <td class="govuk-table__cell">0</td>
+        </tr>
+      {% endif %}
     </tbody>
   </table>
-  </div>

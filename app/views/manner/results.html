@@ -67,15 +67,13 @@
         <a class="govuk-tabs__tab" href="#farm">Farm, field and crop</a>
       </li>
 
-      {% if (data.manner_applications | length) <= 2 %} 
+      {% if (data.manner_applications | length) == 2 %} 
         <li class="govuk-tabs__list-item">
           <a class="govuk-tabs__tab" href="#answers1">Application 1 details</a>
         </li>
-        {% if (data.manner_applications | length) == 2 %} 
           <li class="govuk-tabs__list-item">
             <a class="govuk-tabs__tab" href="#answers2">Application 2 details</a>
-          </li>
-        {% endif %}
+        </li>
       {% else %}
         <li class="govuk-tabs__list-item">
           <a class="govuk-tabs__tab" href="#answers1">Application details</a>
@@ -103,31 +101,29 @@
     </div>
 
     <!-- applications -->
-    {% if (data.manner_applications | length) <= 2 %} 
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
-        <h2 class="govuk-heading-l">Application 1 details</h2>
-        {% set chosen_application = data.manner_applications[0] %}
-        {% include "./templates/answers.html ignore missing" %}
-      </div> 
       {% if (data.manner_applications | length) == 2 %} 
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
+          <h2 class="govuk-heading-l">Application 1 details</h2>
+          {% set chosen_application = data.manner_applications[0] %}
+          {% include "./templates/answers.html ignore missing" %}
+        </div> 
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers2">
           <h2 class="govuk-heading-l">Application 2 details</h2>
           {% set chosen_application = data.manner_applications[1] %}
           {% include "./templates/answers.html ignore missing" %}     
         </div> 
-      {% endif %}
-    {% else %}
+      {% else %}
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
-        <h2 class="govuk-heading-l">Application details</h2>
         {% set count = 1 %}
         {% for x in data.manner_applications %}
           {% set chosen_application = x %}
           <div class="margin-bottom-forty">
-            <h3 class="govuk-heading-m">Application {{count}}</h3>
+            <h2 class="govuk-heading-l">Application {{count}} details</h2>
             {% include "./templates/answers.html ignore missing" %}
           </div>
           {% set count = count+1 %}
         {% endfor %}
+        <p class="govuk-body"><a href="#">Back to top</a></p>
       </div> 
     {% endif %}
 

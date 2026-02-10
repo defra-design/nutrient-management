@@ -63,6 +63,16 @@
       </dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
-    
+
+    {% if data.chosen_crop == 'Winter Wheat' or data.chosen_crop == 'Wheat-Winter' %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Is the wheat early or late sown?</dt>
+        <dd class="govuk-summary-list__value">
+          Early sown (25th August to 14th September)
+        </dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      </div>
+      {% endif%}
+
   </dl>
 </div>

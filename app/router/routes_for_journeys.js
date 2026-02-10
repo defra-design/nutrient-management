@@ -539,14 +539,19 @@ router.get(/manner_crop_handler/, function (req, res) {
     // if (req.session.data.crop_group == 'potatoes') { 
     //     res.redirect('crop_type_potato')
     // }
+    console.log(req.session.data.chosen_crop)
+    let next = 'manure_group'
     if (req.session.data.chosen_crop == null || req.session.data.chosen_crop == '')  {
         if (req.session.data.crop_group == 'other') {
             req.session.data.chosen_crop = 'Flax'
         } else {
             req.session.data.chosen_crop = 'Winter Wheat'
         }
+        if (req.session.data.chosen_crop == 'Winter Wheat' || req.session.data.chosen_crop == 'Wheat-Winter') {
+            next = 'wheat_sown'
+        }
     }
-    res.redirect('manure_group')
+    res.redirect(next)
 })
 
 router.get(/season_router/, function (req, res) { 

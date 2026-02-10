@@ -546,8 +546,9 @@ router.get(/manner_crop_handler/, function (req, res) {
             req.session.data.chosen_crop = 'Flax'
         } else {
             req.session.data.chosen_crop = 'Winter Wheat'
+            next = 'wheat_sown'
         }
-        if (req.session.data.chosen_crop == 'Winter Wheat' || req.session.data.chosen_crop == 'Wheat-Winter') {
+        if (req.session.data.chosen_crop == 'Wheat-Winter') {
             next = 'wheat_sown'
         }
     }

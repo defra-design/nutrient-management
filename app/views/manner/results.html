@@ -96,8 +96,11 @@
     <!-- farm -->
     <div class="govuk-tabs__panel" id="farm">
       <h2 class="govuk-heading-l">Farm, field and crop</h2>
-      <p class="govuk-body">Changing any details here will only update this estimate.</p>
-      {% include "./templates/field_crop.html ignore missing" %}
+      <p class="govuk-body">
+        <!-- Changing any details here will only update this estimate. -->
+        Any changes you make to the farm or field details will only be saved for this estimate.
+      </p>
+      {% include "./templates/farm_field.html ignore missing" %}
     </div>
 
     <!-- applications -->
@@ -123,7 +126,9 @@
           </div>
           {% set count = count+1 %}
         {% endfor %}
+        {% if (data.manner_applications | length) >= 3 %} 
         <p class="govuk-body"><a href="#">Back to top</a></p>
+        {% endif%}
       </div> 
     {% endif %}
 

@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/templates/headers/header_signed_in_first.html" ignore missing %}
+  {% include "/templates/headers/header_signed_in_start.html" ignore missing %}
 {% endblock %}
 
 {% block content %}
@@ -32,13 +32,17 @@
     <!-- no farms added -->
     {% if data.oaktree_farm.setup == false %}
 
+      <p class="govuk-body margin-bottom-ten">
+        Create a nutrient management plan by first adding a farm.
+      </p>
+
       <p class="govuk-body margin-bottom-thirty">
-        To create nutrient management plans or NVZ reports, add a farm.
+        You can then create NVZ reports for that farm.
       </p>
       
       <form class="form" action="about_nmpt" method="post">
         {{ govukButton({
-          text: "Add a farm"
+          text: "Create a nutrient management plan"
         }) }}
       </form>
 
@@ -46,12 +50,12 @@
 
       <!-- farms added -->
       <p class="govuk-hint">
-        To create or update a nutrient management plan, or to save an NVZ report, select an existing farm, or add a new one.
+        To create or update a nutrient management plan, or to save an NVZ report, select an existing farm. You can also add a new farm.
       </p>
       
       <form class="form" action="/add-farm/name" method="post">
         {{ govukButton({
-          text: "Add a farm"
+          text: "Add a new farm"
         }) }}
       </form>
 
@@ -73,12 +77,12 @@
   </div>
 
   <div class="govuk-grid-column-one-third">
-    <h2 class="govuk-heading-s margin-bottom-ten padding-top-five">Options</h2>
-    <p class="govuk-body">You can also
+    <h2 class="govuk-heading-s margin-bottom-ten padding-top-five">Other options</h2>
+    <p class="govuk-body">
         {% if data.manner_applications.length == 0 %}
-          <a class="govuk-link" href="/manner/about_manner">estimate nutrient supply from organic material</a> <br>using MANNER-NPK
+          <a class="govuk-link" href="/manner/about_manner">Estimate the nutrient supply from organic materials</a>
         {% else %}
-          <a class="govuk-link" href="/manner/previous_calculations">Create a nutrient supply estimate (MANNER-NPK)</a> <br>using MANNER-NPK
+          <a class="govuk-link" href="/manner/previous_calculations">Estimate the nutrient supply from organic materials</a>
         {% endif %}
       </p> 
       <p class="govuk-body margin-bottom-ten">

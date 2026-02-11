@@ -8,6 +8,13 @@
   {% include "/templates/headers/header_signed_in_first.html" ignore missing %}
 {% endblock %}
 
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
 {% block content %}
 
 {% set plan_2025 = false %}
@@ -25,7 +32,7 @@
 
 <div class="govuk-grid-row">
   <div id="all-plans-table" class="govuk-grid-column-full">
-    <h1 class="govuk-heading-l">Nutrient supply estimates (MANNER-NPK)</h1>   
+    <h1 class="govuk-heading-l">Nutrient supply estimates</h1>   
   </div>
 </div>
 

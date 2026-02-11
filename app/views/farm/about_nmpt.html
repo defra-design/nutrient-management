@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_signed_in_first.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      What you will need
+    </h1>
+
+    <p class="gov-body">
+      To create nutrient management plans and Nitrate Vulnerable Zone (NVZ) reports you will need:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>farm name and address</li>
+      <li>an average rainfall figure, if you have one</li>
+      <li>the sizes of your fields in hectares</li>
+      <li>crop details, including yields and sowing dates if you have them</li>
+      <!-- <li>analysis of your manures, if you have any</li> -->
+      <li>manure application details, including application rate, application method and soil incorporation</li>
+      <li>your most recent soil analysis data</li>
+      <li>last year's crop type for each field</li>
+      <li>details of how grass fields have been managed in the last three years</li>
+    </ul>
+
+    <p class="gov-body">
+      Some NVZ reports also require:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>livestock details</li>
+      <li>manure storage details</li>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      Soil Nitrogen Supply (SNS)
+    </h2>
+
+    <p class="gov-body">
+      Nutrient management plans include SNS. You can add SNS data for a field at the end of the planning process, if you have it.
+    </p>
+
+    <h2 class="govuk-heading-m">
+      Nitrate Vulnerable Zone (NVZ) warnings
+    </h2>
+
+    <p class="gov-body">
+      The tool will warn you of possible breaches of the NVZ rules as you make nutrient management plans.
+    </p>
+
+    <h2 class="govuk-heading-m">Saving your data</h2>
+
+    <p class="gov-body">
+      You can save your data, edit it, and reuse it. You can also save or print plans and reports as PDF files.
+    </p>
+
+    <form class="form margin-top-forty" action="/add-farm/name" method="post">
+      <div class="govuk-form-group margin-bottom-forty">
+        <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="countries" name="countries" type="checkbox" value="france">
+              <label class="govuk-label govuk-checkboxes__label" for="countries">
+                Don't show this information again
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue to add a farm"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

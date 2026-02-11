@@ -89,8 +89,9 @@ router.get(/manner_results_handler/, callback_functions.showSuccessMessage, func
     if (req.session.data.manure_rate == null || req.session.data.manure_rate == "" ) {
         req.session.data.manure_rate = 20
     }
+    let new_date = req.session.data.manure_date_day + "/" + req.session.data.manure_date_month + "/2026"
     let reference = req.session.data.manner_applications.length + 1
-    let tempApplication = {ref: reference, date:'01/01/2026', manuretype: req.session.data.manure_type, rate: req.session.data.manure_rate }
+    let tempApplication = {ref: reference, date: new_date, manuretype: req.session.data.manure_type, rate: req.session.data.manure_rate }
     req.session.data.manner_applications.push(tempApplication)
     console.log("here " + req.session.data.manner_applications.length)
     res.redirect('results')

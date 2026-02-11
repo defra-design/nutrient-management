@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_signed_in_first.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      About nutrient supply estimates (using MANNER-NPK)
+    </h1>
+
+    <p class="gov-body">
+      You can use this tool to create an estimate of the nutrients supplied from applications of organic materials.
+    </p>
+
+    <p class="gov-body">
+      Estimates show you:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>total nitrogen (N)</li>
+      <li>crop available nitrogen (N)</li>
+      <li>nitrogen (N) losses</li>
+      <li>total, and crop available phosphate (P2O5), potash (K2O), sulphur (SO3) and magnesium (MgO)</li>
+      <li>the potential value of the organic material, when compared to the cost of inorganic fertilisers</li>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      What you will need
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>farm name and address</li>
+      <li>an average rainfall figure, if you have one</li>
+      <!-- <li>analysis of your manures, if you have any</li> -->
+      <li>manure application details, including application rate, application method and soil incorporation</li>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      Nitrate Vulnerable Zone (NVZ) warnings
+    </h2>
+
+    <p class="gov-body">
+      The tool will warn you of possible breaches of the NVZ rules as you create estimates.
+    </p>
+
+    <h2 class="govuk-heading-m">Saving your data</h2>
+
+    <p class="gov-body">
+      You can save your data, edit it, and reuse it. You can also save or print estimates as PDF files.
+    </p>
+
+    <form class="form margin-top-forty" action="name" method="post">
+      <!-- <div class="govuk-form-group margin-bottom-forty">
+        <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="countries" name="countries" type="checkbox" value="france">
+              <label class="govuk-label govuk-checkboxes__label" for="countries">
+                Don't show this information again
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div> -->
+
+      {{ govukButton({
+        text: "Continue to create an estimate"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

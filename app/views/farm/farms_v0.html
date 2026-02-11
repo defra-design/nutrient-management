@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_signed_in_first.html" ignore missing %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">Your farms</h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-hint">
+      Select a farm to create or update it's nutrient management plans<br>or to save a report.
+    </p>
+    <ul class="govuk-list govuk-list--spaced">
+      <li>          
+        <a class="govuk-notification-banner__link" href="hub_message_reset"> {{data.oaktree_farm.name}}</a> 
+      </li>              
+      <li>          
+        <a class="govuk-notification-banner__link" href="hub_message_reset"> Dusty Farm</a> 
+      </li>
+      <li>          
+        <a class="govuk-notification-banner__link" href="hub_message_reset"> Hopper's Farm</a> 
+      </li>              
+    </ul>
+    </p>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <h2 class="govuk-heading-s padding-top-five">Options</h2>
+    <ul class="govuk-list govuk-list--spaced">
+        <li>
+          <a class="govuk-link" href="/add-farm/name">Add a new farm</a>
+        </li>
+        <!-- <li>
+          <a class="govuk-link" href="">Import data from a PLANET file</a>
+        </li> -->
+      <li>
+        {% if data.manner_applications.length == 0 %}
+          <a class="govuk-link" href="/manner/about">Create a nutrient supply estimate (MANNER-NPK)</a>
+        {% else %}
+          <a class="govuk-link" href="/manner/previous_calculations">Create a nutrient supply estimate (MANNER-NPK)</a>
+        {% endif %}
+      </li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

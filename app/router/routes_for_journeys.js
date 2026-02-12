@@ -134,7 +134,7 @@ router.get(/add_field_handler/, callback_functions.showSuccessMessage, function 
 router.get(/add_sns_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 17;
-    req.session.data.chosen_group.sns = true;
+    req.session.data.chosen_field.sns = true;
     res.redirect('/farm/field_plan/index');
 })
 

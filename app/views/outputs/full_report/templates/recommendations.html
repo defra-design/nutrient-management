@@ -1,0 +1,16 @@
+<div class="govuk-grid-row margin-bottom-thirty">
+<div class="govuk-grid-column-full">
+	
+	<h2 class="govuk-heading-m margin-bottom-ten">Nutrient and Lime recommendations for {{cropname}} in {{fieldname}}</h2>
+		<p class="govuk-body-s">Amounts are per hectare.</p>
+
+	{% if cropname == 'grass' or cropname == 'Grass' %}
+		<p class="govuk-body">Recommendations 1 - Cut</p>
+	{% endif %}
+
+	{% include "/templates/recommendations/nutrients_empty.html" ignore missing %}
+	{% include "/templates/recommendations/ahdb.html" ignore missing %}
+
+	</div>
+</div>
+

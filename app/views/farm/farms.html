@@ -79,16 +79,16 @@
 
   <div class="govuk-grid-column-one-third">
     <h2 class="govuk-heading-s margin-bottom-ten padding-top-five">Other options</h2>
-    <p class="govuk-body">
-        {% if data.manner_applications.length == 0 %}
-          <a class="govuk-link" href="/manner/about_manner">Estimate the nutrient supply from organic materials</a>
-        {% else %}
-          <a class="govuk-link" href="/manner/previous_calculations">Estimate the nutrient supply from organic materials</a>
-        {% endif %}
-      </p> 
-      <p class="govuk-body margin-bottom-ten">
-        
-      </p> 
+    <p class="govuk-body margin-bottom-five">
+      {% if data.manner_applications.length == 0 %}
+        <a class="govuk-link" href="/manner/about_manner">Estimate the nutrient supply from organic materials</a>
+      {% else %}
+        <a class="govuk-link" href="/manner/previous_calculations">Estimate the nutrient supply from organic materials</a> 
+      {% endif %}
+    </p> 
+    <p class="govuk-body margin-bottom-ten">
+      (using MANNER-NPK)
+    </p> 
   </div>
 </div>
 

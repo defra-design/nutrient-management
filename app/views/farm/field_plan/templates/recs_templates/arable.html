@@ -10,13 +10,14 @@
   {% elif organics == false and inorganics == true %}
     {% include "../v5_nutrients_one_fertiliser.html" ignore missing %}
   {% else %}
-    {% include "../v5_nutrients_empty.html" ignore missing %}
+    {% include "/templates/recommendations/nutrients_empty" ignore missing %}
   {% endif %}
 {% endif %}
 
 <p class="govuk-body-s margin-bottom-forty">Crop need is calculated using AHDB Nutrient Management Guide (RB209). Supply from manures calculated using<br> MANNER-NPK (Nutrient Calculation Engine).</p>
 
-{% include "../v5_rolling_balance.html" ignore missing %}
+<!-- {% include "../v5_rolling_balance.html" ignore missing %} -->
+<hr class="separator_forty">
 
 {% include "../v5_guidance.html" ignore missing %}
 

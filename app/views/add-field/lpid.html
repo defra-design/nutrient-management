@@ -22,14 +22,12 @@
 
     <h1 class="govuk-heading-l">What is the LPID (land parcel identification) number (optional)? </h1>
 
-    <p class="hint">For example, AA/12345/12345. This number will only be shown on your reports.</p>
+    <p class="hint">For example, AA/12345/12345. This will only be shown on your reports.</p>
 
     <form action="set_field_name_handler" method="post" novalidate="" autocomplete="off">   
-      {{ govukInput({
-        id: "LPID_number",
-        name: "LPID_number"
-      }) }}   
-
+      <div class="govuk-form-group margin-bottom-forty">
+        <input class="govuk-input govuk-input--width-10" id="LPID_number" name="LPID_number" type="text">
+      </div>
       <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
         Continue
       </button>

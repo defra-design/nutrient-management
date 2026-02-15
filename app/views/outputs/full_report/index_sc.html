@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  {{data.oaktree_farm.planning_year}} Nutrient applications
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back to your " + data.oaktree_farm.planning_year + " plan",
+    href: "plan_view_reset_router"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  {% include "./templates/print.html" ignore missing %}
+
+  {% include "./templates/farm_sc.html" ignore missing %}
+
+  {% set fieldname = 'Short Field' %}
+  {% set cropname = 'Winter Wheat' %}
+
+  {% include "./templates/management_arable.html" ignore missing %}
+
+  {% include "./templates/recommendations.html" ignore missing %}
+
+  {% include "./templates/arable.html" ignore missing %}
+
+  {% include "./templates/manure_arable.html" ignore missing %}
+
+  {% include "./templates/warnings_arable.html" ignore missing %}
+
+  {% include "./templates/soil_details.html" ignore missing %}
+
+  {% include "./templates/soil_analysis.html" ignore missing %}
+
+  {% include "./templates/sns_complex.html" ignore missing %}
+
+  {% include "./templates/guidance.html" ignore missing %}
+
+  <div id="printbreak"></div>
+  <div class="margin-bottom-forty">&nbsp;</div>
+  
+  {% set fieldname = 'Long Field' %}
+  {% set cropname = 'Grass' %}
+
+  {% include "./templates/management_grass.html" ignore missing %}
+
+  {% include "./templates/recommendations.html" ignore missing %}
+
+  {% include "./templates/grass.html" ignore missing %}
+
+  {% include "./templates/manure_grass.html" ignore missing %}
+
+  {% include "./templates/warnings_grass.html" ignore missing %}
+
+  {% include "./templates/soil_details.html" ignore missing %}
+
+  {% include "./templates/soil_analysis.html" ignore missing %}
+
+  {% include "./templates/sns.html" ignore missing %}
+
+  {% include "./templates/guidance.html" ignore missing %}
+
+  <hr class="margin-bottom-forty">
+  <h2 class="govuk-heading-s">About recommendations, guidance, and advice</h2>
+  {% include "/templates/recommendations.html" ignore missing %}
+
+{% endblock %}

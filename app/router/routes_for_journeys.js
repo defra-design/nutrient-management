@@ -88,7 +88,7 @@ router.get(/nvz_router/, function (req, res) {
 
 //add a soil analysis
 router.get(/analysis_option_router/, function (req, res) { 
-    let next = (req.session.data.soilanalysis == "yes") ? 'date' : 'previous_use'
+    let next = (req.session.data.soilanalysis == "yes") ? 'soil-two' : 'previous_use'
     res.redirect(next)
 })
 

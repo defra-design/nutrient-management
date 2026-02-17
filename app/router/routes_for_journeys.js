@@ -470,10 +470,6 @@ router.get(/crop_use_handler/, function (req, res) {
     res.redirect(next)
 })
 
-router.get(/v7_grass_yield_handler/, callback_functions.default_grass_values, function (req, res) { 
-    res.redirect('../check');
-})
-
 router.get(/yield_questiontwo_router/, function (req, res) { 
     let next = (req.session.data.yield_option_two != 'rb209') ? 'yield_value_two' : 'check';
     res.redirect(next);

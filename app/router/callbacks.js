@@ -27,12 +27,12 @@ const setManureGroup = function (req, res, next) {
     next()
 }
 
-const default_grass_values = function (req, res, next) {
+// const default_grass_values = function (req, res, next) {
     // if (req.session.data.crop_fields == null || req.session.data.crop_fields == []) {
     //     req.session.data.crop_fields = ['Long Field', 'Short Field']
     // }
-    next()
-} 
+//     next()
+// } 
 
 const getApplicationByReference = function (req, res, next) {
     req.session.data.application_ref = req.query.applicationref
@@ -45,5 +45,4 @@ module.exports.hide_error = hide_error;
 module.exports.showSuccessMessage = showSuccessMessage;
 module.exports.hideSuccessMessage = hideSuccessMessage;
 module.exports.setManureGroup = setManureGroup;
-module.exports.default_grass_values = default_grass_values;
 module.exports.getApplicationByReference = getApplicationByReference;

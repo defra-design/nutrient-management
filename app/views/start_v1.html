@@ -37,6 +37,26 @@
       This service was developed in conjunction with ADAS, AHDB and RSK-BSL.
     </p>
 
+    <!-- <p class="gov-body">
+      You must follow the appropriate regulations, depending on where your farm is.
+    </p> -->
+
+    <!-- <h3 class="govuk-heading-s">England:</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="https://www.gov.uk/government/collections/nitrate-vulnerable-zones">Farming rules for water</a>. (opens in a new window)</li>
+      <li><a href="https://www.gov.uk/government/collections/nitrate-vulnerable-zones">Nitrogen vulnerable zones (NVZs)</a>. (opens in a new window)</li>
+    </ul>
+
+    <h3 class="govuk-heading-s">Wales:</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="https://www.gov.wales/water-resources-control-agricultural-pollution-wales-regulations-2021-guidance-farmers-and-land">The Water Resources (Control of Agricultural Pollution) (Wales) Regulations 2021</a>. (opens in a new window)</li>
+    </ul>
+    
+    <h3 class="govuk-heading-s">Scotland:</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="https://www.gov.scot/policies/agriculture-and-the-environment/nvz/">The Action Programme for Nitrate Vulnerable Zones (Scotland) Regulations 2008</a>. (opens in a new window)</li>
+    </ul> -->
+
     <h2 class="govuk-heading-l">
       How it works
     </h2>
@@ -88,6 +108,17 @@
       </p>
     </div>
 
+    <form class="form margin-top-forty margin-bottom-twenty" action="start_router" method="post">
+      {{ govukButton({
+        text: "Start now",
+        isStartButton: true
+      }) }}
+    </form>    
+
+    <h2 class="govuk-heading-l">
+      Before you start
+    </h2>
+
     <h2 class="govuk-heading-m">
       Creating a DEFRA account
     </h2>
@@ -119,14 +150,6 @@
     <p class="gov-body margin-bottom-forty">
       <a href="releases" target="_blank">Read the release schedule</a> (opens in a new window)
     </p>
-
-
-    <form class="form margin-top-forty margin-bottom-twenty" action="start_router" method="post">
-      {{ govukButton({
-        text: "Start now",
-        isStartButton: true
-      }) }}
-    </form>    
 
   </div>
 </div>

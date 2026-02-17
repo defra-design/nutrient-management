@@ -1,6 +1,6 @@
 {% macro nutrients() %}
   <ul class="nutrient_values">
-    <li>Dry Matter content: <span>6%</span></span>
+    <li>Dry matter content: <span>6%</span></span>
     <li>Total Nitrogen: <span>2.6kg</span></span>
     <li>Ammonium-N:	<span>1.2kg</span></span>
     <li>Uric acid N:	<span>0kg</span></span>
@@ -33,7 +33,7 @@
     {% endif %}
 
     {{ answer_row ( 'When are you applying this organic material?', chosen_application.date ) }}
-    {{ answer_row ( 'Do you want to use the standard nutrient values for this organic material?', 'Yes' ) }}
+    {{ answer_row ( 'Do you want to use the typical nutrient values for this organic material?', 'Yes' ) }}
     {{ answer_row ( 'Nutrient values for ' + chosen_application.manuretype.name, nutrients() ) }}
     {{ answer_row ( 'How would you like to enter the application rate for this organic material?', 'Use a typical application rate' ) }}
     
@@ -55,7 +55,7 @@
 
     {{ answer_row ( 'How would you like to enter the application rate for this organic material?', 'Use a typical application rate' ) }}
     {{ answer_row ( 'How many days will there be before the manure is incorporated?', '1 to 2 days' ) }}
-    {{ answer_row ( 'Autumn crop nitrogen(N) uptake', '10kg per hectare' ) }}
+    {{ answer_row ( 'Autumn crop nitrogen (N) uptake', '10kg per hectare' ) }}
     {{ answer_row ( 'End of soil drainage', '31 March ' +data.oaktree_farm.planning_year ) }}
     {{ answer_row ( 'Rainfall within 6 hours of application', '0' ) }}
     {{ answer_row ( 'Total rainfall since application', '328mm' ) }}

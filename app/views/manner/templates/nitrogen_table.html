@@ -1,22 +1,26 @@
-<p class="govuk-body">All values are per hectare</p>
+<p class="govuk-body">Values are per hectare.</p>
 
 <div class="margin-bottom-fifty">
 	<h2 class="govuk-heading-m">Nitrogen (N)</h2>
-	<table class="govuk-table manner_table-v2">
+	<table class="govuk-table data-table">
 		<thead class="govuk-table__head">
 			<tr>
-				<th scope="row" class="govuk-table__header">Application</th>
+				{% if (data.manner_applications | length) > 1 %}
+					<th scope="row" class="govuk-table__header">Application</th>
+				{% endif %}
 				<th scope="row" class="govuk-table__header">Manure type</th>
 				<th scope="row" class="govuk-table__header">Date</th>
-				<th scope="row" class="govuk-table__header number-three">Total nitrogen (N)</th>
+				<th scope="row" class="govuk-table__header">Total nitrogen (N)</th>
 				<th scope="row" class="govuk-table__header">Mineralised nitrogen (N)</th>
 			</tr>
 		</thead>
 		<tbody class="govuk-table__body">
 			<tr>
+			{% if (data.manner_applications | length) > 1 %}
 				<td class="govuk-table__cell">1</td>
+			{% endif %}
 				<td class="govuk-table__cell">{{data.manner_applications[0].manuretype.name}}</td>
-				<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+				<td class="govuk-table__cell">{{data.manner_applications[0].date}}</td>
 				<td class="govuk-table__cell">52kg</td>
 				<td class="govuk-table__cell">1kg</td>
 			</tr>
@@ -24,7 +28,7 @@
 			<tr>
 				<td class="govuk-table__cell">2</td>
 				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
-				<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].date}}</td>
 				<td class="govuk-table__cell">180kg</td>
 				<td class="govuk-table__cell">7kg</td>
 			</tr>
@@ -33,7 +37,7 @@
 			<tr>
 				<td class="govuk-table__cell">3</td>
 				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
-				<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].date}}</td>
 				<td class="govuk-table__cell">180kg</td>
 				<td class="govuk-table__cell">7kg</td>
 			</tr>
@@ -53,22 +57,26 @@
 
 <div class="margin-bottom-fifty">
 	<h2 class="govuk-heading-m">Nitrogen (N) losses</h2>
-	<table class="govuk-table manner_table-v2">
+	<table class="govuk-table data-table">
 		<thead class="govuk-table__head">
 			<tr>
-				<th scope="row" class="govuk-table__header">Application</th>
-				<th scope="row" class="govuk-table__header">Manure type</th>
-				<th scope="row" class="govuk-table__header">Date</th>
-				<th scope="row" class="govuk-table__header number-three">Nitrate-N</th>
-				<th scope="row" class="govuk-table__header">Ammonia-N</th>
-				<th scope="row" class="govuk-table__header">Denitrified-N</th>
+				{% if (data.manner_applications | length) > 1 %}
+					<th scope="row" class="govuk-table__header">Application</th>
+				{% endif %}
+					<th scope="row" class="govuk-table__header">Manure type</th>
+					<th scope="row" class="govuk-table__header">Date</th>
+					<th scope="row" class="govuk-table__header number-three">Nitrate-N</th>
+					<th scope="row" class="govuk-table__header">Ammonia-N</th>
+					<th scope="row" class="govuk-table__header">Denitrified-N</th>
 			</tr>
 		</thead>
 		<tbody class="govuk-table__body">
 				<tr>
+				{% if (data.manner_applications | length) > 1 %}
 					<td class="govuk-table__cell">1</td>
+				{% endif %}
 					<td class="govuk-table__cell">{{data.manner_applications[0].manuretype.name}}</td>
-					<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+				<td class="govuk-table__cell">{{data.manner_applications[0].date}}</td>
 					<td class="govuk-table__cell">10kg</td>
 					<td class="govuk-table__cell">2kg</td>
 					<td class="govuk-table__cell">2kg</td>
@@ -77,7 +85,7 @@
 				<tr>
 				<td class="govuk-table__cell">2</td>
 				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
-					<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].date}}</td>
 					<td class="govuk-table__cell">31kg</td>
 					<td class="govuk-table__cell">3kg</td>
 					<td class="govuk-table__cell">9kg</td>
@@ -87,7 +95,7 @@
 				<tr>
 				<td class="govuk-table__cell">3</td>
 				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
-					<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].date}}</td>
 					<td class="govuk-table__cell">31kg</td>
 					<td class="govuk-table__cell">3kg</td>
 					<td class="govuk-table__cell">9kg</td>
@@ -109,10 +117,12 @@
 
 <div class="margin-bottom-fifty">
 	<h2 class="govuk-heading-m">Crop available nitrogen (N)</h2>
-	<table class="govuk-table manner_table-v2">
+	<table class="govuk-table data-table">
 		<thead class="govuk-table__head">
 			<tr>
-				<th scope="row" class="govuk-table__header">Application</th>
+				{% if (data.manner_applications | length) > 1 %}
+					<th scope="row" class="govuk-table__header">Application</th>
+				{% endif %}
 				<th scope="row" class="govuk-table__header">Manure type</th>
 				<th scope="row" class="govuk-table__header">Date</th>
 				<th scope="row" class="govuk-table__header">Current crop</th>
@@ -122,9 +132,11 @@
 		</thead>
 		<tbody class="govuk-table__body">
 			<tr>
-				<td class="govuk-table__cell">1</td>
+				{% if (data.manner_applications | length) > 1 %}
+					<td class="govuk-table__cell">1</td>
+				{% endif %}
 				<td class="govuk-table__cell">{{data.manner_applications[0].manuretype.name}}</td>
-				<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+				<td class="govuk-table__cell">{{data.manner_applications[0].date}}</td>
 				<td class="govuk-table__cell">11kg</td>
 				<td class="govuk-table__cell">1kg</td>
 				<td class="govuk-table__cell">22%</td>
@@ -133,7 +145,7 @@
 				<tr>
 				<td class="govuk-table__cell">2</td>
 				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
-					<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].date}}</td>
 					<td class="govuk-table__cell">88kg</td>
 					<td class="govuk-table__cell">2kg</td>
 					<td class="govuk-table__cell">49%</td>
@@ -143,7 +155,7 @@
 				<tr>
 				<td class="govuk-table__cell">3</td>
 				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
-					<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].date}}</td>
 					<td class="govuk-table__cell">88kg</td>
 					<td class="govuk-table__cell">2kg</td>
 					<td class="govuk-table__cell">49%</td>
@@ -167,10 +179,12 @@
 	<h2 class="govuk-heading-m">
     Phosphate (P2O5), potash (K2O), sulphur (SO3) and magnesium (MgO)
 	</h2>
-	<table class="govuk-table manner_table-v2">
+	<table class="govuk-table data-table">
 		<thead class="govuk-table__head">
 			<tr>
-				<th scope="row" class="govuk-table__header">Application</th>
+				{% if (data.manner_applications | length) > 1 %}
+					<th scope="row" class="govuk-table__header">Application</th>
+				{% endif %}
 				<th scope="row" class="govuk-table__header">Manure type</th>
 				<th scope="row" class="govuk-table__header">Date</th>
 				<th scope="row" class="govuk-table__header">Total P2O5</th>
@@ -184,9 +198,11 @@
 		</thead>
 		<tbody class="govuk-table__body">
 			<tr>
+				{% if (data.manner_applications | length) > 1 %}
 				<td class="govuk-table__cell">1</td>
+				{% endif %}
 				<td class="govuk-table__cell">{{data.manner_applications[0].manuretype.name}}</td>
-				<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+				<td class="govuk-table__cell">{{data.manner_applications[0].date}}</td>
 				<td class="govuk-table__cell">24kg</td>
 				<td class="govuk-table__cell">12kg</td>
 				<td class="govuk-table__cell">64kg</td>
@@ -199,7 +215,7 @@
 				<tr>
 				<td class="govuk-table__cell">2</td>
 				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
-					<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].date}}</td>
 					<td class="govuk-table__cell">90kg</td>
 					<td class="govuk-table__cell">45kg</td>
 					<td class="govuk-table__cell">120kg</td>
@@ -213,7 +229,7 @@
 				<tr>
 				<td class="govuk-table__cell">3</td>
 				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
-					<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].date}}</td>
 					<td class="govuk-table__cell">90kg</td>
 					<td class="govuk-table__cell">45kg</td>
 					<td class="govuk-table__cell">120kg</td>

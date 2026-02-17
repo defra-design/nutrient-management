@@ -5,54 +5,89 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/templates/headers/header_signed_in_first.html" ignore missing %}
+  {% include "/templates/headers/header_signed_in_start.html" ignore missing %}
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-l">Your farms</h1>
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    {% if data.show_success_message == true %}
+      {% include "./templates/success_messages" ignore missing %}
+    {% endif %}
   </div>
 </div>
 
 <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      Plan and manage nutrient applications
+    </h1>
+  </div>
+</div>
 
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <p class="govuk-hint">
-      Select a farm to create or update it's nutrient management plans<br>or to save a report.
-    </p>
-    <ul class="govuk-list govuk-list--spaced">
-      <li>          
-        <a class="govuk-notification-banner__link" href="hub_message_reset"> {{data.oaktree_farm.name}}</a> 
-      </li>              
-      <li>          
-        <a class="govuk-notification-banner__link" href="hub_message_reset"> Dusty Farm</a> 
-      </li>
-      <li>          
-        <a class="govuk-notification-banner__link" href="hub_message_reset"> Hopper's Farm</a> 
-      </li>              
-    </ul>
-    </p>
+
+    <!-- no farms added -->
+    {% if data.oaktree_farm.setup == false %}
+
+      <p class="govuk-body margin-bottom-ten">
+        Create a nutrient management plan by first adding a farm.
+      </p>
+
+      <p class="govuk-body margin-bottom-thirty">
+        You can then create NVZ reports for that farm.
+      </p>
+      
+      <form class="form" action="about_nmpt" method="post">
+        {{ govukButton({
+          text: "Create a nutrient management plan"
+        }) }}
+      </form>
+
+    {% else %}
+
+      <!-- farms added -->
+      <p class="govuk-hint">
+        To create or update a nutrient management plan, or to save an NVZ report, select an existing farm. You can also add a new farm.
+      </p>
+
+      <form class="form" action="/add-farm/name" method="post">
+        {{ govukButton({
+          text: "Add a new farm"
+        }) }}
+      </form>
+      
+      <h2 class="govuk-heading-m">Your farms</h2>
+      <ul class="govuk-list govuk-list--spaced margin-bottom-thirty">
+        <li>          
+          <a class="govuk-notification-banner__link" href="hub_message_reset"> {{data.oaktree_farm.name}}</a> 
+        </li>              
+        <li>          
+          <a class="govuk-notification-banner__link" href=""> Dusty Farm</a> 
+        </li>
+        <li>          
+          <a class="govuk-notification-banner__link" href=""> Hopper's Farm</a> 
+        </li>              
+      </ul>
+      
+    {% endif %}
+
   </div>
 
   <div class="govuk-grid-column-one-third">
-    <h2 class="govuk-heading-s padding-top-five">Options</h2>
-    <ul class="govuk-list govuk-list--spaced">
-        <li>
-          <a class="govuk-link" href="/add-farm/name">Add a new farm</a>
-        </li>
-        <!-- <li>
-          <a class="govuk-link" href="">Import data from a PLANET file</a>
-        </li> -->
-      <li>
-        {% if data.manner_applications.length == 0 %}
-          <a class="govuk-link" href="/manner/about">Create a nutrient supply estimate (Manner-NPK)</a>
-        {% else %}
-          <a class="govuk-link" href="/manner/previous_calculations">Create a nutrient supply estimate (Manner-NPK)</a>
-        {% endif %}
-      </li>
-    </ul>
+    <h2 class="govuk-heading-s margin-bottom-ten padding-top-five">Other options</h2>
+    <p class="govuk-body margin-bottom-five">
+      {% if data.manner_applications.length == 0 %}
+        <a class="govuk-link" href="/manner/about_manner">Estimate the nutrient supply from organic materials</a>
+      {% else %}
+        <a class="govuk-link" href="/manner/previous_calculations">Estimate the nutrient supply from organic materials</a> 
+      {% endif %}
+    </p> 
+    <p class="govuk-body margin-bottom-ten">
+      (using MANNER-NPK)
+    </p> 
   </div>
 </div>
 

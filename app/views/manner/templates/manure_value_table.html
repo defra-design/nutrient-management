@@ -1,23 +1,24 @@
-<h2 class="govuk-heading-l">Organic material value</h2>
-      <h3 class="govuk-heading-s">
-        The financial value of the nutrients applied is  
-		{% if data.manner_applications | length == 1 %}
-			£125 per hectare
-		{% else %}
-			£336 per hectare
-		{% endif %}
-      </h3>
-      <!-- <p class="govuk-body margin-bottom-thirty">Based on nitrogen (N) at 90p per kg, Phosphate (P2O5) at 80p per kg and Potash (K2O) at 60p per kg. -->
+<h2 class="govuk-heading-l">Financial value</h2>
+<h3 class="govuk-heading-s">
+	The potential financial value of the nutrients applied is  
+	{% if data.manner_applications | length == 1 %}
+		£125 per hectare
+	{% else %}
+		£336 per hectare
+	{% endif %}
+</h3>
 
-	<h3 class="govuk-heading-m">
-        Value breakdown
-    </h3>
+<h3 class="govuk-heading-m">
+	Value breakdown
+</h3>
 	
 <div class="margin-bottom-forty">
 	<table class="govuk-table margin-bottom-forty data-table">
 		<thead class="govuk-table__head">
 			<tr class="govuk-table__row">
-				<th scope="row" class="govuk-table__header">Application</th>
+				{% if (data.manner_applications | length) > 1 %}
+					<th scope="row" class="govuk-table__header">Application</th>
+				{% endif %}
 				<th scope="row" class="govuk-table__header">Manure type</th>
 				<th scope="row" class="govuk-table__header">Date</th>
 				<th scope="row" class="govuk-table__header">Crop available N</th>
@@ -28,9 +29,11 @@
 		</thead>
 		<tbody>
 			<tr class="govuk-table__row">
-				<td class="govuk-table__cell">1</td>
+				{% if (data.manner_applications | length) > 1 %}
+					<td class="govuk-table__cell">1</td>
+				{% endif %}
 				<td class="govuk-table__cell">{{data.manner_applications[0].manuretype.name}}</td>
-				<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+				<td class="govuk-table__cell">{{data.manner_applications[0].date}}</td>
 				<td class="govuk-table__cell">£10</td>
 				<td class="govuk-table__cell">£79</td>
 				<td class="govuk-table__cell">£36</td>
@@ -40,7 +43,7 @@
 				<tr class="govuk-table__row">
 				<td class="govuk-table__cell">2</td>
 				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
-					<td class="govuk-table__cell">21/06/{{data.oaktree_farm.planning_year}}</td>
+				<td class="govuk-table__cell">{{data.manner_applications[1].date}}</td>
 					<td class="govuk-table__cell">£10</td>
 					<td class="govuk-table__cell">£79</td>
 					<td class="govuk-table__cell">£36</td>

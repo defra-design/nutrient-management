@@ -28,8 +28,8 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl margin-bottom-twenty">
-      <span class="govuk-caption-l">Estimate nutrient supply from organic materials (MANNER-NPK) </span>
-      Estimate of nutrient supply
+      <!-- <span class="govuk-caption-l">Estimate nutrient supply from organic materials (MANNER-NPK) </span> -->
+      Estimate of nutrient supply from organic materials
     </h1>
     <p class="govul-s margin-bottom-thirty">Last updated 01 December 2025</p>
   </div>
@@ -38,10 +38,10 @@
 <div class="govuk-grid-row margin-bottom-forty">
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
-    <p class="govuk-body"><a href="copy">Add another application to this calculation</a></p>
+    <p class="govuk-body"><a href="/manner/manure_group">Add another application to this estimate</a></p>
     
     {% if (data.manner_applications | length) != 1 %}
-      <p class="govuk-body"><a href="">Remove an application from this calculation</a></p>
+      <p class="govuk-body"><a href="">Remove an application from this estimate</a></p>
     {% endif %}
 
    <p class="govuk-body"><a href="report/report">Export or print these results</a></p>
@@ -67,15 +67,13 @@
         <a class="govuk-tabs__tab" href="#farm">Farm, field and crop</a>
       </li>
 
-      {% if (data.manner_applications | length) <= 2 %} 
+      {% if (data.manner_applications | length) == 2 %} 
         <li class="govuk-tabs__list-item">
           <a class="govuk-tabs__tab" href="#answers1">Application 1 details</a>
         </li>
-        {% if (data.manner_applications | length) == 2 %} 
           <li class="govuk-tabs__list-item">
             <a class="govuk-tabs__tab" href="#answers2">Application 2 details</a>
-          </li>
-        {% endif %}
+        </li>
       {% else %}
         <li class="govuk-tabs__list-item">
           <a class="govuk-tabs__tab" href="#answers1">Application details</a>
@@ -98,36 +96,39 @@
     <!-- farm -->
     <div class="govuk-tabs__panel" id="farm">
       <h2 class="govuk-heading-l">Farm, field and crop</h2>
-      <p class="govuk-body">Changing any details here will only update this estimate.</p>
-      {% include "./templates/field_crop.html ignore missing" %}
+      <p class="govuk-body">
+        <!-- Changing any details here will only update this estimate. -->
+        Any changes you make to the farm or field details will only be saved for this estimate.
+      </p>
+      {% include "./templates/farm_field.html ignore missing" %}
     </div>
 
     <!-- applications -->
-    {% if (data.manner_applications | length) <= 2 %} 
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
-        <h2 class="govuk-heading-l">Application 1 details</h2>
-        {% set chosen_application = data.manner_applications[0] %}
-        {% include "./templates/answers.html ignore missing" %}
-      </div> 
       {% if (data.manner_applications | length) == 2 %} 
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
+          <h2 class="govuk-heading-l">Application 1 details</h2>
+          {% set chosen_application = data.manner_applications[0] %}
+          {% include "./templates/answers.html ignore missing" %}
+        </div> 
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers2">
           <h2 class="govuk-heading-l">Application 2 details</h2>
           {% set chosen_application = data.manner_applications[1] %}
           {% include "./templates/answers.html ignore missing" %}     
         </div> 
-      {% endif %}
-    {% else %}
+      {% else %}
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
-        <h2 class="govuk-heading-l">Application details</h2>
         {% set count = 1 %}
         {% for x in data.manner_applications %}
           {% set chosen_application = x %}
           <div class="margin-bottom-forty">
-            <h3 class="govuk-heading-m">Application {{count}}</h3>
+            <h2 class="govuk-heading-l">Application {{count}} details</h2>
             {% include "./templates/answers.html ignore missing" %}
           </div>
           {% set count = count+1 %}
         {% endfor %}
+        {% if (data.manner_applications | length) >= 3 %} 
+        <p class="govuk-body"><a href="#">Back to top</a></p>
+        {% endif%}
       </div> 
     {% endif %}
 

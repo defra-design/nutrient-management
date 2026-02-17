@@ -15,8 +15,16 @@ Question – {{ serviceName }} – GOV.UK
 }) }}
 {% endblock %}
 
-
 {% block content %}
+
+{% set n_products = [
+  { "value": "ammonium", "label": "Ammonium nitrate (AN)" },
+  { "value": "calcium", "label": "Calcium ammonium nitrate" },
+  { "value": "urea_nitrate", "label": "Urea nitrate" },
+  { "value": "urea_ammonium_nitrate", "label": "Urea ammonium nitrate" },
+  { "value": "tsp", "label": "Triple Superphosphate (TSP)" },
+  { "value": "map", "label": "Monoammonium Phosphate (MAP)" }
+] %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop ">
@@ -38,6 +46,14 @@ Question – {{ serviceName }} – GOV.UK
               Calcium ammonium nitrate
             </label>
           </div>
+          <!-- {% for n_product in n_products %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="{{n_product.value}}" name="n_product" type="radio" value="{{n_product.value}}">
+              <label class="govuk-label govuk-radios__label" for="{{n_product.value}}">
+                {{n_product.label}}
+              </label>
+            </div>
+          {% endfor %} -->
         </div>
       </div>
       <button class="govuk-button margin-bottom-forty" data-module="govuk-button">

@@ -27,12 +27,11 @@
       </h1>
 
       <p class="govuk-body">
-        <!-- These values are used to calculate how effective this organic material application is. -->
-         These values are used to calculate the loss of nutrients from your organic materials, and how effective this organic material application will be.
+        This information is used to estimate nitrogen losses and crop available nitrogen (N) supply from this application.      
       </p>
 
       <p class="govuk-body margin-bottom-thirty">
-        If you do not need to change them you can continue.
+        If you do not need to change these values you can continue.
       </p>
 
       <!-- <p class="govuk-body margin-bottom-forty">
@@ -61,12 +60,12 @@
           <p class="govuk-body">Amount of rain that falls in the 6 hours after the material is applied.</p>
 
 
-          <h3 class="govuk-heading-s">Effective rainfall after application</h3>
+          <h3 class="govuk-heading-s">Rainfall between application date and end of soil drainage</h3>
           <p class="govuk-body">Average rainfall between manure application and end of soil drainage.</p>
 
                 
-          <h3 class="govuk-heading-s">Windspeed during application</h3>
-          <p class="govuk-body">Windspeed when the material is applied.</p>
+          <h3 class="govuk-heading-s">Wind speed during application</h3>
+          <p class="govuk-body">Wind speed when the material is applied.</p>
 
           <h3 class="govuk-heading-s">Topsoil moisture</h3>
           <p">How moist the topsoil is when the material is applied.</p>
@@ -77,31 +76,43 @@
       <h3 class="govuk-heading-s">Climate conditions</h3>
       <table id="conditions_table" class="govuk-table">
         <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Autumn crop nitrogen (N) uptake</th>
-              <td class="govuk-table__cell">10kg per per hectare</td>
-              <td class="govuk-table__cell"><a href="manure_nitrogen">Change</a></td>
-            </tr>
+
+          <!-- <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Autumn crop nitrogen (N) uptake</th>
+            <td class="govuk-table__cell">10kg per per hectare</td>
+            <td class="govuk-table__cell"><a href="manure_nitrogen">Change</a></td>
+          </tr> -->
+          
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">End of soil drainage</th>
             <td class="govuk-table__cell">31 March {{data.oaktree_farm.planning_year}}</td>
             <td class="govuk-table__cell"><a href="manure_drainage">Change</a></td>
           </tr>
+
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">Rainfall within 6 hours of application</th>
             <td class="govuk-table__cell">0 mm</td>
             <td class="govuk-table__cell"><a href="manure_rain_six">Change</a></td>
           </tr>
+
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Windspeed during application</th>
+            <td class="govuk-table__cell">Rainfall between application date and end of soil drainage</th>
+            <td class="govuk-table__cell">0 mm</td>
+            <td class="govuk-table__cell"><a href="manure_rain_six">Change</a></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Wind speed during application</th>
             <td class="govuk-table__cell">Calm/gentle (0 - 3 Beaufort scale)</td>
             <td class="govuk-table__cell"><a href="manure_wind">Change</a></td>
           </tr>
+
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">Topsoil moisture</th>
             <td class="govuk-table__cell">Moist</td>
             <td class="govuk-table__cell"><a href="manure_moisture">Change</a></td>
           </tr>
+
         </tbody>
       </table>
 

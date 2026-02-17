@@ -9,6 +9,10 @@
     background: #1d70b8;
 }
 
+.govuk-back-link {
+    margin-bottom: 0;
+}
+
 .govuk-pagination__link-title {
     font-weight: normal;
 }
@@ -332,7 +336,7 @@ hr.medium_separator {
 }
 
 .margin-bottom-ten {
-    margin-bottom: 10px;
+    margin-bottom: 10px!important;
 }
 
 .margin-bottom-forty {
@@ -568,26 +572,29 @@ tr.right-last {
 }
 
 .new-recomendation-table {
-    tr {
-        td:nth-child(1) {
-            width: 21%
-        }
-        td:nth-child(2) {
-            width: 13%
-        }
-        td:nth-child(3) {
-            width: 13%
-        }
-        td:nth-child(4) {
-            width: 16%
-        }
-        td:nth-child(5) {
-            width: 20%
-        }
-        // td:nth-child(5) {
-        //     width: 15%
-        // }
+  tr {
+    td:nth-child(1) {
+        width: 18%
     }
+    td:nth-child(2) {
+        width: 12%
+    }
+    td:nth-child(3) {
+        width: 11%
+    }
+    td:nth-child(4) {
+        width: 18%
+    }
+    td:nth-child(5) {
+        width: 12%
+    }
+    td:nth-child(6) {
+        width: 17%
+    }
+    // td:nth-child(5) {
+    //     width: 15%
+    // }
+  }
 }
 
 .govuk-phase-banner__text_left {

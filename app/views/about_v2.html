@@ -1,0 +1,91 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_signed_in_first.html" ignore missing %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      About this tool
+    </h1>
+
+    <p class="gov-body">
+      This tool helps to create nutrient management plans, Nitrate Vulnerable Zone (NVZ) reports, and to estimate the nutrient supply from organic materials.
+    </p>
+
+    <p class="gov-body">
+      To use the features of this tool you will need:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>farm address</li>
+      <li>an average rainfall figure (if you have one)</li>
+      <li>the sizes of your fields (in hectares)</li>
+      <li>crop details, including yields and sowing dates (if you have them)</li>
+      <li>manure application details, including application rate, application method and soil incorporation</li>
+    </ul>
+
+    <p class="gov-body">
+      Nutrient management plans require:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>your most recent soil analysis data</li>
+      <li>last year's crop type for each field</li>
+      <li>details of how grass fields have been managed in the last three years</li>
+    </ul>
+
+    <p class="gov-body">
+      Nutrient management plans include Soil Nitrogen Supply (SNS). You can add SNS data for a field at the end of the planning process, if you have it.
+    </p>
+
+    <p class="gov-body">
+      Some NVZ reports also require:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>livestock details</li>
+      <li>manure storage details</li>
+    </ul>
+
+    <p class="gov-body">
+      The tool will warn you of possible breaches of the NVZ rules as you make nutrient management plans, or estimate nutrient supply from organic materials (using MANNER-NPK).
+    </p>
+
+    <h2 class="govuk-heading-m">Saving your data</h2>
+
+    <p class="gov-body">
+      The tool allows you to save your data, edit it, and reuse it. You can also save or print plans, reports and estimates as PDF files.
+    </p>
+
+    <form class="form margin-top-forty" action="farm/get_started" method="post">
+      <div class="govuk-form-group margin-bottom-forty">
+        <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="countries" name="countries" type="checkbox" value="france">
+              <label class="govuk-label govuk-checkboxes__label" for="countries">
+                Don't show this information again
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Nutrient Application Plan – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "hub_message_reset"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">{{data.oaktree_farm.name}}</h1>
+    <h2 class="govuk-heading-m plan_title">Farm information</h2>
+
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Address</td>
+          <td class="govuk-table__cell">South Road, Hexham, Northumberland {{data.oaktree_farm.postcode}}</td>
+        </tr>      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Business name</td>
+          <td class="govuk-table__cell">Bonnie Farms Incorporated</td>
+        </tr>      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Business Reference Number</td>
+          <td class="govuk-table__cell">123456</td>
+        </tr>      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Main Location Code (MLC)</td>
+          <td class="govuk-table__cell">Not entered</td>
+        </tr>      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Average annual rainfall</td>
+          <td class="govuk-table__cell">554mm</td>
+        </tr>      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">How many fields at Oaktree Lane Farm are in a Nitrate Vulnerable Zone (NVZ)?</td>
+          <td class="govuk-table__cell">{{data.oaktree_farm.nvz | convert_all_some_none}}</td>
+        </tr>      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">How many fields at Oaktree Lane Farm are above 300 metres?</td>
+          <td class="govuk-table__cell">{{data.oaktree_farm.elevation | convert_all_some_none}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Are you a registered organic producer?</td>
+          <td class="govuk-table__cell">No</td>
+        </tr>
+      </tbody>
+    </table>   
+
+    <p class="govuk-body"><a href="update">Update farm or business information</a></p>
+      
+    <p class="govuk-body margin-bottom-forty"><a href="remove">Remove Oaktree Lane Farm</a></p>
+
+
+<hr class="big_separator">
+
+<h2 class="govuk-heading-m">Business information</h2>
+
+<p class="govuk-body">You have not added any business information.</p>
+<p class="govuk-body"><a href="">Add business information</a></p>
+
+  <!-- <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+    <h2 class="govuk-heading-s" id="subsection-title">
+      Manage farm details
+    </h2>
+    <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="govuk-list font-size-17">
+        <li>
+          <a href="">Update farm information</a>
+        </li>
+        <li>
+          <a href="">Add business information</a>
+        </li>
+      </nav>
+  </aside> -->
+
+</div>
+</div> 
+
+
+{% endblock %}

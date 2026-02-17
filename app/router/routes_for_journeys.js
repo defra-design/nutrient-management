@@ -18,7 +18,7 @@ var callback_functions = require('./callbacks.js');
 
 //start
 router.get(/start_router/, function (req, res) {
-  let next = (req.session.data.showinfo == false) ? '/farm/get_started' : '/disclaimer'
+  let next = (req.session.data.showinfo == false) ? '/farm/farms' : '/disclaimer'
   res.redirect(next)
 })
 
@@ -88,7 +88,7 @@ router.get(/nvz_router/, function (req, res) {
 
 //add a soil analysis
 router.get(/analysis_option_router/, function (req, res) { 
-    let next = (req.session.data.soilanalysis == "yes") ? 'date' : 'previous_use'
+    let next = (req.session.data.soilanalysis == "yes") ? 'soil-two' : 'previous_use'
     res.redirect(next)
 })
 
@@ -134,7 +134,7 @@ router.get(/add_field_handler/, callback_functions.showSuccessMessage, function 
 router.get(/add_sns_handler/, function (req, res) { 
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 17;
-    req.session.data.chosen_group.sns = true;
+    req.session.data.chosen_field.sns = true;
     res.redirect('/farm/field_plan/index');
 })
 
@@ -539,14 +539,20 @@ router.get(/manner_crop_handler/, function (req, res) {
     // if (req.session.data.crop_group == 'potatoes') { 
     //     res.redirect('crop_type_potato')
     // }
+    console.log(req.session.data.chosen_crop)
+    let next = 'manure_group'
     if (req.session.data.chosen_crop == null || req.session.data.chosen_crop == '')  {
         if (req.session.data.crop_group == 'other') {
             req.session.data.chosen_crop = 'Flax'
         } else {
             req.session.data.chosen_crop = 'Winter Wheat'
+            next = 'wheat_sown'
         }
     }
-    res.redirect('manure_group')
+    if (req.session.data.chosen_crop == 'Winter Wheat' || req.session.data.chosen_crop == 'Wheat-Winter') {
+        next = 'wheat_sown'
+    }
+    res.redirect(next)
 })
 
 router.get(/season_router/, function (req, res) { 

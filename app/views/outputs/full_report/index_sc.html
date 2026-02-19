@@ -23,7 +23,11 @@
 
   {% set fieldname = 'Short Field' %}
   {% set cropname = 'Winter Wheat' %}
-
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-l margin-bottom-twenty">{{fieldname}}</h2>
+    </div>
+  </div>
   {% include "./templates/scotland/field_details_sc.html" ignore missing %}
 
   {% include "./templates/scotland/recommendations_sc.html" ignore missing %}
@@ -47,9 +51,14 @@
   <div id="printbreak"></div>
   <div class="margin-bottom-forty">&nbsp;</div>
   
+
   {% set fieldname = 'Long Field' %}
   {% set cropname = 'Grass' %}
-
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-l margin-bottom-twenty">{{fieldname}}</h2>
+    </div>
+  </div>
   {% include "./templates/scotland/field_details_sc.html" ignore missing %}
 
   {% include "./templates/scotland/recommendations_sc.html" ignore missing %}

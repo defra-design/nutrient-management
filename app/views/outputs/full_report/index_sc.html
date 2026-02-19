@@ -34,7 +34,7 @@
 
   {% include "./templates/manures_arable_new.html" ignore missing %}
 
-  {% include "./templates/scotland/soil_details_sc.html" ignore missing %}
+  <!-- {% include "./templates/scotland/soil_details_sc.html" ignore missing %} -->
 
   {% include "./templates/soil_analysis.html" ignore missing %}
 
@@ -50,21 +50,23 @@
   {% set fieldname = 'Long Field' %}
   {% set cropname = 'Grass' %}
 
-  {% include "./templates/management_grass.html" ignore missing %}
+  {% include "./templates/scotland/field_details_sc.html" ignore missing %}
 
-  {% include "./templates/recommendations.html" ignore missing %}
+  {% include "./templates/scotland/recommendations_sc.html" ignore missing %}
 
-  {% include "./templates/grass.html" ignore missing %}
+  {% include "./templates/crop_details.html" ignore missing %}
 
-  {% include "./templates/manure_grass.html" ignore missing %}
+  {% include "./templates/fertilisers_arable.html" ignore missing %}
 
-  {% include "./templates/warnings_grass.html" ignore missing %}
+  {% include "./templates/manures_arable_new.html" ignore missing %}
 
-  {% include "./templates/soil_details.html" ignore missing %}
+  <!-- {% include "./templates/scotland/soil_details_sc.html" ignore missing %} -->
 
   {% include "./templates/soil_analysis.html" ignore missing %}
 
-  {% include "./templates/sns.html" ignore missing %}
+  {% include "./templates/sns_complex.html" ignore missing %}
+
+  {% include "./templates/warnings_arable.html" ignore missing %}
 
   {% include "./templates/guidance.html" ignore missing %}
 

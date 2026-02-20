@@ -786,6 +786,7 @@ router.get(/plan_manure_application_router/, function (req, res) {
 })
 
 router.get(/manuregroup_handler/, callback_functions.setManureGroup, function (req, res) { 
+    console.log(req.session.data.manure_group_id)
     res.redirect("manure_type")
 })
 

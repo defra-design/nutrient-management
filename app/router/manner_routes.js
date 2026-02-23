@@ -42,33 +42,9 @@ router.get(/manner_change_handler/, callback_functions.showSuccessMessage, funct
     res.redirect('results')
 })
 
-router.get(/manner_remove_application/, callback_functions.showSuccessMessage, function (req, res) {
-    req.session.data.successMessage = 4 //application removed
-    if (req.query.application == 1) {
-        req.session.data.manner_applications.shift()
-    }
-    if (req.query.application == 2) {
-        if (req.session.data.manner_applications.length == 2) {
-            req.session.data.manner_applications.pop()
-        } else {
-            req.session.data.manner_applications.shift()
-        }
-    }
-    if (req.query.application == 3) {
-        req.session.data.manner_applications.pop()
-    }
-    res.redirect('manner/results')
-})
-
 router.get(/manuretype_update_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 3 //changed
-    //get object
-    for (var x in req.session.data.manure_types ) {
-        if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
-            req.session.data.manure_type = req.session.data.manure_types[x]
-        }
-    }
-    req.session.data.manner_applications[1] = req.session.data.manure_type
+    req.session.data.manner_applications[0].manuretype = allFunctions.getByName(req.session.data.manure_types, req.session.data.manure_type)    
     res.redirect('/manner/results')
 })
 

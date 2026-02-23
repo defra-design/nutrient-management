@@ -29,6 +29,14 @@ function getByReference (types, referenceValue) {
   }
 };
 
+function getByName (types, referenceName) {
+  for (var x in types ) {
+      if (types[x].name == referenceName) {
+          return types[x]
+      }
+  }
+};
+
 function setCropAndGroupId (all_fields, chosenFields, chosenCrop, chosenGroup) {
   for (let x in all_fields) {
     for (let y in chosenFields) {
@@ -294,3 +302,4 @@ module.exports.createStorage = createStorage;
 module.exports.setFieldName = setFieldName;
 module.exports.setFieldSizes = setFieldSizes;
 module.exports.getByReference = getByReference;
+module.exports.getByName = getByName;

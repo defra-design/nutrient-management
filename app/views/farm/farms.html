@@ -45,15 +45,18 @@
           text: "Create a nutrient management plan"
         }) }}
       </form>
-
-    {% else %}
-      <h2 class="govuk-heading-m">Nutrient management plans and NVZ reports</h2>
+    
       <!-- farms added -->
+    {% else %}
+
+      <h2 class="govuk-heading-m">Nutrient management plans and NVZ reports</h2>
+
       <p class="govuk-hint margin-bottom-thirty">
         Select a farm to create or update a nutrient management plan, <br>or to save an NVZ report.
       </p>
       
-      <h3 class="govuk-heading-s">Your farms</h3>
+      <h3 class="govuk-heading-s margin-top-none">Your farms</h3>
+
       <ul class="govuk-list govuk-list--spaced margin-bottom-thirty strong">
         <li>          
           <a class="govuk-notification-banner__link" href="hub_message_reset"> {{data.oaktree_farm.name}}</a> 
@@ -69,27 +72,19 @@
       <p class="govuk-body">
         You can also <a class="govuk-link" href="/add-farm/name">add a new farm</a>.
       </p>
-
-      <!-- <form class="form" action="/add-farm/name" method="post">
-        {{ govukButton({
-          text: "Add a new farm"
-        }) }}
-      </form>
-      <form class="form" action="/add-farm/name" method="post">
-        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-govuk-button-init="">
-          Add a new farm
-        </button>
-      </form> -->
       
     {% endif %}
 
   </div>
 
   <div class="govuk-grid-column-one-third">
+
     <h2 class="govuk-heading-s margin-bottom-ten padding-top-five">Nutrient supply estimates</h2>
+
     <p class="govuk-hint">
       You can also create an estimate of the nutrient supply from organic manures, and their potential financial value compared to inorganic fertilisers.
     </p>
+
     <p class="govuk-body margin-bottom-five">
       {% if data.manner_applications.length == 0 %}
         <a class="govuk-link" href="/manner/about_manner">Estimate the nutrient supply from organic materials</a>
@@ -97,9 +92,11 @@
         <a class="govuk-link" href="/manner/previous_calculations">Estimate the nutrient supply from organic materials</a> 
       {% endif %}
     </p> 
+
     <p class="govuk-hint">
       (using MANNER-NPK)
     </p> 
+    
   </div>
 </div>
 

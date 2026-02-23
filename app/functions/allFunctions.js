@@ -189,6 +189,18 @@ function add_manure_application (group_id, year, field_id, application_date, man
   return newApplication
 }
 
+function createTempApplication (day, month, year, manuretype, rate, applications_length) {
+  console.log('here')
+  let newApplication = {
+    reference: applications_length + 1,
+    date: day + "/" + month + "/" + year,
+    manuretype: manuretype,
+    rate: rate
+  }
+  return newApplication
+}
+
+
 function convertNutrient (nutrient) {
   if (nutrient == null || nutrient == '') {
     nutrient = 0
@@ -303,3 +315,4 @@ module.exports.setFieldName = setFieldName;
 module.exports.setFieldSizes = setFieldSizes;
 module.exports.getByReference = getByReference;
 module.exports.getByName = getByName;
+module.exports.createTempApplication = createTempApplication;

@@ -1,0 +1,33 @@
+ <p class="govuk-body-s">Amounts are per hectare.</p>
+
+{% if data.oaktree_farm.planning_year == 2025 %}
+  {% include "./v5_nutrients_empty_v2.html" ignore missing %}
+{% else %}
+  {% if organics == true and inorganics == true %}
+    {% include "../v4_nutrients_both.html" ignore missing %}
+  {% elif organics == true and inorganics == false %}
+    {% include "../v4_nutrients_one_organic.html" ignore missing %}
+  {% elif organics == false and inorganics == true %}
+    {% include "../v5_nutrients_one_fertiliser.html" ignore missing %}
+  {% else %}
+    {% include "/templates/recommendations/nutrients_empty_sc" ignore missing %}
+  {% endif %}
+{% endif %}
+
+    {% include "/templates/recommendations/ahdb_sc" ignore missing %}
+
+<!-- {% include "../v5_rolling_balance.html" ignore missing %} -->
+<hr class="separator_forty">
+
+{% include "../v5_guidance.html" ignore missing %}
+
+<hr class="separator_forty">
+
+<div class="margin-bottom-forty">
+  <h2 class="govuk-heading-s">About recommendations, guidance, and advice</h2>
+  {% include "/templates/recommendations_sc.html" ignore missing %}
+</div>
+
+{% if data.chosen_group.crop_id == 'grass' %}
+  <p class="govuk-body"><a class="govuk-link" href="#">Back to the top</a></p>
+{% endif %}

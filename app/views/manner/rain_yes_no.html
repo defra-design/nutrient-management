@@ -1,0 +1,122 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Do you want to use typical weather values for this application?
+    </h1>
+
+    <p class="govuk-body">
+      The tool will use defaults for rainfall, soil drainage, soil moisture, wind speed, and autumn crop nitrogen (N) uptake, unless you change them.
+    </p>
+
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          View the typical weather details
+        </span>
+      </summary>
+      <div class="govuk-details__text explanations">
+        <p govuk-body>
+          These values are calculated using MANNER-NPK (Nutrient Calculation Engine).
+        </p>
+
+      <!-- <h3 class="govuk-heading-s">Typical conditions for organic material application</h3> -->
+      <table id="conditions_table" class="govuk-table">
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Rainfall within 6 hours of application</th>
+            <td class="govuk-table__cell">0 mm</td>
+            <!-- <td class="govuk-table__cell"><a href="manure_rain_six">Change</a></td> -->
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">End of soil drainage</th>
+            <td class="govuk-table__cell">31 March {{data.oaktree_farm.planning_year}}</td>
+            <!-- <td class="govuk-table__cell"><a href="manure_drainage">Change</a></td> -->
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Rainfall between application date and end of soil drainage</th>
+            <td class="govuk-table__cell">0 mm</td>
+            <!-- <td class="govuk-table__cell"><a href="manure_rain_six">Change</a></td> -->
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Wind speed during application</th>
+            <td class="govuk-table__cell">Calm/gentle (0 - 3 Beaufort scale)</td>
+            <!-- <td class="govuk-table__cell"><a href="manure_wind">Change</a></td> -->
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Topsoil moisture</th>
+            <td class="govuk-table__cell">Moist</td>
+            <!-- <td class="govuk-table__cell"><a href="manure_moisture">Change</a></td> -->
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Autumn crop nitrogen (N) uptake</th>
+            <td class="govuk-table__cell">10kg per per hectare</td>
+            <!-- <td class="govuk-table__cell"><a href="manure_nitrogen">Change</a></td> -->
+          </tr>
+
+        </tbody>
+      </table>
+      </div>
+    </details>
+
+
+    <form class="form" action="" method="post">
+    
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="changedName">
+                Yes, use typical values
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="changedName-2">
+                No, change the values
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

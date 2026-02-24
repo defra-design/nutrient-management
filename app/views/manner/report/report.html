@@ -43,12 +43,12 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full nmax_header">
-    <h1 class="govuk-heading-xl">Estimate nutrient supply from organic materials (MANNER-NPK)</h1>
-    <p class="govuk-body">Created on 22 September {{data.oaktree_farm.planning_year}}</p>
+    <h1 class="govuk-heading-xl">Estimate of nutrient supply from organic materials</h1>
+    <p class="govuk-body">Created on 24 February {{data.oaktree_farm.planning_year}}</p>
   </div>
 </div>
 
-<div class="govuk-grid-row margin-bottom-thirty">
+<div class="govuk-grid-row margin-bottom-twenty">
   <div class="govuk-grid-column-one-third">
     <p class="govuk-body">Oaktree Lane Farm, <br>
       24 South Road<br> 
@@ -63,9 +63,9 @@
   </div>
 </div>
 
-<div class="govuk-grid-row margin-bottom-thirty">
+<div class="govuk-grid-row margin-bottom-forty">
   <div class="govuk-grid-column-full">
-    <h2 class="govuk-heading-l">Field and crop details</h2>
+    <h2 class="govuk-heading-m">Field and crop details</h2>
     {% include "./templates/field_details.html" ignore missing %}
   </div>
 </div>
@@ -80,7 +80,7 @@
 <div class="govuk-grid-row margin-bottom-thirty">
   <div class="govuk-grid-column-full">
     <h2 class="govuk-heading-l">MANNER-NPK results</h2>
-    {% include "./templates/nitrogen_table.html ignore missing" %}
+    {% include "../templates/nitrogen_table.html ignore missing" %}
   </div>
 </div>
 

@@ -26,18 +26,18 @@
   </div>
 </div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+{% if data.oaktree_farm.setup == false %}
+  <!-- no farms added -->
+  <div class="govuk-grid-row">
 
-    <!-- no farms added -->
-    {% if data.oaktree_farm.setup == false %}
+    <div class="govuk-grid-column-two-thirds">
 
-      <p class="govuk-body margin-bottom-ten">
-        Create a nutrient management plan by first adding a farm.
+      <p class="govuk-body margin-bottom-five">
+        To create a nutrient management plan, first add a farm.
       </p>
 
       <p class="govuk-body margin-bottom-thirty">
-        You can then create NVZ reports for that farm.
+        You can then create NVZ reports for the farm.
       </p>
       
       <form class="form" action="about_nmpt" method="post">
@@ -45,19 +45,46 @@
           text: "Create a nutrient management plan"
         }) }}
       </form>
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-s margin-bottom-ten padding-top-five">Nutrient supply estimates</h2>
+
+      <p class="govuk-body margin-bottom-ten">
+        You can also create an estimate of the nutrient supply from organic materials, and their potential financial value compared to inorganic fertilisers.
+      </p>
+
+      <p class="govuk-body margin-bottom-ten">
+        {% if data.manner_applications.length == 0 %}
+          <a class="govuk-link" href="/manner/about_manner">Estimate the nutrient supply from organic materials</a>
+        {% else %}
+          <a class="govuk-link" href="/manner/previous_calculations">Estimate the nutrient supply from organic materials</a> 
+        {% endif %}
+      </p> 
+
+      <p class="govuk-body">
+        Estimates are created using the MANNER-NPK nutrient calculation engine.
+      </p> 
     
-      <!-- farms added -->
-    {% else %}
+    </div>
+
+  </div>
+{% else %}
+<!-- farms added -->
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
       <h2 class="govuk-heading-m">Nutrient management plans and NVZ reports</h2>
 
-      <p class="govuk-hint margin-bottom-thirty">
+      <p class="govuk-body">
         Select a farm to create or update a nutrient management plan, <br>or to save an NVZ report.
       </p>
-      
+    
       <h3 class="govuk-heading-s margin-top-none">Your farms</h3>
 
-      <ul class="govuk-list govuk-list--spaced margin-bottom-thirty strong">
+      <ul class="govuk-list govuk-list--spaced strong">
         <li>          
           <a class="govuk-notification-banner__link" href="hub_message_reset"> {{data.oaktree_farm.name}}</a> 
         </li>              
@@ -72,20 +99,17 @@
       <p class="govuk-body">
         You can also <a class="govuk-link" href="/add-farm/name">add a new farm</a>.
       </p>
-      
-    {% endif %}
-
   </div>
 
   <div class="govuk-grid-column-one-third">
 
     <h2 class="govuk-heading-s margin-bottom-ten padding-top-five">Nutrient supply estimates</h2>
 
-    <p class="govuk-hint">
-      You can also create an estimate of the nutrient supply from organic manures, and their potential financial value compared to inorganic fertilisers.
+    <p class="govuk-body margin-bottom-ten">
+      You can also create an estimate of the nutrient supply from organic materials, and their potential financial value compared to inorganic fertilisers.
     </p>
 
-    <p class="govuk-body margin-bottom-five">
+    <p class="govuk-body margin-bottom-ten">
       {% if data.manner_applications.length == 0 %}
         <a class="govuk-link" href="/manner/about_manner">Estimate the nutrient supply from organic materials</a>
       {% else %}
@@ -93,11 +117,14 @@
       {% endif %}
     </p> 
 
-    <p class="govuk-hint">
-      (using MANNER-NPK)
+    <p class="govuk-body">
+      Estimates are created using the MANNER-NPK nutrient calculation engine.
     </p> 
-    
+
+    </div>
+
   </div>
-</div>
+
+{% endif %}
 
 {% endblock %}

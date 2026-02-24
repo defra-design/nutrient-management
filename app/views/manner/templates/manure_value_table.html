@@ -16,11 +16,8 @@
 	<table class="govuk-table margin-bottom-forty data-table">
 		<thead class="govuk-table__head">
 			<tr class="govuk-table__row">
-				{% if (data.manner_applications | length) > 1 %}
-					<th scope="row" class="govuk-table__header">Application</th>
-				{% endif %}
+				<th scope="row" class="govuk-table__header">Application</th>
 				<th scope="row" class="govuk-table__header">Manure type</th>
-				<th scope="row" class="govuk-table__header">Date</th>
 				<th scope="row" class="govuk-table__header">Crop available N</th>
 				<th scope="row" class="govuk-table__header">Total P2O5</th>
 				<th scope="row" class="govuk-table__header">Total K2O</th>
@@ -33,7 +30,6 @@
 					<td class="govuk-table__cell">1</td>
 				{% endif %}
 				<td class="govuk-table__cell">{{data.manner_applications[0].manuretype.name}}</td>
-				<td class="govuk-table__cell">{{data.manner_applications[0].date}}</td>
 				<td class="govuk-table__cell">£10</td>
 				<td class="govuk-table__cell">£79</td>
 				<td class="govuk-table__cell">£36</td>
@@ -43,7 +39,6 @@
 				<tr class="govuk-table__row">
 				<td class="govuk-table__cell">2</td>
 				<td class="govuk-table__cell">{{data.manner_applications[1].manuretype.name}}</td>
-				<td class="govuk-table__cell">{{data.manner_applications[1].date}}</td>
 					<td class="govuk-table__cell">£10</td>
 					<td class="govuk-table__cell">£79</td>
 					<td class="govuk-table__cell">£36</td>
@@ -53,7 +48,6 @@
 			{% if (data.manner_applications | length) >= 2 %}
 				<tr class="total_row">
 					<td class="govuk-table__cell">Totals</td>
-					<td class="govuk-table__cell">-</td>
 					<td class="govuk-table__cell">-</td>
 					<td class="govuk-table__cell">£20</td>
 					<td class="govuk-table__cell">£158</td>

@@ -17,7 +17,12 @@
 
 {% block content %}
 
-  {% include "./templates/print.html" ignore missing %}
+<div class="govuk-grid-row noprint">
+  <div class="govuk-grid-column-full">
+    {% include "/templates/print.html" ignore missing %}
+  </div>
+</div>
+
   {% include "./templates/farm.html" ignore missing %}
 
   {% include "./templates/nutrients_table.html" ignore missing %}

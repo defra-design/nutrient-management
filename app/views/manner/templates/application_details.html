@@ -1,9 +1,11 @@
 <div class="margin-bottom-forty">
 	<h2 class="govuk-heading-m margin-bottom-ten">Manure type and date of application</h2>
-	<table class="govuk-table data-table">
+	<table class="govuk-table data-table width-66">
 		<thead class="govuk-table__head">
 			<tr>
-				<th scope="row" class="govuk-table__header">Application</th>
+			{% if (data.manner_applications | length) > 1 %}
+				<th scope="row" class="govuk-table__header application-ref-short"><span class="">Application</span></th>
+			{% endif %}
 				<th scope="row" class="govuk-table__header">Manure type</th>
 				<th scope="row" class="govuk-table__header">Date</th>
 			</tr>

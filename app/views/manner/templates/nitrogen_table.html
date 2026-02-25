@@ -4,7 +4,9 @@
 	<table class="govuk-table data-table">
 		<thead class="govuk-table__head">
 			<tr>
-				<th scope="row" class="govuk-table__header">Application</th>
+			{% if (data.manner_applications | length) > 1 %}
+				<th scope="row" class="govuk-table__header application-ref"><span class="">Application</span></th>
+			{% endif%}
 				<th scope="row" class="govuk-table__header">Total nitrogen (N)</th>
 				<th scope="row" class="govuk-table__header">Mineralised nitrogen (N)</th>
 				<th scope="row" class="govuk-table__header">Lost nitrate-N</th>
@@ -14,7 +16,9 @@
 		</thead>
 		<tbody class="govuk-table__body">
 			<tr>
+			{% if (data.manner_applications | length) > 1 %}
 				<td class="govuk-table__cell">1</td>
+			{% endif %}
 				<td class="govuk-table__cell">52kg</td>
 				<td class="govuk-table__cell">1kg</td>
 				<td class="govuk-table__cell">10kg</td>
@@ -61,10 +65,12 @@
 	<table class="govuk-table data-table">
 		<thead class="govuk-table__head">
 			<tr>
-				<th scope="row" class="govuk-table__header">Application</th>
-				<th scope="row" class="govuk-table__header">Current crop</th>
-				<th scope="row" class="govuk-table__header">Following crop - year 2</th>
-				<th scope="row" class="govuk-table__header">Nitrogen efficiency</th>
+			{% if (data.manner_applications | length) > 1 %}
+				<th scope="row" class="govuk-table__header application-ref"><span class="">Application</span></th>
+			{% endif %}	
+				<th scope="row" class="govuk-table__header">Current crop available nitrogen (N)</th>
+				<th scope="row" class="govuk-table__header">Following crop - year 2 available nitrogen (N)</th>
+				<th scope="row" class="govuk-table__header">Nitrogen use efficiency</th>
 			</tr>
 		</thead>
 		<tbody class="govuk-table__body">
@@ -110,7 +116,9 @@
 	<table class="govuk-table data-table">
 		<thead class="govuk-table__head">
 			<tr>
-				<th scope="row" class="govuk-table__header">Application</th>
+			{% if (data.manner_applications | length) > 1 %}
+				<th scope="row" class="govuk-table__header application-ref"><span class="">Application</span></th>
+			{% endif %}	
 				<th scope="row" class="govuk-table__header">Total phosphate (P2O5)</th>
 				<th scope="row" class="govuk-table__header">Total potash (K2O)</th>
 				<th scope="row" class="govuk-table__header">Total sulphur (SO3)</th>
@@ -119,7 +127,9 @@
 		</thead>
 		<tbody class="govuk-table__body">
 			<tr>
+			{% if (data.manner_applications | length) > 1 %}
 				<td class="govuk-table__cell">1</td>
+			{% endif %}
 				<td class="govuk-table__cell">24kg</td>
 				<td class="govuk-table__cell">12kg</td>
 				<td class="govuk-table__cell">64kg</td>
@@ -156,15 +166,17 @@
 	</table>
 </div>
 
-<h2 class="govuk-heading-m margin-bottom-ten">Crop available phosphate (P2O5), potash (K2O), sulphur (SO3)  <br> and magnesium (MgO)</h2>
+<h2 class="govuk-heading-m margin-bottom-ten">Crop available phosphate (P2O5), potash (K2O), sulphur (SO3)</h2>
 <p class="govuk-body  govuk-!-font-size-16">Values are per hectare.</p>
 <table class="govuk-table data-table margin-bottom-none">
 	<thead class="govuk-table__head">
 		<tr>
-			<th scope="row" class="govuk-table__header">Application</th>
-			<th scope="row" class="govuk-table__header">Available phosphate (P2O5)</th>
-			<th scope="row" class="govuk-table__header">Available potash (K2O)</th>
-			<th scope="row" class="govuk-table__header">Available sulphur (SO3)</th>
+			{% if (data.manner_applications | length) > 1 %}
+				<th scope="row" class="govuk-table__header application-ref"><span class="">Application</span></th>
+			{% endif %}	
+			<th scope="row" class="govuk-table__header">Crop available phosphate (P2O5)</th>
+			<th scope="row" class="govuk-table__header">Crop available potash (K2O)</th>
+			<th scope="row" class="govuk-table__header">Crop available sulphur (SO3)</th>
 		</tr>
 	</thead>
 	<tbody class="govuk-table__body">
@@ -213,11 +225,11 @@
 					<th scope="row" class="govuk-table__header">Application</th>
 				{% endif %}
 				<th scope="row" class="govuk-table__header">Total P2O5</th>
-				<th scope="row" class="govuk-table__header">Crop available P2O5</th>
+				<th scope="row" class="govuk-table__header">Crop available phosphate P2O5</th>
 				<th scope="row" class="govuk-table__header">Total K2O</th>
-				<th scope="row" class="govuk-table__header">Crop available K2O</th>
+				<th scope="row" class="govuk-table__header">Crop available potash K2O</th>
 				<th scope="row" class="govuk-table__header">Total SO3</th>
-				<th scope="row" class="govuk-table__header">Crop available SO3</th>
+				<th scope="row" class="govuk-table__header">Crop available sulphur SO3</th>
 				<th scope="row" class="govuk-table__header">Total MgO</th>
 			</tr>
 		</thead>

@@ -1,0 +1,50 @@
+<p class="govuk-body">
+  The potential financial value of the nutrients applied is 
+  {% if data.manner_applications | length == 1 %}
+    £125 per hectare.
+  {% else %}
+    £336 per hectare.
+  {% endif %}
+</p>
+
+<h3 class="govuk-heading-s margin-bottom-fifteen">Value breakdown</h3>
+<table class="govuk-table data-table margin-bottom-none">
+	<thead class="govuk-table__head">
+		<tr class="govuk-table__row">
+			{% if data.manner_applications | length > 1 %}
+			<th scope="row" class="govuk-table__header">Application</th>
+			{% endif %}
+			<th scope="row" class="govuk-table__header">Crop available N</th>
+			<th scope="row" class="govuk-table__header">Total P2O5</th>
+			<th scope="row" class="govuk-table__header">Total K2O</th>
+			<th scope="row" class="govuk-table__header">Total potential value</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="govuk-table__row">
+			{% if data.manner_applications | length > 1 %}
+				<td class="govuk-table__cell">1</td>
+			{% endif %}
+			<td class="govuk-table__cell">£10</td>
+			<td class="govuk-table__cell">£79</td>
+			<td class="govuk-table__cell">£36</td>
+			<td class="govuk-table__cell">£125</td>
+		</tr>
+		{% if data.manner_applications | length >1 %}
+			<tr class="govuk-table__row">
+			<td class="govuk-table__cell">2</td>
+				<td class="govuk-table__cell">£10</td>
+				<td class="govuk-table__cell">£79</td>
+				<td class="govuk-table__cell">£36</td>
+				<td class="govuk-table__cell">£125</td>
+			</tr>
+			<tr class="total_row">
+				<td class="govuk-table__cell">Totals</td>
+				<td class="govuk-table__cell">£20</td>
+				<td class="govuk-table__cell">£158</td>
+				<td class="govuk-table__cell">£72</td>
+				<td class="govuk-table__cell">£250</td>
+			</tr>
+			{% endif %}
+	</tbody>
+</table>

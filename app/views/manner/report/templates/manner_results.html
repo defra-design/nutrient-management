@@ -1,161 +1,117 @@
-<h2 class="govuk-heading-m">Available nitrogen (N)</h2>
-<table class="data-table govuk-table">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
+<div class="margin-bottom-forty">
+	<h2 class="govuk-heading-s margin-bottom-ten">Nitrogen (N)</h2>
+  <p class="govuk-body  govuk-!-font-size-16">Values are per hectare.</p>
+	<table class="govuk-table data-table">
+		<thead class="govuk-table__head">
+			<tr>
+				{% if data.manner_applications | length > 1 %}
+					<th scope="row" class="govuk-table__header">Application</th>
+				{% endif %}
+				<th scope="row" class="govuk-table__header">Total N</th>
+				<th scope="row" class="govuk-table__header">Mineralised N</th>
+				<th scope="row" class="govuk-table__header">Nitrate N lost</th>
+				<th scope="row" class="govuk-table__header">Ammonia N lost</th>
+				<th scope="row" class="govuk-table__header">Denitrified N lost</th>
+				<th scope="row" class="govuk-table__header">Current crop available N</th>
+				<th scope="row" class="govuk-table__header">Following crop in year 2 available N</th>
+				<th scope="row" class="govuk-table__header">Nitrogen use efficiency</th>
+			</tr>
+		</thead>
+		<tbody class="govuk-table__body">
+			<tr>
+				{% if data.manner_applications | length > 1 %}
+					<td class="govuk-table__cell">1</td>
+				{%	endif %}
+				<td class="govuk-table__cell">52kg</td>
+				<td class="govuk-table__cell">1kg</td>
+				<td class="govuk-table__cell">10kg</td>
+				<td class="govuk-table__cell">2kg</td>
+				<td class="govuk-table__cell">2kg</td>
+				<td class="govuk-table__cell">11kg</td>
+				<td class="govuk-table__cell">1kg</td>
+				<td class="govuk-table__cell">22%</td>
+			</tr>
       {% if data.manner_applications | length > 1 %}
-        <th scope="col" class="govuk-table__header">Application</th>
-      {% endif %}
-      <th scope="col" class="govuk-table__header">Manure type</th>
-      <th scope="col" class="govuk-table__header">Date</th>
-      <th scope="col" class="govuk-table__header">Total N</th>
-      <th scope="col" class="govuk-table__header">Mineralised N</th>
-      <th scope="col" class="govuk-table__header">Current crop available N</th>
-      <th scope="col" class="govuk-table__header">Following crop year 2 available N</th>
-      <th scope="col" class="govuk-table__header">N use efficiency</th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      {% if data.manner_applications | length > 1 %}
-        <td class="govuk-table__cell">1</td>
-      {% endif %}
-      <td class="govuk-table__cell">Cattle slurry</td>
-      <td class="govuk-table__cell">21/6/{{data.oaktree_farm.planning_year}}</td>
-      <td class="govuk-table__cell">52kg</td>
-      <td class="govuk-table__cell">1kg</td>
-      <td class="govuk-table__cell">10kg</td>
-      <td class="govuk-table__cell">1kg</td>
-      <td class="govuk-table__cell">22%</td>
-    </tr>
-    <tr class="govuk-table__row">
-      {% if data.manner_applications | length > 1 %}
-        <td class="govuk-table__cell">2</td>
-        <td class="govuk-table__cell">Pig slurry</td>
-        <td class="govuk-table__cell">21/6/{{data.oaktree_farm.planning_year}}</td>
-        <td class="govuk-table__cell">52kg</td>
-        <td class="govuk-table__cell">1kg</td>
-        <td class="govuk-table__cell">10kg</td>
-        <td class="govuk-table__cell">1kg</td>
-        <td class="govuk-table__cell">22%</td>
-      </tr>
-      <tr class="govuk-table__row">
-        <th scope="col" class="govuk-table__header">Totals</th>
-        <th scope="col" class="govuk-table__header">-</th>
-        <th scope="col" class="govuk-table__header">-</th>
-        <th scope="col" class="govuk-table__header">104kg</th>
-        <th scope="col" class="govuk-table__header">2kg</th>
-        <th scope="col" class="govuk-table__header">20kg</th>
-        <th scope="col" class="govuk-table__header">2kg</th>
-        <th scope="col" class="govuk-table__header">22%</th>
-      </tr>
-    {% endif %}
-  </tbody>
-</table>
+				<tr>
+					<td class="govuk-table__cell">2</td>
+					<td class="govuk-table__cell">52kg</td>
+					<td class="govuk-table__cell">1kg</td>
+					<td class="govuk-table__cell">10kg</td>
+					<td class="govuk-table__cell">2kg</td>
+					<td class="govuk-table__cell">2kg</td>
+					<td class="govuk-table__cell">11kg</td>
+					<td class="govuk-table__cell">1kg</td>
+					<td class="govuk-table__cell">22%</td>
+				</tr>
+				<tr class="total_row">
+					<td class="govuk-table__cell">Totals</td>
+					<td class="govuk-table__cell">52kg</td>
+					<td class="govuk-table__cell">1kg</td>
+					<td class="govuk-table__cell">10kg</td>
+					<td class="govuk-table__cell">2kg</td>
+					<td class="govuk-table__cell">2kg</td>
+					<td class="govuk-table__cell">11kg</td>
+					<td class="govuk-table__cell">1kg</td>
+					<td class="govuk-table__cell">22%</td>
+				</tr>
+			{% endif %}
+		</tbody>
+	</table>
+</div>
 
-<h2 class="govuk-heading-m">Nitrogen (N) losses and efficiency</h2>
-<table class="data-table govuk-table">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Application</th>
-      <th scope="col" class="govuk-table__header">Nitrate-N</th>
-      <th scope="col" class="govuk-table__header">Ammonia-N</th>
-      <th scope="col" class="govuk-table__header">Denitrified N</th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">1 - Cattle slurry - 21/6/{{data.oaktree_farm.planning_year}}</td>
-      <td class="govuk-table__cell">10kg</td>
-      <td class="govuk-table__cell">2kg</td>
-      <td class="govuk-table__cell">2kg</td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">2 - Pig slurry - 21/6/{{data.oaktree_farm.planning_year}}</td>
-      <td class="govuk-table__cell">10kg</td>
-      <td class="govuk-table__cell">2kg</td>
-      <td class="govuk-table__cell">2kg</td>
-    </tr>
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Totals</th>
-      <th scope="col" class="govuk-table__header">20kg</th>
-      <th scope="col" class="govuk-table__header">4kg</th>
-      <th scope="col" class="govuk-table__header">4kg</th>
-    </tr>
-    <!-- <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">2</th>
-      <td class="govuk-table__cell">31kg</td>
-      <td class="govuk-table__cell">3kg</td>
-      <td class="govuk-table__cell">9kg</td>
-      <td class="govuk-table__cell">49%</td>
-    </tr>
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">3</th>
-      <td class="govuk-table__cell">0</td>
-      <td class="govuk-table__cell">5kg</td>
-      <td class="govuk-table__cell">3kg</td>
-      <td class="govuk-table__cell">40%</td>
-    </tr> -->
-  </tbody>
-</table>
-
-<h2 class="govuk-heading-m">Other nutrients</h2>
-<table id="manner2" class="data-table govuk-table margin-bottom-forty">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Application</th>
-      <th scope="col" class="govuk-table__header">Total P2O5</th>
-      <th scope="col" class="govuk-table__header">Available P2O5</th>
-      <th scope="col" class="govuk-table__header">Total K2O</th>
-      <th scope="col" class="govuk-table__header">Available K2O</th>
-      <th scope="col" class="govuk-table__header">Total SO3</th>
-      <th scope="col" class="govuk-table__header">Total MgO</th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">1 - Cattle slurry - 21/6/{{data.oaktree_farm.planning_year}}</td>
-      <td class="govuk-table__cell">24kg</td>
-      <td class="govuk-table__cell">12kg</td>
-      <td class="govuk-table__cell">64kg</td>
-      <td class="govuk-table__cell">58kg</td>
-      <td class="govuk-table__cell">14kg</td>
-      <td class="govuk-table__cell">12kg</td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">2 - Pig slurry - 21/6/{{data.oaktree_farm.planning_year}}</td>
-      <td class="govuk-table__cell">24kg</td>
-      <td class="govuk-table__cell">12kg</td>
-      <td class="govuk-table__cell">64kg</td>
-      <td class="govuk-table__cell">58kg</td>
-      <td class="govuk-table__cell">14kg</td>
-      <td class="govuk-table__cell">12kg</td>
-    </tr>
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Total</th>
-      <th scope="col" class="govuk-table__header">48kg</th>
-      <th scope="col" class="govuk-table__header">24kg</th>
-      <th scope="col" class="govuk-table__header">128kg</th>
-      <th scope="col" class="govuk-table__header">116kg</th>
-      <th scope="col" class="govuk-table__header">28kg</th>
-      <th scope="col" class="govuk-table__header">24kg</th>
-    </tr>
-    <!-- <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">2</th>
-      <td class="govuk-table__cell">90kg</td>
-      <td class="govuk-table__cell">45kg</td>
-      <td class="govuk-table__cell">120kg</td>
-      <td class="govuk-table__cell">108kg</td>
-      <td class="govuk-table__cell">50kg</td>
-      <td class="govuk-table__cell">35kg</td>
-    </tr>
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">3</th>
-      <td class="govuk-table__cell">150kg</td>
-      <td class="govuk-table__cell">75kg</td>
-      <td class="govuk-table__cell">5kg</td>
-      <td class="govuk-table__cell">4kg</td>
-      <td class="govuk-table__cell">50kg</td>
-      <td class="govuk-table__cell">15kg</td>
-    </tr> -->
-  </tbody>
+<h2 class="govuk-heading-s margin-bottom-ten">
+	Phosphate (P2O5), potash (K2O), sulphur (SO3) and magnesium (MgO)
+</h2>
+<p class="govuk-body  govuk-!-font-size-16">Values are per hectare.</p>
+<table class="govuk-table data-table margin-bottom-none">
+	<thead class="govuk-table__head">
+		<tr>
+			{% if data.manner_applications | length > 1 %}
+			<th scope="row" class="govuk-table__header">Application</th>
+			{% endif %}
+			<th scope="row" class="govuk-table__header">Total P2O5</th>
+			<th scope="row" class="govuk-table__header">Crop available P2O5</th>
+			<th scope="row" class="govuk-table__header">Total K2O</th>
+			<th scope="row" class="govuk-table__header">Crop available K2O</th>
+			<th scope="row" class="govuk-table__header">Total SO3</th>
+			<th scope="row" class="govuk-table__header">Crop available SO3</th>
+			<th scope="row" class="govuk-table__header">Total MgO</th>
+		</tr>
+	</thead>
+	<tbody class="govuk-table__body">
+		<tr>
+			{% if data.manner_applications | length > 1 %}
+				<td class="govuk-table__cell">1</td>
+			{%endif %}
+			<td class="govuk-table__cell">24kg</td>
+			<td class="govuk-table__cell">12kg</td>
+			<td class="govuk-table__cell">64kg</td>
+			<td class="govuk-table__cell">58kg</td>
+			<td class="govuk-table__cell">14kg</td>
+			<td class="govuk-table__cell">14kg</td>
+			<td class="govuk-table__cell">12kg</td>
+		</tr>
+		{% if data.manner_applications | length > 1 %}
+			<tr>
+				<td class="govuk-table__cell">2</td>
+				<td class="govuk-table__cell">24kg</td>
+				<td class="govuk-table__cell">12kg</td>
+				<td class="govuk-table__cell">64kg</td>
+				<td class="govuk-table__cell">58kg</td>
+				<td class="govuk-table__cell">14kg</td>
+				<td class="govuk-table__cell">14kg</td>
+				<td class="govuk-table__cell">12kg</td>
+			</tr>
+			<tr class="total_row">
+				<th scope="row" class="govuk-table__header">Totals</th>
+				<th scope="row" class="govuk-table__header">48kg</th>
+				<th scope="row" class="govuk-table__header">24kg</th>
+				<th scope="row" class="govuk-table__header">1284kg</th>
+				<th scope="row" class="govuk-table__header">1166kg</th>
+				<th scope="row" class="govuk-table__header">28kg</th>
+				<th scope="row" class="govuk-table__header">28kg</th>
+				<th scope="row" class="govuk-table__header">24kg</th>
+			</tr>
+			{% endif %}
+	</tbody>
 </table>

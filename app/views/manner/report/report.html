@@ -27,7 +27,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full nmax_header margin-bottom-twenty">
-    <h1 class="govuk-heading-xl">Estimate of nutrient supply from organic materials</h1>
+    <h1 class="govuk-heading-l">Estimate of nutrient supply from organic materials</h1>
     <p class="govuk-body">Created on 24 February {{data.oaktree_farm.planning_year}}</p>
   </div>
 </div>
@@ -35,35 +35,28 @@
 <div class="govuk-grid-row margin-bottom-forty">
   <div class="govuk-grid-column-full">
     <h2 class="govuk-heading-m">Farm, field and crop details</h2>
-    {% include "./templates/field_details.html" ignore missing %}
+    {% include "./templates/farm_field_details.html" ignore missing %}
   </div>
 </div>
 
 <div class="govuk-grid-row margin-bottom-forty">
   <div class="govuk-grid-column-full">
-    <h2 class="govuk-heading-m">Field and crop details</h2>
-    {% include "./templates/field_details.html" ignore missing %}
+    <h2 class="govuk-heading-m">Organic material applications</h2>
+    {% include "./templates/organic_material.html" ignore missing %}
   </div>
 </div>
 
 <div class="govuk-grid-row margin-bottom-forty">
   <div class="govuk-grid-column-full">
-    <h2 class="govuk-heading-l">Organic material applications</h2>
-    {% include "./templates/application_1_details.html" ignore missing %}
+    <h2 class="govuk-heading-m">MANNER-NPK results</h2>
+    {% include "./templates/manner_results.html ignore missing" %}
   </div>
 </div>
 
 <div class="govuk-grid-row margin-bottom-forty">
   <div class="govuk-grid-column-full">
-    <h2 class="govuk-heading-l">MANNER-NPK results</h2>
-    {% include "../templates/nitrogen_table.html ignore missing" %}
-  </div>
-</div>
-
-<div class="govuk-grid-row margin-bottom-forty">
-  <div class="govuk-grid-column-full">
-    <h2 class="govuk-heading-l">Organic material value</h2>
-    {% include "./templates/manure_value_table.html ignore missing" %}
+    <h2 class="govuk-heading-m">Organic material value</h2>
+    {% include "./templates/value_table.html ignore missing" %}
   </div>
 </div>
   

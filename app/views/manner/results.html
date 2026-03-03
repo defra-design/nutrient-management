@@ -38,7 +38,7 @@
 <div class="govuk-grid-row margin-bottom-forty">
   <div class="govuk-grid-column-two-thirds-from-desktop">
     <p class="govuk-body">
-      <a href="/manner/manure_group">Add another manure application to this estimate</a>
+      <a href="/manner/manure_group">Add another manure application to this field</a>
     </p>
     {% if (data.manner_applications | length) != 1 %}
       <p class="govuk-body">
@@ -49,7 +49,7 @@
       <a href="report/report">Export or print this estimate</a>
     </p>
     <p class="govuk-body">
-      <a href="/manner/previous_calculations">View previous estimates, or create a new one</a>
+      <a href="/manner/previous_calculations">View all estimates, or create a new one</a>
     </p>
   </div>
 </div>
@@ -102,7 +102,7 @@
         <h2 class="govuk-heading-l">Farm, field and crop</h2>
         <p class="govuk-body">
           <!-- Changing any details here will only update this estimate. -->
-          Any changes you make to the farm or field details will only be saved for this estimate.
+          <!-- Any changes you make to the farm or field details will only be saved for this estimate. -->
         </p>
         {% include "./templates/farm_field.html ignore missing" %}
       </div>

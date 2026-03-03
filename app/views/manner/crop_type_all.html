@@ -26,18 +26,13 @@
         {% elif data.crop_group == 'potatoes' %}
           Which potato variety group would you like to use?
         {% else %}
-          Which 
-          {% if data.crop_group == 'cereals' %}
-            cereal
-          {% else %}
-            {{data.crop_group}} 
-          {% endif %}
-          would you like to use?
+          Which crop type would you like to plan for?        
         {% endif %}
       </h1>
 
-      <p class="govuk-hint">Select one option. These options come from the AHDB Nutrient Management
-Guide (RB209).</p>
+      <p class="govuk-hint">
+        Select one option. These are the crop types from the AHDB Nutrient Management Guide (RB209).
+      </p>
 
 
       {% if data.crop_group == 'potatoes' %}

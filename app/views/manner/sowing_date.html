@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+   Question – Add crops -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  {% if data.manure_spreads == 0 %}
+    {% set manure_count = "first" %}
+  {% else %}
+    {% set manure_count = "Continue" %}
+  {% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <h1 class="govuk-heading-l">
+      What is the planting date for Winter Wheat in Long field?
+    </h1>
+
+    <form class="form" action="manure_group" method="post">
+      <div class="govuk-form-group">
+        <div id="sow_date_hint" class="govuk-hint">
+          For example, {{ data.example_date }}
+        </div>
+        <div class="govuk-date-input" id="sow-date">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="sow_date_day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="sow_date_day" name="sow_date_day" type="number" autocomplete="off" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="sow_date_month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="sow_date_month" name="sow_date_month" type="number" autocomplete="off" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="sow_date_year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="sow_date_year" name="sow_date_year" type="number" autocomplete="off" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

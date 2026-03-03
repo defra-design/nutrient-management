@@ -25,7 +25,9 @@
         How long is there between application and incorporation for your {{data.manure_type.name}}?
       </h1>
 
-      <p></p>
+      <p class="govuk-hint">
+        Select one option
+      </p>
 
       <form class="form" action="rain_defaults" method="post">
 
@@ -79,14 +81,21 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="3days" name="manure_delay" type="radio" value="More than 7 days">
                 <label class="govuk-label govuk-radios__label" for="3days">
-                  3 to 7 days            
+                  3 to 5 days            
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="3days" name="manure_delay" type="radio" value="More than 7 days">
+                <label class="govuk-label govuk-radios__label" for="3days">
+                  6 to 12 days            
                 </label>
               </div>
 
               <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="7days" name="manure_delay" type="radio" value="More than 7 days">
               <label class="govuk-label govuk-radios__label" for="7days">
-                More than 7 days            
+                More than 12 days            
               </label>
             </div>
 <!-- 

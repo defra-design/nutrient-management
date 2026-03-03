@@ -1,0 +1,86 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_signed_in_start.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full margin-bottom-twenty">
+    <h1 class="govuk-heading-l">
+      Select the part of this tool you want to use
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half">
+    <div class="grey_box">
+      <h2 class="govuk-heading-m">
+        Nutrient management plans and Nitrate Vulnerable Zone (NVZ) reports
+      </h2>
+      <p class="govuk-body">Create a nutrient management plan, or a Nitrate Vulnerable Zone (NVZ) report.</p>
+      <form class="form" action="" method="post">
+        <button type="" class="govuk-button govuk-button" data-module="govuk-button">
+          Create a nutrient management plan or a report
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <div class="grey_box">
+      <h2 class="govuk-heading-m">
+        Nutrient supply estimates (using MANNER NPK)
+      </h2>
+      <p class="govuk-body">Create an estimate of nutrient supply from organic materials (using MANNER NPK).</p>
+      <form class="form" action="" method="post">
+        <button type="" class="govuk-button govuk-button" data-module="govuk-button">
+          Create a nutrient supply estimate
+        </button>
+      </form>
+    </div>
+  </div>
+  
+</div>
+
+
+    
+    
+      <!-- <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="nmpt">
+              <label class="govuk-label govuk-radios__label" for="changedName">
+                
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="manner">
+              <label class="govuk-label govuk-radios__label" for="changedName-2">
+                
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div> -->
+      
+
+  </div>
+</div>
+
+{% endblock %}

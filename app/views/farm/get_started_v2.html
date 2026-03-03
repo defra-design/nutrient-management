@@ -1,0 +1,32 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – "{{ serviceName }}" – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_signed_in_planning.html" ignore missing %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Plan and manage nutrient applications</h1>
+
+      <h2 class="govuk-heading-m">Nutrient management plans and NVZ reports</h2>
+      <p class="govuk-body">Add a farm to start creating nutrient management plans.</p>
+      <p class="govuk-body"><a href="">Create a nutrient management plan</a></p>
+
+      <hr class="separator_thirty">
+
+      <h2 class="govuk-heading-m">Nutrient supply estimates from organic materials</h2>
+      <p class="govuk-body">Add basic details to create an estimate of nutrient supply, and their potential financial value.</p>
+      <p class="govuk-body"><a href="">Create an estimate of nutrient supply</a></p>
+
+
+  </div>
+</div>
+
+{% endblock %}

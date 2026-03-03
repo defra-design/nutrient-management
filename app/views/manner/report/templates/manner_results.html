@@ -1,5 +1,5 @@
 <div class="margin-bottom-forty">
-	<h2 class="govuk-heading-s margin-bottom-ten">Total nitrogen (N) and nitrogen (N) losses</h2>
+	<h2 class="govuk-heading-s margin-bottom-ten">Total and crop available nitrogen (N)</h2>
   <p class="govuk-body  govuk-!-font-size-16">Values are per hectare.</p>
 	<table class="govuk-table data-table">
 		<thead class="govuk-table__head">
@@ -8,56 +8,8 @@
 					<th scope="row" class="govuk-table__header application-ref">Application</th>
 				{% endif %}
 				<th scope="row" class="govuk-table__header">Total nitrogen (N)</th>
-				<th scope="row" class="govuk-table__header">Mineralised nitrogen (N)</th>
-				<th scope="row" class="govuk-table__header">Lost nitrate-N </th>
-				<th scope="row" class="govuk-table__header">Lost ammonia-N</th>
-				<th scope="row" class="govuk-table__header">Lost denitrified-N </th>
-			</tr>
-		</thead>
-		<tbody class="govuk-table__body">
-			<tr>
-				{% if data.manner_applications | length > 1 %}
-					<td class="govuk-table__cell">1</td>
-				{%	endif %}
-				<td class="govuk-table__cell">52kg</td>
-				<td class="govuk-table__cell">1kg</td>
-				<td class="govuk-table__cell">10kg</td>
-				<td class="govuk-table__cell">2kg</td>
-				<td class="govuk-table__cell">2kg</td>
-			</tr>
-      {% if data.manner_applications | length > 1 %}
-				<tr>
-					<td class="govuk-table__cell">2</td>
-					<td class="govuk-table__cell">52kg</td>
-					<td class="govuk-table__cell">1kg</td>
-					<td class="govuk-table__cell">10kg</td>
-					<td class="govuk-table__cell">2kg</td>
-					<td class="govuk-table__cell">2kg</td>
-				</tr>
-				<tr class="total_row">
-					<td class="govuk-table__cell">Totals</td>
-					<td class="govuk-table__cell">52kg</td>
-					<td class="govuk-table__cell">1kg</td>
-					<td class="govuk-table__cell">10kg</td>
-					<td class="govuk-table__cell">2kg</td>
-					<td class="govuk-table__cell">2kg</td>
-				</tr>
-			{% endif %}
-		</tbody>
-	</table>
-</div>
-
-<div class="margin-bottom-forty">
-	<h2 class="govuk-heading-s margin-bottom-ten">Crop available nitrogen (N)</h2>
-  <p class="govuk-body  govuk-!-font-size-16">Values are per hectare.</p>
-	<table class="govuk-table data-table">
-		<thead class="govuk-table__head">
-			<tr>
-				{% if data.manner_applications | length > 1 %}
-					<th scope="row" class="govuk-table__header application-ref">Application</th>
-				{% endif %}
-				<th scope="row" class="govuk-table__header">Current crop available<br>nitrogen (N)</th>
-				<th scope="row" class="govuk-table__header">Following crop in year 2 available<br>nitrogen (N)</th>
+				<th scope="row" class="govuk-table__header">Crop available nitrogen (N) Current crop</th>
+				<th scope="row" class="govuk-table__header">Crop available nitrogen (N) Following crop year 2</th>
 				<th scope="row" class="govuk-table__header">Nitrogen use efficiency</th>
 			</tr>
 		</thead>
@@ -66,22 +18,25 @@
 				{% if data.manner_applications | length > 1 %}
 					<td class="govuk-table__cell">1</td>
 				{%	endif %}
-				<td class="govuk-table__cell">11kg</td>
-				<td class="govuk-table__cell">1kg</td>
+				<td class="govuk-table__cell">10kg</td>
+				<td class="govuk-table__cell">10kg</td>
+				<td class="govuk-table__cell">10kg</td>
 				<td class="govuk-table__cell">22%</td>
 			</tr>
       {% if data.manner_applications | length > 1 %}
 				<tr>
 					<td class="govuk-table__cell">2</td>
-					<td class="govuk-table__cell">11kg</td>
-					<td class="govuk-table__cell">1kg</td>
-					<td class="govuk-table__cell">22%</td>
+				<td class="govuk-table__cell">10kg</td>
+				<td class="govuk-table__cell">10kg</td>
+				<td class="govuk-table__cell">10kg</td>
+				<td class="govuk-table__cell">22%</td>
 				</tr>
 				<tr class="total_row">
 					<td class="govuk-table__cell">Totals</td>
-					<td class="govuk-table__cell">11kg</td>
-					<td class="govuk-table__cell">1kg</td>
-					<td class="govuk-table__cell">22%</td>
+				<td class="govuk-table__cell">20kg</td>
+				<td class="govuk-table__cell">20kg</td>
+				<td class="govuk-table__cell">20kg</td>
+				<td class="govuk-table__cell">22%</td>
 				</tr>
 			{% endif %}
 		</tbody>
@@ -89,7 +44,7 @@
 </div>
 
 <h2 class="govuk-heading-s margin-bottom-ten">
-	Total phosphate (P2O5), potash (K2O), sulphur (SO3) and magnesium (MgO)
+	Phosphate (P2O5), potash (K2O), sulphur (SO3) and magnesium (MgO)
 </h2>
 <p class="govuk-body  govuk-!-font-size-16">Values are per hectare.</p>
 <table class="govuk-table data-table margin-bottom-forty">

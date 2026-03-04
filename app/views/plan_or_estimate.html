@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/templates/headers/header_farm.html" ignore missing %}
+  {% include "/templates/headers/header_signed_in_first.html" ignore missing %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,12 +21,19 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      What do you want to do today?
+      Which tool do you want to use?
     </h1>
 
-    <!-- <p class="govuk-body">
-      The updated information will not be saved unless you select update this crop group.
-    </p> -->
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          About these tools
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        [content]
+      </div>
+    </details>
 
     <form class="form" action="" method="post">
     
@@ -36,14 +43,20 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
               <label class="govuk-label govuk-radios__label" for="changedName">
-                Create a nutrient management plan or an NVZ report for a farm
+                Create a nutrient management plan or Nitrate Vulnerable Zone (NVZ) report
               </label>
+              <!-- <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                Create nutrient manament plan 
+              </div> -->
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
               <label class="govuk-label govuk-radios__label" for="changedName-2">
-                Create a quick estimate of nutrient supply from organic materials (using MANNER-NPK)
+                Create a nutrient supply estimate (using MANNER-NPK)
               </label>
+              <!-- <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before
+              </div> -->
             </div>
           </div>
         </fieldset>

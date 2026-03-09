@@ -10,6 +10,23 @@
 
 {% block content %}
 
+{% macro estimates() %}
+  <h2 class="govuk-heading-s margin-bottom-ten padding-top-five">Nutrient supply estimates</h2>
+  <p class="govuk-body margin-bottom-ten">
+    Estimate nutrient supply from organic materials, and their potential financial value.
+  </p>
+  <p class="govuk-body margin-bottom-ten">
+    {% if data.manner_applications.length == 0 %}
+      <a class="govuk-link" href="/manner/about_manner">Create a nutrient supply estimate</a>
+    {% else %}
+      <a class="govuk-link" href="/manner/previous_calculations">Create a nutrient supply estimate</a> 
+    {% endif %}
+  </p> 
+  <p class="govuk-body">
+    Estimates are created using the MANNER-NPK nutrient calculation engine.
+  </p> 
+{% endmacro %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
     {% if data.show_success_message == true %}
@@ -71,7 +88,9 @@
       </form>
     {% endif %}
 
-  </div>
+    <div class="govuk-grid-column-one-third">
+      {{ estimates() }}
+    </div>
 
   <div class="govuk-grid-column-one-third">
 
@@ -96,6 +115,6 @@
     </p> 
 
   </div>
-</div>
 
+{% endif %}
 {% endblock %}

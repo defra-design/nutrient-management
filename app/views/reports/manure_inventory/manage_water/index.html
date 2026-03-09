@@ -15,7 +15,7 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK
   {% if data.export_type == 8 %}
     {% set back_url = '/reports/manure_inventory/checklist' %}
   {% elif data.export_type == 4 %}
-    {% set back_url = '/outputs/n_loading/checklist' %}
+    {% set back_url = '/reports/n_loading/checklist' %}
   {% endif %}  
 
   {{ govukBackLink({

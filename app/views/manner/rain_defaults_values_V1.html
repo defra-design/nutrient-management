@@ -1,0 +1,111 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_manner.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Weather conditions at the time of application
+      </h1>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label"  for="changedName">
+          Rainfall within 6 hours of application
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" value="0"spellcheck="false">
+          <div class="govuk-input__suffix" aria-hidden="true">mm</div>
+        </div>
+      </div>
+      
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="changedName">
+          End of soil drainage
+        </label>
+        <div id="passport-issued-hint" class="govuk-hint">
+          For example, 27 3 2007
+        </div>
+        <div class="govuk-date-input" id="passport-issued">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>      
+      
+      <div class="govuk-form-group">
+        <label class="govuk-label  for="changedName">
+          Rainfall between application date and end of soil drainage
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+          <div class="govuk-input__suffix" aria-hidden="true">mm</div>
+        </div>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label  for="changedName">
+          Wind speed during application
+        </label>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label  for="changedName">
+          Topsoil moisture
+        </label>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label  for="changedName">
+          Autumn crop nitrogen (N) uptake
+        </label>
+      </div>
+
+      <form action="manner_results_handler" method="post" novalidate="">
+        <button type="submit" class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/farm/farms">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

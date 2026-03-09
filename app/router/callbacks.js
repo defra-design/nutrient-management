@@ -14,7 +14,7 @@ const hideSuccessMessage = function (req, res, next) {
 }
 
 const setManureGroup = function (req, res, next) {
-    if (req.session.data.manure_group_id == "livestock") {
+    if (req.session.data.manure_group_id == null || req.session.data.manure_group_id == "livestock") {
         req.session.data.manure_types = req.session.data.manure_type_livestock_data
     } else if (req.session.data.manure_group_id == "biosolids") {
         req.session.data.manure_types = req.session.data.manure_type_biosolid_data
@@ -23,27 +23,16 @@ const setManureGroup = function (req, res, next) {
     } else if (req.session.data.manure_group_id == "digestate") {
         req.session.data.manure_types = req.session.data.manure_type_digestate_data
     }
-    // console.log('manure types = ' + req.session.data.manure_types)
     next()
 }
-
-const default_grass_values = function (req, res, next) {
-    // if (req.session.data.crop_fields == null || req.session.data.crop_fields == []) {
-    //     req.session.data.crop_fields = ['Long Field', 'Short Field']
-    // }
-    next()
-} 
 
 const getApplicationByReference = function (req, res, next) {
     req.session.data.application_ref = req.query.applicationref
-    // console.log('Application Ref = ' + req.session.data.application_ref)
     next()
 }
-
 
 module.exports.hide_error = hide_error;
 module.exports.showSuccessMessage = showSuccessMessage;
 module.exports.hideSuccessMessage = hideSuccessMessage;
 module.exports.setManureGroup = setManureGroup;
-module.exports.default_grass_values = default_grass_values;
 module.exports.getApplicationByReference = getApplicationByReference;

@@ -28,82 +28,86 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl margin-bottom-twenty">
-      <!-- <span class="govuk-caption-l">Estimate nutrient supply from organic materials (MANNER-NPK) </span> -->
       Estimate of nutrient supply from organic materials
     </h1>
-    <p class="govul-s margin-bottom-thirty">Last updated 01 December 2025</p>
+    <p class="govuk-body-s margin-bottom-thirty">Last updated 01 December 2025</p>
   </div>
 </div>
 
+<!-- Menu -->
 <div class="govuk-grid-row margin-bottom-forty">
   <div class="govuk-grid-column-two-thirds-from-desktop">
-
-    <p class="govuk-body"><a href="/manner/manure_group">Add another application to this estimate</a></p>
-    
+    <p class="govuk-body">
+      <a href="/manner/manure_group">Add another manure application to this field</a>
+    </p>
     {% if (data.manner_applications | length) != 1 %}
-      <p class="govuk-body"><a href="">Remove an application from this estimate</a></p>
+      <p class="govuk-body">
+        <a href="">Remove an application</a>
+      </p>
     {% endif %}
-
-   <p class="govuk-body"><a href="report/report">Export or print these results</a></p>
-   <p class="govuk-body"><a href="/manner/previous_calculations">Create a new estimate</a></p>
-   </div>
+    <p class="govuk-body">
+      <a href="report/report">Export or print this estimate</a>
+    </p>
+    <p class="govuk-body">
+      <a href="/manner/previous_calculations">View all estimates, or create a new one</a>
+    </p>
+  </div>
 </div>
-
-<!-- <p class="govuk-button">Apply to the {{data.oaktree_farm.planning_year}} plan</p> -->
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
+    <div class="govuk-tabs" data-module="govuk-tabs">
 
-   <div class="govuk-tabs" data-module="govuk-tabs">
-
-    <ul class="govuk-tabs__list">
-      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-        <a class="govuk-tabs__tab" href="#nutrients">Nutrients</a>
-      </li>
-      <li class="govuk-tabs__list-item">
-        <a class="govuk-tabs__tab" href="#value">Financial value</a>
-      </li>
-      <li class="govuk-tabs__list-item">
-        <a class="govuk-tabs__tab" href="#farm">Farm, field and crop</a>
-      </li>
-
-      {% if (data.manner_applications | length) == 2 %} 
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#answers1">Application 1 details</a>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#nutrients">Nutrients</a>
         </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#value">Financial value</a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#farm">Farm, field and crop</a>
+        </li>
+        {% if (data.manner_applications | length) == 2 %} 
           <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#answers2">Application 2 details</a>
-        </li>
-      {% else %}
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#answers1">Application details</a>
-        </li>
-      {% endif %}
-    </ul>
+            <a class="govuk-tabs__tab" href="#answers1">Application 1 details</a>
+          </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#answers2">Application 2 details</a>
+          </li>
+        {% else %}
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#answers1">Application details</a>
+          </li>
+        {% endif %}
+      </ul>
 
-    <!-- nutrients -->
-    <div class="govuk-tabs__panel" id="nutrients">
-      <h2 class="govuk-heading-l">Nutrients</h2>
-      {% include "./templates/nitrogen_table.html ignore missing" %}
-    </div>
+      <!-- nutrients -->
+      <div class="govuk-tabs__panel" id="nutrients">
+        <h2 class="govuk-heading-l">Nutrients</h2>
+        {% include "./templates/application_details.html ignore missing" %}
+        <div class="margin-bottom-forty">
+          {% include "./templates/nitrogen_table.html ignore missing" %}
+        </div>
+      </div>
 
-    <!-- value -->
-    <div class="govuk-tabs__panel clearfix govuk-tabs__panel--hidden" id="value">
-      {% include "./templates/manure_value_table.html ignore missing" %}
-      {% include "./templates/price_data.html ignore missing" %}
-    </div>
+      <!-- value -->
+      <div class="govuk-tabs__panel clearfix govuk-tabs__panel--hidden" id="value">
+        {% include "./templates/manure_value_table.html ignore missing" %}
+        {% include "./templates/price_data.html ignore missing" %}
+      </div>
 
-    <!-- farm -->
-    <div class="govuk-tabs__panel" id="farm">
-      <h2 class="govuk-heading-l">Farm, field and crop</h2>
-      <p class="govuk-body">
-        <!-- Changing any details here will only update this estimate. -->
-        Any changes you make to the farm or field details will only be saved for this estimate.
-      </p>
-      {% include "./templates/farm_field.html ignore missing" %}
-    </div>
+      <!-- farm -->
+      <div class="govuk-tabs__panel" id="farm">
+        <h2 class="govuk-heading-l">Farm, field and crop</h2>
+        <p class="govuk-body">
+          <!-- Changing any details here will only update this estimate. -->
+          Any changes you make to the farm or field details here will only be saved for this estimate.
+        </p>
+        {% include "./templates/farm_field.html ignore missing" %}
+      </div>
 
-    <!-- applications -->
+      <!-- applications -->
       {% if (data.manner_applications | length) == 2 %} 
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
           <h2 class="govuk-heading-l">Application 1 details</h2>

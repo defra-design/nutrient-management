@@ -170,20 +170,20 @@ router.get(/exportcheck_handler/, function (req, res) {
 })
 
 router.get(/export_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
+	let next = '/add_export/export_type'
   if (req.session.data.oaktree_farm.manure_exports == true || req.session.data.oaktree_farm.manure_imports == true ) {
-      res.redirect('manage_exports')
-  } else {
-      res.redirect('../../add_export/export_type')
-  }
+  	next = 'manage_exports'
+  } 
+    res.redirect(next)
 })
 
 router.get(/get_manure_type_handler/, function (req, res) {
   //get object
   console.log('manure type ' + req.session.data.manure_type)
   for (var x in req.session.data.manure_types ) {
-      if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
-          req.session.data.manure_type = req.session.data.manure_types[x]
-      }
+		if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
+				req.session.data.manure_type = req.session.data.manure_types[x]
+		}
   }
   console.log('manure type name' + req.session.data.manure_type.name)
   res.redirect('date')

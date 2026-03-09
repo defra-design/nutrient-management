@@ -331,6 +331,10 @@ hr.medium_separator {
     margin-bottom: 20px;
 }
 
+.margin-bottom-fifteen {
+    margin-bottom: 15px;
+}
+
 .margin-bottom-thirty {
     margin-bottom: 30px;
 }
@@ -676,11 +680,16 @@ h2.manure-date {
     }
 }
 
-.half-table-right{
+
+.half-table-right {
     padding-left: 25px;
     th {
         width: 65%;
     }
+}
+
+.scot {
+    width: 70%!important;
 }
 
 .report-planned-table {
@@ -1398,4 +1407,23 @@ th.wide, td.wide {
     th:nth-child(2) {
         width: 14%;
     }
+}
+
+.width-66 {
+    width:66%;
+}
+
+.application-ref {
+    width: 14%;
+}
+.application-ref-short {
+    width: 21%;
+}
+
+.grey_box {
+    background-color: 	#f3f3f3; 
+    width: 92%;
+    padding: 4%;
+    border-bottom: 4px solid #858686;
+    min-height: 200px;
 }

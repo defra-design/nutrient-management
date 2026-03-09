@@ -29,65 +29,72 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <!-- no farms added -->
-    {% if data.oaktree_farm.setup == false %}
+    <h2 class="govuk-heading-m">        
+      Nutrient management plans and Nitrate Vulnerable Zone (NVZ) reports
+    </h2>
 
-      <p class="govuk-body margin-bottom-ten">
-        Create a nutrient management plan by first adding a farm.
-      </p>
+    {% if data.oaktree_farm.setup == true %}
 
-      <p class="govuk-body margin-bottom-thirty">
-        You can then create NVZ reports for that farm.
-      </p>
-      
-      <form class="form" action="about_nmpt" method="post">
-        {{ govukButton({
-          text: "Create a nutrient management plan"
-        }) }}
-      </form>
+    <p class="govuk-body">
+      Select a farm to create or update a nutrient management plan, <br>or to save an NVZ report.
+    </p>
+
+    <h3 class="govuk-heading-s margin-top-none">
+      Your farms
+    </h3>
+
+    <ul class="govuk-list govuk-list--spaced">
+      <li>          
+        <a class="govuk-notification-banner__link" href="hub_message_reset"> {{data.oaktree_farm.name}}</a> 
+      </li>              
+      <li>          
+        <a class="govuk-notification-banner__link" href=""> Dusty Farm</a> 
+      </li>
+      <li>          
+        <a class="govuk-notification-banner__link" href=""> Hopper's Farm</a> 
+      </li>              
+    </ul>
+
+    <p class="govuk-body">
+      You can also <a class="govuk-link" href="/add-farm/name">add a new farm</a>.
+    </p>
 
     {% else %}
-
-      <!-- farms added -->
-      <p class="govuk-hint">
-        To create or update a nutrient management plan, or to save an NVZ report, select an existing farm. You can also add a new farm.
+      <p class="govuk-body">
+        To create a nutrient management plan, first add a farm. You can then create NVZ reports for the farm.
       </p>
-
-      <form class="form" action="/add-farm/name" method="post">
-        {{ govukButton({
-          text: "Add a new farm"
-        }) }}
+    
+      <form class="form margin-bottom-thirty" action="about_nmpt" method="post">
+        <button type="submit" class="govuk-button margin-bottom-none" data-module="govuk-button">
+          Create a nutrient management plan
+        </button>
       </form>
-      
-      <h2 class="govuk-heading-m">Your farms</h2>
-      <ul class="govuk-list govuk-list--spaced margin-bottom-thirty">
-        <li>          
-          <a class="govuk-notification-banner__link" href="hub_message_reset"> {{data.oaktree_farm.name}}</a> 
-        </li>              
-        <li>          
-          <a class="govuk-notification-banner__link" href=""> Dusty Farm</a> 
-        </li>
-        <li>          
-          <a class="govuk-notification-banner__link" href=""> Hopper's Farm</a> 
-        </li>              
-      </ul>
-      
     {% endif %}
 
   </div>
 
   <div class="govuk-grid-column-one-third">
-    <h2 class="govuk-heading-s margin-bottom-ten padding-top-five">Other options</h2>
-    <p class="govuk-body margin-bottom-five">
+
+    <h2 class="govuk-heading-s margin-bottom-ten padding-top-five">
+      Nutrient supply estimates
+    </h2>
+
+    <p class="govuk-body margin-bottom-ten">
+      You can also estimate nutrient supply from organic materials, and their potential financial value.
+    </p>
+
+    <p class="govuk-body margin-bottom-ten">
       {% if data.manner_applications.length == 0 %}
-        <a class="govuk-link" href="/manner/about_manner">Estimate the nutrient supply from organic materials</a>
+        <a class="govuk-link" href="/manner/about_manner">Create a nutrient supply estimate</a>
       {% else %}
-        <a class="govuk-link" href="/manner/previous_calculations">Estimate the nutrient supply from organic materials</a> 
+        <a class="govuk-link" href="/manner/previous_calculations">Create a nutrient supply estimate</a> 
       {% endif %}
     </p> 
-    <p class="govuk-body margin-bottom-ten">
-      (using MANNER-NPK)
+
+    <p class="govuk-body">
+      Estimates are created using the MANNER-NPK nutrient calculation engine.
     </p> 
+
   </div>
 </div>
 

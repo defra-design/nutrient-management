@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – Add a field -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_manner.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+{% macro soil_type(name, id) %}
+<div class="govuk-radios__item">
+  <input class="govuk-radios__input" id={{id}} name="topsoil" type="radio" value={{id}}>
+  <label class="govuk-label govuk-radios__label" for={{id}}>{{name}}</label>
+</div>
+{% endmacro %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      What is the topsoil type in {{data.temp_field_name}}?
+    </h1>
+
+    <form action="soil_bottom" method="post" novalidate="">
+
+      <div class="govuk-form-group margin-bottom-forty">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            
+            <div id="contact-hint" class="govuk-hint">
+              Select one option. 
+            </div>
+
+              {{ soil_type('Sand', 1 )}}
+              {{ soil_type('Loamy sand', 2 )}}
+              {{ soil_type('Sandy loam', 3 )}}
+              {{ soil_type('Fine sandy loam', 4 )}}
+              {{ soil_type('Sandy silt loam', 5 )}}
+              {{ soil_type('Silt loam', 6 )}}
+              {{ soil_type('Silty clay loam', 7 )}}
+              {{ soil_type('Sandy clay loam ', 8 )}}
+              {{ soil_type('Clay loam', 9 )}}
+              {{ soil_type('Sandy clay', 10 )}}
+              {{ soil_type('Silty clay', 11 )}}
+              {{ soil_type('Clay', 12 )}}
+              {{ soil_type('Organic (10-20% organic matter) ', 13 )}}
+              {{ soil_type('Peaty', 14 )}}
+              {{ soil_type('Peat', 15 )}}
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/farm/hub">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

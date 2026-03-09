@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form action="check" method="post" novalidate="">
+
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">Field measurements for New Field Two</h1>
+        </legend>
+                
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="total_area">
+            Total field area<span class="govuk-visually-hidden">, in hectares</span>
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="total_area" name="total_area" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">Hectares</div>
+          </div>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="cropped_area">
+            Cropped area<span class="govuk-visually-hidden">, in hectares</span> (optional)
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="cropped_area" name="cropped_area" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">Hectares</div>
+          </div>
+        </div>
+
+        <div class="govuk-form-group margin-bottom-forty">
+          <label class="govuk-label" for="non_spreading_area">
+            Manure non-spreading area<span class="govuk-visually-hidden">, in hectares</span> (optional)
+          </label>
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="non_spreading_area" name="non_spreading_area" type="text" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">Hectares</div>
+          </div>
+        </div>
+
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+      <p class="govuk-body cancel-link"><a href="/management/farm/hub">Cancel</a></p>
+
+    </div>
+
+  </div>
+
+{% endblock %}

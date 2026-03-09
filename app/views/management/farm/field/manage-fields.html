@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if data.show_success_message == true %}
+      {% include "./templates/success_messages" ignore missing %}
+    {% endif %}
+
+    <h1 class="govuk-heading-l">
+      {{ data.oaktree_farm.name }} 
+      fields
+    </h1>
+
+    <p class="govuk-body"><a href="/planning/add-field/copy_field">Add a field</a></p>
+
+    <!-- <form class="" action="/planning/add-field/copy_field" method="post" novalidate="">    
+      <button class="govuk-button" data-module="govuk-button">
+        Add a field
+      </button>
+    </form>-->
+
+    {% if data.oaktree_farm.fields_added == true %}
+      <table class="govuk-table">
+        <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Field name</th>
+            <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Action</span></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for field in data.all_fields %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">{{field.field_name}}</td>
+              <td class="govuk-table__cell  action_link">
+                <a href="field-select-handler?chosen_field={{field.field_id}}">View field and soil details</a>
+              </td>
+            </tr>
+          {% endfor %} 
+        </tbody>
+      </table>
+      {% else %}
+        <p class="govuk-body">You have not added any fields.</p>
+        <p class="govuk-body"><a class="govuk-notification-banner__link" href="/planning/add-field/copy_field">Add a field</a>
+      {% endif %}
+    
+  </div>
+</div>
+
+{% endblock %}

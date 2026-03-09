@@ -65,7 +65,7 @@ function print_farm(farm, info) {
 router.get(/setup_handler_no_farm/, function (req, res) { 
     req.session.data.oaktree_farm = startFarm()
     console.log(req.session.data.oaktree_farm.setup)
-    res.redirect('start')
+    res.redirect('/management/start')
 })
 
 // #2 - Arable crop added
@@ -77,7 +77,7 @@ router.get(/setup_handler_one_crop/, function (req, res) {
     let group_1 = allFunctions.createCropGroup(null, 1, 2026, 'Wheat-Winter', [1,2,3,4,5], req.session.data.all_fields)
     req.session.data.cropGroups.push(group_1)
     req.session.data.oaktree_farm.years_planned.push(2026)
-    res.redirect('start')
+    res.redirect('/management/start')
 })
 
 // #3 - Manner estimate added
@@ -86,7 +86,7 @@ router.get(/setup_handler_manner/, function (req, res) {
     req.session.data.showinfo = false
     let tempApplication = {ref: 1, date:'01/06/2026', manuretype: req.session.data.manure_type_livestock_data[12], rate: 30 }
     req.session.data.manner_applications.push(tempApplication)
-    res.redirect('start')
+    res.redirect('/management/start')
 })
 
 // #4 - Grass plan added
@@ -103,7 +103,7 @@ router.get(/setup_handler_grass_added/, function (req, res) {
     let applicationOne = allFunctions.addFertiliserApplication_v2 (req.session.data.all_fields, req.session.data.cropGroups, 1, '01/03/2024', 60, 30, 30, 0, 0, 1)
     req.session.data.fertiliserApplications.push(applicationOne)
     // print_farm(req.session.data.oaktree_farm, 'storage_added')
-    res.redirect('start')
+    res.redirect('/management/start')
 })
 
 // #5 - Full setup - everything
@@ -155,7 +155,7 @@ router.get(/setup_handler_everything/, function (req, res) {
     //manner
     let tempApplication = {ref: 1, date:'01/06/2026', manuretype: req.session.data.manure_type_livestock_data[12], rate: 30}
     req.session.data.manner_applications.push(tempApplication)
-    res.redirect('start')
+    res.redirect('/management/start')
 })
 
 // #6 - Farm without fields
@@ -164,7 +164,7 @@ router.get(/setup_handler_farm_only/, function (req, res) {
     req.session.data.showinfo = false
     req.session.data.oaktree_farm.setup = true
     req.session.data.extra_features = true
-    res.redirect('start')
+    res.redirect('/management/start')
 })
 
 // #7- Farm and fields added
@@ -172,7 +172,7 @@ router.get(/setup_handler_two_fields/, function (req, res) {
     req.session.data.oaktree_farm = startFarm('basic')
     req.session.data.all_fields = [req.session.data.field_list_data[0], req.session.data.field_list_data[16]]
     req.session.data.showinfo = false
-    res.redirect('start')
+    res.redirect('/management/start')
 })
 
 // #8- Livestock added for manure farm limit
@@ -188,7 +188,7 @@ router.get(/setup_handler_livestock_nloading/, function (req, res) {
     }
 
     req.session.data.oaktree_farm.livestock_loading = 3;
-    res.redirect('start')
+    res.redirect('/management/start')
 })
 
 // #9 - Livestock added for inventory and storage
@@ -204,7 +204,7 @@ router.get(/setup_handler_livestock_inventory/, function (req, res) {
       req.session.data.livestock_type_data[livestock_list[x]].numbers_for_inventory = 2
       req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[livestock_list[x]])
     }
-    res.redirect('start')
+    res.redirect('/management/start')
 })
 
 // #10 - Livestock added for inventory and storage
@@ -212,7 +212,7 @@ router.get(/setup_handler_manure_storage/, function (req, res) {
     req.session.data.oaktree_farm = startFarm('storage')
     req.session.data.all_fields = [req.session.data.field_list_data[0], req.session.data.field_list_data[16]]
     req.session.data.showinfo = false
-    res.redirect('start')
+    res.redirect('/management/start')
 })
 
 // #11 - Livestock added for inventory and storage
@@ -231,7 +231,7 @@ router.get(/setup_handler_livestock_storage/, function (req, res) {
     }
 
     req.session.data.oaktree_farm.livestock_inventory = 3;
-    res.redirect('start')
+    res.redirect('/management/start')
 })
 
 // #12 - Livestock added for inventory and storage
@@ -266,7 +266,7 @@ router.get(/setup_handler_inventory_imports/, function (req, res) {
     }
 
     console.log(req.session.data.manureApplications)
-    res.redirect('start')
+    res.redirect('/management/start')
 })
 
 module.exports = router

@@ -126,8 +126,8 @@ router.get('/', function (req, res) {
 var  routes_prototype_setup = require('./router/routes_prototype_setup.js');
 var  message_reset_handlers = require('./router/routes_message_reset_handlers.js');
 var  routes_for_planning = require('./router/routes_for_planning_and_management.js');
-var  reports_routes = require('./router/reports_routes.js');
+var  routes_for_reports = require('./router/routes_for_reports.js');
 var  manure_inventory_routes = require('./router/manure_inventory_routes.js');
-var  manner_routes = require('./router/manner_routes.js');
+var  routes_for_manner = require('./router/routes_for_manner.js');
 
-router.use('/',routes_prototype_setup, message_reset_handlers, routes_for_planning, manner_routes, reports_routes, manure_inventory_routes);
+router.use('/',routes_prototype_setup, message_reset_handlers, routes_for_planning, routes_for_manner, routes_for_reports, manure_inventory_routes);

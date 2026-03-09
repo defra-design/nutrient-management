@@ -68,11 +68,11 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   }
   // Planned nutrients report
   if (req.session.data.export_type == '9') {
-      next = '/reports/outputs/planned_nutrients'
+      next = '/outputs/planned_nutrients'
   }
   // Planned nutrients report
   if (req.session.data.export_type == '10') {
-      next = '/reports/outputs/recommendations'
+      next = '/outputs/recommendations'
   }
   // Confirmed field history report
   if (req.session.data.export_type == '11') {
@@ -87,7 +87,7 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
 })
 
 router.get(/export_fields_handler/, callback_functions.hideSuccessMessage, function (req, res) {
-  let next = req.session.data.export_type == '11' ? '/reports/outputs/field_history/' : '/reports/outputs/full_report/';
+  let next = req.session.data.export_type == '11' ? '/outputs/field_history/' : '/outputs/full_report/';
   res.redirect(next);
 })
 
@@ -212,10 +212,10 @@ router.get(/livestock_loading_router/, callback_functions.hide_error, function (
 router.get(/livestock_loading_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
     let next = '/reports/add_livestock/livestock_none'
     if (req.session.data.oaktree_farm.livestock_loading == 2 || req.session.data.oaktree_farm.livestock_loading == 3) { 
-        next = '/reports/outputs/n_loading/manage_livestock/index'
+        next = '/outputs/n_loading/manage_livestock/index'
     } else {
         if (req.session.data.oaktree_farm.livestock_inventory == 3) {
-            next = '/reports/outputs/n_loading/manage_livestock/copy'
+            next = '/outputs/n_loading/manage_livestock/copy'
         }
     }
     res.redirect(next);
@@ -248,7 +248,7 @@ router.get(/livestock_requirement_handler/, callback_functions.hideSuccessMessag
 })
 
 router.get(/livestock_copy_for_loading_handler/, function (req, res) {
-  let next = '/reports/outputs/n_loading/manage_livestock/index'
+  let next = '/outputs/n_loading/manage_livestock/index'
   if (req.session.data.copy_inventory == 'yes') {
       for (let x in req.session.data.livestock_record_plan_year) {
           if (req.session.data.livestock_record_plan_year[x].numbers_for_inventory == 2) {

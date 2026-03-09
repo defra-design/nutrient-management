@@ -14,7 +14,7 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK
   {% if data.export_type == 8 %}
     {% set back_url = '/reports/manure_inventory/checklist' %}
   {% elif data.export_type == 4 %}
-    {% set back_url = '/reports/outputs/n_loading/checklist' %}
+    {% set back_url = '/outputs/n_loading/checklist' %}
   {% endif %}  
 
   {{ govukBackLink({
@@ -56,7 +56,7 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK
               </p>
             {% else %}
               <p class="govuk-body">To create a livestock manure nitrogen (N) farm limit report, enter the livestock on {{data.oaktree_farm.name}} in {{data.oaktree_farm.planning_year}}.</p>
-              <p class="govuk-body"><a href="/reports/outputs/n_loading/checklist">Create a livestock manure nitrogen (N) farm limit report</a></p>
+              <p class="govuk-body"><a href="/outputs/n_loading/checklist">Create a livestock manure nitrogen (N) farm limit report</a></p>
             {% endif %}
           </div>
         {% endif %}   
@@ -72,7 +72,7 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK
         </button>
       </form>
       {% if data.show_success_message != true and data.export_type == null %}
-        <p class="govuk-body margin-bottom-forty"><a href="/reports/outputs/export">Create a report from this information</a></p>
+        <p class="govuk-body margin-bottom-forty"><a href="/outputs/export">Create a report from this information</a></p>
       {% endif %}
     {% endif %}
 

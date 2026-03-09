@@ -233,7 +233,7 @@ router.get(/export_type_router/, callback_functions.hide_error, function (req, r
       if (req.session.data.export_type == '8') {
           next = '/reports/manure_inventory/checklist'
       } else {
-          next = '/reports/outputs/n_loading/checklist'
+          next = '/outputs/n_loading/checklist'
       }
   }
   res.redirect(next)
@@ -359,7 +359,7 @@ router.get(/check_loading_lstock_handler/, function (req, res) {
   req.session.data.oaktree_farm.livestock_loading = 3;
   // req.session.data.nitrogen_standard = null
   // req.session.data.livestock_occupancy = null
-  res.redirect('/reports/outputs/n_loading/manage_livestock/index')
+  res.redirect('/outputs/n_loading/manage_livestock/index')
 })
 
 router.get(/add_manure_system_handler/, callback_functions.hide_error, callback_functions.showSuccessMessage, function (req, res) {

@@ -24,7 +24,7 @@ router.get(/manner_fields_reset/, callback_functions.hideSuccessMessage, functio
 })
 
 router.get(/reset_manage_livestock_message_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-    res.redirect('/reports/outputs/n_loading/manage_livestock/index')
+    res.redirect('/outputs/n_loading/manage_livestock/index')
 })
 
 // MANAGE EXPORTS
@@ -34,7 +34,7 @@ router.get(/reset_manage_exports_message_handler/, callback_functions.hideSucces
 
 // N-LOADING CHECKLIST
 router.get(/reset_nloading_checklist_message_handler/, callback_functions.hide_error, function (req, res) { 
-    res.redirect('/reports/outputs/n_loading/checklist')
+    res.redirect('/outputs/n_loading/checklist')
 })
 
 // MANAGE STORAGE

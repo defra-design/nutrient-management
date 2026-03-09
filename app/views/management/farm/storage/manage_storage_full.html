@@ -1,0 +1,84 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if data.export_type == 7 %}
+    {{ govukBackLink({
+      text: "Back to " + data.oaktree_farm.name,
+      href: "hub_message_reset"
+    }) }}
+  {% else %}  
+    {{ govukBackLink({
+      text: "Back",
+      href: "/reports/manure_inventory/checklist"
+    }) }}
+  {% endif %}  
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% if data.show_success_message == true %}
+      {% include "./templates/success_message.html" ignore missing %}
+    {% endif %}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">    
+
+    <div class="margin-bottom-thirty">
+      <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span> 
+      <h1 class="govuk-heading-l margin-bottom-ten">Manure stores</h1>
+      {% if data.export_type == 8 %}
+        <h2 class="govuk-heading-m">October {{data.oaktree_farm.harvest_year}} and September {{data.oaktree_farm.harvest_year + 1}}</h2>
+      {% else %}
+        <h2 class="govuk-heading-m">{{data.oaktree_farm.planning_year}}</h2>
+      {% endif %}
+    </div>
+
+    {% if data.show_success_message != true and data.export_type != null %}
+      <div class="govuk-inset-text margin-bottom-forty">
+        {% if data.export_type == 8 %}
+          <p class="govuk-body">
+            To create an organic manures inventory and NVZ storage report, add all the Manure stores on {{data.oaktree_farm.name}} between October {{data.oaktree_farm.planning_year}} and September {{data.oaktree_farm.planning_year +1}}.
+          </p>
+          <p class="govuk-body">
+            <a href="/reports/manure_inventory/checklist">Create an organic manures inventory and NVZ storage report</a>
+          </p>
+        {% else %}
+          <p class="govuk-body">To create an existing manure storage capacity report, enter the manure stores on {{data.oaktree_farm.name}}.</p>
+          <p class="govuk-body"><a href="report">Continue to create an existing manure storage capacity report</a></p>
+        {% endif %}
+      </div>
+    {% endif %}   
+
+  </div>
+</div>
+
+<div class="margin-bottom-twenty">
+  <form class="margin-bottom-ten" action="/reports/add_storage/material_type" method="post" novalidate="">    
+    <button class="govuk-button" data-module="govuk-button">
+      Add a manure store
+    </button>
+  </form>
+</div>
+
+{% if data.show_success_message != true and data.export_type == null %}
+  <p class="govuk-body margin-bottom-thirty"><a href="/reports/outputs/export">Create a report from this information</a></p>
+{% endif %}
+
+{% include "./templates/storage_type_table_full.html" ignore missing %}
+
+  </div>
+</div>
+
+{% endblock %}

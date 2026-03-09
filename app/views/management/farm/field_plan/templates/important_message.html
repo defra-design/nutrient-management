@@ -1,0 +1,43 @@
+<!-- <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Important
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+    Recommendations not available
+    </p>
+    <p class="govuk-body">
+      To get a recommendation for {{data.oaktree_farm.planning_year}}, you need to add crop details for {{data.chosen_field.field_name}} in 2023.
+    </p>
+    <p class="govuk-body">
+      <a class="govuk-notification-banner__link" href="">Add basic 2023 crop details for {{data.chosen_field.field_name}}.</a>
+    </p>
+    <p class="govuk-body">
+      <a class="govuk-notification-banner__link" href="/management/farm/plans_records">Create a 2023 plan for {{data.chosen_field.field_name}}</a>
+    </p>
+    <p class="govuk-body">
+      This will be available under plans and records. You can also add organic and inorganic material applications.
+    </p>
+  </div>
+</div> -->
+
+<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Important
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+    Recommendations not available
+    </p>
+    <p class="govuk-body">
+      To get recommendations for {{data.chosen_group.crop_reference | nameconverter}} in {{data.oaktree_farm.planning_year}}, you need to add the crop details for {{data.chosen_field.field_name}} in {{data.oaktree_farm.planning_year-1}}.
+    </p>
+    <p class="govuk-body">
+      <a class="govuk-notification-banner__link" href="">Add {{data.oaktree_farm.planning_year-1}} crop details for {{data.chosen_field.field_name}}</a>
+    </p>
+  </div>
+</div>

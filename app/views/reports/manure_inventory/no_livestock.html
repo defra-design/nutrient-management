@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        You need to add livestock numbers for October {{data.oaktree_farm.planning_year}} to September {{data.oaktree_farm.planning_year + 1}} first.
+      </h1>
+
+      <div class="margin-bottom-forty">
+        <p class="govuk-hint">
+          You need to complete that section even if you didn't have any livestock between October {{data.oaktree_farm.planning_year}} to September {{data.oaktree_farm.planning_year + 1}}
+        </p>
+      </div>
+
+      <form class="form" action="/reports/manure_inventory/livestock_none" method="post">
+
+        {{ govukButton({
+          text: "Continue to livestock section"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+  
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

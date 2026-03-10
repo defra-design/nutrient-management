@@ -25,9 +25,9 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
+    <span class="name govuk-caption-l">Bonnie Farm</span>
     <h1 class="govuk-heading-xl margin-bottom-twenty">N-max limits {{ data.oaktree_farm.planning_year }}</h1>
-    <p class="govuk-body">Created on 22 September {{data.oaktree_farm.planning_year}}</p>
+    <p class="govuk-body">Created on 10 March {{data.oaktree_farm.planning_year}}</p>
   </div>
 </div>
 
@@ -35,42 +35,36 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-
     <h2 class="govuk-heading-m">Private beta disclaimer</h2>
     {% include "/templates/beta_disclaimer.html" ignore missing %} 
     <hr class="separator_thirty">
-
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
     <h2 class="govuk-heading-l margin-bottom-twenty">Summary</h2>
     {% include "./templates/summary.html" ignore missing %} 
-
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-
     <p class="govuk-body margin-bottom-none">
-      To comply with the N-max limit for each crop type the total nitrogen (N) applied in fertiliser and crop available nitrogen from organic manures must not be greater than the adjusted N-max limit.
+      To comply with the N-max limit for each crop type the total nitrogen (N) applied in fertiliser and crop available 
+      nitrogen (N) from organic manures must not be greater than the adjusted N-max limit.
     </p>
-  
   </div>
 </div>
-
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
     <hr class="separator_thirty">
     <div class="margin-bottom-forty">
-      {% include "./templates/crop_limits.html" ignore missing %} 
-      <h3 class="govuk-heading-m">Nitrogen applications for Winter Wheat fields</h3>
-      {% include "./templates/nitrogen_applications_wheat.html" ignore missing %}
+      {% include "./templates_scotland/crop_limits.html" ignore missing %} 
+      <h3 class="govuk-heading-m">Nitrogen (N) applications for Winter Wheat fields</h3>
+      {% include "./templates_scotland/nitrogen_applications_wheat.html" ignore missing %}
     </div>
 
     <div id="printbreak"></div>
@@ -79,7 +73,7 @@
     <div class="margin-bottom-forty">
       {% include "./templates/grass_limits.html" ignore missing %}
       {% set fieldName = 'Short field' %}
-      <h3 class="govuk-heading-m">Nitrogen applications for Grass fields</h3>
+      <h3 class="govuk-heading-m">Nitrogen (N) applications for Grass fields</h3>
       {% include "./templates/nitrogen_applications_grass.html" ignore missing %}
     </div>
 
@@ -89,7 +83,7 @@
     <div class="margin-bottom-forty">
       {% include "./templates/group_1_limits.html" ignore missing %}
       {% set fieldName = 'Short field' %}
-      <h3 class="govuk-heading-m">Nitrogen applications for low nitrogen (N) vegetables</h3>
+      <h3 class="govuk-heading-m">Nitrogen (N) applications for low nitrogen (N) vegetables</h3>
       {% include "./templates/nitrogen_applications_group.html" ignore missing %}
     </div>
 

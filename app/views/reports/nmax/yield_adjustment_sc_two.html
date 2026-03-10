@@ -21,82 +21,33 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Farm average yield adjustment
+      Enter farm average yield values
     </h1>
 
-    <p class="govuk-body">
-      The N-max limit is based on standard yield values for these crops:
+    <p class="govuk-hint">
+      If you do not want to use a farm average yield for a crop, leave it blank
     </p>
-
-    <ul class="govuk-list govuk-list--bullet">
-      <li>Barley, Spring</li>
-      <li>Wheat, Winter</li>
-    </ul>
-
-  <p class="govuk-body">
-    You can adjust the N-max limit for these crops by entering a farm average yield, if you have one.
-  </p>
-
-  <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Help with farm average yield adjustment
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    View the rules for using a farm average yield adjustment for N-max
-  </div>
-</details>
-
-    <!-- <p class="govuk-body">
-      For the following crop types, the N-max calculation is based on a standard yield but may be adjusted if the farm average yield for the crop is known. 
-    </p>
-
-    <p class="govuk-body">
-      If you enter a farm average yield, this will be used to adjust the N-max limit. If you do not enter a fam-average yield, the N-max limit will be based on the standard yield for the crop type.
-    </p>
-
-    <p class="govuk-body">
-      If the yield adjustment is used it must be based on:
-    </p>
-
-    <ul class="govuk-list govuk-list--bullet">
-      <li>
-        historic yield previously achieved for the given crop type on the actual farm where the crop is to be grown or,
-      </li>
-      <li>
-        where a new crop management system is to be introduced for a given crop, evidence from another farm within the same NVZ with similar soil type and soil nutrient status of historic yields previously achieved by that crop at that other fam using that crop management system. At least 3 years of supporting records must be available to demonstrate the actual yields achieved.
-      </li>
-    </ul> -->
 
     <form class="form" action="yield_adjustment_sc_two" method="post">
     
         <div class="govuk-form-group">
         <label class="govuk-label" for="weight">
-          Do you want to enter a farm average yield for any of these crops?
+         Farm average yield value for Spring Barley (optional)
         </label>
-        <fieldset class="govuk-fieldset">
-          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
-              <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-                Yes
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
-              <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-                No
-              </label>
-            </div>
-          </div>
-        </fieldset>
-        </div>
-        <!-- <div class="govuk-input__wrapper">
+        <div class="govuk-input__wrapper">
           <input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
           <div class="govuk-input__suffix" aria-hidden="true">tonnes per hectare</div>
         </div>
-      </div> -->
+      </div>
+        <div class="govuk-form-group">
+        <label class="govuk-label" for="weight">
+          Farm average yield value for Winter Wheat (optional)
+        </label>
+        <div class="govuk-input__wrapper">
+          <input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+          <div class="govuk-input__suffix" aria-hidden="true">tonnes per hectare</div>
+        </div>
+      </div>
       
       {{ govukButton({
         text: "Continue"

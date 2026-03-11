@@ -24,52 +24,41 @@
 {% set solid_weight_total = (solid_store_total / 2) /10 %}
 
 <div class="govuk-tabs" data-module="govuk-tabs">
-
   <h2 class="govuk-tabs__title">
     Contents
   </h2>
-
   <ul class="govuk-tabs__list">
-    {% if slurry_storage == true %}
-      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-        <a class="govuk-tabs__tab" href="#slurry">
-          Slurry stores
-        </a>
-      </li>
-    {% endif %}
-
-    {% if solid_storage == true %}
-      <li class="govuk-tabs__list-item">
-        <a class="govuk-tabs__tab" href="#solid">
-          Solid manure stores
-      </li>
-    {% endif %}
-
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#slurry-tab">
+        Slurry stores
+      </a>
+    </li>
     <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#total">
+      <a class="govuk-tabs__tab" href="#solid-tab">
+        Solid manure stores
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#total-tab">
         Manure storage totals
       </a>
     </li>
-
   </ul>
-
   {% if slurry_storage == true %}
-    <div class="govuk-tabs__panel" id="slurry">
+    <div class="govuk-tabs__panel" id="slurry-tab">
       <h2 class="govuk-heading-l non-standard">Slurry stores</h2>
-        {% include "./slurry_table.html" ignore missing %}
+      {% include "./slurry_table.html" ignore missing %}
     </div>
   {% endif %}
-
   {% if solid_storage == true %}
-    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="solid">
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="solid-tab">
       <h2 class="govuk-heading-l non-standard">Solid manure stores</h2>
-        {% include "./solid_table.html" ignore missing %}
+      {% include "./solid_table.html" ignore missing %}
     </div>
   {% endif %}
-
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="total">
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="total-tab">
     <h2 class="govuk-heading-l non-standard">Manure storage totals</h2>
     {% include "./total_table.html" ignore missing %}
   </div>
 
-</div> 
+</div>

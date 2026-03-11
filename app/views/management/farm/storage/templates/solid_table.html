@@ -1,8 +1,10 @@
-<table class="govuk-table data-table store-table">
+<table class="govuk-table data-table">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Name</th>
       <th scope="col" class="govuk-table__header">Manure type</th>
+      <th scope="col" class="govuk-table__header">Covered</th>
+      <th scope="col" class="govuk-table__header">Surface area</th>
       <th scope="col" class="govuk-table__header">Total capacity</th>
       <th scope="col" class="govuk-table__header"> </th>
     </tr>
@@ -14,6 +16,8 @@
       <tr class="govuk-table__row">
         <td class="govuk-table__cell">{{store.store_name}}</td>
         <td class="govuk-table__cell">{{store.store_material | capitalize}}</td>
+        <td class="govuk-table__cell">Yes</td>
+        <td class="govuk-table__cell">4 metres squared</td>
         <td class="govuk-table__cell">256 metres cubed</td>
         <td class="govuk-table__cell"><a href="./change">Change</a></td>
       </tr>
@@ -22,7 +26,9 @@
     
     <tr class="govuk-table__row">
       <td class="govuk-table__cell strong">Solid manure storage total</td>
-      <td class="govuk-table__cell">&nbsp;</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
       <td class="govuk-table__cell strong">{{solid_store_total}} metres cubed</td>
       <td class="govuk-table__cell">&nbsp;</td>
     </tr>

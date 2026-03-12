@@ -28,21 +28,27 @@
     Contents
   </h2>
   <ul class="govuk-tabs__list">
+
+  {% if slurry_storage == true %}
     <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
       <a class="govuk-tabs__tab" href="#slurry-tab">
         Slurry stores
       </a>
     </li>
+  {% endif %}
+  {% if solid_storage == true %}
     <li class="govuk-tabs__list-item">
       <a class="govuk-tabs__tab" href="#solid-tab">
         Solid manure stores
       </a>
     </li>
+  {% endif %}
     <li class="govuk-tabs__list-item">
       <a class="govuk-tabs__tab" href="#total-tab">
         Manure storage totals
       </a>
     </li>
+
   </ul>
   {% if slurry_storage == true %}
     <div class="govuk-tabs__panel" id="slurry-tab">

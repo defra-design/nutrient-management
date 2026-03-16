@@ -14,7 +14,7 @@
     {% set field = null %}
     {% for application in data.fertiliserApplications %}
       {% for x in data.all_fields %}
-        {% if x.field_id == application.fieldref %}
+        {% if x.field_id == application.field_id %}
           {% set field = x %}
         {% endif %}
       {% endfor %} 

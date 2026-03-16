@@ -712,13 +712,8 @@ router.get(/manure_date_v5_handler/, function (req, res) {
         req.session.data.manure_date_month = 2
     }
     if (req.session.data.manure_date_year < 1) {
-        req.session.data.manure_date_year = 2024
+        req.session.data.manure_date_year = 2026
     }
-        // if (req.session.data.manure_type.liquid == true) {
-    //     res.redirect("manure_applied")
-    // } else {
-    //     res.redirect("manure_defaults")
-    // }
     if (req.session.data.manure_type.liquid == true) {
       next = "manure_applied"
     } 
@@ -731,15 +726,12 @@ router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function
     let year = req.session.data.oaktree_farm.planning_year
     let field_list = req.session.data.chosen_manure_fields
     let application_date = req.session.data.manure_date_day + '/' + req.session.data.manure_date_month + '/' + req.session.data.manure_date_year
-
-    // let manureType = req.session.data.manure_type.name
-    // let manure_fields = req.session.data.manure_fields
-    // let manureDate = req.session.data.manure_date_day + '/' + req.session.data.manure_date_month + '/' + req.session.data.manure_date_year
-
-    for (let x in field_list) {
+    
+		for (let x in field_list) {
 			let applicationGroup = allFunctions.add_manure_application (group_id, year, field_list[x], application_date, manure_id)
 			req.session.data.manureApplications.push(applicationGroup)
     }
+
     group_id = manure_id = year = field_list = application_date = req.session.data.manure_fields = null
     req.session.data.successMessage = 2
     
@@ -872,12 +864,14 @@ router.get(/v5_fertiliser_handler/, function (req, res) {
 
 //set fertiliser
 router.get(/fertiliser_v5_handler/, callback_functions.showSuccessMessage, function (req, res) { 
-    req.session.data.successMessage = 3
-    var fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
-    var ref
-    for (var x in req.session.data.chosen_manure_fields) {
-      for (var appl in req.session.data.fertiliserApplications) {
-          ref = req.session.data.fertiliserApplications[appl].ref +1
+    let fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
+    let ref
+		let field_list = req.session.data.chosen_manure_fields
+		let next = '/management/farm/crop_plan/plan_view'
+
+    for (let x in field_list) {
+      for (let y in req.session.data.fertiliserApplications) {
+          ref = req.session.data.fertiliserApplications[y].ref +1
       }
       // function addFertiliserApplication_v2 (group_id, year, field_id, date, nitrogen, phosphate, potash, sulphur, lime) {
       var applicationGroup = allFunctions.addFertiliserApplication_v2 (
@@ -894,10 +888,9 @@ router.get(/fertiliser_v5_handler/, callback_functions.showSuccessMessage, funct
       req.session.data.fertiliserApplications.push(applicationGroup)
     }
     req.session.data.chosen_manure_fields = []
-    let next = '/management/farm/crop_plan/plan_view'
-    // if (req.session.data.fertiliser_journey == "multi") {
-    //    next = '/management/farm/crop_plan/plan_view'
-    // }
+		req.session.data.successMessage = 3
+
+		console.log(req.session.data.fertiliserApplications)
     res.redirect(next)
 })
 

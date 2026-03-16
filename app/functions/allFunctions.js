@@ -163,29 +163,13 @@ function addManureApplication (fertiliserGroups, cropGroups, chosenFields, organ
 
 // let applicationGroup = allFunctions.add_manure_application (group_id, year, req.session.data.all_fields, req.session.data.cropGroups, field_list[x], application_date, manure_id)
 function add_manure_application (group_id, year, field_id, application_date, manure_id) {
-  let crop_id = null
   var newApplication = {
     "group_id": group_id,
     "year": year,
     "field_id": field_id,
     "application_date": application_date,
     "manure_id": manure_id,
-    "rate": "20",
-    "method": "Discharge spreader",
-    "incorporation": "Mouldboard plough",
-    "Delay": "12-24 hours",
-    "drainage": "3/31/24",
-    "Rainfall": "357",
-    "DM": "25",
-    "Total N": "6",
-    "NH4-N": "0.5",
-    "Uric acid N": "0",
-    "NO3-N": "0.1",
-    "P2O5": "3.2",
-    "K2O": "8",
-    "MgO": "1.8",
-    "SO3": "2.4"
-  }
+    "rate": "20"  }
   return newApplication
 }
 

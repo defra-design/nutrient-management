@@ -1,55 +1,51 @@
 var express = require('express')
 var router = express.Router()
-
-let nextURL
-
 var allFunctions = require('../functions/allFunctions.js');
 var callback_functions = require('./callbacks.js');
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////
+// ADD A FARM
+//////////////
 
-//ADD A FARM *
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-//start
+//start.html
 router.get(/start_router/, function (req, res) {
   let next = (req.session.data.showinfo == false) ? '/management/farm/farms' : '/management/disclaimer'
   res.redirect(next)
 })
 
-router.get(/add_farm_name_handler/, function (req, res) {
+//add-farm > name.html
+router.get(/set_farm_name_handler/, function (req, res) {
   if (req.session.data.farm_name != "") req.session.data.oaktree_farm.name = req.session.data.farm_name
   res.redirect('country')
 })
 
-router.get(/add_postcode_handler/, function (req, res) {
+//postcode.html
+router.get(/set_postcode_handler/, function (req, res) {
   if (req.session.data.farm_postcode != "") req.session.data.oaktree_farm.postcode = req.session.data.farm_postcode
   res.redirect('address')
 })
 
+//nvz.html
 router.get(/set_nvz_handler/, function (req, res) {
   if (req.session.data.farm_nvz != "") req.session.data.oaktree_farm.nvz = req.session.data.farm_nvz
   res.redirect('elevation')
 })
 
+//elevation.html
 router.get(/set_elevation_handler/, function (req, res) {
   if (req.session.data.farm_elevation != "") req.session.data.oaktree_farm.elevation = req.session.data.farm_elevation
   res.redirect('organic')
 })
 
-//sets the farm to setup true
+//add farm > check (adds the farm)
 router.get(/add_farm_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 1 //farm added
     req.session.data.oaktree_farm.setup = true;
     res.redirect('/management/farm/hub');
 })
 
-//removes a farm
+//remove.html (removes the farm)
 router.get(/delete_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 2 //farm removed
     req.session.data.oaktree_farm.setup = false;
@@ -57,16 +53,11 @@ router.get(/delete_handler/, callback_functions.showSuccessMessage, function (re
 })
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////
+// ADD / MANAGE A FIELD
+////////////////////////
 
-//ADD / MANAGE A FIELD
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-//set the name for the field 
+//add-field > name.html (set name for the field and its reference)
 router.get(/set_field_name_handler/, function (req, res) { 
   req.session.data.temp_field = allFunctions.setFieldName(req.session.data.temp_field, req.session.data.temp_field_name, req.session.data.all_fields.length);
   res.redirect('./area')
@@ -75,19 +66,18 @@ router.get(/set_field_name_handler/, function (req, res) {
 //set field sizes
 router.get(/field_size_router/, function (req, res) { 
   req.session.data.temp_field = allFunctions.setFieldSizes(req.session.data.temp_field, req.session.data.total_area, req.session.data.cropped_area, req.session.data.non_spreading_area);
-  const farm = req.session.data.oaktree_farm;
-  let next = farm.nvz === 'some' ? 'nvz' : (farm.elevation === 'some' ? 'elevation' : 'soil-one');
+  let next = req.session.data.oaktree_farm.nvz === 'some' ? 'nvz' : (req.session.data.oaktree_farm.elevation === 'some' ? 'elevation' : 'soil-one');
   res.redirect(next);
 })
 
-//check if the farm is over 300m
+//add-field > nvz.html
 router.get(/nvz_router/, function (req, res) { 
-    let next = (req.session.data.oaktree_farm.elevation == 'some') ? 'elevation' : 'soil-one';
-    res.redirect(next);
+  let next = (req.session.data.oaktree_farm.elevation == 'some') ? 'elevation' : 'soil-one';
+  res.redirect(next);
 })
 
-//add a soil analysis
-router.get(/analysis_option_router/, function (req, res) { 
+//add_analysis.html
+router.get(/add_soil_analysis_router/, function (req, res) { 
     let next = (req.session.data.soilanalysis == "yes") ? 'soil-two' : 'previous_use'
     res.redirect(next)
 })
@@ -726,7 +716,6 @@ router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function
     let year = req.session.data.oaktree_farm.planning_year
     let field_list = req.session.data.chosen_manure_fields
     let application_date = req.session.data.manure_date_day + '/' + req.session.data.manure_date_month + '/' + req.session.data.manure_date_year
-    
 		for (let x in field_list) {
 			let applicationGroup = allFunctions.add_manure_application (group_id, year, field_list[x], application_date, manure_id)
 			req.session.data.manureApplications.push(applicationGroup)
@@ -736,20 +725,20 @@ router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function
     req.session.data.successMessage = 2
     
     console.log(req.session.data.manureApplications)
-    res.redirect('/management/farm/crop_plan/plan_view')
+    res.redirect('/management/farm/crop_plan/plan_view#organic')
 })
 
 router.get(/plan_manure_application_router/, function (req, res) { 
-    let nextURL
+    let next
     req.session.data.manure_journey = req.query.manurejourney
     if (req.session.data.manure_journey == 'multi') {
-        nextURL = '/planning/add_manure/manure_fields'
+        next = '/planning/add_manure/manure_fields'
     } else {
         req.session.data.manure_fields = []
         req.session.data.manure_fields.push(req.session.data.chosen_field.field_id)
-        nextURL = '/planning/add_manure/manure_group'
+        next = '/planning/add_manure/manure_group'
     }
-    res.redirect(nextURL)
+    res.redirect(next)
 })
 
 router.get(/manuregroup_handler/, callback_functions.setManureGroup, function (req, res) { 
@@ -865,14 +854,10 @@ router.get(/v5_fertiliser_handler/, function (req, res) {
 //set fertiliser
 router.get(/fertiliser_v5_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     let fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
-    let ref
-		let field_list = req.session.data.chosen_manure_fields
-		let next = '/management/farm/crop_plan/plan_view'
+	let field_list = req.session.data.chosen_manure_fields
+	let next = '/management/farm/crop_plan/plan_view#inorganic'
 
     for (let x in field_list) {
-      for (let y in req.session.data.fertiliserApplications) {
-          ref = req.session.data.fertiliserApplications[y].ref +1
-      }
       // function addFertiliserApplication_v2 (group_id, year, field_id, date, nitrogen, phosphate, potash, sulphur, lime) {
       var applicationGroup = allFunctions.addFertiliserApplication_v2 (
           1, //temp group id
@@ -888,9 +873,9 @@ router.get(/fertiliser_v5_handler/, callback_functions.showSuccessMessage, funct
       req.session.data.fertiliserApplications.push(applicationGroup)
     }
     req.session.data.chosen_manure_fields = []
-		req.session.data.successMessage = 3
+	req.session.data.successMessage = 3
 
-		console.log(req.session.data.fertiliserApplications)
+	console.log(req.session.data.fertiliserApplications)
     res.redirect(next)
 })
 
@@ -908,7 +893,7 @@ router.get(/manure_date_handler/, function (req, res) {
 router.get(/fertiliser_date_handler/, function (req, res) {
     if (req.session.data.fertiliser_date_day < 1) req.session.data.fertiliser_date_day = 21;
     if (req.session.data.fertiliser_date_month < 1) req.session.data.fertiliser_date_month = 2;
-    if (req.session.data.fertiliser_date_year < 1) req.session.data.fertiliser_date_year = 2024;
+    if (req.session.data.fertiliser_date_year < 1) req.session.data.fertiliser_date_year = 2026;
     res.redirect("fertiliser_amount")
 })
 

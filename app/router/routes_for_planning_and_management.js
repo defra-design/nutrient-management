@@ -120,14 +120,6 @@ router.get(/add_field_handler/, callback_functions.showSuccessMessage, function 
 	res.redirect('/management/farm/field/manage-fields');
 })
 
-//add_sns.html
-router.get(/add_sns_handler/, function (req, res) { 
-  req.session.data.show_success_message = true;
-  req.session.data.successMessage = 17;
-  req.session.data.chosen_field.sns = true;
-  res.redirect('/management/farm/field_plan/index');
-})
-
 //add field > copy
 router.get(/copy_name_handler/, function (req, res) { 
   req.session.data.temp_field = allFunctions.setFieldName(req.session.data.temp_field, req.session.data.temp_field_name, req.session.data.all_fields.length);
@@ -190,6 +182,18 @@ router.get(/previous_group_router/, function (req, res) {
 router.get(/previous_clover_router/, function (req, res) {
   let next = (req.session.data.previous_clover == "yes") ? 'check' : 'previous_nitrogen'
   res.redirect(next)
+})
+
+///////////
+// ADD SNS
+//////////
+
+//add_sns.html
+router.get(/add_sns_handler/, function (req, res) { 
+  req.session.data.show_success_message = true;
+  req.session.data.successMessage = 17;
+  req.session.data.chosen_field.sns = true;
+  res.redirect('/management/farm/field_plan/index');
 })
 
 router.get(/mineralisation_router/, function (req, res) { 

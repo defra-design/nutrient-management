@@ -82,23 +82,23 @@ router.get(/add_soil_analysis_router/, function (req, res) {
     res.redirect(next)
 })
 
-//how do you want to add your values
-router.get(/add_values_router/, function (req, res) { 
+//values.html
+router.get(/soil_values_router/, function (req, res) { 
     let next = (req.session.data.add_values == "add_values_index") ? './values_two' : './values_three'
     res.redirect(next)
 })
 
-//has the field been used for grass previously
-router.get(/previous_use_router/, function (req, res) { 
+//previous_use.html
+router.get(/grass_history_router/, function (req, res) { 
+	let next = 'crop_group'
     if (req.session.data.previously_grass == 'yes') {
         req.session.data.chosen_crop = 'Grass'
-        res.redirect('previous_use_two')
-    } else {
-        res.redirect('crop_group')
+        next = 'grass_years'
     }
+		res.redirect(next)
 })
 
-//which years was it used as grass
+//grass_years.html
 router.get(/grass_years_handler/, function (req, res) {
     let next = 'previous_lay'
     for (var item in req.session.data.grass_years) {
@@ -109,56 +109,63 @@ router.get(/grass_years_handler/, function (req, res) {
     res.redirect(next)
 })
 
-//add the field
+//add field > check (adds the field)
 router.get(/add_field_handler/, callback_functions.showSuccessMessage, function (req, res) { 
-    req.session.data.successMessage = 3 //field added
-    req.session.data.oaktree_farm.fields_added = true;
-    req.session.data.all_fields.push(req.session.data.temp_field);    
-    
-    //reset temp vars
-    req.session.data.chosen_crop = req.session.data.total_area = req.session.data.cropped_area = req.session.data.non_spreading_area = null
-    req.session.data.soiltype = req.session.data.field_nvz = req.session.data.field_alt = req.session.data.field_alt = null
-    res.redirect('/management/farm/field/manage-fields');
+	req.session.data.successMessage = 3 //field added
+	req.session.data.oaktree_farm.fields_added = true;
+	req.session.data.all_fields.push(req.session.data.temp_field);    
+	//reset temp vars
+	req.session.data.chosen_crop = req.session.data.total_area = req.session.data.cropped_area = req.session.data.non_spreading_area,
+	req.session.data.soiltype = req.session.data.field_nvz = req.session.data.field_alt = null
+	res.redirect('/management/farm/field/manage-fields');
 })
 
+//add_sns.html
 router.get(/add_sns_handler/, function (req, res) { 
-    req.session.data.show_success_message = true;
-    req.session.data.successMessage = 17;
-    req.session.data.chosen_field.sns = true;
-    res.redirect('/management/farm/field_plan/index');
+  req.session.data.show_success_message = true;
+  req.session.data.successMessage = 17;
+  req.session.data.chosen_field.sns = true;
+  res.redirect('/management/farm/field_plan/index');
 })
 
+//add field > copy
 router.get(/copy_name_handler/, function (req, res) { 
   req.session.data.temp_field = allFunctions.setFieldName(req.session.data.temp_field, req.session.data.temp_field_name, req.session.data.all_fields.length);
   res.redirect('./analysis')
 })
 
+//farm > field > update.html
 router.get(/field_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 4 //field updated
     res.redirect('/management/farm/field/field-details')
 })
 
+//farm > field > change_soil.html
 router.get(/soil_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 
     req.session.data.successMessage = 5 //soil updated
     res.redirect('/management/farm/field/field-details')
 })
 
-router.get(/soil_added_handler/, callback_functions.showSuccessMessage, function (req, res) { 
-    req.session.data.successMessage = 6 //soil added
-    res.redirect('/management/farm/field/field-details')
-})
+//farm > field > change_soil.html
+// router.get(/soil_added_handler/, callback_functions.showSuccessMessage, function (req, res) { 
+//     req.session.data.successMessage = 6 //soil added
+//     res.redirect('/management/farm/field/field-details')
+// })
 
-router.get(/split_field_router/, function (req, res) { 
-    let next = (req.session.data.splitmerge == "split") ? './split/number' : './merge/fields'
-    res.redirect(next)
-})
+//farm > field > split_merge.html
+// router.get(/split_field_router/, function (req, res) { 
+//     let next = (req.session.data.splitmerge == "split") ? './split/number' : './merge/fields'
+//     res.redirect(next)
+// })
 
+//farm > field > split_merge.html
 router.get(/copy_field_router/, function (req, res) { 
     req.session.data.show_success_message = false;
     let next = (req.session.data.copy_field == 'yes') ? './copy/fields' : 'name';
     res.redirect(next)
 })
 
+//copy_field.html
 router.get(/previous_group_router/, function (req, res) { 
     let next = 'crop_type_all'
     if (req.session.data.crop_group == null) {
@@ -179,19 +186,10 @@ router.get(/previous_group_router/, function (req, res) {
     res.redirect(next)
 })
 
-router.get(/previous_clover_router/, function (req, res) { 
-    let next = (req.session.data.previous_clover == "yes") ? 'check' : 'previous_nitrogen'
-    res.redirect(next)
-})
-
-// router.get(/previous_cuts_router/, function (req, res) { 
-//     let next = (req.session.data.previous_management == 'grazed') ? 'previous_clover' : 'previous_cuts_two'
-//     res.redirect(next)
-// })
-
-router.get(/sns_v3_router/, function (req, res) { 
-    let next = (req.session.data.sns_method == "yes") ? 'sns/date' : 'check';
-    res.redirect(next);
+//previous_clover.html
+router.get(/previous_clover_router/, function (req, res) {
+  let next = (req.session.data.previous_clover == "yes") ? 'check' : 'previous_nitrogen'
+  res.redirect(next)
 })
 
 router.get(/mineralisation_router/, function (req, res) { 

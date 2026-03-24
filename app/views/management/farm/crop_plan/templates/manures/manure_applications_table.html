@@ -36,12 +36,11 @@
               Not entered
             {% endif %}
           </td> -->
-          {% if issuecounter == 1 %}
+          {% if data.show_manure_notification == true %}
             <td class="govuk-table__cell">{{issuecounter}}</td>
           {% else %}
             <td class="govuk-table__cell">0</td>
           {% endif %}
-          {% set issuecounter = issuecounter + 1 %}
           <td class="govuk-table__cell"><a href="manure_update_handler?application={{application.application.manure_id}}&field={{field.field_id}}">Change</a></td>
         </tr>     
       {% endfor %} 

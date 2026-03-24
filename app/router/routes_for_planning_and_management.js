@@ -650,7 +650,21 @@ router.get(/group_level_plan_v7_handler/, function (req, res) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 router.get(/v2_quantity_handler/, function (req, res) { 
-    let next = (req.session.data.quantity_type == "area" || req.session.data.quantity_type == "rate") ? 'manure_value' : 'manure_incorporation_method';
+    let next = 'manure_incorporation_method'
+    if (req.session.data.quantity_type == "area") {
+        next = 'manure_area'
+    } else if (req.session.data.quantity_type == "rate") {
+        next = 'manure_rate'
+    }
+    res.redirect(next);
+})
+
+router.get(/manure_rate_handler/, function (req, res) { 
+    req.session.data.application_rate = parseInt(req.session.data.application_rate)
+    let next = 'manure_incorporation_method'
+    if (req.session.data.application_rate >= 250) {
+        next = 'manure_rate_warning'
+    }
     res.redirect(next);
 })
 

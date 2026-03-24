@@ -85,7 +85,7 @@ router.get('/', function (req, res) {
     req.session.data.manure_count = 0
     req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'
     req.session.data.chosen_manure_fields = []
-
+    req.session.data.show_manure_notification = true
     req.session.data.secondcrop_journey = null //true for second crop
 
     //fertilisers
@@ -93,7 +93,6 @@ router.get('/', function (req, res) {
     req.session.data.singleFertilisersApplied = false
     req.session.data.fertiliser_journey = null //multi or single
     req.session.data.fertiliser_count = 0
-    req.session.data.show_fertiliser_notification = false
 
     //grass
     req.session.data.defoliation_one = null

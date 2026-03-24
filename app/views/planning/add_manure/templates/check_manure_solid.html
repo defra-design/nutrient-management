@@ -52,9 +52,7 @@
 <div class="govuk-summary-list__row">
   <dt class="govuk-summary-list__key">When are you applying your{{data.manure_group.name}}?</dt>
   <dd class="govuk-summary-list__value">
-    <p class="govuk-body">
-        21 February {{data.oaktree_farm.planning_year+1}} 
-    </p>
+    <p class="govuk-body">21 February {{data.oaktree_farm.planning_year+1}} </p>
   </dd>
   <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
 </div>
@@ -77,11 +75,29 @@
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
-<div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">How would you like to calculate the amount of manure used?</dt>
-  <dd class="govuk-summary-list__value">Use the standard application rate of 30 Tonnes per hectare</dd>
-  <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-</div>
+  {% if data.show_manure_notification == true %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">How would you like to calculate the amount of manure used?</dt>
+        <dd class="govuk-summary-list__value">
+        Enter an application rate<br>
+        </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">What is the application rate?</dt>
+      <dd class="govuk-summary-list__value">
+        {{data.application_rate}} tonnes per hectare<br>
+        <span>This application will take you over the organic manure nitrogen field limit</span>
+      </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% else %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">How would you like to calculate the amount of manure used?</dt>
+      <dd class="govuk-summary-list__value">Use the standard application rate of 30 tonnes per hectare</dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% endif %}
 
 <div class="govuk-summary-list__row">
   <dt class="govuk-summary-list__key">How will the manure be incorporated?</dt>

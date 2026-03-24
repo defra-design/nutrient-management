@@ -1,7 +1,8 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Check your answers – {{ serviceName }} – GOV.UK{% endblock %}
+   Question – Add organic material -  {{ serviceName }} – GOV.UK
+{% endblock %}
 
 {% block header %}
   {% include "/templates/headers/header_farm.html" ignore missing %}
@@ -17,7 +18,7 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds-from-desktop">
+  <div class="govuk-grid-column-two-thirds">
 
     {% if data.show_manure_notification == true %}
       <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
@@ -30,37 +31,39 @@
           <p class="govuk-notification-banner__heading">
             This application will take you over the organic manure nitrogen field limit
           </p>
-          <!-- <p class="govuk-body">
+          <p class="govuk-body">
             The Nitrate Vulnerable Zone (NVZ) rules state that the total amount of nitrogen from all organic manures you apply in any 12 month period on any single hectare of your land must not exceed 250kg.
           </p>
           <p class="govuk-body">
             It is an offence to breach the Nitrate Vulnerable Zone rules, and you should consider reducing the amount of nitrogen from organic manures.
-          </p> -->
+          </p>
         </div>
       </div>
-      {% endif %}
+    {% endif %}
 
     <h1 class="govuk-heading-l">
-      Check your answers
+      What is the application rate?
     </h1>
 
-    <div class="check-answers">
-      {% if data.manure_type.liquid == true %}
-        {% include "./templates/check_manure_liquid.html" ignore missing %}
-      {% else %}
-        {% include "./templates/check_manure_solid.html" ignore missing %}
-      {% endif %}
-    </div>
-
-    <form action="add_manure_handler" method="post" novalidate>
-
+    <form class="form" action="manure_incorporation_method" method="post">
+      <div class="govuk-form-group">
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="application_rate" type="text" autocomplete="off" spellcheck="false" value={{data.application_rate}}>
+          <div class="govuk-input__suffix" aria-hidden="true">
+            {% if data.manure_type.liquid == true %}
+              metres cubed per hectare
+            {% else %}
+              tonnes per hectare
+            {% endif %}
+          </div>
+        </div>
+      </div>
       {{ govukButton({
-        text: "Add to plan"
+        text: "Continue"
       }) }}
     </form>
 
     <p class="govuk-body">
-      <a href="cancel">Cancel</a>
+      <a href="fields.html">Cancel</a>
     </p>
 
   </div>

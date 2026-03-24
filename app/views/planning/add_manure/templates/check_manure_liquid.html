@@ -1,18 +1,36 @@
+
+{% macro row_item(key, value, url) %}
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      {{key}}
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{value}}
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href={{url}}>Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
+{% endmacro %}
+
+<!-- set content for application rate -->
+{% set quantity_content = 'Enter an application rate' %}
+{% if data.quantity_type == 'area' %}
+  {% set quantity_content = 'Calculate based on the area and quantity you are spreading' %}
+{% elif data.quantity_type == 'default' %}
+  {% set quantity_content = 'Use a typical application rate' %}
+{% endif %}
+
+<!-- set date -->
+{% set application_date = data.manure_date_day + " " + data.manure_date_month | convertmonth + " " + data.manure_date_year%}
+
+<!-- set manure type -->
+{% set localmanuretype = data.manure_type.name %}
+
+
 <dl class="govuk-summary-list margin-bottom-forty nutrient_list">
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Which fields would you like to plan organic material applications for?</dt>
     <dd class="govuk-summary-list__value">
-      <!-- {{data.manure_fields | dump}}
-      {% if data.manure_fields == 'all' %}
-        All fields in the {{data.oaktree_farm.planning_year}} plan
-      {% elif data.manure_fields == 1 %}
-        The Wheat-Winter (Skyfall) fields
-      {% else %}
-        {% for field in data.manure_fields %}
-          {{field | fieldnameconverter}},</br>
-        {% endfor %}
-      {% endif %} -->
       {% for item in data.chosen_manure_fields %}
         {{item | fieldnameconverter}},</br>
       {% endfor %}
@@ -20,95 +38,69 @@
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
-<div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">What type of organic material do you plan to use in this application?</dt>
-  <dd class="govuk-summary-list__value">{{data.manure_type.name}}</dd>
-  <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-</div>
+  {{ row_item('What type of organic material are you using in this application?', localmanuretype, null ) }}
+  {{ row_item('When are you applying localmanuretype?', application_date, null ) }}
+  {{ row_item('How are you going to apply the localmanuretype?', 'Band spreader', null ) }}
+  {{ row_item('Do you want to use typical nutrient values for localmanuretype?', 'Yes, use typical nutrient values', null ) }}
 
-<div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">When do you first plan to spread organic material on the fields?</dt>
-  <dd class="govuk-summary-list__value">
-    <p class="govuk-body">1 March {{data.oaktree_farm.planning_year}}</p>
-  </dd>
-  <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-</div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Typical nutrient values for {{localmanuretype}}</dt>
+    <dd id="nutrient_list" class="govuk-summary-list__value">
+      <span class="nutrient_row">Dry matter content <span class="figure">25.0%</span></span>
+      <span class="nutrient_row">Nitrogen (N) <span class="figure">6.0kg/t</span></span>
+      <span class="nutrient_row">Ammonium-N <span class="figure">1.2kg/t</span></span>
+      <span class="nutrient_row">Phosphate (P2O5) <span class="figure">3.2kg/t</span></span>
+      <span class="nutrient_row">Potash (K2O) <span class="figure">9.4kg/t</span></span>
+      <span class="nutrient_row">Sulphur (SO3) <span class="figure">2.4kg/t</span></span>
+      <span class="nutrient_row">Magnesium (MgO) <span class="figure">1.8kg/t</span></span>
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+  </div>
 
-<div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">How will the {{data.manure_type.name}} be applied?</dt>
-  <dd class="govuk-summary-list__value">Trailing hose</dd>
-  <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-</div>
+  {{ row_item('How would you like to enter the application rate for your localmanuretype?', quantity_content, null ) }}
 
-<div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">Do you want to use the typical nutrient values for {{data.manure_type.name}}?</dt>
+  {% if data.quantity_type == 'rate' %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">What is the application rate?</dt>
+      <dd class="govuk-summary-list__value">
+        {{data.application_rate}}  metres cubed per hectare
+        {% if data.show_manure_notification == true %}
+          <br>
+          <span>This application will take you over the organic manure nitrogen field limit</span>
+        {% endif %}
+      </dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="manure_rate">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+    </div>
+  {% endif %}
+
+  {% if data.quantity_type == 'area' %}
+    {{ row_item('Spreading area', '57 hectares', null ) }}
+    {{ row_item('Quantity', '1140 metres cubed', null ) }}
+  {% endif %}
+
+  {% if data.quantity_type == 'default' %}
+    {{ row_item('What is the application rate?', '30 metres cubed per hectare', null ) }}
+  {% endif %}
+
+  {{ row_item('What is the incorporation method?', 'Discs', null ) }}
+  {{ row_item('How long is the gap between application and incorporation?', '1 to 2 days', null ) }}
+  {{ row_item('Autumn crop nitrogen (N) uptake', '10kg per hectare', null ) }}
+  {{ row_item('End of soil drainage', '31 March' + data.oaktree_farm.planning_year, null ) }}
+  {{ row_item('Rainfall within 6 hours of application', 0, null ) }}
+  {{ row_item('Total rainfall since application', '328mm', null ) }}
+  {{ row_item('Windspeed at application', 'Calm/gentle (0 - 3 Beaufort scale)', null ) }}
+  {{ row_item('Topsoil moisture', 'Moist', null ) }}
+
+
+
+<!-- <div class="govuk-summary-list__row display-none">
+  <dt class="govuk-summary-list__key">Is this organic material application for the same cut or grazing in all the selected grass fields?</dt>
   <dd class="govuk-summary-list__value">Yes</dd>
   <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
 </div>
 
-  {% if data.show_manure_notification == true %}
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">How would you like to calculate the amount of manure used?</dt>
-        <dd class="govuk-summary-list__value">
-        Enter an application rate<br>
-        </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">What is the application rate?</dt>
-      <dd class="govuk-summary-list__value">
-        {{data.application_rate}} tonnes per hectare<br>
-        <span>This application will take you over the organic manure nitrogen field limit</span>
-      </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
-  {% else %}
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">How would you like to calculate the amount of manure used?</dt>
-      <dd class="govuk-summary-list__value">Use the standard application rate of 30 tonnes per hectare</dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
-  {% endif %}
-
-<div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">How will the manure be incorporated?</dt>
-  <dd class="govuk-summary-list__value">Not incorporated</dd>
+<div class="govuk-summary-list__row display-none">
+  <dt class="govuk-summary-list__key">Which cut or grazing is this organic material application for in the selected grass fields?</dt>
+  <dd class="govuk-summary-list__value">One</dd>
   <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-</div>
-
-<div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">Autumn crop nitrogen (N) uptake</dt>
-  <dd class="govuk-summary-list__value">10kg per hectare</dd>
-  <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-</div>
-
-<div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">End of soil drainage</dt>
-  <dd class="govuk-summary-list__value">31 March {{data.oaktree_farm.planning_year+1}}</dd>
-  <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-</div>
-
-<div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">Rainfall within 6 hours of application</dt>
-  <dd class="govuk-summary-list__value">0</dd>
-  <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-</div>
-
-<div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">Total rainfall since application</dt>
-  <dd class="govuk-summary-list__value">328mm</dd>
-  <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-</div>
-
-<div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">Windspeed at application</dt>
-  <dd class="govuk-summary-list__value">Calm/gentle (0 - 3 Beaufort scale)</dd>
-  <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-</div>
-
-<div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">Topsoil moisture</dt>
-  <dd class="govuk-summary-list__value">Moist</dd>
-  <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-</div>
-</dl>
+</div> -->

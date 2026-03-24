@@ -17,6 +17,22 @@
 
 {% block content %}
 
+  {% set organics = false %}
+  {% set inorganics = false %}
+
+  {% for manureapp in data.manureApplications %}
+    {% if manureapp.field.field_id == data.field.field_id %}
+      {% set organics = true %}
+    {% endif %}
+  {% endfor %}
+
+  {% for fertapp in data.fertiliserApplications %}
+    {% if fertapp.field.field_id == data.field.field_id %}
+      {% set inorganics = true %}
+    {% endif %}
+  {% endfor %}
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     {% if data.show_success_message == true %}
@@ -55,28 +71,6 @@
           </a>
         </li>
       </ul>
-
-      <!-- show the right table -->
-      <!-- go throguh the manure applications -->
-      <!-- if this field appears in them, set organic = true -->
-
-      <!-- go throguh the fertiliser applications -->
-      <!-- if this field appears in them, set inorganic = true -->
-
-      {% set organics = false %}
-      {% set inorganics = false %}
-
-      {% for manureapp in data.manureApplications %}
-        {% if manureapp.fieldref == data.fieldref %}
-          {% set organics = true %}
-        {% endif %}
-      {% endfor %}
-
-      {% for fertapp in data.fertiliserApplications %}
-        {% if fertapp.fieldref == data.fieldref %}
-          {% set inorganics = true %}
-        {% endif %}
-      {% endfor %}
 
       <!-- recs -->
       <div class="govuk-tabs__panel" id="recs">

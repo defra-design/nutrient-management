@@ -663,7 +663,10 @@ router.get(/manure_rate_handler/, function (req, res) {
     req.session.data.application_rate = parseInt(req.session.data.application_rate)
     let next = 'manure_incorporation_method'
     if (req.session.data.application_rate >= 250) {
+        req.session.data.show_manure_notification = true
         next = 'manure_rate_warning'
+    } else {
+        req.session.data.show_manure_notification = false
     }
     res.redirect(next);
 })

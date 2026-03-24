@@ -32,6 +32,7 @@
     {% endif %}
 {% endfor %} 
 
+<!-- set date -->
 {% set application_date = data.manure_date_day + " " + data.manure_date_month | convertmonth + " " + data.manure_date_year%}
 
 <!-- set manure type -->
@@ -88,10 +89,11 @@
     <div id="manure_cya" class="check-answers">
       <dl class="govuk-summary-list margin-bottom-twenty">
 
-        {{ row_item('Which fields do you want to update this organic manure application for?', field.field_name, null ) }}
+        {{ row_item('Which field do you want to update this organic manure application for?', field.field_name, null ) }}
         {{ row_item('What type of organic material are you using in this application?', localmanuretype, null ) }}
         {{ row_item('When are you applying localmanuretype?', application_date, null ) }}
-        {{ row_item('Do you want to use the nutrient values from RB209 for localmanuretype?', 'Yes, use the standard nutrient values', null ) }}
+        {{ row_item('How are you going to apply the localmanuretype?', 'Band spreader', null ) }}
+        {{ row_item('Do you want to use typical nutrient values for localmanuretype?', 'Yes, use typical nutrient values', null ) }}
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Typical nutrient values for {{localmanuretype}}</dt>
@@ -107,7 +109,7 @@
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
 
-        {{ row_item('How would you like to calculate the amount of manure used?', quantity_content, null ) }}
+        {{ row_item('How would you like to enter the application rate for your localmanuretype?', quantity_content, null ) }}
 
         {% if data.quantity_type == 'rate' %}
           <div class="govuk-summary-list__row">
@@ -133,7 +135,7 @@
         {% endif %}
         
         {{ row_item('What is the incorporation method?', 'Discs', null ) }}
-        {{ row_item('How long is there between application and incorporation?', '1 to 2 days', null ) }}
+        {{ row_item('How long is the gap between application and incorporation?', '1 to 2 days', null ) }}
         {{ row_item('Autumn crop nitrogen (N) uptake', '10kg per hectare', null ) }}
         {{ row_item('End of soil drainage', '31 March' + data.oaktree_farm.planning_year, null ) }}
         {{ row_item('Rainfall within 6 hours of application', 0, null ) }}

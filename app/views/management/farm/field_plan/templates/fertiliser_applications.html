@@ -11,7 +11,7 @@
   </thead>
   <tbody class="govuk-table__body">
     {% for fertapp in data.fertiliserApplications %}
-      {% if fertapp.fieldref == data.fieldref %}
+      {% if fertapp.field.field_id == data.field.field_id %}
         <tr class="govuk-table__row">
 
           <td class="govuk-table__cell">{{fertapp.date}}</td>
@@ -53,7 +53,7 @@
             {% endif %}
           </td>
 
-          <td class="govuk-table__cell">1</td>
+          <td class="govuk-table__cell">None</td>
 
           <td class="govuk-table__cell"><a href="/update/fertiliser/update">Change</a></td>
         </tr>

@@ -6,13 +6,12 @@
       <th scope="col" class="govuk-table__header">Crop</th>
       <th scope="col" class="govuk-table__header">Type</th>
         <!-- <th scope="col" class="govuk-table__header">Rate</th> -->
-        <th scope="col" class="govuk-table__header">NVZ Issues</th>
+        <th scope="col" class="govuk-table__header">NVZ warning</th>
         <th scope="col" class="govuk-table__header"> </th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
 
-    {% set issuecounter = 1 %}
     {% set field = null %}
 
     {% for application in data.manureApplications %}
@@ -37,9 +36,9 @@
             {% endif %}
           </td> -->
           {% if data.show_manure_notification == true %}
-            <td class="govuk-table__cell">{{issuecounter}}</td>
+            <td class="govuk-table__cell">Yes</td>
           {% else %}
-            <td class="govuk-table__cell">0</td>
+            <td class="govuk-table__cell">None</td>
           {% endif %}
           <td class="govuk-table__cell"><a href="manure_update_handler?application={{application.application.manure_id}}&field={{field.field_id}}">Change</a></td>
         </tr>     

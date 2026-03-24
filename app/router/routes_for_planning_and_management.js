@@ -601,7 +601,7 @@ router.get(/manure_update_handler/, function (req, res) {
 router.get(/manure_update_v6_handler/, function (req, res) {
     req.session.data.show_success_message = true;
     req.session.data.successMessage = 13;
-    let next = '/management/farm/crop_plan/plan_view'
+    let next = '/management/farm/crop_plan/plan_view#organic'
     res.redirect(next)
 })
 
@@ -666,6 +666,11 @@ router.get(/manure_rate_handler/, function (req, res) {
         next = 'manure_rate_warning'
     }
     res.redirect(next);
+})
+
+router.get(/change_rate_handler/, function (req, res) { 
+    req.session.data.show_manure_notification = false
+    res.redirect('update');
 })
 
 router.get(/manner_quantity_handler/, function (req, res) { 

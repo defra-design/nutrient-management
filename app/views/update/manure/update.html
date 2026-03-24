@@ -15,8 +15,42 @@
 {% endblock %}
 
 {% block content %}
+
+{% if data.manure_type.liquid == true %}
+  metres cubed per hectare  
+{% endif %}
+
+{% set quantity_content = 'Enter an application rate' %}
+
+{% if data.quantity_type == 'area' %}
+  {% set quantity_content = 'Calculate based on the area and quantity you are spreading' %}
+{% elif data.quantity_type == 'default' %}
+  {% set quantity_content = 'Use a typical application rate' %}
+{% endif %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        {% if data.show_manure_notification == true %}
+      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Important
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification-banner__heading">
+            This application will take you over the organic manure nitrogen field limit
+          </p>
+          <!-- <p class="govuk-body">
+            The Nitrate Vulnerable Zone (NVZ) rules state that the total amount of nitrogen from all organic manures you apply in any 12 month period on any single hectare of your land must not exceed 250kg.
+          </p>
+          <p class="govuk-body">
+            It is an offence to breach the Nitrate Vulnerable Zone rules, and you should consider reducing the amount of nitrogen from organic manures.
+          </p> -->
+        </div>
+      </div>
+      {% endif %}
 
     <h1 class="govuk-heading-l">
       Update an organic material application for harvest year {{data.oaktree_farm.planning_year}}
@@ -92,13 +126,56 @@
           </dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
-        
+
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">How would you like to enter the application rate?</dt>
-          <dd class="govuk-summary-list__value">Use the standard application rate of 30 tonnes per hectare</dd>
+          <dt class="govuk-summary-list__key">How would you like to calculate the amount of manure used?</dt>
+            <dd class="govuk-summary-list__value">
+            {{quantity_content}}
+            </dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
         </div>
-        
+
+        {% if data.quantity_type == 'rate' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">What is the application rate?</dt>
+            <dd class="govuk-summary-list__value">
+              {{data.application_rate}} tonnes per hectare
+              {% if data.show_manure_notification == true %}
+                <br>
+                <span>This application will take you over the organic manure nitrogen field limit</span>
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="manure_rate">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          </div>
+        {% endif %}
+
+        {% if data.quantity_type == 'area' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Spreading area</dt>
+            <dd class="govuk-summary-list__value">
+              57 hectares
+            </dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="manure_rate">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Quantity</dt>
+            <dd class="govuk-summary-list__value">
+              1140 tonnes
+            </dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="manure_rate">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          </div>
+        {% endif %}
+
+        {% if data.quantity_type == 'default' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">What is the application rate?</dt>
+            <dd class="govuk-summary-list__value">
+              20 tonnes per hectare
+            </dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="manure_rate">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+          </div>
+        {% endif %}
+            
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">What is the incorporation method?</dt>
           <dd class="govuk-summary-list__value">Discs</dd>

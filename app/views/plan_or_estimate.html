@@ -21,28 +21,28 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Which tool do you want to use?
+      What do you want to do?
     </h1>
 
-    <details class="govuk-details">
+    <!-- <details class="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
-          About these tools
+          About these options
         </span>
       </summary>
       <div class="govuk-details__text">
         [content]
       </div>
-    </details>
+    </details> -->
 
-    <form class="form" action="" method="post">
+    <form class="form" action="plan_estimate_router" method="post">
     
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+        <fieldset class="govuk-fieldset" aria-describedby="plan_estimate-hint">
           <div class="govuk-radios govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
-              <label class="govuk-label govuk-radios__label" for="changedName">
+              <input class="govuk-radios__input" id="plan" name="plan_estimate" type="radio" value="plan">
+              <label class="govuk-label govuk-radios__label" for="plan">
                 Create a nutrient management plan or Nitrate Vulnerable Zone (NVZ) report
               </label>
               <!-- <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
@@ -50,9 +50,9 @@
               </div> -->
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
-              <label class="govuk-label govuk-radios__label" for="changedName-2">
-                Create a nutrient supply estimate (using MANNER-NPK)
+              <input class="govuk-radios__input" id="estimate" name="plan_estimate" type="radio" value="estimate">
+              <label class="govuk-label govuk-radios__label" for="estimate">
+                Create a an estimate of nutrient supply from organic manure applications, and the potential financial value
               </label>
               <!-- <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
                 You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before

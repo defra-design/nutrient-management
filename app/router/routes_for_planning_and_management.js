@@ -10,7 +10,25 @@ var callback_functions = require('./callbacks.js');
 
 //start.html
 router.get(/start_router/, function (req, res) {
-  let next = (req.session.data.showinfo == false) ? '/management/farm/farms' : '/management/disclaimer'
+  let next = (req.session.data.showinfo == false) ? 'plan_or_estimate' : 'disclaimer'
+  res.redirect(next)
+})
+
+//start.html
+router.get(/plan_estimate_router/, function (req, res) {
+  let next 
+  if (req.session.data.oaktree_farm.setup == true) {
+    next = '/management/farm/farms'
+  } else {
+    next = '/management/farm/about_nmpt'
+  }
+  if (req.session.data.plan_estimate == 'estimate' ) {
+    if (req.session.data.manner_applications.length == 0) {
+        next = '/manner/about_manner'
+    } else {
+        next = '/manner/previous_calculations'
+    }
+  }
   res.redirect(next)
 })
 

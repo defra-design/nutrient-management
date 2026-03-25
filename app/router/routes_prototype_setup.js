@@ -269,4 +269,18 @@ router.get(/setup_handler_inventory_imports/, function (req, res) {
     res.redirect('start')
 })
 
+// #14- Manure NVZ breach
+router.get(/setup_handler_manure_added_too_high/, function (req, res) { 
+    req.session.data.oaktree_farm = startFarm('basic')
+    req.session.data.all_fields = [req.session.data.field_list_data[1], req.session.data.field_list_data[16]]
+    req.session.data.showinfo = false
+    req.session.data.oaktree_farm.years_planned.push(2026)
+    req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [1, 16], 'Beans-Winter', 1)
+    let group_1 = allFunctions.createCropGroup(null, 1, 2026, 'Beans-Winter', [1, 16], req.session.data.all_fields)
+    req.session.data.cropGroups.push(group_1)
+    req.session.data.manureApplications.push(req.session.data.manure_applications_data[0])
+    res.redirect('start')
+})
+
+
 module.exports = router

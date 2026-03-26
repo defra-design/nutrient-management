@@ -10,7 +10,7 @@ var callback_functions = require('./callbacks.js');
 
 //start.html
 router.get(/start_router/, function (req, res) {
-  let next = (req.session.data.showinfo == false) ? 'plan_or_estimate' : 'disclaimer'
+  let next = (req.session.data.showinfo == false) ? 'management/farm/farms' : 'disclaimer'
   res.redirect(next)
 })
 

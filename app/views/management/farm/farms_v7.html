@@ -19,11 +19,19 @@
 </div>
 
 <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      Plan and manage nutrient applications
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-m">        
+    <h2 class="govuk-heading-m">        
       Nutrient management plans and Nitrate Vulnerable Zone (NVZ) reports
-    </h1>
+    </h2>
 
     {% if data.oaktree_farm.setup == true %}
 
@@ -59,24 +67,26 @@
 
     {% else %}
       <p class="govuk-body">
-        Add a farm to create a nutrient management plan or an NVZ report.
+        To create a nutrient management plan, first add a farm. You can then create NVZ reports for the farm.
       </p>
     
-      <form class="" action="about_nmpt" method="post">
+      <form class="form margin-bottom-thirty" action="about_nmpt" method="post">
         <button type="submit" class="govuk-button margin-bottom-none" data-module="govuk-button">
           Create a nutrient management plan
         </button>
       </form>
     {% endif %}
 
-    <hr class="separator_forty">
+  </div>
 
-    <h2 class="govuk-heading-m margin-top-none bargin-bottom-thirty">
+  <div class="govuk-grid-column-one-third">
+
+    <h2 class="govuk-heading-s margin-bottom-ten padding-top-five">
       Nutrient supply estimates
     </h2>
 
     <p class="govuk-body margin-bottom-ten">
-      Estimate the nutrient supply, and potential financial value, of organic manure applications.
+      Create an estimate of nutrient supply from organic materials, and their potential financial value.
     </p>
 
     <p class="govuk-body margin-bottom-ten">
@@ -87,9 +97,9 @@
       {% endif %}
     </p> 
 
-    <!-- <p class="govuk-body">
+    <p class="govuk-body">
       Estimates are created using the MANNER-NPK nutrient calculation engine.
-    </p>  -->
+    </p> 
 
   </div>
 </div>

@@ -292,6 +292,36 @@ function createStorage(store_type, store_name, store_material) {
 
 
 // -------------------------
+// CROP GROUPS
+// Helpers for working with crop groups and planning years.
+// -------------------------
+
+// Collects field IDs from crop groups based on `option`.
+// `option` = 'all'  → collects from every group.
+// `option` = a group_id → collects only from that group.
+// Returns an array of field IDs.
+function collectFieldsFromGroups(cropGroups, option) {
+  let fields = []
+  for (var x in cropGroups) {
+    if (option === 'all' || cropGroups[x].group_id == option) {
+      for (var y in cropGroups[x].field_list) {
+        fields.push(cropGroups[x].field_list[y])
+      }
+    }
+  }
+  return fields
+}
+
+// Adds `year` to `years_planned` if it isn't already present.
+// Replaces a previous pattern that could push duplicates.
+function addYearIfMissing(years_planned, year) {
+  if (!years_planned.includes(year)) {
+    years_planned.push(year)
+  }
+}
+
+
+// -------------------------
 // FARM SETUP (PROTOTYPE HELPERS)
 // Used in routes_prototype_setup.js to quickly configure a pre-built farm state.
 // Not part of the user journey — only used to set up demo scenarios.
@@ -348,3 +378,5 @@ module.exports.setFieldSizes = setFieldSizes;
 module.exports.getByReference = getByReference;
 module.exports.getByName = getByName;
 module.exports.createTempApplication = createTempApplication;
+module.exports.collectFieldsFromGroups = collectFieldsFromGroups;
+module.exports.addYearIfMissing = addYearIfMissing;

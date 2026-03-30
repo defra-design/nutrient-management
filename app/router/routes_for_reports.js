@@ -506,13 +506,12 @@ router.get(/export_update_handler/, function (req, res) {
 
 // add_export/manure_type.html → date (resolves full manure type object from the selected name)
 router.get(/get_manure_type_handler/, function (req, res) {
-  console.log('manure type ' + req.session.data.manure_type)
-  for (var x in req.session.data.manure_types ) {
-		if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
-				req.session.data.manure_type = req.session.data.manure_types[x]
-		}
-  }
-  console.log('manure type name' + req.session.data.manure_type.name)
+  // for (var x in req.session.data.manure_types ) {
+	// 	if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
+	// 			req.session.data.manure_type = req.session.data.manure_types[x]
+	// 	}
+  // }
+  req.session.data.manure_type = allFunctions.getByReference(req.session.data.manure_types, req.session.data.manure_type)
   res.redirect('date')
 })
 

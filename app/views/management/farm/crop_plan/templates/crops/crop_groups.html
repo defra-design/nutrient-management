@@ -9,7 +9,7 @@
 </div>
 
 <div class="tab-right">
-  <form class="update-button" action="group_level_plan_v7_handler?groupref={{group.group_id}}" method="post" novalidate="">
+  <form class="update-button" action="crop_update_router?groupref={{group.group_id}}" method="post" novalidate="">
     <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
       Update this group
     </button>
@@ -67,7 +67,7 @@
                 Not entered
               {% endif %}          
             </td>
-            <td class="govuk-table__cell"><a href="field_level_plan_v5_handler?fieldref={{field.field_id}}">Update plan or view recommendations</a></td>
+            <td class="govuk-table__cell"><a href="view_field_plan_router?fieldref={{field.field_id}}">Update plan or view recommendations</a></td>
           </tr> 
         {% endif %}
       {% endfor %}

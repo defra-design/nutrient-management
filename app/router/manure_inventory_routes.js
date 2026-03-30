@@ -62,7 +62,6 @@ router.get(/livestock_copy_for_inventory_handler/, function (req, res) {
 
 // reports/manure_inventory/manage_livestock/index → update journey for a specific livestock record
 router.get(/add_inventorynumbers_handler/, callback_functions.hide_error, function (req, res) {
-    console.log(req.query.reference)
     for (var reference in req.session.data.livestock_record_plan_year) {
         if (req.session.data.livestock_record_plan_year[reference].reference == req.query.reference) {
             console.log('found ' + req.session.data.livestock_record_plan_year[reference] + ' ' + req.session.data.livestock_record_plan_year[reference].type)

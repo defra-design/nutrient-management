@@ -53,7 +53,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
-    {% if data.show_manure_notification == true %}
+    {% if data.show_manure_notification == true or data.application_rate >= 250 %}
       <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
         <div class="govuk-notification-banner__header">
           <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -116,7 +116,7 @@
             <dt class="govuk-summary-list__key">What is the application rate?</dt>
             <dd class="govuk-summary-list__value">
               {{data.application_rate}} tonnes per hectare
-              {% if data.show_manure_notification == true %}
+              {% if data.show_manure_notification == true or data.application_rate >= 250 %}
                 <br>
                 <span>This application will take you over the organic manure nitrogen field limit</span>
               {% endif %}

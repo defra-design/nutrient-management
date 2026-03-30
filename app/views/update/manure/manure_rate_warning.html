@@ -20,7 +20,6 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% if data.application_rate >= 250 %}
       <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
         <div class="govuk-notification-banner__header">
           <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -39,15 +38,14 @@
           </p>
         </div>
       </div>
-    {% endif %}
-    
+
     <h1 class="govuk-heading-l">
       What is the application rate?
     </h1>
 
-    <form class="form" action="change_rate_handler" method="post">
+    <form class="form" action="update" method="post">
       <div class="govuk-form-group">
-        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="application_rate" type="text" autocomplete="off" spellcheck="false" value="{{data.application_rate}}">
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="application_rate" type="text" autocomplete="off" spellcheck="false" value={{data.application_rate}}>
           <div class="govuk-input__suffix" aria-hidden="true">
             {% if data.manure_type.liquid == true %}
               metres cubed per hectare

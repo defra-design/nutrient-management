@@ -1440,6 +1440,10 @@ th.wide, td.wide {
 #feedback_banner  {
     background-color: #f4f8fb;
     border-bottom: 1px solid #8eb8dc;
-    padding: 10px;
+    padding: 25px 25px 30px 25px;
     margin-bottom: 30px;
+    p {
+        padding: 0;
+        margin: 0;
+    }
 }

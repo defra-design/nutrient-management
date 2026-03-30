@@ -484,18 +484,13 @@ router.get(/yield_handler/, function (req, res) {
 
 // add_crops/sowdate_question.html → sowdate_value or yield_question / sward_type depending on crop group
 router.get(/sowdate_value_router/, function (req, res) {
-  if (req.session.data.crop_group != 'grass') {
-      if (req.session.data.sow_option_one != 'no') {
-          next = 'sowdate_value'
-      } else {
-          next = 'yield_question'
-      }
-  } else {
-      if (req.session.data.sow_option_one != 'no') {
-          next = 'sowdate_value'
-      } else {
-          next = 'sward_type'
-      }
+  let next = 'sowdate_value'
+  if (req.session.data.sow_option_one == 'no') {
+    if (req.session.data.crop_group == 'grass') {
+      next = 'sward_type'
+    } else {
+      next = 'yield_question'
+    }
   }
   res.redirect(next);
 })

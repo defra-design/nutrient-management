@@ -20,7 +20,7 @@
 {% set plan_2025 = false %}
 {% set plan_2026 = false %}
 {% set plan_2027 = false %}
-{% for x in data.oaktree_farm.years_planned %}
+{% for x in data.farm.years_planned %}
   {% if x == 2025 %}
     {% set plan_2025 = true %}
   {% elif x == 2026 %}
@@ -41,7 +41,7 @@
       <div class="govuk-form-group">
         <div class="govuk-radios" data-module="govuk-radios">
           
-          {% if plan_2026 == true and data.oaktree_farm.planning_year != 2026 %}
+          {% if plan_2026 == true and data.farm.planning_year != 2026 %}
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="2026" name="copy_year" type="radio" value="2026">
               <label class="govuk-label govuk-radios__label" for="2026">
@@ -50,7 +50,7 @@
             </div>
           {% endif %}
 
-          {% if plan_2025 == true and data.oaktree_farm.planning_year != 2025 %}
+          {% if plan_2025 == true and data.farm.planning_year != 2025 %}
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="2025" name="copy_year" type="radio" value="2025">
               <label class="govuk-label govuk-radios__label" for="2025">
@@ -59,7 +59,7 @@
             </div>
           {% endif %}
 
-          {% if plan_2024 == true and data.oaktree_farm.planning_year != 2024 %}
+          {% if plan_2024 == true and data.farm.planning_year != 2024 %}
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="2024" name="copy_year" type="radio" value="2024">
               <label class="govuk-label govuk-radios__label" for="2024">

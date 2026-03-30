@@ -1,15 +1,57 @@
-function field_count(field_references) {
-  return field_references.length;
+// =============================================================================
+// ALL FUNCTIONS
+// Utility functions used across the route files. Grouped by what they work on:
+// fields, crops, manures, fertilisers, livestock, storage, and lookup helpers.
+// =============================================================================
+
+
+// -------------------------
+// LOOKUP HELPERS
+// General-purpose functions for finding an item inside an array.
+// -------------------------
+
+// Returns the first item in `types` whose `name` or `reference` matches `referenceValue`.
+// Used to resolve a selected value (e.g. a manure type name) into its full data object.
+// Example: getByReference(manure_type_livestock_data, 'cattle-fym') → { name: 'Cattle FYM', ... }
+function getByReference (types, referenceValue) {
+  for (let x in types ) {
+    if (types[x].name == referenceValue || types[x].reference == referenceValue) {
+      return types[x]
+    }
+  }
 }
 
+// Returns the first item in `types` whose `name` matches `referenceName`.
+// Similar to getByReference but only checks the name property.
+// Example: getByName(manure_types, 'Cattle FYM') → { name: 'Cattle FYM', ... }
+function getByName (types, referenceName) {
+  for (var x in types ) {
+      if (types[x].name == referenceName) {
+          return types[x]
+      }
+  }
+}
+
+
+// -------------------------
+// FIELDS
+// Functions for finding, creating, and updating field objects.
+// -------------------------
+
+// Returns a single field from `allFields` whose `field_id` matches `referenceNumber`.
+// Example: getFieldByReference(all_fields, 3) → { field_id: 3, field_name: 'Long Field', ... }
 function getFieldByReference (allFields, referenceNumber) {
   for (let field in allFields) {
     if (allFields[field].field_id == referenceNumber) {
         return allFields[field]
     }
   }
-};
+}
 
+// Takes an array of field ID numbers (`referenceNumbers`) and replaces each number
+// with its full field object from `currentFields`.
+// Returns the same array but with objects instead of IDs.
+// Example: getMultipleFieldsByReferences([1, 3], all_fields) → [{ field_id:1, ... }, { field_id:3, ... }]
 function getMultipleFieldsByReferences (referenceNumbers, currentFields) {
   for (let x in referenceNumbers) {
     for (let y in currentFields) {
@@ -19,79 +61,20 @@ function getMultipleFieldsByReferences (referenceNumbers, currentFields) {
     }
   }
   return referenceNumbers
-};
-
-function getByReference (types, referenceValue) {
-  for (let x in types ) {
-    if (types[x].name == referenceValue || types[x].reference == referenceValue) {
-      return types[x]
-    }
-  }
-};
-
-function getByName (types, referenceName) {
-  for (var x in types ) {
-      if (types[x].name == referenceName) {
-          return types[x]
-      }
-  }
-};
-
-function setCropAndGroupId (all_fields, chosenFields, chosenCrop, chosenGroup) {
-  for (let x in all_fields) {
-    for (let y in chosenFields) {
-      if (all_fields[x].field_id == chosenFields[y]) {
-          all_fields[x].crop_id = chosenCrop
-          all_fields[x].group_id = chosenGroup
-      }
-    }
-  }
-  return all_fields
-};
-
-function totalFieldsCount(plan) {
-  let totalFields = 0;
-  if (plan.firstCropFields != undefined) {
-    let totalFields = plan.firstCropFields.length
-  }
-  if (plan.thirdCropFields) {
-    totalFields = totalFields + plan.thirdCropFields.length;
-  }
-  // console.log('total fields' + totalFields);
-  return totalFields
 }
 
-function basicSetup (farm, mvpFields, manure, fertiliser) {
-  farm.setup = true
-  farm.soil_added = true
-  farm.fields_added = true
-  farm.use_mvp_fields = mvpFields
-};
-
-function createCropGroup(group_name, group_id, year, crop_id, field_list, current_fields) {
-  var newGroup = {
-    group_name: group_name,
-    group_id: group_id,
-    year: year,
-    crop_id: crop_id,
-    field_list: field_list,
-  }
-  // console.log('create group = ' + field_list)
-  return newGroup
+// Returns the number of fields in a `field_references` array.
+// Simple wrapper around `.length`.
+function field_count(field_references) {
+  return field_references.length;
 }
 
-function createStorage(store_type, store_name, store_material) {
-  var newGroup = {
-    store_type: store_type,
-    store_name: store_name,
-    store_material: store_material
-  }
-  return newGroup
-}
-
-//set field name
+// Sets the `field_name` and `field_id` on a `temp_field` object.
+// If `temp_field_name` is blank, generates a default name like "New Field #3".
+// `fields_length` is the current number of fields — used to calculate the new field's ID.
+// Returns the updated `temp_field`.
 function setFieldName(temp_field, temp_field_name, fields_length) {
-temp_field.field_id = fields_length + 1
+  temp_field.field_id = fields_length + 1
   if (temp_field_name == "" || temp_field_name == null) {
     temp_field.field_name = 'New Field #' + temp_field.field_id;
   } else {
@@ -100,7 +83,9 @@ temp_field.field_id = fields_length + 1
   return temp_field;
 }
 
-//set field sizes
+// Sets the area values on a `temp_field` object.
+// Only updates a value if the new value is non-empty — preserves existing values otherwise.
+// Returns the updated `temp_field`.
 function setFieldSizes(temp_field, total_area, cropped_area, non_spreading_area) {
   if (total_area != '' && total_area != null) {
     temp_field.total_area = total_area;
@@ -114,8 +99,51 @@ function setFieldSizes(temp_field, total_area, cropped_area, non_spreading_area)
   return temp_field;
 }
 
-// req.session.data.all_fields = allFunctions.updateFieldCrop(req.session.data.all_fields, field_list, crop_id, year, variety, group_id)
-function updateFieldCrop(all_fields, field_list, crop_id, year, variety, group_id) {
+
+// -------------------------
+// CROPS
+// Functions for attaching crop information to fields and creating crop groups.
+// A crop group is the link between a set of fields, a crop type, and a planning year.
+// -------------------------
+
+// Creates a new crop group object.
+// `group_name` — display name (e.g. "Crop group 1")
+// `group_id`   — unique number
+// `year`       — planning year (e.g. 2026)
+// `crop_id`    — crop reference string (e.g. 'Wheat-Winter')
+// `field_list` — array of field IDs in this group
+// Returns the new crop group object.
+// Note: callers previously passed `all_fields` as a final argument but it was never used.
+function createCropGroup(group_name, group_id, year, crop_id, field_list) {
+  var newGroup = {
+    group_name: group_name,
+    group_id: group_id,
+    year: year,
+    crop_id: crop_id,
+    field_list: field_list,
+  }
+  return newGroup
+}
+
+// Sets `crop_id` and `group_id` on every field in `all_fields` whose `field_id`
+// appears in the `chosenFields` array.
+// Returns the updated `all_fields` array.
+function setCropAndGroupId (all_fields, chosenFields, chosenCrop, chosenGroup) {
+  for (let x in all_fields) {
+    for (let y in chosenFields) {
+      if (all_fields[x].field_id == chosenFields[y]) {
+          all_fields[x].crop_id = chosenCrop
+          all_fields[x].group_id = chosenGroup
+      }
+    }
+  }
+  return all_fields
+}
+
+// Updates crop details (`crop_id`, `variety`, `group_id`) on every field in `all_fields`
+// whose `field_id` appears in `field_list`.
+// Returns the updated `all_fields` array.
+function updateFieldCrop(all_fields, field_list, crop_id, variety, group_id) {
   for ( var x in field_list) {
     for ( var y in all_fields) {
       if (field_list[x] == all_fields[y].field_id) {
@@ -128,40 +156,32 @@ function updateFieldCrop(all_fields, field_list, crop_id, year, variety, group_i
   return all_fields
 }
 
-function createLivestockItem (reference, amount) {
-  let newItem = {
-    reference: reference,
-    amount: amount
+// Returns the total number of fields across firstCropFields and thirdCropFields in a plan.
+function totalFieldsCount(plan) {
+  let totalFields = 0;
+  if (plan.firstCropFields != undefined) {
+    totalFields = plan.firstCropFields.length
   }
-  return newItem
+  if (plan.thirdCropFields) {
+    totalFields = totalFields + plan.thirdCropFields.length;
+  }
+  return totalFields
 }
 
-function addManureApplication (fertiliserGroups, cropGroups, chosenFields, organic, manure_type, application_date) {
-  let field_count = 0
-  let cropgroupreferences = []
-  if (chosenFields == 'all') {
-    for (var group in cropGroups) {
-      cropgroupreferences.push(cropGroups[group].reference)
-      field_count = field_count + cropGroups[group].fields.length
-    }
-  } else {
-    for (var x in chosenFields) {
-      cropgroupreferences.push(chosenFields[x])
-      field_count = field_count + cropGroups[x].fields.length
-    }
-  }
-  var newGroup = {
-    reference: fertiliserGroups.length + 1,
-    crop_group_references: cropgroupreferences,
-    field_count: field_count,
-    organic: organic,
-    manure_type: manure_type,
-    application_date: application_date
-  }
-    return newGroup
-}
 
-// let applicationGroup = allFunctions.add_manure_application (group_id, year, req.session.data.all_fields, req.session.data.cropGroups, field_list[x], application_date, manure_id)
+// -------------------------
+// MANURES
+// Functions for creating organic manure application records.
+// -------------------------
+
+// Creates a single manure application object for a specific field.
+// This is the current version used in the add-manure journey.
+// `group_id`         — ID of the application group
+// `year`             — planning year
+// `field_id`         — the field this application is for
+// `application_date` — date string (e.g. "21/02/2026")
+// `manure_id`        — the manure type name
+// Returns the new application object.
 function add_manure_application (group_id, year, field_id, application_date, manure_id) {
   var newApplication = {
     "group_id": group_id,
@@ -169,12 +189,15 @@ function add_manure_application (group_id, year, field_id, application_date, man
     "field_id": field_id,
     "application_date": application_date,
     "manure_id": manure_id,
-    "rate": "20"  }
+    "rate": "20"
+  }
   return newApplication
 }
 
+// Creates a temporary manure application for the MANNER calculator journey.
+// `applications_length` is used to generate a reference number (length + 1).
+// Returns the new application object.
 function createTempApplication (day, month, year, manuretype, rate, applications_length) {
-  console.log('here')
   let newApplication = {
     reference: applications_length + 1,
     date: day + "/" + month + "/" + year,
@@ -185,18 +208,18 @@ function createTempApplication (day, month, year, manuretype, rate, applications
 }
 
 
-function convertNutrient (nutrient) {
-  if (nutrient == null || nutrient == '') {
-    nutrient = 0
-  }
-  return nutrient
-}
+// -------------------------
+// FERTILISERS
+// Functions for creating manufactured fertiliser application records.
+// -------------------------
 
-function showSucess (message) {
-  req.session.data.show_success_message = true
-  req.session.data.successMessage = 3
-}
-
+// Current version — creates a fertiliser application with individual nutrient values.
+// `group_id`  — always 1 currently (temp value, see route comment)
+// `year`      — planning year
+// `field_id`  — the field this application is for
+// `date`      — date string (e.g. "21/02/2026")
+// `nitrogen`, `phosphate`, `potash`, `sulphur`, `lime` — nutrient amounts (blanks become 0)
+// Returns the new application object.
 function addFertiliserApplication_v2 (group_id, year, field_id, date, nitrogen, phosphate, potash, sulphur, lime) {
   nitrogen = convertNutrient(nitrogen)
   phosphate = convertNutrient(phosphate)
@@ -218,66 +241,94 @@ function addFertiliserApplication_v2 (group_id, year, field_id, date, nitrogen, 
     "Na2O": "0",
     "Lime": lime,
   }
-  console.log(newApplication)
   return newApplication
 }
 
-function addFertiliserApplication (fertiliserGroups, allFields, chosenFields, nutrients, rate, application_date) {
-  let fieldObjects = []
-  for (fieldObject in allFields) {
-    for (field in chosenFields) {
-      if (allFields[fieldObject].reference == chosenFields[field]) {   
-        fieldObjects.push(allFields[fieldObject])
-      }
-    }
+// Helper used by addFertiliserApplication_v2.
+// Converts null or empty nutrient values to 0 so the application object
+// doesn't contain blanks.
+function convertNutrient (nutrient) {
+  if (nutrient == null || nutrient == '') {
+    nutrient = 0
   }
+  return nutrient
+}
+
+
+// -------------------------
+// LIVESTOCK
+// -------------------------
+
+// Creates a single livestock item with a type reference and a quantity.
+// `reference` — the livestock type reference (e.g. 'dairy-cow')
+// `amount`    — the number of animals
+// Returns the new livestock item object.
+function createLivestockItem (reference, amount) {
+  let newItem = {
+    reference: reference,
+    amount: amount
+  }
+  return newItem
+}
+
+
+// -------------------------
+// STORAGE
+// -------------------------
+
+// Creates a new manure storage object.
+// `store_type`     — the type of store (e.g. 'slurry tank', 'earth banked lagoon')
+// `store_name`     — user-given name (e.g. 'Tank 1')
+// `store_material` — what it holds (e.g. 'slurry', 'solid manure')
+// Returns the new storage object.
+function createStorage(store_type, store_name, store_material) {
   var newGroup = {
-    reference: fertiliserGroups.length + 1,
-    chosenFields: fieldObjects,
-    nutrients: nutrients,
-    rate: rate,
-    application_date: application_date
+    store_type: store_type,
+    store_name: store_name,
+    store_material: store_material
   }
   return newGroup
 }
 
-function getManureFields(chosenFields) {
-  let fieldsToReturn = null
-  if (chosenFields == 'all') {
-    fieldsToReturn = [1,2,3,4,5,6,7,8,9,10]
-  } else {
-    fieldsToReturn = [1,2,3,4,5]
-  }
-  return fieldsToReturn
-};
 
+// -------------------------
+// FARM SETUP (PROTOTYPE HELPERS)
+// Used in routes_prototype_setup.js to quickly configure a pre-built farm state.
+// Not part of the user journey — only used to set up demo scenarios.
+// -------------------------
+
+// Marks a farm as set up with fields and soil added.
+// `mvpFields` — whether to use the default MVP field list
+function basicSetup (farm, mvpFields) {
+  farm.setup = true
+  farm.soil_added = true
+  farm.fields_added = true
+  farm.use_mvp_fields = mvpFields
+}
+
+// -------------------------
+// DEBUG / LOGGING
+// Only used for console logging during development.
+// -------------------------
+
+// Logs all properties of a crop group to the console.
 function printCropGroup(group) {
-console.log(  'group' +
-  group.year + ", " +
-  group.firstCropReference + ", " +
-  group.secondCropReference + ", " +
-  group.thirdCropReference + ", " +
-  group.fourthCropReference + ", " +
-  group.firstCropFields + ", " +
-  group.secondCropFields + ", " +
-  group.thirdCropFields + ", " +
-  group.fourthCropFields)
-};
+  console.log(  'group' +
+    group.year + ", " +
+    group.firstCropReference + ", " +
+    group.secondCropReference + ", " +
+    group.thirdCropReference + ", " +
+    group.fourthCropReference + ", " +
+    group.firstCropFields + ", " +
+    group.secondCropFields + ", " +
+    group.thirdCropFields + ", " +
+    group.fourthCropFields)
+}
 
-// function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, group, yield, date, sns) {
-//     var newGroup = {
-//         reference: reference,
-//         year: year,
-//         fields: getMultipleFieldsByReferences(field_references, current_fields),
-//         crop_reference: crop_reference,
-//         variety: variety, 
-//         groupname: group,
-//         yield: yield,
-//         planting_date: date,
-//         sns: sns
-//     }
-//     return newGroup
-// }
+
+// =============================================================================
+// EXPORTS
+// =============================================================================
 
 module.exports.printCropGroup = printCropGroup;
 module.exports.getFieldByReference = getFieldByReference;
@@ -285,9 +336,6 @@ module.exports.getMultipleFieldsByReferences = getMultipleFieldsByReferences;
 module.exports.totalFieldsCount = totalFieldsCount;
 module.exports.basicSetup = basicSetup;
 module.exports.createCropGroup = createCropGroup;
-module.exports.getManureFields = getManureFields;
-module.exports.addManureApplication = addManureApplication;
-module.exports.addFertiliserApplication = addFertiliserApplication;
 module.exports.add_manure_application = add_manure_application;
 module.exports.addFertiliserApplication_v2 = addFertiliserApplication_v2;
 module.exports.createLivestockItem = createLivestockItem;

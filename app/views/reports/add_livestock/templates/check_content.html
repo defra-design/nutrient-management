@@ -1,7 +1,7 @@
 <dl class="govuk-summary-list margin-bottom-forty">
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Did you have any livestock on {{data.oaktree_farm.name}} in {{data.oaktree_farm.planning_year}}?</dt>
+    <dt class="govuk-summary-list__key">Did you have any livestock on {{data.farm.name}} in {{data.farm.planning_year}}?</dt>
     <dd class="govuk-summary-list__value">Yes</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
@@ -52,11 +52,11 @@
   {% else %}
       <div class="govuk-summary-list__row">
         {% if data.livestock_group == 'poultry' or data.livestock_group == 'pig' %}
-        <dt class="govuk-summary-list__key">What is the average total number of places for {{data.oaktree_farm.planning_year}}?</dt>
+        <dt class="govuk-summary-list__key">What is the average total number of places for {{data.farm.planning_year}}?</dt>
         <dd class="govuk-summary-list__value">{{data.livestock_number}},000 places</dd>
         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       {% else %}
-        <dt class="govuk-summary-list__key">What is the average total number of {{data.chosen_livestock.shortname}} for {{data.oaktree_farm.planning_year}}?</dt>
+        <dt class="govuk-summary-list__key">What is the average total number of {{data.chosen_livestock.shortname}} for {{data.farm.planning_year}}?</dt>
         <dd class="govuk-summary-list__value">{{data.livestock_number}} {{data.chosen_livestock.shortname}}</dd>
         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
       {% endif %}
@@ -114,7 +114,7 @@
     {% endif %}
   </div>
 
-  {% if data.oaktree_farm.derogation == true %}
+  {% if data.farm.derogation == true %}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Phosphate (P2O5) standard</dt>
       <dd class="govuk-summary-list__value">
@@ -140,7 +140,7 @@
         {% if data.livestock_group == 'pig' or data.livestock_group == 'poultry' %}
           and phosphate (P2O5) 
         {% endif %}
-        from this livestock type in {{data.oaktree_farm.planning_year}}
+        from this livestock type in {{data.farm.planning_year}}
       </h2>
       <table class="govuk-table">
         <tbody>

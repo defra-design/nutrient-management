@@ -36,11 +36,11 @@ Question – {{ serviceName }} – GOV.UK
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
       
-        <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
+        <span class="name govuk-caption-l">{{ data.farm.name }}</span>
         <h1 class="govuk-heading-l add_sub" id="header">Livestock details</h1>
         <h2 class="govuk-heading-m margin-bottom-thirty">
           {% if data.export_type == 8 %}
-            October {{data.oaktree_farm.harvest_year}} and September {{data.oaktree_farm.harvest_year + 1}}
+            October {{data.farm.harvest_year}} and September {{data.farm.harvest_year + 1}}
           {% else %}
             2026 
           {% endif %}
@@ -50,13 +50,13 @@ Question – {{ serviceName }} – GOV.UK
           <div class="govuk-inset-text margin-bottom-forty">
             {% if data.export_type == 8 %}
               <p class="govuk-body">
-                To create an organic manures inventory and NVZ organic material storage report, enter the livestock on {{data.oaktree_farm.name}} between October {{data.oaktree_farm.harvest_year}} and September {{data.oaktree_farm.harvest_year + 1}}.
+                To create an organic manures inventory and NVZ organic material storage report, enter the livestock on {{data.farm.name}} between October {{data.farm.harvest_year}} and September {{data.farm.harvest_year + 1}}.
               </p>
               <p class="govuk-body">
                 <a href="/reports/manure_inventory/checklist">Create an organic manures inventory and NVZ organic material storage report</a>
               </p>
             {% else %}
-              <p class="govuk-body">To create a livestock manure nitrogen (N) farm limit report, enter the livestock on {{data.oaktree_farm.name}} in 2026.</p>
+              <p class="govuk-body">To create a livestock manure nitrogen (N) farm limit report, enter the livestock on {{data.farm.name}} in 2026.</p>
               <p class="govuk-body"><a href="/reports/n_loading/checklist">Continue to create a livestock manure nitrogen (N) farm limit report</a></p>
             {% endif %}
           </div>
@@ -65,7 +65,7 @@ Question – {{ serviceName }} – GOV.UK
       </div>
     </div>
           
-    {% if data.oaktree_farm.livestock_loading == 'added' %}
+    {% if data.farm.livestock_loading == 'added' %}
 
       <form class="margin-bottom-ten" action="/reports/add_livestock/livestock_group" method="post" novalidate="">    
         <button class="govuk-button" data-module="govuk-button">
@@ -83,7 +83,7 @@ Question – {{ serviceName }} – GOV.UK
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-    {% if data.oaktree_farm.livestock_loading == 'added' %}
+    {% if data.farm.livestock_loading == 'added' %}
         {% include "./livestock_tables.html" ignore missing %}
     {% else %}
       <p class="govuk-body">You have not added any livestock information.</p>

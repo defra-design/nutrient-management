@@ -21,8 +21,8 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Does wash water from areas used by livestock drain into slurry stores on {{data.oaktree_farm.name}}?
-      <!-- Are there any areas that are used by livestock and then washed down on {{data.oaktree_farm.name}}? -->
+      Does wash water from areas used by livestock drain into slurry stores on {{data.farm.name}}?
+      <!-- Are there any areas that are used by livestock and then washed down on {{data.farm.name}}? -->
     </h1>
 
     <p class="govuk-hint">
@@ -41,7 +41,7 @@
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="no" name="livestock_inventory" type="radio" value="no" {% if data.oaktree_farm.livestock_inventory == 4  %} checked='checked' {% endif %}>
+              <input class="govuk-radios__input" id="no" name="livestock_inventory" type="radio" value="no" {% if data.farm.livestock_inventory == 4  %} checked='checked' {% endif %}>
               <label class="govuk-label govuk-radios__label" for="no">
                 No
               </label>

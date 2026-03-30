@@ -24,7 +24,7 @@
     <h1 class="govuk-heading-l">Last harvest year for {{data.chosen_field.field_name}}</h1>
 
     <p class="govuk-body">To create plans and give recommendations we need information about your last harvest year.</p>
-    <p class="govuk-body">If you have harvested your crop for {{data.oaktree_farm.harvest_year - 1}}, then use {{data.oaktree_farm.harvest_year -1 }} as your last harvest year.</p>
+    <p class="govuk-body">If you have harvested your crop for {{data.farm.harvest_year - 1}}, then use {{data.farm.harvest_year -1 }} as your last harvest year.</p>
     
     <form action="check" method="post" novalidate="">
       <div class="govuk-form-group">
@@ -37,13 +37,13 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="no" name="harvestyear" type="radio" value="no">
               <label class="govuk-label govuk-radios__label" for="no">
-                {{data.oaktree_farm.harvest_year - 1}}
+                {{data.farm.harvest_year - 1}}
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="yes" name="harvestyear" type="radio" value="yes">
               <label class="govuk-label govuk-radios__label" for="yes">
-                {{data.oaktree_farm.harvest_year - 2}}
+                {{data.farm.harvest_year - 2}}
               </label>
             </div>
           </div>

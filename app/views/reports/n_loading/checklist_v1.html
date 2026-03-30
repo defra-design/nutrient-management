@@ -30,14 +30,14 @@
             </h2>
             <div class="govuk-error-summary__body">
               <ul class="govuk-list govuk-error-summary__list">
-                {% if data.oaktree_farm.livestock_loading == false %}
+                {% if data.farm.livestock_loading == false %}
                   <li>
-                    <a href="#">Livestock numbers for {{data.oaktree_farm.planning_year}} must be completed</a>
+                    <a href="#">Livestock numbers for {{data.farm.planning_year}} must be completed</a>
                   </li>
                 {% endif %}
-                 {% if data.oaktree_farm.manure_exports == false %}
+                 {% if data.farm.manure_exports == false %}
                   <li>
-                    <a href="#">Any imports or exports for {{data.oaktree_farm.planning_year}} must be completed</a>
+                    <a href="#">Any imports or exports for {{data.farm.planning_year}} must be completed</a>
                   </li>
                 {% endif %}
               </ul>
@@ -47,7 +47,7 @@
       {% endif %} -->
 
       <h1 class="govuk-heading-l">
-       Create a {{data.oaktree_farm.planning_year}} livestock manure <br><span>N-loading</span> report
+       Create a {{data.farm.planning_year}} livestock manure <br><span>N-loading</span> report
       </h1>
 
       <!-- <h2 class="govuk-heading-m">
@@ -85,11 +85,11 @@
           <li class="govuk-task-list__item govuk-task-list__item--with-link">
             <div class="govuk-task-list__name-and-hint">
               <a class="govuk-link govuk-task-list__link" href="..//reports/add_livestock/livestock_group" aria-describedby="prepare-application-1-status">
-                Add livestock numbers for {{data.oaktree_farm.planning_year}}
+                Add livestock numbers for {{data.farm.planning_year}}
               </a>
             </div>
             <div class="govuk-task-list__status" id="before-you-start-2-status">
-              {% if data.oaktree_farm.livestock_loading == false %}
+              {% if data.farm.livestock_loading == false %}
                 <strong class="govuk-tag govuk-tag--blue">Incomplete</strong>
               {% else %}
                 Completed
@@ -99,11 +99,11 @@
           <li class="govuk-task-list__item govuk-task-list__item--with-link">
             <div class="govuk-task-list__name-and-hint">
               <a class="govuk-link govuk-task-list__link" href="/../reports/add_export/export_type_none"prepare-application-1-status">
-                Add imports and exports for {{data.oaktree_farm.planning_year}}
+                Add imports and exports for {{data.farm.planning_year}}
               </a>
             </div>
             <div class="govuk-task-list__status" id="before-you-start-2-status">
-              {% if data.oaktree_farm.manure_exports == false %}
+              {% if data.farm.manure_exports == false %}
                 <strong class="govuk-tag govuk-tag--blue">Incomplete</strong>
               {% else %}
                 Completed

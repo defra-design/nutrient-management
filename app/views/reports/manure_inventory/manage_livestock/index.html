@@ -34,16 +34,16 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK
       {% include "./templates/manage/success_message.html" ignore missing %}
     {% endif %}
     
-    <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
+    <span class="name govuk-caption-l">{{ data.farm.name }}</span>
     <h1 class="govuk-heading-l add_sub" id="header">Livestock details</h1>
     <h2 class="govuk-heading-m margin-bottom-thirty">
-        October {{data.oaktree_farm.harvest_year}} and September {{data.oaktree_farm.harvest_year + 1}}
+        October {{data.farm.harvest_year}} and September {{data.farm.harvest_year + 1}}
     </h2>
     
     {% if data.show_success_message != true %}
       <div class="govuk-inset-text margin-bottom-forty">
         <p class="govuk-body">
-          To create an organic manures inventory and NVZ organic material storage report, enter the livestock on {{data.oaktree_farm.name}} between October {{data.oaktree_farm.harvest_year}} and September {{data.oaktree_farm.harvest_year + 1}}.
+          To create an organic manures inventory and NVZ organic material storage report, enter the livestock on {{data.farm.name}} between October {{data.farm.harvest_year}} and September {{data.farm.harvest_year + 1}}.
         </p>
         <p class="govuk-body">
           <a href="/reports/manure_inventory/checklist">Create an organic manures inventory and NVZ organic material storage report</a>

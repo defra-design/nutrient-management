@@ -20,7 +20,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
   
-    <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
+    <span class="name govuk-caption-l">{{ data.farm.name }}</span>
     <h1 class="govuk-heading-l" id="header">Manure stores</h1>
 
   </div>
@@ -38,17 +38,17 @@
           </tr>
         </thead>
         <tbody class="govuk-table__body"> 
-          {% if data.oaktree_farm.storage_added == true %} 
+          {% if data.farm.storage_added == true %} 
             <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">{{data.oaktree_farm.planning_year}}</td>
-                <td class="govuk-table__cell">22 September {{data.oaktree_farm.planning_year}}</td>
-                <td class="govuk-table__cell"><a href="storage_year_handler">Update {{data.oaktree_farm.planning_year}} storage</a></td>
+              <th scope="row" class="govuk-table__header">{{data.farm.planning_year}}</td>
+                <td class="govuk-table__cell">22 September {{data.farm.planning_year}}</td>
+                <td class="govuk-table__cell"><a href="storage_year_handler">Update {{data.farm.planning_year}} storage</a></td>
               </tr>
             {% else %}
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">{{data.oaktree_farm.planning_year}}</td>
+                <th scope="row" class="govuk-table__header">{{data.farm.planning_year}}</td>
                 <td class="govuk-table__cell">-</td>
-                <td class="govuk-table__cell"><a href="storage_year_handler">Add {{data.oaktree_farm.planning_year}} storage</a></td>
+                <td class="govuk-table__cell"><a href="storage_year_handler">Add {{data.farm.planning_year}} storage</a></td>
               </tr>
             {% endif %}
           </tbody>

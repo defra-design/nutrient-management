@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Crop and nutrient plan {{data.oaktree_farm.planning_year}} – {{ serviceName }} – GOV.UK
+  Crop and nutrient plan {{data.farm.planning_year}} – {{ serviceName }} – GOV.UK
 {% endblock %}
 
 {% block header %}
@@ -50,8 +50,8 @@
   <div class="govuk-grid-column-full">
 
     <h1 id="main-title" class="govuk-heading-l">
-      <span class="govuk-caption-l">{{data.oaktree_farm.name}} </span>
-      Crop and nutrient plan {{data.oaktree_farm.planning_year}}
+      <span class="govuk-caption-l">{{data.farm.name}} </span>
+      Crop and nutrient plan {{data.farm.planning_year}}
     </h1>
 
     <div id="summary-header" class="margin-bottom-forty">

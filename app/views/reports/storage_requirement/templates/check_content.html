@@ -8,7 +8,7 @@
       </a>
     </div>
     <div class="govuk-task-list__status">
-      {% if data.oaktree_farm.livestock_inventory >= 3 %}
+      {% if data.farm.livestock_inventory >= 3 %}
         Completed
       {% else %}
         <strong class="govuk-tag govuk-tag--blue">
@@ -26,7 +26,7 @@
       </a>
     </div>
     <div class="govuk-task-list__status">
-      {% if data.oaktree_farm.rainwater_area_added == 'added' or data.oaktree_farm.rainwater_area_added == true %}
+      {% if data.farm.rainwater_area_added == 'added' or data.farm.rainwater_area_added == true %}
         Completed
       {% else %}
         <strong class="govuk-tag govuk-tag--blue">
@@ -44,7 +44,7 @@
       </a>
     </div>
     <div class="govuk-task-list__status">
-      {% if data.oaktree_farm.imports_exports != null %}
+      {% if data.farm.imports_exports != null %}
         Completed
       {% else %}
         <strong class="govuk-tag govuk-tag--blue">
@@ -63,7 +63,7 @@
       </a>
     </div>
     <div class="govuk-task-list__status">
-      {% if data.oaktree_farm.low_risk_land_added != null %}
+      {% if data.farm.low_risk_land_added != null %}
         Completed
       {% else %}
         <strong class="govuk-tag govuk-tag--blue">
@@ -82,7 +82,7 @@
       </a>
     </div>
     <div class="govuk-task-list__status">
-      {% if data.oaktree_farm.storage_added == true %}
+      {% if data.farm.storage_added == true %}
         Completed
       {% else %}
         <strong class="govuk-tag govuk-tag--blue">

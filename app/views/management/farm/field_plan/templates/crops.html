@@ -9,10 +9,10 @@
   <!-- current year crops -->
   <div class="tabs-thirds">
     <h2 class="govuk-heading-m">
-      {{data.oaktree_farm.planning_year}} crop details 
+      {{data.farm.planning_year}} crop details 
     </h2>
     {% if data.chosen_field.crop_id != 'Grass' and data.chosen_field.crop_id != 'grass' %}
-      {% if data.oaktree_farm.planning_year == 2025 %}
+      {% if data.farm.planning_year == 2025 %}
         {% include "./arable_crop_details_empty.html" ignore missing %}
       {% else %}
         {% include "./arable_crop_details.html" ignore missing %}
@@ -23,10 +23,10 @@
   </div>
 
   {% if data.chosen_field.crop_id != 'Grass' and data.chosen_field.crop_id != 'grass' %}
-    <p class="govuk-body"><a href="updates/crop/change_crop">Change the {{data.chosen_field.crop_id | nameconverter}} details for {{data.chosen_field.field_name}} in {{data.oaktree_farm.planning_year}}</a></p>
+    <p class="govuk-body"><a href="updates/crop/change_crop">Change the {{data.chosen_field.crop_id | nameconverter}} details for {{data.chosen_field.field_name}} in {{data.farm.planning_year}}</a></p>
   {% else %}
     <p class="govuk-body"><a href="updates/grass/change_crop">Change the {{data.chosen_field.crop_id | nameconverter}} details for {{data.chosen_field.field_name}} </a></p>
-    <p class="govuk-body"><a href="/management/farm/field/field-details">View previous crop information for {{data.oaktree_farm.planning_year-1}}</a></p>
+    <p class="govuk-body"><a href="/management/farm/field/field-details">View previous crop information for {{data.farm.planning_year-1}}</a></p>
   {% endif %}
 
   <hr class="separator_forty">
@@ -51,11 +51,11 @@
     {% if data.chosen_field.sns == true  %}
       {% include "./sns_details.html" ignore missing %}
       <p class="govuk-body">
-        <a href="sns/update_sns">Change the Soil Nitrogen Supply (SNS) analysis for {{data.oaktree_farm.planning_year}}</a>
+        <a href="sns/update_sns">Change the Soil Nitrogen Supply (SNS) analysis for {{data.farm.planning_year}}</a>
       </p>
     {% else %}
       <p class="govuk-body">
-        <a href="/planning/add_sns/date">Add a soil mineral nitrogen analysis result for {{data.oaktree_farm.planning_year}}</a>
+        <a href="/planning/add_sns/date">Add a soil mineral nitrogen analysis result for {{data.farm.planning_year}}</a>
       </p>
   {% endif %}
   </div>

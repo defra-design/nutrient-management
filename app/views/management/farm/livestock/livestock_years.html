@@ -20,7 +20,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
   
-    <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
+    <span class="name govuk-caption-l">{{ data.farm.name }}</span>
     <h1 class="govuk-heading-l" id="header">Livestock details</h1>
 
     <!-- <p class="govuk-hint">Livestock details are organised from 1 January to 31 December each year.</p> -->
@@ -41,21 +41,21 @@
           </tr>
         </thead>
         <tbody class="govuk-table__body"> 
-          {% if data.oaktree_farm.livestock_loading == 'added' %} 
+          {% if data.farm.livestock_loading == 'added' %} 
             <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">{{data.oaktree_farm.planning_year}}</td>
-                <td class="govuk-table__cell">22 September {{data.oaktree_farm.planning_year}}</td>
-                <!-- <td class="govuk-table__cell">22 September {{data.oaktree_farm.planning_year}}</td> -->
-                <td class="govuk-table__cell"><a href="livestock_year_handler">Update {{data.oaktree_farm.planning_year}} livestock details</a></td>
-                <!-- <td class="govuk-table__cell"><a href="crop_plan_year_handler?">Add {{data.oaktree_farm.planning_year}} livestock</a></td> -->
+              <th scope="row" class="govuk-table__header">{{data.farm.planning_year}}</td>
+                <td class="govuk-table__cell">22 September {{data.farm.planning_year}}</td>
+                <!-- <td class="govuk-table__cell">22 September {{data.farm.planning_year}}</td> -->
+                <td class="govuk-table__cell"><a href="livestock_year_handler">Update {{data.farm.planning_year}} livestock details</a></td>
+                <!-- <td class="govuk-table__cell"><a href="crop_plan_year_handler?">Add {{data.farm.planning_year}} livestock</a></td> -->
               </tr>
             {% else %}
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">{{data.oaktree_farm.planning_year}}</td>
+                <th scope="row" class="govuk-table__header">{{data.farm.planning_year}}</td>
                 <td class="govuk-table__cell">-</td>
-                <!-- <td class="govuk-table__cell">22 September {{data.oaktree_farm.planning_year}}</td> -->
-                <td class="govuk-table__cell"><a href="livestock_year_handler">Add {{data.oaktree_farm.planning_year}} livestock details</a></td>
-                  <!-- <td class="govuk-table__cell"><a href="crop_plan_year_handler?">Add {{data.oaktree_farm.planning_year}} livestock</a></td> -->
+                <!-- <td class="govuk-table__cell">22 September {{data.farm.planning_year}}</td> -->
+                <td class="govuk-table__cell"><a href="livestock_year_handler">Add {{data.farm.planning_year}} livestock details</a></td>
+                  <!-- <td class="govuk-table__cell"><a href="crop_plan_year_handler?">Add {{data.farm.planning_year}} livestock</a></td> -->
               </tr>
             {% endif %}
           </tbody>

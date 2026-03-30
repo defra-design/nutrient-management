@@ -10,14 +10,14 @@
     <!-- crops added - 1 -->
     {% if data.successMessage == 1 %}
       <h3 class="govuk-notification-banner__heading">
-        Crops added for {{data.oaktree_farm.planning_year}}
+        Crops added for {{data.farm.planning_year}}
       </h3>
       <p class="govuk-body">Select a field to see its nutrient recommendations, or to add soil mineral nitrogen analysis results.</p>
     {% endif %}
 
     {% if data.successMessage == 16 %}
     <h3 class="govuk-notification-banner__heading">
-      Grass added for {{data.oaktree_farm.planning_year}}
+      Grass added for {{data.farm.planning_year}}
     </h3>
     <p class="govuk-body">Select a field to see its nutrient recommendations.</p>
     {% endif %}
@@ -65,9 +65,9 @@
   <!-- rain updated - 11  -  5 -->
   {% if data.successMessage == 12 %}
   <h3 class="govuk-notification-banner__heading">
-    Excess Winter Rainfall for {{data.oaktree_farm.planning_year}} updated
+    Excess Winter Rainfall for {{data.farm.planning_year}} updated
   </h3>
-  <p class="govuk-body">This may change your nutrient recommendations for {{data.oaktree_farm.planning_year}}. Select a field to see its recommendations.</p>
+  <p class="govuk-body">This may change your nutrient recommendations for {{data.farm.planning_year}}. Select a field to see its recommendations.</p>
 {% endif %}
 
   <!-- manure updated -->

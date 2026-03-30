@@ -43,7 +43,7 @@
   </div>
 </div>
 
-{% if data.oaktree_farm.setup == false %}
+{% if data.farm.setup == false %}
   <!-- no farms added -->
   <div class="govuk-grid-row">
 
@@ -81,7 +81,7 @@
       <h3 class="govuk-heading-s margin-top-none">Your farms</h3>
       <ul class="govuk-list govuk-list--spaced">
         <li>          
-          <a class="govuk-notification-banner__link" href="hub_message_reset"> {{data.oaktree_farm.name}}</a> 
+          <a class="govuk-notification-banner__link" href="hub_message_reset"> {{data.farm.name}}</a> 
         </li>              
         <li>          
           <a class="govuk-notification-banner__link" href=""> Dusty Farm</a> 

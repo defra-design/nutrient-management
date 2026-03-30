@@ -22,12 +22,12 @@
 
       <div>
         <h1 class="govuk-heading-l">
-          You have not entered any livestock information for {{data.oaktree_farm.planning_year}}
+          You have not entered any livestock information for {{data.farm.planning_year}}
         </h1>
         <!-- <p class="govuk-body">A report is not available. You need to add your livestock information..</p> -->
         <form class="form" action="/reports/add_livestock/derogation" method="post">
           {{ govukButton({
-            text: "Add livestock for " + data.oaktree_farm.planning_year
+            text: "Add livestock for " + data.farm.planning_year
           }) }}
         </form>
       </div>

@@ -35,7 +35,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
-      Monthly totals for this {{data.chosen_livestock.shortname}} type between October {{data.oaktree_farm.planning_year}} and September {{data.oaktree_farm.planning_year + 1}}
+      Monthly totals for this {{data.chosen_livestock.shortname}} type between October {{data.farm.planning_year}} and September {{data.farm.planning_year + 1}}
     </h1>
 
     <p class="govuk-body">
@@ -52,18 +52,18 @@
         {% endif %}
       </div>
 
-      {{ monthitem ("January " + data.oaktree_farm.planning_year) }}
-      {{ monthitem ("February " + data.oaktree_farm.planning_year) }}
-      {{ monthitem ("March " + data.oaktree_farm.planning_year) }}
-      {{ monthitem ("April " + data.oaktree_farm.planning_year) }}
-      {{ monthitem ("May " + data.oaktree_farm.planning_year) }}
-      {{ monthitem ("June " + data.oaktree_farm.planning_year) }}
-      {{ monthitem ("July " + data.oaktree_farm.planning_year) }}
-      {{ monthitem ("August " + data.oaktree_farm.planning_year) }}
-      {{ monthitem ("September " + data.oaktree_farm.planning_year) }}
-      {{ monthitem ("October " + data.oaktree_farm.planning_year) }}
-      {{ monthitem ("November " + data.oaktree_farm.planning_year) }}
-      {{ monthitem ("December " + data.oaktree_farm.planning_year) }}
+      {{ monthitem ("January " + data.farm.planning_year) }}
+      {{ monthitem ("February " + data.farm.planning_year) }}
+      {{ monthitem ("March " + data.farm.planning_year) }}
+      {{ monthitem ("April " + data.farm.planning_year) }}
+      {{ monthitem ("May " + data.farm.planning_year) }}
+      {{ monthitem ("June " + data.farm.planning_year) }}
+      {{ monthitem ("July " + data.farm.planning_year) }}
+      {{ monthitem ("August " + data.farm.planning_year) }}
+      {{ monthitem ("September " + data.farm.planning_year) }}
+      {{ monthitem ("October " + data.farm.planning_year) }}
+      {{ monthitem ("November " + data.farm.planning_year) }}
+      {{ monthitem ("December " + data.farm.planning_year) }}
 
       <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
         Continue

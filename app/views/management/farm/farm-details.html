@@ -20,7 +20,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">{{data.oaktree_farm.name}}</h1>
+    <h1 class="govuk-heading-l">{{data.farm.name}}</h1>
 
     <h2 class="govuk-heading-m plan_title">Farm information</h2>
 
@@ -28,7 +28,7 @@
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Address</td>
-          <td class="govuk-table__cell">South Road, Hexham, Northumberland {{data.oaktree_farm.postcode}}</td>
+          <td class="govuk-table__cell">South Road, Hexham, Northumberland {{data.farm.postcode}}</td>
         </tr>      
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Average annual rainfall</td>
@@ -36,11 +36,11 @@
         </tr>      
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">How many fields at Oaktree Lane Farm are in a Nitrate Vulnerable Zone (NVZ)?</td>
-          <td class="govuk-table__cell">{{data.oaktree_farm.nvz | convert_all_some_none}}</td>
+          <td class="govuk-table__cell">{{data.farm.nvz | convert_all_some_none}}</td>
         </tr>      
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">How many fields at Oaktree Lane Farm are above 300 metres?</td>
-          <td class="govuk-table__cell">{{data.oaktree_farm.elevation | convert_all_some_none}}</td>
+          <td class="govuk-table__cell">{{data.farm.elevation | convert_all_some_none}}</td>
         </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Are you a registered organic producer?</td>

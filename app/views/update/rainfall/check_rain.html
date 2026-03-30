@@ -27,13 +27,13 @@
     </h1>
 
     <h2 class="govuk-heading-m">
-      Harvest year {{data.oaktree_farm.planning_year}}
+      Harvest year {{data.farm.planning_year}}
     </h2>
 
     <div class="check-answers">
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">What is the excess winter rainfall for {{data.oaktree_farm.name}}?</dt>
+          <dt class="govuk-summary-list__key">What is the excess winter rainfall for {{data.farm.name}}?</dt>
           <dd class="govuk-summary-list__value">
             {% if data.excess_rain == 'high' %}
               High - 250mm or more

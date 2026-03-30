@@ -6,7 +6,7 @@
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Total imported nitrogen (N)</th>
-          {% if data.oaktree_farm.manure_imports == true %}
+          {% if data.farm.manure_imports == true %}
             <td scope="col" class="govuk-table__cell">500kg</td>
           {% else %}
             <td scope="col" class="govuk-table__cell">0</td>
@@ -14,7 +14,7 @@
         </tr>
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Total exported nitrogen (N)</th>
-          {% if data.oaktree_farm.manure_exports == true %}
+          {% if data.farm.manure_exports == true %}
             <td scope="col" class="govuk-table__cell">90kg</td>
           {% else %}
             <td scope="col" class="govuk-table__cell">0</td>
@@ -22,11 +22,11 @@
         </tr>
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Net total</th>
-          {% if data.oaktree_farm.manure_exports == true and data.oaktree_farm.manure_imports == true %}
+          {% if data.farm.manure_exports == true and data.farm.manure_imports == true %}
             <th scope="col" class="govuk-table__cell">+ 410kg</th>
-            {% elif data.oaktree_farm.manure_exports == true and data.oaktree_farm.manure_imports == false %}
+            {% elif data.farm.manure_exports == true and data.farm.manure_imports == false %}
             <th scope="col" class="govuk-table__cell">- 90kg</th>
-          {% elif data.oaktree_farm.manure_exports == false and data.oaktree_farm.manure_imports == true %}
+          {% elif data.farm.manure_exports == false and data.farm.manure_imports == true %}
             <th scope="col" class="govuk-table__cell">+ 5000kg</th>
           {% else %}
             <th scope="col" class="govuk-table__cell">0</th>

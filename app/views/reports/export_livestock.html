@@ -21,10 +21,10 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-       What kind of report do you want to save or print from your {{data.oaktree_farm.planning_year}} livestock information?
+       What kind of report do you want to save or print from your {{data.farm.planning_year}} livestock information?
       </h1>
 
-      <!-- <p class="govuk-body">Available reports are based on data entered for {{data.oaktree_farm.planning_year}}.</p> -->
+      <!-- <p class="govuk-body">Available reports are based on data entered for {{data.farm.planning_year}}.</p> -->
       <p class="govuk-body margin-bottom-forty">These reports are relevant to livestock information. <a href="years">Save a different type of report.</a></p>
       
       <form class="form" action="output_router" method="post">
@@ -60,7 +60,7 @@
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="load" name="export_type" type="radio" value="4">
           <label class="govuk-label govuk-radios__label" for="load">
-            N loading limit report for {{data.oaktree_farm.planning_year}}
+            N loading limit report for {{data.farm.planning_year}}
           </label>
           <div class="govuk-hint govuk-radios__hint">
             Demonstrate compliance with the livestock manure nitrogen (N) farm limit for the farm.
@@ -71,7 +71,7 @@
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="numbers" name="export_type" type="radio" value="5">
           <label class="govuk-label govuk-radios__label" for="numbers">
-            Livestock numbers for {{data.oaktree_farm.planning_year}}
+            Livestock numbers for {{data.farm.planning_year}}
           </label>
           <div class="govuk-hint govuk-radios__hint">
             Includes all livestock numbers for the year.

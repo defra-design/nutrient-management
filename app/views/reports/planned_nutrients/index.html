@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  {{data.oaktree_farm.planning_year}} Nutrient applications
+  {{data.farm.planning_year}} Nutrient applications
 {% endblock %}
 
 {% block header %}
@@ -10,7 +10,7 @@
 
 {% block beforeContent %}
   {{ govukBackLink({
-    text: "Back to " + data.oaktree_farm.name ,
+    text: "Back to " + data.farm.name ,
     href: "hub_message_reset"
   }) }}
 {% endblock %}

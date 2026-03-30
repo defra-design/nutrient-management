@@ -6,19 +6,19 @@
       </h2>
       <div class="govuk-error-summary__body">
         <ul class="govuk-list govuk-error-summary__list">
-          {% if data.oaktree_farm.area_added != true %}
+          {% if data.farm.area_added != true %}
             <li>
-              <a class="nolink" href="area">Farm area for {{data.oaktree_farm.planning_year}} must be completed</a>
+              <a class="nolink" href="area">Farm area for {{data.farm.planning_year}} must be completed</a>
             </li>
           {% endif %}
-          {% if data.oaktree_farm.livestock_loading == false %}
+          {% if data.farm.livestock_loading == false %}
             <li>
-              <a class="nolink" href="..//reports/add_livestock/livestock_group">Livestock numbers for {{data.oaktree_farm.planning_year}} must be completed</a>
+              <a class="nolink" href="..//reports/add_livestock/livestock_group">Livestock numbers for {{data.farm.planning_year}} must be completed</a>
             </li>
           {% endif %}
-          {% if data.oaktree_farm.imports_exports == null %}
+          {% if data.farm.imports_exports == null %}
             <li>
-              <a class="nolink" href="/../reports/add_export/export_type_none">Any imports or exports for {{data.oaktree_farm.planning_year}} must be completed</a>
+              <a class="nolink" href="/../reports/add_export/export_type_none">Any imports or exports for {{data.farm.planning_year}} must be completed</a>
             </li>
           {% endif %}
         </ul>

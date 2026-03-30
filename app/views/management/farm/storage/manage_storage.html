@@ -12,7 +12,7 @@
 {% block beforeContent %}
 
 {% set back_url = 'hub_message_reset' %}
-{% set back_url_text = 'Back to ' + data.oaktree_farm.name %}
+{% set back_url_text = 'Back to ' + data.farm.name %}
 
 {% if data.export_type == 8 %}
   {% set back_url = '/reports/manure_inventory/checklist' %}
@@ -36,10 +36,10 @@
     {% endif %}
 
     <div class="margin-bottom-thirty">
-      <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span> 
+      <span class="name govuk-caption-l">{{ data.farm.name }}</span> 
       <h1 class="govuk-heading-l margin-bottom-ten">Manure stores</h1>
       {% if data.export_type == 8 %}
-        <h2 class="govuk-heading-m">October {{data.oaktree_farm.harvest_year}} and September {{data.oaktree_farm.harvest_year + 1}}</h2>
+        <h2 class="govuk-heading-m">October {{data.farm.harvest_year}} and September {{data.farm.harvest_year + 1}}</h2>
       {% elif data.export_type != 7 %}
         <h2 class="govuk-heading-m">2026</h2>
       {% endif %}
@@ -49,13 +49,13 @@
       <div class="govuk-inset-text margin-bottom-forty">
         {% if data.export_type == 8 %}
           <p class="govuk-body">
-            To create an organic manures inventory and NVZ storage report, add all the manure stores on {{data.oaktree_farm.name}} between October {{data.oaktree_farm.harvest_year}} and September {{data.oaktree_farm.harvest_year + 1}}.
+            To create an organic manures inventory and NVZ storage report, add all the manure stores on {{data.farm.name}} between October {{data.farm.harvest_year}} and September {{data.farm.harvest_year + 1}}.
           </p>
           <p class="govuk-body">
             <a href="/reports/manure_inventory/checklist">Create an organic manures inventory and NVZ storage report</a>
           </p>
         {% else %}
-          <p class="govuk-body">To create an existing manure stores capacity report, enter the manure stores on {{data.oaktree_farm.name}}.</p>
+          <p class="govuk-body">To create an existing manure stores capacity report, enter the manure stores on {{data.farm.name}}.</p>
           <p class="govuk-body"><a href="report">Continue to create an existing manure stores capacity report</a></p>
         {% endif %}
       </div>

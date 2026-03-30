@@ -4,30 +4,34 @@ var router = express.Router()
 var allFunctions = require('../functions/allFunctions.js');
 var callback_functions = require('./callbacks.js');
 
-// const { checkout } = require('./routes_message_reset_handlers.js');
 
-// Routes
+// =============================================================================
+// MANNER CALCULATOR
+// Routes for the MANNER-NPK estimate journey — a separate tool that lets users
+// quickly calculate nutrient values from a manure application without going
+// through the full planning journey.
+// Journey: setup → manure group → manure type → date → quantity → results
+// =============================================================================
 
-// router.get(/manner_copy_handler/, function (req, res) {
-//     let next = req.session.data.manner_applications.length == 3 ? 'manure_group' : 'copy';
-//     res.redirect(next);
-// });
-
+// manner/about_manner.html → existing (farm already set up) or name (no farm yet)
 router.get(/manner_setup_handler/, callback_functions.showSuccessMessage, function (req, res) {
-  let next = (req.session.data.oaktree_farm.setup == true) ? 'existing' : 'name'
+  let next = (req.session.data.farm.setup == true) ? 'existing' : 'name'
   res.redirect(next)
 })
 
-router.get(/set_mannerfield_name_handler/, function (req, res) { 
+// manner/name.html → nvz (saves the field name to temp_field for the manner estimate)
+router.get(/set_mannerfield_name_handler/, function (req, res) {
     req.session.data.temp_field = allFunctions.setFieldName(req.session.data.temp_field, req.session.data.temp_field_name, req.session.data.all_fields.length);
     res.redirect('nvz');
 })
 
+// manner/existing.html → name (new farm) or farm (use existing)
 router.get(/use_existing_farm_handler/, callback_functions.showSuccessMessage, function (req, res) {
   let next = (req.session.data.use_existing_farm == 'no') ? 'name' : 'farm'
   res.redirect(next)
 })
 
+// manner/results.html (copy another estimate?) → manure_group (yes) or results (no, saves and shows results)
 router.get(/manner_copy_router/, callback_functions.showSuccessMessage, function (req, res) {
     let next = 'manure_group'
     if (req.session.data.copy_manner != 'no') {
@@ -38,23 +42,27 @@ router.get(/manner_copy_router/, callback_functions.showSuccessMessage, function
     res.redirect(next);
 })
 
+// manner/change.html → results (saves a change to an existing estimate)
 router.get(/manner_change_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 3 //changed
     res.redirect('results')
 })
 
+// update/manner/manure_type.html → manner/results (saves updated manure type)
 router.get(/manuretype_update_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 3 //changed
-    req.session.data.manner_applications[0].manuretype = allFunctions.getByName(req.session.data.manure_types, req.session.data.manure_type)    
+    req.session.data.manner_applications[0].manuretype = allFunctions.getByName(req.session.data.manure_types, req.session.data.manure_type)
     res.redirect('/manner/results')
 })
 
+// update/manner/rate.html → manner/results (saves updated application rate)
 router.get(/manner_update_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 3 //changed
     req.session.data.manner_applications[0].rate = req.session.data.manure_rate
     res.redirect('manner/results')
 })
 
+// manner/quantity.html → results (creates the estimate and shows results)
 router.get(/manner_results_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 1 //done
     let tempApplication = allFunctions.createTempApplication(req.session.data.manure_date_day, req.session.data.manure_date_month, 2026, req.session.data.manure_type, req.session.data.manure_rate, req.session.data.manner_applications.length)
@@ -62,18 +70,22 @@ router.get(/manner_results_handler/, callback_functions.showSuccessMessage, func
     res.redirect('results')
 })
 
+// manner/values.html → results#value (recalculates with updated values)
 router.get(/manner_values_router/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 2 //recalculation
     res.redirect('results#value')
 })
 
+// manner/previous_calculations.html → estimates_list (copy) or existing (don't copy)
 router.get(/copy_estimate_handler/, callback_functions.showSuccessMessage, function (req, res) {
     let next = req.session.data.copy_estimate == 'yes' ? 'estimates_list' : 'existing';
     res.redirect(next)
 })
 
+// update/manner/update.html → update/manner/manure_group (starts the manner update journey)
 router.get(/update_manner_manure_handler/, callback_functions.showSuccessMessage, function (req, res) {
     res.redirect('/update/manner/manure_group')
 })
+
 
 module.exports = router

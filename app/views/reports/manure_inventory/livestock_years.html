@@ -21,7 +21,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Manure systems {{data.oaktree_farm.planning_year}}
+        Manure systems {{data.farm.planning_year}}
       </h1>
 
       <p class="govuk-body">
@@ -45,7 +45,7 @@
                   {{livestock_type.name | capitalize}}
                 </a>
               </div>
-              {% if data.oaktree_farm.derogation == 'blagh' %}
+              {% if data.farm.derogation == 'blagh' %}
                 <div class="govuk-task-list__status" id="company-details-1-status">
                   Completed
                 </div>

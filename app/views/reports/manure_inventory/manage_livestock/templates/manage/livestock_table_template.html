@@ -18,7 +18,7 @@
         <th scope="col" class="govuk-table__header"><span class="no_wrap">Nitrogen (N)</span> standard</th>
         <th scope="col" class="govuk-table__header">Total <span class="no_wrap">nitrogen (N)</span></th>
         
-        {% if data.oaktree_farm.derogation == true %}
+        {% if data.farm.derogation == true %}
           <th scope="col" class="govuk-table__header">Phosphate (P2O5) standard</th>
           <th scope="col" class="govuk-table__header">Total Phosphate (P2O5)</th>
         {% endif %}
@@ -52,7 +52,7 @@
             <td class="govuk-table__cell">{{animal.nitrogen}}kg</td>
             <td class="govuk-table__cell">{{animal_total}}kg</td>
             
-            {% if data.oaktree_farm.derogation == true %}
+            {% if data.farm.derogation == true %}
               <td class="govuk-table__cell">8.4kg</td>
               <td class="govuk-table__cell">17kg</td>
             {% endif %}

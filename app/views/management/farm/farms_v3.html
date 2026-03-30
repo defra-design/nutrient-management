@@ -35,7 +35,7 @@
         Nutrient management plans and Nitrate Vulnerable Zone (NVZ) reports
       </h2>
 
-      {% if data.oaktree_farm.setup == true %}
+      {% if data.farm.setup == true %}
       
       <p class="govuk-body">
         Select a farm to create or update a nutrient management plan, <br>or to save an NVZ report.
@@ -45,7 +45,7 @@
 
       <ul class="govuk-list govuk-list--spaced">
         <li>          
-          <a class="govuk-notification-banner__link" href="hub_message_reset"> {{data.oaktree_farm.name}}</a> 
+          <a class="govuk-notification-banner__link" href="hub_message_reset"> {{data.farm.name}}</a> 
         </li>              
         <li>          
           <a class="govuk-notification-banner__link" href=""> Dusty Farm</a> 

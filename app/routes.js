@@ -32,69 +32,82 @@ let temp_field = {
     soil_analysis: true
 };
 
-//index route
-router.get('/', function (req, res) { 
+//index route - resets all session state when the user returns to the start
+router.get('/', function (req, res) {
 
-    // control vars  
-    req.session.data.show_success_message = false
-    req.session.data.temp_field = temp_field
-    req.session.data.chosen_field = null
-    req.session.data.crop_group = null
-    req.session.data.chosen_crop = null
-    req.session.data.chosen_fields = []
-    req.session.data.another_crop = 'no'
-    req.session.data.chosen_plan = null //v2
-    req.session.data.crop_count = 0
-    req.session.data.manure_spreads = 0
-    req.session.data.fertiliser_spreads = 0
-    // req.session.data.manner_setup = false
-    req.session.data.manner_applications = []
-    req.session.data.extra_features = true
-    req.session.data.imports_exports = null
-    req.session.data.livestock_update_journey = false
-    req.session.data.wash_area_name = 'Washed area 1'
-    req.session.data.example_date = "27 3 2026"
-    req.session.data.update_date = "22 September 2025"
-    
-    //content
-    req.session.data.manure_type_digestate_data = manure_type_digestate_data
-    req.session.data.manure_type_other_data = manure_type_other_data
-    req.session.data.manure_type_biosolid_data = manure_type_biosolid_data
+    // -------------------------
+    // REFERENCE DATA
+    // Static lookup data loaded from JSON files. Used in templates and routes
+    // to populate dropdowns and display labels.
+    // -------------------------
+    req.session.data.crop_types_data = crop_types_data
+    req.session.data.potato_details_data = potato_details_data
+    req.session.data.field_list_data = field_list_data
+    req.session.data.livestock_type_data = livestock_type_data
     req.session.data.manure_type_livestock_data = manure_type_livestock_data
     req.session.data.manure_type_livestock_groups_data = manure_type_livestock_groups_data
-    req.session.data.field_list_data = field_list_data
-    req.session.data.potato_details_data = potato_details_data
-    req.session.data.crop_types_data = crop_types_data
-    req.session.data.livestock_type_data = livestock_type_data
+    req.session.data.manure_type_digestate_data = manure_type_digestate_data
+    req.session.data.manure_type_biosolid_data = manure_type_biosolid_data
+    req.session.data.manure_type_other_data = manure_type_other_data
     req.session.data.fertiliser_applications_data = fertiliser_applications_data
     req.session.data.manure_applications_data = manure_applications_data
-    req.session.data.show_error = false;
-    req.session.data.defoliations = "Cuts and grazings";
 
-    req.session.data.selected_fields = [{"reference":"1", "name":"Long Field",  "crop": null, "soil": null},
-    {"reference":"2", "name":"Barn Field",  "crop": null, "soil": null},
-    {"reference":"3", "name":"Orchard",  "crop": null, "soil": null}]
+    // -------------------------
+    // FIELDS
+    // The list of fields on the farm and any temporary field being created.
+    // -------------------------
+    req.session.data.all_fields = all_fields
+    req.session.data.temp_field = temp_field         // holds a field being added before it is saved
+    req.session.data.chosen_field = null             // the field currently selected/being edited
+    req.session.data.chosen_fields = []              // fields selected during a multi-field journey
+    req.session.data.selected_fields = [
+        {"reference":"1", "name":"Long Field",  "crop": null, "soil": null},
+        {"reference":"2", "name":"Barn Field",  "crop": null, "soil": null},
+        {"reference":"3", "name":"Orchard",     "crop": null, "soil": null}
+    ]
 
-    //set Alpha planning status
-    req.session.data.alpha_planning = 0 //0 = not started, 1 = recs, 2 = completed
-    
-    //manures
-    req.session.data.multipleManuresApplied = false
-    req.session.data.singleManuresApplied = false
-    req.session.data.manure_journey = null //multi or single
-    req.session.data.manure_count = 0
+    // -------------------------
+    // CROPS
+    // Crop groups link fields to crops for a given year.
+    // -------------------------
+    req.session.data.cropGroups = []
+    req.session.data.crop_group = null               // the crop group currently being added/edited
+    req.session.data.chosen_crop = null              // the crop type selected during an add-crop journey
+    req.session.data.another_crop = 'no'             // whether the user wants to add another crop
+    req.session.data.crop_count = 0
+    req.session.data.secondcrop_journey = null       // true when adding a second crop to existing fields
+
+    // -------------------------
+    // MANURES
+    // Organic manure applications added to fields.
+    // -------------------------
+    req.session.data.manureApplications = []
+    req.session.data.manure_storage = []
     req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'
     req.session.data.chosen_manure_fields = []
+    req.session.data.manure_journey = null           // 'multi' or 'single' — is the user adding manures to a single or multiple fields?
+    req.session.data.manure_count = 0
+    req.session.data.manure_spreads = 0
+    req.session.data.multipleManuresApplied = false
+    req.session.data.singleManuresApplied = false
     req.session.data.show_manure_notification = false
-    req.session.data.secondcrop_journey = null //true for second crop
 
-    //fertilisers
+    // -------------------------
+    // FERTILISERS
+    // Manufactured fertiliser applications added to fields.
+    // -------------------------
+    req.session.data.fertiliserApplications = []
+    req.session.data.fertiliser_journey = null       // 'multi' or 'single' — is the user adding fertilisers to a single or multiple fields?
+    req.session.data.fertiliser_count = 0
+    req.session.data.fertiliser_spreads = 0
     req.session.data.multipleFertilisersApplied = false
     req.session.data.singleFertilisersApplied = false
-    req.session.data.fertiliser_journey = null //multi or single
-    req.session.data.fertiliser_count = 0
 
-    //grass
+    // -------------------------
+    // GRASS
+    // Defoliation events (cuts and grazings) for grass fields.
+    // -------------------------
+    req.session.data.defoliations = "Cuts and grazings"
     req.session.data.defoliation_one = null
     req.session.data.defoliation_two = null
     req.session.data.defoliation_three = null
@@ -103,20 +116,36 @@ router.get('/', function (req, res) {
     req.session.data.defoliation_size = null
     req.session.data.weight_type = null
 
-    // new fields management
-    req.session.data.all_fields = all_fields
-
-    // version 5
-    req.session.data.cropGroups = []
-    req.session.data.manure_storage = []
-    req.session.data.manureApplications = []
-    req.session.data.fertiliserApplications = []
+    // -------------------------
+    // LIVESTOCK
+    // Livestock records used in N-loading and manure inventory calculations.
+    // -------------------------
     req.session.data.livestock_record_plan_year = []
+    req.session.data.livestock_update_journey = false
 
-    //planviews
-    req.session.data.plan_version = 2
+    // -------------------------
+    // MANNER
+    // MANNER calculator estimates — separate from the main planning journey.
+    // -------------------------
+    req.session.data.manner_applications = []
 
+    // -------------------------
+    // UI STATE
+    // Flags that control what the user sees — success banners, error messages,
+    // which version of a screen to show, etc.
+    // -------------------------
+    req.session.data.show_success_message = false
+    req.session.data.show_error = false
+    req.session.data.show_manure_notification = false   // also reset above in manures — intentional
     req.session.data.showinfo = true
+    req.session.data.extra_features = true
+    req.session.data.plan_version = 2
+    req.session.data.alpha_planning = 0              // 0 = not started, 1 = recs, 2 = completed
+    req.session.data.chosen_plan = null
+    req.session.data.imports_exports = null
+    req.session.data.wash_area_name = 'Washed area 1'
+    req.session.data.example_date = "27 3 2026"
+    req.session.data.update_date = "22 September 2025"
 
     res.render('index')
 })

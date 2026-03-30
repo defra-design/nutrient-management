@@ -21,7 +21,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Was there any livestock on {{data.oaktree_farm.name}} between October {{data.oaktree_farm.harvest_year}} and September {{data.oaktree_farm.harvest_year + 1}}?
+      Was there any livestock on {{data.farm.name}} between October {{data.farm.harvest_year}} and September {{data.farm.harvest_year + 1}}?
     </h1>
 
     <p class="govuk-hint">
@@ -40,7 +40,7 @@
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="no" name="livestock_inventory" type="radio" value="no" {% if data.oaktree_farm.livestock_inventory == 4  %} checked='checked' {% endif %}>
+              <input class="govuk-radios__input" id="no" name="livestock_inventory" type="radio" value="no" {% if data.farm.livestock_inventory == 4  %} checked='checked' {% endif %}>
               <label class="govuk-label govuk-radios__label" for="no">
                 No
               </label>

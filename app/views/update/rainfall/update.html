@@ -20,7 +20,7 @@ Excess winter rainfall – {{ serviceName }}
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-l">
-          Rainfall for {{data.oaktree_farm.name}}
+          Rainfall for {{data.farm.name}}
         </h1>  
 
         <!-- <p class="govuk-body">Rainfall categories are estimated from the average annual rainfall, or excess winter rainfall when entered.</p> -->
@@ -40,7 +40,7 @@ Excess winter rainfall – {{ serviceName }}
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Excess winter rainfall</th>
               <td class="govuk-table__cell">
-                {% if data.oaktree_farm.ewr == null %}
+                {% if data.farm.ewr == null %}
                 Not entered
                 {% else %}
                   {% if data.excess_rain == 'high' %}

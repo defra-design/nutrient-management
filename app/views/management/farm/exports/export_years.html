@@ -19,7 +19,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
   
-    <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
+    <span class="name govuk-caption-l">{{ data.farm.name }}</span>
     <h1 class="govuk-heading-l" id="header">Organic material imports and exports</h1>
 
     <!-- <p class="govuk-hint">Imports and exports are grouped from 1 January to 31 December each year.</p> -->
@@ -40,10 +40,10 @@
           </tr>
         </thead>
         <tbody class="govuk-table__body"> 
-          <!-- {% if data.oaktree_farm.manure_exports == true %} 
+          <!-- {% if data.farm.manure_exports == true %} 
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">2026</td>
-              <td class="govuk-table__cell">22 September {{data.oaktree_farm.planning_year}}</td>
+              <td class="govuk-table__cell">22 September {{data.farm.planning_year}}</td>
               <td class="govuk-table__cell"><a href="export_year_handler?harvest_date=2026">Update 2026 imports or exports</a></td>
             </tr>
           {% else %}
@@ -53,17 +53,17 @@
               <td class="govuk-table__cell"><a href="export_year_handler?harvest_date=2026">Add 2026 imports or exports</a></td>
             </tr>
           {% endif %} -->
-          {% if data.oaktree_farm.manure_exports == true or data.oaktree_farm.manure_imports == true %} 
+          {% if data.farm.manure_exports == true or data.farm.manure_imports == true %} 
             <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">{{data.oaktree_farm.planning_year}}</td>
-                <td class="govuk-table__cell">22 September {{data.oaktree_farm.planning_year}}</td>
-                <td class="govuk-table__cell"><a href="export_year_handler">Update {{data.oaktree_farm.planning_year}} imports or exports</a></td>
+              <th scope="row" class="govuk-table__header">{{data.farm.planning_year}}</td>
+                <td class="govuk-table__cell">22 September {{data.farm.planning_year}}</td>
+                <td class="govuk-table__cell"><a href="export_year_handler">Update {{data.farm.planning_year}} imports or exports</a></td>
               </tr>
             {% else %}
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">{{data.oaktree_farm.planning_year}}</td>
+                <th scope="row" class="govuk-table__header">{{data.farm.planning_year}}</td>
                 <td class="govuk-table__cell">-</td>
-                <td class="govuk-table__cell"><a href="export_year_handler">Add {{data.oaktree_farm.planning_year}} imports or exports</a></td>
+                <td class="govuk-table__cell"><a href="export_year_handler">Add {{data.farm.planning_year}} imports or exports</a></td>
               </tr>
             {% endif %}
               <!-- <th scope="row" class="govuk-table__header">2024</td>

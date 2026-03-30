@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Oaktree lane farm - N-max limits {{data.oaktree_farm.planning_year}}
+  Oaktree lane farm - N-max limits {{data.farm.planning_year}}
 {% endblock %}
 
 {% block header %}
@@ -26,15 +26,15 @@
 
 <div class="govuk-grid-row margin-bottom-thirty">
   <div class="govuk-grid-column-full">
-    <span class="name govuk-caption-l">{{ data.oaktree_farm.name }}</span>
-    <h1 class="govuk-heading-xl margin-bottom-twenty">Maximum Nitrogen (N) limits {{ data.oaktree_farm.planning_year }}</h1>
-    <p class="govuk-body margin-bottom-none">Created on 22 September {{data.oaktree_farm.planning_year}}</p>
+    <span class="name govuk-caption-l">{{ data.farm.name }}</span>
+    <h1 class="govuk-heading-xl margin-bottom-twenty">Maximum Nitrogen (N) limits {{ data.farm.planning_year }}</h1>
+    <p class="govuk-body margin-bottom-none">Created on 22 September {{data.farm.planning_year}}</p>
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-third">
-    <p class="govuk-body margin-bottom-none">{{ data.oaktree_farm.name }}, <br>
+    <p class="govuk-body margin-bottom-none">{{ data.farm.name }}, <br>
       24 South Road<br> 
       Hexham<br>  
       Northumberland<br> 

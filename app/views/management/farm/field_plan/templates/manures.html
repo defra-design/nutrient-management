@@ -14,13 +14,13 @@
 
   <h2 class="govuk-heading-m non-standard">Inorganic fertiliser applications</h2>
   {% if inorganics == true %}
-    <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add an inorganic fertiliser application for {{data.chosen_field.field_name}}</a></p>
+    <p class="govuk-body"><a href="update_fertiliser_handler?fertiliserjourney=single">Add an inorganic fertiliser application for {{data.chosen_field.field_name}}</a></p>
     <p class="govuk-body">These are the inorganic fertiliser applications for {{data.chosen_field.field_name}} in {{data.farm.planning_year}}.</p>
     <p class="govuk-body-s">All amounts are per hectare.</p>
     {% include ".//fertiliser_applications.html" ignore missing %}
   {% else %}
     <p class="govuk-body">You have no inorganic fertiliser applications planned for {{data.chosen_field.field_name}} in {{data.farm.planning_year}}.</p>
-    <p class="govuk-body"><a href="v2fertiliser_handler?fertiliserjourney=single">Add inorganic fertiliser applications for {{data.chosen_field.field_name}}</a></p>
+    <p class="govuk-body"><a href="update_fertiliser_handler?fertiliserjourney=single">Add inorganic fertiliser applications for {{data.chosen_field.field_name}}</a></p>
   {% endif %}
 
 </div>
@@ -31,7 +31,7 @@
       </button>
     </form> -->
 
-        <!-- <form class="" action="v2fertiliser_handler?fertiliserjourney=single" method="post" novalidate="">    
+        <!-- <form class="" action="update_fertiliser_handler?fertiliserjourney=single" method="post" novalidate="">    
       <button class="govuk-button" data-module="govuk-button">
         Add an inorganic fertiliser application to this field
       </button>

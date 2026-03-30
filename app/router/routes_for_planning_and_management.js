@@ -304,7 +304,7 @@ router.get(/update_question_handler/, function (req, res) {
 })
 
 // update/crop/check.html → plan_view (saves planting date or variety change to the crop group)
-router.get(/crop_group_update_v7_handler/, function (req, res) {
+router.get(/crop_group_update_handler/, function (req, res) {
   req.session.data.show_success_message = true;
   req.session.data.successMessage = 6;
   if (req.session.data.update_type == 'date') {
@@ -718,7 +718,7 @@ router.get(/select_manure_fields_router/, function (req, res) {
 })
 
 // add_manure/manure_type.html → manure_date or manure_defoliation (grass setup)
-router.get(/manuretype_v7_handler/, function (req, res) {
+router.get(/get_manure_type_planning_handler/, function (req, res) {
     req.session.data.manure_type = allFunctions.getByReference(req.session.data.manure_types, req.session.data.manure_type)
     let next = 'manure_date'
     if (req.session.data.farm.grass_setup == true) {
@@ -734,7 +734,7 @@ router.get(/manuretype_manner_handler/, function (req, res) {
 })
 
 // add_manure/manure_date.html → manure_defaults (solid) or manure_applied (liquid)
-router.get(/manure_date_v5_handler/, function (req, res) {
+router.get(/set_manure_date_handler/, function (req, res) {
         let next = "manure_defaults"
     if (req.session.data.manure_date_day < 1) {
         req.session.data.manure_date_day = 21
@@ -837,20 +837,15 @@ router.get(/incorporation_handler/, function (req, res) {
 // Routes for the add-fertiliser journey (fields → when → amount → date → check your answers).
 // =============================================================================
 
-// add_fertiliser/fertiliser_when.html → defoliation
-router.get(/fertiliser_when_handler/, function (req, res) {
-  res.redirect('defoliation')
-})
-
 // field_plan/index → add_fertiliser/fertiliser_fields (multi) or add_fertiliser/fertiliser_when (single)
-router.get(/v2fertiliser_handler/, function (req, res) {
+router.get(/update_fertiliser_handler/, function (req, res) {
     req.session.data.fertiliser_journey = req.query.fertiliserjourney
   let next = (req.session.data.fertiliser_journey == 'multi' ? 'fertiliser_fields' : 'fertiliser_when')
     res.redirect('/planning/add_fertiliser/' + next)
 })
 
 // add_fertiliser/fertiliser_fields.html → fertiliser_when (all/group) or fertiliser_fields_two (specific)
-router.get(/v5_fertiliser_handler/, function (req, res) {
+router.get(/set_fertiliser_fields_handler/, function (req, res) {
     let next = 'fertiliser_when'
     if (req.session.data.fertiliser_fields_option == 'specific') {
         next = 'fertiliser_fields_two'
@@ -861,7 +856,7 @@ router.get(/v5_fertiliser_handler/, function (req, res) {
 })
 
 // add_fertiliser/check.html → plan_view#inorganic (creates a fertiliser application record for each field)
-router.get(/fertiliser_v5_handler/, callback_functions.showSuccessMessage, function (req, res) {
+router.get(/add_fertiliser_handler/, callback_functions.showSuccessMessage, function (req, res) {
     let fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
     let field_list = req.session.data.chosen_manure_fields
     let next = '/management/farm/crop_plan/plan_view#inorganic'

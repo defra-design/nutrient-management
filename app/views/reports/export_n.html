@@ -56,14 +56,22 @@
         </div>
       </details> -->
 
-      {% set crop_groups = data.crop_groups %}
+<<<<<<< HEAD
+      {% set plan_crop_groups = data.plan_crop_groups %}
+=======
+      {% set plan_plan_crop_groups = data.plan_plan_crop_groups %}
+>>>>>>> working
   
       <form class="form" action="/reports/nmax/" method="post">
 
         <div class="govuk-form-group">
 
           <div class="govuk-checkboxes" data-module="govuk-checkboxes">          
-            {% for group in crop_groups %}
+<<<<<<< HEAD
+            {% for group in plan_crop_groups %}
+=======
+            {% for group in plan_plan_crop_groups %}
+>>>>>>> working
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id={{group.crop_reference}} name="nmax_crop" type="checkbox" value={{group.crop_reference}}>
                 <label class="govuk-label govuk-checkboxes__label" for={{group.crop_reference}}>

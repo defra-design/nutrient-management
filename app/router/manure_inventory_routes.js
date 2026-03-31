@@ -60,7 +60,200 @@ router.get(/livestock_copy_for_inventory_handler/, function (req, res) {
   res.redirect(next);
 })
 
+<<<<<<< HEAD
 // reports/manure_inventory/manage_livestock/index → update journey for a specific livestock record
+=======
+// is there any livestock checklist link
+router.get(/system_inventory_handler/, callback_functions.hide_error, callback_functions.hideSuccessMessage, function (req, res) {
+    let next = '/reports/manure_inventory/manage_collection/index'
+    if (req.session.data.oaktree_farm.livestock_inventory == null) { 
+        next = 'livestock_inventory_handler'
+    } else if (req.session.data.oaktree_farm.livestock_inventory == 4) {
+        next = '/reports/manure_inventory/reports/add_livestock/livestock_none'
+    }
+    res.redirect(next);
+})
+
+router.get(/water_inventory_handler/, callback_functions.hide_error, callback_functions.hideSuccessMessage, function (req, res) {
+    let next = 'water_none'
+    if (req.session.data.oaktree_farm.livestock_inventory == null) { 
+        next = 'livestock_inventory_handler'
+    } else if (req.session.data.oaktree_farm.livestock_inventory == 4) {
+        next = '/reports/manure_inventory/reports/add_livestock/livestock_none'
+    } else if (req.session.data.oaktree_farm.wash_water == true) {
+        next = '/reports/manure_inventory/manage_water/index'
+    }    
+    res.redirect(next);
+})
+
+router.get(/rainwater_area_handler/, callback_functions.hideSuccessMessage, function (req, res) {
+    req.session.data.oaktree_farm.rainwater_area_added = true
+    res.redirect('checklist')
+})
+
+router.get(/storage_figures_handler/, callback_functions.hideSuccessMessage, function (req, res) {
+    req.session.data.oaktree_farm.storage_figures = true
+    res.redirect('checklist')
+})
+
+router.get(/low_risk_land_handler/, callback_functions.hideSuccessMessage, function (req, res) {
+    let next = 'area'
+    req.session.data.oaktree_farm.low_risk_land_added = 2
+    if (req.session.data.low_risk_land == 'no') {
+        next = '/reports/manure_inventory/checklist'
+        req.session.data.oaktree_farm.low_risk_land_added = 4
+    }
+    res.redirect(next)
+})
+
+router.get(/livestock_number_handler/, function (req, res) {
+    // let next = (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry') ? 'values_two' : 'check'
+    let next = './system/manure_system'
+    // if ( (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry') && (req.session.data.livestock_entry == 'monthly') ) {
+    //     next = 'values_two'
+    // }
+    if (req.session.data.export_type == '4' ) {
+        next = 'manure_system_skip'
+    }
+    res.redirect(next)
+})
+
+router.get(/landcheck_handler/, callback_functions.showSuccessMessage, function (req, res) { 
+    req.session.data.oaktree_farm.low_risk_land_added = 2;
+    res.redirect('/reports/manure_inventory/checklist')
+})
+
+router.get(/inventory_submit_router/, function (req, res) {
+    let next = 'report'
+    if ((req.session.data.oaktree_farm.imports_exports == null)) {
+        next = 'checklist';
+        req.session.data.show_error = true;
+    }
+    if (req.session.data.oaktree_farm.livestock_loading == false) {
+        next = 'checklist'
+        req.session.data.show_error = true
+    }
+    res.redirect(next)
+})
+
+
+// imports and exports
+router.get(/export_update_handler/, function (req, res) {
+    req.session.data.show_success_message = true;
+    req.session.data.success_message = 2;
+    let next = '/management/farm/exports/manage_exports'
+    res.redirect(next)
+})
+
+router.get(/set_export_defaults_handler/, function (req, res) {
+    console.log(
+        req.session.data.manure_type.name + " " +
+        req.session.data.exported_day + " " +
+        req.session.data.export_total)
+
+    if (req.session.data.manure_type.name == null) {
+        req.session.data.manure_type.name = "Pig farmyard manure - Fresh"
+    }
+    if (req.session.data.exported_day == null) {
+        req.session.data.exported_day = 16
+        req.session.data.exported_month = 4
+        req.session.data.exported_year = 2025
+    }
+    if (req.session.data.export_total == null) {
+        req.session.data.export_total = 10
+    }
+    res.redirect('comments')
+})
+
+router.get(/exportcheck_handler/, function (req, res) { 
+  req.session.data.show_success_message = true;
+  req.session.data.oaktree_farm.imports_exports = 2;
+  if (req.session.data.imports_exports == 'export') {
+      req.session.data.oaktree_farm.manure_exports = true;
+  } else {
+      req.session.data.oaktree_farm.manure_imports = true;
+  }
+  //reset defaults
+  req.session.data.manure_type.name = null
+  req.session.data.manure_group_id = null
+  req.session.data.exported_day = null
+  req.session.data.exported_month = null
+  req.session.data.exported_year = null
+  req.session.data.export_total = null
+  res.redirect('/management/farm/exports/manage_exports')
+})
+
+router.get(/export_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
+	let next = '/reports/add_export/export_type'
+  if (req.session.data.oaktree_farm.manure_exports == true || req.session.data.oaktree_farm.manure_imports == true ) {
+  	next = 'manage_exports'
+  } 
+    res.redirect(next)
+})
+
+router.get(/get_manure_type_handler/, function (req, res) {
+  //get object
+  console.log('manure type ' + req.session.data.manure_type)
+  for (var x in req.session.data.manure_types ) {
+		if (req.session.data.manure_types[x].name == req.session.data.manure_type) {
+				req.session.data.manure_type = req.session.data.manure_types[x]
+		}
+  }
+  console.log('manure type name' + req.session.data.manure_type.name)
+  res.redirect('date')
+})
+
+router.get(/export_type_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
+  let next = '/reports/add_export/manure_group'
+  if (req.query.export_type == 'export') {
+      req.session.data.imports_exports = 'export'
+  } else {
+      req.session.data.imports_exports = 'import'
+  }
+  if (req.session.data.export_type == 4 ) {
+      req.session.data.oaktree_farm.manure_group_id = 'livestock'
+      next = '/reports/add_export/manure_type'
+  }
+  res.redirect(next)
+})
+
+router.get(/change_export_handler/, callback_functions.hide_error, function (req, res) {
+  if (req.query.export_type == 'export') {
+      req.session.data.imports_exports = 'export'
+  } else {
+      req.session.data.imports_exports = 'import'
+  }
+  res.redirect('/update/exports/update')
+})
+
+router.get(/manure_export_type_handler/, callback_functions.setManureGroup, callback_functions.hide_error, function (req, res) {
+  req.session.data.manure_group_id = 'livestock'
+  res.redirect('manure_type')
+})
+
+router.get(/n_loading_export_handler/, callback_functions.setManureGroup, callback_functions.hide_error, function (req, res) {
+  req.session.data.manure_group_id = 'livestock'
+  res.redirect('/reports/add_export/manure_type')
+})
+
+router.get(/inventory_export_handler/, callback_functions.hide_error, function (req, res) {
+  res.redirect('/reports/add_export/manure_group')
+})
+
+router.get(/export_type_router/, callback_functions.hide_error, function (req, res) {
+  let next = 'export_type'
+  if (req.session.data.imports_exports == 'no') {
+      req.session.data.oaktree_farm.imports_exports = 4
+      if (req.session.data.export_type == '8') {
+          next = '/reports/manure_inventory/checklist'
+      } else {
+          next = '/reports/n_loading/checklist'
+      }
+  }
+  res.redirect(next)
+})
+
+>>>>>>> working
 router.get(/add_inventorynumbers_handler/, callback_functions.hide_error, function (req, res) {
     for (var reference in req.session.data.livestock_record_plan_year) {
         if (req.session.data.livestock_record_plan_year[reference].reference == req.query.reference) {

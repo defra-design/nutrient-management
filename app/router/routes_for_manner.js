@@ -42,12 +42,17 @@ router.get(/manner_copy_router/, callback_functions.showsuccess_message, functio
     res.redirect(next);
 })
 
+<<<<<<< HEAD
 // manner/change.html → results (saves a change to an existing estimate)
 router.get(/manner_change_handler/, callback_functions.showsuccess_message, function (req, res) {
+=======
+router.get(/manner_change_handler/, callback_functions.showSuccessMessage, function (req, res) {
+>>>>>>> working
     req.session.data.success_message = 3 //changed
     res.redirect('results')
 })
 
+<<<<<<< HEAD
 // update/manner/manure_type.html → manner/results (saves updated manure type)
 router.get(/manuretype_update_handler/, callback_functions.showsuccess_message, function (req, res) {
     req.session.data.success_message = 3 //changed
@@ -57,21 +62,38 @@ router.get(/manuretype_update_handler/, callback_functions.showsuccess_message, 
 
 // update/manner/rate.html → manner/results (saves updated application rate)
 router.get(/manner_update_handler/, callback_functions.showsuccess_message, function (req, res) {
+=======
+router.get(/manuretype_update_handler/, callback_functions.showSuccessMessage, function (req, res) {
+    req.session.data.success_message = 3 //changed
+    req.session.data.manner_applications[0].manuretype = allFunctions.getByName(req.session.data.manure_types, req.session.data.manure_type)    
+    res.redirect('/manner/results')
+})
+
+router.get(/manner_update_handler/, callback_functions.showSuccessMessage, function (req, res) {
+>>>>>>> working
     req.session.data.success_message = 3 //changed
     req.session.data.manner_applications[0].rate = req.session.data.manure_rate
     res.redirect('manner/results')
 })
 
+<<<<<<< HEAD
 // manner/quantity.html → results (creates the estimate and shows results)
 router.get(/manner_results_handler/, callback_functions.showsuccess_message, function (req, res) {
+=======
+router.get(/manner_results_handler/, callback_functions.showSuccessMessage, function (req, res) {
+>>>>>>> working
     req.session.data.success_message = 1 //done
     let tempApplication = allFunctions.createTempApplication(req.session.data.manure_date_day, req.session.data.manure_date_month, 2026, req.session.data.manure_type, req.session.data.manure_rate, req.session.data.manner_applications.length)
     req.session.data.manner_applications.push(tempApplication)
     res.redirect('results')
 })
 
+<<<<<<< HEAD
 // manner/values.html → results#value (recalculates with updated values)
 router.get(/manner_values_router/, callback_functions.showsuccess_message, function (req, res) {
+=======
+router.get(/manner_values_router/, callback_functions.showSuccessMessage, function (req, res) {
+>>>>>>> working
     req.session.data.success_message = 2 //recalculation
     res.redirect('results#value')
 })

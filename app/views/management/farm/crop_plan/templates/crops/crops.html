@@ -6,12 +6,17 @@
   </form>
 <hr class="separator_forty">
 
-{% for group in data.crop_groups %}
+<<<<<<< HEAD
+{% for group in data.plan_crop_groups %}
   {% if group.year == data.farm.planning_year %}
+=======
+{% for group in data.plan_plan_crop_groups %}
+  {% if group.year == data.oaktree_farm.planning_year %}
+>>>>>>> working
     {% if group.crop_id == 'grass' %}
-      {% include "./crop_groups_grass.html" ignore missing %}
+      {% include "./plan_crop_groups_grass.html" ignore missing %}
     {% else %}  
-      {% include "./crop_groups.html" ignore missing %}
+      {% include "./plan_crop_groups.html" ignore missing %}
     {% endif %}  
   {% endif %}  
 {% endfor %}

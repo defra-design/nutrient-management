@@ -35,7 +35,15 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   }
   // N-max report
   if (req.session.data.export_type == '3') {
-      next = (req.session.data.all_fields.length == 0 || req.session.data.crop_groups.length == 0) ? 'not_available_max' : 'export_crops'
+<<<<<<< HEAD
+      next = (req.session.data.all_fields.length == 0 || req.session.data.plan_crop_groups.length == 0) ? 'not_available_max' : 'export_crops'
+=======
+      if (req.session.data.all_fields.length == 0 || req.session.data.plan_plan_crop_groups.length == 0) {
+          next = 'not_available_max'
+      } else {
+          next = 'export_crops'
+      }
+>>>>>>> working
   }
   // N-loading report
   if (req.session.data.export_type == '4' ) {
@@ -67,9 +75,13 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   if (req.session.data.export_type == '11') {
       next = 'export_fields'
   }
+<<<<<<< HEAD
   // Storage requirement report
+=======
+  // manure_storage_requirement_mvp
+>>>>>>> working
   if (req.session.data.export_type == '12') {
-      next = '/reports/storage_requirement/checklist'
+      next = '/reports/manure_storage_requirement_mvp/checklist'
   }
 
   res.redirect(next)
@@ -171,6 +183,10 @@ router.get(/check_storage_handler/, function (req, res) {
   req.session.data.farm.storage_added = true;
   let store_1 = allFunctions.createStorage(req.session.data.material_type, req.session.data.storage_name, req.session.data.storage_type)
   req.session.data.manure_storage.push(store_1)
+<<<<<<< HEAD
+=======
+  // req.session.data.success_message = 2;
+>>>>>>> working
   res.redirect('/management/farm/storage/manage_storage')
 })
 
@@ -385,6 +401,7 @@ router.get(/livestock_inventory_handler/, callback_functions.hidesuccess_message
     res.redirect(next);
 })
 
+<<<<<<< HEAD
 
 // -------------------------
 // IMPORTS AND EXPORTS
@@ -398,6 +415,19 @@ router.get(/export_year_handler/, callback_functions.hidesuccess_message, functi
   	next = 'manage_exports'
   }
     res.redirect(next)
+=======
+// is there any livestock checklist link REQUIREMENT
+router.get(/livestock_requirement_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
+    let next = './reports/add_livestock/livestock_none'
+    if (req.session.data.oaktree_farm.livestock_inventory == 2 || req.session.data.oaktree_farm.livestock_inventory == 3) { 
+        next = '/reports/manure_storage_requirement_mvp/manage_livestock/index'
+    } else {
+        if (req.session.data.oaktree_farm.livestock_loading == 3) {
+            next = '/reports/manure_storage_requirement_mvp/manage_livestock/copy'
+        }
+    }
+    res.redirect(next);
+>>>>>>> working
 })
 
 // add_export/export_type.html → manure_group (import) or manure_type (livestock export)

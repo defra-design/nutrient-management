@@ -21,33 +21,20 @@
 
 <!-- //use the correct database for the chosen year -->
 
-<<<<<<< HEAD
 {% for group in data.plan_crop_groups %}
-=======
-{% for group in data.plan_plan_crop_groups %}
->>>>>>> working
   {% for field in group.field_list %}
     {% set totalFields = totalFields + 1 %}
   {% endfor %}
 {% endfor %}
 
 {% set organics = false %}
-<<<<<<< HEAD
 <!-- {{data.manure_applications.length}} -->
 {% if data.manure_applications.length > 0 %}
-=======
-<!-- {{data.plan_manure_applications.length}} -->
-{% if data.plan_manure_applications.length > 0 %}
->>>>>>> working
   {% set organics = true %}
 {% endif %}
 
 {% set inorganics = false %}
-<<<<<<< HEAD
 {% if data.fertiliser_applications.length > 0 %}
-=======
-{% if data.plan_fertiliser_applications.length > 0 %}
->>>>>>> working
   {% set inorganics = true %}
 {% endif %}
 

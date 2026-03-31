@@ -74,25 +74,19 @@ router.get(/setup_handler_one_crop/, function (req, res) {
     req.session.data.all_fields = req.session.data.field_list_data
     req.session.data.show_info = false
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [1,2,3,4,5], 'Wheat-Winter', 1)
-<<<<<<< HEAD
     let group_1 = allFunctions.createCropGroup(null, 1, 2026, 'Wheat-Winter', [1,2,3,4,5])
     req.session.data.plan_crop_groups.push(group_1)
     req.session.data.farm.years_planned.push(2026)
-=======
     let group_1 = allFunctions.createCropGroup(null, 1, 2026, 'Wheat-Winter', [1,2,3,4,5], req.session.data.all_fields)
     req.session.data.plan_plan_crop_groups.push(group_1)
     req.session.data.oaktree_farm.years_planned.push(2026)
->>>>>>> working
     res.redirect('start')
 })
 
 // #3 - Manner estimate added
 router.get(/setup_handler_manner/, function (req, res) {
-<<<<<<< HEAD
     req.session.data.farm = startFarm()
-=======
     req.session.data.oaktree_farm = startFarm()
->>>>>>> working
     req.session.data.show_info = false
     let tempApplication = {ref: 1, date:'01/06/2026', manuretype: req.session.data.manure_type_livestock_data[12], rate: 30 }
     req.session.data.manner_applications.push(tempApplication)
@@ -104,7 +98,6 @@ router.get(/setup_handler_grass_added/, function (req, res) {
     req.session.data.farm = startFarm('storage')
     req.session.data.all_fields = [req.session.data.field_list_data[0], req.session.data.field_list_data[16]]
     req.session.data.show_info = false
-<<<<<<< HEAD
     req.session.data.farm.years_planned.push(2026)
     req.session.data.farm.grass_setup = true
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [1,2], 'grass', 1)
@@ -114,7 +107,6 @@ router.get(/setup_handler_grass_added/, function (req, res) {
     let applicationOne = allFunctions.addFertiliserApplication_v2 (req.session.data.all_fields, req.session.data.plan_crop_groups, 1, '01/03/2024', 60, 30, 30, 0, 0, 1)
     req.session.data.fertiliser_applications.push(applicationOne)
     // print_farm(req.session.data.farm, 'storage_added')
-=======
     req.session.data.oaktree_farm.years_planned.push(2026)
     req.session.data.oaktree_farm.grass_setup = true
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [1,2], 'grass', 1)
@@ -124,7 +116,6 @@ router.get(/setup_handler_grass_added/, function (req, res) {
     let applicationOne = allFunctions.addFertiliserApplication_v2 (req.session.data.all_fields, req.session.data.plan_plan_crop_groups, 1, '01/03/2024', 60, 30, 30, 0, 0, 1)
     req.session.data.plan_fertiliser_applications.push(applicationOne)
     // print_farm(req.session.data.oaktree_farm, 'storage_added')
->>>>>>> working
     res.redirect('start')
 })
 
@@ -133,7 +124,6 @@ router.get(/setup_handler_everything/, function (req, res) {
     req.session.data.farm = startFarm('storage')
     req.session.data.all_fields = req.session.data.field_list_data
     req.session.data.show_info = false
-<<<<<<< HEAD
     req.session.data.farm.years_planned.push(2026)
     req.session.data.farm.area_added = true
     req.session.data.farm.livestock_loading = 2
@@ -144,7 +134,6 @@ router.get(/setup_handler_everything/, function (req, res) {
     req.session.data.farm.manure_imports = true
     req.session.data.farm.manure_exports = true
     req.session.data.farm.imports_exports = 2
-=======
     req.session.data.oaktree_farm.years_planned.push(2026)
     req.session.data.oaktree_farm.area_added = true
     req.session.data.oaktree_farm.livestock_loading = 2
@@ -155,7 +144,6 @@ router.get(/setup_handler_everything/, function (req, res) {
     req.session.data.oaktree_farm.manure_imports = true
     req.session.data.oaktree_farm.manure_exports = true
     req.session.data.oaktree_farm.imports_exports = 2
->>>>>>> working
     req.session.data.extra_features = true
     
     // livestock
@@ -168,7 +156,6 @@ router.get(/setup_handler_everything/, function (req, res) {
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [1, 4, 5, 6, 7, 14], 'Wheat-Winter', 2)
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [10, 11, 18, 19], 'grass', 3)
 
-<<<<<<< HEAD
     let group_1 = allFunctions.createCropGroup(null, 1, 2026, 'Beans-Winter', [8, 12])
     req.session.data.plan_crop_groups.push(group_1)
 
@@ -181,7 +168,6 @@ router.get(/setup_handler_everything/, function (req, res) {
     // manure applications
     for (let y in req.session.data.manure_applications_data) {
         req.session.data.manure_applications.push(req.session.data.manure_applications_data[y])
-=======
     let group_1 = allFunctions.createCropGroup(null, 1, 2026, 'Beans-Winter', [8, 12], req.session.data.all_fields)
     req.session.data.plan_plan_crop_groups.push(group_1)
 
@@ -194,16 +180,12 @@ router.get(/setup_handler_everything/, function (req, res) {
     // manure applications
     for (let y in req.session.data.manure_applications_data) {
         req.session.data.plan_manure_applications.push(req.session.data.manure_applications_data[y])
->>>>>>> working
     }
 
     // fertiliser applications
     for (let x in req.session.data.fertiliser_applications_data) {
-<<<<<<< HEAD
         req.session.data.fertiliser_applications.push(req.session.data.fertiliser_applications_data[x])
-=======
         req.session.data.plan_fertiliser_applications.push(req.session.data.fertiliser_applications_data[x])
->>>>>>> working
     }
 
     //manner
@@ -214,15 +196,12 @@ router.get(/setup_handler_everything/, function (req, res) {
 
 // #6 - Farm without fields
 router.get(/setup_handler_farm_only/, function (req, res) { 
-<<<<<<< HEAD
     req.session.data.farm = startFarm()
     req.session.data.show_info = false
     req.session.data.farm.setup = true
-=======
     req.session.data.oaktree_farm = startFarm()
     req.session.data.show_info = false
     req.session.data.oaktree_farm.setup = true
->>>>>>> working
     req.session.data.extra_features = true
     res.redirect('start')
 })
@@ -256,11 +235,8 @@ router.get(/setup_handler_livestock_inventory/, function (req, res) {
     req.session.data.farm = startFarm('basic')
     req.session.data.all_fields = [req.session.data.field_list_data[0], req.session.data.field_list_data[16]]
     req.session.data.show_info = false
-<<<<<<< HEAD
     req.session.data.farm.livestock_inventory = 3;    
-=======
     req.session.data.oaktree_farm.livestock_inventory = 3;    
->>>>>>> working
     
     // Livestock
     let livestock_list = [0,1,2,3,24]
@@ -284,13 +260,10 @@ router.get(/setup_handler_livestock_storage/, function (req, res) {
     req.session.data.farm = startFarm('storage')
     req.session.data.all_fields = [req.session.data.field_list_data[0], req.session.data.field_list_data[16]]
     req.session.data.show_info = false
-<<<<<<< HEAD
     req.session.data.farm.imports_exports = 2
     req.session.data.farm.storage_figures = true
-=======
     req.session.data.oaktree_farm.imports_exports = 2
     req.session.data.oaktree_farm.storage_figures = true
->>>>>>> working
     
     // livestock
     let livestock_list = [0,1,2,3,4,5,24]
@@ -305,11 +278,8 @@ router.get(/setup_handler_livestock_storage/, function (req, res) {
 
 // #12 - Livestock added for inventory and storage
 router.get(/setup_handler_inventory_imports/, function (req, res) { 
-<<<<<<< HEAD
     req.session.data.farm = startFarm('basic')
-=======
     req.session.data.oaktree_farm = startFarm('basic')
->>>>>>> working
     req.session.data.show_info = false
     req.session.data.all_fields = req.session.data.field_list_data
     req.session.data.farm.years_planned.push(2026)
@@ -321,7 +291,6 @@ router.get(/setup_handler_inventory_imports/, function (req, res) {
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [1, 4, 5, 6, 7, 14], 'Wheat-Winter', 2)
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [10, 11, 18, 19], 'grass', 3)
 
-<<<<<<< HEAD
     let group_1 = allFunctions.createCropGroup(null, 1, 2026, 'Beans-Winter', [8, 12])
     req.session.data.plan_crop_groups.push(group_1)
 
@@ -340,7 +309,6 @@ router.get(/setup_handler_inventory_imports/, function (req, res) {
     }
 
     console.log(req.session.data.manure_applications)
-=======
     let group_1 = allFunctions.createCropGroup(null, 1, 2026, 'Beans-Winter', [8, 12], req.session.data.all_fields)
     req.session.data.plan_plan_crop_groups.push(group_1)
 
@@ -359,7 +327,6 @@ router.get(/setup_handler_inventory_imports/, function (req, res) {
     }
 
     console.log(req.session.data.plan_manure_applications)
->>>>>>> working
     res.redirect('start')
 })
 
@@ -368,19 +335,16 @@ router.get(/setup_handler_manure_added_too_high/, function (req, res) {
     req.session.data.farm = startFarm('basic')
     req.session.data.all_fields = [req.session.data.field_list_data[1], req.session.data.field_list_data[16]]
     req.session.data.show_info = false
-<<<<<<< HEAD
     req.session.data.farm.years_planned.push(2026)
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [1, 16], 'Beans-Winter', 1)
     let group_1 = allFunctions.createCropGroup(null, 1, 2026, 'Beans-Winter', [1, 16])
     req.session.data.plan_crop_groups.push(group_1)
     req.session.data.manure_applications.push(req.session.data.manure_applications_data[0])
-=======
     req.session.data.oaktree_farm.years_planned.push(2026)
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [1, 16], 'Beans-Winter', 1)
     let group_1 = allFunctions.createCropGroup(null, 1, 2026, 'Beans-Winter', [1, 16], req.session.data.all_fields)
     req.session.data.plan_plan_crop_groups.push(group_1)
     req.session.data.plan_manure_applications.push(req.session.data.manure_applications_data[0])
->>>>>>> working
     res.redirect('start')
 })
 

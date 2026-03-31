@@ -32,20 +32,12 @@
   {% set inorganicCount = 0 %}
 
   {% for field in group.field_list %}
-<<<<<<< HEAD
     {% for manureitem in data.manure_applications %}
-=======
-    {% for manureitem in data.plan_manure_applications %}
->>>>>>> working
       {% if manureitem.fieldref == field.field_id %}
         {% set manureCount = manureCount + 1 %}
       {% endif %}
     {% endfor %}
-<<<<<<< HEAD
     {% for fertitem in data.fertiliser_applications %}
-=======
-    {% for fertitem in data.plan_fertiliser_applications %}
->>>>>>> working
       {% if fertitem.fieldref == field.field_id %}
         {% set inorganicCount = inorganicCount + 1 %}
       {% endif %}

@@ -3,12 +3,12 @@ const hide_error = function (req, res, next) {
     next()
 }
 
-const showsuccess_message = function (req, res, next) {
+const showSuccessMessage = function (req, res, next) {
     req.session.data.show_success_message = true
     next()
 }
 
-const hidesuccess_message = function (req, res, next) {
+const hideSuccessMessage = function (req, res, next) {
     req.session.data.show_success_message = false
     next()
 }
@@ -32,7 +32,10 @@ const getApplicationByReference = function (req, res, next) {
 }
 
 module.exports.hide_error = hide_error;
-module.exports.showsuccess_message = showsuccess_message;
-module.exports.hidesuccess_message = hidesuccess_message;
+module.exports.showSuccessMessage = showSuccessMessage;
+module.exports.hideSuccessMessage = hideSuccessMessage;
+// legacy aliases — used in files not yet updated to camelCase
+module.exports.showsuccess_message = showSuccessMessage;
+module.exports.hidesuccess_message = hideSuccessMessage;
 module.exports.setManureGroup = setManureGroup;
 module.exports.getApplicationByReference = getApplicationByReference;

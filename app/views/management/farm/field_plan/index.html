@@ -20,21 +20,13 @@
   {% set organics = false %}
   {% set inorganics = false %}
 
-<<<<<<< HEAD
   {% for manureapp in data.manure_applications %}
-=======
-  {% for manureapp in data.plan_manure_applications %}
->>>>>>> working
     {% if manureapp.field.field_id == data.field.field_id %}
       {% set organics = true %}
     {% endif %}
   {% endfor %}
 
-<<<<<<< HEAD
   {% for fertapp in data.fertiliser_applications %}
-=======
-  {% for fertapp in data.plan_fertiliser_applications %}
->>>>>>> working
     {% if fertapp.field.field_id == data.field.field_id %}
       {% set inorganics = true %}
     {% endif %}

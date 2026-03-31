@@ -165,7 +165,6 @@ function addYearIfMissing(years_planned, year) {
   }
 }
 
-<<<<<<< HEAD
 // Returns an array of field IDs collected from crop groups.
 // `option` is either 'all' (collect from all groups) or a group_id number
 // (collect only from that group).
@@ -176,20 +175,6 @@ function collectFieldsFromGroups(plan_crop_groups, option) {
       for (let field of group.field_list) {
         fields.push(field)
       }
-=======
-function addManureApplication (fertiliserGroups, plan_plan_crop_groups, chosenFields, organic, manure_type, application_date) {
-  let field_count = 0
-  let cropgroupreferences = []
-  if (chosenFields == 'all') {
-    for (var group in plan_plan_crop_groups) {
-      cropgroupreferences.push(plan_plan_crop_groups[group].reference)
-      field_count = field_count + plan_plan_crop_groups[group].fields.length
-    }
-  } else {
-    for (var x in chosenFields) {
-      cropgroupreferences.push(chosenFields[x])
-      field_count = field_count + plan_plan_crop_groups[x].fields.length
->>>>>>> working
     }
   }
   return fields
@@ -207,7 +192,6 @@ function totalFieldsCount(plan) {
   return totalFields
 }
 
-<<<<<<< HEAD
 
 // -------------------------
 // MANURES
@@ -222,9 +206,6 @@ function totalFieldsCount(plan) {
 // `application_date` — date string (e.g. "21/02/2026")
 // `manure_id`        — the manure type name
 // Returns the new application object.
-=======
-// let applicationGroup = allFunctions.add_manure_application (group_id, year, req.session.data.all_fields, req.session.data.plan_plan_crop_groups, field_list[x], application_date, manure_id)
->>>>>>> working
 function add_manure_application (group_id, year, field_id, application_date, manure_id) {
   var newApplication = {
     "group_id": group_id,
@@ -251,24 +232,10 @@ function createTempApplication (day, month, year, manuretype, rate, applications
 }
 
 
-<<<<<<< HEAD
 // -------------------------
 // FERTILISERS
 // Functions for creating manufactured fertiliser application records.
 // -------------------------
-=======
-function convertNutrient (nutrient) {
-  if (nutrient == null || nutrient == '') {
-    nutrient = 0
-  }
-  return nutrient
-}
-
-function showSucess (message) {
-  req.session.data.show_success_message = true
-  req.session.data.success_message = 3
-}
->>>>>>> working
 
 // Current version — creates a fertiliser application with individual nutrient values.
 // `group_id`  — always 1 currently (temp value, see route comment)
@@ -400,7 +367,6 @@ function basicSetup (farm, mvpFields) {
 
 // Logs all properties of a crop group to the console.
 function printCropGroup(group) {
-<<<<<<< HEAD
   console.log(  'group' +
     group.year + ", " +
     group.firstCropReference + ", " +
@@ -417,34 +383,6 @@ function printCropGroup(group) {
 // =============================================================================
 // EXPORTS
 // =============================================================================
-=======
-console.log(  'group' +
-  group.year + ", " +
-  group.firstCropReference + ", " +
-  group.secondCropReference + ", " +
-  group.thirdCropReference + ", " +
-  group.fourthCropReference + ", " +
-  group.firstCropFields + ", " +
-  group.secondCropFields + ", " +
-  group.thirdCropFields + ", " +
-  group.fourthCropFields)
-};
-
-// function createCropGroup (reference, year, field_references, current_fields, crop_reference, variety, group, yield, date, sns) {
-//     var newGroup = {
-//         reference: reference,
-//         year: year,
-//         fields: getMultipleFieldsByReferences(field_references, current_fields),
-//         crop_reference: crop_reference,
-//         variety: variety, 
-//         group_name: group,
-//         yield: yield,
-//         planting_date: date,
-//         sns: sns
-//     }
-//     return newGroup
-// }
->>>>>>> working
 
 module.exports.printCropGroup = printCropGroup;
 module.exports.getFieldByReference = getFieldByReference;

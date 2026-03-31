@@ -13,11 +13,7 @@
   </thead>
 
   <tbody class="govuk-table__body">
-<<<<<<< HEAD
     {% for crop_group in data.plan_crop_groups %}
-=======
-    {% for crop_group in data.plan_plan_crop_groups %}
->>>>>>> working
       {% if crop_group.reference == group.reference %}
         {% for field in crop_group.fields %}
           <tr class="govuk-table__row">

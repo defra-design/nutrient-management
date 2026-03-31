@@ -60,9 +60,7 @@ router.get(/livestock_copy_for_inventory_handler/, function (req, res) {
   res.redirect(next);
 })
 
-<<<<<<< HEAD
 // reports/manure_inventory/manage_livestock/index → update journey for a specific livestock record
-=======
 // is there any livestock checklist link
 router.get(/system_inventory_handler/, callback_functions.hide_error, callback_functions.hideSuccessMessage, function (req, res) {
     let next = '/reports/manure_inventory/manage_collection/index'
@@ -253,7 +251,6 @@ router.get(/export_type_router/, callback_functions.hide_error, function (req, r
   res.redirect(next)
 })
 
->>>>>>> working
 router.get(/add_inventorynumbers_handler/, callback_functions.hide_error, function (req, res) {
     for (var reference in req.session.data.livestock_record_plan_year) {
         if (req.session.data.livestock_record_plan_year[reference].reference == req.query.reference) {

@@ -14,11 +14,7 @@
 
     {% set field = null %}
 
-<<<<<<< HEAD
     {% for application in data.manure_applications %}
-=======
-    {% for application in data.plan_manure_applications %}
->>>>>>> working
       {% for x in data.all_fields %}
         {% if x.field_id == application.field_id %}
           {% set field = x %}

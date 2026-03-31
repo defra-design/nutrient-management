@@ -3,6 +3,7 @@ var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
 var callback_functions = require('./callbacks.js');
+var SUCCESS = require('./success_messages.js');
 
 
 // =============================================================================
@@ -35,15 +36,12 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   }
   // N-max report
   if (req.session.data.export_type == '3') {
-<<<<<<< HEAD
       next = (req.session.data.all_fields.length == 0 || req.session.data.plan_crop_groups.length == 0) ? 'not_available_max' : 'export_crops'
-=======
       if (req.session.data.all_fields.length == 0 || req.session.data.plan_plan_crop_groups.length == 0) {
           next = 'not_available_max'
       } else {
           next = 'export_crops'
       }
->>>>>>> working
   }
   // N-loading report
   if (req.session.data.export_type == '4' ) {
@@ -75,11 +73,8 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   if (req.session.data.export_type == '11') {
       next = 'export_fields'
   }
-<<<<<<< HEAD
   // Storage requirement report
-=======
   // manure_storage_requirement_mvp
->>>>>>> working
   if (req.session.data.export_type == '12') {
       next = '/reports/manure_storage_requirement_mvp/checklist'
   }
@@ -88,7 +83,7 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
 })
 
 // reports/export_fields.html → field_history report (type 11) or full_report (all other types)
-router.get(/export_fields_handler/, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/export_fields_handler/, callback_functions.hideSuccessMessage, function (req, res) {
   let next = req.session.data.export_type == '11' ? '/reports/field_history/' : '/reports/full_report/';
   res.redirect(next);
 })
@@ -129,7 +124,7 @@ router.get(/n_loading_submit_router/, function (req, res) {
 })
 
 // reports/n_loading/area.html → checklist (saves that farm area has been added)
-router.get(/farm_area_handler/, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/farm_area_handler/, callback_functions.hideSuccessMessage, function (req, res) {
   req.session.data.farm.area_added = true
   res.redirect('checklist')
 })
@@ -140,7 +135,7 @@ router.get(/farm_area_handler/, callback_functions.hidesuccess_message, function
 // -------------------------
 
 // management/farm/storage/storage_years.html → manage_storage (via reports, resets export type)
-router.get(/manage_storage_router/, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/manage_storage_router/, callback_functions.hideSuccessMessage, function (req, res) {
   req.session.data.export_type = null
   res.redirect('/management/farm/storage/storage_years');
 })
@@ -183,15 +178,12 @@ router.get(/check_storage_handler/, function (req, res) {
   req.session.data.farm.storage_added = true;
   let store_1 = allFunctions.createStorage(req.session.data.material_type, req.session.data.storage_name, req.session.data.storage_type)
   req.session.data.manure_storage.push(store_1)
-<<<<<<< HEAD
-=======
-  // req.session.data.success_message = 2;
->>>>>>> working
+  // req.session.data.successMessage = SUCCESS.EXPORTS.UPDATED;
   res.redirect('/management/farm/storage/manage_storage')
 })
 
 // management/farm/storage/storage_years.html → manage_storage (existing) or add_export/material_type (new)
-router.get(/storage_year_handler/, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/storage_year_handler/, callback_functions.hideSuccessMessage, function (req, res) {
     if (req.session.data.farm.storage_added == true ) {
         res.redirect('manage_storage')
     } else {
@@ -206,13 +198,13 @@ router.get(/storage_year_handler/, callback_functions.hidesuccess_message, funct
 // -------------------------
 
 // reports/add_livestock/livestock_report_reset → manage_livestock (resets export type)
-router.get(/livestock_report_reset/, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/livestock_report_reset/, callback_functions.hideSuccessMessage, function (req, res) {
   req.session.data.export_type = null
   res.redirect('livestock/manage_livestock')
 })
 
 // reports/n_loading/checklist.html (livestock row) → manage livestock or livestock_none or copy
-router.get(/livestock_loading_handler/, callback_functions.hidesuccess_message, callback_functions.hide_error, function (req, res) {
+router.get(/livestock_loading_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
     let next = '/reports/add_livestock/livestock_none'
     if (req.session.data.farm.livestock_loading == 2 || req.session.data.farm.livestock_loading == 3) {
         next = '/reports/n_loading/manage_livestock/index'
@@ -236,7 +228,7 @@ router.get(/livestock_loading_router/, callback_functions.hide_error, function (
 })
 
 // reports/storage_requirement/checklist.html (livestock row) → manage livestock or livestock_none or copy
-router.get(/livestock_requirement_handler/, callback_functions.hidesuccess_message, callback_functions.hide_error, function (req, res) {
+router.get(/livestock_requirement_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
     let next = './reports/add_livestock/livestock_none'
     if (req.session.data.farm.livestock_inventory == 2 || req.session.data.farm.livestock_inventory == 3) {
         next = '/reports/storage_requirement/manage_livestock/index'
@@ -265,7 +257,7 @@ router.get(/livestock_copy_for_loading_handler/, function (req, res) {
 })
 
 // reports/add_livestock/livestock_years.html → manage_livestock (existing) or derogation (new)
-router.get(/livestock_year_handler/, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/livestock_year_handler/, callback_functions.hideSuccessMessage, function (req, res) {
     if (req.session.data.farm.livestock_loading == 'added') {
         res.redirect('manage_livestock')
     } else {
@@ -377,7 +369,7 @@ res.redirect('/reports/add_livestock/check');
 })
 
 // reports/n_loading/manage_livestock (skip system) → check or system/manure_numbers
-router.get(/manure_system_skip_handler/, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/manure_system_skip_handler/, callback_functions.hideSuccessMessage, function (req, res) {
   let next = (req.session.data.manure_system_skip != 'yes') ? 'check' : './system/manure_numbers'
   res.redirect(next)
 })
@@ -389,7 +381,7 @@ router.get(/manure_system_skip_handler/, callback_functions.hidesuccess_message,
 // -------------------------
 
 // reports/manure_inventory/checklist.html (livestock row) → manage livestock or livestock_none or copy
-router.get(/livestock_inventory_handler/, callback_functions.hidesuccess_message, callback_functions.hide_error, function (req, res) {
+router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
     let next = '/reports/manure_inventory/reports/add_livestock/livestock_none'
     if (req.session.data.farm.livestock_inventory == 2 || req.session.data.farm.livestock_inventory == 3) {
         next = '/reports/manure_inventory/manage_livestock/index'
@@ -401,7 +393,6 @@ router.get(/livestock_inventory_handler/, callback_functions.hidesuccess_message
     res.redirect(next);
 })
 
-<<<<<<< HEAD
 
 // -------------------------
 // IMPORTS AND EXPORTS
@@ -409,13 +400,12 @@ router.get(/livestock_inventory_handler/, callback_functions.hidesuccess_message
 // -------------------------
 
 // management/farm/exports/export_year.html → add_export/export_type (new) or manage_exports (existing)
-router.get(/export_year_handler/, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/export_year_handler/, callback_functions.hideSuccessMessage, function (req, res) {
 	let next = '/reports/add_export/export_type'
   if (req.session.data.farm.manure_exports == true || req.session.data.farm.manure_imports == true ) {
   	next = 'manage_exports'
   }
     res.redirect(next)
-=======
 // is there any livestock checklist link REQUIREMENT
 router.get(/livestock_requirement_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
     let next = './reports/add_livestock/livestock_none'
@@ -427,11 +417,10 @@ router.get(/livestock_requirement_handler/, callback_functions.hideSuccessMessag
         }
     }
     res.redirect(next);
->>>>>>> working
 })
 
 // add_export/export_type.html → manure_group (import) or manure_type (livestock export)
-router.get(/export_type_handler/, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/export_type_handler/, callback_functions.hideSuccessMessage, function (req, res) {
   let next = '/reports/add_export/manure_group'
   if (req.query.export_type == 'export') {
       req.session.data.imports_exports = 'export'
@@ -529,7 +518,7 @@ router.get(/exportcheck_handler/, function (req, res) {
 // update/exports/update.html → manage_exports (saves changes to an existing export record)
 router.get(/export_update_handler/, function (req, res) {
     req.session.data.show_success_message = true;
-    req.session.data.success_message = 2;
+    req.session.data.successMessage = SUCCESS.EXPORTS.UPDATED;
     let next = '/management/farm/exports/manage_exports'
     res.redirect(next)
 })

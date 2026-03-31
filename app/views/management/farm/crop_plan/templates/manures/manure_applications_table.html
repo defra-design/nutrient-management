@@ -14,7 +14,7 @@
 
     {% set field = null %}
 
-    {% for application in data.manureApplications %}
+    {% for application in data.manure_applications %}
       {% for x in data.all_fields %}
         {% if x.field_id == application.field_id %}
           {% set field = x %}

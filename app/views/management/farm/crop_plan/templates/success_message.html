@@ -8,14 +8,14 @@
   <div class="govuk-notification-banner__content">
   
     <!-- crops added - 1 -->
-    {% if data.successMessage == 1 %}
+    {% if data.success_message == 1 %}
       <h3 class="govuk-notification-banner__heading">
         Crops added for {{data.farm.planning_year}}
       </h3>
       <p class="govuk-body">Select a field to see its nutrient recommendations, or to add soil mineral nitrogen analysis results.</p>
     {% endif %}
 
-    {% if data.successMessage == 16 %}
+    {% if data.success_message == 16 %}
     <h3 class="govuk-notification-banner__heading">
       Grass added for {{data.farm.planning_year}}
     </h3>
@@ -23,7 +23,7 @@
     {% endif %}
 
     <!-- manure added - 2 -->
-    {% if data.successMessage == 2 %}
+    {% if data.success_message == 2 %}
       <h3 class="govuk-notification-banner__heading"> 
         Organic material application added to fields in this plan.
       </h3>
@@ -31,7 +31,7 @@
     {% endif %}
     
     <!-- fertiliser added - 3 -->
-    {% if data.successMessage == 3 %}
+    {% if data.success_message == 3 %}
       <h3 class="govuk-notification-banner__heading">
         Inorganic fertiliser application added to fields in this plan.
       </h3>
@@ -39,7 +39,7 @@
     {% endif %}
 
     <!-- manure updated - 4 -->
-    {% if data.successMessage == 4 %}
+    {% if data.success_message == 4 %}
       <h3 class="govuk-notification-banner__heading">
         Organic material application updated.
       </h3>
@@ -47,7 +47,7 @@
     {% endif %}
     
     <!-- fertiliser updated - 5 -->
-    {% if data.successMessage == 5 %}
+    {% if data.success_message == 5 %}
       <h3 class="govuk-notification-banner__heading">
         Inorganic fertiliser updated.
       </h3>
@@ -55,7 +55,7 @@
     {% endif %}
 
     <!-- crops updated - 6 -->
-    {% if data.successMessage == 6 %}
+    {% if data.success_message == 6 %}
     <h3 class="govuk-notification-banner__heading">
       Crop plan updated
     </h3>
@@ -63,7 +63,7 @@
   {% endif %}
 
   <!-- rain updated - 11  -  5 -->
-  {% if data.successMessage == 12 %}
+  {% if data.success_message == 12 %}
   <h3 class="govuk-notification-banner__heading">
     Excess Winter Rainfall for {{data.farm.planning_year}} updated
   </h3>
@@ -71,7 +71,7 @@
 {% endif %}
 
   <!-- manure updated -->
-  {% if data.successMessage == 13 %}
+  {% if data.success_message == 13 %}
   <h3 class="govuk-notification-banner__heading">
     Organic material application updated
   </h3>
@@ -79,7 +79,7 @@
 {% endif %}
 
   <!-- fertiliser updated -->
-  {% if data.successMessage == 14 %}
+  {% if data.success_message == 14 %}
   <h3 class="govuk-notification-banner__heading">
     Inorganic fertiliser application updated
   </h3>
@@ -87,7 +87,7 @@
 {% endif %}
 
   <!-- fertiliser removed -->
-  {% if data.successMessage == 15 %}
+  {% if data.success_message == 15 %}
   <h3 class="govuk-notification-banner__heading">
     Inorganic fertiliser application removed
   </h3>
@@ -97,7 +97,7 @@
   <!-- 16 is grass already used -->
 
     <!-- plan copied -->
-    {% if data.successMessage == 17 %}
+    {% if data.success_message == 17 %}
     <h3 class="govuk-notification-banner__heading">
       Plan created for 2026
     </h3>

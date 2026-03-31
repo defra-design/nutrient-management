@@ -4,7 +4,7 @@
       {% if group.variety.length > 0 %}
         ({{group.variety}})
       {% endif %}
-       - {{group.groupname}}
+       - {{group.group_name}}
     </span>
   </h2>
   <p class="govuk-body"><a href="">Change this group's information</a></p>
@@ -23,7 +23,7 @@
       {% set manureCount = 0 %}
       {% set inorganicCount = 0 %}
 
-      {% for manureGroup in data.manureApplications %}
+      {% for manureGroup in data.manure_applications %}
         {% for groupref in manureGroup.crop_group_references %}
           {% if groupref == group.reference %}
             {% if manureGroup.organic == true %}

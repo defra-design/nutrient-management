@@ -6,7 +6,7 @@
 // page includes its own success message template, and each template only
 // responds to the IDs relevant to it.
 //
-// Usage: req.session.data.successMessage = SUCCESS.CROP_PLAN.MANURE_ADDED
+// Usage: req.session.data.success_message = SUCCESS.CROP_PLAN.MANURE_ADDED
 // =============================================================================
 
 const SUCCESS = {

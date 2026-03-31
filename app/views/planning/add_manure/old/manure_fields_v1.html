@@ -34,12 +34,12 @@
                 All fields in the {{data.farm.planning_year}} plan
               </label>
             </div>
-            {% for group in data.cropGroups %}
+            {% for group in data.crop_groups %}
               <!-- {{group.crop_reference}} 
               {% if group.variety %}
                 ({{group.variety}}) 
               {% endif %}
-              {{group.groupname}} 
+              {{group.group_name}} 
               {{group.reference}}  -->
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id={{group.reference}} name="manure_fields" type="radio" value={{group.reference}}>
@@ -49,7 +49,7 @@
                   {% if group.variety %}
                   ({{group.variety}}) 
                 {% endif %}
-                {{group.groupname}} 
+                {{group.group_name}} 
                 fields  
                 </label>
               </div>

@@ -1,50 +1,50 @@
 [
     {
         "cropGroupId": 10,
-        "cropGroupName": "Biomass",
+        "crop_group_name": "Biomass",
     },
     {
         "cropGroupId": 12,
-        "cropGroupName": "Bulbs",
+        "crop_group_name": "Bulbs",
     },
     {
         "cropGroupId": 0,
-        "cropGroupName": "Cereals",
+        "crop_group_name": "Cereals",
     },
     {
         "cropGroupId": 2,
-        "cropGroupName": "Forage",
+        "crop_group_name": "Forage",
     },
     {
         "cropGroupId": 5,
-        "cropGroupName": "Fruits Vines and Hops",
+        "crop_group_name": "Fruits Vines and Hops",
     },
     {
         "cropGroupId": 6,
-        "cropGroupName": "Grass",
+        "crop_group_name": "Grass",
     },
     {
         "cropGroupId": 11,
-        "cropGroupName": "Herbs",
+        "crop_group_name": "Herbs",
     },
     {
         "cropGroupId": 3,
-        "cropGroupName": "Leafy Vegetables",
+        "crop_group_name": "Leafy Vegetables",
     },
     {
         "cropGroupId": 8,
-        "cropGroupName": "Other",
+        "crop_group_name": "Other",
     },
     {
         "cropGroupId": 1,
-        "cropGroupName": "Other Arable",
+        "crop_group_name": "Other Arable",
     },
     {
         "cropGroupId": 7,
-        "cropGroupName": "Potatoes",
+        "crop_group_name": "Potatoes",
     },
     {
         "cropGroupId": 4,
-        "cropGroupName": "Root Vegetables",
+        "crop_group_name": "Root Vegetables",
     }
 ]

@@ -100,14 +100,14 @@
     Soil type
   </dt>
   <dd class="govuk-summary-list__value">
-    {{data.soiltype}}
+    {{data.soil_type}}
   </dd>
   <dd class="govuk-summary-list__actions">
     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"></span></a>
   </dd>
 </div>
 
-{% if data.soiltype == "Deep Clay" %}
+{% if data.soil_type == "Deep Clay" %}
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
       Does {{data.temp_field.field_name}} contain potash releasing clay?
@@ -126,14 +126,14 @@
     Do you want to add a soil analysis for {{data.temp_field.field_name}}?
   </dt>
   <dd class="govuk-summary-list__value">
-    {{data.soilanalysis | capitalize}}
+    {{data.soil_analysis | capitalize}}
   </dd>
   <dd class="govuk-summary-list__actions">
     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"></span></a>
   </dd>
 </div>
 
-{% if data.soilanalysis == "yes" %}
+{% if data.soil_analysis == "yes" %}
 <div class="govuk-summary-list__row">
   <dt class="govuk-summary-list__key">
     When was the soil analysis sample taken?

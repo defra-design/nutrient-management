@@ -168,9 +168,9 @@ function addYearIfMissing(years_planned, year) {
 // Returns an array of field IDs collected from crop groups.
 // `option` is either 'all' (collect from all groups) or a group_id number
 // (collect only from that group).
-function collectFieldsFromGroups(cropGroups, option) {
+function collectFieldsFromGroups(crop_groups, option) {
   let fields = []
-  for (let group of cropGroups) {
+  for (let group of crop_groups) {
     if (option === 'all' || group.group_id == option) {
       for (let field of group.field_list) {
         fields.push(field)
@@ -324,12 +324,12 @@ function createStorage(store_type, store_name, store_material) {
 // `option` = 'all'  → collects from every group.
 // `option` = a group_id → collects only from that group.
 // Returns an array of field IDs.
-function collectFieldsFromGroups(cropGroups, option) {
+function collectFieldsFromGroups(crop_groups, option) {
   let fields = []
-  for (var x in cropGroups) {
-    if (option === 'all' || cropGroups[x].group_id == option) {
-      for (var y in cropGroups[x].field_list) {
-        fields.push(cropGroups[x].field_list[y])
+  for (var x in crop_groups) {
+    if (option === 'all' || crop_groups[x].group_id == option) {
+      for (var y in crop_groups[x].field_list) {
+        fields.push(crop_groups[x].field_list[y])
       }
     }
   }

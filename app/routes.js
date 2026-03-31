@@ -70,7 +70,7 @@ router.get('/', function (req, res) {
     // CROPS
     // Crop groups link fields to crops for a given year.
     // -------------------------
-    req.session.data.cropGroups = []
+    req.session.data.crop_groups = []
     req.session.data.crop_group = null               // the crop group currently being added/edited
     req.session.data.chosen_crop = null              // the crop type selected during an add-crop journey
     req.session.data.another_crop = 'no'             // whether the user wants to add another crop
@@ -81,27 +81,27 @@ router.get('/', function (req, res) {
     // MANURES
     // Organic manure applications added to fields.
     // -------------------------
-    req.session.data.manureApplications = []
+    req.session.data.manure_applications = []
     req.session.data.manure_storage = []
     req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'
     req.session.data.chosen_fields = []
     req.session.data.manure_journey = null           // 'multi' or 'single' — is the user adding manures to a single or multiple fields?
     req.session.data.manure_count = 0
     req.session.data.manure_spreads = 0
-    req.session.data.multipleManuresApplied = false
-    req.session.data.singleManuresApplied = false
+    req.session.data.multiple_manure_applied = false
+    req.session.data.single_manure_applied = false
     req.session.data.show_manure_notification = false
 
     // -------------------------
     // FERTILISERS
     // Manufactured fertiliser applications added to fields.
     // -------------------------
-    req.session.data.fertiliserApplications = []
+    req.session.data.fertiliser_applications = []
     req.session.data.fertiliser_journey = null       // 'multi' or 'single' — is the user adding fertilisers to a single or multiple fields?
     req.session.data.fertiliser_count = 0
     req.session.data.fertiliser_spreads = 0
-    req.session.data.multipleFertilisersApplied = false
-    req.session.data.singleFertilisersApplied = false
+    req.session.data.multiple_ertiliser_applied = false
+    req.session.data.single_fertiliser_applied = false
 
     // -------------------------
     // GRASS
@@ -137,7 +137,7 @@ router.get('/', function (req, res) {
     req.session.data.show_success_message = false
     req.session.data.show_error = false
     req.session.data.show_manure_notification = false   // also reset above in manures — intentional
-    req.session.data.showinfo = true
+    req.session.data.show_info = true
     req.session.data.extra_features = true
     req.session.data.plan_version = 2
     req.session.data.alpha_planning = 0              // 0 = not started, 1 = recs, 2 = completed

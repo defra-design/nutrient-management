@@ -165,10 +165,6 @@ router.get(/add_field_handler/, callback_functions.showSuccessMessage, function 
 	req.session.data.successMessage = SUCCESS.FIELD.ADDED
 	req.session.data.oaktree_farm.fields_added = true;
 	req.session.data.all_fields.push(req.session.data.temp_field);    
-	//reset temp vars
-	req.session.data.chosen_crop = req.session.data.total_area = req.session.data.cropped_area = req.session.data.non_spreading_area,
-	req.session.data.soil_type = req.session.data.field_nvz = req.session.data.field_alt = null
-	res.redirect('/management/farm/field/manage-fields');
 })
 
 // add-field/copy/name.html → analysis (copy journey variant of set_field_name_handler)
@@ -359,25 +355,27 @@ router.get(/crop_group_update_handler/, function (req, res) {
       //planting date update
       let tempDate = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
       for (let groupRef in req.session.data.plan_crop_groups) {
-          if (req.session.data.plan_crop_groups[groupRef].reference == req.session.data.chosen_group.reference) {
-              req.session.data.plan_crop_groups[groupRef].planting_date = tempDate
-      var tempDate = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
-      for (var groupRef in req.session.data.plan_plan_crop_groups) {
-          if (req.session.data.plan_plan_crop_groups[groupRef].reference == req.session.data.chosen_group.reference) {
-              req.session.data.plan_plan_crop_groups[groupRef].planting_date = tempDate
-          }
+        if (req.session.data.plan_crop_groups[groupRef].reference == req.session.data.chosen_group.reference) {
+          req.session.data.plan_crop_groups[groupRef].planting_date = tempDate
+        }
       }
+      // var tempDate = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
+      // for (var groupRef in req.session.data.plan_plan_crop_groups) {
+      //     if (req.session.data.plan_plan_crop_groups[groupRef].reference == req.session.data.chosen_group.reference) {
+      //         req.session.data.plan_plan_crop_groups[groupRef].planting_date = tempDate
+      //     }
   }
   if (req.session.data.update_type == 'variety') {
       //variety update
       for (let groupRef in req.session.data.plan_crop_groups) {
           if (req.session.data.plan_crop_groups[groupRef].reference == req.session.data.chosen_group.reference) {
               req.session.data.plan_crop_groups[groupRef].variety = req.session.data.new_variety
-      for (var groupRef in req.session.data.plan_plan_crop_groups) {
-          if (req.session.data.plan_plan_crop_groups[groupRef].reference == req.session.data.chosen_group.reference) {
-              req.session.data.plan_plan_crop_groups[groupRef].variety = req.session.data.new_variety
           }
-      }
+        }
+      // for (var groupRef in req.session.data.plan_plan_crop_groups) {
+      //     if (req.session.data.plan_plan_crop_groups[groupRef].reference == req.session.data.chosen_group.reference) {
+      //         req.session.data.plan_plan_crop_groups[groupRef].variety = req.session.data.new_variety
+      //     }
   }
   //reset temp vars
   req.session.data.new_variety = req.session.data.new_planting_date_day = req.session.data.new_planting_date_month = req.session.data.new_planting_date_year = null
@@ -396,17 +394,12 @@ router.get(/add_crops_check_handler/, function (req, res) {
     let cropYield = null
     let group_name = (req.session.data.group_name == null || req.session.data.group_name == '') ? 'Crop group ' + (req.session.data.plan_crop_groups.length + 1) : req.session.data.group_name
     let year = req.session.data.farm.planning_year
-router.get(/crops_V5_check_handler/, function (req, res) { 
-    let yield = null
-    let group_name = (req.session.data.group_name == null || req.session.data.group_name == '') ? 'Crop group ' + (req.session.data.plan_plan_crop_groups.length + 1) : req.session.data.group_name
-    let year = req.session.data.oaktree_farm.planning_year
     let crop_id = req.session.data.chosen_crop
     let field_list = req.session.data.crop_fields
     let variety = null
 
     // create a group reference
     let group_id = req.session.data.plan_crop_groups.length + 1
-    var group_id = req.session.data.plan_plan_crop_groups.length + 1
 
     // create a new group and add each field reference to the group
     var new_group = allFunctions.createCropGroup(group_name, group_id, year, crop_id, field_list)
@@ -418,9 +411,6 @@ router.get(/crops_V5_check_handler/, function (req, res) {
     req.session.data.plan_crop_groups.push(new_group)
 
     //show the correct success message
-    req.session.data.plan_plan_crop_groups.push(new_group)
-    
-    //show the correct success message 
     req.session.data.show_success_message = true;
     if (req.session.data.chosen_crop == 'grass') {
         req.session.data.successMessage = SUCCESS.CROP_PLAN.GRASS_ADDED
@@ -780,20 +770,6 @@ router.get(/select_manure_fields_router/, function (req, res) {
       next = 'manure_fields_two'
     } else {
       req.session.data.chosen_fields = allFunctions.collectFieldsFromGroups(req.session.data.plan_crop_groups, req.session.data.manure_field_option)
-    } else if (req.session.data.manure_field_option == 'all') {
-      for (var x in req.session.data.plan_plan_crop_groups) {
-        for (var y in req.session.data.plan_plan_crop_groups[x].field_list ) {
-          req.session.data.chosen_manure_fields.push(req.session.data.plan_plan_crop_groups[x].field_list[y])
-        }
-      }
-    } else {
-      for (var a in req.session.data.plan_plan_crop_groups) {
-        if (req.session.data.plan_plan_crop_groups[a].group_id == req.session.data.manure_field_option) {
-          for (var b in req.session.data.plan_plan_crop_groups[a].field_list ) {
-            req.session.data.chosen_manure_fields.push(req.session.data.plan_plan_crop_groups[a].field_list[b])
-          }
-        }
-      }
     }
     res.redirect(next)
 })
@@ -835,25 +811,16 @@ router.get(/set_manure_date_handler/, function (req, res) {
 // add_manure/check.html → plan_view#organic (creates a manure application record for each field)
 router.get(/add_manure_handler/, callback_functions.showsuccess_message, function (req, res) {
     let group_id = req.session.data.manure_applications.length + 1
-router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function (req, res) { 
-    let group_id = req.session.data.plan_manure_applications.length + 1
     let manure_id = req.session.data.manure_type.name
     let year = req.session.data.farm.planning_year
     let field_list = req.session.data.chosen_fields
     let application_date = req.session.data.manure_date_day + '/' + req.session.data.manure_date_month + '/' + req.session.data.manure_date_year
-        for (let x in field_list) {
-            let applicationGroup = allFunctions.add_manure_application (group_id, year, field_list[x], application_date, manure_id)
-            req.session.data.manure_applications.push(applicationGroup)
-		for (let x in field_list) {
-			let applicationGroup = allFunctions.add_manure_application (group_id, year, field_list[x], application_date, manure_id)
-			req.session.data.plan_manure_applications.push(applicationGroup)
+    for (let x in field_list) {
+        let applicationGroup = allFunctions.add_manure_application(group_id, year, field_list[x], application_date, manure_id)
+        req.session.data.manure_applications.push(applicationGroup)
     }
-
     group_id = manure_id = year = field_list = application_date = req.session.data.manure_fields = null
-        req.session.data.successMessage = SUCCESS.CROP_PLAN.MANURE_ADDED
-
-    
-    console.log(req.session.data.plan_manure_applications)
+    req.session.data.successMessage = SUCCESS.CROP_PLAN.MANURE_ADDED
     res.redirect('/management/farm/crop_plan/plan_view#organic')
 })
 
@@ -946,10 +913,27 @@ router.get(/set_fertiliser_fields_handler/, function (req, res) {
 
 // add_fertiliser/check.html → plan_view#inorganic (creates a fertiliser application record for each field)
 router.get(/add_fertiliser_handler/, callback_functions.showsuccess_message, function (req, res) {
-router.get(/v2fertiliser_handler/, function (req, res) { 
-	req.session.data.fertiliser_journey = req.query.fertiliserjourney
-  let next = (req.session.data.fertiliser_journey == 'multi' ? 'fertiliser_fields' : 'fertiliser_when')
-	res.redirect('/planning/add_fertiliser/' + next)
+    let fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
+    let field_list = req.session.data.chosen_fields
+    let next = '/management/farm/crop_plan/plan_view#inorganic'
+
+    for (let x in field_list) {
+      let applicationGroup = allFunctions.addFertiliserApplication(
+          1, //temp group id
+          req.session.data.farm.planning_year,
+          req.session.data.chosen_fields[x],
+          fertiliserDate,
+          req.session.data.nitrogen,
+          req.session.data.phosphate,
+          req.session.data.potash,
+          req.session.data.sulphur,
+          req.session.data.lime
+      )
+      req.session.data.fertiliser_applications.push(applicationGroup)
+    }
+    req.session.data.chosen_fields = []
+    req.session.data.successMessage = SUCCESS.CROP_PLAN.FERTILISER_ADDED
+    res.redirect(next)
 })
 
 //select a field
@@ -1009,7 +993,7 @@ router.get(/fertiliser_v5_handler/, callback_functions.showSuccessMessage, funct
     let next = '/management/farm/crop_plan/plan_view#inorganic'
 
     for (let x in field_list) {
-      let applicationGroup = allFunctions.addFertiliserApplication_v2(
+      let applicationGroup = allFunctions.addFertiliserApplication(
           1, //temp group id
           req.session.data.farm.planning_year,
           req.session.data.chosen_fields[x],
@@ -1023,14 +1007,7 @@ router.get(/fertiliser_v5_handler/, callback_functions.showSuccessMessage, funct
       req.session.data.fertiliser_applications.push(applicationGroup)
     }
     req.session.data.chosen_fields = []
-        req.session.data.successMessage = SUCCESS.CROP_PLAN.FERTILISER_ADDED
-
-      req.session.data.plan_fertiliser_applications.push(applicationGroup)
-    }
-    req.session.data.chosen_manure_fields = []
-	    req.session.data.successMessage = SUCCESS.CROP_PLAN.FERTILISER_ADDED
-
-	console.log(req.session.data.plan_fertiliser_applications)
+    req.session.data.successMessage = SUCCESS.CROP_PLAN.FERTILISER_ADDED
     res.redirect(next)
 })
 
@@ -1058,16 +1035,6 @@ router.get(/fertiliser_date_handler/, function (req, res) {
 router.get(/rainfall_update_handler/, callback_functions.showsuccess_message, function (req, res) {
     req.session.data.successMessage = SUCCESS.CROP_PLAN.RAINFALL_UPDATED;
     req.session.data.farm.ewr = req.session.data.excess_rain
-// router.get(/change_cropgroup_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-//     req.session.data.chosen_group = allFunctions.getByReference(req.session.data.plan_plan_crop_groups, req.query.groupref)
-//     req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)
-//     req.session.data.chosen_crop_group = allFunctions.getByReference(req.session.data.crop_types_data, req.session.data.chosen_group.crop_reference)
-//     res.redirect('change_crop')
-// })
-
-router.get(/rainfall_update_handler/, callback_functions.showSuccessMessage, function (req, res) { 
-    req.session.data.successMessage = SUCCESS.CROP_PLAN.RAINFALL_UPDATED;
-    req.session.data.oaktree_farm.ewr = req.session.data.excess_rain
     res.redirect('/management/farm/crop_plan/plan_view')
 })
 

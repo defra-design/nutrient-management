@@ -244,7 +244,7 @@ function createTempApplication (day, month, year, manuretype, rate, applications
 // `date`      — date string (e.g. "21/02/2026")
 // `nitrogen`, `phosphate`, `potash`, `sulphur`, `lime` — nutrient amounts (blanks become 0)
 // Returns the new application object.
-function addFertiliserApplication_v2 (group_id, year, field_id, date, nitrogen, phosphate, potash, sulphur, lime) {
+function addFertiliserApplication (group_id, year, field_id, date, nitrogen, phosphate, potash, sulphur, lime) {
   nitrogen = convertNutrient(nitrogen)
   phosphate = convertNutrient(phosphate)
   potash = convertNutrient(potash)
@@ -268,7 +268,7 @@ function addFertiliserApplication_v2 (group_id, year, field_id, date, nitrogen, 
   return newApplication
 }
 
-// Helper used by addFertiliserApplication_v2.
+// Helper used by addFertiliserApplication.
 // Converts null or empty nutrient values to 0 so the application object
 // doesn't contain blanks.
 function convertNutrient (nutrient) {
@@ -391,7 +391,7 @@ module.exports.totalFieldsCount = totalFieldsCount;
 module.exports.basicSetup = basicSetup;
 module.exports.createCropGroup = createCropGroup;
 module.exports.add_manure_application = add_manure_application;
-module.exports.addFertiliserApplication_v2 = addFertiliserApplication_v2;
+module.exports.addFertiliserApplication = addFertiliserApplication;
 module.exports.createLivestockItem = createLivestockItem;
 module.exports.field_count = field_count;
 module.exports.updateFieldCrop = updateFieldCrop;

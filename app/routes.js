@@ -79,8 +79,8 @@ router.get('/', function (req, res) {
     req.session.data.alpha_planning = 0 //0 = not started, 1 = recs, 2 = completed
     
     //manures
-    req.session.data.multipleManuresApplied = false
-    req.session.data.singleManuresApplied = false
+    req.session.data.multiple_manure_applications = false
+    req.session.data.single_manure_application = false
     req.session.data.manure_journey = null //multi or single
     req.session.data.manure_count = 0
     req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'
@@ -89,8 +89,8 @@ router.get('/', function (req, res) {
     req.session.data.secondcrop_journey = null //true for second crop
 
     //fertilisers
-    req.session.data.multipleFertilisersApplied = false
-    req.session.data.singleFertilisersApplied = false
+    req.session.data.multiple_fertiliser_applications = false
+    req.session.data.single_fertiliser_application = false
     req.session.data.fertiliser_journey = null //multi or single
     req.session.data.fertiliser_count = 0
 
@@ -107,16 +107,16 @@ router.get('/', function (req, res) {
     req.session.data.all_fields = all_fields
 
     // version 5
-    req.session.data.cropGroups = []
+    req.session.data.plan_crop_groups = []
     req.session.data.manure_storage = []
-    req.session.data.manureApplications = []
-    req.session.data.fertiliserApplications = []
+    req.session.data.plan_manure_applications = []
+    req.session.data.plan_fertiliser_applications = []
     req.session.data.livestock_record_plan_year = []
 
     //planviews
     req.session.data.plan_version = 2
 
-    req.session.data.showinfo = true
+    req.session.data.show_info = true
 
     res.render('index')
 })

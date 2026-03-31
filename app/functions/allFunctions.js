@@ -136,18 +136,18 @@ function createLivestockItem (reference, amount) {
   return newItem
 }
 
-function addManureApplication (fertiliserGroups, cropGroups, chosenFields, organic, manure_type, application_date) {
+function addManureApplication (fertiliserGroups, plan_crop_groups, chosenFields, organic, manure_type, application_date) {
   let field_count = 0
   let cropgroupreferences = []
   if (chosenFields == 'all') {
-    for (var group in cropGroups) {
-      cropgroupreferences.push(cropGroups[group].reference)
-      field_count = field_count + cropGroups[group].fields.length
+    for (var group in plan_crop_groups) {
+      cropgroupreferences.push(plan_crop_groups[group].reference)
+      field_count = field_count + plan_crop_groups[group].fields.length
     }
   } else {
     for (var x in chosenFields) {
       cropgroupreferences.push(chosenFields[x])
-      field_count = field_count + cropGroups[x].fields.length
+      field_count = field_count + plan_crop_groups[x].fields.length
     }
   }
   var newGroup = {
@@ -161,7 +161,7 @@ function addManureApplication (fertiliserGroups, cropGroups, chosenFields, organ
     return newGroup
 }
 
-// let applicationGroup = allFunctions.add_manure_application (group_id, year, req.session.data.all_fields, req.session.data.cropGroups, field_list[x], application_date, manure_id)
+// let applicationGroup = allFunctions.add_manure_application (group_id, year, req.session.data.all_fields, req.session.data.plan_crop_groups, field_list[x], application_date, manure_id)
 function add_manure_application (group_id, year, field_id, application_date, manure_id) {
   var newApplication = {
     "group_id": group_id,
@@ -194,7 +194,7 @@ function convertNutrient (nutrient) {
 
 function showSucess (message) {
   req.session.data.show_success_message = true
-  req.session.data.successMessage = 3
+  req.session.data.success_message = 3
 }
 
 function addFertiliserApplication_v2 (group_id, year, field_id, date, nitrogen, phosphate, potash, sulphur, lime) {
@@ -271,7 +271,7 @@ console.log(  'group' +
 //         fields: getMultipleFieldsByReferences(field_references, current_fields),
 //         crop_reference: crop_reference,
 //         variety: variety, 
-//         groupname: group,
+//         group_name: group,
 //         yield: yield,
 //         planting_date: date,
 //         sns: sns

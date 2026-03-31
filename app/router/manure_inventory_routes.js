@@ -126,7 +126,7 @@ router.get(/inventory_submit_router/, function (req, res) {
 // imports and exports
 router.get(/export_update_handler/, function (req, res) {
     req.session.data.show_success_message = true;
-    req.session.data.successMessage = 2;
+    req.session.data.success_message = 2;
     let next = '/management/farm/exports/manage_exports'
     res.redirect(next)
 })

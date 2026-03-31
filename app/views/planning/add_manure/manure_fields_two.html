@@ -33,7 +33,7 @@
           </div>
           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
 
-          {% for group in data.cropGroups %}
+          {% for group in data.plan_crop_groups %}
             {% for field in group.field_list %}
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id={{field}} name="chosen_manure_fields" type="checkbox" value={{field}}>

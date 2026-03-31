@@ -5,22 +5,22 @@
     </h2>
   </div>
   <div class="govuk-notification-banner__content">
-    {% if data.successMessage == 1 %}
+    {% if data.success_message == 1 %}
       <h3 class="govuk-notification-banner__heading">
         Nutrient supply estimated
       </h3>
       <p class="">Select the farm, field and crop tab, or an application details tab, to update the results.</p>
       <!-- <p class="">You can add your own nutrient prices in the financial value tab, to update the potential financial value of the manure application.</p> -->
 
-      {% elif data.successMessage == 2 %}
+      {% elif data.success_message == 2 %}
         <h3 class="govuk-notification-banner__heading">
           Organic material value updated
         </h3>
-      {% elif data.successMessage == 4 %}
+      {% elif data.success_message == 4 %}
       <h3 class="govuk-notification-banner__heading">
         Manure application removed
       </h3>
-      {% elif data.successMessage == 5 %}
+      {% elif data.success_message == 5 %}
       <h3 class="govuk-notification-banner__heading">
         Manure application added
       </h3>

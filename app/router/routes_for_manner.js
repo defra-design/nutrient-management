@@ -39,31 +39,31 @@ router.get(/manner_copy_router/, callback_functions.showSuccessMessage, function
 })
 
 router.get(/manner_change_handler/, callback_functions.showSuccessMessage, function (req, res) {
-    req.session.data.successMessage = 3 //changed
+    req.session.data.success_message = 3 //changed
     res.redirect('results')
 })
 
 router.get(/manuretype_update_handler/, callback_functions.showSuccessMessage, function (req, res) {
-    req.session.data.successMessage = 3 //changed
+    req.session.data.success_message = 3 //changed
     req.session.data.manner_applications[0].manuretype = allFunctions.getByName(req.session.data.manure_types, req.session.data.manure_type)    
     res.redirect('/manner/results')
 })
 
 router.get(/manner_update_handler/, callback_functions.showSuccessMessage, function (req, res) {
-    req.session.data.successMessage = 3 //changed
+    req.session.data.success_message = 3 //changed
     req.session.data.manner_applications[0].rate = req.session.data.manure_rate
     res.redirect('manner/results')
 })
 
 router.get(/manner_results_handler/, callback_functions.showSuccessMessage, function (req, res) {
-    req.session.data.successMessage = 1 //done
+    req.session.data.success_message = 1 //done
     let tempApplication = allFunctions.createTempApplication(req.session.data.manure_date_day, req.session.data.manure_date_month, 2026, req.session.data.manure_type, req.session.data.manure_rate, req.session.data.manner_applications.length)
     req.session.data.manner_applications.push(tempApplication)
     res.redirect('results')
 })
 
 router.get(/manner_values_router/, callback_functions.showSuccessMessage, function (req, res) {
-    req.session.data.successMessage = 2 //recalculation
+    req.session.data.success_message = 2 //recalculation
     res.redirect('results#value')
 })
 

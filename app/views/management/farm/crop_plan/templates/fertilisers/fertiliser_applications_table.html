@@ -12,7 +12,7 @@
   <tbody class="govuk-table__body">
 
     {% set field = null %}
-    {% for application in data.fertiliserApplications %}
+    {% for application in data.plan_fertiliser_applications %}
       {% for x in data.all_fields %}
         {% if x.field_id == application.field_id %}
           {% set field = x %}
@@ -68,7 +68,7 @@
   </tbody>
 </table>
 
-<!-- {% for x in data.fertiliserApplications %}
+<!-- {% for x in data.plan_fertiliser_applications %}
    {{x.Field}}
 {% endfor %} -->
 
@@ -77,7 +77,7 @@
 
 
 <!-- TEST
-{% for application in data.fertiliserApplications %}
+{% for application in data.plan_fertiliser_applications %}
   {{application.reference}}<br>
   {% for field in application.chosenFields %}
     {{field.field_name}}<br>

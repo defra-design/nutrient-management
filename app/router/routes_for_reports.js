@@ -177,17 +177,17 @@ router.get(/check_storage_handler/, function (req, res) {
   req.session.data.farm.storage_added = true;
   let store_1 = allFunctions.createStorage(req.session.data.material_type, req.session.data.storage_name, req.session.data.storage_type)
   req.session.data.manure_storage.push(store_1)
-  req.session.data.successMessage = SUCCESS.EXPORTS.UPDATED;
+  // req.session.data.successMessage = SUCCESS.EXPORTS.UPDATED;
   res.redirect('/management/farm/storage/manage_storage')
 })
 
 // management/farm/storage/storage_years.html → manage_storage (existing) or add_export/material_type (new)
 router.get(/storage_year_handler/, callback_functions.hideSuccessMessage, function (req, res) {
-    if (req.session.data.farm.storage_added == true ) {
-        res.redirect('manage_storage')
-    } else {
-        res.redirect('/reports/add_export/material_type')
-    }
+  if (req.session.data.farm.storage_added == true ) {
+      res.redirect('manage_storage')
+  } else {
+      res.redirect('/reports/add_export/material_type')
+  }
 })
 
 
@@ -204,51 +204,51 @@ router.get(/livestock_report_reset/, callback_functions.hideSuccessMessage, func
 
 // reports/n_loading/checklist.html (livestock row) → manage livestock or livestock_none or copy
 router.get(/livestock_loading_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
-    let next = '/reports/add_livestock/livestock_none'
-    if (req.session.data.farm.livestock_loading == 2 || req.session.data.farm.livestock_loading == 3) {
-        next = '/reports/n_loading/manage_livestock/index'
-    } else {
-        if (req.session.data.farm.livestock_inventory == 3) {
-            next = '/reports/n_loading/manage_livestock/copy'
-        }
-    }
-    res.redirect(next);
+  let next = '/reports/add_livestock/livestock_none'
+  if (req.session.data.farm.livestock_loading == 2 || req.session.data.farm.livestock_loading == 3) {
+      next = '/reports/n_loading/manage_livestock/index'
+  } else {
+      if (req.session.data.farm.livestock_inventory == 3) {
+          next = '/reports/n_loading/manage_livestock/copy'
+      }
+  }
+  res.redirect(next);
 })
 
 // reports/n_loading/checklist.html (no livestock question) → livestock_group or checklist (no livestock)
 router.get(/livestock_loading_router/, callback_functions.hide_error, function (req, res) {
-    let next = 'livestock_group'
-    if (req.session.data.livestock_loading == 'no') {
-        req.session.data.farm.livestock_inventory = 'none'
-        req.session.data.farm.livestock_loading = 'none'
-        next = '/reports/add_livestock/livestock_group'
-    }
-    res.redirect(next);
+  let next = 'livestock_group'
+  if (req.session.data.livestock_loading == 'no') {
+      req.session.data.farm.livestock_inventory = 'none'
+      req.session.data.farm.livestock_loading = 'none'
+      next = '/reports/add_livestock/livestock_group'
+  }
+  res.redirect(next);
 })
 
 // reports/storage_requirement/checklist.html (livestock row) → manage livestock or livestock_none or copy
 router.get(/livestock_requirement_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
-    let next = './reports/add_livestock/livestock_none'
-    if (req.session.data.farm.livestock_inventory == 2 || req.session.data.farm.livestock_inventory == 3) {
-        next = '/reports/storage_requirement/manage_livestock/index'
-    } else {
-        if (req.session.data.farm.livestock_loading == 3) {
-            next = '/reports/storage_requirement/manage_livestock/copy'
-        }
-    }
-    res.redirect(next);
+  let next = './reports/add_livestock/livestock_none'
+  if (req.session.data.farm.livestock_inventory == 2 || req.session.data.farm.livestock_inventory == 3) {
+      next = '/reports/storage_requirement/manage_livestock/index'
+  } else {
+      if (req.session.data.farm.livestock_loading == 3) {
+          next = '/reports/storage_requirement/manage_livestock/copy'
+      }
+  }
+  res.redirect(next);
 })
 
 // reports/n_loading/manage_livestock/copy.html → manage livestock (copies inventory numbers to n-loading)
 router.get(/livestock_copy_for_loading_handler/, function (req, res) {
   let next = '/reports/n_loading/manage_livestock/index'
   if (req.session.data.copy_inventory == 'yes') {
-      for (let x in req.session.data.livestock_record_plan_year) {
-          if (req.session.data.livestock_record_plan_year[x].numbers_for_inventory == 2) {
-              req.session.data.livestock_record_plan_year[x].numbers_for_nloading = 1
-          }
+    for (let x in req.session.data.livestock_record_plan_year) {
+      if (req.session.data.livestock_record_plan_year[x].numbers_for_inventory == 2) {
+          req.session.data.livestock_record_plan_year[x].numbers_for_nloading = 1
       }
-      req.session.data.farm.livestock_loading = null
+    }
+    req.session.data.farm.livestock_loading = null
   } else {
     next = '/reports/add_livestock/livestock_none'
   }
@@ -257,11 +257,11 @@ router.get(/livestock_copy_for_loading_handler/, function (req, res) {
 
 // reports/add_livestock/livestock_years.html → manage_livestock (existing) or derogation (new)
 router.get(/livestock_year_handler/, callback_functions.hideSuccessMessage, function (req, res) {
-    if (req.session.data.farm.livestock_loading == 'added') {
-        res.redirect('manage_livestock')
-    } else {
-        res.redirect('/reports/add_livestock/derogation')
-    }
+  if (req.session.data.farm.livestock_loading == 'added') {
+      res.redirect('manage_livestock')
+  } else {
+      res.redirect('/reports/add_livestock/derogation')
+  }
 })
 
 // reports/add_livestock/how_to_enter.html → livestock_numbers (monthly) or livestock_numbers_average (annual)
@@ -280,10 +280,10 @@ router.get(/livestock_entry_handler/, function (req, res) {
 // reports/add_livestock/values.html → check (fills in default values if blank)
 router.get(/livestock_values_handler/, function (req, res) {
   if (req.session.data.livestock_number == null || req.session.data.livestock_number == '') {
-      req.session.data.livestock_number = 10
+    req.session.data.livestock_number = 10
   }
   if (req.session.data.nitrogen_standard == null  || req.session.data.nitrogen_standard == '') {
-      req.session.data.nitrogen_standard = 83
+    req.session.data.nitrogen_standard = 83
   }
   res.redirect('check')
 })
@@ -292,10 +292,9 @@ router.get(/livestock_values_handler/, function (req, res) {
 router.get(/get_livestock_reference/, function (req, res) {
   let next = 'livestock_number_question'
   req.session.data.chosen_livestock = allFunctions.getByReference(req.session.data.livestock_type_data, req.session.data.livestock_reference)
-
   if (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry' ) {
-      req.session.data.livestock_entry = 'annually'
-      next = 'livestock_numbers_average'
+    req.session.data.livestock_entry = 'annually'
+    next = 'livestock_numbers_average'
   }
   res.redirect(next)
 })
@@ -304,8 +303,8 @@ router.get(/get_livestock_reference/, function (req, res) {
 router.get(/advanced_livestock_reference/, function (req, res) {
   req.session.data.chosen_livestock = allFunctions.getByReference(req.session.data.livestock_type_data, req.session.data.livestock_reference)
   if (req.session.data.livestock_group == 'pig' || req.session.data.livestock_group == 'poultry' ) {
-      req.session.data.livestock_entry = 'annually'
-      next = 'livestock_numbers_average'
+    req.session.data.livestock_entry = 'annually'
+    next = 'livestock_numbers_average'
   }
   res.redirect('annual_numbers')
 })
@@ -318,15 +317,15 @@ router.get(/add_livestock_handler/, function (req, res) {
 
 // reports/n_loading/manage_livestock/index → update journey for a specific livestock record
 router.get(/add_loadingnumbers_handler/, callback_functions.hide_error, function (req, res) {
-  for (var reference in req.session.data.livestock_record_plan_year) {
-      if (req.session.data.livestock_record_plan_year[reference].reference == req.query.reference) {
-          console.log('found ' + req.session.data.livestock_record_plan_year[reference])
-          req.session.data.chosen_livestock = req.session.data.livestock_record_plan_year[reference]
-          req.session.data.livestock_group = req.session.data.livestock_record_plan_year[reference].type
-      }
-  }
-  req.session.data.livestock_update_journey = true
   let next
+  req.session.data.livestock_update_journey = true
+  for (var reference in req.session.data.livestock_record_plan_year) {
+    if (req.session.data.livestock_record_plan_year[reference].reference == req.query.reference) {
+      console.log('found ' + req.session.data.livestock_record_plan_year[reference])
+      req.session.data.chosen_livestock = req.session.data.livestock_record_plan_year[reference]
+      req.session.data.livestock_group = req.session.data.livestock_record_plan_year[reference].type
+    }
+  }
   if (req.session.data.chosen_livestock.type != 'pig' && req.session.data.chosen_livestock.type != 'poultry') {
       next = '/reports/add_livestock/livestock_number_question'
   } else {

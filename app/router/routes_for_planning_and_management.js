@@ -712,7 +712,7 @@ router.get(/select_manure_fields_router/, function (req, res) {
     if (req.session.data.manure_field_option == 'specific') {
       next = 'manure_fields_two'
     } else {
-      req.session.data.chosen_manure_fields = allFunctions.collectFieldsFromGroups(req.session.data.cropGroups, req.session.data.manure_field_option)
+      req.session.data.chosen_fields = allFunctions.collectFieldsFromGroups(req.session.data.cropGroups, req.session.data.manure_field_option)
     }
     res.redirect(next)
 })
@@ -756,7 +756,7 @@ router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function
     let group_id = req.session.data.manureApplications.length + 1
     let manure_id = req.session.data.manure_type.name
     let year = req.session.data.farm.planning_year
-    let field_list = req.session.data.chosen_manure_fields
+    let field_list = req.session.data.chosen_fields
     let application_date = req.session.data.manure_date_day + '/' + req.session.data.manure_date_month + '/' + req.session.data.manure_date_year
         for (let x in field_list) {
             let applicationGroup = allFunctions.add_manure_application (group_id, year, field_list[x], application_date, manure_id)
@@ -850,7 +850,7 @@ router.get(/set_fertiliser_fields_handler/, function (req, res) {
     if (req.session.data.fertiliser_fields_option == 'specific') {
         next = 'fertiliser_fields_two'
     } else {
-        req.session.data.chosen_manure_fields = allFunctions.collectFieldsFromGroups(req.session.data.cropGroups, req.session.data.fertiliser_fields_option)
+        req.session.data.chosen_fields = allFunctions.collectFieldsFromGroups(req.session.data.cropGroups, req.session.data.fertiliser_fields_option)
     }
     res.redirect(next)
 })
@@ -858,14 +858,14 @@ router.get(/set_fertiliser_fields_handler/, function (req, res) {
 // add_fertiliser/check.html → plan_view#inorganic (creates a fertiliser application record for each field)
 router.get(/add_fertiliser_handler/, callback_functions.showSuccessMessage, function (req, res) {
     let fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
-    let field_list = req.session.data.chosen_manure_fields
+    let field_list = req.session.data.chosen_fields
     let next = '/management/farm/crop_plan/plan_view#inorganic'
 
     for (let x in field_list) {
       let applicationGroup = allFunctions.addFertiliserApplication_v2(
           1, //temp group id
           req.session.data.farm.planning_year,
-          req.session.data.chosen_manure_fields[x],
+          req.session.data.chosen_fields[x],
           fertiliserDate,
           req.session.data.nitrogen,
           req.session.data.phosphate,
@@ -875,7 +875,7 @@ router.get(/add_fertiliser_handler/, callback_functions.showSuccessMessage, func
       )
       req.session.data.fertiliserApplications.push(applicationGroup)
     }
-    req.session.data.chosen_manure_fields = []
+    req.session.data.chosen_fields = []
     req.session.data.successMessage = 3
 
     res.redirect(next)

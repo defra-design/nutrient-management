@@ -84,7 +84,7 @@ router.get('/', function (req, res) {
     req.session.data.manureApplications = []
     req.session.data.manure_storage = []
     req.session.data.chosen_manure = 'Cattle Farmyard Manure (old)'
-    req.session.data.chosen_manure_fields = []
+    req.session.data.chosen_fields = []
     req.session.data.manure_journey = null           // 'multi' or 'single' — is the user adding manures to a single or multiple fields?
     req.session.data.manure_count = 0
     req.session.data.manure_spreads = 0

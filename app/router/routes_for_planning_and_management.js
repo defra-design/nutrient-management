@@ -309,8 +309,8 @@ router.get(/crop_group_update_handler/, function (req, res) {
   req.session.data.successMessage = 6;
   if (req.session.data.update_type == 'date') {
       //planting date update
-      var tempDate = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
-      for (var groupRef in req.session.data.cropGroups) {
+      let tempDate = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
+      for (let groupRef in req.session.data.cropGroups) {
           if (req.session.data.cropGroups[groupRef].reference == req.session.data.chosen_group.reference) {
               req.session.data.cropGroups[groupRef].planting_date = tempDate
           }
@@ -318,7 +318,7 @@ router.get(/crop_group_update_handler/, function (req, res) {
   }
   if (req.session.data.update_type == 'variety') {
       //variety update
-      for (var groupRef in req.session.data.cropGroups) {
+      for (let groupRef in req.session.data.cropGroups) {
           if (req.session.data.cropGroups[groupRef].reference == req.session.data.chosen_group.reference) {
               req.session.data.cropGroups[groupRef].variety = req.session.data.new_variety
           }
@@ -338,7 +338,7 @@ router.get(/get_crop_fields_handler/, function (req, res) {
 
 // add_crops/check.html → plan_view (creates the crop group and adds it to cropGroups)
 router.get(/add_crops_check_handler/, function (req, res) {
-    let yield = null
+    let cropYield = null
     let group_name = (req.session.data.groupname == null || req.session.data.groupname == '') ? 'Crop group ' + (req.session.data.cropGroups.length + 1) : req.session.data.groupname
     let year = req.session.data.farm.planning_year
     let crop_id = req.session.data.chosen_crop
@@ -346,7 +346,7 @@ router.get(/add_crops_check_handler/, function (req, res) {
     let variety = null
 
     // create a group reference
-    var group_id = req.session.data.cropGroups.length + 1
+    let group_id = req.session.data.cropGroups.length + 1
 
     // create a new group and add each field reference to the group
     var new_group = allFunctions.createCropGroup(group_name, group_id, year, crop_id, field_list)
@@ -369,7 +369,7 @@ router.get(/add_crops_check_handler/, function (req, res) {
     allFunctions.addYearIfMissing(req.session.data.farm.years_planned, req.session.data.farm.planning_year)
 
     //reset vars and redirect
-    yield = req.session.data.group_name = req.session.data.group_id = req.session.data.crop_id = req.session.data.field_list_data = null;
+    cropYield = req.session.data.group_name = req.session.data.group_id = req.session.data.crop_id = req.session.data.field_list_data = null;
     res.redirect('/management/farm/crop_plan/plan_view')
 })
 
@@ -397,7 +397,7 @@ router.get(/grassyield_handler/, function (req, res) {
 
 // add_crops/group_name.html → variety (non-grass) or grass/current_sward (grass)
 router.get(/groupname_handler/, function (req, res) {
-    var newRef = req.session.data.cropGroups.length + 1
+    let newRef = req.session.data.cropGroups.length + 1
     if (req.session.data.groupname.length <= 0) req.session.data.groupname = 'Crop group ' + newRef;
     if (req.session.data.chosen_crop != 'grass') {
         res.redirect('variety')
@@ -862,8 +862,7 @@ router.get(/add_fertiliser_handler/, callback_functions.showSuccessMessage, func
     let next = '/management/farm/crop_plan/plan_view#inorganic'
 
     for (let x in field_list) {
-      // function addFertiliserApplication_v2 (group_id, year, field_id, date, nitrogen, phosphate, potash, sulphur, lime) {
-      var applicationGroup = allFunctions.addFertiliserApplication_v2 (
+      let applicationGroup = allFunctions.addFertiliserApplication_v2(
           1, //temp group id
           req.session.data.farm.planning_year,
           req.session.data.chosen_manure_fields[x],

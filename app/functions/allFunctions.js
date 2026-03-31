@@ -144,8 +144,8 @@ function setCropAndGroupId (all_fields, chosenFields, chosenCrop, chosenGroup) {
 // whose `field_id` appears in `field_list`.
 // Returns the updated `all_fields` array.
 function updateFieldCrop(all_fields, field_list, crop_id, variety, group_id) {
-  for ( var x in field_list) {
-    for ( var y in all_fields) {
+  for (let x in field_list) {
+    for (let y in all_fields) {
       if (field_list[x] == all_fields[y].field_id) {
         all_fields[y].crop_id = crop_id
         all_fields[y].variety = variety
@@ -154,6 +154,30 @@ function updateFieldCrop(all_fields, field_list, crop_id, variety, group_id) {
     }
   }
   return all_fields
+}
+
+// Adds `year` to `years_planned` only if it isn't already in the array.
+// Fixes the previous bug where the year was pushed once for each non-matching
+// entry in the array, potentially adding duplicates.
+function addYearIfMissing(years_planned, year) {
+  if (!years_planned.includes(year)) {
+    years_planned.push(year)
+  }
+}
+
+// Returns an array of field IDs collected from crop groups.
+// `option` is either 'all' (collect from all groups) or a group_id number
+// (collect only from that group).
+function collectFieldsFromGroups(cropGroups, option) {
+  let fields = []
+  for (let group of cropGroups) {
+    if (option === 'all' || group.group_id == option) {
+      for (let field of group.field_list) {
+        fields.push(field)
+      }
+    }
+  }
+  return fields
 }
 
 // Returns the total number of fields across firstCropFields and thirdCropFields in a plan.

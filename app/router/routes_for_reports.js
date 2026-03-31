@@ -78,7 +78,6 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   if (req.session.data.export_type == '12') {
       next = '/reports/manure_storage_requirement_mvp/checklist'
   }
-
   res.redirect(next)
 })
 
@@ -107,20 +106,20 @@ router.get(/derogation_router/, function (req, res) {
 
 // reports/n_loading/checklist.html (generate report) → report or checklist (if incomplete)
 router.get(/n_loading_submit_router/, function (req, res) {
-    let next = 'report_no_derogation'
-    if ((req.session.data.farm.area_added == false)) {
-        next = 'checklist';
-        req.session.data.show_error = true;
-    }
-    if ((req.session.data.farm.imports_exports == null)) {
-        next = 'checklist';
-        req.session.data.show_error = true;
-    }
-    if (req.session.data.farm.livestock_loading == 'not_answered') {
-        next = 'checklist'
-        req.session.data.show_error = true
-    }
-    res.redirect(next)
+  let next = 'report_no_derogation'
+  if ((req.session.data.farm.area_added == false)) {
+      next = 'checklist';
+      req.session.data.show_error = true;
+  }
+  if ((req.session.data.farm.imports_exports == null)) {
+      next = 'checklist';
+      req.session.data.show_error = true;
+  }
+  if (req.session.data.farm.livestock_loading == 'not_answered') {
+      next = 'checklist'
+      req.session.data.show_error = true
+  }
+  res.redirect(next)
 })
 
 // reports/n_loading/area.html → checklist (saves that farm area has been added)
@@ -161,13 +160,13 @@ router.get(/storage_type_handler/, function (req, res) {
 router.get(/storage_size_handler/, function (req, res) {
   let next
   if (req.session.data.material_type == 'solid manure') {
-      next = 'weight'
+    next = 'weight'
   } else {
-      if (req.session.data.storage_question == 'dimensions') {
-          next = 'storage_type'
-      } else {
-          next = 'check'
-      }
+    if (req.session.data.storage_question == 'dimensions') {
+        next = 'storage_type'
+    } else {
+        next = 'check'
+    }
   }
   res.redirect(next)
 })
@@ -178,7 +177,7 @@ router.get(/check_storage_handler/, function (req, res) {
   req.session.data.farm.storage_added = true;
   let store_1 = allFunctions.createStorage(req.session.data.material_type, req.session.data.storage_name, req.session.data.storage_type)
   req.session.data.manure_storage.push(store_1)
-  // req.session.data.successMessage = SUCCESS.EXPORTS.UPDATED;
+  req.session.data.successMessage = SUCCESS.EXPORTS.UPDATED;
   res.redirect('/management/farm/storage/manage_storage')
 })
 
@@ -517,10 +516,10 @@ router.get(/exportcheck_handler/, function (req, res) {
 
 // update/exports/update.html → manage_exports (saves changes to an existing export record)
 router.get(/export_update_handler/, function (req, res) {
-    req.session.data.show_success_message = true;
-    req.session.data.successMessage = SUCCESS.EXPORTS.UPDATED;
-    let next = '/management/farm/exports/manage_exports'
-    res.redirect(next)
+  req.session.data.show_success_message = true;
+  req.session.data.successMessage = SUCCESS.EXPORTS.UPDATED;
+  let next = '/management/farm/exports/manage_exports'
+  res.redirect(next)
 })
 
 // add_export/manure_type.html → date (resolves full manure type object from the selected name)

@@ -37,7 +37,7 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   // N-max report
   if (req.session.data.export_type == '3') {
       next = (req.session.data.all_fields.length == 0 || req.session.data.plan_crop_groups.length == 0) ? 'not_available_max' : 'export_crops'
-      if (req.session.data.all_fields.length == 0 || req.session.data.plan_plan_crop_groups.length == 0) {
+      if (req.session.data.all_fields.length == 0 || req.session.data.plan_crop_groups.length == 0) {
           next = 'not_available_max'
       } else {
           next = 'export_crops'

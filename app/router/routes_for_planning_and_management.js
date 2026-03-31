@@ -672,7 +672,7 @@ router.get(/crop_update_router/, function (req, res) {
   //group.reference
   req.session.data.chosen_group = allFunctions.getByReference(req.session.data.plan_crop_groups, req.query.group_id)
   req.session.data.show_success_message = false
-  req.session.data.chosen_group = allFunctions.getByReference(req.session.data.plan_plan_crop_groups, req.query.group_id)
+  req.session.data.chosen_group = allFunctions.getByReference(req.session.data.plan_crop_groups, req.query.group_id)
   req.session.data.show_success_message = false    
   let next = '/update/crop/change_crop'
   if (req.session.data.chosen_group.crop_reference == 'grass') {
@@ -914,16 +914,16 @@ router.get(/v5_fertiliser_handler/, function (req, res) {
 	if (req.session.data.fertiliser_fields_option == 'specific') {
 			next = 'fertiliser_fields_two'
 	} else if (req.session.data.fertiliser_fields_option == 'all') {
-		for (let x in req.session.data.plan_plan_crop_groups) {
-			for (let y in req.session.data.plan_plan_crop_groups[x].field_list ) {
-				req.session.data.chosen_manure_fields.push(req.session.data.plan_plan_crop_groups[x].field_list[y])
+		for (let x in req.session.data.plan_crop_groups) {
+			for (let y in req.session.data.plan_crop_groups[x].field_list ) {
+				req.session.data.chosen_manure_fields.push(req.session.data.plan_crop_groups[x].field_list[y])
 			}
 		}
 	} else {
-		for (let a in req.session.data.plan_plan_crop_groups) {
-			if (req.session.data.plan_plan_crop_groups[a].group_id == req.session.data.fertiliser_fields_option) {
-				for (let b in req.session.data.plan_plan_crop_groups[a].field_list ) {
-					req.session.data.chosen_manure_fields.push(req.session.data.plan_plan_crop_groups[a].field_list[b])
+		for (let a in req.session.data.plan_crop_groups) {
+			if (req.session.data.plan_crop_groups[a].group_id == req.session.data.fertiliser_fields_option) {
+				for (let b in req.session.data.plan_crop_groups[a].field_list ) {
+					req.session.data.chosen_manure_fields.push(req.session.data.plan_crop_groups[a].field_list[b])
 				}
 			}
 		}

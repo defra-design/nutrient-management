@@ -70,7 +70,7 @@ router.get('/', function (req, res) {
     // CROPS
     // Crop groups link fields to crops for a given year.
     // -------------------------
-    req.session.data.cropGroups = []
+    // req.session.data.cropGroups = []
     req.session.data.plan_crop_groups = []
     req.session.data.crop_group = null               // the crop group currently being added/edited
     req.session.data.chosen_crop = null              // the crop type selected during an add-crop journey

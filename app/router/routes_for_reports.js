@@ -59,15 +59,15 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   }
   // Manure inventory and storage report
   if (req.session.data.export_type == '8') {
-      next = '/reports/manure_inventory/checklist'
+      next = 'reports/manure_inventory/checklist'
   }
   // Planned nutrients report
   if (req.session.data.export_type == '9') {
-      next = '/reports/planned_nutrients'
+      next = 'reports/planned_nutrients'
   }
   // Recommendations report
   if (req.session.data.export_type == '10') {
-      next = '/reports/recommendations'
+      next = 'reports/recommendations'
   }
   // Confirmed field history report
   if (req.session.data.export_type == '11') {
@@ -76,7 +76,7 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   // Storage requirement report
   // manure_storage_requirement_mvp
   if (req.session.data.export_type == '12') {
-      next = '/reports/manure_storage_requirement_mvp/checklist'
+      next = 'reports/manure_storage_requirement_mvp/checklist'
   }
   res.redirect(next)
 })
@@ -204,12 +204,12 @@ router.get(/livestock_report_reset/, callback_functions.hideSuccessMessage, func
 
 // reports/n_loading/checklist.html (livestock row) → manage livestock or livestock_none or copy
 router.get(/livestock_loading_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
-  let next = '/reports/add_livestock/livestock_none'
+  let next = 'reports/add_livestock/livestock_none'
   if (req.session.data.farm.livestock_loading == 2 || req.session.data.farm.livestock_loading == 3) {
-      next = '/reports/n_loading/manage_livestock/index'
+      next = 'reports/n_loading/manage_livestock/index'
   } else {
       if (req.session.data.farm.livestock_inventory == 3) {
-          next = '/reports/n_loading/manage_livestock/copy'
+          next = 'reports/n_loading/manage_livestock/copy'
       }
   }
   res.redirect(next);
@@ -221,7 +221,7 @@ router.get(/livestock_loading_router/, callback_functions.hide_error, function (
   if (req.session.data.livestock_loading == 'no') {
       req.session.data.farm.livestock_inventory = 'none'
       req.session.data.farm.livestock_loading = 'none'
-      next = '/reports/add_livestock/livestock_group'
+      next = 'reports/add_livestock/livestock_group'
   }
   res.redirect(next);
 })
@@ -230,10 +230,10 @@ router.get(/livestock_loading_router/, callback_functions.hide_error, function (
 router.get(/livestock_requirement_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
   let next = './reports/add_livestock/livestock_none'
   if (req.session.data.farm.livestock_inventory == 2 || req.session.data.farm.livestock_inventory == 3) {
-      next = '/reports/storage_requirement/manage_livestock/index'
+      next = 'reports/storage_requirement/manage_livestock/index'
   } else {
       if (req.session.data.farm.livestock_loading == 3) {
-          next = '/reports/storage_requirement/manage_livestock/copy'
+          next = 'reports/storage_requirement/manage_livestock/copy'
       }
   }
   res.redirect(next);
@@ -241,7 +241,7 @@ router.get(/livestock_requirement_handler/, callback_functions.hideSuccessMessag
 
 // reports/n_loading/manage_livestock/copy.html → manage livestock (copies inventory numbers to n-loading)
 router.get(/livestock_copy_for_loading_handler/, function (req, res) {
-  let next = '/reports/n_loading/manage_livestock/index'
+  let next = 'reports/n_loading/manage_livestock/index'
   if (req.session.data.copy_inventory == 'yes') {
     for (let x in req.session.data.livestock_record_plan_year) {
       if (req.session.data.livestock_record_plan_year[x].numbers_for_inventory == 2) {
@@ -250,7 +250,7 @@ router.get(/livestock_copy_for_loading_handler/, function (req, res) {
     }
     req.session.data.farm.livestock_loading = null
   } else {
-    next = '/reports/add_livestock/livestock_none'
+    next = 'reports/add_livestock/livestock_none'
   }
   res.redirect(next);
 })
@@ -327,9 +327,9 @@ router.get(/add_loadingnumbers_handler/, callback_functions.hide_error, function
     }
   }
   if (req.session.data.chosen_livestock.type != 'pig' && req.session.data.chosen_livestock.type != 'poultry') {
-    next = '/reports/add_livestock/livestock_number_question'
+    next = 'reports/add_livestock/livestock_number_question'
   } else {
-    next = '/reports/add_livestock/livestock_numbers_average'
+    next = 'reports/add_livestock/livestock_numbers_average'
   }
   res.redirect(next)
 })
@@ -380,12 +380,12 @@ router.get(/manure_system_skip_handler/, callback_functions.hideSuccessMessage, 
 
 // reports/manure_inventory/checklist.html (livestock row) → manage livestock or livestock_none or copy
 router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
-  let next = '/reports/manure_inventory/reports/add_livestock/livestock_none'
+  let next = 'reports/manure_inventory/reports/add_livestock/livestock_none'
   if (req.session.data.farm.livestock_inventory == 2 || req.session.data.farm.livestock_inventory == 3) {
-    next = '/reports/manure_inventory/manage_livestock/index'
+    next = 'reports/manure_inventory/manage_livestock/index'
   } else {
     if (req.session.data.farm.livestock_loading == 3) {
-        next = '/reports/manure_inventory/manage_livestock/copy'
+        next = 'reports/manure_inventory/manage_livestock/copy'
     }
   }
   res.redirect(next);
@@ -399,7 +399,7 @@ router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage,
 
 // management/farm/exports/export_year.html → add_export/export_type (new) or manage_exports (existing)
 router.get(/export_year_handler/, callback_functions.hideSuccessMessage, function (req, res) {
-	let next = '/reports/add_export/export_type'
+	let next = 'reports/add_export/export_type'
   if (req.session.data.farm.manure_exports == true || req.session.data.farm.manure_imports == true ) {
   	next = 'manage_exports'
   }
@@ -440,9 +440,9 @@ router.get(/export_type_router/, callback_functions.hide_error, function (req, r
   if (req.session.data.imports_exports == 'no') {
       req.session.data.farm.imports_exports = 4
       if (req.session.data.export_type == '8') {
-          next = '/reports/manure_inventory/checklist'
+          next = 'reports/manure_inventory/checklist'
       } else {
-          next = '/reports/n_loading/checklist'
+          next = 'reports/n_loading/checklist'
       }
   }
   res.redirect(next)

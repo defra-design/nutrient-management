@@ -56,8 +56,12 @@ router.get(/manure_stores_question_router/, function (req, res) {
     req.session.data.farm.manure_stores_status = 'NONE'
     next = '../checklist'
   } else if (req.session.data.manure_stores_question == 'yes') {
-    req.session.data.farm.manure_stores_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
-    next = 'type'
+    if (req.session.data.farm.manure_stores_status != 'NONE') {
+      next = '/management/farm/storage/manage_storage'
+    } else {
+      req.session.data.farm.manure_stores_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
+      next = '/reports/add_storage/storage_type'
+    }
   }
   res.redirect(next)
 })

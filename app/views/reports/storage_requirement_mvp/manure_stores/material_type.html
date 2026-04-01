@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+   Question – Add a manure store -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        What type of manure store do you want to add?
+      </h1>
+
+      <p class="govuk-hint">Choose one option.</p>
+
+      <form class="form" action="name" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="manure" name="material_type" type="radio" value="solid manure">
+                <label class="govuk-label govuk-radios__label" for="manure">
+                  <!-- Solid manure store (on concrete or in livestock housing) -->
+                  Solid manure store (on yards or in livestock housing)
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="slurry" name="material_type" type="radio" value="slurry">
+                <label class="govuk-label govuk-radios__label" for="slurry">
+                  Slurry store
+                </label>
+              </div>
+              <!-- <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dirty_water" name="material_type" type="radio" value="dirty water">
+                <label class="govuk-label govuk-radios__label" for="dirty_water">
+                  Dirty water storage
+                </label>
+              </div> -->
+            </div>
+          </fieldset>
+        </div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+  
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

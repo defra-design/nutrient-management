@@ -166,7 +166,7 @@ router.get(/reset_nloading_checklist_message_handler/, callback_functions.hide_e
 
 // clears error before returning to manure inventory checklist
 router.get(/reset_inventory_checklist_message_handler/, callback_functions.hide_error, function (req, res) {
-    res.redirect('/reports/manure_inventory/checklist')
+    res.redirect('/reports/storage_requirement_mvp/checklist')
 })
 
 

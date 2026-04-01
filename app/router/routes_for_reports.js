@@ -4,6 +4,7 @@ var router = express.Router()
 var allFunctions = require('../functions/allFunctions.js');
 var callback_functions = require('./callbacks.js');
 var SUCCESS = require('./success_messages.js');
+var { LIVESTOCK_INVENTORY_IN_PROGRESS, LIVESTOCK_INVENTORY_COMPLETE, LIVESTOCK_INVENTORY_NO_LIVESTOCK } = require('./constants.js');
 
 
 // =============================================================================
@@ -208,7 +209,7 @@ router.get(/livestock_loading_handler/, callback_functions.hideSuccessMessage, c
   if (req.session.data.farm.livestock_loading == 2 || req.session.data.farm.livestock_loading == 3) {
       next = 'reports/n_loading/manage_livestock/index'
   } else {
-      if (req.session.data.farm.livestock_inventory == 3) {
+      if (req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_COMPLETE) {
           next = 'reports/n_loading/manage_livestock/copy'
       }
   }
@@ -228,12 +229,12 @@ router.get(/livestock_loading_router/, callback_functions.hide_error, function (
 
 // reports/storage_requirement/checklist.html (livestock row) → manage livestock or livestock_none or copy
 router.get(/livestock_requirement_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
-  let next = './reports/add_livestock/livestock_none'
-  if (req.session.data.farm.livestock_inventory == 2 || req.session.data.farm.livestock_inventory == 3) {
-      next = 'reports/storage_requirement/manage_livestock/index'
+  let next = '/reports/add_livestock/livestock_none'
+  if (req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_IN_PROGRESS || req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_COMPLETE) {
+      next = '/reports/storage_requirement/manage_livestock/index'
   } else {
       if (req.session.data.farm.livestock_loading == 3) {
-          next = 'reports/storage_requirement/manage_livestock/copy'
+          next = '/reports/storage_requirement/manage_livestock/copy'
       }
   }
   res.redirect(next);
@@ -381,7 +382,7 @@ router.get(/manure_system_skip_handler/, callback_functions.hideSuccessMessage, 
 // reports/manure_inventory/checklist.html (livestock row) → manage livestock or livestock_none or copy
 router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
   let next = 'reports/manure_inventory/reports/add_livestock/livestock_none'
-  if (req.session.data.farm.livestock_inventory == 2 || req.session.data.farm.livestock_inventory == 3) {
+  if (req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_IN_PROGRESS || req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_COMPLETE) {
     next = 'reports/manure_inventory/manage_livestock/index'
   } else {
     if (req.session.data.farm.livestock_loading == 3) {

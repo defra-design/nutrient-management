@@ -3,6 +3,7 @@ var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
 var callback_functions = require('./callbacks.js');
+var { LIVESTOCK_INVENTORY_IN_PROGRESS, LIVESTOCK_INVENTORY_COMPLETE, LIVESTOCK_INVENTORY_NO_LIVESTOCK } = require('./constants.js');
 
 
 // =============================================================================
@@ -22,7 +23,7 @@ var callback_functions = require('./callbacks.js');
 router.get(/livestock_inventory_router/, callback_functions.hide_error, function (req, res) {
     let next
     if (req.session.data.livestock_inventory == 'no') {
-        req.session.data.farm.livestock_inventory = 4
+        req.session.data.farm.livestock_inventory = LIVESTOCK_INVENTORY_NO_LIVESTOCK
         req.session.data.farm.manure_system = 4
         next = 'checklist'
     } else {
@@ -34,7 +35,7 @@ router.get(/livestock_inventory_router/, callback_functions.hide_error, function
 // reports/manure_inventory/checklist.html (livestock row) → manage livestock or livestock_none or copy
 router.get(/livestock_inventory_handler/, callback_functions.hidesuccess_message, callback_functions.hide_error, function (req, res) {
     let next = 'reports/manure_inventory/reports/add_livestock/livestock_none'
-    if (req.session.data.farm.livestock_inventory == 2 || req.session.data.farm.livestock_inventory == 3) {
+    if (req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_IN_PROGRESS || req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_COMPLETE) {
         next = 'reports/manure_inventory/manage_livestock/index'
     } else {
         if (req.session.data.farm.livestock_loading == 3) {
@@ -53,7 +54,7 @@ router.get(/livestock_copy_for_inventory_handler/, function (req, res) {
               req.session.data.livestock_record_plan_year[x].numbers_for_inventory = 1
           }
       }
-      req.session.data.farm.livestock_inventory = 2
+      req.session.data.farm.livestock_inventory = LIVESTOCK_INVENTORY_IN_PROGRESS
   } else {
     next = 'reports/manure_inventory/reports/add_livestock/livestock_none'
   }
@@ -66,7 +67,7 @@ router.get(/system_inventory_handler/, callback_functions.hide_error, callback_f
     let next = 'reports/manure_inventory/manage_collection/index'
     if (req.session.data.oaktree_farm.livestock_inventory == null) { 
         next = 'livestock_inventory_handler'
-    } else if (req.session.data.oaktree_farm.livestock_inventory == 4) {
+    } else if (req.session.data.oaktree_farm.livestock_inventory == LIVESTOCK_INVENTORY_NO_LIVESTOCK) {
         next = 'reports/manure_inventory/reports/add_livestock/livestock_none'
     }
     res.redirect(next);
@@ -74,9 +75,9 @@ router.get(/system_inventory_handler/, callback_functions.hide_error, callback_f
 
 router.get(/water_inventory_handler/, callback_functions.hide_error, callback_functions.hideSuccessMessage, function (req, res) {
     let next = 'water_none'
-    if (req.session.data.oaktree_farm.livestock_inventory == null) { 
+    if (req.session.data.oaktree_farm.livestock_inventory == null) {
         next = 'livestock_inventory_handler'
-    } else if (req.session.data.oaktree_farm.livestock_inventory == 4) {
+    } else if (req.session.data.oaktree_farm.livestock_inventory == LIVESTOCK_INVENTORY_NO_LIVESTOCK) {
         next = 'reports/manure_inventory/reports/add_livestock/livestock_none'
     } else if (req.session.data.oaktree_farm.wash_water == true) {
         next = 'reports/manure_inventory/manage_water/index'
@@ -291,7 +292,7 @@ router.get(/check_inventory_lstock_handler/, function (req, res) {
       req.session.data.livestock_record_plan_year.push(req.session.data.chosen_livestock)
   }
   req.session.data.show_success_message = true;
-  req.session.data.farm.livestock_inventory = 3;
+  req.session.data.farm.livestock_inventory = LIVESTOCK_INVENTORY_COMPLETE;
   req.session.data.mostly_manure = null
   res.redirect('/reports/manure_inventory/manage_livestock/index')
 })
@@ -312,7 +313,7 @@ router.get(/check_requirement_lstock_handler/, function (req, res) {
       req.session.data.livestock_record_plan_year.push(req.session.data.chosen_livestock)
   }
   req.session.data.show_success_message = true;
-  req.session.data.farm.livestock_inventory = 3;
+  req.session.data.farm.livestock_inventory = LIVESTOCK_INVENTORY_COMPLETE;
   req.session.data.mostly_manure = null
   res.redirect('/reports/manure_inventory/manage_livestock/index')
 })
@@ -360,7 +361,7 @@ router.get(/system_inventory_handler/, callback_functions.hide_error, callback_f
     let next = 'reports/manure_inventory/manage_collection/index'
     if (req.session.data.farm.livestock_inventory == null) {
         next = 'livestock_inventory_handler'
-    } else if (req.session.data.farm.livestock_inventory == 4) {
+    } else if (req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_NO_LIVESTOCK) {
         next = 'reports/manure_inventory/reports/add_livestock/livestock_none'
     }
     res.redirect(next);
@@ -415,7 +416,7 @@ router.get(/water_inventory_handler/, callback_functions.hide_error, callback_fu
     let next = 'water_none'
     if (req.session.data.farm.livestock_inventory == null) {
         next = 'livestock_inventory_handler'
-    } else if (req.session.data.farm.livestock_inventory == 4) {
+    } else if (req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_NO_LIVESTOCK) {
         next = 'reports/manure_inventory/reports/add_livestock/livestock_none'
     } else if (req.session.data.farm.wash_water == true) {
         next = 'reports/manure_inventory/manage_water/index'

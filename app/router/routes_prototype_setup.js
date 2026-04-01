@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 var allFunctions = require('../functions/allFunctions.js');
 var callback_functions = require('./callbacks.js');
+var { LIVESTOCK_INVENTORY_IN_PROGRESS, LIVESTOCK_INVENTORY_COMPLETE } = require('./constants.js');
 
 function startFarm(type) {
   let obj = {
@@ -127,7 +128,7 @@ router.get(/setup_handler_everything/, function (req, res) {
     req.session.data.farm.years_planned.push(2026)
     req.session.data.farm.area_added = true
     req.session.data.farm.livestock_loading = 2
-    req.session.data.farm.livestock_inventory = 2
+    req.session.data.farm.livestock_inventory = LIVESTOCK_INVENTORY_IN_PROGRESS
     req.session.data.farm.manure_system = 2
     req.session.data.farm.manure_system_details = 2
     req.session.data.farm.derogation = false
@@ -137,7 +138,7 @@ router.get(/setup_handler_everything/, function (req, res) {
     req.session.data.oaktree_farm.years_planned.push(2026)
     req.session.data.oaktree_farm.area_added = true
     req.session.data.oaktree_farm.livestock_loading = 2
-    req.session.data.oaktree_farm.livestock_inventory = 2
+    req.session.data.oaktree_farm.livestock_inventory = LIVESTOCK_INVENTORY_IN_PROGRESS
     req.session.data.oaktree_farm.manure_system = 2
     req.session.data.oaktree_farm.manure_system_details = 2
     req.session.data.oaktree_farm.derogation = false
@@ -235,8 +236,8 @@ router.get(/setup_handler_livestock_inventory/, function (req, res) {
     req.session.data.farm = startFarm('basic')
     req.session.data.all_fields = [req.session.data.field_list_data[0], req.session.data.field_list_data[16]]
     req.session.data.show_info = false
-    req.session.data.farm.livestock_inventory = 3;    
-    req.session.data.oaktree_farm.livestock_inventory = 3;    
+    req.session.data.farm.livestock_inventory = LIVESTOCK_INVENTORY_COMPLETE;    
+    req.session.data.oaktree_farm.livestock_inventory = LIVESTOCK_INVENTORY_COMPLETE;    
     
     // Livestock
     let livestock_list = [0,1,2,3,24]
@@ -272,7 +273,7 @@ router.get(/setup_handler_livestock_storage/, function (req, res) {
       req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[livestock_list[x]])
     }
 
-    req.session.data.farm.livestock_inventory = 3;
+    req.session.data.farm.livestock_inventory = LIVESTOCK_INVENTORY_COMPLETE;
     res.redirect('start')
 })
 

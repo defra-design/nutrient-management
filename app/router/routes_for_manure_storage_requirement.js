@@ -10,38 +10,48 @@ var { LIVESTOCK_INVENTORY_IN_PROGRESS, LIVESTOCK_INVENTORY_COMPLETE, LIVESTOCK_I
 // Routes for manure storage requirement
 // =====================================
 
-// farm_area_question_router - req.session.data.farm.area_added = true > checklist
+// farm_area_question_router - req.session.data.farm.area_status = true > checklist
 router.get(/farm_area_question_router/, function (req, res) {
-  let next = 'checklist'
   req.session.data.farm.area_added = true
-  res.redirect(next)
+  res.redirect('checklist')
 })
 
-// rain_water_question_router - req.session.data.farm.rain_water_area_added = true > checklist
+// rain_water_question_router - req.session.data.farm.rain_water_area_status = true > checklist
 router.get(/rain_water_question_router/, function (req, res) {
-  let next = 'checklist'
   req.session.data.farm.rain_water_area_added = true
-  res.redirect(next)
+  res.redirect('checklist')
 })
 
-// livestock_question_router - req.session.data.farm.livestock_added = true > checklist
+// livestock_question_router - req.session.data.farm.livestock_status = true > checklist
 router.get(/livestock_question_router/, function (req, res) {
   let next = '../checklist'
-  req.session.data.farm.livestock_added = true
+  if (req.session.data.livestock_question == 'no') {
+    req.session.data.farm.livestock_status = 'NONE'
+  } else if (req.session.data.livestock_question == 'yes') {
+    req.session.data.farm.livestock_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
+  }
   res.redirect(next)
 })
 
-// imports_exports_question_router - req.session.data.farm.imports_exports_added = true > checklist
+// imports_exports_question_router - req.session.data.farm.imports_exports_status = true > checklist
 router.get(/imports_exports_question_router/, function (req, res) {
   let next = '../checklist'
-  req.session.data.farm.imports_exports_added = true
+  if (req.session.data.imports_exports_question == 'no') {
+    req.session.data.farm.imports_exports_status = 'NONE'
+  } else if (req.session.data.imports_exports_question == 'yes') {
+    req.session.data.farm.imports_exports_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
+  }
   res.redirect(next)
 })
 
-// manure_stores_question_router - req.session.data.farm.manure_stores_added = true > checklist
+// manure_stores_question_router - req.session.data.farm.manure_stores_status = true > checklist
 router.get(/manure_stores_question_router/, function (req, res) {
   let next = '../checklist'
-  req.session.data.farm.manure_stores_added = true
+  if (req.session.data.manure_stores_question == 'no') {
+    req.session.data.farm.manure_stores_status = 'NONE'
+  } else if (req.session.data.manure_stores_question == 'yes') {
+    req.session.data.farm.manure_stores_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
+  }
   res.redirect(next)
 })
 

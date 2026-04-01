@@ -1,14 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-   Question – Add livestock -  {{ serviceName }} – GOV.UK
-{% endblock %}
-
-{% block header %}
-  {% include "/templates/headers/header_farm.html" ignore missing %}
+  Question – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "/templates/signed-in.html" ignore missing %}
+  
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
@@ -21,26 +19,28 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Was there any livestock on {{data.farm.name}} in {{data.farm.planning_year}}?
+      Was there any livestock slurry or poultry manure produced on {{data.farm.name}} between October {{data.farm.harvest_year}} and April {{data.farm.harvest_year + 1}}
     </h1>
 
-    <p class="govuk-hint">
+    <!-- <p class="govuk-hint">
       Include cattle, sheep, pigs, poultry, goats, deer and horses.
     </p>
+ -->
+    <p class="govuk-hint">Select one option.</p>
 
-    <form class="form" action="livestock_loading_router" method="post">
+    <form class="form" action="livestock_inventory_router" method="post">
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <div class="govuk-radios--inline" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="yes" name="livestock_loading" type="radio" value="yes">
+              <input class="govuk-radios__input" id="yes" name="livestock_inventory" type="radio" value="yes">
               <label class="govuk-label govuk-radios__label" for="yes">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="no" name="livestock_loading" type="radio" {% if data.farm.livestock_loading == 'none' %} checked {% endif %} value="no">
+              <input class="govuk-radios__input" id="no" name="livestock_inventory" type="radio" value="no" {% if data.farm.livestock_inventory == 4  %} checked='checked' {% endif %}>
               <label class="govuk-label govuk-radios__label" for="no">
                 No
               </label>

@@ -77,7 +77,7 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   // Storage requirement report
   // manure_storage_requirement_mvp
   if (req.session.data.export_type == '12') {
-      next = 'reports/manure_storage_requirement_mvp/checklist'
+      next = '/reports/manure_storage_requirement_mvp/checklist'
   }
   res.redirect(next)
 })
@@ -222,21 +222,21 @@ router.get(/livestock_loading_router/, callback_functions.hide_error, function (
   if (req.session.data.livestock_loading == 'no') {
       req.session.data.farm.livestock_inventory = 'none'
       req.session.data.farm.livestock_loading = 'none'
-      next = 'reports/n_loading/add_livestock/livestock_group'
+      next = '/reports/n_loading/checklist'
   }
   res.redirect(next);
 })
 
 // reports/storage_requirement/checklist.html (livestock row) → manage livestock or livestock_none or copy
 router.get(/livestock_requirement_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
-  let next = '/reports/add_livestock/livestock_none'
-  if (req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_IN_PROGRESS || req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_COMPLETE) {
-      next = '/reports/storage_requirement/manage_livestock/index'
-  } else {
-      if (req.session.data.farm.livestock_loading == 3) {
-          next = '/reports/storage_requirement/manage_livestock/copy'
-      }
-  }
+  let next = 'add_livestock/livestock_none'
+  req.session.data.farm.livestock_inventory = 'none'
+  // if (req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_IN_PROGRESS || req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_COMPLETE) {
+  //     next = '/reports/storage_requirement/manage_livestock/index'
+  // } else {
+  //     if (req.session.data.farm.livestock_loading == 3) {
+  //         next = '/reports/storage_requirement/manage_livestock/copy'
+  //     }
   res.redirect(next);
 })
 

@@ -244,7 +244,7 @@ router.get(/export_type_router/, callback_functions.hide_error, function (req, r
   if (req.session.data.imports_exports == 'no') {
       req.session.data.oaktree_farm.imports_exports = 4
       if (req.session.data.export_type == '8') {
-          next = 'reports/manure_inventory/checklist'
+          next = '/reports/manure_inventory/checklist'
       } else {
           next = 'reports/n_loading/checklist'
       }
@@ -540,9 +540,9 @@ router.get(/landcheck_handler/, callback_functions.showsuccess_message, function
 
 // reports/manure_inventory/checklist.html (imports/exports row) → manage_exports or export_none
 router.get(/inventory_importexport_handler/, function (req, res) {
-  let next = 'export_none'
+  let next = '/reports/manure_storage_requirement_mvp/add_export/export_none'
   if (req.session.data.farm.imports_exports == 2) {
-      next = 'reset_manage_exports_message_handler'
+      next = '/reports/manure_storage_requirement_mvp/reset_manage_exports_message_handler'
   }
   res.redirect(next);
 })

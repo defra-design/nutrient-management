@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-   Question – Add livestock -  {{ serviceName }} – GOV.UK
+   Question – Add imports and exports -  {{ serviceName }} – GOV.UK
 {% endblock %}
 
 {% block header %}
@@ -21,34 +21,31 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Was there any livestock on {{data.farm.name}} in {{data.farm.planning_year}}?
+      Do you want to add an import or an export of livestock manure?
     </h1>
 
-    <p class="govuk-hint">
-      Include cattle, sheep, pigs, poultry, goats, deer and horses.
-    </p>
+    <p class="govuk-hint">Choose one option.</p>
 
-    <form class="form" action="livestock_loading_router" method="post">
+    <form class="form" action="manure_export_type_handler" method="post">
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
-          <div class="govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="yes" name="livestock_loading" type="radio" value="yes">
-              <label class="govuk-label govuk-radios__label" for="yes">
-                Yes
+              <input class="govuk-radios__input" id="import" name="imports_exports" type="radio" value="import">
+              <label class="govuk-label govuk-radios__label" for="import">
+                Import
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="no" name="livestock_loading" type="radio" {% if data.farm.livestock_loading == 'none' %} checked {% endif %} value="no">
-              <label class="govuk-label govuk-radios__label" for="no">
-                No
+              <input class="govuk-radios__input" id="export" name="imports_exports" type="radio" value="export">
+              <label class="govuk-label govuk-radios__label" for="export">
+                Export
               </label>
             </div>
           </div>
         </fieldset>
       </div>
-
       {{ govukButton({
         text: "Continue"
       }) }}
@@ -61,5 +58,5 @@
 
   </div>
 </div>
-
+  
 {% endblock %}

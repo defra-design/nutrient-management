@@ -52,7 +52,7 @@
       </a>
     </div>
     <div class="govuk-task-list__status" id="loading-list-4-status">
-      {% if data.farm.livestock_loading >= 3 %}
+      {% if data.farm.livestock_loading == 'none' or data.farm.livestock_loading == null or data.farm.livestock_loading == 'done' %}
         Completed
       {% else %}
         <strong class="govuk-tag govuk-tag--blue">

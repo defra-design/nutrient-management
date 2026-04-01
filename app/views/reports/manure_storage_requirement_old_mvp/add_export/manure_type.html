@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+   Question – Add imports and exports -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      What type of {{ data.manure_group_id | convert_manure_group_id | lower }} are you {{data.imports_exports}}ing?
+    </h1>
+
+    <p class="govuk-hint">Select one option. These options come from the AHDB Nutrient Management Guide (RB209).</p>
+
+    <form class="form" action="get_manure_type_report_handler" method="post">
+      <div class="govuk-form-group">
+        <div class="govuk-radios" data-module="govuk-radios">
+          
+          {% for manure in data.manure_types %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="{{manure.name}}" name="manure_type" type="radio" value="{{manure.name}}">
+              <label class="govuk-label govuk-radios__label" for="{{manure.name}}">
+                {{manure.display_name}}
+              </label>
+            </div>
+          {% endfor %}
+
+        </div>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

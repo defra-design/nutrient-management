@@ -1,44 +1,6 @@
-{% macro taskListItem(label, href, isAnswered) %}
-<li class="govuk-task-list__item govuk-task-list__item--with-link">
-  <div class="govuk-task-list__name-and-hint">
-    <a class="govuk-link govuk-task-list__link" href="{{ href }}">
-      {{ label }}
-    </a>
-  </div>
-  <div class="govuk-task-list__status">
-    {% if isAnswered %}
-      Completed
-    {% else %}
-      <strong class="govuk-tag govuk-tag--blue">
-        Incomplete
-      </strong>
-    {% endif %}
-  </div>
-</li>
-{% endmacro %}
-
 <ul class="govuk-task-list">
 
-  <!-- Area -->
-  {{ taskListItem("Farm area", "area", data.farm.area_added) }}
-
-  <!-- Livestock  -->
-  {{ taskListItem("Livestock details", "livestock_requirement_handler", data.farm.livestock_inventory) }}
-   
-  <!-- Water collection -->
-  {{ taskListItem("Water draining to slurry stores", "rainwater", data.farm.rainwater_area_added) }}
-
-  <!-- Imports and exports -->
-  {{ taskListItem("Imports and exports of organic material", "inventory_importexport_handler", data.farm.imports_exports) }}
-  
-  <!-- Manure storage -->
-  {{ taskListItem("Manure stores", "reset_manage_storage_message_handler", data.farm.storage_added) }}
-
-</ul>
-
-<!-- <ul class="govuk-task-list">
-
-  Area 
+    <!-- Area -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     <div class="govuk-task-list__name-and-hint">
       <a class="govuk-link govuk-task-list__link" href="area">
@@ -56,7 +18,7 @@
     </div>
   </li>
 
-  Livestock
+  <!-- Livestock  -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     <div class="govuk-task-list__name-and-hint">
       <a class="govuk-link govuk-task-list__link" href="livestock_requirement_handler">
@@ -74,7 +36,7 @@
     </div>
   </li>
 
-  Water collection
+    <!-- Water collection -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     <div class="govuk-task-list__name-and-hint">
       <a class="govuk-link govuk-task-list__link" href="rainwater">
@@ -92,7 +54,7 @@
     </div>
   </li>
 
-  Imports and exports
+  <!-- Imports and exports -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     <div class="govuk-task-list__name-and-hint">
       <a class="govuk-link govuk-task-list__link" href="inventory_importexport_handler">
@@ -111,7 +73,26 @@
   </li>
 
 
-  Manure storage
+  <!-- Low risk land -->
+  <!-- <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="lowrisk_land_handler">
+        Low run-off risk land
+      </a>
+    </div>
+    <div class="govuk-task-list__status">
+      {% if data.farm.low_risk_land_added != null %}
+        Completed
+      {% else %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Incomplete
+        </strong>
+      {% endif %}
+    </div> -->
+  </li>
+
+
+  <!-- Manure storage -->
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     <div class="govuk-task-list__name-and-hint">
       <a class="govuk-link govuk-task-list__link" href="reset_manage_storage_message_handler">
@@ -129,4 +110,4 @@
     </div>
   </li>  
 
-</ul> -->
+</ul>

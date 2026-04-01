@@ -1,0 +1,73 @@
+
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+   Question – Add imports and exports -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Typical nutrient values for {{data.manure_type.name}}
+      </h1>
+
+      <p class="govuk-hint"> These are typical nutrient values.</p>
+      
+      <div class="margin-bottom-forty">
+        {% if data.manure_type.liquid == true %}
+          {% include "/templates/manures/manure_defaults_liquid.html" %}
+        {% else %}
+        {% include "/templates/manures/manure_defaults_solid.html" %}
+      {% endif %}
+      </div>
+
+      <p class="govuk-body">
+        Do you want to use these typical nutrient values?
+      </p>
+
+      <form class="form" action="receiver" method="post">
+        
+        <div class="govuk-form-group">
+          <div class="govuk-radios margin-bottom-forty" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="yes" name="edit_manure_defaults" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="yes">
+                Yes, use these values          
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="no" name="edit_manure_defaults" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="no">
+                No, change these values
+              </label>
+            </div>
+          </div>
+        </div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+      <p class="govuk-body">
+        <a href="fields.html">Cancel</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

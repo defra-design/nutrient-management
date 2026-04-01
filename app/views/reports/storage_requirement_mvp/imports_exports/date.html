@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+   Question – Add imports and exports -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      When did you {{data.imports_exports}} this livestock manure?
+    </h1>
+
+    <form class="form" action="quantity" method="post">
+
+      <div class="govuk-form-group">
+          <div class="govuk-hint">
+            The date format is '21 06 {{data.farm.planning_year}}'.
+          </div>
+          <div class="govuk-date-input" id="exported">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="exported_day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="exported_day" name="exported_day" type="text" autocomplete="off">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="exported_month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="exported_month" name="exported_month" type="text" autocomplete="off">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="exported_year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="exported_year" name="exported_year" type="text" autocomplete="off">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>  
+
+  </div>
+</div>
+
+
+{% endblock %}

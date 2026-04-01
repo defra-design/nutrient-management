@@ -205,12 +205,12 @@ router.get(/livestock_report_reset/, callback_functions.hideSuccessMessage, func
 
 // reports/n_loading/checklist.html (livestock row) → manage livestock or livestock_none or copy
 router.get(/livestock_loading_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
-  let next = 'reports/add_livestock/livestock_none'
+  let next = '/reports/n_loading/add_livestock/livestock_none'
   if (req.session.data.farm.livestock_loading == 2 || req.session.data.farm.livestock_loading == 3) {
-      next = 'reports/n_loading/manage_livestock/index'
+      next = '/reports/n_loading/manage_livestock/index'
   } else {
       if (req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_COMPLETE) {
-          next = 'reports/n_loading/manage_livestock/copy'
+          next = '/reports/n_loading/manage_livestock/copy'
       }
   }
   res.redirect(next);
@@ -222,7 +222,7 @@ router.get(/livestock_loading_router/, callback_functions.hide_error, function (
   if (req.session.data.livestock_loading == 'no') {
       req.session.data.farm.livestock_inventory = 'none'
       req.session.data.farm.livestock_loading = 'none'
-      next = 'reports/add_livestock/livestock_group'
+      next = 'reports/n_loading/add_livestock/livestock_group'
   }
   res.redirect(next);
 })
@@ -251,7 +251,7 @@ router.get(/livestock_copy_for_loading_handler/, function (req, res) {
     }
     req.session.data.farm.livestock_loading = null
   } else {
-    next = 'reports/add_livestock/livestock_none'
+    next = 'reports/n_loading/add_livestock/livestock_none'
   }
   res.redirect(next);
 })
@@ -328,9 +328,9 @@ router.get(/add_loadingnumbers_handler/, callback_functions.hide_error, function
     }
   }
   if (req.session.data.chosen_livestock.type != 'pig' && req.session.data.chosen_livestock.type != 'poultry') {
-    next = 'reports/add_livestock/livestock_number_question'
+    next = 'reports/n_loading/add_livestock/livestock_number_question'
   } else {
-    next = 'reports/add_livestock/livestock_numbers_average'
+    next = 'reports/n_loading/add_livestock/livestock_numbers_average'
   }
   res.redirect(next)
 })
@@ -364,7 +364,7 @@ router.get(/update_loadingnumbers_handler/, callback_functions.hide_error, funct
     }
   }
   req.session.data.livestock_update_journey = true
-  res.redirect('/reports/add_livestock/check');
+  res.redirect('/reports/n_loading/add_livestock/check');
 })
 
 // reports/n_loading/manage_livestock (skip system) → check or system/manure_numbers

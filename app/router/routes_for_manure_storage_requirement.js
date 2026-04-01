@@ -25,6 +25,7 @@ router.get(/rain_water_question_router/, function (req, res) {
 // livestock_question_router - req.session.data.farm.livestock_status = true > checklist
 router.get(/livestock_question_router/, function (req, res) {
   let next
+  console.log(req.session.data.livestock_question)
   if (req.session.data.livestock_question == 'no') {
     req.session.data.farm.livestock_status = 'NONE'
     next = '../checklist'

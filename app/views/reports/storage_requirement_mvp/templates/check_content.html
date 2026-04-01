@@ -23,7 +23,7 @@
   {{ taskListItem("Livestock details", "livestock/livestock_question", data.farm.livestock_added) }}
   {{ taskListItem("Wash water from areas used by livestock", "", null) }}
   {{ taskListItem("Imports and exports of organic material", "imports_exports/imports_exports_question", data.farm.imports_exports_added) }}
-  {{ taskListItem("Manure stores", "manure_stores/manure_stores_question", data.farm.stores_added) }}
+  {{ taskListItem("Manure stores", "manure_stores/manure_stores_question", data.farm.manure_stores_added) }}
 </ul>
 
 <!-- <ul class="govuk-task-list">
@@ -55,7 +55,7 @@
       </a>
     </div>
     <div class="govuk-task-list__status">
-      {% if data.farm.rainwater_area_added == 'added' or data.farm.rainwater_area_added == true %}
+      {% if data.farm.rain_water_area_added == 'added' or data.farm.rain_water_area_added == true %}
         Completed
       {% else %}
         <strong class="govuk-tag govuk-tag--blue">
@@ -149,7 +149,7 @@
       </a>
     </div>
     <div class="govuk-task-list__status">
-      {% if data.farm.storage_added == true %}
+      {% if data.farm.manure_stores_added == true %}
         Completed
       {% else %}
         <strong class="govuk-tag govuk-tag--blue">

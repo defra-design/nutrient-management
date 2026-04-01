@@ -2,7 +2,6 @@ const  govukPrototypeKit = require('govuk-prototype-kit')
 const  router = govukPrototypeKit.requests.setupRouter()
 
 ///external data
-
 const  fertiliser_applications_data = require('./data/fertiliser_applications.json');
 const  manure_applications_data = require('./data/manure_applications.json');
 const  field_list_data = require('./data/field_list.json');

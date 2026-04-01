@@ -24,13 +24,15 @@ function startFarm(type) {
     // 3 Added for inventory: added (complete)
     livestock_loading: null,
     livestock_inventory: null,
-    storage_added: false,
-    rainwater_area_added: false,
+    livestock_added: false,
+    manure_stores_added: false,
+    rain_water_area_added: false,
     storage_figures: false,
     low_risk_land_added: null,
     area_added: false,
     manure_exports: false,
     manure_imports: false,
+    imports_exports_added: false,
     manure_system: null,
     manure_system_details: false,
     wash_water: false,
@@ -45,7 +47,7 @@ function startFarm(type) {
     console.log('Farm setup complete')
   }
   if (type === "storage") {
-    obj.storage_added = true
+    obj.manure_stores_added = true
   }
   return obj;
 }
@@ -107,7 +109,7 @@ router.get(/setup_handler_grass_added/, function (req, res) {
 
     let applicationOne = allFunctions.addFertiliserApplication (req.session.data.all_fields, req.session.data.plan_crop_groups, 1, '01/03/2024', 60, 30, 30, 0, 0, 1)
     req.session.data.fertiliser_applications.push(applicationOne)
-    // print_farm(req.session.data.farm, 'storage_added')
+    // print_farm(req.session.data.farm, 'manure_stores_added')
     req.session.data.oaktree_farm.years_planned.push(2026)
     req.session.data.oaktree_farm.grass_setup = true
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [1,2], 'grass', 1)
@@ -116,7 +118,7 @@ router.get(/setup_handler_grass_added/, function (req, res) {
 
     // let applicationOne = allFunctions.addFertiliserApplication (req.session.data.all_fields, req.session.data.plan_crop_groups, 1, '01/03/2024', 60, 30, 30, 0, 0, 1)
     req.session.data.plan_fertiliser_applications.push(applicationOne)
-    // print_farm(req.session.data.oaktree_farm, 'storage_added')
+    // print_farm(req.session.data.oaktree_farm, 'manure_stores_added')
     res.redirect('start')
 })
 

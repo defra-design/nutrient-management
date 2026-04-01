@@ -56,7 +56,7 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   }
   // Existing manure storage report
   if (req.session.data.export_type == '7') {
-    next = req.session.data.farm.storage_added != true ? 'not_available_storage' : '/management/farm/storage/manage_storage'
+    next = req.session.data.farm.manure_stores_added != true ? 'not_available_storage' : '/management/farm/storage/manage_storage'
   }
   // Manure inventory and storage report
   if (req.session.data.export_type == '8') {
@@ -175,7 +175,7 @@ router.get(/storage_size_handler/, function (req, res) {
 // add_export/check.html → manage_storage (saves the new storage entry)
 router.get(/check_storage_handler/, function (req, res) {
   req.session.data.show_success_message = true;
-  req.session.data.farm.storage_added = true;
+  req.session.data.farm.manure_stores_added = true;
   let store_1 = allFunctions.createStorage(req.session.data.material_type, req.session.data.storage_name, req.session.data.storage_type)
   req.session.data.manure_storage.push(store_1)
   // req.session.data.successMessage = SUCCESS.EXPORTS.UPDATED;
@@ -184,7 +184,7 @@ router.get(/check_storage_handler/, function (req, res) {
 
 // management/farm/storage/storage_years.html → manage_storage (existing) or add_export/material_type (new)
 router.get(/storage_year_handler/, callback_functions.hideSuccessMessage, function (req, res) {
-  if (req.session.data.farm.storage_added == true ) {
+  if (req.session.data.farm.manure_stores_added == true ) {
       res.redirect('manage_storage')
   } else {
       res.redirect('/reports/add_export/material_type')

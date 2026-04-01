@@ -86,7 +86,7 @@ router.get(/water_inventory_handler/, callback_functions.hide_error, callback_fu
 })
 
 router.get(/rainwater_area_handler/, callback_functions.hideSuccessMessage, function (req, res) {
-    req.session.data.oaktree_farm.rainwater_area_added = true
+    req.session.data.oaktree_farm.rain_water_area_added = true
     res.redirect('checklist')
 })
 
@@ -381,7 +381,7 @@ router.get(/manure_slurry_handler/, function (req, res) {
 // management/farm/storage/storage_totals.html → manage_storage (existing) or storage_none (no storage)
 router.get(/storage_totals_handler/, function (req, res) {
   let next = 'storage_none'
-  if (req.session.data.farm.storage_added == true) {
+  if (req.session.data.farm.manure_stores_added == true) {
       next = '/management/farm/storage/manage_storage'
   }
   res.redirect(next);
@@ -426,7 +426,7 @@ router.get(/water_inventory_handler/, callback_functions.hide_error, callback_fu
 
 // reports/manure_inventory/rainwater_area.html → checklist (saves that rainwater area has been added)
 router.get(/rainwater_area_handler/, callback_functions.hidesuccess_message, function (req, res) {
-    req.session.data.farm.rainwater_area_added = true
+    req.session.data.farm.rain_water_area_added = true
     res.redirect('checklist')
 })
 

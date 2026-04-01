@@ -157,7 +157,8 @@ var  routes_prototype_setup = require('./router/routes_prototype_setup.js');
 var  message_reset_handlers = require('./router/routes_message_reset_handlers.js');
 var  routes_for_planning = require('./router/routes_for_planning_and_management.js');
 var  routes_for_reports = require('./router/routes_for_reports.js');
+var  routes_for_manure_storage_requirement = require('./router/routes_for_manure_storage_requirement.js');
 var  manure_inventory_routes = require('./router/manure_inventory_routes.js');
 var  routes_for_manner = require('./router/routes_for_manner.js');
 
-router.use('/',routes_prototype_setup, message_reset_handlers, routes_for_planning, routes_for_manner, routes_for_reports, manure_inventory_routes);
+router.use('/',routes_prototype_setup, message_reset_handlers, routes_for_planning, routes_for_manner, routes_for_reports, routes_for_manure_storage_requirement, manure_inventory_routes);

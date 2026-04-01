@@ -75,9 +75,9 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
       next = 'export_fields'
   }
   // Storage requirement report
-  // manure_storage_requirement_mvp
+  // storage_requirement_mvp
   if (req.session.data.export_type == '12') {
-      next = '/reports/manure_storage_requirement_mvp/checklist'
+      next = '/reports/storage_requirement_mvp/checklist'
   }
   res.redirect(next)
 })

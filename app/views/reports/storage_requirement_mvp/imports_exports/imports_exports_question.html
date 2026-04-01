@@ -21,31 +21,32 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Do you want to add an import or an export of livestock manure?
+      Did you have any imports or exports of livestock manure at {{data.farm.name}} in {{data.farm.planning_year}}?
     </h1>
 
-    <p class="govuk-hint">Choose one option.</p>
+    <!-- <p class="govuk-hint">Select one option.</p> -->
 
-    <form class="form" action="manure_export_type_handler" method="post">
+    <form class="form" action="../checklist" method="post">
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
-          <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios--inline" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="import" name="imports_exports" type="radio" value="import">
-              <label class="govuk-label govuk-radios__label" for="import">
-                Import
+              <input class="govuk-radios__input" id="yes" name="imports_exports" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="yes">
+                Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="export" name="imports_exports" type="radio" value="export">
-              <label class="govuk-label govuk-radios__label" for="export">
-                Export
+              <input class="govuk-radios__input" id="no" name="imports_exports" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="no">
+                No
               </label>
             </div>
           </div>
         </fieldset>
       </div>
+
       {{ govukButton({
         text: "Continue"
       }) }}
@@ -58,5 +59,5 @@
 
   </div>
 </div>
-  
+
 {% endblock %}

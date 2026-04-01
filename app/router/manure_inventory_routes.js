@@ -540,9 +540,9 @@ router.get(/landcheck_handler/, callback_functions.showsuccess_message, function
 
 // reports/manure_inventory/checklist.html (imports/exports row) → manage_exports or export_none
 router.get(/inventory_importexport_handler/, function (req, res) {
-  let next = '/reports/manure_storage_requirement_mvp/add_export/export_none'
+  let next = '/reports/storage_requirement_mvp/add_export/export_none'
   if (req.session.data.farm.imports_exports == 2) {
-      next = '/reports/manure_storage_requirement_mvp/reset_manage_exports_message_handler'
+      next = '/reports/storage_requirement_mvp/reset_manage_exports_message_handler'
   }
   res.redirect(next);
 })

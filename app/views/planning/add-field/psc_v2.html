@@ -1,11 +1,11 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  What is the phosphorus sorption capacity – {{ serviceName }} – GOV.UK
+  Question – {{ serviceName }} – GOV.UK
 {% endblock %}
 
 {% block header %}
-  {% include "/templates/headers/header_signed_in_first.html" ignore missing %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,20 +21,16 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      What is the phosphorus sorption capacity (PSC) of the soil in Top field?
+      What is the Phosphorus sorption capacity (PSC) index of Top Field?
     </h1>
 
     <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Help with Phosphorus sorption capacity (PSC)
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <!-- <p class="govuk-body">
-      The phosphorus sorption capacity of a soil refers to the differing capacity of soils to bind with applied phosphorus. 
-    </p> -->
-
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Help with Phosphorus sorption capacity (PSC)  
+        </span>
+      </summary>
+      <div class="govuk-details__text">
     <p class="govuk-body">
       The phosphorus sorption capacity (PSC) of soil is its ability to bind with applied phosphorus.
     </p>
@@ -48,19 +44,15 @@
     </p>
 
     <p class="govuk-body">
-      You can also read Scotland's Rural College (SRUC) Technical Notes TN715 to TN718, and TN770 (specific to your area) on the Farm Advisory Service Website.
+      You can also view the <a href="https://www.fas.scot/technical-notes/#fertiliser">Scotland Rural College (SRUC) Technical Notes</a> (opens in a new window), part of the Scottish government’s Farm Advisory Service (FAS).
     </p>
 
-    <p class="govuk-body">
+    <!-- <p class="govuk-body">
       <a href="https://www.fas.scot/downloads/managing-soil-phosphorus/">View the SRUC technical notes</a> (opens in a new window)
-    </p>
+    </p> -->
 
-    <p class="govuk-body margin-bottom-thirty">
-      If you are still unsure, use PSC Index 1.
-    </p>
-  </div>
-</details>
-
+      </div>
+    </details>
 
     <form class="form" action="" method="post">
     
@@ -85,10 +77,18 @@
                 PSC Index 3 (including calcareous soils)
               </label>
             </div>
+            <div class="govuk-radios__divider">or</div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="psc-4" name="psc" type="radio" value="4">
+              <label class="govuk-label govuk-radios__label" for="psc-4">
+                I don't know the PSC Index
+              </label>
+            </div>
+
           </div>
         </fieldset>
       </div>
-      
+
       {{ govukButton({
         text: "Continue"
       }) }}

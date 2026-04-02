@@ -79,13 +79,23 @@
       {% endfor %}
 
       <!-- recs -->
+       
       <div class="govuk-tabs__panel" id="recs">
-        <h2 id="cropone" class="govuk-heading-m margin-bottom-ten">
+
+        <h2 class="govuk-heading-m">
+          Nutrient and lime recommendations   
+        </h2>
+
+        {% include "/templates/beta_disclaimer_sc.html" ignore missing %}
+        <hr class="separator_forty">
+
+        <h2 id="cropone" class="govuk-heading-m">
           Nutrient and lime recommendations for 
           {{data.chosen_field.crop_id | nameconverter}} 
           in
           {{data.chosen_field.field_name}}
         </h2>
+        
         {% if data.chosen_field.crop_id == 'grass' %}
           {% include "./templates/recs_templates/grass.html" ignore missing %}
         {% else %}

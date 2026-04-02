@@ -1,11 +1,11 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Start page template – {{ serviceName }} – GOV.UK
+  Start page template – {{ toolName }} – GOV.UK
 {% endblock %}
 
 {% block header %}
-  <!-- Blank header with no service name for the start page -->
+  <!-- Blank header with no tool name for the start page -->
   {{ govukHeader() }}
 {% endblock %}
 
@@ -19,12 +19,11 @@
     </h1>
 
     <p class="gov-body">
-      This is a free tool provided by Defra to help farmers, land managers and advisers plan 
-      and record nutrient use on their land. It gives you guidance only - there is no legal requirement to use it.   
+      This is a free tool, provided by Defra, to help farmers, land managers and advisers record nutrient use on their land. It gives you guidance only - there is no legal requirement to use it.
     </p>
     
     <p class="gov-body">
-      This service will:
+      This tool will:
     </p>
 
     <ul class="govuk-list govuk-list--bullet">
@@ -33,21 +32,21 @@
       <li>help protect the environment</li>   
     </ul>
 
-    <p class="gov-body">
-      This service was developed in conjunction with ADAS, AHDB and RSK-BSL.
-    </p>
-
     <h2 class="govuk-heading-l">
       How it works
     </h2>
 
     <p class="gov-body">
-      The recommendations from this service come from <a href="https://ahdb.org.uk/nutrient-management-guide-rb209">RB209 Nutrient Management Guide.</a> (opens in a new window). 
+      The tool gives fertiliser recommendations for all major nutrients and lime, and for most agricultural and horticultural crops.
     </p>
 
     <p class="gov-body">
-      It gives fertiliser recommendations for all major nutrients and lime, and for most agricultural and horticultural crops.
+      The recommendations from this tool come from:
     </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li> England and Wales - <a href="https://ahdb.org.uk/nutrient-management-guide-rb209">RB209 Nutrient Management Guide.</a> (opens in a new window)
+      <li> Scotland - <a href="https://www.fas.scot/technical-notes/#fertiliser">Farm Advisory tool (FAS) and Scotland’s Rural College (SRUC) Technical Notes</a> (opens in a new window)
+    </ul>
 
     <p class="gov-body">
       Your plan will be based on:
@@ -65,10 +64,6 @@
 
     <p class="gov-body">
       It creates downloadable plans as PDF files.
-    </p>
-
-    <p class="gov-body">
-      It replaces earlier tools such as PLANET and MANNER. The tool will allow you to import your data from PLANET.
     </p>
  
     <h2 class="govuk-heading-l">Your data</h2>
@@ -88,12 +83,12 @@
       </p>
     </div>
 
-    <h2 class="govuk-heading-m">
+    <!-- <h2 class="govuk-heading-m">
       Creating a DEFRA account
     </h2>
 
     <p class="gov-body">
-      You need to create a DEFRA account to use this service. This allows you to save your plans and return to them later.
+      You need to create a DEFRA account to use this tool. This allows you to save your plans and return to them later.
     </p>   
 
     <p class="gov-body">
@@ -106,7 +101,7 @@
           
     <p>
       <a href="https://your-account.defra.gov.uk/content/help" target="_blank">View a guide on how to create a DEFRA account.</a> (opens in a new window)
-    </p>
+    </p> -->
 
     <h2 class="govuk-heading-m">
       Release schedule
@@ -117,9 +112,8 @@
     </p>
 
     <p class="gov-body margin-bottom-forty">
-      <a href="releases" target="_blank">Read the release schedule</a> (opens in a new window)
+      <a href="management/releases" target="_blank">Read the release schedule</a> (opens in a new window)
     </p>
-
 
     <form class="form margin-top-forty margin-bottom-twenty" action="start_router" method="post">
       {{ govukButton({

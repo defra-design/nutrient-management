@@ -82,7 +82,7 @@ router.get(/delete_handler/, callback_functions.showsuccess_message, function (r
 //remove.html (removes the farm)
 router.get(/delete_handler/, callback_functions.showSuccessMessage, function (req, res) { 
   req.session.data.successMessage = SUCCESS.FARM.REMOVED
-  req.session.data.oaktree_farm.setup = false;
+  req.session.data.farm.setup = false;
   res.redirect('/management/farm/farms');
 })
 

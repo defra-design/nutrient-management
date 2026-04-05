@@ -92,11 +92,11 @@ router.get(/set_export_defaults_handler/, function (req, res) {
 
 router.get(/exportcheck_handler/, function (req, res) { 
   req.session.data.show_success_message = true;
-  req.session.data.oaktree_farm.imports_exports = 2;
+  req.session.data.farm.imports_exports = 2;
   if (req.session.data.imports_exports == 'export') {
-      req.session.data.oaktree_farm.manure_exports = true;
+      req.session.data.farm.manure_exports = true;
   } else {
-      req.session.data.oaktree_farm.manure_imports = true;
+      req.session.data.farm.manure_imports = true;
   }
   //reset defaults
   req.session.data.manure_type.name = null
@@ -110,7 +110,7 @@ router.get(/exportcheck_handler/, function (req, res) {
 
 router.get(/export_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
 	let next = 'reports/add_export/export_type'
-  if (req.session.data.oaktree_farm.manure_exports == true || req.session.data.oaktree_farm.manure_imports == true ) {
+  if (req.session.data.farm.manure_exports == true || req.session.data.farm.manure_imports == true ) {
   	next = 'manage_exports'
   } 
     res.redirect(next)
@@ -136,7 +136,7 @@ router.get(/export_type_handler/, callback_functions.hideSuccessMessage, functio
       req.session.data.imports_exports = 'import'
   }
   if (req.session.data.export_type == 4 ) {
-      req.session.data.oaktree_farm.manure_group_id = 'livestock'
+      req.session.data.farm.manure_group_id = 'livestock'
       next = 'reports/add_export/manure_type'
   }
   res.redirect(next)
@@ -168,7 +168,7 @@ router.get(/inventory_export_handler/, callback_functions.hide_error, function (
 router.get(/export_type_router/, callback_functions.hide_error, function (req, res) {
   let next = 'export_type'
   if (req.session.data.imports_exports == 'no') {
-      req.session.data.oaktree_farm.imports_exports = 4
+      req.session.data.farm.imports_exports = 4
       if (req.session.data.export_type == '8') {
           next = '/reports/manure_inventory/checklist'
       } else {

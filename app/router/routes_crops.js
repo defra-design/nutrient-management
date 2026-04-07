@@ -331,7 +331,7 @@ router.get(/rainfall_update_handler/, callback_functions.showSuccessMessage, fun
 
 // update/crop/change_crop.html (variety tab) → change_crop
 router.get(/update_variety/, function (req, res) {
-  res.redirect('../change_crop')
+  res.redirect('change_crop')
 })
 
 

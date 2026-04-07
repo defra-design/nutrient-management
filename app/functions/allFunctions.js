@@ -109,10 +109,12 @@ function createCropGroup(group_name, group_id, year, crop_id, field_list) {
 
 // Sets `crop_id` and `group_id` on every field in `all_fields` whose `field_id`
 // appears in the `chosenFields` array.
+// Normalises IDs to numbers to handle form data returning strings (e.g. "1" vs 1).
 // Returns the updated `all_fields` array.
 function setCropAndGroupId(all_fields, chosenFields, chosenCrop, chosenGroup) {
+  const ids = chosenFields.map(Number)
   all_fields.forEach(field => {
-    if (chosenFields.includes(field.field_id)) {
+    if (ids.includes(Number(field.field_id))) {
       field.crop_id = chosenCrop
       field.group_id = chosenGroup
     }
@@ -122,17 +124,17 @@ function setCropAndGroupId(all_fields, chosenFields, chosenCrop, chosenGroup) {
 
 // Updates crop details (`crop_id`, `variety`, `group_id`) on every field in `all_fields`
 // whose `field_id` appears in `field_list`.
+// Normalises IDs to numbers to handle form data returning strings (e.g. "1" vs 1).
 // Returns the updated `all_fields` array.
 function updateFieldCrop(all_fields, field_list, crop_id, variety, group_id) {
-  for (let x in field_list) {
-    for (let y in all_fields) {
-      if (field_list[x] == all_fields[y].field_id) {
-        all_fields[y].crop_id = crop_id
-        all_fields[y].variety = variety
-        all_fields[y].group_id = group_id
-      }
+  const ids = field_list.map(Number)
+  all_fields.forEach(field => {
+    if (ids.includes(Number(field.field_id))) {
+      field.crop_id = crop_id
+      field.variety = variety
+      field.group_id = group_id
     }
-  }
+  })
   return all_fields
 }
 

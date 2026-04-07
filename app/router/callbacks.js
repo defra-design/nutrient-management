@@ -33,8 +33,5 @@ function getApplicationByReference(req, res, next) {
 module.exports.hide_error = hide_error;
 module.exports.showSuccessMessage = showSuccessMessage;
 module.exports.hideSuccessMessage = hideSuccessMessage;
-// legacy aliases — used in files not yet updated to camelCase
-module.exports.showsuccess_message = showSuccessMessage;
-module.exports.hidesuccess_message = hideSuccessMessage;
 module.exports.setManureGroup = setManureGroup;
 module.exports.getApplicationByReference = getApplicationByReference;

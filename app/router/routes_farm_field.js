@@ -65,14 +65,14 @@ router.get(/set_elevation_handler/, function (req, res) {
 })
 
 // add-farm/check.html → farm hub (marks farm as set up)
-router.get(/add_farm_handler/, callback_functions.showsuccess_message, function (req, res) {
+router.get(/add_farm_handler/, callback_functions.showSuccessMessage, function (req, res) {
   req.session.data.successMessage = 'FARM_ADDED'
   req.session.data.farm.setup = true;
   res.redirect('/management/farm/hub');
 })
 
 // management/farm/remove.html → farms list (marks farm as removed)
-router.get(/delete_handler/, callback_functions.showsuccess_message, function (req, res) {
+router.get(/delete_handler/, callback_functions.showSuccessMessage, function (req, res) {
   req.session.data.successMessage = 'FARM_REMOVED'
   req.session.data.farm.setup = false;
   res.redirect('/management/farm/farms');
@@ -133,7 +133,7 @@ router.get(/grass_years_handler/, function (req, res) {
 })
 
 // add-field/check.html → manage-fields (saves the field and resets temp vars)
-router.get(/add_field_handler/, callback_functions.showsuccess_message, function (req, res) {
+router.get(/add_field_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 'FIELD_ADDED'
     req.session.data.farm.fields_added = true;
     req.session.data.all_fields.push(req.session.data.temp_field);
@@ -198,7 +198,7 @@ router.get(/fieldtype_router/, function (req, res) {
 })
 
 // field/field-details → field-details (selects a field and stores it as chosen_field)
-router.get(/field-select-handler/, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/field-select-handler/, callback_functions.hideSuccessMessage, function (req, res) {
   req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field)
   res.redirect('/management/farm/field/field-details')
 })

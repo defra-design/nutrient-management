@@ -17,7 +17,7 @@ router.get(/start_plan_handler/, function (req, res) {
 })
 
 // plan hub (year tabs) → plan_view (switches the visible planning year)
-router.get(/crop_plan_year_handler/, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/crop_plan_year_handler/, callback_functions.hideSuccessMessage, function (req, res) {
   req.session.data.farm.planning_year = parseInt(req.query.date)
   res.redirect('./crop_plan/plan_view')
 })
@@ -308,7 +308,7 @@ router.get(/addcrops_handler/, function (req, res) {
 // =============================================================================
 
 // plan_view → field_plan/index (sets chosen_field from URL param and goes to field-level plan)
-router.get(/view_field_plan_router/, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/view_field_plan_router/, callback_functions.hideSuccessMessage, function (req, res) {
   req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.fieldref)
   res.redirect('../field_plan/index')
 })
@@ -323,7 +323,7 @@ router.get(/crop_update_router/, function (req, res) {
 })
 
 // update/rainfall/update.html → plan_view (saves the excess winter rainfall value)
-router.get(/rainfall_update_handler/, callback_functions.showsuccess_message, function (req, res) {
+router.get(/rainfall_update_handler/, callback_functions.showSuccessMessage, function (req, res) {
   req.session.data.successMessage = 'CROP_PLAN_RAINFALL_UPDATED';
   req.session.data.farm.ewr = req.session.data.excess_rain
   res.redirect('/management/farm/crop_plan/plan_view')

@@ -113,7 +113,7 @@ router.get(/set_manure_date_handler/, function (req, res) {
 })
 
 // add_manure/check.html → plan_view#organic (creates a manure application record for each field)
-router.get(/add_manure_handler/, callback_functions.showsuccess_message, function (req, res) {
+router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 'CROP_PLAN_MANURE_ADDED'
     const group_id = req.session.data.manure_applications.length + 1
     const manure_id = req.session.data.manure_type.name
@@ -222,7 +222,7 @@ router.get(/set_fertiliser_fields_handler/, function (req, res) {
 })
 
 // add_fertiliser/check.html → plan_view#inorganic (creates a fertiliser application record for each field)
-router.get(/add_fertiliser_handler/, callback_functions.showsuccess_message, function (req, res) {
+router.get(/add_fertiliser_handler/, callback_functions.showSuccessMessage, function (req, res) {
   let fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
   let field_list = req.session.data.chosen_fields
   let next = '/management/farm/crop_plan/plan_view#inorganic'
@@ -254,7 +254,7 @@ router.get(/fertiliser_date_handler/, function (req, res) {
 })
 
 // plan_view (remove link) → plan_view (removes fertiliser application, shows success banner)
-router.get(/fertiliser_remove_router/, callback_functions.showsuccess_message, function (req, res) {
+router.get(/fertiliser_remove_router/, callback_functions.showSuccessMessage, function (req, res) {
   req.session.data.successMessage = 'CROP_PLAN_FERTILISER_REMOVED'
   res.redirect('/management/farm/crop_plan/plan_view')
 })

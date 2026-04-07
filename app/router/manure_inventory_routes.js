@@ -32,7 +32,7 @@ router.get(/livestock_inventory_router/, callback_functions.hide_error, function
 })
 
 // reports/manure_inventory/checklist.html (livestock row) → manage livestock or livestock_none or copy
-router.get(/livestock_inventory_handler/, callback_functions.hidesuccess_message, callback_functions.hide_error, function (req, res) {
+router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
     let next = 'reports/manure_inventory/reports/add_livestock/livestock_none'
     if (req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_IN_PROGRESS || req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_COMPLETE) {
         next = 'reports/manure_inventory/manage_livestock/index'
@@ -275,14 +275,14 @@ router.get(/livestock_number_handler/, function (req, res) {
 // -------------------------
 
 // add_livestock/system/manure_system.html → check (saves the manure system details)
-router.get(/add_manure_system_handler/, callback_functions.hide_error, callback_functions.showsuccess_message, function (req, res) {
+router.get(/add_manure_system_handler/, callback_functions.hide_error, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.farm.manure_system_details = true
     req.session.data.farm.manure_system = 2
     res.redirect('check');
 })
 
 // reports/manure_inventory/checklist.html (system row) → manage_collection or livestock_none
-router.get(/system_inventory_handler/, callback_functions.hide_error, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/system_inventory_handler/, callback_functions.hide_error, callback_functions.hideSuccessMessage, function (req, res) {
     let next = 'reports/manure_inventory/manage_collection/index'
     if (req.session.data.farm.livestock_inventory == null) {
         next = 'livestock_inventory_handler'
@@ -326,7 +326,7 @@ router.get(/storage_name_handler/, function (req, res) {
 })
 
 // reports/manure_inventory/storage_values.html → checklist (saves storage figures)
-router.get(/storage_figures_handler/, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/storage_figures_handler/, callback_functions.hideSuccessMessage, function (req, res) {
     req.session.data.farm.storage_figures = true
     res.redirect('checklist')
 })
@@ -337,7 +337,7 @@ router.get(/storage_figures_handler/, callback_functions.hidesuccess_message, fu
 // -------------------------
 
 // reports/manure_inventory/checklist.html (water row) → manage_water or livestock_none
-router.get(/water_inventory_handler/, callback_functions.hide_error, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/water_inventory_handler/, callback_functions.hide_error, callback_functions.hideSuccessMessage, function (req, res) {
     let next = 'water_none'
     if (req.session.data.farm.livestock_inventory == null) {
         next = 'livestock_inventory_handler'
@@ -350,7 +350,7 @@ router.get(/water_inventory_handler/, callback_functions.hide_error, callback_fu
 })
 
 // reports/manure_inventory/rainwater_area.html → checklist (saves that rainwater area has been added)
-router.get(/rainwater_area_handler/, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/rainwater_area_handler/, callback_functions.hideSuccessMessage, function (req, res) {
     req.session.data.farm.rain_water_area_added = true
     res.redirect('checklist')
 })
@@ -367,7 +367,7 @@ router.get(/monthly_volume_handler/, function (req, res) {
 })
 
 // add_wash_area/check.html → manage_water (saves the wash water area)
-router.get(/add_wash_area_handler/, callback_functions.showsuccess_message, function (req, res) {
+router.get(/add_wash_area_handler/, callback_functions.showSuccessMessage, function (req, res) {
   req.session.data.farm.wash_water = true
   req.session.data.monthly_volume = null
   res.redirect('/reports/manure_inventory/manage_water/index')
@@ -419,7 +419,7 @@ router.get(/numbers_handler/, callback_functions.hide_error, function (req, res)
 })
 
 // add_wash_area/check.html (wash water details) → numbers (saves that wash water details are complete)
-router.get(/add_wash_water_details_handler/, callback_functions.hide_error, callback_functions.showsuccess_message, function (req, res) {
+router.get(/add_wash_water_details_handler/, callback_functions.hide_error, callback_functions.showSuccessMessage, function (req, res) {
   req.session.data.farm.wash_water_details = true
   req.session.data.farm.wash_water = 'done'
   res.redirect('numbers');
@@ -442,7 +442,7 @@ router.get(/lowrisk_land_handler/, function (req, res) {
 })
 
 // add_land/low_risk_land.html → area (yes) or checklist with no land added (no)
-router.get(/low_risk_land_handler/, callback_functions.hidesuccess_message, function (req, res) {
+router.get(/low_risk_land_handler/, callback_functions.hideSuccessMessage, function (req, res) {
     let next = 'area'
     req.session.data.farm.low_risk_land_added = 2
     if (req.session.data.low_risk_land == 'no') {
@@ -453,7 +453,7 @@ router.get(/low_risk_land_handler/, callback_functions.hidesuccess_message, func
 })
 
 // add_land/check.html → checklist (saves low risk land)
-router.get(/landcheck_handler/, callback_functions.showsuccess_message, function (req, res) {
+router.get(/landcheck_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.farm.low_risk_land_added = 2;
     res.redirect('/reports/manure_inventory/checklist')
 })

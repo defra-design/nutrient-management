@@ -140,6 +140,38 @@ describe('setCropAndGroupId', () => {
     expect(fields[2].crop_id).toBe('Wheat-Winter')
   })
 
+  test('matches when field IDs are strings (form data)', () => {
+    const fields = [{ field_id: 1 }, { field_id: 2 }]
+    f.setCropAndGroupId(fields, ['1'], 'Wheat-Winter', 1)
+    expect(fields[0].crop_id).toBe('Wheat-Winter')
+    expect(fields[1].crop_id).toBeUndefined()
+  })
+
+})
+
+describe('updateFieldCrop', () => {
+
+  test('updates crop details on matching fields', () => {
+    const fields = [
+      { field_id: 1 },
+      { field_id: 2 },
+      { field_id: 3 },
+    ]
+    f.updateFieldCrop(fields, [1, 3], 'Wheat-Winter', 'Skyfall', 1)
+    expect(fields[0].crop_id).toBe('Wheat-Winter')
+    expect(fields[0].variety).toBe('Skyfall')
+    expect(fields[0].group_id).toBe(1)
+    expect(fields[1].crop_id).toBeUndefined()   // field 2 not in list
+    expect(fields[2].crop_id).toBe('Wheat-Winter')
+  })
+
+  test('matches when field IDs are strings (form data)', () => {
+    const fields = [{ field_id: 1 }, { field_id: 2 }]
+    f.updateFieldCrop(fields, ['1'], 'Wheat-Winter', null, 1)
+    expect(fields[0].crop_id).toBe('Wheat-Winter')
+    expect(fields[1].crop_id).toBeUndefined()
+  })
+
 })
 
 describe('addYearIfMissing', () => {

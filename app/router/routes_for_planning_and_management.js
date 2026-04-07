@@ -348,10 +348,9 @@ router.get(/crop_group_update_handler/, function (req, res) {
   res.redirect('/management/farm/crop_plan/plan_view')
 })
 
-// add_crops/fields.html → group_name (resolves field references to full field objects)
+// add_crops/fields.html → group_name
 router.get(/get_crop_fields_handler/, function (req, res) {
     if (req.session.data.crop_fields === undefined) req.session.data.crop_fields = [1, 2, 11, 12, 13, 14, 15];
-    req.session.data.crop_fields = allFunctions.getMultipleFieldsByReferences(req.session.data.crop_fields, req.session.data.all_fields)
     res.redirect('group_name')
 })
 

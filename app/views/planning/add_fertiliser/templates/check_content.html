@@ -2,7 +2,11 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Which fields would you like to add an inorganic fertiliser application to?</dt>
     <dd class="govuk-summary-list__value">
-    Long field
+      <ul class="govuk-list">
+        {% for field in data.chosen_fields %}
+          <li>{{field | fieldnameconverter}}</li>
+        {% endfor %}
+      </ul>
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>

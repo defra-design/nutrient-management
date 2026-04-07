@@ -291,3 +291,4 @@ router.get(/setup_handler_manure_added_too_high/, function (req, res) {
 
 
 module.exports = router
+module.exports.startFarm = startFarm

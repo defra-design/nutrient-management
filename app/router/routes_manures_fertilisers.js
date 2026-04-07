@@ -124,7 +124,8 @@ router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function
       req.session.data.manure_applications.push(allFunctions.add_manure_application(group_id, year, field, application_date, manure_id))
     })
     req.session.data.manure_fields = null
-    res.redirect('/management/farm/crop_plan/plan_view#organic')
+    const next = req.session.data.manure_journey == 'single' ? '/management/farm/field_plan/index#manures' : '/management/farm/crop_plan/plan_view#organic'
+    res.redirect(next)
 })
 
 // field_plan/index → add_manure/manure_fields (multi) or add_manure/manure_group (single field)
@@ -134,8 +135,7 @@ router.get(/plan_manure_application_router/, function (req, res) {
   if (req.session.data.manure_journey == 'multi') {
     next = '/planning/add_manure/manure_fields'
   } else {
-    req.session.data.manure_fields = []
-    req.session.data.manure_fields.push(req.session.data.chosen_field.field_id)
+    req.session.data.chosen_fields = [req.session.data.chosen_field.field_id]
     next = '/planning/add_manure/manure_group'
   }
   res.redirect(next)
@@ -206,7 +206,10 @@ router.get(/fertiliser_update_handler/, function (req, res) {
 // field_plan/index → add_fertiliser/fertiliser_fields (multi) or add_fertiliser/fertiliser_when (single)
 router.get(/update_fertiliser_handler/, function (req, res) {
   req.session.data.fertiliser_journey = req.query.fertiliserjourney
-  let next = (req.session.data.fertiliser_journey == 'multi' ? 'fertiliser_fields' : 'fertiliser_when')
+  if (req.session.data.fertiliser_journey == 'single') {
+    req.session.data.chosen_fields = [req.session.data.chosen_field.field_id]
+  }
+  const next = req.session.data.fertiliser_journey == 'multi' ? 'fertiliser_fields' : 'fertiliser_when'
   res.redirect('/planning/add_fertiliser/' + next)
 })
 
@@ -223,9 +226,8 @@ router.get(/set_fertiliser_fields_handler/, function (req, res) {
 
 // add_fertiliser/check.html → plan_view#inorganic (creates a fertiliser application record for each field)
 router.get(/add_fertiliser_handler/, callback_functions.showSuccessMessage, function (req, res) {
-  let fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
-  let field_list = req.session.data.chosen_fields
-  let next = '/management/farm/crop_plan/plan_view#inorganic'
+  const fertiliserDate = req.session.data.fertiliser_date_day + '/' + req.session.data.fertiliser_date_month + '/' + req.session.data.fertiliser_date_year
+  const field_list = req.session.data.chosen_fields
 
   field_list.forEach(field => {
     req.session.data.fertiliser_applications.push(allFunctions.addFertiliserApplication(
@@ -242,6 +244,7 @@ router.get(/add_fertiliser_handler/, callback_functions.showSuccessMessage, func
   })
   req.session.data.chosen_fields = []
   req.session.data.successMessage = 'CROP_PLAN_FERTILISER_ADDED'
+  const next = req.session.data.fertiliser_journey == 'single' ? '/management/farm/field_plan/index#manures' : '/management/farm/crop_plan/plan_view#inorganic'
   res.redirect(next)
 })
 

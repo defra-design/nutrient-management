@@ -21,7 +21,7 @@
 
 <!-- //use the correct database for the chosen year -->
 
-{% for group in data.plan_crop_groups %}
+{% for group in data.planned_crop_groups %}
   {% for field in group.field_list %}
     {% set totalFields = totalFields + 1 %}
   {% endfor %}

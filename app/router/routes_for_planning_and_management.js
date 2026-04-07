@@ -330,17 +330,17 @@ router.get(/crop_group_update_handler/, function (req, res) {
   if (req.session.data.update_type == 'date') {
     //planting date update
     let tempDate = req.session.data.new_planting_date_day +'/'+ req.session.data.new_planting_date_month + '/' + req.session.data.new_planting_date_year
-    for (let groupRef in req.session.data.plan_crop_groups) {
-      if (req.session.data.plan_crop_groups[groupRef].reference == req.session.data.chosen_group.reference) {
-        req.session.data.plan_crop_groups[groupRef].planting_date = tempDate
+    for (let groupRef in req.session.data.planned_crop_groups) {
+      if (req.session.data.planned_crop_groups[groupRef].reference == req.session.data.chosen_group.reference) {
+        req.session.data.planned_crop_groups[groupRef].planting_date = tempDate
       }
     }
   }
   if (req.session.data.update_type == 'variety') {
     //variety update
-    for (let groupRef in req.session.data.plan_crop_groups) {
-      if (req.session.data.plan_crop_groups[groupRef].reference == req.session.data.chosen_group.reference) {
-          req.session.data.plan_crop_groups[groupRef].variety = req.session.data.new_variety
+    for (let groupRef in req.session.data.planned_crop_groups) {
+      if (req.session.data.planned_crop_groups[groupRef].reference == req.session.data.chosen_group.reference) {
+          req.session.data.planned_crop_groups[groupRef].variety = req.session.data.new_variety
       }
     }
   }
@@ -356,17 +356,17 @@ router.get(/get_crop_fields_handler/, function (req, res) {
     res.redirect('group_name')
 })
 
-// add_crops/check.html → plan_view (creates the crop group and adds it to plan_crop_groups)
+// add_crops/check.html → plan_view (creates the crop group and adds it to planned_crop_groups)
 router.get(/add_crops_check_handler/, function (req, res) {
   let cropYield = null
-  let group_name = (req.session.data.group_name == null || req.session.data.group_name == '') ? 'Crop group ' + (req.session.data.plan_crop_groups.length + 1) : req.session.data.group_name
+  let group_name = (req.session.data.group_name == null || req.session.data.group_name == '') ? 'Crop group ' + (req.session.data.planned_crop_groups.length + 1) : req.session.data.group_name
   let year = req.session.data.farm.planning_year
   let crop_id = req.session.data.chosen_crop
   let field_list = req.session.data.crop_fields
   let variety = null
 
   // create a group reference
-  let group_id = req.session.data.plan_crop_groups.length + 1
+  let group_id = req.session.data.planned_crop_groups.length + 1
 
   // create a new group and add each field reference to the group
   var new_group = allFunctions.createCropGroup(group_name, group_id, year, crop_id, field_list)
@@ -375,7 +375,7 @@ router.get(/add_crops_check_handler/, function (req, res) {
   req.session.data.all_fields = allFunctions.updateFieldCrop(req.session.data.all_fields, field_list, crop_id, variety, group_id)
 
   // add this group to all crop groups
-  req.session.data.plan_crop_groups.push(new_group)
+  req.session.data.planned_crop_groups.push(new_group)
 
   //show the correct success message
   req.session.data.show_success_message = true;
@@ -417,7 +417,7 @@ router.get(/grassyield_handler/, function (req, res) {
 
 // add_crops/group_name.html → variety (non-grass) or grass/current_sward (grass)
 router.get(/group_name_handler/, function (req, res) {
-  let newRef = req.session.data.plan_crop_groups.length + 1
+  let newRef = req.session.data.planned_crop_groups.length + 1
   if (req.session.data.group_name.length <= 0) {
     req.session.data.group_name = 'Crop group ' + newRef
   }
@@ -670,9 +670,9 @@ router.get(/crop_update_router/, function (req, res) {
   req.session.data.chosen_group = req.query.groupref
   req.session.data.chosen_year = req.query.year
   //group.reference
-  req.session.data.chosen_group = allFunctions.getByReference(req.session.data.plan_crop_groups, req.query.group_id)
+  req.session.data.chosen_group = allFunctions.getByReference(req.session.data.planned_crop_groups, req.query.group_id)
   req.session.data.show_success_message = false
-  req.session.data.chosen_group = allFunctions.getByReference(req.session.data.plan_crop_groups, req.query.group_id)
+  req.session.data.chosen_group = allFunctions.getByReference(req.session.data.planned_crop_groups, req.query.group_id)
   req.session.data.show_success_message = false    
   let next = '/update/crop/change_crop'
   if (req.session.data.chosen_group.crop_reference == 'grass') {
@@ -736,7 +736,7 @@ router.get(/select_manure_fields_router/, function (req, res) {
   if (req.session.data.manure_field_option == 'specific') {
     next = 'manure_fields_two'
   } else {
-    req.session.data.chosen_fields = allFunctions.collectFieldsFromGroups(req.session.data.plan_crop_groups, req.session.data.manure_field_option)
+    req.session.data.chosen_fields = allFunctions.collectFieldsFromGroups(req.session.data.planned_crop_groups, req.session.data.manure_field_option)
   }
   res.redirect(next)
 })
@@ -842,7 +842,7 @@ router.get(/livestock_type_v7_handler/, function (req, res) {
   res.redirect("manure_date")
 })
 
-// reports/add_export/type.html (livestock) → date (resolves livestock type reference for export)
+// planning/add_export/type.html (livestock) → date (resolves livestock type reference for export)
 router.get(/livestock_type_export_handler/, function (req, res) {
   req.session.data.manure_type = allFunctions.getByReference(req.session.data.manure_type_livestock_data, req.session.data.manure_type)
   res.redirect("date")
@@ -873,7 +873,7 @@ router.get(/set_fertiliser_fields_handler/, function (req, res) {
   if (req.session.data.fertiliser_fields_option == 'specific') {
     next = 'fertiliser_fields_two'
   } else {
-    req.session.data.chosen_fields = allFunctions.collectFieldsFromGroups(req.session.data.plan_crop_groups, req.session.data.fertiliser_fields_option)
+    req.session.data.chosen_fields = allFunctions.collectFieldsFromGroups(req.session.data.planned_crop_groups, req.session.data.fertiliser_fields_option)
   }
   res.redirect(next)
 })
@@ -914,16 +914,16 @@ router.get(/v5_fertiliser_handler/, function (req, res) {
 	if (req.session.data.fertiliser_fields_option == 'specific') {
 			next = 'fertiliser_fields_two'
 	} else if (req.session.data.fertiliser_fields_option == 'all') {
-		for (let x in req.session.data.plan_crop_groups) {
-			for (let y in req.session.data.plan_crop_groups[x].field_list ) {
-				req.session.data.chosen_manure_fields.push(req.session.data.plan_crop_groups[x].field_list[y])
+		for (let x in req.session.data.planned_crop_groups) {
+			for (let y in req.session.data.planned_crop_groups[x].field_list ) {
+				req.session.data.chosen_manure_fields.push(req.session.data.planned_crop_groups[x].field_list[y])
 			}
 		}
 	} else {
-		for (let a in req.session.data.plan_crop_groups) {
-			if (req.session.data.plan_crop_groups[a].group_id == req.session.data.fertiliser_fields_option) {
-				for (let b in req.session.data.plan_crop_groups[a].field_list ) {
-					req.session.data.chosen_manure_fields.push(req.session.data.plan_crop_groups[a].field_list[b])
+		for (let a in req.session.data.planned_crop_groups) {
+			if (req.session.data.planned_crop_groups[a].group_id == req.session.data.fertiliser_fields_option) {
+				for (let b in req.session.data.planned_crop_groups[a].field_list ) {
+					req.session.data.chosen_manure_fields.push(req.session.data.planned_crop_groups[a].field_list[b])
 				}
 			}
 		}

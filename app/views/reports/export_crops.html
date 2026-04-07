@@ -21,24 +21,6 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <!-- <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-        <div class="govuk-notification-banner__header">
-          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-            Planning
-          </h2>
-        </div>
-        <div class="govuk-notification-banner__content">
-          <p class="govuk-notification">
-            Select your first crop group and type for {{data.farm.planning_year}}.
-            You can then add the crop to one or more fields to create your plan.
-          </p>
-          <p class="govuk-notification">
-            You can create as many crop groups as you need to, for example you can group crops by how tHay will be treated
-          </p>
-        </div>
-      </div>
- -->
-
       <h1 class="govuk-heading-l">
         Which crops would you like to create a {{data.farm.planning_year}} N-max report for?
       </h1>
@@ -56,14 +38,14 @@
         </div>
       </details> -->
 
-      {% set plan_crop_groups = data.plan_crop_groups %}
+      {% set planned_crop_groups = data.planned_crop_groups %}
   
       <form class="form" action="/reports/nmax/" method="post">
 
         <div class="govuk-form-group">
 
           <div class="govuk-checkboxes" data-module="govuk-checkboxes">          
-            {% for group in plan_crop_groups %}
+            {% for group in planned_crop_groups %}
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id={{group.crop_reference}} name="nmax_crop" type="checkbox" value={{group.crop_id}}>
                 <label class="govuk-label govuk-checkboxes__label" for={{group.crop_reference}}>

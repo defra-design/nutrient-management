@@ -37,8 +37,8 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   }
   // N-max report
   if (req.session.data.export_type == '3') {
-      next = (req.session.data.all_fields.length == 0 || req.session.data.plan_crop_groups.length == 0) ? 'not_available_max' : 'export_crops'
-      if (req.session.data.all_fields.length == 0 || req.session.data.plan_crop_groups.length == 0) {
+      next = (req.session.data.all_fields.length == 0 || req.session.data.planned_crop_groups.length == 0) ? 'not_available_max' : 'export_crops'
+      if (req.session.data.all_fields.length == 0 || req.session.data.planned_crop_groups.length == 0) {
           next = 'not_available_max'
       } else {
           next = 'export_crops'
@@ -187,7 +187,7 @@ router.get(/storage_year_handler/, callback_functions.hideSuccessMessage, functi
   if (req.session.data.farm.manure_stores_added == true ) {
       res.redirect('manage_storage')
   } else {
-      res.redirect('/reports/add_export/material_type')
+      res.redirect('/planning/add_export/material_type')
   }
 })
 
@@ -400,7 +400,7 @@ router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage,
 
 // management/farm/exports/export_year.html → add_export/export_type (new) or manage_exports (existing)
 router.get(/export_year_handler/, callback_functions.hideSuccessMessage, function (req, res) {
-	let next = 'reports/add_export/export_type'
+	let next = 'planning/add_export/export_type'
   if (req.session.data.farm.manure_exports == true || req.session.data.farm.manure_imports == true ) {
   	next = 'manage_exports'
   }
@@ -427,12 +427,12 @@ router.get(/manure_export_type_handler/, callback_functions.setManureGroup, call
 // reports/n_loading (export link) → add_export/manure_type (sets group to livestock)
 router.get(/n_loading_export_handler/, callback_functions.setManureGroup, callback_functions.hide_error, function (req, res) {
   req.session.data.manure_group_id = 'livestock'
-  res.redirect('/reports/add_export/manure_type')
+  res.redirect('/planning/add_export/manure_type')
 })
 
 // reports/manure_inventory (export link) → add_export/manure_group
 router.get(/inventory_export_handler/, callback_functions.hide_error, function (req, res) {
-  res.redirect('/reports/add_export/manure_group')
+  res.redirect('/planning/add_export/manure_group')
 })
 
 // add_export/imports_exports.html → export_type (yes) or checklist (no imports/exports)

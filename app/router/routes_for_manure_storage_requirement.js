@@ -60,7 +60,7 @@ router.get(/manure_stores_question_router/, function (req, res) {
       next = '/management/farm/storage/manage_storage'
     } else {
       req.session.data.farm.manure_stores_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
-      next = '/reports/add_storage/storage_type'
+      next = '/planning/add_storage/storage_type'
     }
   }
   res.redirect(next)

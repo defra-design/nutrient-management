@@ -109,7 +109,7 @@ router.get(/exportcheck_handler/, function (req, res) {
 })
 
 router.get(/export_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-	let next = 'reports/add_export/export_type'
+	let next = 'planning/add_export/export_type'
   if (req.session.data.farm.manure_exports == true || req.session.data.farm.manure_imports == true ) {
   	next = 'manage_exports'
   } 
@@ -129,7 +129,7 @@ router.get(/get_manure_type_handler/, function (req, res) {
 })
 
 router.get(/export_type_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
-  let next = 'reports/add_export/manure_group'
+  let next = 'planning/add_export/manure_group'
   if (req.query.export_type == 'export') {
       req.session.data.imports_exports = 'export'
   } else {
@@ -137,7 +137,7 @@ router.get(/export_type_handler/, callback_functions.hideSuccessMessage, functio
   }
   if (req.session.data.export_type == 4 ) {
       req.session.data.farm.manure_group_id = 'livestock'
-      next = 'reports/add_export/manure_type'
+      next = 'planning/add_export/manure_type'
   }
   res.redirect(next)
 })
@@ -158,11 +158,11 @@ router.get(/manure_export_type_handler/, callback_functions.setManureGroup, call
 
 router.get(/n_loading_export_handler/, callback_functions.setManureGroup, callback_functions.hide_error, function (req, res) {
   req.session.data.manure_group_id = 'livestock'
-  res.redirect('/reports/add_export/manure_type')
+  res.redirect('/planning/add_export/manure_type')
 })
 
 router.get(/inventory_export_handler/, callback_functions.hide_error, function (req, res) {
-  res.redirect('/reports/add_export/manure_group')
+  res.redirect('/planning/add_export/manure_group')
 })
 
 router.get(/export_type_router/, callback_functions.hide_error, function (req, res) {
@@ -315,7 +315,7 @@ router.get(/storage_totals_handler/, function (req, res) {
 
 // reports/manure_inventory (storage link) → add_export/material_type
 router.get(/inventory_storage_handler/, function (req, res) {
-  let next = 'reports/add_export/material_type'
+  let next = 'planning/add_export/material_type'
   res.redirect(next);
 })
 

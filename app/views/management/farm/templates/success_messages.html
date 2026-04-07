@@ -1,5 +1,5 @@
 <!-- farm added -->
-{% if data.success_message == 1 %}
+{% if data.successMessage == "FARM_ADDED" %}
   <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
     <div class="govuk-notification-banner__header">
         <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -16,7 +16,7 @@
 {% endif %}
 
 <!-- farm removed -->
-{% if data.success_message == 2 %}
+{% if data.successMessage == "FARM_REMOVED" %}
   <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
     <div class="govuk-notification-banner__header">
       <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">

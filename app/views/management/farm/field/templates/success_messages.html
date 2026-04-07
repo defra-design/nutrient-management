@@ -1,5 +1,5 @@
 <!-- field added -->
-{% if data.success_message == 3 %}
+{% if data.successMessage == "FIELD_ADDED" %}
 <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__header">
     <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -10,7 +10,7 @@
         <h3 class="govuk-notification-banner__heading">
             You have added {{data.temp_field_name}}
         </h3>
-        <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_copy_reset_handler">Add another field</a>, or</p>  
+        <p class="govuk-body"><a class="govuk-notification-banner__link" href="field_copy_reset_handler">Add another field</a>, or</p>
         <p class="govuk-body"><a class="govuk-notification-banner__link" href="../plans_records">View, create or update a nutrient management plan</a>
         <!-- <p class="govuk-body"><a class="govuk-notification-banner__link" href="/manner/fields">Estimate nutrient supply from organic materials (MANNER-NPK)</a></p>   -->
   </div>
@@ -18,7 +18,7 @@
 {% endif %}
 
 <!-- field updated -->
-{% if data.success_message == 4 %}
+{% if data.successMessage == "FIELD_UPDATED" %}
 <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
     <div class="govuk-notification-banner__header">
         <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -34,7 +34,7 @@
 {% endif %}
 
 <!-- soil updated -->
-{% if data.success_message == 5 %}
+{% if data.successMessage == "FIELD_SOIL_UPDATED" %}
 <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
     <div class="govuk-notification-banner__header">
         <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -49,7 +49,7 @@
 </div>
 {% endif %}
 
-{% if data.success_message == 6 %}
+{% if data.successMessage == "FIELD_SOIL_ADDED" %}
 <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
     <div class="govuk-notification-banner__header">
         <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -63,8 +63,3 @@
     </div>
 </div>
 {% endif %}
-
-
-
-
-

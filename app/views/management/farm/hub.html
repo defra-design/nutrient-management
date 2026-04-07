@@ -15,9 +15,9 @@
 
       {% if data.show_success_message == true %}
         {% include "./templates/success_messages" ignore missing %}
+      {% else %}
+        {% include "./templates/feedback" ignore missing %}
       {% endif %}
-
-      {% include "./templates/feedback" ignore missing %}
 
       <div id="farm-title">
         <h1 class="govuk-heading-xl">{{data.farm.name}}</h1>

@@ -65,7 +65,7 @@ router.get(/livestock_copy_for_inventory_handler/, function (req, res) {
 // imports and exports
 router.get(/export_update_handler/, function (req, res) {
     req.session.data.show_success_message = true;
-    req.session.data.success_message = 2;
+    req.session.data.successMessage = 2;
     let next = '/management/farm/exports/manage_exports'
     res.redirect(next)
 })

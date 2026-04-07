@@ -3,7 +3,6 @@ var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
 var callback_functions = require('./callbacks.js');
-var SUCCESS = require('./success_messages.js');
 var { LIVESTOCK_INVENTORY_IN_PROGRESS, LIVESTOCK_INVENTORY_COMPLETE, LIVESTOCK_INVENTORY_NO_LIVESTOCK } = require('./constants.js');
 
 
@@ -178,7 +177,7 @@ router.get(/check_storage_handler/, function (req, res) {
   req.session.data.farm.manure_stores_added = true;
   let store_1 = allFunctions.createStorage(req.session.data.material_type, req.session.data.storage_name, req.session.data.storage_type)
   req.session.data.manure_storage.push(store_1)
-  // req.session.data.successMessage = SUCCESS.EXPORTS.UPDATED;
+  // req.session.data.successMessage = 'EXPORTS_UPDATED';
   res.redirect('/management/farm/storage/manage_storage')
 })
 
@@ -492,7 +491,7 @@ router.get(/exportcheck_handler/, function (req, res) {
 // update/exports/update.html → manage_exports (saves changes to an existing export record)
 router.get(/export_update_handler/, function (req, res) {
   req.session.data.show_success_message = true;
-  req.session.data.successMessage = SUCCESS.EXPORTS.UPDATED;
+  req.session.data.successMessage = 'EXPORTS_UPDATED';
   let next = '/management/farm/exports/manage_exports'
   res.redirect(next)
 })

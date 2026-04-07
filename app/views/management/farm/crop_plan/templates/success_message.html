@@ -6,106 +6,78 @@
     </h2>
   </div>
   <div class="govuk-notification-banner__content">
-  
-    <!-- crops added - 1 -->
-    {% if data.success_message == 1 %}
+
+    {% if data.successMessage == "CROP_PLAN_CROPS_ADDED" %}
       <h3 class="govuk-notification-banner__heading">
         Crops added for {{data.farm.planning_year}}
       </h3>
       <p class="govuk-body">Select a field to see its nutrient recommendations, or to add soil mineral nitrogen analysis results.</p>
     {% endif %}
 
-    {% if data.success_message == 16 %}
+    {% if data.successMessage == "CROP_PLAN_GRASS_ADDED" %}
     <h3 class="govuk-notification-banner__heading">
       Grass added for {{data.farm.planning_year}}
     </h3>
     <p class="govuk-body">Select a field to see its nutrient recommendations.</p>
     {% endif %}
 
-    <!-- manure added - 2 -->
-    {% if data.success_message == 2 %}
-      <h3 class="govuk-notification-banner__heading"> 
+    {% if data.successMessage == "CROP_PLAN_MANURE_ADDED" %}
+      <h3 class="govuk-notification-banner__heading">
         Organic material application added to fields in this plan.
       </h3>
       <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
     {% endif %}
-    
-    <!-- fertiliser added - 3 -->
-    {% if data.success_message == 3 %}
+
+    {% if data.successMessage == "CROP_PLAN_FERTILISER_ADDED" %}
       <h3 class="govuk-notification-banner__heading">
         Inorganic fertiliser application added to fields in this plan.
       </h3>
       <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
     {% endif %}
 
-    <!-- manure updated - 4 -->
-    {% if data.success_message == 4 %}
-      <h3 class="govuk-notification-banner__heading">
-        Organic material application updated.
-      </h3>
-      <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
-    {% endif %}
-    
-    <!-- fertiliser updated - 5 -->
-    {% if data.success_message == 5 %}
-      <h3 class="govuk-notification-banner__heading">
-        Inorganic fertiliser updated.
-      </h3>
-      <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
-    {% endif %}
-
-    <!-- crops updated - 6 -->
-    {% if data.success_message == 6 %}
+    {% if data.successMessage == "CROP_PLAN_PLAN_UPDATED" %}
     <h3 class="govuk-notification-banner__heading">
       Crop plan updated
     </h3>
     <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
   {% endif %}
 
-  <!-- rain updated - 11  -  5 -->
-  {% if data.success_message == 12 %}
+  {% if data.successMessage == "CROP_PLAN_RAINFALL_UPDATED" %}
   <h3 class="govuk-notification-banner__heading">
     Excess Winter Rainfall for {{data.farm.planning_year}} updated
   </h3>
   <p class="govuk-body">This may change your nutrient recommendations for {{data.farm.planning_year}}. Select a field to see its recommendations.</p>
 {% endif %}
 
-  <!-- manure updated -->
-  {% if data.success_message == 13 %}
+  {% if data.successMessage == "CROP_PLAN_MANURE_UPDATED" %}
   <h3 class="govuk-notification-banner__heading">
     Organic material application updated
   </h3>
   <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
 {% endif %}
 
-  <!-- fertiliser updated -->
-  {% if data.success_message == 14 %}
+  {% if data.successMessage == "CROP_PLAN_FERTILISER_UPDATED" %}
   <h3 class="govuk-notification-banner__heading">
     Inorganic fertiliser application updated
   </h3>
   <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
 {% endif %}
 
-  <!-- fertiliser removed -->
-  {% if data.success_message == 15 %}
+  {% if data.successMessage == "CROP_PLAN_FERTILISER_REMOVED" %}
   <h3 class="govuk-notification-banner__heading">
     Inorganic fertiliser application removed
   </h3>
   <p class="govuk-body">Select a field to see its updated nutrient recommendations.</p>
 {% endif %}
 
-  <!-- 16 is grass already used -->
-
-    <!-- plan copied -->
-    {% if data.success_message == 17 %}
+    {% if data.successMessage == "CROP_PLAN_SNS_ADDED" %}
     <h3 class="govuk-notification-banner__heading">
       Plan created for 2026
     </h3>
     <p class="govuk-body">Select a field to see its updated nutrient recommendations or update details for 2026.</p>
-  {% endif %}  
+  {% endif %}
 
 
 
-  
   </div>
 </div>

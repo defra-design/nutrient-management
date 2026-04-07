@@ -13,23 +13,15 @@
 // Returns the first item in `types` whose `name` or `reference` matches `referenceValue`.
 // Used to resolve a selected value (e.g. a manure type name) into its full data object.
 // Example: getByReference(manure_type_livestock_data, 'cattle-fym') → { name: 'Cattle FYM', ... }
-function getByReference (types, referenceValue) {
-  for (let x in types ) {
-    if (types[x].name == referenceValue || types[x].reference == referenceValue) {
-      return types[x]
-    }
-  }
+function getByReference(types, referenceValue) {
+  return types.find(item => item.name === referenceValue || item.reference === referenceValue)
 }
 
 // Returns the first item in `types` whose `name` matches `referenceName`.
 // Similar to getByReference but only checks the name property.
 // Example: getByName(manure_types, 'Cattle FYM') → { name: 'Cattle FYM', ... }
-function getByName (types, referenceName) {
-  for (var x in types ) {
-      if (types[x].name == referenceName) {
-          return types[x]
-      }
-  }
+function getByName(types, referenceName) {
+  return types.find(item => item.name === referenceName)
 }
 
 
@@ -40,19 +32,15 @@ function getByName (types, referenceName) {
 
 // Returns a single field from `allFields` whose `field_id` matches `referenceNumber`.
 // Example: getFieldByReference(all_fields, 3) → { field_id: 3, field_name: 'Long Field', ... }
-function getFieldByReference (allFields, referenceNumber) {
-  for (let field in allFields) {
-    if (allFields[field].field_id == referenceNumber) {
-        return allFields[field]
-    }
-  }
+function getFieldByReference(allFields, referenceNumber) {
+  return allFields.find(field => field.field_id == referenceNumber)
 }
 
 // Takes an array of field ID numbers (`referenceNumbers`) and replaces each number
 // with its full field object from `currentFields`.
 // Returns the same array but with objects instead of IDs.
 // Example: getMultipleFieldsByReferences([1, 3], all_fields) → [{ field_id:1, ... }, { field_id:3, ... }]
-function getMultipleFieldsByReferences (referenceNumbers, currentFields) {
+function getMultipleFieldsByReferences(referenceNumbers, currentFields) {
   for (let x in referenceNumbers) {
     for (let y in currentFields) {
       if (currentFields[y].reference == referenceNumbers[x]) {
@@ -70,7 +58,7 @@ function getMultipleFieldsByReferences (referenceNumbers, currentFields) {
 // Returns the updated `temp_field`.
 function setFieldName(temp_field, temp_field_name, fields_length) {
   temp_field.field_id = fields_length + 1
-  if (temp_field_name == "" || temp_field_name == null) {
+  if (!temp_field_name) {
     temp_field.field_name = 'New Field #' + temp_field.field_id;
   } else {
     temp_field.field_name = temp_field_name;
@@ -110,14 +98,13 @@ function setFieldSizes(temp_field, total_area, cropped_area, non_spreading_area)
 // Returns the new crop group object.
 // Note: callers previously passed `all_fields` as a final argument but it was never used.
 function createCropGroup(group_name, group_id, year, crop_id, field_list) {
-  var newGroup = {
+  return {
     group_name: group_name,
     group_id: group_id,
     year: year,
     crop_id: crop_id,
     field_list: field_list,
   }
-  return newGroup
 }
 
 // Sets `crop_id` and `group_id` on every field in `all_fields` whose `field_id`

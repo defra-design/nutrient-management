@@ -11,7 +11,7 @@
     <dd class="govuk-summary-list__value">
       <ul class="govuk-list">
         {% for field in data.crop_fields %}
-          <li>{{field.field_name}}</li>
+          <li>{{field | fieldnameconverter}}</li>
           {% endfor %}   
       </ul>
     </dd>
@@ -133,7 +133,7 @@
    {% if data.sward_type == 'grass' %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          What is the total annual target dry matter yield for  {{data.crop_fields[0].name}}?
+          What is the total annual target dry matter yield for {{data.crop_fields[0] | fieldnameconverter}}?
         </dt>
         <dd class="govuk-summary-list__value">
           10 tonnes per hectare
@@ -145,7 +145,7 @@
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          What is the total annual target dry matter yield for {{data.crop_fields[1].name}}?
+          What is the total annual target dry matter yield for {{data.crop_fields[1] | fieldnameconverter}}?
         </dt>
         <dd class="govuk-summary-list__value">
           10 tonnes per hectare

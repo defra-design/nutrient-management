@@ -14,8 +14,6 @@ const  potato_details_data = require('./data/potato_types.json');
 const  crop_types_data = require('./data/crop_types.json');
 const  livestock_type_data = require('./data/livestock_types.json');
 
-const allFunctions = require('./functions/allFunctions.js');
-
 /// create fields
 let all_fields = [];
 

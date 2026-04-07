@@ -1,7 +1,6 @@
 var express = require('express')
 var router = express.Router()
 
-var allFunctions = require('../functions/allFunctions.js');
 var callback_functions = require('./callbacks.js');
 
 

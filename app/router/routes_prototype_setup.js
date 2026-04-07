@@ -157,7 +157,6 @@ router.get(/setup_handler_everything/, function (req, res) {
     // fertiliser applications
     for (let x in req.session.data.fertiliser_applications_data) {
       req.session.data.fertiliser_applications.push(req.session.data.fertiliser_applications_data[x])
-      req.session.data.plan_fertiliser_applications.push(req.session.data.fertiliser_applications_data[x])
     }
 
     //manner

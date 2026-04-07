@@ -63,11 +63,6 @@ function getMultipleFieldsByReferences (referenceNumbers, currentFields) {
   return referenceNumbers
 }
 
-// Returns the number of fields in a `field_references` array.
-// Simple wrapper around `.length`.
-function field_count(field_references) {
-  return field_references.length;
-}
 
 // Sets the `field_name` and `field_id` on a `temp_field` object.
 // If `temp_field_name` is blank, generates a default name like "New Field #3".
@@ -180,17 +175,6 @@ function collectFieldsFromGroups(planned_crop_groups, option) {
   return fields
 }
 
-// Returns the total number of fields across firstCropFields and thirdCropFields in a plan.
-function totalFieldsCount(plan) {
-  let totalFields = 0;
-  if (plan.firstCropFields != undefined) {
-    totalFields = plan.firstCropFields.length
-  }
-  if (plan.thirdCropFields) {
-    totalFields = totalFields + plan.thirdCropFields.length;
-  }
-  return totalFields
-}
 
 
 // -------------------------
@@ -283,18 +267,6 @@ function convertNutrient (nutrient) {
 // LIVESTOCK
 // -------------------------
 
-// Creates a single livestock item with a type reference and a quantity.
-// `reference` — the livestock type reference (e.g. 'dairy-cow')
-// `amount`    — the number of animals
-// Returns the new livestock item object.
-function createLivestockItem (reference, amount) {
-  let newItem = {
-    reference: reference,
-    amount: amount
-  }
-  return newItem
-}
-
 
 // -------------------------
 // STORAGE
@@ -316,54 +288,19 @@ function createStorage(store_type, store_name, store_material) {
 
 
 // -------------------------
-// FARM SETUP (PROTOTYPE HELPERS)
-// Used in routes_prototype_setup.js to quickly configure a pre-built farm state.
-// Not part of the user journey — only used to set up demo scenarios.
-// -------------------------
-
-// Marks a farm as set up with fields and soil added.
-// `mvpFields` — whether to use the default MVP field list
-function basicSetup (farm, mvpFields) {
-  farm.setup = true
-  farm.soil_added = true
-  farm.fields_added = true
-  farm.use_mvp_fields = mvpFields
-}
-
-// -------------------------
 // DEBUG / LOGGING
 // Only used for console logging during development.
 // -------------------------
-
-// Logs all properties of a crop group to the console.
-function printCropGroup(group) {
-  console.log(  'group' +
-    group.year + ", " +
-    group.firstCropReference + ", " +
-    group.secondCropReference + ", " +
-    group.thirdCropReference + ", " +
-    group.fourthCropReference + ", " +
-    group.firstCropFields + ", " +
-    group.secondCropFields + ", " +
-    group.thirdCropFields + ", " +
-    group.fourthCropFields)
-}
-
 
 // =============================================================================
 // EXPORTS
 // =============================================================================
 
-module.exports.printCropGroup = printCropGroup;
 module.exports.getFieldByReference = getFieldByReference;
 module.exports.getMultipleFieldsByReferences = getMultipleFieldsByReferences;
-module.exports.totalFieldsCount = totalFieldsCount;
-module.exports.basicSetup = basicSetup;
 module.exports.createCropGroup = createCropGroup;
 module.exports.add_manure_application = add_manure_application;
 module.exports.addFertiliserApplication = addFertiliserApplication;
-module.exports.createLivestockItem = createLivestockItem;
-module.exports.field_count = field_count;
 module.exports.updateFieldCrop = updateFieldCrop;
 module.exports.setCropAndGroupId = setCropAndGroupId;
 module.exports.createStorage = createStorage;

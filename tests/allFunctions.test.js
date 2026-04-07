@@ -65,18 +65,6 @@ describe('getFieldByReference', () => {
 
 })
 
-describe('field_count', () => {
-
-  test('returns the number of items in the array', () => {
-    expect(f.field_count([1, 2, 3])).toBe(3)
-  })
-
-  test('returns 0 for an empty array', () => {
-    expect(f.field_count([])).toBe(0)
-  })
-
-})
-
 describe('setFieldName', () => {
 
   test('sets the field name to the provided name', () => {
@@ -248,21 +236,6 @@ describe('addFertiliserApplication', () => {
   test('converts empty string nutrient values to 0', () => {
     const app = f.addFertiliserApplication(1, 2026, 1, '01/03/2026', '', '', '', '', '')
     expect(app.nitrogen).toBe(0)
-  })
-
-})
-
-
-// -------------------------
-// LIVESTOCK
-// -------------------------
-
-describe('createLivestockItem', () => {
-
-  test('returns an object with reference and amount', () => {
-    const item = f.createLivestockItem('dairy-cow', 50)
-    expect(item.reference).toBe('dairy-cow')
-    expect(item.amount).toBe(50)
   })
 
 })

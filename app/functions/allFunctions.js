@@ -110,15 +110,13 @@ function createCropGroup(group_name, group_id, year, crop_id, field_list) {
 // Sets `crop_id` and `group_id` on every field in `all_fields` whose `field_id`
 // appears in the `chosenFields` array.
 // Returns the updated `all_fields` array.
-function setCropAndGroupId (all_fields, chosenFields, chosenCrop, chosenGroup) {
-  for (let x in all_fields) {
-    for (let y in chosenFields) {
-      if (all_fields[x].field_id == chosenFields[y]) {
-          all_fields[x].crop_id = chosenCrop
-          all_fields[x].group_id = chosenGroup
-      }
+function setCropAndGroupId(all_fields, chosenFields, chosenCrop, chosenGroup) {
+  all_fields.forEach(field => {
+    if (chosenFields.includes(field.field_id)) {
+      field.crop_id = chosenCrop
+      field.group_id = chosenGroup
     }
-  }
+  })
   return all_fields
 }
 
@@ -177,29 +175,27 @@ function collectFieldsFromGroups(planned_crop_groups, option) {
 // `application_date` — date string (e.g. "21/02/2026")
 // `manure_id`        — the manure type name
 // Returns the new application object.
-function add_manure_application (group_id, year, field_id, application_date, manure_id) {
-  var newApplication = {
-    "group_id": group_id,
-    "year": year,
-    "field_id": field_id,
-    "application_date": application_date,
-    "manure_id": manure_id,
-    "rate": "20"
+function add_manure_application(group_id, year, field_id, application_date, manure_id) {
+  return {
+    group_id: group_id,
+    year: year,
+    field_id: field_id,
+    application_date: application_date,
+    manure_id: manure_id,
+    rate: "20"
   }
-  return newApplication
 }
 
 // Creates a temporary manure application for the MANNER calculator journey.
 // `applications_length` is used to generate a reference number (length + 1).
 // Returns the new application object.
-function createTempApplication (day, month, year, manuretype, rate, applications_length) {
-  let newApplication = {
+function createTempApplication(day, month, year, manuretype, rate, applications_length) {
+  return {
     reference: applications_length + 1,
     date: day + "/" + month + "/" + year,
     manuretype: manuretype,
     rate: rate
   }
-  return newApplication
 }
 
 
@@ -215,28 +211,27 @@ function createTempApplication (day, month, year, manuretype, rate, applications
 // `date`      — date string (e.g. "21/02/2026")
 // `nitrogen`, `phosphate`, `potash`, `sulphur`, `lime` — nutrient amounts (blanks become 0)
 // Returns the new application object.
-function addFertiliserApplication (group_id, year, field_id, date, nitrogen, phosphate, potash, sulphur, lime) {
+function addFertiliserApplication(group_id, year, field_id, date, nitrogen, phosphate, potash, sulphur, lime) {
   nitrogen = convertNutrient(nitrogen)
   phosphate = convertNutrient(phosphate)
   potash = convertNutrient(potash)
   sulphur = convertNutrient(sulphur)
   lime = convertNutrient(lime)
-  var newApplication = {
-    "group_id": group_id,
-    "year": year,
-    "field_id": field_id,
-    "date": date,
-    "analysis": "0:20:20:0:0:0",
-    "rate": "280",
-    "nitrogen": nitrogen,
-    "P2O5": phosphate,
-    "K2O": potash,
-    "MgO": "0",
-    "SO3": sulphur,
-    "Na2O": "0",
-    "Lime": lime,
+  return {
+    group_id: group_id,
+    year: year,
+    field_id: field_id,
+    date: date,
+    analysis: "0:20:20:0:0:0",
+    rate: "280",
+    nitrogen: nitrogen,
+    P2O5: phosphate,
+    K2O: potash,
+    MgO: "0",
+    SO3: sulphur,
+    Na2O: "0",
+    Lime: lime,
   }
-  return newApplication
 }
 
 // Helper used by addFertiliserApplication.
@@ -251,11 +246,6 @@ function convertNutrient (nutrient) {
 
 
 // -------------------------
-// LIVESTOCK
-// -------------------------
-
-
-// -------------------------
 // STORAGE
 // -------------------------
 
@@ -265,19 +255,13 @@ function convertNutrient (nutrient) {
 // `store_material` — what it holds (e.g. 'slurry', 'solid manure')
 // Returns the new storage object.
 function createStorage(store_type, store_name, store_material) {
-  var newGroup = {
+  return {
     store_type: store_type,
     store_name: store_name,
     store_material: store_material
   }
-  return newGroup
 }
 
-
-// -------------------------
-// DEBUG / LOGGING
-// Only used for console logging during development.
-// -------------------------
 
 // =============================================================================
 // EXPORTS

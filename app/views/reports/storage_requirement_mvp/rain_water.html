@@ -26,21 +26,21 @@
     <form action="rain_water_question_router" method="post" novalidate="">
 
       <div class="govuk-form-group margin-bottom-thirty">
-        <label class="govuk-label" for="livestock_number">
+        <label class="govuk-label" for="fouledConcreteArea">
           What is the total area of fouled open concrete (such as uncovered solid manure stores and silage clamps) which drains to slurry stores?
         </label>
         <div class="govuk-input__wrapper">
-          <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+          <input class="govuk-input govuk-input--width-5" id="fouledConcreteArea" name="fouledConcreteArea" type="text" spellcheck="false" autocomplete="off" value="{{ data.fouledConcreteArea }}">
           <div class="govuk-input__suffix" aria-hidden="true">Metres squared</div>
         </div>
       </div>
 
       <div class="govuk-form-group margin-bottom-forty">
-        <label class="govuk-label" for="livestock_number">
+        <label class="govuk-label" for="cleanConcreteArea">
           What is the total area of clean concrete and roofs which drain to slurry stores?
         </label>
         <div class="govuk-input__wrapper">
-          <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+          <input class="govuk-input govuk-input--width-5" id="cleanConcreteArea" name="cleanConcreteArea" type="text" spellcheck="false" autocomplete="off" value="{{ data.cleanConcreteArea }}">
           <div class="govuk-input__suffix" aria-hidden="true">Metres squared</div>
         </div>
       </div>

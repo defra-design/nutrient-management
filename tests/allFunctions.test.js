@@ -230,6 +230,28 @@ describe('add_manure_application', () => {
 
 })
 
+// -------------------------
+// STORAGE
+// -------------------------
+
+describe('createStorage', () => {
+
+  test('returns a storage object with the expected properties', () => {
+    const store = f.createStorage('slurry tank', 'Tank 1', 'slurry')
+    expect(store.store_type).toBe('slurry tank')
+    expect(store.store_name).toBe('Tank 1')
+    expect(store.store_material).toBe('slurry')
+  })
+
+  test('works for solid manure stores', () => {
+    const store = f.createStorage('earth banked lagoon', 'Store A', 'solid manure')
+    expect(store.store_type).toBe('earth banked lagoon')
+    expect(store.store_material).toBe('solid manure')
+  })
+
+})
+
+
 describe('createTempApplication', () => {
 
   test('formats the date and sets all properties', () => {

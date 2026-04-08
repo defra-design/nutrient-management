@@ -34,18 +34,6 @@ router.get(/livestock_question_router/, function (req, res) {
   res.redirect(next)
 })
 
-// imports_exports_question_router - req.session.data.farm.imports_exports_status = true > checklist
-router.get(/imports_exports_question_router/, function (req, res) {
-  let next
-  if (req.session.data.imports_exports_question == 'no') {
-    req.session.data.farm.imports_exports_status = 'NONE'
-    next = '../checklist'
-  } else if (req.session.data.imports_exports_question == 'yes') {
-    req.session.data.farm.imports_exports_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
-    next = 'type'
-  }
-  res.redirect(next)
-})
 
 // manure_stores_handler - skips question if user already said yes, otherwise shows question
 router.get(/manure_stores_handler/, function (req, res) {

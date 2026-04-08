@@ -70,11 +70,6 @@ router.get(/export_update_handler/, function (req, res) {
 })
 
 router.get(/set_export_defaults_handler/, function (req, res) {
-    console.log(
-        req.session.data.manure_type.name + " " +
-        req.session.data.exported_day + " " +
-        req.session.data.export_total)
-
     if (req.session.data.manure_type.name == null) {
         req.session.data.manure_type.name = "Pig farmyard manure - Fresh"
     }
@@ -89,13 +84,16 @@ router.get(/set_export_defaults_handler/, function (req, res) {
     res.redirect('comments')
 })
 
-router.get(/exportcheck_handler/, function (req, res) { 
+router.get(/exportcheck_handler/, function (req, res) {
   req.session.data.show_success_message = true;
   req.session.data.farm.imports_exports = 2;
   if (req.session.data.imports_exports == 'export') {
       req.session.data.farm.manure_exports = true;
   } else {
       req.session.data.farm.manure_imports = true;
+  }
+  if (req.session.data.export_type == '12') {
+      req.session.data.farm.imports_exports_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
   }
   //reset defaults
   req.session.data.manure_type.name = null

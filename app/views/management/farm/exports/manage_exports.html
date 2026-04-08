@@ -9,10 +9,19 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
+
+{% set back_url = 'javascript:window.history.back()' %}
+{% set back_url_text = 'Back' %}
+
+{% if data.export_type == 12 %}
+  {% set back_url = '/reports/storage_requirement_mvp/checklist' %}
+{% endif %}
+
+{{ govukBackLink({
+  text: back_url_text,
+  href: back_url
+}) }}
+
 {% endblock %}
 {% block content %}
 
@@ -35,7 +44,7 @@
 
     {% if data.show_success_message != true %}
       {% include "./templates/instructions.html" ignore missing %}
-    {% endif %}   
+    {% endif %}
 
   </div>
 </div>

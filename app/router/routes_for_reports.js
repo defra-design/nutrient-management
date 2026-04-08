@@ -441,8 +441,15 @@ router.get(/export_type_router/, callback_functions.hide_error, function (req, r
       req.session.data.farm.imports_exports = 4
       if (req.session.data.export_type == '8') {
           next = '/reports/manure_inventory/checklist'
+      } else if (req.session.data.export_type == '12') {
+          req.session.data.farm.imports_exports_status = 'NONE'
+          next = '/reports/storage_requirement_mvp/checklist'
       } else {
           next = '/reports/n_loading/checklist'
+      }
+  } else {
+      if (req.session.data.export_type == '12') {
+          req.session.data.farm.imports_exports_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
       }
   }
   res.redirect(next)

@@ -143,6 +143,20 @@ router.get('/', function (req, res) {
     req.session.data.chosen_plan = null
     req.session.data.imports_exports = null
     req.session.data.wash_area_name = 'Washed area 1'
+
+    // -------------------------
+    // QUESTION ANSWERS
+    // Radio/input values auto-saved by the prototype kit. Reset here so forms
+    // don't show stale answers from a previous session.
+    // -------------------------
+    req.session.data.manure_stores_question = null
+    req.session.data.livestock_question = null
+    req.session.data.imports_exports_question = null
+    req.session.data.totalFarmArea = null
+    req.session.data.nvzArea = null
+    req.session.data.grassPercentage = null
+    req.session.data.fouledConcreteArea = null
+    req.session.data.cleanConcreteArea = null
     req.session.data.example_date = "27 3 2026"
     req.session.data.update_date = "22 September 2025"
 

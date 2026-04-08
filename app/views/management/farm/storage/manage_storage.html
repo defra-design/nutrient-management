@@ -19,6 +19,11 @@
   {% set back_url_text = 'Back' %}
 {% endif %}
 
+{% if data.export_type == 12 %}
+  {% set back_url = '/reports/storage_requirement_mvp/checklist' %}
+  {% set back_url_text = 'Back' %}
+{% endif %}
+
 {{ govukBackLink({
   text: back_url_text,
   href: back_url
@@ -53,6 +58,13 @@
           </p>
           <p class="govuk-body">
             <a href="/reports/manure_inventory/checklist">Create an organic manures inventory and NVZ storage report</a>
+          </p>
+        {% elif data.export_type == 12 %}
+          <p class="govuk-body">
+            To create a storage requirement report, add all the manure stores on {{data.farm.name}}.
+          </p>
+          <p class="govuk-body">
+            <a href="/reports/storage_requirement_mvp/checklist">Return to storage requirement checklist</a>
           </p>
         {% else %}
           <p class="govuk-body">To create an existing manure stores capacity report, enter the manure stores on {{data.farm.name}}.</p>

@@ -47,18 +47,27 @@ router.get(/imports_exports_question_router/, function (req, res) {
   res.redirect(next)
 })
 
-// manure_stores_question_router - req.session.data.farm.manure_stores_status = true > checklist
+// manure_stores_handler - skips question if user already said yes, otherwise shows question
+router.get(/manure_stores_handler/, function (req, res) {
+  if (req.session.data.farm.manure_stores_status == 'ADDED_FOR_STORAGE_REQUIREMENT') {
+    res.redirect('/reset_manage_storage_message_handler')
+  } else {
+    res.redirect('manure_stores/manure_stores_question')
+  }
+})
+
+// manure_stores_question_router - sets manure_stores_status and routes to add flow or manage
 router.get(/manure_stores_question_router/, function (req, res) {
   let next
   if (req.session.data.manure_stores_question == 'no') {
     req.session.data.farm.manure_stores_status = 'NONE'
     next = '../checklist'
   } else if (req.session.data.manure_stores_question == 'yes') {
-    if (req.session.data.farm.manure_stores_status != 'NONE') {
+    req.session.data.farm.manure_stores_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
+    if (req.session.data.farm.manure_stores_added == true) {
       next = '/management/farm/storage/manage_storage'
     } else {
-      req.session.data.farm.manure_stores_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
-      next = '/planning/add_storage/storage_type'
+      next = '/planning/add_storage/material_type'
     }
   }
   res.redirect(next)

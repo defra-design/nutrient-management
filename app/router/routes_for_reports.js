@@ -57,10 +57,6 @@ router.get(/output_router/, callback_functions.hide_error, function (req, res) {
   if (req.session.data.export_type == '7') {
     next = req.session.data.farm.manure_stores_added != true ? 'not_available_storage' : '/management/farm/storage/manage_storage'
   }
-  // Manure inventory and storage report
-  if (req.session.data.export_type == '8') {
-      next = 'reports/manure_inventory/checklist'
-  }
   // Planned nutrients report
   if (req.session.data.export_type == '9') {
       next = 'reports/planned_nutrients'

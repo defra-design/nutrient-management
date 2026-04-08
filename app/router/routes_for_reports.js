@@ -440,9 +440,9 @@ router.get(/export_type_router/, callback_functions.hide_error, function (req, r
   if (req.session.data.imports_exports == 'no') {
       req.session.data.farm.imports_exports = 4
       if (req.session.data.export_type == '8') {
-          next = 'reports/manure_inventory/checklist'
+          next = '/reports/manure_inventory/checklist'
       } else {
-          next = 'reports/n_loading/checklist'
+          next = '/reports/n_loading/checklist'
       }
   }
   res.redirect(next)

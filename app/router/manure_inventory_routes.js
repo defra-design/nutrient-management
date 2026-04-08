@@ -164,19 +164,6 @@ router.get(/inventory_export_handler/, callback_functions.hide_error, function (
   res.redirect('/planning/add_export/manure_group')
 })
 
-router.get(/export_type_router/, callback_functions.hide_error, function (req, res) {
-  let next = 'export_type'
-  if (req.session.data.imports_exports == 'no') {
-      req.session.data.farm.imports_exports = 4
-      if (req.session.data.export_type == '8') {
-          next = '/reports/manure_inventory/checklist'
-      } else {
-          next = 'reports/n_loading/checklist'
-      }
-  }
-  res.redirect(next)
-})
-
 router.get(/add_inventorynumbers_handler/, callback_functions.hide_error, function (req, res) {
     for (var reference in req.session.data.livestock_record_plan_year) {
         if (req.session.data.livestock_record_plan_year[reference].reference == req.query.reference) {
@@ -465,7 +452,7 @@ router.get(/landcheck_handler/, callback_functions.showSuccessMessage, function 
 
 // reports/manure_inventory/checklist.html (imports/exports row) → manage_exports or export_none
 router.get(/inventory_importexport_handler/, function (req, res) {
-  let next = '/reports/storage_requirement_mvp/add_export/export_none'
+  let next = '/planning/add_export/export_none'
   if (req.session.data.farm.imports_exports == 2) {
       next = '/reports/storage_requirement_mvp/reset_manage_exports_message_handler'
   }

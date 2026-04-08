@@ -5,30 +5,17 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/templates/headers/header_signed_in_first.html" ignore missing %}
+  {% include "/templates/headers/header_manner_first.html" ignore missing %}
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
+  <!-- {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
-  }) }}
+  }) }}-->
 {% endblock %}
 
 {% block content %}
-
-{% set plan_2025 = false %}
-{% set plan_2026 = false %}
-{% set plan_2027 = false %}
-{% for x in data.farm.years_planned %}
-  {% if x == 2025 %}
-    {% set plan_2025 = true %}
-  {% elif x == 2026 %}
-    {% set plan_2026 = true %}
-  {% elif x == 2027 %}
-    {% set plan_2027 = true %}
-  {% endif %}
-{% endfor %}
 
 <div class="govuk-grid-row">
   <div id="all-plans-table" class="govuk-grid-column-full">
@@ -36,13 +23,13 @@
 
     <form class="form" action="copy_estimate" method="post">
       {{ govukButton({
-        text: "Create a new estimate"
+        text: "Create a nutrient supply estimate"
       }) }}
     </form>
 
     <p class="govuk-body margin-bottom-thirty">You can also <a href="remove_estimates_list">remove an estimate</a></p>
 
-    <h2 class="govuk-heading-m">Previous estimates</h2>   
+    <h2 class="govuk-heading-m">Previous nutrient supply estimates</h2>   
 
     <table class="govuk-table data-table">
       <thead class="govuk-table__head">

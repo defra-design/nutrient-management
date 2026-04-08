@@ -19,6 +19,22 @@ router.get(/manner_setup_handler/, callback_functions.showSuccessMessage, functi
   res.redirect(next)
 })
 
+// manner/crop.html → crop_type_all, defaults to cereals
+router.get(/manner_crop_router/, function (req, res) {
+  let next ='crop_type_all'
+  if (req.session.data.crop_group == 'grass') {
+    req.session.data.chosen_crop = 'grass'
+    next = 'manure_group'
+  } else if (req.session.data.crop_group == 'potatoes') {
+    req.session.data.chosen_crop = 'potatoes'
+    next = 'crop_type_potato'
+  } else if (req.session.data.crop_group == null) {
+    req.session.data.crop_group = 'cereals'
+  }
+    res.redirect(next)
+})
+
+
 // manner/name.html → nvz (saves the field name to temp_field for the manner estimate)
 router.get(/set_mannerfield_name_handler/, function (req, res) {
     req.session.data.temp_field = allFunctions.setFieldName(req.session.data.temp_field, req.session.data.temp_field_name, req.session.data.all_fields.length);

@@ -26,7 +26,7 @@ router.get(/manner_crop_router/, function (req, res) {
     req.session.data.chosen_crop = 'grass'
     next = 'manure_group'
   } else if (req.session.data.crop_group == 'potatoes') {
-    req.session.data.chosen_crop = 'potatoes'
+    req.session.data.chosen_crop = 'Potatoes'
     next = 'crop_type_potato'
   } else if (req.session.data.crop_group == null) {
     req.session.data.crop_group = 'cereals'
@@ -37,7 +37,9 @@ router.get(/manner_crop_router/, function (req, res) {
 
 // manner/name.html → nvz (saves the field name to temp_field for the manner estimate)
 router.get(/set_mannerfield_name_handler/, function (req, res) {
-    req.session.data.temp_field = allFunctions.setFieldName(req.session.data.temp_field, req.session.data.temp_field_name, req.session.data.all_fields.length);
+    if (!req.session.data.temp_field_name) {
+      req.session.data.temp_field_name = "Long Field"
+    }
     res.redirect('nvz');
 })
 

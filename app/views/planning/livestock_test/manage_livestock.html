@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Livestock details – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if data.show_success_message == true %}
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Success</h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading">You have added livestock</h3>
+          <p class="govuk-body"><a class="govuk-notification-banner__link" href="ltest_reset_add">Add another livestock type</a></p>
+        </div>
+      </div>
+    {% endif %}
+
+    <span class="name govuk-caption-l">Oaktree Lane Farm</span>
+    <h1 class="govuk-heading-l">Livestock details</h1>
+
+    <form class="margin-bottom-ten" action="ltest_reset_add" method="post" novalidate="">
+      <button class="govuk-button" data-module="govuk-button">
+        Add a livestock type
+      </button>
+    </form>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="margin-bottom-thirty">
+    {% include "/reports/storage_requirement_mvp/manage_livestock/templates/manage/table_manager.html" ignore missing %}
+
+  </div>
+</div>
+
+{% endblock %}

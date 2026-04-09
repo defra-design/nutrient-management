@@ -27,11 +27,19 @@ router.get(/ltest_cattle_reference/, function (req, res) {
   res.redirect('annual_numbers')
 })
 
-// check.html → added (saves the livestock record)
+// check.html → manage_livestock (saves the livestock record)
 router.get(/ltest_check_handler/, function (req, res) {
-  req.session.data.chosen_livestock.numbers_for_test = 2
+  req.session.data.chosen_livestock.numbers_for_requirement = 2
   req.session.data.livestock_record_plan_year.push(req.session.data.chosen_livestock)
-  res.redirect('added')
+  req.session.data.show_success_message = true
+  res.redirect('/planning/livestock_test/manage_livestock')
+})
+
+// manage_livestock.html "Add a livestock type" → livestock_type (resets journey state)
+router.get(/ltest_reset_add/, function (req, res) {
+  req.session.data.show_success_message = false
+  req.session.data.livestock_update_journey = false
+  res.redirect('/planning/livestock_test/livestock_type')
 })
 
 

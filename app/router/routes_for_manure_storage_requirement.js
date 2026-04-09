@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 
 var callback_functions = require('./callbacks.js');
-var { LIVESTOCK_INVENTORY_IN_PROGRESS, LIVESTOCK_INVENTORY_COMPLETE, LIVESTOCK_INVENTORY_NO_LIVESTOCK } = require('./constants.js');
+
 
 // =====================================
 // Routes for manure storage requirement
@@ -20,15 +20,15 @@ router.get(/rain_water_question_router/, function (req, res) {
   res.redirect('checklist')
 })
 
-// livestock_question_router - req.session.data.farm.livestock_status = true > checklist
+// livestock_question_router - req.session.data.farm.livestock_msreq_status = true > checklist
 router.get(/livestock_question_router/, function (req, res) {
   let next
   console.log(req.session.data.livestock_question)
   if (req.session.data.livestock_question == 'no') {
-    req.session.data.farm.livestock_status = 'NONE'
+    req.session.data.farm.livestock_msreq_status = 'NONE'
     next = '../checklist'
   } else if (req.session.data.livestock_question == 'yes') {
-    req.session.data.farm.livestock_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
+    req.session.data.farm.livestock_msreq_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
     next = 'type'
   }
   res.redirect(next)

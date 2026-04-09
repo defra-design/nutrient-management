@@ -3,7 +3,7 @@ var router = express.Router()
 
 var allFunctions = require('../functions/allFunctions.js');
 var callback_functions = require('./callbacks.js');
-var { LIVESTOCK_INVENTORY_IN_PROGRESS, LIVESTOCK_INVENTORY_COMPLETE, LIVESTOCK_INVENTORY_NO_LIVESTOCK } = require('./constants.js');
+
 
 
 // =============================================================================
@@ -111,7 +111,7 @@ router.get(/n_loading_submit_router/, function (req, res) {
       next = 'checklist';
       req.session.data.show_error = true;
   }
-  if (req.session.data.farm.livestock_loading == 'not_answered') {
+  if (req.session.data.farm.livestock_nloading_status == 'not_answered') {
       next = 'checklist'
       req.session.data.show_error = true
   }
@@ -198,15 +198,11 @@ router.get(/livestock_report_reset/, callback_functions.hideSuccessMessage, func
   res.redirect('livestock/manage_livestock')
 })
 
-// reports/n_loading/checklist.html (livestock row) → manage livestock or livestock_none or copy
+// reports/n_loading/checklist.html (livestock row) → manage livestock or livestock_none
 router.get(/livestock_loading_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
   let next = '/reports/n_loading/add_livestock/livestock_none'
-  if (req.session.data.farm.livestock_loading == 2 || req.session.data.farm.livestock_loading == 3) {
+  if (req.session.data.farm.livestock_nloading_status == 'ADDED_FOR_N_LOADING') {
       next = '/reports/n_loading/manage_livestock/index'
-  } else {
-      if (req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_COMPLETE) {
-          next = '/reports/n_loading/manage_livestock/copy'
-      }
   }
   res.redirect(next);
 })
@@ -215,45 +211,22 @@ router.get(/livestock_loading_handler/, callback_functions.hideSuccessMessage, c
 router.get(/livestock_loading_router/, callback_functions.hide_error, function (req, res) {
   let next = 'livestock_group'
   if (req.session.data.livestock_loading == 'no') {
-      req.session.data.farm.livestock_inventory = 'none'
-      req.session.data.farm.livestock_loading = 'none'
+      req.session.data.farm.livestock_nloading_status = 'none'
       next = '/reports/n_loading/checklist'
   }
   res.redirect(next);
 })
 
-// reports/storage_requirement/checklist.html (livestock row) → manage livestock or livestock_none or copy
+// reports/storage_requirement/checklist.html (livestock row) → manage livestock or livestock_none
 router.get(/livestock_requirement_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
   let next = 'add_livestock/livestock_none'
-  req.session.data.farm.livestock_inventory = 'none'
-  // if (req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_IN_PROGRESS || req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_COMPLETE) {
-  //     next = '/reports/storage_requirement/manage_livestock/index'
-  // } else {
-  //     if (req.session.data.farm.livestock_loading == 3) {
-  //         next = '/reports/storage_requirement/manage_livestock/copy'
-  //     }
   res.redirect(next);
 })
 
-// reports/n_loading/manage_livestock/copy.html → manage livestock (copies inventory numbers to n-loading)
-router.get(/livestock_copy_for_loading_handler/, function (req, res) {
-  let next = 'reports/n_loading/manage_livestock/index'
-  if (req.session.data.copy_inventory == 'yes') {
-    for (let x in req.session.data.livestock_record_plan_year) {
-      if (req.session.data.livestock_record_plan_year[x].numbers_for_inventory == 2) {
-          req.session.data.livestock_record_plan_year[x].numbers_for_nloading = 1
-      }
-    }
-    req.session.data.farm.livestock_loading = null
-  } else {
-    next = 'reports/n_loading/add_livestock/livestock_none'
-  }
-  res.redirect(next);
-})
 
 // reports/add_livestock/livestock_years.html → manage_livestock (existing) or derogation (new)
 router.get(/livestock_year_handler/, callback_functions.hideSuccessMessage, function (req, res) {
-  if (req.session.data.farm.livestock_loading == 'added') {
+  if (req.session.data.farm.livestock_nloading_status == 'added') {
       res.redirect('manage_livestock')
   } else {
       res.redirect('/reports/add_livestock/derogation')
@@ -346,7 +319,7 @@ router.get(/check_loading_lstock_handler/, function (req, res) {
       req.session.data.livestock_record_plan_year.push(req.session.data.chosen_livestock)
   }
   req.session.data.show_success_message = true;
-  req.session.data.farm.livestock_loading = 3;
+  req.session.data.farm.livestock_nloading_status = 'ADDED_FOR_N_LOADING';
   res.redirect('/reports/n_loading/manage_livestock/index')
 })
 
@@ -368,24 +341,6 @@ router.get(/manure_system_skip_handler/, callback_functions.hideSuccessMessage, 
   res.redirect(next)
 })
 
-
-// -------------------------
-// LIVESTOCK (INVENTORY)
-// Routes for adding livestock numbers used in the manure inventory report.
-// -------------------------
-
-// reports/manure_inventory/checklist.html (livestock row) → manage livestock or livestock_none or copy
-router.get(/livestock_inventory_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
-  let next = 'reports/manure_inventory/reports/add_livestock/livestock_none'
-  if (req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_IN_PROGRESS || req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_COMPLETE) {
-    next = 'reports/manure_inventory/manage_livestock/index'
-  } else {
-    if (req.session.data.farm.livestock_loading == 3) {
-        next = 'reports/manure_inventory/manage_livestock/copy'
-    }
-  }
-  res.redirect(next);
-})
 
 
 // -------------------------
@@ -436,7 +391,7 @@ router.get(/export_type_router/, callback_functions.hide_error, function (req, r
   if (req.session.data.imports_exports == 'no') {
       req.session.data.farm.imports_exports_status = 'NONE'
       if (req.session.data.export_type == '8') {
-          next = '/reports/manure_inventory/checklist'
+          next = '/reports/storage_requirement_mvp/checklist'
       } else if (req.session.data.export_type == '12') {
           next = '/reports/storage_requirement_mvp/checklist'
       } else {

@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Livestock added – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Livestock added
+      </h1>
+      <div class="govuk-panel__body">
+        {{data.chosen_livestock.name | capitalize}}
+      </div>
+    </div>
+
+    <p class="govuk-body">
+      <a href="livestock_question" class="govuk-link">Add another livestock type</a>
+    </p>
+
+    <p class="govuk-body">
+      <a href="/" class="govuk-link">Return to start</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

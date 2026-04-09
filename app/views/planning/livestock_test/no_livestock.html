@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  No livestock – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      No livestock to add
+    </h1>
+
+    <p class="govuk-body">
+      You have said there was no livestock on Oaktree Lane Farm in 2026.
+    </p>
+
+    <p class="govuk-body">
+      <a href="livestock_question" class="govuk-link">Change your answer</a>
+    </p>
+
+    <p class="govuk-body">
+      <a href="/" class="govuk-link">Return to start</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

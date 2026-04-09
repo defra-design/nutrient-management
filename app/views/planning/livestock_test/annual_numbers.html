@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Monthly numbers – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+{% macro monthitem(name, year) %}
+  <div class="govuk-form-group margin-bottom-thirty">
+    <label class="govuk-label" for="livestock_number_{{name | lower}}">
+      {{name}} {{year}}
+    </label>
+    <div class="govuk-input__wrapper">
+      <input class="govuk-input govuk-input--width-3" id="livestock_number_{{name | lower}}" name="livestock_number_{{name | lower}}" type="text" value="" spellcheck="false" autocomplete="off">
+      <div class="govuk-input__suffix" aria-hidden="true">
+        {{data.chosen_livestock.shortname}}
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      How many {{data.chosen_livestock.name | lower}} were on the farm each month?
+    </h1>
+
+    <p class="govuk-body">
+      Enter the average number for each month between October 2025 and September 2026.
+    </p>
+
+    <form action="annual_housing_list" method="post" novalidate="">
+
+      {{ monthitem ("October", "2025") }}
+      {{ monthitem ("November", "2025") }}
+      {{ monthitem ("December", "2025") }}
+      {{ monthitem ("January", "2026") }}
+      {{ monthitem ("February", "2026") }}
+      {{ monthitem ("March", "2026") }}
+      {{ monthitem ("April", "2026") }}
+      {{ monthitem ("May", "2026") }}
+      {{ monthitem ("June", "2026") }}
+      {{ monthitem ("July", "2026") }}
+      {{ monthitem ("August", "2026") }}
+
+      <div class="margin-bottom-forty">
+        {{ monthitem ("September", "2026") }}
+      </div>
+
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="livestock_question">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

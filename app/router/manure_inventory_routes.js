@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 
 var callback_functions = require('./callbacks.js');
-var { LIVESTOCK_INVENTORY_IN_PROGRESS, LIVESTOCK_INVENTORY_COMPLETE, LIVESTOCK_INVENTORY_NO_LIVESTOCK } = require('./constants.js');
+
 
 
 // =============================================================================
@@ -13,39 +13,6 @@ var { LIVESTOCK_INVENTORY_IN_PROGRESS, LIVESTOCK_INVENTORY_COMPLETE, LIVESTOCK_I
 // =============================================================================
 
 
-// -------------------------
-// LIVESTOCK (INVENTORY)
-// Routes for adding and managing livestock numbers for the inventory report.
-// -------------------------
-
-// reports/manure_inventory/checklist.html (livestock question) → livestock_group or checklist (no livestock)
-router.get(/livestock_inventory_router/, callback_functions.hide_error, function (req, res) {
-    let next
-    if (req.session.data.livestock_inventory == 'no') {
-        req.session.data.farm.livestock_inventory = LIVESTOCK_INVENTORY_NO_LIVESTOCK
-        req.session.data.farm.manure_system = 4
-        next = 'checklist'
-    } else {
-        next = 'livestock_group'
-    }
-    res.redirect(next);
-})
-
-// reports/manure_inventory/manage_livestock/copy.html → manage livestock (copies n-loading numbers to inventory)
-router.get(/livestock_copy_for_inventory_handler/, function (req, res) {
-  let next = 'reports/manure_inventory/manage_livestock/index'
-  if (req.session.data.copy_loading == 'yes') {
-      for (let x in req.session.data.livestock_record_plan_year) {
-          if (req.session.data.livestock_record_plan_year[x].numbers_for_nloading == 2) {
-              req.session.data.livestock_record_plan_year[x].numbers_for_inventory = 1
-          }
-      }
-      req.session.data.farm.livestock_inventory = LIVESTOCK_INVENTORY_IN_PROGRESS
-  } else {
-    next = 'reports/manure_inventory/reports/add_livestock/livestock_none'
-  }
-  res.redirect(next);
-})
 
 router.get(/get_manure_type_handler/, function (req, res) {
   //get object
@@ -82,7 +49,7 @@ router.get(/add_inventorynumbers_handler/, callback_functions.hide_error, functi
         }
     }
 	req.session.data.livestock_update_journey = true
-    res.redirect('/reports/manure_inventory/reports/add_livestock/annual_numbers');
+    res.redirect('/reports/storage_requirement_mvp/add_livestock/annual_numbers');
 })
 
 // reports/manure_inventory/manage_livestock/index → loads record for editing and goes to check
@@ -94,7 +61,7 @@ for (var reference in req.session.data.livestock_record_plan_year) {
   }
 }
 req.session.data.livestock_update_journey = true
-res.redirect('/reports/manure_inventory/reports/add_livestock/check');
+res.redirect('/reports/storage_requirement_mvp/add_livestock/check');
 })
 
 // add_livestock/check.html → inventory/manage_livestock (saves livestock numbers for inventory)
@@ -113,9 +80,8 @@ router.get(/check_inventory_lstock_handler/, function (req, res) {
       req.session.data.livestock_record_plan_year.push(req.session.data.chosen_livestock)
   }
   req.session.data.show_success_message = true;
-  req.session.data.farm.livestock_inventory = LIVESTOCK_INVENTORY_COMPLETE;
   req.session.data.mostly_manure = null
-  res.redirect('/reports/manure_inventory/manage_livestock/index')
+  res.redirect('/reports/storage_requirement_mvp/manage_livestock/index')
 })
 
 // add_livestock/check.html (storage requirement) → inventory/manage_livestock (saves numbers for requirement)
@@ -134,9 +100,9 @@ router.get(/check_requirement_lstock_handler/, function (req, res) {
       req.session.data.livestock_record_plan_year.push(req.session.data.chosen_livestock)
   }
   req.session.data.show_success_message = true;
-  req.session.data.farm.livestock_inventory = LIVESTOCK_INVENTORY_COMPLETE;
   req.session.data.mostly_manure = null
-  res.redirect('/reports/manure_inventory/manage_livestock/index')
+  req.session.data.farm.livestock_msreq_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
+  res.redirect('/reports/storage_requirement_mvp/manage_livestock/index')
 })
 
 // add_livestock/values.html (pig/poultry) → occupancy_and_standard or check
@@ -177,15 +143,9 @@ router.get(/add_manure_system_handler/, callback_functions.hide_error, callback_
     res.redirect('check');
 })
 
-// reports/manure_inventory/checklist.html (system row) → manage_collection or livestock_none
+// reports/storage_requirement_mvp/checklist.html (system row) → manage_collection
 router.get(/system_inventory_handler/, callback_functions.hide_error, callback_functions.hideSuccessMessage, function (req, res) {
-    let next = 'reports/manure_inventory/manage_collection/index'
-    if (req.session.data.farm.livestock_inventory == null) {
-        next = 'livestock_inventory_handler'
-    } else if (req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_NO_LIVESTOCK) {
-        next = 'reports/manure_inventory/reports/add_livestock/livestock_none'
-    }
-    res.redirect(next);
+    res.redirect('reports/manure_inventory/manage_collection/index');
 })
 
 // add_livestock/slurry_or_solid.html → slurry or solid
@@ -232,14 +192,10 @@ router.get(/storage_figures_handler/, callback_functions.hideSuccessMessage, fun
 // RAINWATER AREAS
 // -------------------------
 
-// reports/manure_inventory/checklist.html (water row) → manage_water or livestock_none
+// reports/storage_requirement_mvp/checklist.html (water row) → manage_water or water_none
 router.get(/water_inventory_handler/, callback_functions.hide_error, callback_functions.hideSuccessMessage, function (req, res) {
     let next = 'water_none'
-    if (req.session.data.farm.livestock_inventory == null) {
-        next = 'livestock_inventory_handler'
-    } else if (req.session.data.farm.livestock_inventory == LIVESTOCK_INVENTORY_NO_LIVESTOCK) {
-        next = 'reports/manure_inventory/reports/add_livestock/livestock_none'
-    } else if (req.session.data.farm.wash_water == true) {
+    if (req.session.data.farm.wash_water == true) {
         next = 'reports/manure_inventory/manage_water/index'
     }
     res.redirect(next);
@@ -326,7 +282,7 @@ router.get(/add_wash_water_details_handler/, callback_functions.hide_error, call
 // LOW RUN-OFF RISK LAND
 // -------------------------
 
-// reports/manure_inventory/checklist.html (land row) → add_land/check (existing) or add_land/land_options (new)
+// reports/storage_requirement_mvp/checklist.html (land row) → add_land/check (existing) or add_land/land_options (new)
 router.get(/lowrisk_land_handler/, function (req, res) {
   let next = './add_land/land_options'
   if (req.session.data.farm.low_risk_land_added == 2) {
@@ -342,7 +298,7 @@ router.get(/low_risk_land_handler/, callback_functions.hideSuccessMessage, funct
     let next = 'area'
     req.session.data.farm.low_risk_land_added = 2
     if (req.session.data.low_risk_land == 'no') {
-        next = 'reports/manure_inventory/checklist'
+        next = 'reports/storage_requirement_mvp/checklist'
         req.session.data.farm.low_risk_land_added = 4
     }
     res.redirect(next)
@@ -351,7 +307,7 @@ router.get(/low_risk_land_handler/, callback_functions.hideSuccessMessage, funct
 // add_land/check.html → checklist (saves low risk land)
 router.get(/landcheck_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.farm.low_risk_land_added = 2;
-    res.redirect('/reports/manure_inventory/checklist')
+    res.redirect('/reports/storage_requirement_mvp/checklist')
 })
 
 
@@ -359,7 +315,7 @@ router.get(/landcheck_handler/, callback_functions.showSuccessMessage, function 
 // IMPORTS AND EXPORTS (INVENTORY)
 // -------------------------
 
-// reports/manure_inventory/checklist.html (imports/exports row) → manage_exports or export_none
+// reports/storage_requirement_mvp/checklist.html (imports/exports row) → manage_exports or export_none
 router.get(/inventory_importexport_handler/, function (req, res) {
   let next = '/planning/add_export/export_none'
   if (req.session.data.farm.imports_exports_status != null && req.session.data.farm.imports_exports_status != 'NONE') {
@@ -373,14 +329,14 @@ router.get(/inventory_importexport_handler/, function (req, res) {
 // GENERATE REPORT
 // -------------------------
 
-// reports/manure_inventory/checklist.html (generate report) → report or checklist (if incomplete)
+// reports/storage_requirement_mvp/checklist.html (generate report) → report or checklist (if incomplete)
 router.get(/inventory_submit_router/, function (req, res) {
     let next = 'report'
     if ((req.session.data.farm.imports_exports == null)) {
         next = 'checklist';
         req.session.data.show_error = true;
     }
-    if (req.session.data.farm.livestock_loading == false) {
+    if (req.session.data.farm.livestock_nloading_status == false) {
         next = 'checklist'
         req.session.data.show_error = true
     }

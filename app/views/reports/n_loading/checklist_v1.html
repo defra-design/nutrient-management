@@ -30,7 +30,7 @@
             </h2>
             <div class="govuk-error-summary__body">
               <ul class="govuk-list govuk-error-summary__list">
-                {% if data.farm.livestock_loading == false %}
+                {% if data.farm.livestock_nloading_status == false %}
                   <li>
                     <a href="#">Livestock numbers for {{data.farm.planning_year}} must be completed</a>
                   </li>
@@ -89,7 +89,7 @@
               </a>
             </div>
             <div class="govuk-task-list__status" id="before-you-start-2-status">
-              {% if data.farm.livestock_loading == false %}
+              {% if data.farm.livestock_nloading_status == false %}
                 <strong class="govuk-tag govuk-tag--blue">Incomplete</strong>
               {% else %}
                 Completed

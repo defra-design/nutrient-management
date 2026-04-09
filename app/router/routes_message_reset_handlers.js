@@ -129,7 +129,7 @@ router.get(/reset_manage_livestock_message_handler/, callback_functions.hideSucc
 // clears success message and sets journey to 'add' before starting n-loading livestock add
 router.get(/reset_add_loading_lstock/, callback_functions.hideSuccessMessage, function (req, res) {
     req.session.data.livestock_update_journey = false;
-    res.redirect('/reports/add_livestock/livestock_group');
+    res.redirect('/reports/n_loading/add_livestock/livestock_group');
 })
 
 
@@ -140,17 +140,17 @@ router.get(/reset_add_loading_lstock/, callback_functions.hideSuccessMessage, fu
 // clears success message and sets journey to 'add' before starting inventory livestock add
 router.get(/reset_add_inventory_lstock/, callback_functions.hideSuccessMessage, function (req, res) {
     req.session.data.livestock_update_journey = false;
-    res.redirect('/reports/manure_inventory/livestock_group');
+    res.redirect('/reports/storage_requirement_mvp/add_livestock/livestock_group');
 })
 
 // clears success message before returning to inventory manage livestock numbers
 router.get(/reset_numbers_livestock_inventory_handler/, callback_functions.hideSuccessMessage, function (req, res) {
-    res.redirect('/reports/manure_inventory/manage_livestock/numbers')
+    res.redirect('/reports/storage_requirement_mvp/manage_livestock/numbers')
 })
 
 // clears success message before returning to inventory manage livestock index
 router.get(/reset_manage_livestock_inventory_handler/, callback_functions.hideSuccessMessage, function (req, res) {
-    res.redirect('/reports/manure_inventory/manage_livestock/index')
+    res.redirect('/reports/storage_requirement_mvp/manage_livestock/index')
 })
 
 

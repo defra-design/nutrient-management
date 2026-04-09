@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var allFunctions = require('../functions/allFunctions.js');
-var { LIVESTOCK_INVENTORY_IN_PROGRESS, LIVESTOCK_INVENTORY_COMPLETE } = require('./constants.js');
+
 
 function startFarm(type) {
   let obj = {
@@ -17,16 +17,11 @@ function startFarm(type) {
     setup: false,
     fields_added: false,
     grass_setup: false,
-    // livestock statuses
-    // 1 Nothing added: null (incomplete)
-    // 2 Copied from loading: copied (incomplete)
-    // 3 Added for inventory: added (complete)
-    livestock_loading: null,
-    livestock_inventory: null,
+    livestock_nloading_status: null,
+    livestock_msreq_status: null,
     //new
     area_added: null,
     rain_water_area_added: null,
-    livestock_status: null,
     imports_exports_status: null,
     manure_stores_status: null,
     storage_figures: false,
@@ -101,8 +96,7 @@ router.get(/setup_handler_everything/, function (req, res) {
     req.session.data.show_info = false
     req.session.data.farm.years_planned.push(2026)
     req.session.data.farm.area_added = true
-    req.session.data.farm.livestock_loading = 2
-    req.session.data.farm.livestock_inventory = LIVESTOCK_INVENTORY_IN_PROGRESS
+    req.session.data.farm.livestock_nloading_status = 'ADDED_FOR_N_LOADING'
     req.session.data.farm.manure_system = 2
     req.session.data.farm.manure_system_details = 2
     req.session.data.farm.derogation = false
@@ -175,25 +169,10 @@ router.get(/setup_handler_livestock_nloading/, function (req, res) {
       req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[x])
     })
 
-    req.session.data.farm.livestock_loading = 3;
+    req.session.data.farm.livestock_nloading_status = 'ADDED_FOR_N_LOADING';
     res.redirect('start')
 })
 
-// #9 - Livestock added for inventory and storage
-router.get(/setup_handler_livestock_inventory/, function (req, res) {
-    req.session.data.farm = startFarm('basic')
-    req.session.data.all_fields = [req.session.data.field_list_data[0], req.session.data.field_list_data[16]]
-    req.session.data.show_info = false
-    req.session.data.farm.livestock_inventory = LIVESTOCK_INVENTORY_COMPLETE;
-
-    // Livestock
-    const livestock_list = [0,1,2,3,24]
-    livestock_list.forEach(x => {
-      req.session.data.livestock_type_data[x].numbers_for_inventory = 2
-      req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[x])
-    })
-    res.redirect('start')
-})
 
 // #10 - Livestock added for inventory and storage
 router.get(/setup_handler_manure_storage/, function (req, res) {
@@ -218,7 +197,6 @@ router.get(/setup_handler_livestock_storage/, function (req, res) {
       req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[x])
     })
 
-    req.session.data.farm.livestock_inventory = LIVESTOCK_INVENTORY_COMPLETE;
     res.redirect('start')
 })
 

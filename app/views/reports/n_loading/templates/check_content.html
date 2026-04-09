@@ -20,6 +20,6 @@
 <ul class="govuk-task-list">
   {{ taskListItem("Derogation", "derogation", data.farm.derogation) }} 
   {{ taskListItem("Farm area", "area", data.farm.area_added) }} 
-  {{ taskListItem("Livestock details", "livestock_loading_handler", null) }}
+  {{ taskListItem("Livestock details", "livestock_loading_handler", data.farm.livestock_nloading_status == 'ADDED_FOR_N_LOADING' or data.farm.livestock_nloading_status == 'none') }}
   {{ taskListItem("Imports and exports of livestock manure", "inventory_importexport_handler", null) }}
 </ul>

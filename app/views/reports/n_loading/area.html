@@ -28,32 +28,32 @@
         <p class="govuk-hint">Do not include surface water, buildings, yards and woodland, unless used for grazing.</p>
 
         <div class="govuk-form-group margin-bottom-thirty">
-          <label class="govuk-label" for="livestock_number">
+          <label class="govuk-label" for="totalFarmArea">
             What is the total farm area<span class="govuk-visually-hidden">, in hectares</span>?
           </label>
           <div class="govuk-input__wrapper">
-            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <input class="govuk-input govuk-input--width-5" id="totalFarmArea" name="totalFarmArea" type="text" spellcheck="false" autocomplete="off" value="{{ data.totalFarmArea }}">
             <div class="govuk-input__suffix" aria-hidden="true">hectares</div>
           </div>
         </div>
 
         <div class="govuk-form-group margin-bottom-thirty">
-          <label class="govuk-label" for="livestock_number">
+          <label class="govuk-label" for="nvzArea">
             What is the total area in an NVZ<span class="govuk-visually-hidden">, in hectares</span>?
           </label>
           <div class="govuk-input__wrapper">
-            <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+            <input class="govuk-input govuk-input--width-5" id="nvzArea" name="nvzArea" type="text" spellcheck="false" autocomplete="off" value="{{ data.nvzArea }}">
             <div class="govuk-input__suffix" aria-hidden="true">hectares</div>
           </div>
         </div>
 
         {% if data.farm.derogation == true %}
           <div class="govuk-form-group margin-bottom-thirty">
-            <label class="govuk-label" for="livestock_number">
+            <label class="govuk-label" for="grassPercentage">
               What percentage of the land is farmed as grass?
             </label>
             <div class="govuk-input__wrapper">
-              <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" spellcheck="false" autocomplete="off">
+              <input class="govuk-input govuk-input--width-5" id="grassPercentage" name="grassPercentage" type="text" spellcheck="false" autocomplete="off" value="{{ data.grassPercentage }}">
               <div class="govuk-input__suffix" aria-hidden="true">%</div>
             </div>
           </div>

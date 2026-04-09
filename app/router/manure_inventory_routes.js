@@ -84,27 +84,6 @@ router.get(/set_export_defaults_handler/, function (req, res) {
     res.redirect('comments')
 })
 
-router.get(/exportcheck_handler/, function (req, res) {
-  req.session.data.show_success_message = true;
-  req.session.data.farm.imports_exports = 2;
-  if (req.session.data.imports_exports == 'export') {
-      req.session.data.farm.manure_exports = true;
-  } else {
-      req.session.data.farm.manure_imports = true;
-  }
-  if (req.session.data.export_type == '12') {
-      req.session.data.farm.imports_exports_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
-  }
-  //reset defaults
-  req.session.data.manure_type.name = null
-  req.session.data.manure_group_id = null
-  req.session.data.exported_day = null
-  req.session.data.exported_month = null
-  req.session.data.exported_year = null
-  req.session.data.export_total = null
-  res.redirect('/management/farm/exports/manage_exports')
-})
-
 router.get(/export_year_handler/, callback_functions.hideSuccessMessage, function (req, res) { 
 	let next = 'planning/add_export/export_type'
   if (req.session.data.farm.manure_exports == true || req.session.data.farm.manure_imports == true ) {
@@ -451,8 +430,8 @@ router.get(/landcheck_handler/, callback_functions.showSuccessMessage, function 
 // reports/manure_inventory/checklist.html (imports/exports row) → manage_exports or export_none
 router.get(/inventory_importexport_handler/, function (req, res) {
   let next = '/planning/add_export/export_none'
-  if (req.session.data.farm.imports_exports == 2) {
-      next = '/reports/storage_requirement_mvp/reset_manage_exports_message_handler'
+  if (req.session.data.farm.imports_exports_status != null && req.session.data.farm.imports_exports_status != 'NONE') {
+      next = '/reset_manage_exports_message_handler'
   }
   res.redirect(next);
 })

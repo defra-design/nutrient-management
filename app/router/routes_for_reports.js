@@ -107,7 +107,7 @@ router.get(/n_loading_submit_router/, function (req, res) {
       next = 'checklist';
       req.session.data.show_error = true;
   }
-  if ((req.session.data.farm.imports_exports == null)) {
+  if ((req.session.data.farm.imports_exports_status == null)) {
       next = 'checklist';
       req.session.data.show_error = true;
   }
@@ -434,18 +434,13 @@ router.get(/inventory_export_handler/, callback_functions.hide_error, function (
 router.get(/export_type_router/, callback_functions.hide_error, function (req, res) {
   let next = 'export_type'
   if (req.session.data.imports_exports == 'no') {
-      req.session.data.farm.imports_exports = 4
+      req.session.data.farm.imports_exports_status = 'NONE'
       if (req.session.data.export_type == '8') {
           next = '/reports/manure_inventory/checklist'
       } else if (req.session.data.export_type == '12') {
-          req.session.data.farm.imports_exports_status = 'NONE'
           next = '/reports/storage_requirement_mvp/checklist'
       } else {
           next = '/reports/n_loading/checklist'
-      }
-  } else {
-      if (req.session.data.export_type == '12') {
-          req.session.data.farm.imports_exports_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
       }
   }
   res.redirect(next)
@@ -475,11 +470,17 @@ router.get(/set_export_defaults_handler/, function (req, res) {
 // add_export/check.html → manage_exports (saves the export/import record and resets temp vars)
 router.get(/exportcheck_handler/, function (req, res) {
   req.session.data.show_success_message = true;
-  req.session.data.farm.imports_exports = 2;
   if (req.session.data.imports_exports == 'export') {
       req.session.data.farm.manure_exports = true;
   } else {
       req.session.data.farm.manure_imports = true;
+  }
+  if (req.session.data.farm.manure_exports && req.session.data.farm.manure_imports) {
+      req.session.data.farm.imports_exports_status = 'IMPORT_AND_EXPORT_ADDED'
+  } else if (req.session.data.farm.manure_exports) {
+      req.session.data.farm.imports_exports_status = 'EXPORT_ADDED'
+  } else {
+      req.session.data.farm.imports_exports_status = 'IMPORT_ADDED'
   }
   //reset temp vars
   req.session.data.manure_type.name = null

@@ -1,85 +1,25 @@
+{% macro taskListItem(label, href, isAnswered) %}
+<li class="govuk-task-list__item govuk-task-list__item--with-link">
+  <div class="govuk-task-list__name-and-hint">
+    <a class="govuk-link govuk-task-list__link" href="{{ href }}">
+      {{ label }}
+    </a>
+  </div>
+  <div class="govuk-task-list__status">
+    {% if isAnswered %}
+      Completed
+    {% else %}
+      <strong class="govuk-tag govuk-tag--blue">
+        Incomplete
+      </strong>
+    {% endif %}
+  </div>
+</li>
+{% endmacro %}
+
 <ul class="govuk-task-list">
-
-  <li class="govuk-task-list__item govuk-task-list__item--with-link">
-    <div class="govuk-task-list__name-and-hint">
-      <a class="govuk-link govuk-task-list__link" href="derogation" aria-describedby="company-details-1-status">
-        Derogation
-      </a>
-    </div>
-    {% if data.farm.derogation != null %}
-      <div class="govuk-task-list__status" id="company-details-1-status">
-        Completed
-      </div>
-    {% else %}
-      <div class="govuk-task-list__status" id="company-details-4-status">
-        <strong class="govuk-tag govuk-tag--blue">
-          Incomplete
-        </strong>
-      </div>
-    {% endif %}
-  </li>
-
-  <!-- AREA -->
-  <li class="govuk-task-list__item govuk-task-list__item--with-link">
-    {% if data.farm.area_added == true %}
-      <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="area" aria-describedby="company-details-1-status">
-          Farm area
-        </a>
-      </div>
-      <div class="govuk-task-list__status" id="company-details-1-status">
-        Completed
-      </div>
-    {% else %}
-      <div class="govuk-task-list__name-and-hint">
-        <a class="govuk-link govuk-task-list__link" href="area" aria-describedby="company-details-1-status">
-          Farm area
-        </a>
-      </div>
-      <div class="govuk-task-list__status" id="company-details-4-status">
-        <strong class="govuk-tag govuk-tag--blue">
-          Incomplete
-        </strong>
-      </div>
-    {% endif %}
-  </li>
-
-   <!-- LIVESTOCK UPDATED -->
-  <li class="govuk-task-list__item govuk-task-list__item--with-link">
-    <div class="govuk-task-list__name-and-hint">
-      <a class="govuk-link govuk-task-list__link" href="livestock_loading_handler">
-        Livestock details
-      </a>
-    </div>
-    <div class="govuk-task-list__status" id="loading-list-4-status">
-      {% if data.farm.livestock_loading == 'none' or data.farm.livestock_loading == null or data.farm.livestock_loading == 'done' %}
-        Completed
-      {% else %}
-        <strong class="govuk-tag govuk-tag--blue">
-          Incomplete
-        </strong>
-      {% endif %}
-    </div>
-  </li>
-
-  <!-- IMPORTS AND EXPORTS -->
-  <li class="govuk-task-list__item govuk-task-list__item--with-link">
-    <div class="govuk-task-list__name-and-hint">
-      <a class="govuk-link govuk-task-list__link" href="inventory_importexport_handler" aria-describedby="company-details-1-status">
-        Imports and exports of livestock manure
-      </a>
-    </div>
-    {% if data.farm.imports_exports_status != null %}
-      <div class="govuk-task-list__status" id="company-details-1-status">
-        Completed
-      </div>
-    {% else %}
-      <div class="govuk-task-list__status" id="company-details-4-status">
-        <strong class="govuk-tag govuk-tag--blue">
-          Incomplete
-        </strong>
-      </div>
-    {% endif %}
-  </li>
-
+  {{ taskListItem("Derogation", "derogation", data.farm.derogation) }} 
+  {{ taskListItem("Farm area", "area", data.farm.area_added) }} 
+  {{ taskListItem("Livestock details", "livestock_loading_handler", null) }}
+  {{ taskListItem("Imports and exports of livestock manure", "inventory_importexport_handler", null) }}
 </ul>

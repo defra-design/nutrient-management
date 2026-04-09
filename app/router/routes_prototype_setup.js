@@ -36,7 +36,6 @@ function startFarm(type) {
     manure_system: null,
     manure_system_details: false,
     wash_water: false,
-    imports_exports: null,
     rainfall: 600,
     derogation: null,
     ewr: null,
@@ -109,7 +108,7 @@ router.get(/setup_handler_everything/, function (req, res) {
     req.session.data.farm.derogation = false
     req.session.data.farm.manure_imports = true
     req.session.data.farm.manure_exports = true
-    req.session.data.farm.imports_exports = 2
+    req.session.data.farm.imports_exports_status = 'IMPORT_AND_EXPORT_ADDED'
     req.session.data.extra_features = true
 
     // livestock
@@ -209,7 +208,7 @@ router.get(/setup_handler_livestock_storage/, function (req, res) {
     req.session.data.farm = startFarm('storage')
     req.session.data.all_fields = [req.session.data.field_list_data[0], req.session.data.field_list_data[16]]
     req.session.data.show_info = false
-    req.session.data.farm.imports_exports = 2
+    req.session.data.farm.imports_exports_status = 'EXPORT_ADDED'
     req.session.data.farm.storage_figures = true
 
     // livestock
@@ -231,7 +230,7 @@ router.get(/setup_handler_inventory_imports/, function (req, res) {
     req.session.data.farm.years_planned.push(2026)
     req.session.data.farm.area_added = true
     req.session.data.farm.manure_imports = true
-    req.session.data.farm.imports_exports = 2
+    req.session.data.farm.imports_exports_status = 'IMPORT_ADDED'
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [8, 12], 'Beans-Winter', 1)
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [1, 4, 5, 6, 7, 14], 'Wheat-Winter', 2)
     req.session.data.all_fields = allFunctions.setCropAndGroupId(req.session.data.all_fields, [10, 11, 18, 19], 'grass', 3)

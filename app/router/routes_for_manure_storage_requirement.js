@@ -28,8 +28,30 @@ router.get(/livestock_question_router/, function (req, res) {
     req.session.data.farm.livestock_msreq_status = 'NONE'
     next = '../checklist'
   } else if (req.session.data.livestock_question == 'yes') {
+    // if NLO livestock has been added, offer to copy it across
+    if (req.session.data.farm.livestock_nloading_status == 'ADDED_FOR_N_LOADING') {
+      next = '/reports/storage_requirement_mvp/manage_livestock/copy'
+    } else {
+      next = 'type'
+    }
+  }
+  res.redirect(next)
+})
+
+// manage_livestock/copy.html → manage_livestock (copies NLO records) or add_livestock/type (start fresh)
+router.get(/livestock_copy_for_inventory_handler/, function (req, res) {
+  let next
+  if (req.session.data.copy_loading == 'yes') {
+    req.session.data.livestock_record_plan_year.forEach(function (record) {
+      if (record.numbers_for_nloading != null) {
+        record.numbers_for_requirement = record.numbers_for_nloading
+      }
+    })
     req.session.data.farm.livestock_msreq_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
-    next = 'type'
+    req.session.data.show_success_message = true
+    next = '/reports/storage_requirement_mvp/manage_livestock/index'
+  } else {
+    next = '/reports/storage_requirement_mvp/add_livestock/type'
   }
   res.redirect(next)
 })

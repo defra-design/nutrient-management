@@ -174,6 +174,23 @@ router.get(/setup_handler_livestock_nloading/, function (req, res) {
 })
 
 
+// #9 - Livestock added for MREQ (manure inventory and storage requirement)
+router.get(/setup_handler_livestock_inventory/, function (req, res) {
+    req.session.data.farm = startFarm('storage')
+    req.session.data.all_fields = [req.session.data.field_list_data[0], req.session.data.field_list_data[16]]
+    req.session.data.show_info = false
+
+    const livestock_list = [0,1,2,3,4,5,24]
+    livestock_list.forEach(x => {
+      req.session.data.livestock_type_data[x].numbers_for_requirement = 2
+      req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[x])
+    })
+
+    req.session.data.farm.livestock_msreq_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
+    res.redirect('start')
+})
+
+
 // #10 - Livestock added for inventory and storage
 router.get(/setup_handler_manure_storage/, function (req, res) {
     req.session.data.farm = startFarm('storage')

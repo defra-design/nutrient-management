@@ -48,8 +48,12 @@ router.get(/add_inventorynumbers_handler/, callback_functions.hide_error, functi
             req.session.data.livestock_group = req.session.data.livestock_record_plan_year[reference].type
         }
     }
-	req.session.data.livestock_update_journey = true
-    res.redirect('/reports/storage_requirement_mvp/add_livestock/annual_numbers');
+    req.session.data.livestock_update_journey = true
+    let next = '/reports/storage_requirement_mvp/add_livestock/annual_numbers'
+    if (req.session.data.farm.livestock_msreq_status == 'ADDED_FOR_STORAGE_REQUIREMENT') {
+        next = '/reports/storage_requirement_mvp/add_livestock/check'
+    }
+    res.redirect(next)
 })
 
 // reports/manure_inventory/manage_livestock/index → loads record for editing and goes to check

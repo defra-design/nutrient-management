@@ -207,19 +207,42 @@ router.get(/livestock_loading_handler/, callback_functions.hideSuccessMessage, c
   res.redirect(next);
 })
 
-// reports/n_loading/checklist.html (no livestock question) → livestock_group or checklist (no livestock)
+// n_loading/manage_livestock/copy.html → manage livestock (copies MREQ records) or livestock_none (start fresh)
+router.get(/livestock_copy_for_loading_handler/, function (req, res) {
+  let next
+  if (req.session.data.copy_inventory == 'yes') {
+    req.session.data.livestock_record_plan_year.forEach(function (record) {
+      if (record.numbers_for_requirement != null) {
+        record.numbers_for_nloading = record.numbers_for_requirement
+      }
+    })
+    req.session.data.farm.livestock_nloading_status = 'ADDED_FOR_N_LOADING'
+    req.session.data.show_success_message = true
+    next = '/reports/n_loading/manage_livestock/index'
+  } else {
+    next = '/reports/n_loading/add_livestock/livestock_none'
+  }
+  res.redirect(next)
+})
+
+// reports/n_loading/checklist.html (no livestock question) → copy screen, livestock_group, or checklist (no livestock)
 router.get(/livestock_loading_router/, callback_functions.hide_error, function (req, res) {
   let next = 'livestock_group'
   if (req.session.data.livestock_loading == 'no') {
       req.session.data.farm.livestock_nloading_status = 'none'
       next = '/reports/n_loading/checklist'
+  } else if (req.session.data.farm.livestock_msreq_status == 'ADDED_FOR_STORAGE_REQUIREMENT') {
+      next = '/reports/n_loading/manage_livestock/copy'
   }
   res.redirect(next);
 })
 
-// reports/storage_requirement/checklist.html (livestock row) → manage livestock or livestock_none
+// reports/storage_requirement/checklist.html (livestock row) → manage livestock or livestock_question
 router.get(/livestock_requirement_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
-  let next = 'add_livestock/livestock_none'
+  let next = '/reports/storage_requirement_mvp/add_livestock/livestock_question'
+  if (req.session.data.farm.livestock_msreq_status == 'ADDED_FOR_STORAGE_REQUIREMENT') {
+    next = '/reports/storage_requirement_mvp/manage_livestock/index'
+  }
   res.redirect(next);
 })
 
@@ -295,10 +318,12 @@ router.get(/add_loadingnumbers_handler/, callback_functions.hide_error, function
       req.session.data.livestock_group = req.session.data.livestock_record_plan_year[reference].type
     }
   }
-  if (req.session.data.chosen_livestock.type != 'pig' && req.session.data.chosen_livestock.type != 'poultry') {
-    next = 'reports/n_loading/add_livestock/livestock_number_question'
+  if (req.session.data.farm.livestock_nloading_status == 'ADDED_FOR_N_LOADING') {
+    next = '/reports/n_loading/add_livestock/check'
+  } else if (req.session.data.chosen_livestock.type != 'pig' && req.session.data.chosen_livestock.type != 'poultry') {
+    next = '/reports/n_loading/add_livestock/livestock_number_question'
   } else {
-    next = 'reports/n_loading/add_livestock/livestock_numbers_average'
+    next = '/reports/n_loading/add_livestock/livestock_numbers_average'
   }
   res.redirect(next)
 })

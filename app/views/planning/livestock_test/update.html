@@ -21,10 +21,8 @@
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
     <h1 class="govuk-heading-l">
-      Check your answers
+      Update livestock details
     </h1>
-
-    <h2 class="govuk-heading-m">Livestock details</h2>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
@@ -93,9 +91,9 @@
     {{ monthsection("August 2026") }}
     {{ monthsection("September 2026") }}
 
-    <form action="ltest_check_handler" method="post" novalidate>
+    <form action="ltest_update_handler" method="post" novalidate>
       {{ govukButton({
-        text: "Add this livestock"
+        text: "Update this livestock"
       }) }}
     </form>
 

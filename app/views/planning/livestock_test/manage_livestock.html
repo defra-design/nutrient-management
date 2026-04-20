@@ -20,14 +20,25 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% if data.show_success_message == true %}
+    {% if data.successMessage == 'LIVESTOCK_ADDED' %}
       <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
         <div class="govuk-notification-banner__header">
           <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Success</h2>
         </div>
         <div class="govuk-notification-banner__content">
-          <h3 class="govuk-notification-banner__heading">You have added livestock</h3>
+          <h3 class="govuk-notification-banner__heading">You have added a livestock type</h3>
           <p class="govuk-body"><a class="govuk-notification-banner__link" href="ltest_reset_add">Add another livestock type</a></p>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if data.successMessage == 'LIVESTOCK_UPDATED' %}
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Success</h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading">You have updated a livestock type</h3>
         </div>
       </div>
     {% endif %}
@@ -48,7 +59,7 @@
   <div class="govuk-grid-column-full">
 
     <hr class="margin-bottom-thirty">
-    {% include "/reports/storage_requirement_mvp/manage_livestock/templates/manage/table_manager.html" ignore missing %}
+    {% include "/planning/livestock_test/templates/table_manager.html" ignore missing %}
 
   </div>
 </div>

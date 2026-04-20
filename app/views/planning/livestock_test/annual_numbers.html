@@ -25,7 +25,7 @@
     <div class="govuk-input__wrapper">
       <input class="govuk-input govuk-input--width-3" id="livestock_number_{{name | lower}}" name="livestock_number_{{name | lower}}" type="text" value="" spellcheck="false" autocomplete="off">
       <div class="govuk-input__suffix" aria-hidden="true">
-        {% if data.livestock_group == 'pig' %}places{% else %}{{data.chosen_livestock.shortname}}{% endif %}
+        {% if data.livestock_group == 'pig' %}places{% elif data.livestock_group == 'poultry' %}thousand places{% else %}{{data.chosen_livestock.shortname}}{% endif %}
       </div>
     </div>
   </div>

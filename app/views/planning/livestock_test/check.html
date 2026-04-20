@@ -59,7 +59,7 @@
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Number</dt>
-          <dd class="govuk-summary-list__value">50 {% if data.livestock_group == 'pig' %}places{% else %}{{data.chosen_livestock.shortname}}{% endif %}</dd>
+          <dd class="govuk-summary-list__value">50 {% if data.livestock_group == 'pig' %}places{% elif data.livestock_group == 'poultry' %}thousand places{% else %}{{data.chosen_livestock.shortname}}{% endif %}</dd>
           <dd class="govuk-summary-list__actions"><a href="annual_housing_single">Change</a></dd>
         </div>
         <div class="govuk-summary-list__row">

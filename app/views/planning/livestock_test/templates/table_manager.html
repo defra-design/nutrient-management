@@ -1,0 +1,43 @@
+{% set show_cattle = false %}
+{% set show_pigs = false %}
+{% set show_poultry = false %}
+{% set show_sheep = false %}
+{% set show_other = false %}
+
+{% for animal in data.ltestLivestock %}
+  {% if animal.type == 'cattle' %}{% set show_cattle = true %}{% endif %}
+  {% if animal.type == 'pig' %}{% set show_pigs = true %}{% endif %}
+  {% if animal.type == 'poultry' %}{% set show_poultry = true %}{% endif %}
+  {% if animal.type == 'sheep' %}{% set show_sheep = true %}{% endif %}
+  {% if animal.type == 'other' %}{% set show_other = true %}{% endif %}
+{% endfor %}
+
+{% if show_cattle == true %}
+{% set livestock_type = 'cattle' %}
+  <h2 class="govuk-heading-m non-standard margin-top-thirty">Cattle</h2>
+  {% include "/planning/livestock_test/templates/livestock_checklist_template.html" ignore missing %}
+{% endif %}
+
+{% if show_pigs == true %}
+{% set livestock_type = 'pig' %}
+  <h2 class="govuk-heading-m non-standard margin-top-thirty">Pigs</h2>
+  {% include "/planning/livestock_test/templates/livestock_checklist_template.html" ignore missing %}
+{% endif %}
+
+{% if show_poultry == true %}
+{% set livestock_type = 'poultry' %}
+  <h2 class="govuk-heading-m non-standard margin-top-thirty">Poultry</h2>
+  {% include "/planning/livestock_test/templates/livestock_checklist_template.html" ignore missing %}
+{% endif %}
+
+{% if show_sheep == true %}
+{% set livestock_type = 'sheep' %}
+  <h2 class="govuk-heading-m non-standard margin-top-thirty">Sheep</h2>
+  {% include "/planning/livestock_test/templates/livestock_checklist_template.html" ignore missing %}
+{% endif %}
+
+{% if show_other == true %}
+{% set livestock_type = 'other' %}
+  <h2 class="govuk-heading-m non-standard margin-top-thirty">Goats, Deer and Horses</h2>
+  {% include "/planning/livestock_test/templates/livestock_checklist_template.html" ignore missing %}
+{% endif %}

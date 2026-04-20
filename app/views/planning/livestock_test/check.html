@@ -54,6 +54,41 @@
       {% endif %}
     </dl>
 
+    {% macro housingrows(month) %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">{{month}} time housed</dt>
+        <dd class="govuk-summary-list__value">50%</dd>
+        <dd class="govuk-summary-list__actions"><a href="annual_housing_single">Change</a></dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">{{month}} slurry collected</dt>
+        <dd class="govuk-summary-list__value">50%</dd>
+        <dd class="govuk-summary-list__actions"><a href="annual_housing_single">Change</a></dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">{{month}} bedding factor</dt>
+        <dd class="govuk-summary-list__value">1.3</dd>
+        <dd class="govuk-summary-list__actions"><a href="annual_housing_single">Change</a></dd>
+      </div>
+    {% endmacro %}
+
+    <h2 class="govuk-heading-m">Housing and slurry</h2>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      {{ housingrows("October") }}
+      {{ housingrows("November") }}
+      {{ housingrows("December") }}
+      {{ housingrows("January") }}
+      {{ housingrows("February") }}
+      {{ housingrows("March") }}
+      {{ housingrows("April") }}
+      {{ housingrows("May") }}
+      {{ housingrows("June") }}
+      {{ housingrows("July") }}
+      {{ housingrows("August") }}
+      {{ housingrows("September") }}
+    </dl>
+
     <form action="ltest_check_handler" method="post" novalidate>
       {{ govukButton({
         text: "Add this livestock"

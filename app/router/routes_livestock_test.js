@@ -11,14 +11,18 @@ var allFunctions = require('../functions/allFunctions.js');
 // =============================================================================
 
 
-// livestock_question.html → livestock_type (yes, hardcoded to cattle) or no_livestock (no)
+// livestock_question.html → type (yes) or no_livestock (no)
 router.get(/ltest_question_router/, function (req, res) {
   if (req.session.data.livestock_question == 'yes') {
-    req.session.data.livestock_group = 'cattle'
-    res.redirect('/planning/livestock_test/livestock_type')
+    res.redirect('/planning/livestock_test/type')
   } else {
     res.redirect('/planning/livestock_test/no_livestock')
   }
+})
+
+// type.html → livestock_type (captures livestock_group from form)
+router.get(/ltest_group_handler/, function (req, res) {
+  res.redirect('/planning/livestock_test/livestock_type')
 })
 
 // livestock_type.html → annual_numbers (resolves chosen_livestock from selected reference)
@@ -35,11 +39,11 @@ router.get(/ltest_check_handler/, function (req, res) {
   res.redirect('/planning/livestock_test/manage_livestock')
 })
 
-// manage_livestock.html "Add a livestock type" → livestock_type (resets journey state)
+// manage_livestock.html "Add a livestock type" → type (resets journey state)
 router.get(/ltest_reset_add/, function (req, res) {
   req.session.data.show_success_message = false
   req.session.data.livestock_update_journey = false
-  res.redirect('/planning/livestock_test/livestock_type')
+  res.redirect('/planning/livestock_test/type')
 })
 
 // annual_separator.html → separator_numbers (yes/slurry) or check (no/solid)

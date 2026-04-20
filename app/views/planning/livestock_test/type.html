@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+   Question – Add livestock -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      What type of livestock would you like to add?
+    </h1>
+
+    <p class="govuk-hint">Select one option. You can add more livestock types later.</p>
+
+    <form class="form" action="ltest_group_handler" method="post">
+
+      <div class="govuk-form-group">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="cattle" name="livestock_group" type="radio" value="cattle">
+            <label class="govuk-label govuk-radios__label" for="cattle">
+              Cattle
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="pigs" name="livestock_group" type="radio" value="pig">
+            <label class="govuk-label govuk-radios__label" for="pigs">
+              Pigs
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="sheep" name="livestock_group" type="radio" value="sheep">
+            <label class="govuk-label govuk-radios__label" for="sheep">
+              Sheep
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="poultry" name="livestock_group" type="radio" value="poultry">
+            <label class="govuk-label govuk-radios__label" for="poultry">
+              Poultry
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="other" name="livestock_group" type="radio" value="other">
+            <label class="govuk-label govuk-radios__label" for="other">
+              Goats, deer or horses
+            </label>
+          </div>
+        </div>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="livestock_question">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

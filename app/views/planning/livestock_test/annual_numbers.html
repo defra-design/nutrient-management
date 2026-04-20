@@ -25,7 +25,7 @@
     <div class="govuk-input__wrapper">
       <input class="govuk-input govuk-input--width-3" id="livestock_number_{{name | lower}}" name="livestock_number_{{name | lower}}" type="text" value="" spellcheck="false" autocomplete="off">
       <div class="govuk-input__suffix" aria-hidden="true">
-        {{data.chosen_livestock.shortname}}
+        {% if data.livestock_group == 'pig' %}places{% else %}{{data.chosen_livestock.shortname}}{% endif %}
       </div>
     </div>
   </div>
@@ -35,12 +35,11 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      How many {{data.chosen_livestock.name | lower}} were on the farm each month?
+      How many of this livestock type were there each month?
     </h1>
 
-    <p class="govuk-body">
-      Enter the average number for each month between October 2025 and September 2026.
-    </p>
+    <p class="govuk-body">Selected livestock type: {{data.chosen_livestock.name}}</p>
+
 
     <form action="annual_housing_question" method="post" novalidate="">
 

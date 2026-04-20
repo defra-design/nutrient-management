@@ -21,10 +21,10 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      What type of cattle would you like to add?
+      What type of {{data.livestock_group}} would you like to add?
     </h1>
 
-    <p class="govuk-hint">Select one option. You can add more cattle types later.</p>
+    <p class="govuk-hint">Select one option. You can add more livestock types later.</p>
 
     <form class="form" action="ltest_cattle_reference" method="post">
 
@@ -33,7 +33,7 @@
           <div class="govuk-radios" data-module="govuk-radios">
 
             {% for animal in data.livestock_type_data %}
-              {% if animal.type == 'cattle' %}
+              {% if animal.type == data.livestock_group %}
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="{{animal.reference}}" name="livestock_reference" type="radio" value="{{animal.reference}}">
                 <label class="govuk-label govuk-radios__label" for="{{animal.reference}}">

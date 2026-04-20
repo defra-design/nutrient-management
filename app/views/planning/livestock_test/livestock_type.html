@@ -21,7 +21,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      What type of {{data.livestock_group}} would you like to add?
+      {% if data.livestock_group == 'other' %}What type of livestock would you like to add?{% else %}What type of {{data.livestock_group}} would you like to add?{% endif %}
     </h1>
 
     <p class="govuk-hint">Select one option. You can add more livestock types later.</p>

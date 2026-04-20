@@ -25,11 +25,11 @@ router.get(/livestock_question_router/, function (req, res) {
   let next
   console.log(req.session.data.livestock_question)
   if (req.session.data.livestock_question == 'no') {
-    req.session.data.farm.livestock_msreq_status = 'NONE'
+    req.session.data.farm.livestock_msreq_status = false
     next = '../checklist'
   } else if (req.session.data.livestock_question == 'yes') {
     // if NLO livestock has been added, offer to copy it across
-    if (req.session.data.farm.livestock_nloading_status == 'ADDED_FOR_N_LOADING') {
+    if (req.session.data.farm.livestock_nloading_status === true) {
       next = '/reports/storage_requirement_mvp/manage_livestock/copy'
     } else {
       next = 'type'
@@ -44,10 +44,10 @@ router.get(/livestock_copy_for_inventory_handler/, function (req, res) {
   if (req.session.data.copy_loading == 'yes') {
     req.session.data.livestock_record_plan_year.forEach(function (record) {
       if (record.numbers_for_nloading != null) {
-        record.numbers_for_requirement = 1
+        record.numbers_for_requirement = 'incomplete'
       }
     })
-    req.session.data.farm.livestock_msreq_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
+    req.session.data.farm.livestock_msreq_status = true
     req.session.data.show_success_message = true
     next = '/reports/storage_requirement_mvp/manage_livestock/index'
   } else {
@@ -59,7 +59,7 @@ router.get(/livestock_copy_for_inventory_handler/, function (req, res) {
 
 // manure_stores_handler - skips question if user already said yes, otherwise shows question
 router.get(/manure_stores_handler/, function (req, res) {
-  if (req.session.data.farm.manure_stores_status == 'ADDED_FOR_STORAGE_REQUIREMENT') {
+  if (req.session.data.farm.manure_stores_status === true) {
     res.redirect('/reset_manage_storage_message_handler')
   } else {
     res.redirect('manure_stores_question')
@@ -70,10 +70,10 @@ router.get(/manure_stores_handler/, function (req, res) {
 router.get(/manure_stores_question_router/, function (req, res) {
   let next
   if (req.session.data.manure_stores_question == 'no') {
-    req.session.data.farm.manure_stores_status = 'NONE'
+    req.session.data.farm.manure_stores_status = false
     next = 'checklist'
   } else if (req.session.data.manure_stores_question == 'yes') {
-    req.session.data.farm.manure_stores_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
+    req.session.data.farm.manure_stores_status = true
     if (req.session.data.farm.manure_stores_added == true) {
       next = '/management/farm/storage/manage_storage'
     } else {

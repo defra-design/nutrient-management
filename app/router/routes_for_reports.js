@@ -111,7 +111,7 @@ router.get(/n_loading_submit_router/, function (req, res) {
       next = 'checklist';
       req.session.data.show_error = true;
   }
-  if (req.session.data.farm.livestock_nloading_status == 'not_answered') {
+  if (req.session.data.farm.livestock_nloading_status === null) {
       next = 'checklist'
       req.session.data.show_error = true
   }
@@ -201,7 +201,7 @@ router.get(/livestock_report_reset/, callback_functions.hideSuccessMessage, func
 // reports/n_loading/checklist.html (livestock row) → manage livestock or livestock_none
 router.get(/livestock_loading_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
   let next = '/reports/n_loading/add_livestock/livestock_none'
-  if (req.session.data.farm.livestock_nloading_status == 'ADDED_FOR_N_LOADING') {
+  if (req.session.data.farm.livestock_nloading_status === true) {
       next = '/reports/n_loading/manage_livestock/index'
   }
   res.redirect(next);
@@ -213,10 +213,10 @@ router.get(/livestock_copy_for_loading_handler/, function (req, res) {
   if (req.session.data.copy_inventory == 'yes') {
     req.session.data.livestock_record_plan_year.forEach(function (record) {
       if (record.numbers_for_requirement != null) {
-        record.numbers_for_nloading = 1
+        record.numbers_for_nloading = 'incomplete'
       }
     })
-    req.session.data.farm.livestock_nloading_status = 'ADDED_FOR_N_LOADING'
+    req.session.data.farm.livestock_nloading_status = true
     req.session.data.show_success_message = true
     next = '/reports/n_loading/manage_livestock/index'
   } else {
@@ -229,9 +229,9 @@ router.get(/livestock_copy_for_loading_handler/, function (req, res) {
 router.get(/livestock_loading_router/, callback_functions.hide_error, function (req, res) {
   let next = 'livestock_group'
   if (req.session.data.livestock_loading == 'no') {
-      req.session.data.farm.livestock_nloading_status = 'none'
+      req.session.data.farm.livestock_nloading_status = false
       next = '/reports/n_loading/checklist'
-  } else if (req.session.data.farm.livestock_msreq_status == 'ADDED_FOR_STORAGE_REQUIREMENT') {
+  } else if (req.session.data.farm.livestock_msreq_status === true) {
       next = '/reports/n_loading/manage_livestock/copy'
   }
   res.redirect(next);
@@ -240,7 +240,7 @@ router.get(/livestock_loading_router/, callback_functions.hide_error, function (
 // reports/storage_requirement/checklist.html (livestock row) → manage livestock or livestock_question
 router.get(/livestock_requirement_handler/, callback_functions.hideSuccessMessage, callback_functions.hide_error, function (req, res) {
   let next = '/reports/storage_requirement_mvp/add_livestock/livestock_question'
-  if (req.session.data.farm.livestock_msreq_status == 'ADDED_FOR_STORAGE_REQUIREMENT') {
+  if (req.session.data.farm.livestock_msreq_status === true) {
     next = '/reports/storage_requirement_mvp/manage_livestock/index'
   }
   res.redirect(next);
@@ -318,9 +318,9 @@ router.get(/add_loadingnumbers_handler/, callback_functions.hide_error, function
       req.session.data.livestock_group = req.session.data.livestock_record_plan_year[reference].type
     }
   }
-  if (req.session.data.chosen_livestock.numbers_for_nloading >= 2) {
+  if (req.session.data.chosen_livestock.numbers_for_nloading == 'complete') {
     next = '/reports/n_loading/add_livestock/check'
-  } else if (req.session.data.chosen_livestock.numbers_for_nloading == 1) {
+  } else if (req.session.data.chosen_livestock.numbers_for_nloading == 'incomplete') {
     next = '/reports/n_loading/add_livestock/livestock_number_question'
   } else if (req.session.data.chosen_livestock.type != 'pig' && req.session.data.chosen_livestock.type != 'poultry') {
     next = '/reports/n_loading/add_livestock/livestock_number_question'
@@ -338,15 +338,15 @@ router.get(/check_loading_lstock_handler/, function (req, res) {
   if (req.session.data.livestock_update_journey == true) {
     for (let livestock_type in req.session.data.livestock_record_plan_year) {
       if (req.session.data.livestock_record_plan_year[livestock_type].reference == req.session.data.chosen_livestock.reference) {
-        req.session.data.livestock_record_plan_year[livestock_type].numbers_for_nloading = 2
+        req.session.data.livestock_record_plan_year[livestock_type].numbers_for_nloading = 'complete'
       }
     }
   } else {
-      req.session.data.chosen_livestock.numbers_for_nloading = 2
+      req.session.data.chosen_livestock.numbers_for_nloading = 'complete'
       req.session.data.livestock_record_plan_year.push(req.session.data.chosen_livestock)
   }
   req.session.data.show_success_message = true;
-  req.session.data.farm.livestock_nloading_status = 'ADDED_FOR_N_LOADING';
+  req.session.data.farm.livestock_nloading_status = true;
   res.redirect('/reports/n_loading/manage_livestock/index')
 })
 

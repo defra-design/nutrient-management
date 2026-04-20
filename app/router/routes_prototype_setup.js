@@ -96,7 +96,8 @@ router.get(/setup_handler_everything/, function (req, res) {
     req.session.data.show_info = false
     req.session.data.farm.years_planned.push(2026)
     req.session.data.farm.area_added = true
-    req.session.data.farm.livestock_nloading_status = 'ADDED_FOR_N_LOADING'
+    req.session.data.farm.livestock_nloading_status = true
+    req.session.data.farm.livestock_msreq_status = true
     req.session.data.farm.manure_system = 2
     req.session.data.farm.manure_system_details = 2
     req.session.data.farm.derogation = false
@@ -108,6 +109,8 @@ router.get(/setup_handler_everything/, function (req, res) {
     // livestock
     const livestock_list = [1,2,3,4,5]
     livestock_list.forEach(x => {
+      req.session.data.livestock_type_data[x].numbers_for_nloading = 'complete'
+      req.session.data.livestock_type_data[x].numbers_for_requirement = 'complete'
       req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[x])
     })
 
@@ -165,11 +168,11 @@ router.get(/setup_handler_livestock_nloading/, function (req, res) {
 
     const livestock_list = [0,1,2,3,4,5,24]
     livestock_list.forEach(x => {
-      req.session.data.livestock_type_data[x].numbers_for_nloading = 2
+      req.session.data.livestock_type_data[x].numbers_for_nloading = 'complete'
       req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[x])
     })
 
-    req.session.data.farm.livestock_nloading_status = 'ADDED_FOR_N_LOADING';
+    req.session.data.farm.livestock_nloading_status = true;
     res.redirect('start')
 })
 
@@ -182,11 +185,11 @@ router.get(/setup_handler_livestock_inventory/, function (req, res) {
 
     const livestock_list = [0,1,2,3,4,5,24]
     livestock_list.forEach(x => {
-      req.session.data.livestock_type_data[x].numbers_for_requirement = 2
+      req.session.data.livestock_type_data[x].numbers_for_requirement = 'complete'
       req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[x])
     })
 
-    req.session.data.farm.livestock_msreq_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
+    req.session.data.farm.livestock_msreq_status = true
     res.redirect('start')
 })
 
@@ -210,7 +213,7 @@ router.get(/setup_handler_livestock_storage/, function (req, res) {
     // livestock
     const livestock_list = [0,1,2,3,4,5,24]
     livestock_list.forEach(x => {
-      req.session.data.livestock_type_data[x].numbers_for_inventory = 4
+      req.session.data.livestock_type_data[x].numbers_for_requirement = 'complete'
       req.session.data.livestock_record_plan_year.push(req.session.data.livestock_type_data[x])
     })
 

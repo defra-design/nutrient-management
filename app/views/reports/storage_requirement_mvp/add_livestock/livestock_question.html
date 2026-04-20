@@ -41,7 +41,7 @@
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="no" name="livestock_question" type="radio" {% if data.farm.livestock_msreq_status == 'NONE' %} checked {% endif %} value="no">
+              <input class="govuk-radios__input" id="no" name="livestock_question" type="radio" {% if data.farm.livestock_msreq_status == false %} checked {% endif %} value="no">
               <label class="govuk-label govuk-radios__label" for="no">
                 No
               </label>

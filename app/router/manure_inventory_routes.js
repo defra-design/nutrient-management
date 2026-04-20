@@ -50,9 +50,9 @@ router.get(/add_inventorynumbers_handler/, callback_functions.hide_error, functi
     }
     req.session.data.livestock_update_journey = true
     let next = '/reports/storage_requirement_mvp/add_livestock/annual_numbers'
-    if (req.session.data.chosen_livestock.numbers_for_requirement >= 2) {
+    if (req.session.data.chosen_livestock.numbers_for_requirement == 'complete') {
         next = '/reports/storage_requirement_mvp/add_livestock/check'
-    } else if (req.session.data.chosen_livestock.numbers_for_requirement == 1) {
+    } else if (req.session.data.chosen_livestock.numbers_for_requirement == 'incomplete') {
         next = '/reports/storage_requirement_mvp/add_livestock/annual_numbers'
     }
     res.redirect(next)
@@ -78,11 +78,11 @@ router.get(/check_inventory_lstock_handler/, function (req, res) {
   if (req.session.data.livestock_update_journey == true) {
     for (let livestock_type in req.session.data.livestock_record_plan_year) {
         if (req.session.data.livestock_record_plan_year[livestock_type].reference == req.session.data.chosen_livestock.reference) {
-            req.session.data.livestock_record_plan_year[livestock_type].numbers_for_inventory = 2
+            req.session.data.livestock_record_plan_year[livestock_type].numbers_for_requirement = 'complete'
         }
     }
   } else {
-      req.session.data.chosen_livestock.numbers_for_inventory = 2
+      req.session.data.chosen_livestock.numbers_for_requirement = 'complete'
       req.session.data.livestock_record_plan_year.push(req.session.data.chosen_livestock)
   }
   req.session.data.show_success_message = true;
@@ -98,16 +98,16 @@ router.get(/check_requirement_lstock_handler/, function (req, res) {
   if (req.session.data.livestock_update_journey == true) {
     for (let livestock_type in req.session.data.livestock_record_plan_year) {
         if (req.session.data.livestock_record_plan_year[livestock_type].reference == req.session.data.chosen_livestock.reference) {
-            req.session.data.livestock_record_plan_year[livestock_type].numbers_for_requirement = 2
+            req.session.data.livestock_record_plan_year[livestock_type].numbers_for_requirement = 'complete'
         }
     }
   } else {
-      req.session.data.chosen_livestock.numbers_for_requirement = 2
+      req.session.data.chosen_livestock.numbers_for_requirement = 'complete'
       req.session.data.livestock_record_plan_year.push(req.session.data.chosen_livestock)
   }
   req.session.data.show_success_message = true;
   req.session.data.mostly_manure = null
-  req.session.data.farm.livestock_msreq_status = 'ADDED_FOR_STORAGE_REQUIREMENT'
+  req.session.data.farm.livestock_msreq_status = true
   res.redirect('/reports/storage_requirement_mvp/manage_livestock/index')
 })
 

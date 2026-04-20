@@ -213,7 +213,7 @@ router.get(/livestock_copy_for_loading_handler/, function (req, res) {
   if (req.session.data.copy_inventory == 'yes') {
     req.session.data.livestock_record_plan_year.forEach(function (record) {
       if (record.numbers_for_requirement != null) {
-        record.numbers_for_nloading = record.numbers_for_requirement
+        record.numbers_for_nloading = 1
       }
     })
     req.session.data.farm.livestock_nloading_status = 'ADDED_FOR_N_LOADING'
@@ -318,8 +318,10 @@ router.get(/add_loadingnumbers_handler/, callback_functions.hide_error, function
       req.session.data.livestock_group = req.session.data.livestock_record_plan_year[reference].type
     }
   }
-  if (req.session.data.farm.livestock_nloading_status == 'ADDED_FOR_N_LOADING') {
+  if (req.session.data.chosen_livestock.numbers_for_nloading >= 2) {
     next = '/reports/n_loading/add_livestock/check'
+  } else if (req.session.data.chosen_livestock.numbers_for_nloading == 1) {
+    next = '/reports/n_loading/add_livestock/livestock_number_question'
   } else if (req.session.data.chosen_livestock.type != 'pig' && req.session.data.chosen_livestock.type != 'poultry') {
     next = '/reports/n_loading/add_livestock/livestock_number_question'
   } else {

@@ -44,7 +44,7 @@ router.get(/livestock_copy_for_inventory_handler/, function (req, res) {
   if (req.session.data.copy_loading == 'yes') {
     req.session.data.livestock_record_plan_year.forEach(function (record) {
       if (record.numbers_for_nloading != null) {
-        record.numbers_for_requirement = record.numbers_for_nloading
+        record.numbers_for_requirement = 1
       }
     })
     req.session.data.farm.livestock_msreq_status = 'ADDED_FOR_STORAGE_REQUIREMENT'

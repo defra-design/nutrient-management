@@ -50,8 +50,10 @@ router.get(/add_inventorynumbers_handler/, callback_functions.hide_error, functi
     }
     req.session.data.livestock_update_journey = true
     let next = '/reports/storage_requirement_mvp/add_livestock/annual_numbers'
-    if (req.session.data.farm.livestock_msreq_status == 'ADDED_FOR_STORAGE_REQUIREMENT') {
+    if (req.session.data.chosen_livestock.numbers_for_requirement >= 2) {
         next = '/reports/storage_requirement_mvp/add_livestock/check'
+    } else if (req.session.data.chosen_livestock.numbers_for_requirement == 1) {
+        next = '/reports/storage_requirement_mvp/add_livestock/annual_numbers'
     }
     res.redirect(next)
 })

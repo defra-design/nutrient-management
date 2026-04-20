@@ -42,5 +42,22 @@ router.get(/ltest_reset_add/, function (req, res) {
   res.redirect('/planning/livestock_test/livestock_type')
 })
 
+// annual_separator.html → separator_numbers (yes/slurry) or check (no/solid)
+router.get('/planning/livestock_test/annual_separator_handler', function (req, res) {
+  if (req.session.data.mostly_manure === 'slurry') {
+    res.redirect('separator_numbers')
+  } else {
+    res.redirect('check')
+  }
+})
+
+// annual_housing_question.html → annual_separator (yes) or annual_housing_list (no)
+router.get('/planning/livestock_test/annual_housing_question_handler', function (req, res) {
+  if (req.session.data.useDefaults === 'yes') {
+    res.redirect('annual_separator')
+  } else {
+    res.redirect('annual_housing_list')
+  }
+})
 
 module.exports = router

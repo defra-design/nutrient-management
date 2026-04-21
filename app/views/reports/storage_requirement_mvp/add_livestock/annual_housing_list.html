@@ -21,8 +21,8 @@
   <tr class="govuk-table__row">
     <td class="govuk-table__cell">{{name}}</td>
     <td class="govuk-table__cell">{{amount}}%</td>
-    <td class="govuk-table__cell">{{amount}}%</td>
     {% if data.livestock_group != 'poultry' and data.livestock_group != 'pig' %}
+      <td class="govuk-table__cell">{{amount}}%</td>
       <td class="govuk-table__cell">1.3</td>
     {% endif %}
     <td class="govuk-table__cell"><a href="annual_housing_handler?month={{name}}">Change</a></td>
@@ -63,8 +63,8 @@
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Month</th>
           <th scope="col" class="govuk-table__header">Percentage of time housed</th>
-          <th scope="col" class="govuk-table__header">Percentage of slurry collected</th>
           {% if data.livestock_group != 'poultry' and data.livestock_group != 'pig' %}
+            <th scope="col" class="govuk-table__header">Percentage of slurry collected</th>
             <th scope="col" class="govuk-table__header">Bedding factor</th>
           {% endif %}
           <th scope="col" class="govuk-table__header"><span class="display-none">Action</span></th>

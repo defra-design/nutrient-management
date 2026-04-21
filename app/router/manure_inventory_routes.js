@@ -149,14 +149,16 @@ router.get(/add_manure_system_handler/, callback_functions.hide_error, callback_
     res.redirect('check');
 })
 
-// reports/storage_requirement_mvp/checklist.html (system row) → manage_collection
-router.get(/system_inventory_handler/, callback_functions.hide_error, callback_functions.hideSuccessMessage, function (req, res) {
-    res.redirect('reports/manure_inventory/manage_collection/index');
-})
 
 // add_livestock/slurry_or_solid.html → slurry or solid
 router.get(/manure_slurry_handler/, function (req, res) {
   let next = (req.session.data.mostly_manure == 'slurry') ? 'slurry' : 'solid'
+  res.redirect(next)
+})
+
+// annual_housing_list/annual_slurry → annual_separator (non-poultry) or check (poultry)
+router.post(/annual_separator_router/, function (req, res) {
+  let next = (req.session.data.chosen_livestock.type === 'poultry') ? 'check' : 'annual_separator'
   res.redirect(next)
 })
 
@@ -171,12 +173,6 @@ router.get(/storage_totals_handler/, function (req, res) {
   if (req.session.data.farm.manure_stores_added == true) {
       next = '/management/farm/storage/manage_storage'
   }
-  res.redirect(next);
-})
-
-// reports/manure_inventory (storage link) → add_export/material_type
-router.get(/inventory_storage_handler/, function (req, res) {
-  let next = 'planning/add_export/material_type'
   res.redirect(next);
 })
 

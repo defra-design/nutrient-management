@@ -4,10 +4,10 @@
     <dt class="govuk-summary-list__value">Number</dt>
       <dd class="govuk-summary-list__value">
           100 
-          {% if data.chosen_livestock.shortname == 'pig' or data.chosen_livestock.shortname == 'poultry'  %}
+          {% if data.chosen_livestock.type == 'pig' or data.chosen_livestock.type == 'poultry'  %}
             places
           {% else %}
-            {{data.chosen_livestock.shortname}} 
+            {{data.chosen_livestock.type}} 
           {% endif %}
       </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
@@ -20,6 +20,7 @@
       </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+  {% if data.chosen_livestock.type != 'poultry' %}
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__value">Main manure system in {{name}}
     </dt>
@@ -28,6 +29,7 @@
       </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+  {% endif %}
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__value">How much of this livestock's manure is collected as slurry?
     </dt>
@@ -37,6 +39,7 @@
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
+  {% if data.chosen_livestock.type != 'poultry' %}
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__value">How much of this slurry goes through mechanical separation
     </dt>
@@ -45,6 +48,7 @@
       </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+  {% endif %}
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__value">What is the bedding factor?

@@ -18,24 +18,43 @@
 {% block content %}
 
 {% macro monthitem(name, year) %}
+  <h2 class="govuk-heading-s">{{name}} {{year}}</h2>
   <div class="govuk-form-group margin-bottom-thirty">
     <label class="govuk-label" for="livestock_number">
-      {{name}} {{year}}
+      What is the total number of this cattle type in {{name}} {{year}}?
     </label>
-    <div class="govuk-hint" for="livestock_number">
-      Enter the total number of this cattle type in {{name}} {{year}}
-    </div>
     <div class="govuk-input__wrapper">
       <input class="govuk-input govuk-input--width-3" id="livestock_number" name="livestock_number" type="text" value="" spellcheck="false" autocomplete="off">
         <div class="govuk-input__suffix" aria-hidden="true">
-          {% if data.chosen_livestock.shortname == 'pig' or data.chosen_livestock.shortname == 'poultry'  %}
+          {% if data.chosen_livestock.type == 'pig' or data.chosen_livestock.type == 'poultry'  %}
             places
           {% else %}
-            {{data.chosen_livestock.shortname}} 
+            {{data.chosen_livestock.type}} 
           {% endif %}
         </div>
     </div>
   </div>
+  {% if data.chosen_livestock.type != 'poultry' %}
+  <div class="govuk-form-group margin-bottom-thirty">
+    <label class="govuk-label" for="livestock_number">
+      What is the main manure system in {{name}} {{year}}?
+    </label>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="slurry_{{name | lower}}" name="mostly_manure_{{name | lower}}" type="radio" value="slurry">
+        <label class="govuk-label govuk-radios__label" for="slurry_{{name | lower}}">
+          Mostly slurry
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="solid_{{name | lower}}" name="mostly_manure_{{name | lower}}" type="radio" value="solid">
+        <label class="govuk-label govuk-radios__label" for="solid_{{name | lower}}">
+            Mostly solid manure
+        </label>
+      </div>
+    </div>
+  </div>
+  {% endif %}
 {% endmacro %}
 
 <div class="govuk-grid-row">
@@ -52,7 +71,7 @@
     <form action="annual_housing_list" method="post" novalidate="">
 
     {{ monthitem ("October", data.farm.planning_year) }}
-    <p class="govuk-body margin-bottom-thirty"><a href="">Copy October's number to the following months</a></p>
+    <p class="govuk-body margin-bottom-thirty"><a href="">Copy October's answers to the following months</a></p>
     {{ monthitem ("November", data.farm.planning_year) }}
     {{ monthitem ("December", data.farm.planning_year) }}
     {{ monthitem ("January", data.farm.planning_year + 1) }}

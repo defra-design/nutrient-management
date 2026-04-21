@@ -51,7 +51,7 @@ router.get(/add_inventorynumbers_handler/, callback_functions.hide_error, functi
     req.session.data.livestock_update_journey = true
     let next = '/reports/storage_requirement_mvp/add_livestock/annual_numbers'
     if (req.session.data.chosen_livestock.numbers_for_requirement == 'complete') {
-        next = '/reports/storage_requirement_mvp/add_livestock/check'
+        next = '/reports/storage_requirement_mvp/add_livestock/update'
     } else if (req.session.data.chosen_livestock.numbers_for_requirement == 'incomplete') {
         next = '/reports/storage_requirement_mvp/add_livestock/annual_numbers'
     }

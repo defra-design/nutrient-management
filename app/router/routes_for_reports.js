@@ -319,7 +319,7 @@ router.get(/add_loadingnumbers_handler/, callback_functions.hide_error, function
     }
   }
   if (req.session.data.chosen_livestock.numbers_for_nloading == 'complete') {
-    next = '/reports/n_loading/add_livestock/check'
+    next = '/reports/n_loading/add_livestock/update'
   } else if (req.session.data.chosen_livestock.numbers_for_nloading == 'incomplete') {
     next = '/reports/n_loading/add_livestock/livestock_number_question'
   } else if (req.session.data.chosen_livestock.type != 'pig' && req.session.data.chosen_livestock.type != 'poultry') {

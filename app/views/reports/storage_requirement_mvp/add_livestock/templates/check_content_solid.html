@@ -30,6 +30,7 @@
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
   {% endif %}
+  {% if data.chosen_livestock.type != 'poultry' %}
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__value">How much of this livestock's manure is collected as slurry?
     </dt>
@@ -38,6 +39,7 @@
       </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
+  {% endif %}
 
   {% if data.chosen_livestock.type != 'poultry' %}
   <div class="govuk-summary-list__row">

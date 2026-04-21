@@ -12,7 +12,7 @@ Question – {{ serviceName }} – GOV.UK
 
   {% set back_url = 'hub_message_reset' %}
   {% if data.export_type == 8 %}
-    {% set back_url = '/reports/manure_inventory/checklist' %}
+    {% set back_url = '/reports/storage_requirement_mvp/checklist' %}
   {% elif data.export_type == 4 %}
     {% set back_url = '/reports/n_loading/checklist' %}
   {% endif %}  
@@ -53,7 +53,7 @@ Question – {{ serviceName }} – GOV.UK
                 To create an organic manures inventory and NVZ organic material storage report, enter the livestock on {{data.farm.name}} between October {{data.farm.harvest_year}} and September {{data.farm.harvest_year + 1}}.
               </p>
               <p class="govuk-body">
-                <a href="/reports/manure_inventory/checklist">Create an organic manures inventory and NVZ organic material storage report</a>
+                <a href="/reports/storage_requirement_mvp/checklist">Create an organic manures inventory and NVZ organic material storage report</a>
               </p>
             {% else %}
               <p class="govuk-body">To create a livestock manure nitrogen (N) farm limit report, enter the livestock on {{data.farm.name}} in 2026.</p>

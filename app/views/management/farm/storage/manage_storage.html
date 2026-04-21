@@ -59,6 +59,9 @@
           <p class="govuk-body">
             <a href="/reports/manure_inventory/checklist">Create an organic manures inventory and NVZ storage report</a>
           </p>
+        {% elif data.export_type == 12 %}
+          <p class="govuk-body">To create an organic manure inventory and NVZ storage requirement report, enter the manure stores on {{data.farm.name}}.</p>
+          <p class="govuk-body"><a href="/reports/storage_requirement_mvp/checklist">Continue to create an organic manure inventory and NVZ storage requirement report</a></p>
         {% else %}
           <p class="govuk-body">To create an existing manure stores capacity report, enter the manure stores on {{data.farm.name}}.</p>
           <p class="govuk-body"><a href="report">Continue to create an existing manure stores capacity report</a></p>

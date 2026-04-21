@@ -30,11 +30,7 @@
     </div>
 
     <div class="check-answers">
-      {% if data.mostly_manure == 'slurry' %}
-        {% include "./templates/check_content_slurry.html" %}
-      {% else  %}
-        {% include "./templates/check_content_solid.html" %}
-      {% endif  %}
+      {% include "./templates/check_content.html" %}
     </div>
 
     <form action="check_requirement_lstock_handler" method="post" novalidate>

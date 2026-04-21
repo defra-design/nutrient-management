@@ -162,6 +162,12 @@ router.post(/annual_separator_router/, function (req, res) {
   res.redirect(next)
 })
 
+// annual_separator → separator_numbers (yes) or check (no)
+router.post(/annual_separator_handler/, function (req, res) {
+  let next = (req.session.data.uses_separator === 'yes') ? 'separator_numbers' : 'check'
+  res.redirect(next)
+})
+
 
 // -------------------------
 // MANURE STORAGE

@@ -28,7 +28,7 @@
       Does this livestock type's slurry goes through mechanical separation?
     </p> -->
 
-    <form action="separator_numbers" method="post" novalidate="">
+    <form action="annual_separator_handler" method="post" novalidate="">
 
       <div class="govuk-form-group margin-bottom-thirty">
         <!-- <legend class="govuk-fieldset__legend">
@@ -36,14 +36,14 @@
         </legend> -->
         <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="slurry" name="mostly_manure"  type="radio" value="slurry">
-            <label class="govuk-label govuk-radios__label" for="slurry">
+            <input class="govuk-radios__input" id="uses_separator_yes" name="uses_separator" type="radio" value="yes" {% if data.uses_separator == 'yes' %}checked{% endif %}>
+            <label class="govuk-label govuk-radios__label" for="uses_separator_yes">
               Yes
             </label>
           </div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="solid" name="mostly_manure" type="radio" value="solid">
-            <label class="govuk-label govuk-radios__label" for="solid">
+            <input class="govuk-radios__input" id="uses_separator_no" name="uses_separator" type="radio" value="no" {% if data.uses_separator == 'no' %}checked{% endif %}>
+            <label class="govuk-label govuk-radios__label" for="uses_separator_no">
               No
             </label>
           </div>

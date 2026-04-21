@@ -24,7 +24,7 @@
       What is the total number of this cattle type in {{name}} {{year}}?
     </label>
     <div class="govuk-input__wrapper">
-      <input class="govuk-input govuk-input--width-3" id="livestock_number" name="livestock_number" type="text" value="" spellcheck="false" autocomplete="off">
+      <input class="govuk-input govuk-input--width-5" id="livestock_number" name="livestock_number" type="text" value="" spellcheck="false" autocomplete="off">
         <div class="govuk-input__suffix" aria-hidden="true">
           {% if data.chosen_livestock.type == 'pig' or data.chosen_livestock.type == 'poultry'  %}
             places
@@ -61,7 +61,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      Monthly numbers for the selected livestock type
+      Total number of this livestock type each month
     </h1>
 
     <p class="govuk-body">

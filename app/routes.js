@@ -142,7 +142,7 @@ router.get('/', function (req, res) {
     req.session.data.alpha_planning = 0              // 0 = not started, 1 = recs, 2 = completed
     req.session.data.chosen_plan = null
     req.session.data.imports_exports = null
-    req.session.data.wash_area_name = 'Washed area 1'
+    req.session.data.wash_area_name = 'Wash area'
 
     // -------------------------
     // QUESTION ANSWERS

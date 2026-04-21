@@ -200,11 +200,29 @@ router.get(/storage_figures_handler/, callback_functions.hideSuccessMessage, fun
 
 // reports/storage_requirement_mvp/checklist.html (water row) → manage_water or water_none
 router.get(/water_inventory_handler/, callback_functions.hide_error, callback_functions.hideSuccessMessage, function (req, res) {
-    let next = 'water_none'
-    if (req.session.data.farm.wash_water == true) {
-        next = 'reports/manure_inventory/manage_water/index'
+    let next = 'add_wash_area/water_none'
+    if (req.session.data.farm.wash_water === true || req.session.data.farm.wash_water === 'complete') {
+        next = '/reports/storage_requirement_mvp/manage_water/index'
     }
     res.redirect(next);
+})
+
+// add_wash_area/water_none.html → checklist (no) or name (yes, livestock complete) or not_available (yes, no complete livestock)
+router.post(/water_none_handler/, function (req, res) {
+    let next = '/reports/storage_requirement_mvp/checklist'
+    if (req.session.data.livestock_inventory === 'yes') {
+        const records = req.session.data.livestock_record_plan_year || []
+        const hasCompleteLivestock = Object.values(records).some(r => r.numbers_for_requirement === 'complete')
+        if (hasCompleteLivestock) {
+            req.session.data.farm.wash_water = null
+            next = '/reports/storage_requirement_mvp/add_wash_area/name'
+        } else {
+            next = '/reports/storage_requirement_mvp/add_wash_area/not_available_wash_water'
+        }
+    } else {
+        req.session.data.farm.wash_water = false
+    }
+    res.redirect(next)
 })
 
 // reports/manure_inventory/rainwater_area.html → checklist (saves that rainwater area has been added)
@@ -228,7 +246,7 @@ router.get(/monthly_volume_handler/, function (req, res) {
 router.get(/add_wash_area_handler/, callback_functions.showSuccessMessage, function (req, res) {
   req.session.data.farm.wash_water = true
   req.session.data.monthly_volume = null
-  res.redirect('/reports/manure_inventory/manage_water/index')
+  res.redirect('/reports/storage_requirement_mvp/manage_water/index')
 })
 
 // add_wash_area/livestock_type.html → water_hose (cattle) or size (other)
@@ -243,7 +261,7 @@ router.get(/livestock_type_handler/, function (req, res) {
 // add_wash_area/wash_area_name.html → store (sets default name if blank)
 router.get(/wash_area_name_handler/, function (req, res) {
   if (req.session.data.wash_area_name == '' || req.session.data.wash_area_name == null) {
-      req.session.data.wash_area_name = 'Washed area 1'
+      req.session.data.wash_area_name = 'Wash area'
   }
   res.redirect('store')
 })
@@ -265,23 +283,13 @@ router.get(/inventory_livestock_handler/, function (req, res) {
   res.redirect(next)
 })
 
-// manage_water/numbers.html → loads a livestock record for the wash water volume screen
-router.get(/numbers_handler/, callback_functions.hide_error, function (req, res) {
-  for (var reference in req.session.data.livestock_type_data ) {
-    if (req.session.data.livestock_type_data[reference].reference == req.query.reference) {
-        console.log('found ' + req.session.data.livestock_type_data[reference])
-        req.session.data.chosen_livestock = req.session.data.livestock_type_data[reference]
-    }
-  }
-  res.redirect('/reports/manure_inventory/manage_water/numbers');
-})
-
-// add_wash_area/check.html (wash water details) → numbers (saves that wash water details are complete)
+// add_wash_area/check.html (wash water details) → manage_water (saves that wash water details are complete)
 router.get(/add_wash_water_details_handler/, callback_functions.hide_error, callback_functions.showSuccessMessage, function (req, res) {
   req.session.data.farm.wash_water_details = true
-  req.session.data.farm.wash_water = 'done'
-  res.redirect('numbers');
+  req.session.data.farm.wash_water = 'complete'
+  res.redirect('/reports/storage_requirement_mvp/manage_water/index')
 })
+
 
 
 // -------------------------

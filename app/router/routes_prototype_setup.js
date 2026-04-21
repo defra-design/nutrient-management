@@ -30,7 +30,7 @@ function startFarm(type) {
     manure_imports: false,
     manure_system: null,
     manure_system_details: false,
-    wash_water: false,
+    wash_water: null,
     rainfall: 600,
     derogation: null,
     ewr: null,

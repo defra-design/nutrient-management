@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div>
+        <h1 class="govuk-heading-l">
+          You need to add livestock details
+        </h1>
+
+        <!-- <p class="govuk-body">
+          Add your livestock first 
+        </p> -->
+
+        {{ govukButton({
+          text: "Add livestock details",
+          href: "/reports/storage_requirement_mvp/add_livestock/livestock_question"
+        }) }}
+      </div>
+
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    <a href="fields.html">Cancel</a>
+  </p>
+
+{% endblock %}

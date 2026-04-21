@@ -10,17 +10,9 @@ Create a Nutrient Application Plan – {{ serviceName }} – GOV.UK
 
 {% block beforeContent %}
 
-{% set back_url = 'hub_message_reset' %}
-
-{% if data.export_type == 8 %}
-  {% set back_url = '/reports/storage_requirement_mvp/checklist' %}
-{% elif data.export_type == 4 %}
-  {% set back_url = '/reports/n_loading/checklist' %}
-{% endif %}  
-
 {{ govukBackLink({
   text: "Back",
-  href: back_url
+  href: '/reports/n_loading/checklist'
 }) }}
 
 {% endblock %}

@@ -1,0 +1,175 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+   Question – Add livestock wash area -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+{% set show_cattle = false %}
+{% set show_pigs = false %}
+{% set show_poultry = false %}
+{% set show_sheep = false %}
+{% set show_other = false %}
+
+{% for livestock_type in data.livestock_record_plan_year %}
+
+  {% if livestock_type.type == 'cattle' %}
+    {% if livestock_type.numbers_for_inventory != null %}
+      {% set show_cattle = true %}
+    {% endif %}
+  {% endif %}
+
+  {% if livestock_type.type == 'pig' %}
+    {% if livestock_type.numbers_for_inventory != null %}
+      {% set show_pigs = true %}
+    {% endif %}
+  {% endif %}
+
+  {% if livestock_type.type == 'poultry' %}
+    {% if livestock_type.numbers_for_inventory != null %}
+      {% set show_poultry = true %}
+    {% endif %}
+  {% endif %}
+
+  {% if livestock_type.type == 'sheep' %}
+    {% if livestock_type.numbers_for_inventory != null %}
+      {% set show_sheep = true %}
+    {% endif %}
+  {% endif %}
+
+  {% if livestock_type.type == 'other' %}
+    {% if livestock_type.numbers_for_inventory != null %}
+      {% set show_other = true %}
+    {% endif %}
+  {% endif %}
+
+{% endfor %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Which of your livestock types use {{data.wash_area_name}}?
+    </h1>
+
+    <form class="form" action="inventory_livestock_handler" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="livestock-hint">
+          <div id="livestock-hint" class="govuk-hint">
+            Select one option
+          </div>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Cattle
+                </h1>
+              </legend> -->
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="cattle" name="inventory_livestock" type="radio" value="cattle">
+                  <label class="govuk-label govuk-radios__label" for="cattle">
+                    Cattle
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pigs" name="inventory_livestock" type="radio" value="pigs">
+                  <label class="govuk-label govuk-radios__label" for="pigs">
+                    Pigs
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="poultry" name="inventory_livestock" type="radio" value="poultry">
+                  <label class="govuk-label govuk-radios__label" for="poultry">
+                    Poultry
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="sheep" name="inventory_livestock" type="radio" value="sheep">
+                  <label class="govuk-label govuk-radios__label" for="sheep">
+                    Sheep
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="other" name="inventory_livestock" type="radio" value="other">
+                  <label class="govuk-label govuk-radios__label" for="other">
+                    Goats, Deer or Horses
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </fieldset>
+      </div>
+    
+      <!-- <div class="govuk-radios" data-module="govuk-radios">
+        {% if show_cattle == true %}
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="livestock" name="livestock" type="checkbox" value="carcasses">
+            <label class="govuk-label govuk-radios__label" for="livestock">
+              Cattle
+            </label>
+          </div>
+        {% endif %}
+        {% if show_pigs == true %}
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="livestock" name="livestock" type="checkbox" value="carcasses">
+            <label class="govuk-label govuk-radios__label" for="livestock">
+              Pigs
+            </label>
+          </div>
+        {% endif %}
+        {% if show_poultry == true %}  
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="livestock" name="livestock" type="checkbox" value="carcasses">
+            <label class="govuk-label govuk-radios__label" for="livestock">
+              Poultry
+            </label>
+          </div>
+        {% endif %}
+        {% if show_sheep == true %}
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="livestock" name="livestock" type="checkbox" value="carcasses">
+            <label class="govuk-label govuk-radios__label" for="livestock">
+              Sheep
+            </label>
+          </div>
+        {% endif %}
+        {% if show_other == true %}
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="livestock" name="livestock" type="checkbox" value="carcasses">
+            <label class="govuk-label govuk-radios__label" for="livestock">
+              Goats, deer or horses
+            </label>
+          </div>
+        {% endif %}
+      </div> -->
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}
+
+

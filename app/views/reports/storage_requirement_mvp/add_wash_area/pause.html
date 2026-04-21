@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+   Question – Add livestock wash area -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Calculating the volume of water used on {{data.wash_area_name}} using livestock numbers
+    </h1>
+
+    <p class="govuk-body">
+      The volume of water used can be calculated using standard NVZ figures based on your livestock numbers.
+    </p>
+
+    <p class="govuk-body">
+      You must add all livestock so that the tool can calculate the volume of water correctly.
+    </p>
+    
+    <!-- <p class="govuk-body margin-bottom-forty"><a href=""></p>
+    <p class="govuk-body margin-bottom-forty"><a href="">All livestock details are added, continue with calculations</p> -->
+
+    <form class="form" action="livestock" method="post">
+    
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="width-20">
+          Have you added the livestock types that use {{data.wash_area_name}}? 
+        </label>
+        <fieldset class="govuk-fieldset" aria-describedby="pause-hint">
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="yes" name="pause" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="yes">
+                Yes, all livestock details added
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="no" name="pause" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="no">
+                No, go back and add livestock details
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+{% macro monthitem(name, year) %}
+  <div class="govuk-form-group margin-bottom-forty">
+    <label class="govuk-label" for="total_area">
+      {{ name }} {{ year }}
+    </label>
+    <div class="govuk-hint">Enter the total volume of wash water used on this area in {{ name }}</div>
+    <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="total_area" name="total_area" type="text" spellcheck="false" autocomplete="off">
+      <div class="govuk-input__suffix" aria-hidden="true">litres</div>
+    </div>
+  </div>
+{% endmacro %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Total volume of water used on {{data.wash_area_name}} each month
+    </h1>
+    
+    <form action="check" method="post" novalidate="">
+              
+      {{ monthitem ("October", data.farm.planning_year) }}
+      {{ monthitem ("November", data.farm.planning_year) }}
+      {{ monthitem ("December", data.farm.planning_year) }}
+      {{ monthitem ("January", data.farm.planning_year + 1) }}
+      {{ monthitem ("February", data.farm.planning_year + 1) }}
+      {{ monthitem ("March", data.farm.planning_year + 1) }}
+      {{ monthitem ("April", data.farm.planning_year + 1) }}
+      {{ monthitem ("May", data.farm.planning_year + 1) }}
+      {{ monthitem ("June", data.farm.planning_year + 1) }}
+      {{ monthitem ("July", data.farm.planning_year + 1) }}
+      {{ monthitem ("August", data.farm.planning_year + 1) }}
+      {{ monthitem ("September", data.farm.planning_year + 1) }}
+
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/management/farm/hub">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

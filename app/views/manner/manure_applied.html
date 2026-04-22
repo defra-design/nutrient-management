@@ -44,7 +44,7 @@
   </div>
 
   <p class="govuk-body">
-    <a href="fields.html">Cancel</a>
+    <a href="{% if data.manner_applications.length == 0 %}/management/farm/options{% else %}/manner/previous_calculations{% endif %}">Cancel</a>
   </p>
 
 {% endblock %}

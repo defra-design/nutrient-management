@@ -8,6 +8,13 @@
   {% include "/templates/headers/header_signed_in_start.html" ignore missing %}
 {% endblock %}
 
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/management/farm/options"
+  }) }}
+{% endblock %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -21,7 +28,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-m">        
+    <h1 class="govuk-heading-l">        
       Nutrient management plans and Nitrate Vulnerable Zone (NVZ) reports
     </h1>
 
@@ -35,15 +42,24 @@
       You can also <a class="govuk-link" href="/planning/add-farm/name">add a new farm</a>
     </p>
 
-    <h3 class="govuk-heading-s margin-top-none">
-      Your farms
-    </h3>
+    <h2 class="govuk-heading-m">Your farms</h2>
 
-    <ul class="govuk-list govuk-list--spaced margin-bottom-thirty">
-      <li>          
-        <a class="govuk-notification-banner__link" href="hub_message_reset"> {{data.farm.name}}</a> 
-      </li>              
-    </ul>
+    <table class="govuk-table data-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Farm</th>
+          <th scope="col" class="govuk-table__header">Last updated</th>
+          <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">View or change</span></th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data.farm.name }}</td>
+          <td class="govuk-table__cell">21 April 2026</td>
+          <td class="govuk-table__cell"><a href="hub_message_reset">View or change</a></td>
+        </tr>
+      </tbody>
+    </table>
 
     <!-- <form class="form" action="" method="post">
       <button type="submit" class="govuk-button" data-module="govuk-button">

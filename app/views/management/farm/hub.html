@@ -8,6 +8,13 @@
   {% include "/templates/headers/header_farm.html" ignore missing %}
 {% endblock %}
 
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back to all farms",
+    href: "/management/farm/farms_only"
+  }) }}
+{% endblock %}
+
 {% block content %}
 
   <div class="govuk-grid-row">

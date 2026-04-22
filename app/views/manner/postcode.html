@@ -32,7 +32,7 @@ Add a farm - farm name – {{ serviceName }}
       </button>
     </form>
 
-    <p class="govuk-body cancel-link"><a href="farms">Cancel</a></p>
+    <p class="govuk-body"><a href="{% if data.manner_applications.length == 0 %}/management/farm/options{% else %}/manner/previous_calculations{% endif %}">Cancel</a></p>
 
   </div>
 </div>

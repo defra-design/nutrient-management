@@ -5,14 +5,15 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/templates/headers/header_manner_first.html" ignore missing %}
+  {% set headerNavItems = [{ text: "Sign out", href: "/management/feedback" }] %}
+  {% include "/templates/headers/header.html" ignore missing %}
 {% endblock %}
 
 {% block beforeContent %}
-  <!-- {{ govukBackLink({
+  {{ govukBackLink({
     text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}-->
+    href: "/management/farm/options"
+  }) }}
 {% endblock %}
 
 {% block content %}

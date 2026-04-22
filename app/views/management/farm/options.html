@@ -6,7 +6,9 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/templates/headers/header_signed_in_start.html" ignore missing %}
+  {% set headerServiceHref = "/management/farm/options" %}
+  {% set headerNavItems = [{ text: "Sign out", href: "/management/feedback" }] %}
+  {% include "/templates/headers/header.html" ignore missing %}
 {% endblock %}
 
 {% block content %}

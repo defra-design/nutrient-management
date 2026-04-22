@@ -5,7 +5,10 @@
 {% endblock %}
 
 {% block header %}
-  {% set headerNavItems = [{ text: "Sign out", href: "/management/feedback" }] %}
+  {% set headerNavItems = [
+  { text: "Nutrient supply estimates", href: "/manner/previous_calculations" },
+  { text: "Sign out", href: "/management/feedback" }
+] %}
   {% include "/templates/headers/header.html" ignore missing %}
 {% endblock %}
 

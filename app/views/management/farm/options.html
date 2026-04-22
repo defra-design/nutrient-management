@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+{% from "./templates/macros.html" import navCard %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_signed_in_start.html" ignore missing %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    {% if data.show_success_message == true %}
+      {% include "./templates/success_messages" ignore missing %}
+    {% endif %}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">        
+      Plan and manage nutrient applications
+    </h1>
+
+    <hr class="margin-bottom-thirty">
+
+
+<div class="govuk-width-container">
+  <ul class="govuk-grid-row card-group">
+    {{ navCard("Farms", "Manage your farm details and information.", "#") }}
+    {{ navCard("Manner", "Manage your manner details and information.", "#") }}
+    {{ navCard("Import", "Import your farm data.", "#") }}
+  </ul>
+</div>
+
+  {% if data.farm.setup == true %}
+
+  {% else %}
+
+  {% endif %}
+
+  </div>
+</div>
+
+{% endblock %}

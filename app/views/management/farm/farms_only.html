@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_signed_in_start.html" ignore missing %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    {% if data.show_success_message == true %}
+      {% include "./templates/success_messages" ignore missing %}
+    {% endif %}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-m">        
+      Nutrient management plans and Nitrate Vulnerable Zone (NVZ) reports
+    </h1>
+
+    {% if data.farm.setup == true %}
+
+    <p class="govuk-body">
+      Select a farm to create or update a nutrient management plan, <br>or to save an NVZ report.
+    </p>
+
+    <p class="govuk-body margin-bottom-thirty">
+      You can also <a class="govuk-link" href="/planning/add-farm/name">add a new farm</a>
+    </p>
+
+    <h3 class="govuk-heading-s margin-top-none">
+      Your farms
+    </h3>
+
+    <ul class="govuk-list govuk-list--spaced margin-bottom-thirty">
+      <li>          
+        <a class="govuk-notification-banner__link" href="hub_message_reset"> {{data.farm.name}}</a> 
+      </li>              
+    </ul>
+
+    <!-- <form class="form" action="" method="post">
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Add a new farm
+      </button>    
+    </form> -->
+
+    {% else %}
+      <p class="govuk-body">
+        Add a farm to create a nutrient management plan or an NVZ report.
+      </p>
+    
+      <form class="" action="about_nmpt" method="post">
+        <button type="submit" class="govuk-button margin-bottom-none" data-module="govuk-button">
+          Create a nutrient management plan
+        </button>
+      </form>
+    {% endif %}
+
+  </div>
+</div>
+
+{% endblock %}

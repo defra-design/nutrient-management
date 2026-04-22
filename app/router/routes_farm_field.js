@@ -11,7 +11,7 @@ var callback_functions = require('./callbacks.js');
 
 // start.html → disclaimer (first visit) or farms hub (returning user)
 router.get(/start_router/, function (req, res) {
-  let next = (req.session.data.show_info == false) ? 'management/farm/farms' : 'disclaimer'
+  let next = (req.session.data.show_info == false) ? 'management/farm/options' : 'disclaimer'
   res.redirect(next)
 })
 

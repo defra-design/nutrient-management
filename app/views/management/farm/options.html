@@ -11,6 +11,19 @@
 
 {% block content %}
 
+<!-- set the URL for the farm card -->
+{% set farmsUrl = 'about_nmpt' %}
+{% if data.farm.setup == true %}
+  {% set farmsUrl = 'farms_only' %}
+{% endif %}
+
+
+<!-- set the URL for the manner card -->
+{% set mannerUrl = '/manner/previous_calculations' %}
+{% if data.manner_applications.length == 0 %}
+  {% set mannerUrl = '/manner/about_manner' %}
+{% endif %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
     {% if data.show_success_message == true %}
@@ -28,20 +41,23 @@
 
     <hr class="margin-bottom-thirty">
 
+    <div class="govuk-width-container">
+      <ul class="govuk-grid-row card-group">
 
-<div class="govuk-width-container">
-  <ul class="govuk-grid-row card-group">
-    {{ navCard("Farms", "Manage your farm details and information.", "#") }}
-    {{ navCard("Manner", "Manage your manner details and information.", "#") }}
-    {{ navCard("Import", "Import your farm data.", "#") }}
-  </ul>
-</div>
+        {{ navCard(
+          "Nutrient management planning", 
+          "Create nutrient management plans and Nitrate Vulnerable Zone (NVZ) reports for a farm.", 
+          farmsUrl
+        )}}
 
-  {% if data.farm.setup == true %}
+        {{ navCard(
+          "Nutrient supply estimates", 
+          "Estimate nutrient supply, and potential financial value, of organic manure applications.", 
+          mannerUrl
+        )}}
 
-  {% else %}
-
-  {% endif %}
+      </ul>
+    </div>
 
   </div>
 </div>

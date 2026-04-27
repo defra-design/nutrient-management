@@ -49,6 +49,13 @@ router.get(/manure_rate_handler/, function (req, res) {
   res.redirect(next);
 })
 
+// add_manure/manure_rate_warning_change.html → check (updates rate from check page, re-evaluates notification)
+router.post(/manure_rate_warning_change_handler/, function (req, res) {
+  req.session.data.application_rate = parseInt(req.session.data.application_rate)
+  req.session.data.show_manure_notification = req.session.data.application_rate >= 250
+  res.redirect('check')
+})
+
 // update/manure/update.html (change rate) → manure_rate_warning (≥250 t/ha) or update
 router.get(/change_rate_handler/, function (req, res) {
   let next = 'update'

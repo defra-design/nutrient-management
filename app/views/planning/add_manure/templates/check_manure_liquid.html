@@ -69,7 +69,7 @@
           <span>This application will take you over the organic manure nitrogen field limit</span>
         {% endif %}
       </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="manure_rate">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
+      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="{% if data.show_manure_notification == true %}manure_rate_warning_change{% else %}manure_rate{% endif %}">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
     </div>
   {% endif %}
 

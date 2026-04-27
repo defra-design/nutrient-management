@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+   Question – Add organic material -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Important
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification-banner__heading">
+            This application will take you over the organic manure nitrogen field limit
+          </p>
+          <p class="govuk-body">
+            The Nitrate Vulnerable Zone (NVZ) rules state that the total amount of nitrogen from all organic manures you apply in any 12 month period on any single hectare of your land must not exceed 250kg.
+          </p>
+          <p class="govuk-body">
+            It is an offence to breach the Nitrate Vulnerable Zone rules, and you should consider reducing the amount of nitrogen from organic manures.
+          </p>
+        </div>
+      </div>
+
+    <h1 class="govuk-heading-l">
+      What is the application rate?
+    </h1>
+
+    <form class="form" action="manure_rate_warning_change_handler" method="post">
+      <div class="govuk-form-group">
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="application_rate" type="text" autocomplete="off" spellcheck="false" value={{data.application_rate}}>
+          <div class="govuk-input__suffix" aria-hidden="true">
+            {% if data.manure_type.liquid == true %}
+              metres cubed per hectare
+            {% else %}
+              tonnes per hectare
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+
+    <p class="govuk-body">
+      <a href="fields.html">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1560,3 +1560,17 @@ th.wide, td.wide {
   }
 }
 
+.nvz_warnings {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #ca3535;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+

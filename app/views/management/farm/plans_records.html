@@ -28,7 +28,7 @@
 <h1 class="govuk-heading-l">Plan and record crops and nutrient use</h1>
 
 <div class="govuk-grid-row">
-  <div id="all-plans-table" class="govuk-grid-column-two-thirds">
+  <div id="all-plans-table" class="govuk-grid-column-full">
 
     <table class="govuk-table">
       <thead class="govuk-table__head">
@@ -36,15 +36,17 @@
           <th scope="col" class="govuk-table__header">Harvest year</th>
           <!-- <th scope="col" class="govuk-table__header">Status</th> -->
           <th scope="col" class="govuk-table__header">Last modified</th>
+          <th scope="col" class="govuk-table__header">NVZ warnings</th>
           <th scope="col" class="govuk-table__header"> </th>
         </tr>
       </thead>
-      <tbody class="govuk-table__body">  
+      <tbody class="govuk-table__body">
 
       <!-- 2028 -->
       {% if plan_2027 == true %}
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">2028</td>
+            <td class="govuk-table__cell">-</td>
             <td class="govuk-table__cell">-</td>
             <td class="govuk-table__cell"><a href="">Start a 2028 plan</a></td>
         </tr>
@@ -56,8 +58,10 @@
           <th scope="row" class="govuk-table__header">2027</td>
           {% if plan_2027 == true %}
             <td class="govuk-table__cell">22 September 2025</td>
+            <td class="govuk-table__cell">-</td>
             <td class="govuk-table__cell"><a href="crop_plan_year_handler?date=2027">View or edit the 2027 plan</a></td>
           {% else %}
+            <td class="govuk-table__cell">-</td>
             <td class="govuk-table__cell">-</td>
             <td class="govuk-table__cell"><a href="checkprompt_handler?date=2027">Start a 2027 plan</a></td>
           {% endif %}
@@ -69,8 +73,12 @@
         <th scope="row" class="govuk-table__header">2026</td>
         {% if plan_2026 == true %}
           <td class="govuk-table__cell">22 September 2026</td>
+          <td class="govuk-table__cell">
+            {% if data.show_manure_notification == true %}Yes{% else %}None{% endif %}
+          </td>
           <td class="govuk-table__cell"><a href="crop_plan_year_handler?date=2026">View or edit the 2026 plan</a></td>
         {% else %}
+          <td class="govuk-table__cell">-</td>
           <td class="govuk-table__cell">-</td>
           {% if plan_2025 == true %}
             <td class="govuk-table__cell"><a href="checkprompt_handler?date=2026">Start a 2026 plan</a></td>
@@ -87,8 +95,12 @@
         <th scope="row" class="govuk-table__header">2025</td>
         {% if plan_2025 == true %}
           <td class="govuk-table__cell">22 September 2025</td>
+          <td class="govuk-table__cell">
+            {% if data.show_manure_notification == true %}Yes{% else %}None{% endif %}
+          </td>
           <td class="govuk-table__cell"><a href="crop_plan_year_handler?date=2025">View or edit the 2025 plan</a></td>
         {% else %}
+          <td class="govuk-table__cell">-</td>
           <td class="govuk-table__cell">-</td>
           {% if plan_2025 == true or plan_2027 == true %}
             <td class="govuk-table__cell"><a href="create_next_handler?date=2025">Start a 2025 plan</a></td>
@@ -102,6 +114,7 @@
       {% if plan_2025 == true %}
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">2024</td>
+            <td class="govuk-table__cell">-</td>
             <td class="govuk-table__cell">-</td>
             <td class="govuk-table__cell"><a href="">Start a 2024 plan</a></td>
         </tr>

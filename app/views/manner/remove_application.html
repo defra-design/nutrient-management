@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Remove an application – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_manner.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Which application do you want to remove?
+    </h1>
+
+    <p class="govuk-hint">
+      Select one option.
+    </p>
+
+    <form class="form" action="manner_remove_application_handler" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            {% for application in data.manner_applications %}
+            
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="application-{{ application.reference }}" name="remove_application_reference" type="radio" value="{{ application.reference }}">
+                <label class="govuk-label govuk-radios__label" for="application-{{ application.reference }}">
+                  Application {{ application.reference }}
+                </label>
+                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                  {{ application.manuretype.name }}, on 1 June 2026
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="/manner/results">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

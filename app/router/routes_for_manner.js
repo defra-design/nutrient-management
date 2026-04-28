@@ -80,11 +80,22 @@ router.get(/manner_update_handler/, callback_functions.showSuccessMessage, funct
     res.redirect('manner/results')
 })
 
+// manner/manure_type.html → manure_date
+router.get(/manuretype_manner_handler/, function (req, res) {
+  if (!req.session.data.manure_type || req.session.data.manure_type === '') {
+    req.session.data.manure_type = 'Cattle slurry'
+  }
+  req.session.data.manure_type = allFunctions.getByReference(req.session.data.manure_types, req.session.data.manure_type)
+  res.redirect('manure_date')
+})
+
 // manner/quantity.html → results (creates the estimate and shows results)
 router.get(/manner_results_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 'MANNER_DONE'
     let tempApplication = allFunctions.createTempApplication(req.session.data.manure_date_day, req.session.data.manure_date_month, 2026, req.session.data.manure_type, req.session.data.manure_rate, req.session.data.manner_applications.length)
     req.session.data.manner_applications.push(tempApplication)
+    req.session.data.manure_type = null
+    req.session.data.manure_group_id = null
     res.redirect('results')
 })
 
@@ -103,6 +114,14 @@ router.get(/copy_estimate_handler/, callback_functions.showSuccessMessage, funct
 // manner/estimates_list.html → results (shows MANNER_DONE success message after copying an estimate)
 router.get(/manner_copy_estimate_selected_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 'MANNER_DONE'
+    res.redirect('/manner/results')
+})
+
+// manner/remove_application.html → results (removes selected application and shows success message)
+router.get(/manner_remove_application_handler/, callback_functions.showSuccessMessage, function (req, res) {
+    let reference = parseInt(req.session.data.remove_application_reference)
+    req.session.data.manner_applications = req.session.data.manner_applications.filter(a => a.reference !== reference)
+    req.session.data.successMessage = 'MANNER_APPLICATION_REMOVED'
     res.redirect('/manner/results')
 })
 

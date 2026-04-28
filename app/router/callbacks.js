@@ -21,6 +21,7 @@ function setManureGroup(req, res, next) {
         digestate: req.session.data.manure_type_digestate_data,
     }
     const groupId = req.session.data.manure_group_id || 'livestock'
+    req.session.data.manure_group_id = groupId
     req.session.data.manure_types = manureTypes[groupId]
     next()
 }

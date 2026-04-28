@@ -69,7 +69,7 @@ router.get(/setup_handler_one_crop/, function (req, res) {
 router.get(/setup_handler_manner/, function (req, res) {
     req.session.data.farm = startFarm()
     req.session.data.show_info = false
-    let tempApplication = {ref: 1, date:'01/06/2026', manuretype: req.session.data.manure_type_livestock_data[12], rate: 30 }
+    let tempApplication = {reference: 1, date:'01/06/2026', manuretype: req.session.data.manure_type_livestock_data[12], rate: 30 }
     req.session.data.manner_applications.push(tempApplication)
     res.redirect('start')
 })
@@ -138,7 +138,7 @@ router.get(/setup_handler_everything/, function (req, res) {
     })
 
     //manner
-    let tempApplication = {ref: 1, date:'01/06/2026', manuretype: req.session.data.manure_type_livestock_data[12], rate: 30}
+    let tempApplication = {reference: 1, date:'01/06/2026', manuretype: req.session.data.manure_type_livestock_data[12], rate: 30}
     req.session.data.manner_applications.push(tempApplication)
     res.redirect('start')
 })

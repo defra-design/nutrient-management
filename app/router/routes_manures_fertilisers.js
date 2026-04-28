@@ -87,18 +87,15 @@ router.get(/select_manure_fields_router/, function (req, res) {
 
 // add_manure/manure_type.html → manure_date or manure_defoliation (grass setup)
 router.get(/get_manure_type_planning_handler/, function (req, res) {
+  if (!req.session.data.manure_type || req.session.data.manure_type === '') {
+    req.session.data.manure_type = 'Cattle farmyard manure - Fresh'
+  }
   req.session.data.manure_type = allFunctions.getByReference(req.session.data.manure_types, req.session.data.manure_type)
   let next = 'manure_date'
   if (req.session.data.farm.grass_setup == true) {
       next = 'manure_defoliation'
   }
   res.redirect(next)
-})
-
-// manner/manure_type.html → manure_date
-router.get(/manuretype_manner_handler/, function (req, res) {
-  req.session.data.manure_type = allFunctions.getByReference(req.session.data.manure_types, req.session.data.manure_type)
-  res.redirect('manure_date')
 })
 
 // add_manure/manure_date.html → manure_defaults (solid) or manure_applied (liquid)
@@ -132,6 +129,8 @@ router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function
     })
     req.session.data.manure_fields = null
     const next = req.session.data.manure_journey == 'single' ? '/management/farm/field_plan/index#manures' : '/management/farm/crop_plan/plan_view#organic'
+    req.session.data.manure_type = null
+    req.session.data.manure_group_id = null
     res.redirect(next)
 })
 

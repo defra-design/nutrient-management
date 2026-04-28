@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question – Add a field -  {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+{% macro radioItem(label, name) %}
+  {% set itemId = label | lower | replace(' ', '-') | replace('(', '') | replace(')', '') %}
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="top-{{ itemId }}" name="{{ name }}" type="radio" value="{{ label }}" {{ checked(name, label) }}>
+    <label class="govuk-label govuk-radios__label" for="top-{{ itemId }}">{{ label }}</label>
+  </div>
+{% endmacro %}
+
+{% set soilTypes = [
+  'Sand',
+  'Loamy sand',
+  'Sandy loam',
+  'Fine sandy loam',
+  'Sandy silt loam',
+  'Silt loam',
+  'Silty clay loam',
+  'Sandy clay loam',
+  'Clay loam',
+  'Sandy clay',
+  'Silty clay',
+  'Clay',
+  'Organic (10-20% organic matter)',
+  'Peaty',
+  'Peat'
+] %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">What is the topsoil type in {{data.temp_field.field_name}}?</h1>
+
+    <form action="soil-sub" method="post" novalidate="">
+
+      <div class="govuk-form-group margin-bottom-forty">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+
+            <div class="govuk-hint">
+              Choose one option.
+            </div>
+
+            {% for soilType in soilTypes %}
+              {{ radioItem(soilType, 'topsoilType') }}
+            {% endfor %}
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    <p class="govuk-body cancel-link"><a href="/management/farm/hub">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

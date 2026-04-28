@@ -280,5 +280,11 @@ router.get(/fertiliser_change_router/, callback_functions.getApplicationByRefere
   res.redirect('/update/fertiliser/update')
 })
 
+// soil type (add custom) → subsoil and topsoil type
+router.get(/soil_handler/, callback_functions.getApplicationByReference, function (req, res) {
+  let next = 'add_analysis'
+  if (req.session.data.soil_type == 'other') next = 'soil-top'
+  res.redirect(next)
+})
 
 module.exports = router

@@ -135,6 +135,7 @@ router.get('/', function (req, res) {
     // -------------------------
     req.session.data.show_success_message = false
     req.session.data.show_error = false
+    req.session.data.skipIncorporation = false
     req.session.data.show_manure_notification = false   // also reset above in manures — intentional
     req.session.data.show_info = true
     req.session.data.extra_features = true

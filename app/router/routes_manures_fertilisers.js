@@ -25,9 +25,9 @@ router.get(/manure_update_handler/, function (req, res) {
   res.redirect('/management/farm/crop_plan/plan_view#organic')
 })
 
-// add_manure/quantity.html → manure_area, manure_rate, or manure_incorporation_method
+// add_manure/quantity.html → manure_area, manure_rate, or manure_incorporation_method (rain_defaults if injection)
 router.get(/manure_quantity_router/, function (req, res) {
-  let next = 'manure_incorporation_method'
+  let next = req.session.data.skipIncorporation ? 'rain_defaults' : 'manure_incorporation_method'
   if (req.session.data.quantity_type == "area") {
     next = 'manure_area'
   } else if (req.session.data.quantity_type == "rate") {
@@ -36,17 +36,23 @@ router.get(/manure_quantity_router/, function (req, res) {
   res.redirect(next);
 })
 
-// add_manure/manure_rate.html → manure_rate_warning (≥250 t/ha) or manure_incorporation_method
+// add_manure/manure_rate.html → manure_rate_warning (≥250 t/ha), rain_defaults (injection), or manure_incorporation_method
 router.get(/manure_rate_handler/, function (req, res) {
   req.session.data.application_rate = parseInt(req.session.data.application_rate)
-  let next = 'manure_incorporation_method'
   if (req.session.data.application_rate >= 250) {
     req.session.data.show_manure_notification = true
-    next = 'manure_rate_warning'
+    res.redirect('manure_rate_warning')
   } else {
     req.session.data.show_manure_notification = false
+    const next = req.session.data.skipIncorporation ? 'rain_defaults' : 'manure_incorporation_method'
+    res.redirect(next)
   }
-  res.redirect(next);
+})
+
+// add_manure/manure_area.html → rain_defaults (injection) or manure_incorporation_method
+router.get(/planning_area_handler/, function (req, res) {
+  const next = req.session.data.skipIncorporation ? 'rain_defaults' : 'manure_incorporation_method'
+  res.redirect(next)
 })
 
 // add_manure/manure_rate_warning_change.html → check (updates rate from check page, re-evaluates notification)
@@ -131,6 +137,7 @@ router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function
     const next = req.session.data.manure_journey == 'single' ? '/management/farm/field_plan/index#manures' : '/management/farm/crop_plan/plan_view#organic'
     req.session.data.manure_type = null
     req.session.data.manure_group_id = null
+    req.session.data.skipIncorporation = false
     res.redirect(next)
 })
 

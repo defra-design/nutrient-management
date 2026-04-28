@@ -89,6 +89,28 @@ router.get(/manuretype_manner_handler/, function (req, res) {
   res.redirect('manure_date')
 })
 
+// manner/manure_date.html → manure_applied (liquid) or manure_defaults (solid)
+router.get(/manner_date_handler/, function (req, res) {
+  if (req.session.data.manure_date_day < 1) req.session.data.manure_date_day = 21
+  if (req.session.data.manure_date_month < 1) req.session.data.manure_date_month = 2
+  if (req.session.data.manure_date_year < 1) req.session.data.manure_date_year = 2026
+  const next = req.session.data.manure_type.liquid == true ? 'manure_applied' : 'manure_defaults'
+  res.redirect(next)
+})
+
+// manner/manure_applied.html → manure_defaults (stores skip flag for injection methods)
+router.get(/manner_applied_handler/, function (req, res) {
+  const method = req.session.data.application_method
+  req.session.data.skipIncorporation = (method === 'Shallow injection' || method === 'Deep injection')
+  res.redirect('manure_defaults')
+})
+
+// manner/manure_value.html → rain_defaults (injection) or manure_incorporation_method
+router.get(/manner_rate_handler/, function (req, res) {
+  const next = req.session.data.skipIncorporation ? 'rain_defaults' : 'manure_incorporation_method'
+  res.redirect(next)
+})
+
 // manner/quantity.html → results (creates the estimate and shows results)
 router.get(/manner_results_handler/, callback_functions.showSuccessMessage, function (req, res) {
     req.session.data.successMessage = 'MANNER_DONE'
@@ -96,6 +118,7 @@ router.get(/manner_results_handler/, callback_functions.showSuccessMessage, func
     req.session.data.manner_applications.push(tempApplication)
     req.session.data.manure_type = null
     req.session.data.manure_group_id = null
+    req.session.data.skipIncorporation = false
     res.redirect('results')
 })
 

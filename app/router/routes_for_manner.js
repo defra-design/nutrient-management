@@ -100,6 +100,12 @@ router.get(/copy_estimate_handler/, callback_functions.showSuccessMessage, funct
     res.redirect(next)
 })
 
+// manner/estimates_list.html → results (shows MANNER_DONE success message after copying an estimate)
+router.get(/manner_copy_estimate_selected_handler/, callback_functions.showSuccessMessage, function (req, res) {
+    req.session.data.successMessage = 'MANNER_DONE'
+    res.redirect('/manner/results')
+})
+
 // update/manner/update.html → update/manner/manure_group (starts the manner update journey)
 router.get(/update_manner_manure_handler/, callback_functions.showSuccessMessage, function (req, res) {
     res.redirect('/update/manner/manure_group')

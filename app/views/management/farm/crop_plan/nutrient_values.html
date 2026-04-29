@@ -24,7 +24,13 @@
       Estimate of nutrient supply from organic materials
     </h1>
 
-    <p class="govuk-body">Application of {{data.manner_applications[0].manuretype.name}} on {{data.chosen_field_id | fieldnameconverter}}, 1 June 2026.</p>
+    {% set matchedApp = null %}
+    {% for app in data.manure_applications %}
+      {% if (app.field_id | string) == (data.chosen_field_id | string) and app.manure_id == data.chosen_application %}
+        {% set matchedApp = app %}
+      {% endif %}
+    {% endfor %}
+    <p class="govuk-body">Application of {{data.chosen_application}} on {{data.chosen_field_id | fieldnameconverter}}{% if matchedApp %}, {{matchedApp.application_date}}{% endif %}.</p>
     <!-- <p class="govuk-body"><a href="manure_update_router?application={{application.application.manure_id}}&field={{field.field_id}}">View application details</a></p> -->
 
   </div>

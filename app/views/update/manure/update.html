@@ -36,7 +36,7 @@
 {% set application_date = data.manure_date_day + " " + data.manure_date_month | convertmonth + " " + data.manure_date_year%}
 
 <!-- set manure type -->
-{% set localmanuretype = 'Cattle farmyard manure - old' %}
+{% set localmanuretype = data.chosen_application %}
 
 {% macro row_item(key, value, url) %}
 <div class="govuk-summary-list__row">

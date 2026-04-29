@@ -39,9 +39,9 @@
   </div>
 
   {{ row_item('What type of organic material are you using in this application?', localmanuretype, null ) }}
-  {{ row_item('When are you applying localmanuretype?', application_date, null ) }}
-  {{ row_item('How are you going to apply the localmanuretype?', 'Band spreader', null ) }}
-  {{ row_item('Do you want to use typical nutrient values for localmanuretype?', 'Yes, use typical nutrient values', null ) }}
+  {{ row_item('When are you applying ' + localmanuretype + '?', application_date, null ) }}
+  {{ row_item('How are you going to apply the ' + localmanuretype + '?', 'Band spreader', null ) }}
+  {{ row_item('Do you want to use typical nutrient values for ' + localmanuretype + '?', 'Yes, use typical nutrient values', null ) }}
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Typical nutrient values for {{localmanuretype}}</dt>
@@ -57,7 +57,7 @@
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
-  {{ row_item('How would you like to enter the application rate for your localmanuretype?', quantity_content, null ) }}
+  {{ row_item('How would you like to enter the application rate for your ' + localmanuretype + '?', quantity_content, null ) }}
 
   {% if data.quantity_type == 'rate' %}
     <div class="govuk-summary-list__row">

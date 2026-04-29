@@ -18,6 +18,13 @@ router.get(/manure_update_router/, function (req, res) {
   res.redirect('/update/manure/update')
 })
 
+// plan_view → crop_plan/nutrient_values (sets application and field context for the nutrient values page)
+router.get(/nutrient_values_router/, function (req, res) {
+  req.session.data.chosen_application = req.query.application_id
+  req.session.data.chosen_field_id = req.query.field
+  res.redirect('/management/farm/crop_plan/nutrient_values')
+})
+
 // update/manure/check.html → plan_view#organic (saves manure update)
 router.get(/manure_update_handler/, function (req, res) {
   req.session.data.show_success_message = true;

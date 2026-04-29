@@ -74,8 +74,12 @@
     white-space: nowrap;
 }
 
-.recomendation-table .govuk-table__header {
+.recomendation-table {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  .govuk-table__header {
     padding-right: 10px;
+  }
 }
 
 .secondary-button {
@@ -1574,3 +1578,11 @@ th.wide, td.wide {
   margin-left: 5px;
 }
 
+.list_options {
+  li {
+    margin: 0;
+    margin-bottom: 8px;
+  }
+  margin: 0;
+  padding: 0;
+}

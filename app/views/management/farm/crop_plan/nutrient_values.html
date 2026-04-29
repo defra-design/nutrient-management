@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Results – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl margin-bottom-twenty">
+      Estimate of nutrient supply from organic materials
+    </h1>
+    <p class="govuk-body-s margin-bottom-thirty">Last updated 21 April 2026</p>
+  </div>
+</div>
+
+<!-- Menu -->
+<div class="govuk-grid-row margin-bottom-forty">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <p class="govuk-body">
+      <a href="/manner/manure_group">Add another manure application to this field</a>
+    </p>
+    {% if (data.manner_applications | length) != 1 %}
+      <p class="govuk-body">
+        <a href="/manner/remove_application">Remove an application</a>
+      </p>
+    {% endif %}
+    <p class="govuk-body">
+      <a href="report/report">Export or print this estimate</a>
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-tabs" data-module="govuk-tabs">
+
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#nutrients">Nutrients</a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#value">Financial value</a>
+        </li>
+      </ul>
+
+      <!-- nutrients -->
+      <div class="govuk-tabs__panel" id="nutrients">
+        <h2 class="govuk-heading-l">Nutrients</h2>
+        {% include "./templates/manner_results/application_details.html" ignore missing %}
+        <div class="margin-bottom-forty">
+          {% include "./templates/manner_results/nitrogen_table.html" ignore missing %}
+        </div>
+      </div>
+
+      <!-- value -->
+      <div class="govuk-tabs__panel clearfix govuk-tabs__panel--hidden" id="value">
+        {% include "./templates/manner_results/manure_value_table.html" ignore missing %}
+        {% include "./templates/manner_results/price_data.html" ignore missing %}
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

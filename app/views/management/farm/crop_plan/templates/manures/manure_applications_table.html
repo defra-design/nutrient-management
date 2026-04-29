@@ -5,8 +5,8 @@
       <th scope="col" class="govuk-table__header">Field</th>
       <th scope="col" class="govuk-table__header">Crop</th>
       <th scope="col" class="govuk-table__header">Type</th>
-        <!-- <th scope="col" class="govuk-table__header">Rate</th> -->
-        <th scope="col" class="govuk-table__header">NVZ warnings</th>
+        <th scope="col" class="govuk-table__header">NVZ issues</th>
+        <th scope="col" class="govuk-table__header"> </th>
         <th scope="col" class="govuk-table__header"> </th>
     </tr>
   </thead>
@@ -28,19 +28,18 @@
             {{field.crop_id | nameconverter}}
           </td>
           <td class="govuk-table__cell">{{application.manure_id}}</td>
-          <!-- <td class="govuk-table__cell">
-            {% if application.rate != "0" and application.rate != "" and application.rate != nan %}
-              {{application.rate}} tonnes
-            {% else %}
-              Not entered
-            {% endif %}
-          </td> -->
           {% if data.show_manure_notification == true %}
             <td class="govuk-table__cell">Yes</td>
           {% else %}
             <td class="govuk-table__cell">None</td>
           {% endif %}
-          <td class="govuk-table__cell"><a href="manure_update_router?application={{application.application.manure_id}}&field={{field.field_id}}">Change</a></td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list list_options">
+              <li><a href="nutrient_values_router?application_id={{application.manure_id}}&field={{field.field_id}}">View nutrient supply</a></li>
+              <li><a href="manure_update_router?application={{application.application.manure_id}}&field={{field.field_id}}">Change application</a></li>
+            </ul>
+          </td>
         </tr>     
       {% endfor %} 
   </tbody>

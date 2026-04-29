@@ -17,12 +17,16 @@
 
 {% block content %}
 
-<div class="govuk-grid-row margin-bottom-thirty">
+<div class="govuk-grid-row margin-bottom-twenty">
   <div class="govuk-grid-column-two-thirds">
     <h1 id="main-title" class="govuk-heading-l">
       <span class="govuk-caption-l">{{data.farm.name}} </span>
       Estimate of nutrient supply from organic materials
     </h1>
+
+    <p class="govuk-body">Application of {{data.manner_applications[0].manuretype.name}} on {{data.chosen_field_id | fieldnameconverter}}, 1 June 2026.</p>
+    <!-- <p class="govuk-body"><a href="manure_update_router?application={{application.application.manure_id}}&field={{field.field_id}}">View application details</a></p> -->
+
   </div>
 </div>
 
@@ -42,7 +46,6 @@
       <!-- nutrients -->
       <div class="govuk-tabs__panel" id="nutrients">
         <h2 class="govuk-heading-l">Nutrients</h2>
-        {% include "./templates/manner_results/application_details.html" ignore missing %}
         <div class="margin-bottom-forty">
           {% include "./templates/manner_results/nitrogen_table.html" ignore missing %}
         </div>

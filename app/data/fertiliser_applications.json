@@ -2,7 +2,7 @@
     {
         "ref": 1,
         "field": "Park 1",
-        "fieldref": "10",
+        "field_id": "10",
         "crop": "grass",
         "Defoliation": "Defoliation 3",
         "date": "6/6/2025",
@@ -18,7 +18,7 @@
     {
         "ref": 2,
         "field": "Park 2",
-        "fieldref": "11",
+        "field_id": "11",
         "crop": "grass",
         "Defoliation": "Defoliation 3",
         "date": "6/6/2025",
@@ -34,7 +34,7 @@
     {
         "ref": 3,
         "field": "Hops 1",
-        "fieldref": "14",
+        "field_id": "14",
         "crop": "Wheat-Winter",
         "date": "01/9/2025",
         "analysis": "0:20:20:0:0:0",
@@ -50,7 +50,7 @@
     {
         "ref": 4,
         "field": "Park 1",
-        "fieldref": "10",
+        "field_id": "10",
         "crop": "grass",
         "Defoliation": "Defoliation 2",
         "date": "5/9/2025",
@@ -66,7 +66,7 @@
     {
         "ref": 5,
         "field": "Park 2",
-        "fieldref": "11",
+        "field_id": "11",
         "crop": "grass",
         "Defoliation": "Defoliation 2",
         "date": "5/9/2025",
@@ -82,7 +82,7 @@
     {
         "ref": 6,
         "field": "Narrow land",
-        "fieldref": "7",
+        "field_id": "7",
         "crop": "Beans-Winter",
         "date": "12/9/2025",
         "analysis": "",
@@ -98,7 +98,7 @@
     {
         "ref": 7,
         "field": "Oaks",
-        "fieldref": "6",
+        "field_id": "6",
         "crop": "Wheat-Winter",
         "date": "12/9/2025",
         "analysis": "",
@@ -114,7 +114,7 @@
     {
         "ref": 8,
         "field": "25 acres",
-        "fieldref": "8",
+        "field_id": "8",
         "crop": "Beans-Winter",
         "date": "20/9/2025",
         "analysis": "0:20:20:0:0:0",
@@ -130,7 +130,7 @@
     {
         "ref": 9,
         "field": "Barns",
-        "fieldref": "12",
+        "field_id": "12",
         "crop": "Beans-Winter",
         "date": "20/9/2025",
         "analysis": "0:20:20:0:0:0",
@@ -146,7 +146,7 @@
     {
         "ref": 10,
         "field": "Valley",
-        "fieldref": "4",
+        "field_id": "4",
         "crop": "Wheat-Winter",
         "date": "1/3/2026",
         "analysis": "",
@@ -161,7 +161,7 @@
     {
         "ref": 11,
         "field": "Hops 1",
-        "fieldref": "14",
+        "field_id": "14",
         "crop": "Wheat-Winter",
         "date": "1/3/2026",
         "analysis": "34:0:0:0:0:0",
@@ -177,7 +177,7 @@
     {
         "ref": 12,
         "field": "Long field",
-        "fieldref": "1",
+        "field_id": "1",
         "crop": "Wheat-Winter",
         "date": "1/3/2026",
         "analysis": "34:0:0:0:0:0",
@@ -193,7 +193,7 @@
     {
         "ref": 13,
         "field": "Narrow land",
-        "fieldref": "7",
+        "field_id": "7",
         "crop": "Beans-Winter",
         "date": "1/3/2026",
         "analysis": "",
@@ -209,7 +209,7 @@
     {
         "ref": 14,
         "field": "Oaks",
-        "fieldref": "6",
+        "field_id": "6",
         "crop": "Wheat-Winter",
         "date": "1/3/2026",
         "analysis": "",
@@ -225,7 +225,7 @@
     {
         "ref": 15,
         "field": "Poplar",
-        "fieldref": "5",
+        "field_id": "5",
         "crop": "Wheat-Winter",
         "date": "1/3/2026",
         "analysis": "",
@@ -240,7 +240,7 @@
     {
         "ref": 16,
         "field": "Park 1",
-        "fieldref": "10",
+        "field_id": "10",
         "crop": "grass",
         "Defoliation": "Defoliation 1",
         "date": "3/3/2026",
@@ -256,7 +256,7 @@
     {
         "ref": 17,
         "field": "Park 2",
-        "fieldref": "11",
+        "field_id": "11",
         "crop": "grass",
         "Defoliation": "Defoliation 1",
         "date": "3/3/2026",
@@ -272,7 +272,7 @@
     {
         "ref": 18,
         "field": "Hops 1",
-        "fieldref": "14",
+        "field_id": "14",
         "crop": "Wheat-Winter",
         "date": "22/3/2026",
         "analysis": "34:0:0:0:0:0",
@@ -288,7 +288,7 @@
     {
         "ref": 19,
         "field": "Long field",
-        "fieldref": "1",
+        "field_id": "1",
         "crop": "Wheat-Winter",
         "date": "22/3/2026",
         "analysis": "34:0:0:0:0:0",
@@ -304,7 +304,7 @@
     {
         "ref": 20,
         "field": "Poplar",
-        "fieldref": "5",
+        "field_id": "5",
         "crop": "Wheat-Winter",
         "date": "1/4/2026",
         "analysis": "",
@@ -319,7 +319,7 @@
     {
         "ref": 21,
         "field": "Valley",
-        "fieldref": "4",
+        "field_id": "4",
         "crop": "Wheat-Winter",
         "date": "1/4/2026",
         "analysis": "",
@@ -334,7 +334,7 @@
     {
         "ref": 22,
         "field": "Hops 1",
-        "fieldref": "14",
+        "field_id": "14",
         "crop": "Wheat-Winter",
         "date": "2/4/2026",
         "analysis": "34:0:0:0:0:0",
@@ -350,7 +350,7 @@
     {
         "ref": 23,
         "field": "Long field",
-        "fieldref": "1",
+        "field_id": "1",
         "crop": "Wheat-Winter",
         "date": "2/4/2026",
         "analysis": "34:0:0:0:0:0",
@@ -366,7 +366,7 @@
     {
         "ref": 24,
         "field": "Narrow land",
-        "fieldref": "7",
+        "field_id": "7",
         "crop": "Beans-Winter",
         "date": "2/4/2026",
         "analysis": "",
@@ -382,7 +382,7 @@
     {
         "ref": 25,
         "field": "Oaks",
-        "fieldref": "6",
+        "field_id": "6",
         "crop": "Wheat-Winter",
         "date": "2/4/2026",
         "analysis": "",
@@ -398,7 +398,7 @@
     {
         "ref": 26,
         "field": "Narrow land",
-        "fieldref": "7",
+        "field_id": "7",
         "crop": "Beans-Winter",
         "date": "26/4/2026",
         "analysis": "",
@@ -414,7 +414,7 @@
     {
         "ref": 27,
         "field": "Oaks",
-        "fieldref": "6",
+        "field_id": "6",
         "crop": "Wheat-Winter",
         "date": "26/4/2026",
         "analysis": "",
@@ -429,7 +429,7 @@
     {
         "ref": 28,
         "field": "Poplar",
-        "fieldref": "5",
+        "field_id": "5",
         "crop": "Wheat-Winter",
         "date": "1/5/2026",
         "analysis": "",
@@ -444,7 +444,7 @@
     {
         "ref": 29,
         "field": "Valley",
-        "fieldref": "4",
+        "field_id": "4",
         "crop": "Wheat-Winter",
         "date": "1/5/2026",
         "analysis": "",

@@ -4,9 +4,6 @@
 	<table class="govuk-table data-table">
 		<thead class="govuk-table__head">
 			<tr>
-			{% if (data.manner_applications | length) > 1 %}
-				<th scope="row" class="govuk-table__header application-ref"><span class="">Application</span></th>
-			{% endif%}
 				<th scope="row" class="govuk-table__header">Total nitrogen (N)</th>
 				<th scope="row" class="govuk-table__header">Crop available nitrogen (N) Current crop</th>
 				<th scope="row" class="govuk-table__header">Crop available nitrogen (N) Following crop year 2</th>
@@ -15,41 +12,11 @@
 		</thead>
 		<tbody class="govuk-table__body">
 			<tr>
-			{% if (data.manner_applications | length) > 1 %}
-				<td class="govuk-table__cell">1</td>
-			{% endif %}
 				<td class="govuk-table__cell">10kg</td>
 				<td class="govuk-table__cell">10kg</td>
 				<td class="govuk-table__cell">10kg</td>
 				<td class="govuk-table__cell">22%</td>
 			</tr>
-			{% if (data.manner_applications | length) >= 2 %}
-			<tr>
-				<td class="govuk-table__cell">2</td>
-				<td class="govuk-table__cell">10kg</td>
-				<td class="govuk-table__cell">10kg</td>
-				<td class="govuk-table__cell">10kg</td>
-				<td class="govuk-table__cell">22%</td>
-			</tr>
-			{% endif %}
-			{% if (data.manner_applications | length) >= 3 %}
-			<tr>
-				<td class="govuk-table__cell">3</td>
-				<td class="govuk-table__cell">10kg</td>
-				<td class="govuk-table__cell">10kg</td>
-				<td class="govuk-table__cell">10kg</td>
-				<td class="govuk-table__cell">22%</td>
-			</tr>
-			{% endif %}
-			{% if (data.manner_applications | length) >= 2 %}
-				<tr class="total_row">
-					<th scope="row" class="govuk-table__header">Totals</th>
-					<td class="govuk-table__cell">20kg</td>
-					<td class="govuk-table__cell">20kg</td>
-					<td class="govuk-table__cell">20kg</td>
-					<td class="govuk-table__cell">22%</td>
-				</tr>
-			{% endif %}
 		</tbody>
 	</table>
 </div>
@@ -60,9 +27,6 @@
 	<table class="govuk-table data-table">
 		<thead class="govuk-table__head">
 			<tr>
-			{% if (data.manner_applications | length) > 1 %}
-				<th scope="row" class="govuk-table__header application-ref"><span class="">Application</span></th>
-			{% endif%}
 				<th scope="row" class="govuk-table__header">Mineralised nitrogen (N)</th>
 				<th scope="row" class="govuk-table__header">Lost nitrate-N</th>
 				<th scope="row" class="govuk-table__header">Lost ammonia-N</th>
@@ -71,41 +35,11 @@
 		</thead>
 		<tbody class="govuk-table__body">
 			<tr>
-			{% if (data.manner_applications | length) > 1 %}
-				<td class="govuk-table__cell">1</td>
-			{% endif %}
 				<td class="govuk-table__cell">10kg</td>
 				<td class="govuk-table__cell">10kg</td>
 				<td class="govuk-table__cell">10kg</td>
 				<td class="govuk-table__cell">10kg</td>
 			</tr>
-			{% if (data.manner_applications | length) >= 2 %}
-			<tr>
-				<td class="govuk-table__cell">2</td>
-				<td class="govuk-table__cell">10kg</td>
-				<td class="govuk-table__cell">10kg</td>
-				<td class="govuk-table__cell">10kg</td>
-				<td class="govuk-table__cell">10kg</td>
-			</tr>
-			{% endif %}
-			{% if (data.manner_applications | length) >= 3 %}
-			<tr>
-				<td class="govuk-table__cell">3</td>
-				<td class="govuk-table__cell">10kg</td>
-				<td class="govuk-table__cell">10kg</td>
-				<td class="govuk-table__cell">10kg</td>
-				<td class="govuk-table__cell">10kg</td>
-			</tr>
-			{% endif %}
-			{% if (data.manner_applications | length) >= 2 %}
-				<tr class="total_row">
-					<th scope="row" class="govuk-table__header">Totals</th>
-				<td class="govuk-table__cell">20kg</td>
-				<td class="govuk-table__cell">20kg</td>
-				<td class="govuk-table__cell">20kg</td>
-				<td class="govuk-table__cell">20kg</td>
-				</tr>
-			{% endif %}
 		</tbody>
 	</table>
 </div>
@@ -115,9 +49,6 @@
 <table class="govuk-table data-table margin-bottom-none">
 	<thead class="govuk-table__head">
 		<tr>
-			{% if (data.manner_applications | length) > 1 %}
-				<th scope="row" class="govuk-table__header application-ref">Application</th>
-			{% endif %}
 			<th scope="row" class="govuk-table__header">Total phosphate (P2O5)</th>
 			<th scope="row" class="govuk-table__header">Crop available phosphate (P2O5)</th>
 			<th scope="row" class="govuk-table__header">Total potash (K2O)</th>
@@ -129,9 +60,6 @@
 	</thead>
 	<tbody class="govuk-table__body">
 		<tr>
-			{% if (data.manner_applications | length) > 1 %}
-			<td class="govuk-table__cell">1</td>
-			{% endif %}
 			<td class="govuk-table__cell">10kg</td>
 			<td class="govuk-table__cell">10kg</td>
 			<td class="govuk-table__cell">10kg</td>
@@ -140,41 +68,5 @@
 			<td class="govuk-table__cell">10kg</td>
 			<td class="govuk-table__cell">10kg</td>
 		</tr>
-		{% if (data.manner_applications | length) >= 2 %}
-			<tr>
-			<td class="govuk-table__cell">2</td>
-			<td class="govuk-table__cell">10kg</td>
-			<td class="govuk-table__cell">10kg</td>
-			<td class="govuk-table__cell">10kg</td>
-			<td class="govuk-table__cell">10kg</td>
-			<td class="govuk-table__cell">10kg</td>
-			<td class="govuk-table__cell">10kg</td>
-			<td class="govuk-table__cell">10kg</td>
-			</tr>
-		{% endif %}
-		{% if (data.manner_applications | length) >= 3 %}
-			<tr>
-			<td class="govuk-table__cell">3</td>
-			<td class="govuk-table__cell">10kg</td>
-			<td class="govuk-table__cell">10kg</td>
-			<td class="govuk-table__cell">10kg</td>
-			<td class="govuk-table__cell">10kg</td>
-			<td class="govuk-table__cell">10kg</td>
-			<td class="govuk-table__cell">10kg</td>
-			<td class="govuk-table__cell">10kg</td>
-			</tr>
-		{% endif %}
-		{% if (data.manner_applications | length) >= 2 %}
-			<tr class="total_row">
-				<th scope="row" class="govuk-table__header">Totals</th>
-				<th scope="row" class="govuk-table__header">20kg</th>
-				<th scope="row" class="govuk-table__header">20kg</th>
-				<th scope="row" class="govuk-table__header">20kg</th>
-				<th scope="row" class="govuk-table__header">20kg</th>
-				<th scope="row" class="govuk-table__header">20kg</th>
-				<th scope="row" class="govuk-table__header">20kg</th>
-				<th scope="row" class="govuk-table__header">20kg</th>
-			</tr>
-		{% endif %}
 	</tbody>
 </table>

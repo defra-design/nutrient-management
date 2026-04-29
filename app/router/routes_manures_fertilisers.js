@@ -10,26 +10,31 @@ var callback_functions = require('./callbacks.js');
 // → quantity → incorporation → check your answers) and for updating existing applications.
 // =============================================================================
 
-// plan_view → update/manure/update (sets the update context from URL params)
+// plan_view / field_plan → update/manure/update (sets the update context from URL params)
 router.get(/manure_update_router/, function (req, res) {
   req.session.data.update_type = req.query.update_type
   req.session.data.chosen_application = req.query.application_id
   req.session.data.chosen_field_id = req.query.field
+  req.session.data.manure_journey = req.query.manurejourney
   res.redirect('/update/manure/update')
 })
 
-// plan_view → crop_plan/nutrient_values (sets application and field context for the nutrient values page)
+// plan_view / field_plan → crop_plan/nutrient_values (sets application, field and journey context)
 router.get(/nutrient_values_router/, function (req, res) {
   req.session.data.chosen_application = req.query.application_id
   req.session.data.chosen_field_id = req.query.field
+  req.session.data.manure_journey = req.query.manurejourney
   res.redirect('/management/farm/crop_plan/nutrient_values')
 })
 
-// update/manure/check.html → plan_view#organic (saves manure update)
+// update/manure/check.html → field_plan#manures (single) or plan_view#organic (multi)
 router.get(/manure_update_handler/, function (req, res) {
   req.session.data.show_success_message = true;
   req.session.data.successMessage = 'CROP_PLAN_MANURE_UPDATED';
-  res.redirect('/management/farm/crop_plan/plan_view#organic')
+  const next = req.session.data.manure_journey == 'single'
+    ? '/management/farm/field_plan/index#manures'
+    : '/management/farm/crop_plan/plan_view#organic'
+  res.redirect(next)
 })
 
 // add_manure/quantity.html → manure_area, manure_rate, or manure_incorporation_method (rain_defaults if injection)

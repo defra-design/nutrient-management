@@ -8,10 +8,17 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
+  {% if data.manure_journey == 'single' %}
+    {{ govukBackLink({
+      text: "Back to " + data.chosen_field.field_name + " plan",
+      href: "/management/farm/field_plan/index#manures"
+    }) }}
+  {% else %}
+    {{ govukBackLink({
+      text: "Back to crop and nutrient plan " + data.farm.planning_year,
+      href: "/management/farm/crop_plan/plan_view#organic"
+    }) }}
+  {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -89,7 +96,9 @@
     <div id="manure_cya" class="check-answers">
       <dl class="govuk-summary-list margin-bottom-twenty">
 
-        {{ row_item('Which field do you want to update this organic manure application for?', field.field_name, null ) }}
+        {% if data.manure_journey == 'multi' %}
+          {{ row_item('Which field do you want to update this organic manure application for?', field.field_name, null ) }}
+        {% endif %}
         {{ row_item('What type of organic material are you using in this application?', localmanuretype, null ) }}
         {{ row_item('When are you applying ' +  localmanuretype + '?', application_date, null ) }}
         {{ row_item('How are you going to apply the ' + localmanuretype + '?', 'Band spreader', null ) }}

@@ -17,7 +17,11 @@
           <td class="govuk-table__cell">{{manureapp.application_date}}</td>
           <td class="govuk-table__cell">{{manureapp.rate}}kg</td>
           <td class="govuk-table__cell">{{manureapp.manure_id}}</td>
-          <td class="govuk-table__cell">Yes</td>
+          {% if data.show_manure_notification == true %}
+            <td class="govuk-table__cell">Yes</td>
+          {% else %}
+            <td class="govuk-table__cell">None</td>
+          {% endif %}
           <td class="govuk-table__cell">
             <ul class="govuk-list list_options">
               <li><a href="nutrient_values_router?application_id={{manureapp.manure_id}}&field={{data.chosen_field.field_id}}&manurejourney=single">View nutrient supply</a></li>

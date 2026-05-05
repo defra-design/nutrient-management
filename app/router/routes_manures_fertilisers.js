@@ -136,7 +136,8 @@ router.get(/set_manure_date_handler/, function (req, res) {
 
 // add_manure/check.html → plan_view#organic (creates a manure application record for each field)
 router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function (req, res) {
-    req.session.data.successMessage = 'CROP_PLAN_MANURE_ADDED'
+    const isSingle = req.session.data.manure_journey == 'single'
+    req.session.data.successMessage = isSingle ? 'FIELD_PLAN_MANURE_ADDED' : 'CROP_PLAN_MANURE_ADDED'
     const group_id = req.session.data.manure_applications.length + 1
     const manure_id = req.session.data.manure_type.name
     const year = req.session.data.farm.planning_year
@@ -146,7 +147,7 @@ router.get(/add_manure_handler/, callback_functions.showSuccessMessage, function
       req.session.data.manure_applications.push(allFunctions.add_manure_application(group_id, year, field, application_date, manure_id))
     })
     req.session.data.manure_fields = null
-    const next = req.session.data.manure_journey == 'single' ? '/management/farm/field_plan/index#manures' : '/management/farm/crop_plan/plan_view#organic'
+    const next = isSingle ? '/management/farm/field_plan/index#manures' : '/management/farm/crop_plan/plan_view#organic'
     req.session.data.manure_type = null
     req.session.data.manure_group_id = null
     req.session.data.skipIncorporation = false

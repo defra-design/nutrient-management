@@ -28,10 +28,6 @@
       {{data.chosen_field.field_name}}
     </h1>
 
-    <p class="govuk-body"><a href="update">Change field details</a></p>      
-    <p class="govuk-body"><a href="remove">Remove {{data.chosen_field.field_name}}</a></p>
-    <!-- <p class="govuk-body"><a href="">Split this field or merge it with another</a></p> -->
-
     <!-- <div class="govuk-inset-text">
       This field was merged with Short Field on 3 February 2026
     </div> -->
@@ -57,7 +53,7 @@
       </tbody>
     </table> -->
     <h3 class="govuk-heading-s">Field details</h3>
-    <table class="govuk-table recomendation-table data-table data-table">
+    <table class="govuk-table recomendation-table data-table data-table margin-bottom-thirty">
       <tbody class="govuk-table__body">
         <!-- <tr class="govuk-table__row">
           <td class="govuk-table__cell">Date added</td>
@@ -117,6 +113,10 @@
         </tr>
       </tbody>
     </table>   
+
+    <p class="govuk-body"><a href="update">Change field details</a></p>      
+    <p class="govuk-body"><a href="">Split this field or merge it with another</a></p>
+    <p class="govuk-body">You can also <a href="remove">remove {{data.chosen_field.field_name}}</a></p>
 
     <hr class="big_separator">
 

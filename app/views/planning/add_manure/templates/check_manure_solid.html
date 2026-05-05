@@ -32,7 +32,9 @@
     <dt class="govuk-summary-list__key">Which fields would you like to plan organic material applications for?</dt>
     <dd class="govuk-summary-list__value">
       {% for item in data.chosen_fields %}
-        {{item | fieldnameconverter}},</br>
+        {{item | fieldnameconverter}}
+        {% if data.chosen_fields | length > 1 %},</br>{% endif %}
+      </br>
       {% endfor %}
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
@@ -40,7 +42,7 @@
 
   {{ row_item('What type of organic material are you using in this application?', localmanuretype, null ) }}
   {{ row_item('When are you applying ' + localmanuretype + '?', application_date, null ) }}
-  {{ row_item('Do you want to use typical nutrient values for ' + localmanuretype + '?', 'Yes, use typical nutrient values', null ) }}
+  {{ row_item('Do you want to use the typical nutrient values?', 'Yes', null ) }}
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Typical nutrient values for {{localmanuretype}}</dt>
@@ -56,7 +58,7 @@
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
   </div>
 
-  {{ row_item('How would you like to enter the application rate for your ' + localmanuretype + '?', quantity_content, null ) }}
+  {{ row_item('How would you like to enter the application rate?', quantity_content, null ) }}
 
   {% if data.quantity_type == 'rate' %}
     <div class="govuk-summary-list__row">
@@ -65,7 +67,7 @@
         {{data.application_rate}} tonnes per hectare
         {% if data.show_manure_notification == true %}
           <br>
-          <span>This application will take you over the organic manure nitrogen field limit</span>
+          <span class="strong"> - This application will take you over the organic manure nitrogen field limit</span>
         {% endif %}
       </dd>
       <dd class="govuk-summary-list__actions"><a class="govuk-link" href="{% if data.show_manure_notification == true %}manure_rate_warning_change{% else %}manure_rate{% endif %}">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>

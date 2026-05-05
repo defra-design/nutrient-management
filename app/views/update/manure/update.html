@@ -120,27 +120,23 @@
 
         {{ row_item('How would you like to enter the application rate for your ' + localmanuretype + '?', quantity_content, null ) }}
 
-        {% if data.quantity_type == 'rate' %}
+        {% if data.quantity_type == 'default' %}
+          {{ row_item('What is the application rate?', '20 tonnes per hectare', null ) }}
+        {% elif data.quantity_type == 'area' %}
+          {{ row_item('Spreading area', '57 hectares', null ) }}
+          {{ row_item('Quantity', '1140 tonnes', null ) }}
+        {% else %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">What is the application rate?</dt>
             <dd class="govuk-summary-list__value">
               {{data.application_rate}} tonnes per hectare
               {% if data.show_manure_notification == true or data.application_rate >= 250 %}
                 <br>
-                <span>This application will take you over the organic manure nitrogen field limit</span>
+                <span class="strong">This application will take you over the organic manure nitrogen field limit</span>
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions"><a class="govuk-link" href="manure_rate">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
           </div>
-        {% endif %}
-
-        {% if data.quantity_type == 'area' %}
-          {{ row_item('Spreading area', '57 hectares', null ) }}
-          {{ row_item('Quantity', '1140 tonnes', null ) }}
-        {% endif %}
-
-        {% if data.quantity_type == 'default' %}
-          {{ row_item('What is the application rate?', '20 tonnes per hectare', null ) }}
         {% endif %}
         
         {{ row_item('What is the incorporation method?', 'Discs', null ) }}

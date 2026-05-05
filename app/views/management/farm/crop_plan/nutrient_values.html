@@ -37,7 +37,7 @@
         {% set matchedApp = app %}
       {% endif %}
     {% endfor %}
-    <p class="govuk-body">Application of {{data.chosen_application}} on {{data.chosen_field_id | fieldnameconverter}}{% if matchedApp %}, {{matchedApp.application_date}}{% endif %}.</p>
+    <!-- <p class="govuk-body">Application of {{data.chosen_application}} on {{data.chosen_field_id | fieldnameconverter}}, 10 September 2026</p> -->
     <!-- <p class="govuk-body"><a href="manure_update_router?application={{application.application.manure_id}}&field={{field.field_id}}">View application details</a></p> -->
 
   </div>
@@ -59,6 +59,7 @@
       <!-- nutrients -->
       <div class="govuk-tabs__panel" id="nutrients">
         <h2 class="govuk-heading-l">Nutrients</h2>
+        {% include "./templates/manner_results/application_details.html ignore missing" %}
         <div class="margin-bottom-forty">
           {% include "./templates/manner_results/nitrogen_table.html" ignore missing %}
         </div>

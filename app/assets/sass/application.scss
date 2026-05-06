@@ -1214,19 +1214,35 @@ width: 35%
     }
 }
 
+.manner_nutrient_values {
+    padding: 0;
+    padding-top: 0!important;
+    margin: 0;
+    padding-bottom: 0!important;
+    li {
+      list-style-type: none;
+      padding: 0 0 5px 0;
+      width: 100%;
+      span {
+          float: right;
+          text-align: left;
+      }
+    }
+}
+
 .cattle_values {
     padding: 0;
     padding-top: 10px!important;
     padding-bottom: 5px!important;
     li {
-        list-style-type: none;
-        padding: 0 0 5px 0;
-        width: 100%;
-        span {
-            float: right;
-            text-align: left;
-            margin-right: 30%;
-        }
+      list-style-type: none;
+      padding: 0 0 5px 0;
+      width: 100%;
+      span {
+          float: right;
+          text-align: left;
+          margin-right: 30%;
+      }
     }
 }
 
@@ -1585,4 +1601,16 @@ th.wide, td.wide {
   }
   margin: 0;
   padding: 0;
+}
+
+.manner-answers-table {
+    th {
+      width: 40%;
+    }
+    td:nth-child(2) {
+      width: 40%;
+    }
+    td:nth-child(3) {
+      text-align: right;
+    }
 }

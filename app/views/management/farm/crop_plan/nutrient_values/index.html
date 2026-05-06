@@ -17,7 +17,7 @@
   {% else %}
     {{ govukBackLink({
       text: "Back to crop and nutrient plan " + data.farm.planning_year,
-      href: "plan_view#organic"
+      href: "/management/farm/crop_plan/plan_view#organic"
     }) }}
   {% endif %}
 {% endblock %}
@@ -58,17 +58,22 @@
 
       <!-- nutrients -->
       <div class="govuk-tabs__panel" id="nutrients">
-        <h2 class="govuk-heading-l">Nutrients</h2>
-        {% include "./templates/manner_results/application_details.html ignore missing" %}
+        <h2 class="govuk-heading-m">Nutrients</h2>
+        {% include "./templates/application_details.html ignore missing" %}
         <div class="margin-bottom-forty">
-          {% include "./templates/manner_results/nitrogen_table.html" ignore missing %}
+          {% include "./templates/nitrogen_table.html" ignore missing %}
         </div>
       </div>
 
       <!-- value -->
       <div class="govuk-tabs__panel clearfix govuk-tabs__panel--hidden" id="value">
-        {% include "./templates/manner_results/manure_value_table.html" ignore missing %}
-        {% include "./templates/manner_results/price_data.html" ignore missing %}
+        <h2 class="govuk-heading-m">Financial value</h2>
+        <div class="govuk-inset-text">
+          The potential financial value of the nutrients applied is £125 per hectare.
+        </div>
+        {% include "./templates/manure_value_table.html" ignore missing %}
+        <h3 class="govuk-heading-s">Nutrient prices</h3>
+        {% include "./templates/price_data.html" ignore missing %}
       </div>
 
     </div>

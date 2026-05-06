@@ -1,86 +1,90 @@
-<div class="check-answers">
-  <dl class="govuk-summary-list margin-bottom-forty">
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Farm name</dt>
-      <dd class="govuk-summary-list__value">
-        {{data.farm.name}}    
-      </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
+<table class="govuk-table data-table manner-answers-table margin-bottom-forty">
+  <tbody class="govuk-table__body">
 
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Country</dt>
-      <dd class="govuk-summary-list__value">
-        England    
-      </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Farm name</th>
+      <td class="govuk-table__cell">
+        {{data.farm.name}}
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="#farm">Change
+        </a>
+      </td>
+    </tr>
 
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Postcode</dt>
-      <dd class="govuk-summary-list__value">
-        NE46 7LQ    
-      </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Country</th>
+      <td class="govuk-table__cell">
+        England
+      </td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="#farm">Change</a></td>
+    </tr>
 
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Are you a registered organic producer?</dt>
-      <dd class="govuk-summary-list__value">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Postcode</th>
+      <td class="govuk-table__cell">
+        NE46 7LQ
+      </td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="#farm">Change</a></td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Are you a registered organic producer?</th>
+      <td class="govuk-table__cell">
         No
-      </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
+      </td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="#farm">Change</a></td>
+    </tr>
 
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Average annual rainfall for NE46 7LQ</dt>
-      <dd class="govuk-summary-list__value">
-        600mm    
-      </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Average annual rainfall for NE46 7LQ</th>
+      <td class="govuk-table__cell">
+        600mm
+      </td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="#farm">Change</a></td>
+    </tr>
 
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">What is the field name?</dt>
-      <dd class="govuk-summary-list__value">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">What is the field name?</th>
+      <td class="govuk-table__cell">
         {{data.temp_field_name}}
-      </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
+      </td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="#farm">Change</a></td>
+    </tr>
 
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Is {{data.chosen_field | fieldnameconverter}} inside a Nitrate Vulnerable Zone (NVZ)?</dt>
-      <dd class="govuk-summary-list__value">
-        Yes    
-      </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Is {{data.chosen_field | fieldnameconverter}} inside a Nitrate Vulnerable Zone (NVZ)?</th>
+      <td class="govuk-table__cell">
+        Yes
+      </td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="#farm">Change</a></td>
+    </tr>
 
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">What is the soil type in {{data.chosen_field | fieldnameconverter}}?</dt>
-      <dd class="govuk-summary-list__value">
-        Medium    
-      </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">What is the soil type in {{data.chosen_field | fieldnameconverter}}?</th>
+      <td class="govuk-table__cell">
+        Medium
+      </td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="#farm">Change</a></td>
+    </tr>
 
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Which crop type would you like to use?</dt>
-      <dd class="govuk-summary-list__value">
-        {{data.chosen_crop | nameconverter}}    
-      </dd>
-      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-    </div>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Which crop type would you like to use?</th>
+      <td class="govuk-table__cell">
+        {{data.chosen_crop | nameconverter}}
+      </td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="#farm">Change</a></td>
+    </tr>
 
     {% if data.chosen_crop == 'Winter Wheat' or data.chosen_crop == 'Wheat-Winter' %}
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">Is the wheat early or late sown?</dt>
-        <dd class="govuk-summary-list__value">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Is the wheat early or late sown?</th>
+        <td class="govuk-table__cell">
           Early sown (25th August to 14th September)
-        </dd>
-        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#answers1">Change<span class="govuk-visually-hidden"> Question 1</span></a></dd>
-      </div>
-      {% endif%}
-
-  </dl>
-</div>
+        </td>
+        <td class="govuk-table__cell"><a class="govuk-link" href="#farm">Change</a></td>
+      </tr>
+    {% endif%}
+      
+  </tbody>
+</table>

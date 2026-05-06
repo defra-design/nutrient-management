@@ -100,7 +100,14 @@
 
       <!-- value -->
       <div class="govuk-tabs__panel clearfix govuk-tabs__panel--hidden" id="value">
+        <h2 class="govuk-heading-m">Financial value</h2>
+        <h3 class="govuk-heading-s">
+          The potential financial value of the nutrients applied is  
+          {% if data.manner_applications | length == 1 %} £125 per hectare {% else %} £336 per hectare {% endif %}
+        </h3>
+        <h3 class="govuk-heading-s">Value breakdown</h3>
         {% include "./templates/manure_value_table.html ignore missing" %}
+        <h2 class="govuk-heading-m">Nutrient prices</h2>
         {% include "./templates/price_data.html ignore missing" %}
       </div>
 

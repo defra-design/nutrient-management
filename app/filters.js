@@ -175,6 +175,18 @@ addFilter('array_count', function (array) {
     return counter
 })
 
+addFilter('formatdate', function (dateString) {
+    if (!dateString) return dateString;
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const parts = String(dateString).split('/');
+    if (parts.length !== 3) return dateString;
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10);
+    const year = parts[2];
+    if (isNaN(day) || isNaN(month) || month < 1 || month > 12) return dateString;
+    return day + ' ' + months[month - 1] + ' ' + year;
+})
+
 addFilter('convertmonth', function (month) {
     if (month == 1) {
         month = 'January'

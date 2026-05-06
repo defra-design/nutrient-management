@@ -32,7 +32,7 @@
       {{ answer_row ( 'What type of organic material would you like to use?', chosen_application.manuretype.name ) }}
     {% endif %}
 
-    {{ answer_row ( 'When are you applying this organic material?', chosen_application.date ) }}
+    {{ answer_row ( 'When are you applying this organic material?', chosen_application.date | formatdate ) }}
     {{ answer_row ( 'Do you want to use the typical nutrient values for this organic material?', 'Yes' ) }}
     {{ answer_row ( 'Nutrient values for ' + chosen_application.manuretype.name, nutrients() ) }}
     {{ answer_row ( 'How would you like to enter the application rate for this organic material?', 'Use a typical application rate' ) }}

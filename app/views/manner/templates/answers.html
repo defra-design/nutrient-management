@@ -33,9 +33,9 @@
     {% endif %}
 
     {{ answer_row ( 'When are you applying this organic material?', chosen_application.date | formatdate ) }}
-    {{ answer_row ( 'Do you want to use the typical nutrient values for this organic material?', 'Yes' ) }}
+    {{ answer_row ( 'Do you want to use the typical nutrient values?', 'Yes' ) }}
     {{ answer_row ( 'Nutrient values for ' + chosen_application.manuretype.name, nutrients() ) }}
-    {{ answer_row ( 'How would you like to enter the application rate for this organic material?', 'Use a typical application rate' ) }}
+    {{ answer_row ( 'How would you like to enter the application rate?', 'Use a typical application rate' ) }}
     
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Application rate</dt>
@@ -53,7 +53,7 @@
       {{ answer_row ( 'How will the manure be incorporated?', 'Discs' ) }}
     {% endif %}
 
-    {{ answer_row ( 'How would you like to enter the application rate for this organic material?', 'Use a typical application rate' ) }}
+    {{ answer_row ( 'How would you like to enter the application rate?', 'Use a typical application rate' ) }}
     {{ answer_row ( 'How many days will there be before the manure is incorporated?', '1 to 2 days' ) }}
     {{ answer_row ( 'Autumn crop nitrogen (N) uptake', '10kg per hectare' ) }}
     {{ answer_row ( 'End of soil drainage', '31 March ' +data.farm.planning_year ) }}

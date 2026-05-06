@@ -1,22 +1,10 @@
-<h2 class="govuk-heading-l">Financial value</h2>
-<h3 class="govuk-heading-s">
-	The potential financial value of the nutrients applied is  
-	{% if data.manner_applications | length == 1 %}
-		£125 per hectare
-	{% else %}
-		£336 per hectare
-	{% endif %}
-</h3>
-
-<h3 class="govuk-heading-m">
-	Value breakdown
-</h3>
-	
 <div class="margin-bottom-forty">
 	<table class="govuk-table margin-bottom-forty data-table">
 		<thead class="govuk-table__head">
 			<tr class="govuk-table__row">
-				<th scope="row" class="govuk-table__header">Application</th>
+        {% if (data.manner_applications | length) > 1 %}
+				  <th scope="row" class="govuk-table__header">Application</th>
+				{% endif %}
 				<th scope="row" class="govuk-table__header">Manure type</th>
 				<th scope="row" class="govuk-table__header">Crop available <br>nitrogen (N)</th>
 				<th scope="row" class="govuk-table__header">Total phosphate (P2O5)</th>

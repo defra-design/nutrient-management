@@ -1,9 +1,8 @@
-<h2 class="govuk-heading-m">Nutrient prices</h2>
 <table class="govuk-table data-table">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Nutrient</th>
       <th scope="col" class="govuk-table__header">Product</th>
-      <th scope="col" class="govuk-table__header">Percentage of nutrient</th>
       <th scope="col" class="govuk-table__header">Price of product</th>
       <th scope="col" class="govuk-table__header">Price of nutrient</th>
       <th scope="col" class="govuk-table__header"></th>
@@ -11,28 +10,23 @@
   </thead>
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">
-        {% if data.n_product == 'calcium' %}
-          Calcium ammonium nitrate
-        {% else %}
-          Ammonium nitrate
-        {% endif %}
+      <td class="govuk-table__cell">Nitrogen (N)</td>
+      <td class="govuk-table__cell">{% if data.n_product == 'calcium' %} Calcium ammonium nitrate (27% nitrogen N) {% else %} Ammonium nitrate (34.5% nitrogen N) {% endif %}
       </td>
-      <td class="govuk-table__cell">34.5% Nitrogen (N)</td>
       <td class="govuk-table__cell">£311 per tonne</td>
       <td class="govuk-table__cell">90p per kg</td>
       <td class="govuk-table__cell"><a href="nitrogen_value_one">Change</a></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Triple superphosphate</td>
-      <td class="govuk-table__cell">46% phosphate (P2O5)</td>
+      <td class="govuk-table__cell">Phosphate (P2O5)</td>
+      <td class="govuk-table__cell">Triple superphosphate (46% phosphate P2O5)</td>
       <td class="govuk-table__cell">£360 per tonne</td>
       <td class="govuk-table__cell">80p per kg</td>
       <td class="govuk-table__cell"><a href="phosphate_value">Change</a></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Muriate of potash</td>
-      <td class="govuk-table__cell">60% potash (K2O)</td>
+      <td class="govuk-table__cell">Potash (K2O)</td>
+      <td class="govuk-table__cell">Muriate of potash (60% potash K2O)</td>
       <td class="govuk-table__cell">£360 per tonne</td>
       <td class="govuk-table__cell">60p per kg</td>
       <td class="govuk-table__cell"><a href="potash_value">Change</a></td>

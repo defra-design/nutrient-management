@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Question – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+{% include "/templates/headers/header_manner.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+{% set n_products = [
+  { "value": "ammonium", "label": "Ammonium nitrate (AN)" },
+  { "value": "calcium", "label": "Calcium ammonium nitrate" },
+  { "value": "urea_nitrate", "label": "Urea nitrate" },
+  { "value": "urea_ammonium_nitrate", "label": "Urea ammonium nitrate" },
+  { "value": "tsp", "label": "Triple Superphosphate (TSP)" },
+  { "value": "map", "label": "Monoammonium Phosphate (MAP)" }
+] %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop ">
+
+    <h1 class="govuk-heading-l">Which nitrogen (N) product are you using?</h1>
+    
+    <form action="nitrogen_value_two" method="post" novalidate="">
+      <div class="govuk-form-group">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="ammonium" name="n_product" type="radio"  checked="checked" value="ammonium">
+            <label class="govuk-label govuk-radios__label" for="ammonium">
+              Ammonium nitrate
+            </label>
+            <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+              34.5% nitrogen (N)
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="calcium" name="n_product" type="radio" value="calcium">
+            <label class="govuk-label govuk-radios__label" for="calcium">
+              Calcium ammonium nitrate
+            </label>
+            <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+              27% nitrogen (N)
+            </div>
+          </div>
+          <!-- {% for n_product in n_products %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="{{n_product.value}}" name="n_product" type="radio" value="{{n_product.value}}">
+              <label class="govuk-label govuk-radios__label" for="{{n_product.value}}">
+                {{n_product.label}}
+              </label>
+            </div>
+          {% endfor %} -->
+        </div>
+      </div>
+      <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+
+  <p class="govuk-body"><a href="{% if data.manner_applications.length == 0 %}/management/farm/options{% else %}/manner/previous_calculations{% endif %}">Cancel</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

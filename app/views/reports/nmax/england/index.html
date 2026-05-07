@@ -1,0 +1,120 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Oaktree lane farm - N-max limits {{data.farm.planning_year}}
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  
+  <!-- print -->
+  <div class="govuk-grid-column-full noprint">
+    {% include "/templates/print.html" ignore missing %}
+  </div>
+
+  <!-- head -->
+  <div class="govuk-grid-column-full">
+    <span class="farm_name_span govuk-caption-l">{% if data.farm.name == null %} Oaktree Lane Farm {% else %} {{ data.farm.name }} {% endif %}</span>
+    <h1 class="govuk-heading-l margin-bottom-twenty">N-max limits {{ data.farm.planning_year }}</h1>
+  </div>
+
+  <!-- address -->
+  <div class="govuk-grid-column-full">
+    <ul class="govuk-list govuk-list--spaced margin-bottom-none">
+      <li>Oaktree Lane Farm, 24 South Road, Hexham, Northumberland NE46 7LQ</li>
+      <li>Report created on 22 September {{data.farm.planning_year}}</li>
+    </ul>
+    <hr class="separator_thirty">
+  </div>
+  <!-- <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">CPH number: 123456789<br>
+    Single Business Identifier: 123456789</p>
+  </div> -->
+
+  <!-- disclaimer -->
+  <div class="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-s">Private beta disclaimer</h2>
+    {% include "/templates/beta_disclaimer.html" ignore missing %} 
+    <hr class="separator_thirty">
+  </div>
+
+</div>
+
+<!-- summary -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m govuk-!-font-size-27 margin-bottom-twenty">Summary</h2>
+    {% include "./templates/summary.html" ignore missing %} 
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <p class="govuk-body margin-bottom-none">
+      To comply with the N-max limit for each crop type the total nitrogen (N) applied in fertiliser and crop available nitrogen from organic manures must not be greater than the adjusted N-max limit.
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <!-- Winter wheat fields -->
+    <hr class="separator_thirty">
+    <div class="margin-bottom-forty">
+      <h2 class="govuk-heading-m govuk-!-font-size-27">Winter wheat fields</h2>
+      {% include "./templates/crop_limits.html" ignore missing %} 
+      {% include "./templates/nitrogen_applications_wheat.html" ignore missing %}
+    </div>
+
+    <div id="printbreak"></div>
+    <div class="pagebreak">&nbsp;</div>
+
+    <!-- Grass fields -->
+    <div class="margin-bottom-forty">
+      <h2 class="govuk-heading-m govuk-!-font-size-27">Grass fields</h2>
+      {% include "./templates/grass_limits.html" ignore missing %}
+      {% set fieldName = 'Short field' %}
+      <h3 class="govuk-heading-s">Nitrogen applications for Grass fields</h3>
+      {% include "./templates/nitrogen_applications_grass.html" ignore missing %}
+    </div>
+
+    <div id="printbreak"></div>
+    <div class="pagebreak">&nbsp;</div>
+
+    <!-- Vegetable fields -->
+    <div class="margin-bottom-forty">
+      <h2 class="govuk-heading-m govuk-!-font-size-27">Vegetable group 1 fields</h2>
+      {% include "./templates/group_1_limits.html" ignore missing %}
+      {% set fieldName = 'Short field' %}
+      <h3 class="govuk-heading-s">Nitrogen applications for low nitrogen (N) vegetables</h3>
+      {% include "./templates/nitrogen_applications_group.html" ignore missing %}
+    </div>
+
+    </div>
+  </div>
+
+  <!-- about -->
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <hr class="margin-bottom-forty">
+      <h2 class="govuk-heading-s">About recommendations, guidance, and advice</h2>
+      {% include "/templates/recommendations.html" ignore missing %}
+  </div>
+</div>
+
+
+{% endblock %}

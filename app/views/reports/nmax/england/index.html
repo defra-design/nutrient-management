@@ -17,46 +17,43 @@
 
 {% block content %}
 
-<div class="govuk-grid-row noprint">
-  <div class="govuk-grid-column-full">
+<div class="govuk-grid-row">
+  
+  <!-- print -->
+  <div class="govuk-grid-column-full noprint">
     {% include "/templates/print.html" ignore missing %}
   </div>
-</div>
 
-<div class="govuk-grid-row margin-bottom-thirty">
+  <!-- head -->
   <div class="govuk-grid-column-full">
-    <span class="name govuk-caption-l">{{ data.farm.name }}</span>
+    <span class="farm_name_span govuk-caption-l">{% if data.farm.name == null %} Oaktree Lane Farm {% else %} {{ data.farm.name }} {% endif %}</span>
     <h1 class="govuk-heading-l margin-bottom-twenty">N-max limits {{ data.farm.planning_year }}</h1>
-    <p class="govuk-body margin-bottom-none">Created on 22 September {{data.farm.planning_year}}</p>
-  </div>
-</div>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-third">
-    <p class="govuk-body margin-bottom-none">Oaktree Lane Farm, <br>
-      24 South Road<br> 
-      Hexham<br>  
-      Northumberland<br> 
-      NE46 7LQ</p>
-  </div>
-    
-  <div class="govuk-grid-column-two-thirds">
-    <!-- <p class="govuk-body">CPH number: 123456789<br>
-    Single Business Identifier: 123456789</p> -->
   </div>
 
-</div>
-
-<hr class="separator_thirty">
-
-<div class="govuk-grid-row">
+  <!-- address -->
   <div class="govuk-grid-column-full">
+    <ul class="govuk-list govuk-list--spaced margin-bottom-none">
+      <li>Oaktree Lane Farm, 24 South Road, Hexham, Northumberland NE46 7LQ</li>
+      <li>Report created on 22 September {{data.farm.planning_year}}</li>
+    </ul>
+    <hr class="separator_thirty">
+  </div>
+  <!-- <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">CPH number: 123456789<br>
+    Single Business Identifier: 123456789</p>
+  </div> -->
+
+  <!-- disclaimer -->
+  <div class="govuk-grid-column-full">
+
     <h2 class="govuk-heading-m">Private beta disclaimer</h2>
     {% include "/templates/beta_disclaimer.html" ignore missing %} 
     <hr class="separator_thirty">
   </div>
+
 </div>
 
+<!-- summary -->
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h2 class="govuk-heading-m margin-bottom-twenty">Summary</h2>
@@ -75,6 +72,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
+    <!-- Winter wheat fields -->
     <hr class="separator_thirty">
     <div class="margin-bottom-forty">
       <h2 class="govuk-heading-m">Winter wheat fields</h2>
@@ -85,6 +83,7 @@
     <div id="printbreak"></div>
     <div class="pagebreak">&nbsp;</div>
 
+    <!-- Grass fields -->
     <div class="margin-bottom-forty">
       <h2 class="govuk-heading-m">Grass fields</h2>
       {% include "./templates/grass_limits.html" ignore missing %}
@@ -96,6 +95,7 @@
     <div id="printbreak"></div>
     <div class="pagebreak">&nbsp;</div>
 
+    <!-- Vegetable fields -->
     <div class="margin-bottom-forty">
       <h2 class="govuk-heading-m">Vegetable group 1 fields</h2>
       {% include "./templates/group_1_limits.html" ignore missing %}
@@ -107,6 +107,7 @@
     </div>
   </div>
 
+  <!-- about -->
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <hr class="margin-bottom-forty">

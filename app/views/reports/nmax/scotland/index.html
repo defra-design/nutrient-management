@@ -26,7 +26,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <span class="name govuk-caption-l">Bonnie Farm</span>
-    <h1 class="govuk-heading-xl margin-bottom-twenty">N-max limits {{ data.farm.planning_year }}</h1>
+    <h1 class="govuk-heading-l margin-bottom-twenty">N-max limits {{ data.farm.planning_year }}</h1>
     <p class="govuk-body">Created on 10 March {{data.farm.planning_year}}</p>
   </div>
 </div>
@@ -43,7 +43,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-l margin-bottom-twenty">Summary</h2>
+    <h2 class="govuk-heading-m margin-bottom-twenty">Summary</h2>
     {% include "./templates/summary.html" ignore missing %} 
   </div>
 </div>
@@ -62,8 +62,8 @@
 
     <hr class="separator_thirty">
     <div class="margin-bottom-forty">
+      <h2 class="govuk-heading-m">Winter wheat fields</h2>
       {% include "./templates_scotland/crop_limits.html" ignore missing %} 
-      <h3 class="govuk-heading-m">Nitrogen (N) applications for Winter wheat fields</h3>
       {% include "./templates_scotland/nitrogen_applications_wheat.html" ignore missing %}
     </div>
 

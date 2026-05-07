@@ -11,7 +11,7 @@ var callback_functions = require('./callbacks.js');
 
 // start.html → disclaimer (first visit) or farms hub (returning user)
 router.get(/start_router/, function (req, res) {
-  let next = (req.session.data.show_info == false) ? 'management/farm/options' : 'disclaimer'
+  let next = (req.session.data.show_info == false) ? '/options' : 'disclaimer'
   res.redirect(next)
 })
 
@@ -21,7 +21,7 @@ router.get(/plan_estimate_router/, function (req, res) {
   if (req.session.data.farm.setup == true) {
     next = '/management/farm/farms'
   } else {
-    next = '/management/farm/about_nmpt'
+    next = '/about_nmpt'
   }
   if (req.session.data.plan_estimate == 'estimate' ) {
     if (req.session.data.manner_applications.length == 0) {

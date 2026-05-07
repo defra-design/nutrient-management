@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block header %}
-  {% set headerServiceHref = "/management/farm/options" %}
+  {% set headerServiceHref = "//options" %}
   {% set headerNavItems = [{ text: "Sign out", href: "/management/feedback" }] %}
   {% include "/templates/headers/header.html" ignore missing %}
 {% endblock %}
@@ -14,9 +14,9 @@
 {% block content %}
 
 <!-- set the URL for the farm card -->
-{% set farmsUrl = 'about_nmpt' %}
+{% set farmsUrl = '/about_nmpt' %}
 {% if data.farm.setup == true %}
-  {% set farmsUrl = 'farms_only' %}
+  {% set farmsUrl = '/management/farm/farms_only' %}
 {% endif %}
 
 
@@ -26,13 +26,6 @@
   {% set mannerUrl = '/manner/about_manner' %}
 {% endif %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds-from-desktop">
-    {% if data.show_success_message == true %}
-      {% include "./templates/success_messages" ignore missing %}
-    {% endif %}
-  </div>
-</div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">

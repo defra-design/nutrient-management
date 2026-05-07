@@ -1627,3 +1627,16 @@ th.wide, td.wide {
 .table-title {
   margin-bottom: 8px;
 }
+
+.inset-body {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  p:nth-child(1) {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+}
+
+ul.margin-bottom-none li:last-child {
+margin-bottom: 0;
+}

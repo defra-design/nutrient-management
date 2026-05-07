@@ -20,39 +20,62 @@
 {% block content %}
 
 <!-- SAVE -->
-{% include "./templates/save.html" ignore missing %}
+{% include "/templates/print.html" ignore missing %}
 
 <!-- TITLE -->
-{% set report_derogation = false %}
-{% include "./templates/title.html" ignore missing %}
+<div class="govuk-grid-row margin-bottom-ten">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <span class="name govuk-caption-l">{{ data.farm.name }}</span>
+    <h1 class="govuk-heading-l margin-bottom-twenty">Livestock manure nitrogen (N) farm limit {{ data.farm.planning_year }}</h1>
+    
+    <ul class="govuk-list govuk-list--spaced">
+      <li>Oaktree Lane Farm, 24 South Road, Hexham Northumberland NE46 7LQ</li>
+      <li>This farm does not have a grassland derogation for {{data.farm.planning_year}}</li>
+      <!-- <li>CPH number: 123456789</li>
+      <li>Single Business Identifier: 123456789</li> -->
+      <li>Report created on 22 September {{data.farm.planning_year}}</li>
+    </ul>
+
+  </div>
+</div>
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full margin-bottom-ten">
-    <h2 class="govuk-heading-m">
+  <div class="govuk-grid-column-two-thirds margin-bottom-ten">
+
+    <h2 class="govuk-heading-s">
       Compliance with NVZ livestock manure nitrogen (N) farm limit
     </h2>
-    <h3 class="govuk-heading-s">
-      The information entered indicates compliance.
-    </h3>
+
+    <div class="govuk-inset-text">
+      <p class="govuk-body strong">The information entered indicates compliance.</p> 
+    </div>
+    
     <p class="govuk-body-s">
-      This assessment is based on the NVZ livestock manure farm limit of 170kg of nitrogen (N) per hectare, and best practice guidance of 250kg of nitrogen (N) per hectare for land outside of an NVZ.
+      This assessment is based on 
     </p>
-    <h3 class="govuk-heading-s">
+
+    <ul class="govuk-list govuk-!-font-size-16 govuk-list--bullet">
+      <li>170kg of nitrogen (N) per hectare (NVZ farm limit)</li>
+      <li>250kg of nitrogen (N) per hectare for land outside of an NVZ (best practice guidance)</li>
+    </ul>
+
+    <h2 class="govuk-heading-m govuk-!-font-size-27">
       Key information
-    </h3>
+    </h2>
     {% include "./templates/compliance.html" ignore missing %}
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full margin-bottom-ten">
-    <h2 class="govuk-heading-m">
+    <h2 class="govuk-heading-m govuk-!-font-size-27">
       Farm area and livestock manure total nitrogen (N) capacity
     </h2>
     <!-- <p class="govuk-body-s">The farm area does not include surface waters, areas of hardstanding, buildings or woodland (unless the woodland is used for grazing), and any land covered by a greenhouse.</p> -->
     {% include "./templates/farm_area.html" ignore missing %}
 
-    <h2 class="govuk-heading-m">
+    <h2 class="govuk-heading-m govuk-!-font-size-27">
       Livestock manure total nitrogen (N) loading
     </h2>
     {% include "./templates/livestock_manure.html" ignore missing %}
@@ -67,6 +90,7 @@
       <h2 class="govuk-heading-m">
         Grazing livestock manure total nitrogen (N)
       </h2>
+
       <p class="govuk-body-s">Home-produced manures from any cattle, sheep, deer, goats, or horses, regardless of whether the animals are housed or not.</p>
       <!-- <p>Total livestock manure nitrogen (N) production: 3,944kg</p> -->
       {% include "./templates/grazing_livestock.html" ignore missing %}
@@ -76,7 +100,7 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full margin-bottom-ten">
-        <h2 class="govuk-heading-m">
+        <h2 class="govuk-heading-m govuk-!-font-size-27">
           Non-grazing livestock manure total nitrogen (N)
         </h2>
         <p class="govuk-body-s">Home-produced manures from any pigs or poultry, regardless of whether the animals are housed or not.</p>
@@ -86,9 +110,11 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full margin-bottom-ten">
-      <h2 class="govuk-heading-m">
+
+      <h2 class="govuk-heading-m govuk-!-font-size-27">
         Imports and exports of livestock manure
       </h2>
+
       <p class="govuk-body">
         Livestock manure imports and exports net total: <span class="">+90,000kg of nitrogen (N)</span>
       </p>
@@ -97,6 +123,7 @@
         Imports of livestock manure 
       </h3>
       {% include "./templates/imports.html" ignore missing %}
+
       <h3 class="govuk-heading-s">
         There are no exports of livestock manure
       </h3>

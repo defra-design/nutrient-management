@@ -348,6 +348,10 @@ hr.medium_separator {
     margin-bottom: 10px!important;
 }
 
+.margin-bottom-five {
+    margin-bottom: 5px!important;
+}
+
 .margin-bottom-forty {
     margin-bottom: 40px;
 }
@@ -1618,4 +1622,8 @@ th.wide, td.wide {
 .farm_name_span {
   line-height: 0;
   padding-bottom: 15px;
+}
+
+.table-title {
+  margin-bottom: 8px;
 }

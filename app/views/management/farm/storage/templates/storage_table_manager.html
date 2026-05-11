@@ -52,18 +52,18 @@
   </ul>
   {% if slurry_storage == true %}
     <div class="govuk-tabs__panel" id="slurry-tab">
-      <h2 class="govuk-heading-l non-standard">Slurry stores</h2>
+      <h2 class="govuk-heading-m">Slurry stores</h2>
       {% include "./slurry_table.html" ignore missing %}
     </div>
   {% endif %}
   {% if solid_storage == true %}
     <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="solid-tab">
-      <h2 class="govuk-heading-l non-standard">Solid manure stores</h2>
+      <h2 class="govuk-heading-m">Solid manure stores</h2>
       {% include "./solid_table.html" ignore missing %}
     </div>
   {% endif %}
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="total-tab">
-    <h2 class="govuk-heading-l non-standard">Manure storage totals</h2>
+    <h2 class="govuk-heading-m">Manure storage totals</h2>
     {% include "./total_table.html" ignore missing %}
   </div>
 

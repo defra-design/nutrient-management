@@ -24,42 +24,31 @@
 
 <!-- TITLE -->
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds margin-bottom-thirty">
+  <div class="govuk-grid-column-two-thirds">
     
     <span class="name govuk-caption-l">{{ data.farm.name }}</span>
-    <h1 class="govuk-heading-l margin-bottom-twenty">Livestock manure nitrogen (N) farm limit {{ data.farm.planning_year }}</h1>
+    <h1 class="govuk-heading-l">Livestock manure nitrogen (N) farm limit {{ data.farm.planning_year }}</h1>
     
-    <ul class="govuk-list govuk-list--spaced margin-bottom-none">
-      <li>Oaktree Lane Farm, 24 South Road, Hexham Northumberland NE46 7LQ</li>
+    <ul class="govuk-list govuk-list--spaced">
+      <li>Oaktree Lane Farm, 24 South Road, Hexham Northumberland, NE46 7LQ.</li>
       <li class="strong">This farm has a grassland derogation for {{data.farm.planning_year}}. 85% of this farm is grass.</li>
       <!-- <li>CPH number: 123456789</li>
       <li>Single Business Identifier: 123456789</li> -->
-      <li>Report created on 22 September {{data.farm.planning_year}}</li>
+      <li>Report created on 22 September {{data.farm.planning_year}}.</li>
     </ul>
-  </div>
-</div>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-ten">
           
     <h2 class="govuk-heading-m">
       Summary
     </h2>
-
-    <h2 class="govuk-heading-s margin-top-none">
-      Compliance with NVZ livestock manure nitrogen (N) farm limit
-    </h2>
     
-    <div class="govuk-inset-text inset-body">
-      <p class="govuk-body">The information you entered does not indicate compliance.</p> 
-      <p class="govuk-body">You must plan so that you do not exceed the limit.</p>
-    </div>
+    <p class="govuk-body strong">The information you entered does not indicate compliance with the NVZ livestock manure nitrogen (N) farm limit</p> 
+    <p class="govuk-body">You must plan so that you do not exceed the limit.</p>
 
-    <p class="govuk-body-s">
+    <p class="govuk-body">
       This assessment is based on:
     </p>
 
-    <ul class="govuk-list govuk-!-font-size-16 govuk-list--bullet">
+    <ul class="govuk-list govuk-list--bullet">
       <li>250kg of nitrogen (N) per hectare for grazing livestock (derogated NVZ farm limit)</li>
       <li>170kg of nitrogen (N) per hectare for non-grazing livestock </li>
       <li>250kg of nitrogen (N) per hectare for land outside of an NVZ (best practice guidance)</li>
@@ -69,14 +58,14 @@
 </div>
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds margin-bottom-ten">
+  <div class="govuk-grid-column-two-thirds">
     {% include "./templates/compliance_derogation.html" ignore missing %}
   </div>
 </div>
 
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds margin-bottom-ten">
+    <div class="govuk-grid-column-two-thirds margin-bottom-thirty">
 
       <h3 class="govuk-heading-s">Farm area </h3>
       <p class="govuk-body-s">
@@ -89,7 +78,7 @@
   </div>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-ten">
+    <div class="govuk-grid-column-full">
 
       <h3 class="govuk-heading-s">
         Livestock manure total nitrogen (N) and phosphate (P2O5) loading
@@ -113,7 +102,7 @@
   </div>
   
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds margin-bottom-ten">
+    <div class="govuk-grid-column-two-thirds">
         <p class="govuk-body-s">
           Home-produced manures from any cattle (excluding veal calves), sheep, deer, goats, or horses, regardless of whether the animals are housed or not.
         </p>
@@ -122,7 +111,7 @@
   </div>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-ten">
+    <div class="govuk-grid-column-full">
       {% include "./templates/grazing_livestock_derogation.html" ignore missing %}
     </div>
   </div>
@@ -136,7 +125,7 @@
     </div>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds margin-bottom-ten">
+    <div class="govuk-grid-column-two-thirds">
       <p class="govuk-body-s">
         Home-produced manures from any pigs, poultry, or veal calves, regardless of whether the animals are housed or not.
       </p>
@@ -152,7 +141,7 @@
   <div id="printbreak"></div>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full margin-bottom-ten">
+    <div class="govuk-grid-column-full">
 
       <h2 class="govuk-heading-m">
         Imports and exports of livestock manure
@@ -162,7 +151,7 @@
         Livestock manure imports and exports net total: <span class="">+90,000kg of nitrogen (N)</span>
       </p>
       
-      <h3 class="govuk-heading-s">
+      <h3 class="govuk-heading-s margin-top-none">
         Imports of livestock manure from grazing livestock
       </h3>
 
@@ -176,7 +165,7 @@
         Imports of livestock manure from non-grazing livestock
       </h3>
 
-      <p class="govuk-body">
+      <p class="govuk-body-s">
         There are no imports of livestock manure from any pigs, poultry, or veal calves.
       </p>
 
@@ -189,7 +178,7 @@
       <h3 class="govuk-heading-s">
         Exports of livestock manure from grazing livestock
       </h3>
-      <p class="govuk-body">
+      <p class="govuk-body-s">
         There are no exports of livestock manure from any cattle (excluding veal calves), sheep, deer, goats, or horses.
       </p>
       
@@ -204,13 +193,11 @@
       </p>
       {% include "./templates/exports_derogation.html" ignore missing %}
 
-
     </div>
   </div>
   
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <hr class="margin-bottom-forty">
       <h3 class="govuk-heading-s">
         About recommendations, guidance, and advice
       </h3>
@@ -219,6 +206,4 @@
   </div>
 </div>
   
-
-
 {% endblock %}

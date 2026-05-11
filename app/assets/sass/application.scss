@@ -1629,6 +1629,7 @@ th.wide, td.wide {
 }
 
 .inset-body {
+  font-size: 16px!important;
   margin-top: 10px;
   margin-bottom: 20px;
   p:nth-child(1) {
@@ -1639,4 +1640,20 @@ th.wide, td.wide {
 
 ul.margin-bottom-none li:last-child {
 margin-bottom: 0;
+}
+
+.name {
+  line-height: 0;
+  margin-bottom: 15px;
+}
+
+.report-title {
+  margin-bottom: 30px;
+}
+
+.title-info {
+  margin-bottom: 30px;
+  li:last-child {
+    margin-bottom: 0;
+  }
 }

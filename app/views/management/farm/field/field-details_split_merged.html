@@ -19,7 +19,7 @@
 <div class="govuk-grid-row">
 
   <div class="govuk-grid-column-two-thirds">
-    
+
     {% if data.show_success_message == true %}
       {% include "./templates/success_messages" ignore missing %}
     {% endif %}
@@ -62,15 +62,15 @@
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Field area</td>
           <td class="govuk-table__cell">{{data.chosen_field.total_area}} hectares</td>
-        </tr>      
+        </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Cropped area</td>
           <td class="govuk-table__cell">{{data.chosen_field.cropped_area}} hectares</td>
-        </tr>      
+        </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Manure non spreading area</td>
           <td class="govuk-table__cell">{{data.chosen_field.non_spreading_area}} hectares</td>
-        </tr>      
+        </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Soil type</td>
           <td class="govuk-table__cell">{{data.chosen_field.soil}}</td>
@@ -112,9 +112,9 @@
           <td class="govuk-table__cell">Up to 100kg</td>
         </tr>
       </tbody>
-    </table>   
+    </table>
 
-    <p class="govuk-body"><a href="update">Change field details</a></p>      
+    <p class="govuk-body"><a href="update">Change field details</a></p>
     <p class="govuk-body"><a href="split_merge">Split this field or merge it with another</a></p>
     <p class="govuk-body">You can also <a href="remove">remove {{data.chosen_field.field_name}}</a></p>
 
@@ -127,7 +127,7 @@
 
       <table class="govuk-table field-table">
         <thead class="govuk-table__head">
-          
+
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Date sample taken</th>
             <th scope="col" class="govuk-table__header"> </th>
@@ -141,10 +141,10 @@
             </td>
           </tr>
         </tbody>
-      </table>    
+      </table>
 
-  </div> 
+  </div>
 
-</div> 
+</div>
 
 {% endblock %}

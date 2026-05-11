@@ -200,7 +200,10 @@ router.get(/fieldtype_router/, function (req, res) {
 // field/field-details → field-details (selects a field and stores it as chosen_field)
 router.get(/field-select-handler/, callback_functions.hideSuccessMessage, function (req, res) {
   req.session.data.chosen_field = allFunctions.getFieldByReference(req.session.data.all_fields, req.query.chosen_field)
-  res.redirect('/management/farm/field/field-details')
+  const next = req.session.data.chosen_field.split_merged === 'ORIGINAL'
+    ? '/management/farm/field/field-details_split_merged'
+    : '/management/farm/field/field-details'
+  res.redirect(next)
 })
 
 
@@ -268,6 +271,33 @@ router.get(/mineral_router/, function (req, res) {
 router.get(/add-grass-handler/, function (req, res) {
     let next = (req.session.data.previous_grass == 'yes') ? 'plough' : 'check'
     res.redirect(next)
+})
+
+// split_merge.html → split/number (split) or merge/fields (merge)
+router.get(/split_field_router/, function (req, res) {
+    let next = (req.session.data.splitmerge == "split") ? './split/number' : './merge/fields'
+    res.redirect(next)
+})
+
+// split/check.html → manage-fields (adds two hardcoded new fields from split)
+router.get(/split_field_handler/, callback_functions.showSuccessMessage, function (req, res) {
+    const fields = req.session.data.all_fields
+    const originalId = req.session.data.chosen_field.field_id
+    const fieldOneId = fields.length + 1
+    const fieldTwoId = fields.length + 2
+
+    const original = fields.find(f => f.field_id == originalId)
+    if (original) {
+        original.split_merged = 'ORIGINAL'
+        original.split_into = [fieldOneId, fieldTwoId]
+    }
+
+    fields.push(
+        { field_name: 'New Field One', field_id: fieldOneId, split_merged: 'SPLIT', split_merged_from: originalId },
+        { field_name: 'New Field Two', field_id: fieldTwoId, split_merged: 'SPLIT', split_merged_from: originalId }
+    )
+    req.session.data.successMessage = 'FIELD_SPLIT'
+    res.redirect('/management/farm/field/manage-fields')
 })
 
 

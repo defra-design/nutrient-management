@@ -1,3 +1,20 @@
+<!-- field split -->
+{% if data.successMessage == "FIELD_SPLIT" %}
+<div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <h3 class="govuk-notification-banner__heading">
+      You have split {{data.chosen_field.field_name}}
+    </h3>
+    <p class="govuk-body">NEXT STEPS TEXT</p>
+  </div>
+</div>
+{% endif %}
+
 <!-- field added -->
 {% if data.successMessage == "FIELD_ADDED" %}
 <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">

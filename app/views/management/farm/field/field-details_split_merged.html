@@ -28,9 +28,10 @@
       {{data.chosen_field.field_name}}
     </h1>
 
-    <!-- <div class="govuk-inset-text">
-      This field was merged with Short Field on 3 February 2026
-    </div> -->
+    <div class="govuk-inset-text">
+      <p class="govuk-body">This field has been split into New Field One and New Field Two.</p>
+      <!-- <p class="govuk-body"><a href="">Undo this split</a></p> -->
+    </div>
 
     <!-- <table class="govuk-table recomendation-table data-table data-table">
       <tbody class="govuk-table__body">
@@ -52,7 +53,7 @@
         {% endfor %}
       </tbody>
     </table> -->
-    <h3 class="govuk-heading-s">Field details</h3>
+    <h3 class="govuk-heading-s">Original field details</h3>
     <table class="govuk-table recomendation-table data-table data-table margin-bottom-thirty">
       <tbody class="govuk-table__body">
         <!-- <tr class="govuk-table__row">
@@ -114,8 +115,8 @@
       </tbody>
     </table>
 
-    <p class="govuk-body"><a href="update">Change field details</a></p>
-    <p class="govuk-body"><a href="split_merge">Split this field or merge it with another</a></p>
+    <p class="govuk-body"><a href="update">Change the field details for any historic plans or records</a></p>      
+    <p class="govuk-body"><a href="">Merge this field with another</a></p>
     <p class="govuk-body">You can also <a href="remove">remove {{data.chosen_field.field_name}}</a></p>
 
     <hr class="big_separator">

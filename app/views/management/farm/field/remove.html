@@ -22,9 +22,13 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Remove {{data.chosen_field}}</h1>
+      <h1 class="govuk-heading-l">Remove {{data.chosen_field.field_name}}</h1>
 
-      <p>This will remove all the data about this field, including any soil analysis. It will also remove this field from your plans and records. You will not be able to get it back.</p>
+      <p class="govuk-body">This action will remove all of the data about this field, including any soil analysis. It will also remove this field from your plans and records. You will not be able to get it back.</p>
+      
+      {% if data.chosen_field.split_merged == 'ORIGINAL' %}
+        <p class="govuk-body">This will not affect New Field One or New Field Two.</p>
+      {% endif %}
 
       <p>Are you sure you want to continue?</p>
 

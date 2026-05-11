@@ -56,7 +56,7 @@
 <!-- summary -->
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-m govuk-!-font-size-27 margin-bottom-twenty">Summary</h2>
+    <h2 class="govuk-heading-m margin-bottom-twenty">Summary</h2>
     {% include "./templates/summary.html" ignore missing %} 
   </div>
 </div>
@@ -75,7 +75,7 @@
     <!-- Winter wheat fields -->
     <hr class="separator_thirty">
     <div class="margin-bottom-forty">
-      <h2 class="govuk-heading-m govuk-!-font-size-27">Winter wheat fields</h2>
+      <h2 class="govuk-heading-m">Winter wheat fields</h2>
       {% include "./templates/crop_limits.html" ignore missing %} 
       {% include "./templates/nitrogen_applications_wheat.html" ignore missing %}
     </div>
@@ -85,7 +85,7 @@
 
     <!-- Grass fields -->
     <div class="margin-bottom-forty">
-      <h2 class="govuk-heading-m govuk-!-font-size-27">Grass fields</h2>
+      <h2 class="govuk-heading-m">Grass fields</h2>
       {% include "./templates/grass_limits.html" ignore missing %}
       {% set fieldName = 'Short field' %}
       <h3 class="govuk-heading-s">Nitrogen applications for Grass fields</h3>
@@ -97,7 +97,7 @@
 
     <!-- Vegetable fields -->
     <div class="margin-bottom-forty">
-      <h2 class="govuk-heading-m govuk-!-font-size-27">Vegetable group 1 fields</h2>
+      <h2 class="govuk-heading-m">Vegetable group 1 fields</h2>
       {% include "./templates/group_1_limits.html" ignore missing %}
       {% set fieldName = 'Short field' %}
       <h3 class="govuk-heading-s">Nitrogen applications for low nitrogen (N) vegetables</h3>

@@ -91,7 +91,7 @@
 
       <!-- nutrients -->
       <div class="govuk-tabs__panel" id="nutrients">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Nutrients</h2>
+        <h2 class="govuk-heading-m">Nutrients</h2>
         {% include "./templates/application_details.html ignore missing" %}
         <div class="margin-bottom-forty">
           {% include "./templates/nitrogen_tables.html ignore missing" %}
@@ -100,7 +100,7 @@
 
       <!-- value -->
       <div class="govuk-tabs__panel clearfix govuk-tabs__panel--hidden" id="value">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Financial value</h2>
+        <h2 class="govuk-heading-m">Financial value</h2>
         <div class="govuk-inset-text">
           The potential financial value of the nutrients applied is  
           {% if data.manner_applications | length == 1 %} £125 per hectare {% else %} £336 per hectare {% endif %}
@@ -113,7 +113,7 @@
 
       <!-- farm -->
       <div class="govuk-tabs__panel" id="farm">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Farm, field and crop</h2>
+        <h2 class="govuk-heading-m">Farm, field and crop</h2>
         <p class="govuk-body">
           <!-- Changing any details here will only update this estimate. -->
           <!-- Any changes you make to the farm or field details here will only be saved for this estimate. -->
@@ -124,12 +124,12 @@
       <!-- applications -->
       {% if (data.manner_applications | length) == 2 %} 
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers1">
-          <h2 class="govuk-heading-m govuk-!-font-size-27">Application 1 details</h2>
+          <h2 class="govuk-heading-m">Application 1 details</h2>
           {% set chosen_application = data.manner_applications[0] %}
           {% include "./templates/answers.html ignore missing" %}
         </div> 
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="answers2">
-          <h2 class="govuk-heading-m govuk-!-font-size-27">Application 2 details</h2>
+          <h2 class="govuk-heading-m">Application 2 details</h2>
           {% set chosen_application = data.manner_applications[1] %}
           {% include "./templates/answers.html ignore missing" %}     
         </div> 
@@ -139,7 +139,7 @@
         {% for x in data.manner_applications %}
           {% set chosen_application = x %}
           <div class="margin-bottom-forty">
-            <h2 class="govuk-heading-m govuk-!-font-size-27">Application {{count}} details</h2>
+            <h2 class="govuk-heading-m">Application {{count}} details</h2>
             {% include "./templates/answers.html ignore missing" %}
           </div>
           {% set count = count+1 %}

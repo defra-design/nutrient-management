@@ -1,0 +1,150 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Nutrient Application Plan – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back to all fields",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if data.show_success_message == true %}
+      {% include "./templates/success_messages" ignore missing %}
+    {% endif %}
+
+    <h1 class="govuk-heading-l">
+      {{data.chosen_field.field_name}}
+    </h1>
+
+    <!-- <div class="govuk-inset-text">
+      This field was merged with Short Field on 3 February 2026
+    </div> -->
+
+    <!-- <table class="govuk-table recomendation-table data-table data-table">
+      <tbody class="govuk-table__body">
+        {% for field in data.all_fields %}
+          {% if field.field_name == data.chosen_field.field_name %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Name</td>
+              <td class="govuk-table__cell">{{field.field_name}}</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Date added</td>
+              <td class="govuk-table__cell">22 August 2026</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Field area</td>
+              <td class="govuk-table__cell">{{field.area}}</td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table> -->
+    <h3 class="govuk-heading-s">Field details</h3>
+    <table class="govuk-table recomendation-table data-table data-table margin-bottom-thirty">
+      <tbody class="govuk-table__body">
+        <!-- <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Date added</td>
+          <td class="govuk-table__cell">22 September 2026</td>
+        </tr>       -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Field area</td>
+          <td class="govuk-table__cell">{{data.chosen_field.total_area}} hectares</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Cropped area</td>
+          <td class="govuk-table__cell">{{data.chosen_field.cropped_area}} hectares</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Manure non spreading area</td>
+          <td class="govuk-table__cell">{{data.chosen_field.non_spreading_area}} hectares</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Soil type</td>
+          <td class="govuk-table__cell">{{data.chosen_field.soil}}</td>
+        </tr>
+        <!-- <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Soil contains potash releasing clay</td>
+          <td class="govuk-table__cell">No</td>
+        </tr> -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Within an NVZ</td>
+          <td class="govuk-table__cell">Yes</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Above 300 metres</td>
+          <td class="govuk-table__cell">No</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Crop in {{data.farm.planning_year}}</td>
+          <td class="govuk-table__cell">{{data.chosen_field.crop_id | nameconverter}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Crop in {{data.farm.planning_year-1}}</td>
+          <td class="govuk-table__cell">{{data.chosen_field.previous_crop}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Crop in {{data.farm.planning_year-2}}</td>
+          <td class="govuk-table__cell">Grass</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Typical grass management</td>
+          <td class="govuk-table__cell">Grazed and cut</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">High clover content</td>
+          <td class="govuk-table__cell">No</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Typical nitrogen use</td>
+          <td class="govuk-table__cell">Up to 100kg</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="govuk-body"><a href="update">Change field details</a></p>
+    <p class="govuk-body"><a href="split_merge">Split this field or merge it with another</a></p>
+    <p class="govuk-body">You can also <a href="remove">remove {{data.chosen_field.field_name}}</a></p>
+
+    <hr class="big_separator">
+
+    <h2 class="govuk-heading-m">Soil analysis</h2>
+
+    <p class="govuk-body margin"><a href="">Add new soil analysis</a></p>
+    <!-- <p class="govuk-hint margin-bottom-forty">Soil mineral nitrogen analysis results can be added for a crop under individual plans.</p> -->
+
+      <table class="govuk-table field-table">
+        <thead class="govuk-table__head">
+
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date sample taken</th>
+            <th scope="col" class="govuk-table__header"> </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row right-last">
+            <td class="govuk-table__cell">13 March {{data.farm.planning_year}}</td>
+            <td class="govuk-table__cell">
+              <a href="change_soil">Change</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+  </div>
+
+</div>
+
+{% endblock %}

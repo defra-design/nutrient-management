@@ -1,0 +1,18 @@
+
+<div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+
+    {% if data.successMessage == "BER_ADDED" %}
+      <h3 class="govuk-notification-banner__heading">
+        Break-even ratio figures added
+      </h3>
+      <p class="govuk-body">Your break-even ratio figures have been saved.</p>
+    {% endif %}
+
+  </div>
+</div>

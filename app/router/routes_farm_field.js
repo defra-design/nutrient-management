@@ -300,5 +300,20 @@ router.get(/split_field_handler/, callback_functions.showSuccessMessage, functio
     res.redirect('/management/farm/field/manage-fields')
 })
 
+// plan_viewhtml → ber/crops or manage_ber
+router.get(/ber_router/, function (req, res) {
+    let next = (req.session.data.farm.ber == true) ? '/management/farm/ber/manage_ber' : '/planning/add_ber/crop_type'
+    res.redirect(next)
+})
+
+// check your answers → manage_ber
+router.post('/add_ber_check_handler/', function (req, res) {
+    req.session.data.show_success_message = true
+    req.session.data.successMessage = 'BER_ADDED'
+    res.redirect('/management/farm/ber/manage_ber')
+})
+
+
+
 
 module.exports = router

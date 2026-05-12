@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Excess winter rainfall – {{ serviceName }}
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+    {% if data.show_success_message == true %}
+      {% include "./templates/success_message.html" ignore missing %}
+    {% endif %}
+
+    <h1 class="govuk-heading-l">
+      Break-even ratio figures 2026
+    </h1>
+
+    <div class="margin-bottom-forty">
+      <ul class="govuk-list govuk-list--spaced">
+        <li class="govuk-body"><a href="">Add another crop</a></li>
+      </ul>
+    </div>
+
+    <hr class="separator_thirty">
+
+    <div class="margin-bottom-thirty">
+      <h2 class="govuk-heading-m">
+          Wheat (milling)  <span class="govuk-body nonbold">- Expected price: £120 per tonne. Break-even ratio: 5.</span>
+      </h2>
+      <p><a href="">Update the expected price</a></p>
+    </div>
+
+    {% include "./templates/nutrient_prices.html" ignore missing %}
+
+  </div>
+</div>
+
+{% endblock %}

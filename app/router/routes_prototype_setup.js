@@ -2,7 +2,6 @@ var express = require('express')
 var router = express.Router()
 var allFunctions = require('../functions/allFunctions.js');
 
-
 function startFarm(type) {
   let obj = {
     created: true,
@@ -34,6 +33,7 @@ function startFarm(type) {
     rainfall: 600,
     derogation: null,
     ewr: null,
+    ber: null
   };
   if (type != null) {
     obj.setup = true;
@@ -105,6 +105,7 @@ router.get(/setup_handler_everything/, function (req, res) {
     req.session.data.farm.manure_exports = true
     req.session.data.farm.imports_exports_status = 'IMPORT_AND_EXPORT_ADDED'
     req.session.data.extra_features = true
+    req.session.data.farm.ber = true
 
     // livestock
     const livestock_list = [1,2,3,4,5]

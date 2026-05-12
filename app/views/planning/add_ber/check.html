@@ -1,0 +1,93 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers – {{ serviceName }} – GOV.UK{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-l">
+      Check your answers
+    </h1>
+
+    <div class="check-answers">
+      <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Crop type</dt>
+          <dd class="govuk-summary-list__value">{{data.berCropType}}</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="crop_type">Change<span class="govuk-visually-hidden"> crop type</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Nitrogen product</dt>
+          <dd class="govuk-summary-list__value">{{data.berNitrogenProduct}}</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="products">Change<span class="govuk-visually-hidden"> nitrogen product</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Phosphorus product</dt>
+          <dd class="govuk-summary-list__value">{{data.berPhosphorusProduct}}</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="products">Change<span class="govuk-visually-hidden"> phosphorus product</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Potash product</dt>
+          <dd class="govuk-summary-list__value">{{data.berPotashProduct}}</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="products">Change<span class="govuk-visually-hidden"> potash product</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Nitrogen values</dt>
+          <dd class="govuk-summary-list__value">{{data.berNitrogenValues}}</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="nitrogen_values">Change<span class="govuk-visually-hidden"> nitrogen values</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Phosphorus values</dt>
+          <dd class="govuk-summary-list__value">{{data.berPhosphorusValues}}</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="phosphorus_values">Change<span class="govuk-visually-hidden"> phosphorus values</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Potash values</dt>
+          <dd class="govuk-summary-list__value">{{data.berPotashValues}}</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="potash_values">Change<span class="govuk-visually-hidden"> potash values</span></a></dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Expected value</dt>
+          <dd class="govuk-summary-list__value">{{data.berExpectedValue}}</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="expected_value">Change<span class="govuk-visually-hidden"> expected value</span></a></dd>
+        </div>
+
+      </dl>
+    </div>
+
+    <form action="/add_ber_check_handler/" method="post" novalidate>
+      {{ govukButton({
+        text: "Confirm"
+      }) }}
+    </form>
+
+    <p class="govuk-body">
+      <a href="/management/farm/ber/manage_ber">Cancel</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

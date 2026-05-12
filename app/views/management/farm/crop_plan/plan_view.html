@@ -54,9 +54,14 @@
       Crop and nutrient plan {{data.farm.planning_year}}
     </h1>
 
-    <div id="summary-header" class="margin-bottom-forty">
+    <div id="summary-header " class="margin-bottom-thirty">
       <p class="govuk-body">Last updated {{data.update_date}}. There are {{totalFields}} fields in this plan.</p>
+    </div>
+
+    <div id="summary-header" class="margin-bottom-forty">
+      <h3 class="govuk-heading-s">Options</h3>
       {% include "./templates/ewr.html" ignore missing %}
+      <!-- <p class="govuk-body"><a href="/update/ber/">Add nutrient and crop prices</a></p> -->
       <p class="govuk-body"><a href="/reports/export">Save or print a report from this plan</a></p>
     </div>
 

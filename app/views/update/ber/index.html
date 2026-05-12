@@ -1,0 +1,120 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Excess winter rainfall – {{ serviceName }}
+{% endblock %}
+
+{% block header %}
+  {% include "/templates/headers/header_farm.html" ignore missing %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+          Break even ratio
+        </h1>  
+
+        <h2 class="govuk-table__head govuk-heading-s">
+          Nutrient prices
+        </h2>
+
+        <table class="govuk-table data-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Nitrogen product</th>
+              <td class="govuk-table__cell">Ammonium Nitrate (AN) 34.5% nitrogen (N)</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Nitrogen product cost</th>
+              <td class="govuk-table__cell">£311 per tonne</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Nitrogen</th>
+              <td class="govuk-table__cell">Cost per p/kg</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Phosphate product</th>
+              <td class="govuk-table__cell">TSP 46% P205</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Phosphate</th>
+              <td class="govuk-table__cell">Cost per p/kg</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Potash product</th>
+              <td class="govuk-table__cell">MoP 60% K20</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Potash product cost</th>
+              <td class="govuk-table__cell">Cost per £/tonne</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Potash</th>
+              <td class="govuk-table__cell">Cost p/kg</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="govuk-table__head govuk-heading-s">
+          Crop prices
+        </h2>
+
+        <table class="govuk-table data-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Crop</th>
+              <td class="govuk-table__cell">Wheat (milling)</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Expected price (£/tonne)</th>
+              <td class="govuk-table__cell">£120 per tonne</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Break even ratio</th>
+              <td class="govuk-table__cell">5</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <!-- <form action="rainfall_update" method="post" novalidate="">      
+          <fieldset class="govuk-fieldset">
+            <button class="govuk-button" data-module="govuk-button">Update nutrient and crop prices</button>
+          </fieldset>
+        </form> -->
+
+      <p class="govuk-body cancel-link"><a href="/management/farm/farms">Cancel</a></p>
+
+
+  </div>
+</div>
+
+{% endblock %}
+
+<!-- products
+Nitrogen product
+cost per tonne
+£311
+
+Nitrogen
+Cost per p/kg 
+
+TSP 46% P205. 
+
+Phosphate
+Cost per p/kg 
+
+MoP 60% K20
+Cost per £/ tonne
+
+Potash
+cost p/kg -->

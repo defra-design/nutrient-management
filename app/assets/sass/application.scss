@@ -568,7 +568,7 @@ tr.right-last {
     width: 66%;
 }
 
-.nonbold {
+.nonbold, .non-bold {
     font-weight: normal!important;
 }
 
@@ -688,7 +688,6 @@ h2.manure-date {
         width: 60%;
     }
 }
-
 
 .half-table-right {
     padding-left: 25px;
@@ -1656,4 +1655,14 @@ margin-bottom: 0;
   li:last-child {
     margin-bottom: 0;
   }
+}
+
+.options-heading {
+  margin-bottom: 15px;
+}
+
+.master-table-caption {
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 15px;
 }

@@ -58,11 +58,14 @@
       <p class="govuk-body">Last updated {{data.update_date}}. There are {{totalFields}} fields in this plan.</p>
     </div>
 
-    <div id="summary-header" class="margin-bottom-forty">
-      <h3 class="govuk-heading-s">Options</h3>
-      {% include "./templates/ewr.html" ignore missing %}
-      <!-- <p class="govuk-body"><a href="/update/ber/">Add nutrient and crop prices</a></p> -->
-      <p class="govuk-body"><a href="/reports/export">Save or print a report from this plan</a></p>
+    <div class="margin-bottom-forty">
+      <h3 class="govuk-heading-s options-heading">Options</h3>
+      <ul class="govuk-list govuk-list--spaced">
+        <li>{% include "./templates/ewr.html" ignore missing %}</li>
+        <li><a href="/update/ber/">Add nutrient and crop prices</a> to see the break even ratio</li>
+        <li class="govuk-body"><a href="/reports/export">Save or print a report from this plan</a></li>
+      </ul>
+      
     </div>
 
     <div class="govuk-tabs" data-module="govuk-tabs">

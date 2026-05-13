@@ -10,10 +10,11 @@ Excess winter rainfall – {{ serviceName }}
 
 {% block beforeContent %}
   {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
+    text: "Back to the farm plan",
+    href: "plan_view_reset_router"
   }) }}
 {% endblock %}
+
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -33,7 +34,7 @@ Excess winter rainfall – {{ serviceName }}
 
     <div class="margin-bottom-forty">
       <ul class="govuk-list govuk-list--spaced">
-        <li class="govuk-body"><a href="">Add another crop</a></li>
+        <li class="govuk-body"><a href="/planning/add_ber/crop_type">Add break-even ratio figures for another crop</a></li>
       </ul>
     </div>
 
@@ -41,7 +42,7 @@ Excess winter rainfall – {{ serviceName }}
 
     <div class="margin-bottom-thirty">
       <h2 class="govuk-heading-m">
-          Wheat (milling)  <span class="govuk-body nonbold">- Expected price: £120 per tonne. Break-even ratio: 5.</span>
+          Wheat (milling)  <span class="govuk-body nonbold">- Expected price: £225 per tonne. Break-even ratio: 5.</span>
       </h2>
       <p><a href="">Update the expected price</a></p>
     </div>

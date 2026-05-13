@@ -34,50 +34,49 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Nitrogen product</dt>
-          <dd class="govuk-summary-list__value">000</dd>
+          <dd class="govuk-summary-list__value">{{ constants.ber.nitrogenProductName }}</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="products">Change<span class="govuk-visually-hidden"> nitrogen product</span></a></dd>
         </div>
 
-
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Ammonium nitrate price</dt>
-          <dd class="govuk-summary-list__value">000</dd>
+          <dd class="govuk-summary-list__value">£{{ constants.ber.nitrogenProductPrice }} per tonne</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="nitrogen_values">Change<span class="govuk-visually-hidden"> ammonium nitrate price</span></a></dd>
         </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Nitrogen (N) price</dt>
-          <dd class="govuk-summary-list__value">000</dd>
+          <dd class="govuk-summary-list__value">{{ constants.ber.nitrogenPrice }} pence per kg</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="nitrogen_values">Change<span class="govuk-visually-hidden"> nitrogen (N) price</span></a></dd>
         </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Triple superphosphate price</dt>
-          <dd class="govuk-summary-list__value">000</dd>
+          <dd class="govuk-summary-list__value">£{{ constants.ber.phosphateProductPrice }} per tonne</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="phosphorus_values">Change<span class="govuk-visually-hidden"> triple superphosphate price</span></a></dd>
         </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Phosphate (P2O5) price</dt>
-          <dd class="govuk-summary-list__value">000</dd>
+          <dd class="govuk-summary-list__value">{{ constants.ber.phosphatePrice }} pence per kg</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="phosphorus_values">Change<span class="govuk-visually-hidden"> phosphate (P2O5) price</span></a></dd>
         </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Muriate of potash price</dt>
-          <dd class="govuk-summary-list__value">000</dd>
+          <dd class="govuk-summary-list__value">£{{ constants.ber.potashProductPrice }} per tonne</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="potash_values">Change<span class="govuk-visually-hidden"> muriate of potash price</span></a></dd>
         </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Potash (K2O) price</dt>
-          <dd class="govuk-summary-list__value">000</dd>
+          <dd class="govuk-summary-list__value">{{ constants.ber.potashPrice }} pence per kg</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="potash_values">Change<span class="govuk-visually-hidden"> potash (K2O) price</span></a></dd>
         </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Expected crop price</dt>
-          <dd class="govuk-summary-list__value">000</dd>
+          <dd class="govuk-summary-list__value">£225 per tonne</dd>
           <dd class="govuk-summary-list__actions"><a class="govuk-link" href="expected_value">Change<span class="govuk-visually-hidden"> expected crop price</span></a></dd>
         </div>
 
@@ -92,7 +91,7 @@
 
     <form action="/add_ber_check_handler/" method="post" novalidate>
       {{ govukButton({
-        text: "Confirm"
+        text: "Add break-even figures"
       }) }}
     </form>
 

@@ -1,0 +1,13 @@
+{
+  "ber": {
+    "nitrogenProductName": "Ammonium nitrate (34.5% N)",
+    "nitrogenProductPrice": 207,
+    "nitrogenPrice": 60,
+    "phosphateProductName": "Triple superphosphate (46% P2O5)",
+    "phosphateProductPrice": 230,
+    "phosphatePrice": 50,
+    "potashProductName": "Muriate of potash (60% K2O)",
+    "potashProductPrice": 330,
+    "potashPrice": 55
+  }
+}

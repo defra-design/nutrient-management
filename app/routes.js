@@ -13,6 +13,13 @@ const  manure_type_livestock_groups_data = require('./data/manure_type_livestock
 const  potato_details_data = require('./data/potato_types.json');
 const  crop_types_data = require('./data/crop_types.json');
 const  livestock_type_data = require('./data/livestock_types.json');
+const  constants = require('./data/constants.json');
+
+// Make constants available in all templates as {{ constants.ber.nitrogenPrice }} etc.
+router.use((req, res, next) => {
+  res.locals.constants = constants
+  next()
+})
 
 /// create fields
 let all_fields = [];

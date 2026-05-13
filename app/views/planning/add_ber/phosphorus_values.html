@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-   Question – Add crops -  {{ serviceName }} – GOV.UK
+  Question – {{ serviceName }} – GOV.UK
 {% endblock %}
 
 {% block header %}
@@ -17,61 +17,45 @@
 
 {% block content %}
 
-<!-- Scotish cereal crop types:​
-Winter wheat​
-Winter barley​
-Spring wheat​
-Spring barley​
-Winter oats​
-Spring oats​
-Winter rye​
-Spring rye​
-Winter triticale​
-Spring triticale​
-Spring barley (undersown)​
-Spring oats (undersown)​
-Spring triticale (undersown)​
-Spring wheat (undersown)​
-Spring rye (undersown) -->
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop ">
 
+      <h1 class="govuk-heading-l">
+        Phosphate (P2O5) prices
+      </h1>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+      <form action="potash_values" method="post" novalidate="">
 
-    <h1 class="govuk-heading-l">
-        Which crop type would you like to add break-even ratio figures for?
-    </h1>
-
-    <p class="govuk-hint">
-      Select one option.
-    </p>
-
-    <form class="form" action="potash_values" method="post">
-
-      <div class="govuk-form-group">
-        <div class="govuk-radios" data-module="govuk-radios">
-
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id={{crop.reference}} name="chosen_crop" type="radio" value={{crop.reference}}>
-          <label class="govuk-label govuk-radios__label" for={{crop.reference}}>
-            {{crop.name}}
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="nutrient_price-1">
+            What is the triple superphosphate price?
           </label>
+          <div class="govuk-input__wrapper">
+            <div class="govuk-input__prefix" aria-hidden="true">£</div>
+            <input class="govuk-input govuk-input--width-3" id="nutrient_price-1" name="nutrient_price-1" type="text" value="368" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">per tonne</div>
+          </div>
         </div>
-        
+
+        <div class="govuk-form-group ">
+          <label class="govuk-label" for="nutrient_price-4">
+            What is the phosphate (P2O5) price?
+          </label>
+          <div class="govuk-input__wrapper">
+            <input class="govuk-input govuk-input--width-3" id="nutrient_price-4" name="nutrient_price-4" type="text" value="80" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">pence per kg</div>
+          </div>
         </div>
-      </div>
 
-      {{ govukButton({
-        text: "Continue"
-      }) }}
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
 
-    </form>
+      </form>
 
-    <p class="govuk-body">
-      <a href="fields.html">Cancel</a>
-    </p>
+      <p class="govuk-body"><a href="/management/farm/ber/manage_ber">Cancel</a></p>
 
+    </div>
   </div>
-</div>
 
 {% endblock %}

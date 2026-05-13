@@ -308,6 +308,7 @@ router.get(/ber_router/, function (req, res) {
 
 // check your answers → manage_ber
 router.post('/add_ber_check_handler/', function (req, res) {
+    req.session.data.farm.ber = true;
     req.session.data.show_success_message = true
     req.session.data.successMessage = 'BER_ADDED'
     res.redirect('/management/farm/ber/manage_ber')

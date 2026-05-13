@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-   Question – Add crops -  {{ serviceName }} – GOV.UK
+  Question – {{ serviceName }} – GOV.UK
 {% endblock %}
 
 {% block header %}
@@ -17,43 +17,50 @@
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop ">
 
-    <h1 class="govuk-heading-l">
-        Which crop type would you like to add break-even ratio figures for?
-    </h1>
+      {% set n_product_label = "ammonium nitrate" %}
+      {% if data.n_product == 'calcium' %}
+        {% set n_product_label = "calcium ammonium nitrate" %}
+      {% endif %}
 
-    <p class="govuk-hint">
-      Select one option.
-    </p>
+      <h1 class="govuk-heading-l">
+        Nitrogen (N) prices
+      </h1>
 
-    <form class="form" action="phosphorus_values" method="post">
+      <form action="phosphorus_values" method="post" novalidate="">
 
-      <div class="govuk-form-group">
-        <div class="govuk-radios" data-module="govuk-radios">
-
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id={{crop.reference}} name="chosen_crop" type="radio" value={{crop.reference}}>
-          <label class="govuk-label govuk-radios__label" for={{crop.reference}}>
-            {{crop.name}}
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="nutrient_price-1">
+            What is the {{ n_product_label }} price?
           </label>
+          <div class="govuk-input__wrapper">
+            <div class="govuk-input__prefix" aria-hidden="true">£</div>
+            <input class="govuk-input govuk-input--width-3" id="nutrient_price-1" name="nutrient_price-1" type="text" value="2.43" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">per tonne</div>
+          </div>
         </div>
-        
+
+        <div class="govuk-form-group ">
+          <label class="govuk-label" for="nutrient_price-4">
+            What is the nitrogen (N) price?
+          </label>
+          <div class="govuk-input__wrapper">
+            <input class="govuk-input govuk-input--width-3" id="nutrient_price-4" name="nutrient_price-4" type="text" value="90" spellcheck="false" autocomplete="off">
+            <div class="govuk-input__suffix" aria-hidden="true">pence per kg</div>
+          </div>
         </div>
-      </div>
 
-      {{ govukButton({
-        text: "Continue"
-      }) }}
+        <button class="govuk-button margin-bottom-forty" data-module="govuk-button">
+          Continue
+        </button>
 
-    </form>
+      </form>
 
-    <p class="govuk-body">
-      <a href="fields.html">Cancel</a>
-    </p>
+      <p class="govuk-body"><a href="/management/farm/ber/manage_ber">Cancel</a></p>
 
+    </div>
   </div>
-</div>
 
 {% endblock %}

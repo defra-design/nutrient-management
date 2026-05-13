@@ -21,26 +21,41 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-        Which crop type would you like to add break-even ratio figures for?
+      Which nitrogen (N) product are you using?
     </h1>
-
-    <p class="govuk-hint">
-      Select one option.
-    </p>
 
     <form class="form" action="nitrogen_values" method="post">
 
       <div class="govuk-form-group">
-        <div class="govuk-radios" data-module="govuk-radios">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
 
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id={{crop.reference}} name="chosen_crop" type="radio" value={{crop.reference}}>
-          <label class="govuk-label govuk-radios__label" for={{crop.reference}}>
-            {{crop.name}}
-          </label>
-        </div>
-        
-        </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="n-an-34" name="berNitrogenProduct" type="radio" value="Ammonium nitrate 34.5% nitrogen (N)">
+              <label class="govuk-label govuk-radios__label" for="n-an-34">Ammonium nitrate</label>
+              <div class="govuk-hint govuk-radios__hint">34.5% nitrogen (N)</div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="n-an-33" name="berNitrogenProduct" type="radio" value="Ammonium nitrate 33.5% nitrogen (N)">
+              <label class="govuk-label govuk-radios__label" for="n-an-33">Ammonium nitrate</label>
+              <div class="govuk-hint govuk-radios__hint">33.5% nitrogen (N)</div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="n-urea" name="berNitrogenProduct" type="radio" value="Urea 46% nitrogen (N)">
+              <label class="govuk-label govuk-radios__label" for="n-urea">Urea</label>
+              <div class="govuk-hint govuk-radios__hint">46% nitrogen (N)</div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="n-liquid" name="berNitrogenProduct" type="radio" value="Liquid nitrogen (N) 28% nitrogen (N) w/w">
+              <label class="govuk-label govuk-radios__label" for="n-liquid">Liquid nitrogen (N)</label>
+              <div class="govuk-hint govuk-radios__hint">28% nitrogen (N) w/w</div>
+            </div>
+
+          </div>
+        </fieldset>
       </div>
 
       {{ govukButton({

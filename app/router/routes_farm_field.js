@@ -300,10 +300,17 @@ router.get(/split_field_handler/, callback_functions.showSuccessMessage, functio
     res.redirect('/management/farm/field/manage-fields')
 })
 
-// plan_viewhtml → ber/crops or manage_ber
+// plan_view → ber/crops or manage_ber (clears field_plan referrer)
 router.get(/ber_router/, function (req, res) {
+    req.session.data.berReferrer = null
     let next = (req.session.data.farm.ber == true) ? '/management/farm/ber/manage_ber' : '/planning/add_ber/crop_type'
     res.redirect(next)
+})
+
+// field_plan/index → manage_ber (sets referrer so back link returns to field plan)
+router.get(/ber_from_field_plan_router/, function (req, res) {
+    req.session.data.berReferrer = 'field_plan'
+    res.redirect('/management/farm/ber/manage_ber')
 })
 
 // check your answers → manage_ber

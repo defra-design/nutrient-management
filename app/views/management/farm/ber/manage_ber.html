@@ -9,10 +9,20 @@ Excess winter rainfall – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back to the farm plan",
-    href: "plan_view_reset_router"
-  }) }}
+
+{% set back_url = 'plan_view_reset_router' %}
+{% set back_url_text = 'Back to the crop plan' %}
+
+{% if data.berReferrer == 'field_plan' %}
+  {% set back_url = 'field_view_reset_router' %}
+  {% set back_url_text = 'Back to the field plan' %}
+{% endif %}
+
+{{ govukBackLink({
+  text: back_url_text,
+  href: back_url
+}) }}
+
 {% endblock %}
 
 {% block content %}

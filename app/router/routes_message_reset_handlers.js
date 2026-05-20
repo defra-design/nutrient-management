@@ -78,14 +78,17 @@ router.get(/field_details_reset_handler/, callback_functions.hideSuccessMessage,
 // -------------------------
 
 // clears success message before returning to plan view (two routes do the same thing)
-router.get(/planview_reset_handler/, callback_functions.hideSuccessMessage, function (req, res) {
-    res.redirect('/management/farm/crop_plan/plan_view');
-})
-
 router.get(/plan_view_reset_router/, callback_functions.hideSuccessMessage, function (req, res) {
     res.redirect('/management/farm/crop_plan/plan_view');
 })
 
+// -------------------------
+// FIELD PLAN VIEW
+// -------------------------
+
+router.get(/field_view_reset_router/, callback_functions.hideSuccessMessage, function (req, res) {
+    res.redirect('/management/farm/field_plan/index');
+})
 
 // -------------------------
 // EXPORTS

@@ -14,7 +14,7 @@
 
 {% block beforeContent %}
   {{ govukBackLink({
-    text: "Back to all estimates",
+    text: "Back to all nutrient supply estimates",
     href: "/manner/previous_calculations"
   }) }}
 {% endblock %}
@@ -44,11 +44,11 @@
     <h2 class="govuk-heading-s">Options</h2>
     <ul class="govuk-list govuk-list--spaced">
       <li>
-        <a href="/manner/manure_group">Add another manure application to this estimate</a>
+        <a href="/manner/manure_group">Add another organic material application to this estimate</a>
       </li>
       {% if (data.manner_applications | length) != 1 %}
         <li>
-          <a href="/manner/remove_application">Remove an application</a>
+          <a href="/manner/remove_application">Remove an organic material application from this estimate</a>
         </li>
       {% endif %}
       <li>

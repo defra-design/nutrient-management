@@ -12,7 +12,7 @@
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: "//options"
+    href: "/options"
   }) }}
 {% endblock %}
 
@@ -20,7 +20,7 @@
 
 <div class="govuk-grid-row">
   <div id="all-plans-table" class="govuk-grid-column-full">
-    <h1 class="govuk-heading-l">Create a nutrient supply estimate</h1>   
+    <h1 class="govuk-heading-l">Nutrient supply estimates</h1>   
 
     <form class="form" action="copy_estimate" method="post">
       {{ govukButton({
@@ -28,7 +28,7 @@
       }) }}
     </form>
 
-    <p class="govuk-body margin-bottom-thirty">You can also <a href="remove_estimates_list">remove an estimate</a></p>
+    <p class="govuk-body margin-bottom-thirty">You can also <a href="remove_estimates_list">remove a nutrient supply estimate</a></p>
 
     <h2 class="govuk-heading-m">Nutrient supply estimates</h2>   
 

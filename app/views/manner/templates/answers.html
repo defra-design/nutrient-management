@@ -24,17 +24,17 @@
 
 <!-- Check your answers -->
 
-<table class="govuk-table data-table manner-answers-table">
+<table class="govuk-table data-table manner-answers-table margin-bottom-none">
   <tbody class="govuk-table__body">
 
     {% if chosen_application.reference != 0 %}
-      {{ answer_row ( 'What type of organic material would you like to use?', chosen_application.manuretype.name, '/update/manner/manure_group' ) }}
+      {{ answer_row ( 'Material type', chosen_application.manuretype.name, '/update/manner/manure_group' ) }}
     {% else %}
-      {{ answer_row ( 'What type of organic material would you like to use?', chosen_application.manuretype.name ) }}
+      {{ answer_row ( 'Material type?', chosen_application.manuretype.name ) }}
     {% endif %}
 
-    {{ answer_row ( 'When are you applying this organic material?', chosen_application.date | formatdate ) }}
-    {{ answer_row ( 'Do you want to use the typical nutrient values?', 'Yes' ) }}
+    {{ answer_row ( 'Application date', chosen_application.date | formatdate ) }}
+    {{ answer_row ( 'Use typical nutrient values for ' + chosen_application.manuretype.name + '?', 'Yes' ) }}
     {{ answer_row ( 'Nutrient values for ' + chosen_application.manuretype.name, nutrients() ) }}
     {{ answer_row ( 'How would you like to enter the application rate?', 'Use a typical application rate' ) }}
     
@@ -56,8 +56,6 @@
       {{ answer_row ( 'How will the manure be incorporated?', 'Discs' ) }}
     {% endif %}
 
-    {{ answer_row ( 'How would you like to enter the application rate?', 'Use a typical application rate' ) }}
-    {{ answer_row ( 'How many days will there be before the manure is incorporated?', '1 to 2 days' ) }}
     {{ answer_row ( 'Autumn crop nitrogen (N) uptake', '10kg per hectare' ) }}
     {{ answer_row ( 'End of soil drainage', '31 March ' +data.farm.planning_year ) }}
     {{ answer_row ( 'Rainfall within 6 hours of application', '0' ) }}

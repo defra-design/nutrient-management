@@ -34,9 +34,9 @@
     {% endif %}
 
     {{ answer_row ( 'Application date', chosen_application.date | formatdate ) }}
-    {{ answer_row ( 'Use typical nutrient values for ' + chosen_application.manuretype.name + '?', 'Yes' ) }}
+    {{ answer_row ( 'Use the typical nutrient values for ' + chosen_application.manuretype.name, 'Yes' ) }}
     {{ answer_row ( 'Nutrient values for ' + chosen_application.manuretype.name, nutrients() ) }}
-    {{ answer_row ( 'How would you like to enter the application rate?', 'Use a typical application rate' ) }}
+    {{ answer_row ( 'How to enter the application rate', 'Use a typical application rate' ) }}
     
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Application rate</th>
@@ -53,7 +53,7 @@
     </tr>
     
     {% if data.manure_type.liquid == true %}
-      {{ answer_row ( 'How will the manure be incorporated?', 'Discs' ) }}
+      {{ answer_row ( 'Incorporation method', 'Discs' ) }}
     {% endif %}
 
     {{ answer_row ( 'Autumn crop nitrogen (N) uptake', '10kg per hectare' ) }}

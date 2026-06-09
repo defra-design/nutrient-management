@@ -1,19 +1,28 @@
-<div class="govuk-grid-row margin-bottom-thirty">
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <span class="name govuk-caption-l">{{ data.farm.name }}</span>
     <h1 class="govuk-heading-xl margin-bottom-twenty">Crop and field management report {{ data.farm.planning_year }}</h1>
-    <p class="govuk-body">Created on 22 September {{data.farm.planning_year}}</p>
+    <p class="govuk-body">Report created on 22 September {{data.farm.planning_year}}</p>
   </div>
 </div>
 
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-one-third">
-      <p class="govuk-body">Oaktree Lane Farm, <br>
-        24 South Road<br> 
-        Hexham<br>  
-        Northumberland<br> 
-        NE46 7LQ</p>
+      <ul class="govuk-list margin-bottom-none">
+        <li>Oaktree Lane Farm,</li>
+        <li>24 South Road,</li> 
+        <li>Hexham,</li>  
+        <li>Northumberland,</li> 
+        <li>NE46 7LQ</li>
+      </ul>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <ul class="govuk-list margin-bottom-none">
+        <li>Annual rainfall: 600mm</li>
+        <li>Excess winter rainfall: Moderate (150mm to 250mm)</li>
+      </ul>
     </div>
       
     <div class="govuk-grid-column-two-thirds">
@@ -26,8 +35,6 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-        <p class="govuk-body margin-bottom-none">Annual rainfall: 600mm</p>
-        <p class="govuk-body margin-bottom-none">Excess winter rainfall: Moderate (150mm to 250mm)</p>
 
       <!-- <hr class="separator_forty">
       <div class="">
